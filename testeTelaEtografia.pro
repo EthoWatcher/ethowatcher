@@ -29,32 +29,35 @@ LIBS += C:\opencv\RELEASE\bin\libopencv_videoio320.dll
 LIBS += C:\opencv\RELEASE\bin\libopencv_videostab320.dll
 LIBS += C:\opencv\RELEASE\bin\opencv_ffmpeg320.dll
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
+SOURCES += ProjetoEtografia/main.cpp\
+        ProjetoEtografia/mainwindow.cpp \
         telaetografia.cpp\
         etografia.cpp\
         modulorsa.cpp\
         moduloprocessamento.cpp \
         telaetografiaproce.cpp\
          modulocaptador.cpp \
-    ethowatcheros.cpp
+    ethowatcheros.cpp \
+    #ProjetoEtografia/areatraingulo.cpp
+    #../ é para ver a pasta anterior
 
 
 
-HEADERS  += mainwindow.h \
+HEADERS  +=ProjetoEtografia/mainwindow.h \
         telaetografia.h\
         etografia.h\
         modulorsa.h\
         moduloprocessamento.h \
         telaetografiaproce.h \
         modulocaptador.h \
-    ethowatcheros.h
+    ethowatcheros.h \
+   # ProjetoEtografia/areatraingulo.h
 
 
-FORMS    += mainwindow.ui \
+FORMS    += ProjetoEtografia/mainwindow.ui \
     telaetografia.ui\
         etografia.ui \
-    telaetografiaproce.ui
+    telaetografiaproce.ui \
 
 RESOURCES += \
     resourcefile.qrc
