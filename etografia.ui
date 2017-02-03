@@ -1,0 +1,1708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Etografia</class>
+ <widget class="QWidget" name="Etografia">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1617</width>
+    <height>817</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Etografia</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resourcefile.qrc">
+    <normaloff>:/icons/icon_etw.JPG</normaloff>:/icons/icon_etw.JPG</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resourcefile.qrc">:/icons/cabecalho6.jpg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resourcefile.qrc">:/icons/cabecalho8.jpg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="stackedWidgetTipoAnalise">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="pageVideo">
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="maximumSize">
+          <size>
+           <width>476</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="title">
+          <string>Video on Analysis</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="panTela">
+            <property name="autoFillBackground">
+             <bool>true</bool>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="resourcefile.qrc">:/icons/video.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QStackedWidget" name="stackedWidget_2">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>371</height>
+             </size>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="page_6">
+             <layout class="QVBoxLayout" name="verticalLayout_15">
+              <item>
+               <widget class="QStackedWidget" name="stackedWidget_3">
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <widget class="QWidget" name="page_9">
+                 <layout class="QVBoxLayout" name="verticalLayout_16">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_9">
+                    <property name="topMargin">
+                     <number>4</number>
+                    </property>
+                    <item>
+                     <widget class="QGroupBox" name="groupBox">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>344</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <weight>50</weight>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="title">
+                       <string>Progress</string>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_5">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>8</number>
+                       </property>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_3">
+                         <item>
+                          <spacer name="horizontalSpacer_2">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="labelTempo">
+                           <property name="minimumSize">
+                            <size>
+                             <width>50</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_15">
+                           <property name="text">
+                            <string> of </string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="labelTempoTotal">
+                           <property name="minimumSize">
+                            <size>
+                             <width>50</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_17">
+                           <property name="text">
+                            <string> seconds</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <spacer name="horizontalSpacer_3">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_4">
+                         <item>
+                          <spacer name="horizontalSpacer">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="labelFrames">
+                           <property name="minimumSize">
+                            <size>
+                             <width>50</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_19">
+                           <property name="text">
+                            <string> of </string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="labelFramesTotal">
+                           <property name="minimumSize">
+                            <size>
+                             <width>50</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>0</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="label_21">
+                           <property name="minimumSize">
+                            <size>
+                             <width>36</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string>  frames </string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <spacer name="horizontalSpacer_5">
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="sizeHint" stdset="0">
+                            <size>
+                             <width>40</width>
+                             <height>20</height>
+                            </size>
+                           </property>
+                          </spacer>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                      <zorder></zorder>
+                      <zorder></zorder>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QGridLayout" name="gridLayout">
+                    <item row="0" column="0">
+                     <spacer name="horizontalSpacer_9">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item row="0" column="1" rowspan="2">
+                     <widget class="QGroupBox" name="groupBox_3">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>100</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>214</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <weight>50</weight>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="title">
+                       <string>Controls</string>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_3">
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_5">
+                         <item>
+                          <widget class="QPushButton" name="btVideo">
+                           <property name="minimumSize">
+                            <size>
+                             <width>60</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>60</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                           <property name="icon">
+                            <iconset resource="resourcefile.qrc">
+                             <normaloff>:/icons/folder_open.ico</normaloff>:/icons/folder_open.ico</iconset>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="btPlay">
+                           <property name="minimumSize">
+                            <size>
+                             <width>60</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>60</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                           <property name="icon">
+                            <iconset resource="resourcefile.qrc">
+                             <normaloff>:/icons/playback_play.ico</normaloff>:/icons/playback_play.ico</iconset>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QPushButton" name="btStop">
+                           <property name="minimumSize">
+                            <size>
+                             <width>60</width>
+                             <height>0</height>
+                            </size>
+                           </property>
+                           <property name="maximumSize">
+                            <size>
+                             <width>60</width>
+                             <height>16777215</height>
+                            </size>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                           <property name="icon">
+                            <iconset resource="resourcefile.qrc">
+                             <normaloff>:/icons/playback_pause.ico</normaloff>:/icons/playback_pause.ico</iconset>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QGridLayout" name="gridLayout_2">
+                         <item row="1" column="8">
+                          <widget class="QLabel" name="label_9">
+                           <property name="palette">
+                            <palette>
+                             <active>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </active>
+                             <inactive>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </inactive>
+                             <disabled>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>120</red>
+                                 <green>120</green>
+                                 <blue>120</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </disabled>
+                            </palette>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>6</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>4</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="10">
+                          <widget class="QLabel" name="label_11">
+                           <property name="palette">
+                            <palette>
+                             <active>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </active>
+                             <inactive>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </inactive>
+                             <disabled>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>120</red>
+                                 <green>120</green>
+                                 <blue>120</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </disabled>
+                            </palette>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>6</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>16</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="5">
+                          <widget class="QLabel" name="label_5">
+                           <property name="palette">
+                            <palette>
+                             <active>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </active>
+                             <inactive>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </inactive>
+                             <disabled>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>120</red>
+                                 <green>120</green>
+                                 <blue>120</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </disabled>
+                            </palette>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>6</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>2-</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="3">
+                          <widget class="QLabel" name="label_3">
+                           <property name="palette">
+                            <palette>
+                             <active>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </active>
+                             <inactive>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </inactive>
+                             <disabled>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>120</red>
+                                 <green>120</green>
+                                 <blue>120</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </disabled>
+                            </palette>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>6</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>8-</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="2">
+                          <widget class="QLabel" name="label_4">
+                           <property name="palette">
+                            <palette>
+                             <active>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </active>
+                             <inactive>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </inactive>
+                             <disabled>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>120</red>
+                                 <green>120</green>
+                                 <blue>120</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </disabled>
+                            </palette>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>6</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>16-</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="7">
+                          <widget class="QLabel" name="label_8">
+                           <property name="palette">
+                            <palette>
+                             <active>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </active>
+                             <inactive>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </inactive>
+                             <disabled>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>120</red>
+                                 <green>120</green>
+                                 <blue>120</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </disabled>
+                            </palette>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>6</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>2</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="9">
+                          <widget class="QLabel" name="label_10">
+                           <property name="palette">
+                            <palette>
+                             <active>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </active>
+                             <inactive>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </inactive>
+                             <disabled>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>120</red>
+                                 <green>120</green>
+                                 <blue>120</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </disabled>
+                            </palette>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>6</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>8</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="6">
+                          <widget class="QLabel" name="label_6">
+                           <property name="palette">
+                            <palette>
+                             <active>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </active>
+                             <inactive>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </inactive>
+                             <disabled>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>120</red>
+                                 <green>120</green>
+                                 <blue>120</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </disabled>
+                            </palette>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>6</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>1</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="12">
+                          <widget class="QLabel" name="label_7">
+                           <property name="palette">
+                            <palette>
+                             <active>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </active>
+                             <inactive>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </inactive>
+                             <disabled>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>120</red>
+                                 <green>120</green>
+                                 <blue>120</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </disabled>
+                            </palette>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>6</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>X</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="4">
+                          <widget class="QLabel" name="label_12">
+                           <property name="palette">
+                            <palette>
+                             <active>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </active>
+                             <inactive>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </inactive>
+                             <disabled>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>120</red>
+                                 <green>120</green>
+                                 <blue>120</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </disabled>
+                            </palette>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>6</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>4-</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="11">
+                          <widget class="QLabel" name="label_13">
+                           <property name="palette">
+                            <palette>
+                             <active>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </active>
+                             <inactive>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </inactive>
+                             <disabled>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>120</red>
+                                 <green>120</green>
+                                 <blue>120</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </disabled>
+                            </palette>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>6</pointsize>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>32</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="1">
+                          <widget class="QLabel" name="label_14">
+                           <property name="palette">
+                            <palette>
+                             <active>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </active>
+                             <inactive>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>130</red>
+                                 <green>130</green>
+                                 <blue>130</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </inactive>
+                             <disabled>
+                              <colorrole role="WindowText">
+                               <brush brushstyle="SolidPattern">
+                                <color alpha="255">
+                                 <red>120</red>
+                                 <green>120</green>
+                                 <blue>120</blue>
+                                </color>
+                               </brush>
+                              </colorrole>
+                             </disabled>
+                            </palette>
+                           </property>
+                           <property name="font">
+                            <font>
+                             <pointsize>6</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="text">
+                            <string>32-</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="1" column="0">
+                          <widget class="QLabel" name="label_16">
+                           <property name="text">
+                            <string/>
+                           </property>
+                          </widget>
+                         </item>
+                         <item row="0" column="1" colspan="11">
+                          <widget class="QSlider" name="SliderVelocidade">
+                           <property name="font">
+                            <font>
+                             <weight>75</weight>
+                             <bold>true</bold>
+                            </font>
+                           </property>
+                           <property name="minimum">
+                            <number>-5</number>
+                           </property>
+                           <property name="maximum">
+                            <number>5</number>
+                           </property>
+                           <property name="pageStep">
+                            <number>1</number>
+                           </property>
+                           <property name="sliderPosition">
+                            <number>0</number>
+                           </property>
+                           <property name="orientation">
+                            <enum>Qt::Horizontal</enum>
+                           </property>
+                           <property name="invertedAppearance">
+                            <bool>true</bool>
+                           </property>
+                           <property name="tickPosition">
+                            <enum>QSlider::TicksBelow</enum>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item row="0" column="2" rowspan="2">
+                     <widget class="QGroupBox" name="groupBox_4">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>100</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>127</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <weight>50</weight>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="title">
+                       <string>Navigation</string>
+                      </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_6">
+                       <item>
+                        <widget class="QPushButton" name="btVoltar">
+                         <property name="minimumSize">
+                          <size>
+                           <width>23</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>23</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <weight>50</weight>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                         <property name="icon">
+                          <iconset resource="resourcefile.qrc">
+                           <normaloff>:/icons/br_prev.ico</normaloff>:/icons/br_prev.ico</iconset>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QSpinBox" name="edtFatordesloc">
+                         <property name="font">
+                          <font>
+                           <weight>50</weight>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="readOnly">
+                          <bool>false</bool>
+                         </property>
+                         <property name="accelerated">
+                          <bool>true</bool>
+                         </property>
+                         <property name="minimum">
+                          <number>1</number>
+                         </property>
+                         <property name="maximum">
+                          <number>1000</number>
+                         </property>
+                         <property name="value">
+                          <number>20</number>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="btAvancar">
+                         <property name="minimumSize">
+                          <size>
+                           <width>23</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>23</width>
+                           <height>16777215</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <weight>50</weight>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                         <property name="icon">
+                          <iconset resource="resourcefile.qrc">
+                           <normaloff>:/icons/br_next.ico</normaloff>:/icons/br_next.ico</iconset>
+                         </property>
+                         <property name="shortcut">
+                          <string/>
+                         </property>
+                         <property name="autoDefault">
+                          <bool>false</bool>
+                         </property>
+                         <property name="default">
+                          <bool>false</bool>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item row="0" column="3">
+                     <spacer name="horizontalSpacer_12">
+                      <property name="orientation">
+                       <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>40</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="wiDadosPro" native="true">
+                <property name="minimumSize">
+                 <size>
+                  <width>15</width>
+                  <height>200</height>
+                 </size>
+                </property>
+                <widget class="QLabel" name="label_36">
+                 <property name="geometry">
+                  <rect>
+                   <x>30</x>
+                   <y>20</y>
+                   <width>91</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Area Objeto</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="lblObjetoEncont">
+                 <property name="geometry">
+                  <rect>
+                   <x>160</x>
+                   <y>40</y>
+                   <width>101</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>l</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_39">
+                 <property name="geometry">
+                  <rect>
+                   <x>30</x>
+                   <y>40</y>
+                   <width>111</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Objeto Encontrado</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_40">
+                 <property name="geometry">
+                  <rect>
+                   <x>30</x>
+                   <y>100</y>
+                   <width>81</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Angulo Objeto</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_37">
+                 <property name="geometry">
+                  <rect>
+                   <x>30</x>
+                   <y>60</y>
+                   <width>91</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Centroide em X</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="lblCenX">
+                 <property name="geometry">
+                  <rect>
+                   <x>150</x>
+                   <y>60</y>
+                   <width>47</width>
+                   <height>13</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_38">
+                 <property name="geometry">
+                  <rect>
+                   <x>30</x>
+                   <y>80</y>
+                   <width>91</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Centroide em Y</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_41">
+                 <property name="geometry">
+                  <rect>
+                   <x>30</x>
+                   <y>120</y>
+                   <width>101</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Tamanho Objeto</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="lblCenY">
+                 <property name="geometry">
+                  <rect>
+                   <x>150</x>
+                   <y>80</y>
+                   <width>47</width>
+                   <height>13</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="lblArea1">
+                 <property name="geometry">
+                  <rect>
+                   <x>120</x>
+                   <y>20</y>
+                   <width>71</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>l</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="lblTaman">
+                 <property name="geometry">
+                  <rect>
+                   <x>160</x>
+                   <y>120</y>
+                   <width>81</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="lblAnguloObjeto">
+                 <property name="geometry">
+                  <rect>
+                   <x>130</x>
+                   <y>100</y>
+                   <width>81</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="title">
+          <string>Processing</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_12">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLabel" name="panProcess">
+              <property name="pixmap">
+               <pixmap resource="resourcefile.qrc">:/icons/fundoBranco.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QStackedWidget" name="stackedWidgetControleDesenho">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="page_2">
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <item>
+                 <widget class="QCheckBox" name="checkBoxRoute">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Route</string>
+                  </property>
+                  <property name="checked">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBoxCenterMass">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Center of Mass</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBoxCoordinates">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Coordinates</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBoxBoundingBox">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Bounding Box</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBoxLengthAnimal">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Animal Length</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_14">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QScrollArea" name="scrollAreaEtografiaBotoes">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="lineWidth">
+             <number>1</number>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAsNeeded</enum>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>200</width>
+               <height>658</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QGroupBox" name="groupBoxCategorias">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="title">
+                 <string>Categorias</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <item>
+                  <widget class="QWidget" name="widget" native="true"/>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayoutBotoesCategoria"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageTempoReal"/>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resourcefile.qrc"/>
+ </resources>
+ <connections/>
+</ui>

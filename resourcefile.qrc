@@ -1,0 +1,40 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/arrow-down.png</file>
+        <file>icons/arrow-left.png</file>
+        <file>icons/arrow-right.png</file>
+        <file>icons/arrow-up.png</file>
+        <file>icons/atencao.ico</file>
+        <file>icons/br_next.ico</file>
+        <file>icons/br_prev.ico</file>
+        <file>icons/cabecalho - Copy.jpg</file>
+        <file>icons/cabecalho.jpg</file>
+        <file>icons/cabeçalho2.jpg</file>
+        <file>icons/cabecalho3.jpg</file>
+        <file>icons/cabecalho4.jpg</file>
+        <file>icons/cabecalho5.jpg</file>
+        <file>icons/cabecalho6.jpg</file>
+        <file>icons/cabecalho7.jpg</file>
+        <file>icons/cabecalho8.jpg</file>
+        <file>icons/calibration.png</file>
+        <file>icons/cd-dvd.png</file>
+        <file>icons/encabezado2 - Copy.jpg</file>
+        <file>icons/encabezado2.jpg</file>
+        <file>icons/folder_open.ico</file>
+        <file>icons/fundoBranco.png</file>
+        <file>icons/icon_etw.JPG</file>
+        <file>icons/ok.ico</file>
+        <file>icons/old_go_down.ico</file>
+        <file>icons/old_go_next.ico</file>
+        <file>icons/old_go_previous.ico</file>
+        <file>icons/photography.png</file>
+        <file>icons/playback_pause.ico</file>
+        <file>icons/playback_play.ico</file>
+        <file>icons/refresh.png</file>
+        <file>icons/teste.PNG</file>
+        <file>icons/video.png</file>
+        <file>icons/zoom-in.png</file>
+        <file>icons/zoom-out.png</file>
+        <file>icons/ethoMenor.png</file>
+    </qresource>
+</RCC>
