@@ -35,6 +35,5 @@
         <file>icons/video.png</file>
         <file>icons/zoom-in.png</file>
         <file>icons/zoom-out.png</file>
-        <file>icons/ethoMenor.png</file>
     </qresource>
 </RCC>
