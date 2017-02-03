@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>figuraMatriz</class>
+ <widget class="QWidget" name="figuraMatriz">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>943</width>
+    <height>783</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_4">
+   <item>
+    <widget class="QGroupBox" name="groupBox_5">
+     <property name="title">
+      <string>Fluxograma</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QGraphicsView" name="graphicsView"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_3" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QWidget" name="widget_2" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>80</height>
+         </size>
+        </property>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="geometry">
+          <rect>
+           <x>300</x>
+           <y>10</y>
+           <width>181</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Controladores</string>
+         </property>
+         <widget class="QPushButton" name="pbZoomIn">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>20</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>zoom In</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pbZoomOut">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>zoom Out</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>10</y>
+           <width>171</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Passo 1:</string>
+         </property>
+         <widget class="QPushButton" name="pbAtualiza">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>121</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Desenha as linhas</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="geometry">
+          <rect>
+           <x>520</x>
+           <y>10</y>
+           <width>131</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Passo 2:</string>
+         </property>
+         <widget class="QPushButton" name="pbSave">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>20</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>200</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="title">
+         <string>Tutor</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QTextEdit" name="teTutor">
+           <property name="html">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Passo 0: Localize os círculos no painel &amp;quot; Fluxograma&amp;quot;  e arranje-os como desejar.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
