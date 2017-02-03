@@ -5,20 +5,18 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-
     ui->setupUi(this);
-
-    cego = new telaCego();
+     fluxoComportamental = new telaFluxoComportamental();
 }
 
 MainWindow::~MainWindow()
 {
-    delete cego;
+    delete fluxoComportamental;
     delete ui;
 }
 
 void MainWindow::on_pushButton_clicked()
 {
-    cego = new telaCego();
-    cego->show();
+    fluxoComportamental = new telaFluxoComportamental();
+    fluxoComportamental->show();
 }

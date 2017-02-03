@@ -2,12 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "telacego.h"
-
-//opencv
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
+#include "telaconversorxmlcsv.h"
 
 namespace Ui {
 class MainWindow;
@@ -26,7 +21,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    telaCego* cego;
+    telaConversorXmlCsv* conversorXmlCsv;
+
+
 };
 
 #endif // MAINWINDOW_H
