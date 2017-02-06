@@ -35,5 +35,8 @@
         <file>icons/video.png</file>
         <file>icons/zoom-in.png</file>
         <file>icons/zoom-out.png</file>
+        <file>icons/ufsc-logo-3.png</file>
+        <file>icons/IEBUFSC.jpg</file>
+        <file>icons/LCNeurophysiology.jpg</file>
     </qresource>
 </RCC>
