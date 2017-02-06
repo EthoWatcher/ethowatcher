@@ -21,3 +21,5 @@ HEADERS  += ProjetoCadastroPessoa/mainwindow.h\
 
 FORMS    += ProjetoCadastroPessoa/mainwindow.ui\
             telacadastropessoa.ui
+
+RESOURCES += resourcefile.qrc

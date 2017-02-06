@@ -11,16 +11,19 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Register new user</string>
   </property>
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>10</y>
+     <y>40</y>
      <width>301</width>
      <height>251</height>
     </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QLineEdit" name="leNome">
@@ -43,7 +46,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Observer</string>
+      <string>User ID</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="leLab">
@@ -66,7 +69,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Laboratory</string>
+      <string>Lab info</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_2">
@@ -79,7 +82,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Salvar</string>
+      <string>Save</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">
@@ -108,7 +111,28 @@
    </widget>
    <widget class="QWidget" name="page_2"/>
   </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>311</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resourcefile.qrc">:/icons/cabecalho4.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>
