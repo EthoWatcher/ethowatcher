@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\telacego.o
+./debug\modulorsa.o
+./debug\moduloeditavideo.o
+./debug\qrc_resourcefile.o
+./debug\moc_mainwindow.o
+./debug\moc_telacego.o
+./debug\moc_modulorsa.o
+./debug\moc_moduloeditavideo.o
+);
