@@ -266,8 +266,16 @@ p, li { white-space: pre-wrap; }
    <property name="text">
     <string/>
    </property>
+   <property name="pixmap">
+    <pixmap resource="resourcefile.qrc">:/icons/cabecalho3.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>
