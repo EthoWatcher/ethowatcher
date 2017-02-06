@@ -21,3 +21,5 @@ HEADERS  += ProjetoCadastroCatalogo/mainwindow.h \
 
 FORMS    += ProjetoCadastroCatalogo/mainwindow.ui \
     telacadastrocatalago.ui
+
+RESOURCES += resourcefile.qrc
