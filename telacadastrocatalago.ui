@@ -267,7 +267,7 @@ p, li { white-space: pre-wrap; }
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="resourcefile.qrc">:/icons/cabecalho3.jpg</pixmap>
+    <pixmap resource="recursos.qrc">:/recursos/cabecalho4.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -275,7 +275,7 @@ p, li { white-space: pre-wrap; }
   </widget>
  </widget>
  <resources>
-  <include location="resourcefile.qrc"/>
+  <include location="recursos.qrc"/>
  </resources>
  <connections/>
 </ui>
