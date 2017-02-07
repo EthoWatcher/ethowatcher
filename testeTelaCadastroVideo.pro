@@ -39,16 +39,19 @@ SOURCES += ProjetoCadastroVideo/main.cpp\
     modulocaptador.cpp \
     itemareainte.cpp \
     areatraingulo.cpp \
-    telacadastrofilme.cpp
+    telacadastrofilme.cpp \
+    emuladrocadastrovideo.cpp
 
 HEADERS  += ProjetoCadastroVideo/mainwindow.h \
     modulocaptador.h \
     itemareainte.h \
     areatraingulo.h \
-    telacadastrofilme.h
+    telacadastrofilme.h \
+    emuladrocadastrovideo.h
 
 FORMS    += ProjetoCadastroVideo/mainwindow.ui \
-    telacadastrofilme.ui
+    telacadastrofilme.ui \
+    emuladrocadastrovideo.ui
 
 RESOURCES += \
     resourcefile.qrc

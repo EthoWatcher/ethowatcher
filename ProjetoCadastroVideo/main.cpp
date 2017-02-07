@@ -1,10 +1,16 @@
-#include "mainwindow.h"
+//#include "mainwindow.h"
 #include <QApplication>
+#include <QDebug>
+#include "emuladrocadastrovideo.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+
+    qDebug()<<"tela cadastro video";
+   // MainWindow w;
+    //w.show();
+    EmuladroCadastroVideo w;
     w.show();
 
     return a.exec();
