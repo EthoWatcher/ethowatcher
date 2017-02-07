@@ -35,23 +35,25 @@ LIBS += C:\opencv\RELEASE\bin\libopencv_videostab2411.dll
 
 
 SOURCES += ProjetoCadastroVideo/main.cpp\
-        ProjetoCadastroVideo/mainwindow.cpp \
+       # ProjetoCadastroVideo/mainwindow.cpp \
     modulocaptador.cpp \
     itemareainte.cpp \
     areatraingulo.cpp \
     telacadastrofilme.cpp \
     emuladrocadastrovideo.cpp
 
-HEADERS  += ProjetoCadastroVideo/mainwindow.h \
-    modulocaptador.h \
+HEADERS  +=  modulocaptador.h \
     itemareainte.h \
     areatraingulo.h \
     telacadastrofilme.h \
     emuladrocadastrovideo.h
+    #ProjetoCadastroVideo/mainwindow.h \
 
-FORMS    += ProjetoCadastroVideo/mainwindow.ui \
-    telacadastrofilme.ui \
+
+FORMS    +=     telacadastrofilme.ui \
     emuladrocadastrovideo.ui
+    #ProjetoCadastroVideo/mainwindow.ui \
+
 
 RESOURCES += \
     resourcefile.qrc
