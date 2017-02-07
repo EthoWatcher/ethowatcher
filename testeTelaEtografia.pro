@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-07-16T21:44:32
+# Project created by QtCreator 2016-05-19T01:20:26
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = testeTelaCadastroVideo
+TARGET = testeTelaEtografia
 TEMPLATE = app
 
 INCLUDEPATH += C:\opencv\RELEASE\install\include
@@ -33,22 +33,35 @@ LIBS += C:\opencv\RELEASE\bin\libopencv_videostab2411.dll
 
 
 
+SOURCES += ProjetoEtografia/main.cpp\
+        ProjetoEtografia/mainwindow.cpp \
+        telaetografia.cpp\
+        etografia.cpp\
+        modulorsa.cpp\
+        moduloprocessamento.cpp \
+        telaetografiaproce.cpp\
+         modulocaptador.cpp
+    #ethowatcheros.cpp \
+    #ProjetoEtografia/areatraingulo.cpp
+    #../estruturas.cpp
 
-SOURCES += ProjetoCadastroVideo/main.cpp\
-        ProjetoCadastroVideo/mainwindow.cpp \
-    modulocaptador.cpp \
-    itemareainte.cpp \
-    areatraingulo.cpp \
-    telacadastrofilme.cpp
 
-HEADERS  += ProjetoCadastroVideo/mainwindow.h \
-    modulocaptador.h \
-    itemareainte.h \
-    areatraingulo.h \
-    telacadastrofilme.h
 
-FORMS    += ProjetoCadastroVideo/mainwindow.ui \
-    telacadastrofilme.ui
+HEADERS  += ProjetoEtografia/mainwindow.h \
+        telaetografia.h\
+        etografia.h\
+        modulorsa.h\
+        moduloprocessamento.h \
+        telaetografiaproce.h \
+        modulocaptador.h
+    #ethowatcheros.h \
+   # ProjetoEtografia/areatraingulo.h
+
+
+FORMS    += ProjetoEtografia/mainwindow.ui \
+    telaetografia.ui\
+        etografia.ui \
+    telaetografiaproce.ui
 
 RESOURCES += \
     resourcefile.qrc
