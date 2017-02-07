@@ -36,16 +36,28 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
+<<<<<<< HEAD
         MainWindow->resize(400, 300);
+=======
+        MainWindow->resize(293, 184);
+>>>>>>> 9db24b1a4413b3f2fe48f5593ec3cb7fef94dc02
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
+<<<<<<< HEAD
         pushButton->setGeometry(QRect(100, 70, 151, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 400, 21));
+=======
+        pushButton->setGeometry(QRect(100, 70, 75, 23));
+        MainWindow->setCentralWidget(centralWidget);
+        menuBar = new QMenuBar(MainWindow);
+        menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 293, 21));
+>>>>>>> 9db24b1a4413b3f2fe48f5593ec3cb7fef94dc02
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -62,7 +74,11 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+<<<<<<< HEAD
         pushButton->setText(QApplication::translate("MainWindow", "cadastro catalogo ", 0));
+=======
+        pushButton->setText(QApplication::translate("MainWindow", "Duplo Cego", 0));
+>>>>>>> 9db24b1a4413b3f2fe48f5593ec3cb7fef94dc02
     } // retranslateUi
 
 };
