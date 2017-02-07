@@ -47,11 +47,11 @@ HEADERS  +=  modulocaptador.h \
     areatraingulo.h \
     telacadastrofilme.h \
     emuladrocadastrovideo.h
-    #ProjetoCadastroVideo/mainwindow.h \
+   #ProjetoCadastroVideo/mainwindow.h \
 
 
-FORMS    +=     telacadastrofilme.ui \
-    emuladrocadastrovideo.ui
+FORMS    +=     telacadastrofilme.ui
+
     #ProjetoCadastroVideo/mainwindow.ui \
 
 

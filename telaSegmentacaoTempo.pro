@@ -13,11 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += ProjetoSegmentacaoTempo/main.cpp\
-        ProjetoSegmentacaoTempo/mainwindow.cpp\
-        telasegementacao.cpp
+        #ProjetoSegmentacaoTempo/mainwindow.cpp\
+        telasegementacao.cpp\
+        emuladorsegmentacaotempo.cpp
 
-HEADERS  += ProjetoSegmentacaoTempo/mainwindow.h\
-            telasegementacao.h
+HEADERS  += telasegementacao.h\
+            emuladorsegmentacaotempo.h
+        #ProjetoSegmentacaoTempo/mainwindow.h\
 
-FORMS    += ProjetoSegmentacaoTempo/mainwindow.ui\
-            telasegementacao.ui
+FORMS    += telasegementacao.ui\
+            emuladorsegmentacaotempo.ui
+    #ProjetoSegmentacaoTempo/mainwindow.ui\
