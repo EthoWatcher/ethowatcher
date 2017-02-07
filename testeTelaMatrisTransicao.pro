@@ -13,26 +13,29 @@ TEMPLATE = app
 
 
 SOURCES += ProjetoMatrizTransicao/main.cpp\
-        ProjetoMatrizTransicao/mainwindow.cpp\
+       # ProjetoMatrizTransicao/mainwindow.cpp\
         figuramatriz.cpp\
         itemcirculo.cpp\
         itemcompostaseta.cpp\
         itemnovaseta.cpp\
         telamatriztransicao.cpp\
-        parserxmltocsv.cpp
+        parserxmltocsv.cpp \
+    emuladormatiztransicao.cpp
 
-HEADERS  += ProjetoMatrizTransicao/mainwindow.h\
-            figuramatriz.h\
+HEADERS  += figuramatriz.h\
             itemcirculo.h\
             itemcompostaseta.h\
             itemnovaseta.h\
             telamatriztransicao.h\
-            parserxmltocsv.h
+            parserxmltocsv.h \
+    emuladormatiztransicao.h
+#ProjetoMatrizTransicao/mainwindow.h\
 
 
-FORMS    += ProjetoMatrizTransicao/mainwindow.ui\
-            figuramatriz.ui\
-            telamatriztransicao.ui
+FORMS    += figuramatriz.ui\
+            telamatriztransicao.ui \
+    emuladormatiztransicao.ui
+#ProjetoMatrizTransicao/mainwindow.ui
 
 RESOURCES += \
     resourcefile.qrc

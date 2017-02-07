@@ -6,10 +6,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    conversorXmlCsv = new telaConversorXmlCsv();
 }
 
 MainWindow::~MainWindow()
 {
+    delete conversorXmlCsv;
     delete ui;
 }
 

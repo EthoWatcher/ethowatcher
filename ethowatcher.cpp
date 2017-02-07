@@ -201,8 +201,8 @@ void ethoWatcher::on_pbEstatistica_clicked()
 void ethoWatcher::on_pbConversorXMLCSV_clicked()
 {
 
-    conversorXmlCsv= new telaConversorXmlCsv();
-    conversorXmlCsv->show();
+    //conversorXmlCsv= new telaConversorXmlCsv();
+    //conversorXmlCsv->show();
 
 }
 
