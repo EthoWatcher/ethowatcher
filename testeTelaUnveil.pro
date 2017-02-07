@@ -13,13 +13,18 @@ TEMPLATE = app
 
 
 SOURCES += ProjetoCegoUnveil/main.cpp\
-        ProjetoCegoUnveil/mainwindow.cpp \
+#        ProjetoCegoUnveil/mainwindow.cpp \
     telaunveil.cpp\
-    modulorsa.cpp
+    modulorsa.cpp \
+    emuladorunveil.cpp
 
-HEADERS  += ProjetoCegoUnveil/mainwindow.h \
-    telaunveil.h\
-    modulorsa.h
+HEADERS  += telaunveil.h\
+    modulorsa.h \
+    emuladorunveil.h
+#ProjetoCegoUnveil/mainwindow.h \
 
-FORMS    += ProjetoCegoUnveil/mainwindow.ui \
-    telaunveil.ui
+
+FORMS    += telaunveil.ui \
+    emuladorunveil.ui
+# ProjetoCegoUnveil/mainwindow.ui \
+
