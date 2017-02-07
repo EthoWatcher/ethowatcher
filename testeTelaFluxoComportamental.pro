@@ -32,17 +32,20 @@ LIBS += C:\opencv\RELEASE\bin\libopencv_video2411.dll
 LIBS += C:\opencv\RELEASE\bin\libopencv_videostab2411.dll
 
 SOURCES += ProjetoFluxoComportamental/main.cpp\
-        ProjetoFluxoComportamental/mainwindow.cpp \
+    #    ProjetoFluxoComportamental/mainwindow.cpp \
     telafluxocomportamental.cpp\
     modulorsa.cpp\
-    moduloeditavideo.cpp
+    moduloeditavideo.cpp \
+    emuladortelafluxocomportamental.cpp
 
 
-HEADERS  += ProjetoFluxoComportamental/mainwindow.h \
-    ProjetoFluxoComportamental/telafluxocomportamental.h\
+HEADERS  += telafluxocomportamental.h\
     modulorsa.h\
-    moduloeditavideo.h
+    moduloeditavideo.h \
+    emuladortelafluxocomportamental.h
+# ProjetoFluxoComportamental/mainwindow.h \
 
 
-FORMS    += ProjetoFluxoComportamental/mainwindow.ui \
-    telafluxocomportamental.ui
+FORMS    += telafluxocomportamental.ui \
+    emuladortelafluxocomportamental.ui
+#ProjetoFluxoComportamental/mainwindow.ui \
