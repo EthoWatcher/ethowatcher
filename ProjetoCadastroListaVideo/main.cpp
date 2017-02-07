@@ -1,10 +1,11 @@
-#include "mainwindow.h"
+//#include "mainwindow.h"
 #include <QApplication>
+#include "emuladorcadastrolistavideo.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+    EmuladorCadastroListaVideo w;
     w.show();
 
     return a.exec();
