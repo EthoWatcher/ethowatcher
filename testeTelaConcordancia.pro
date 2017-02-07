@@ -13,11 +13,17 @@ TEMPLATE = app
 
 
 SOURCES += ProjetoConcordancia/main.cpp\
-        ProjetoConcordancia/mainwindow.cpp\
-        teaconcordancia.cpp
+       # ProjetoConcordancia/mainwindow.cpp\
+        teaconcordancia.cpp \
+    emuladortelaconcordancia.cpp
 
-HEADERS  += ProjetoConcordancia/mainwindow.h\
-            teaconcordancia.h
 
-FORMS    += ProjetoConcordancia/mainwindow.ui\
-            teaconcordancia.ui
+HEADERS  += teaconcordancia.h \
+    emuladortelaconcordancia.h
+
+    #ProjetoConcordancia/mainwindow.h\
+
+FORMS    += teaconcordancia.ui \
+    emuladortelaconcordancia.ui
+
+#ProjetoConcordancia/mainwindow.ui\

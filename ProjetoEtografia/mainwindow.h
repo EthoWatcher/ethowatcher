@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "telaetografia.h"
+//#include "telaetografia.h"
 #include "telaetografiaproce.h"
 
 namespace Ui {
@@ -24,7 +24,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    telaEtografia* etografia;
+ //   telaEtografia* etografia;
     telaEtografiaProce *etoPro;
 
 };

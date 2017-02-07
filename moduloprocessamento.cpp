@@ -1,9 +1,9 @@
 #include "moduloprocessamento.h"
 //#include "comum.h"
-namespace cv
-{
-    using std::vector;
-}
+//namespace cv
+//{
+//    using std::vector;
+//} //fazer a conversao da 2.4.11 para a 3.2
 
 moduloProcessamento::moduloProcessamento(QObject *parent) : QObject(parent)
 {
