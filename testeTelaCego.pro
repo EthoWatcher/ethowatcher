@@ -35,17 +35,19 @@ LIBS += C:\opencv\RELEASE\bin\libopencv_videostab2411.dll
 
 
 SOURCES += ProjetoCego/main.cpp\
-        ProjetoCego/mainwindow.cpp \
+        #ProjetoCego/mainwindow.cpp \
     telacego.cpp\
     modulorsa.cpp \
-    moduloeditavideo.cpp
+    moduloeditavideo.cpp\
+    emuladortelacego.cpp
 
 
-HEADERS  += ProjetoCego/mainwindow.h \
-    telacego.h\
+HEADERS  += telacego.h\
     modulorsa.h \
-    moduloeditavideo.h
+    moduloeditavideo.h\
+    emuladortelacego.h
+#ProjetoCego/mainwindow.h \
 
-
-FORMS    += ProjetoCego/mainwindow.ui \
-    telacego.ui
+FORMS    += telacego.ui\
+    emuladortelacego.ui
+#ProjetoCego/mainwindow.ui \
