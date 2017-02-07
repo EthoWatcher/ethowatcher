@@ -13,13 +13,15 @@ TEMPLATE = app
 
 
 SOURCES += ProjetoConversorCSV/main.cpp\
-        ProjetoConversorCSV/mainwindow.cpp \
+        #ProjetoConversorCSV/mainwindow.cpp \
     telaconversorxmlcsv.cpp \
-    parserxmltocsv.cpp
+    parserxmltocsv.cpp\
+    emuladorconversor.cpp
 
-HEADERS  += ProjetoConversorCSV/mainwindow.h \
-    telaconversorxmlcsv.h \
-    parserxmltocsv.h
-
-FORMS    += ProjetoConversorCSV/mainwindow.ui \
-    telaconversorxmlcsv.ui
+HEADERS  += telaconversorxmlcsv.h \
+    parserxmltocsv.h\
+    emuladorconversor.h
+#ProjetoConversorCSV/mainwindow.h \
+FORMS    += telaconversorxmlcsv.ui\
+    emuladorconversor.ui
+# ProjetoConversorCSV/mainwindow.ui \

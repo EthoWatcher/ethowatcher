@@ -14,6 +14,10 @@ telaConversorXmlCsv::telaConversorXmlCsv(QWidget *parent) :
 
 telaConversorXmlCsv::~telaConversorXmlCsv()
 {
+    qDebug()<<"deletando tela conversor xmlcsv";
+    delete catalagoLido; //= new catalago();
+    delete videoLido; //= new dadosVideo();
+    delete etografiaLida; //= new analiseEtografica();
     delete ui;
 }
 

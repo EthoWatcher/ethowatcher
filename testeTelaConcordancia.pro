@@ -17,10 +17,13 @@ SOURCES += ProjetoConcordancia/main.cpp\
         teaconcordancia.cpp \
     emuladortelaconcordancia.cpp
 
+
 HEADERS  += teaconcordancia.h \
     emuladortelaconcordancia.h
+
     #ProjetoConcordancia/mainwindow.h\
 
 FORMS    += teaconcordancia.ui \
     emuladortelaconcordancia.ui
+
 #ProjetoConcordancia/mainwindow.ui\
