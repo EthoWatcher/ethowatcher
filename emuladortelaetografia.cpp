@@ -6,14 +6,17 @@ EmuladorTelaEtografia::EmuladorTelaEtografia(QWidget *parent) :
     ui(new Ui::EmuladorTelaEtografia)
 {
     ui->setupUi(this);
+    etoPro= new telaEtografiaProce();
 }
 
 EmuladorTelaEtografia::~EmuladorTelaEtografia()
 {
+    delete etoPro;
     delete ui;
 }
 
 void EmuladorTelaEtografia::on_pushButton_clicked()
 {
-
+    etoPro= new telaEtografiaProce();
+    etoPro->show();
 }

@@ -34,34 +34,37 @@ LIBS += C:\opencv\RELEASE\bin\libopencv_videostab2411.dll
 
 
 SOURCES += ProjetoEtografia/main.cpp\
-        ProjetoEtografia/mainwindow.cpp \
+        #ProjetoEtografia/mainwindow.cpp \
         telaetografia.cpp\
         etografia.cpp\
         modulorsa.cpp\
         moduloprocessamento.cpp \
         telaetografiaproce.cpp\
-         modulocaptador.cpp
+         modulocaptador.cpp\
+         emuladortelaetografia.cpp
     #ethowatcheros.cpp \
     #ProjetoEtografia/areatraingulo.cpp
     #../estruturas.cpp
 
 
 
-HEADERS  += ProjetoEtografia/mainwindow.h \
-        telaetografia.h\
+HEADERS  += telaetografia.h\
         etografia.h\
         modulorsa.h\
         moduloprocessamento.h \
         telaetografiaproce.h \
-        modulocaptador.h
+        modulocaptador.h\
+        emuladortelaetografia.h\
+#ProjetoEtografia/mainwindow.h \
     #ethowatcheros.h \
    # ProjetoEtografia/areatraingulo.h
 
 
-FORMS    += ProjetoEtografia/mainwindow.ui \
-    telaetografia.ui\
-        etografia.ui \
-    telaetografiaproce.ui
+FORMS    += telaetografia.ui\
+    etografia.ui \
+    telaetografiaproce.ui\
+    emuladortelaetografia.ui
+# ProjetoEtografia/mainwindow.ui \
 
 RESOURCES += \
     resourcefile.qrc
