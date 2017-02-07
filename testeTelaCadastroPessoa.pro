@@ -13,14 +13,17 @@ TEMPLATE = app
 
 
 SOURCES += ProjetoCadastroPessoa/main.cpp\
-        ProjetoCadastroPessoa/mainwindow.cpp\
-        telacadastropessoa.cpp
+       # ProjetoCadastroPessoa/mainwindow.cpp\
+        telacadastropessoa.cpp \
+        emuladorcadastropessoa.cpp
 
-HEADERS  += ProjetoCadastroPessoa/mainwindow.h\
-            telacadastropessoa.h
+HEADERS  +=  telacadastropessoa.h \
+             emuladorcadastropessoa.h
+#ProjetoCadastroPessoa/mainwindow.h\
 
-FORMS    += ProjetoCadastroPessoa/mainwindow.ui\
-            telacadastropessoa.ui
+FORMS    += telacadastropessoa.ui \
+    emuladorcadastropessoa.ui
+    #ProjetoCadastroPessoa/mainwindow.ui\
 
 RESOURCES += \
     recursos.qrc

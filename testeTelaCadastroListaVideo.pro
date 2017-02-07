@@ -13,11 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += ProjetoCadastroListaVideo/main.cpp\
-        ProjetoCadastroListaVideo/mainwindow.cpp\
-        telacadastrolistafilme.cpp
+        #ProjetoCadastroListaVideo/mainwindow.cpp\
+        telacadastrolistafilme.cpp\
+        emuladorcadastrolistavideo.cpp
 
-HEADERS  += ProjetoCadastroListaVideo/mainwindow.h\
-            telacadastrolistafilme.h
+HEADERS  += telacadastrolistafilme.h\
+            emuladorcadastrolistavideo.h
+#ProjetoCadastroListaVideo/mainwindow.h\
 
-FORMS    += ProjetoCadastroListaVideo/mainwindow.ui\
-            telacadastrolistafilme.ui
+FORMS    += telacadastrolistafilme.ui\
+            emuladorcadastrolistavideo.ui
+#ProjetoCadastroListaVideo/mainwindow.ui\

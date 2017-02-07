@@ -50,7 +50,7 @@ namespace Ui {
 class telaEtografiaProce;
 }
 
-class telaEtografiaProce : public QWidget,  public EthoWatcherOS
+class telaEtografiaProce : public QWidget
 {
     Q_OBJECT
 

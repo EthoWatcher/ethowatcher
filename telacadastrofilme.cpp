@@ -1,10 +1,10 @@
 #include "telacadastrofilme.h"
 #include "ui_telacadastrofilme.h"
 
-namespace cv
-{
-    using std::vector;
-}
+//namespace cv
+//{
+//    using std::vector;
+//} adequacão para a opencv 3.2
 
 telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     QWidget(parent),

@@ -17,13 +17,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    etografia= new telaEtografia();
-    etografia->setExperimentador("Joao e ","UFSC BIOENGENHARIA");
-    etografia->show();
+
+    etoPro= new telaEtografiaProce();
+    etoPro->show();
+    //etografia= new telaEtografia();
+   // etografia->setExperimentador("Joao e ","UFSC BIOENGENHARIA");
+    //etografia->show();
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    etoPro= new telaEtografiaProce();
-    etoPro->show();
+
 }
