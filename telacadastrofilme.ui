@@ -13,8 +13,8 @@
   <property name="windowTitle">
    <string>Register Video Files</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
     <widget class="QLabel" name="label_98">
      <property name="minimumSize">
       <size>
@@ -39,7 +39,7 @@
      </property>
     </widget>
    </item>
-   <item>
+   <item row="1" column="0">
     <widget class="QWidget" name="widget_2" native="true">
      <property name="minimumSize">
       <size>
@@ -423,7 +423,7 @@ p, li { white-space: pre-wrap; }
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <attribute name="title">
@@ -876,166 +876,6 @@ p, li { white-space: pre-wrap; }
           <property name="title">
            <string>Scale</string>
           </property>
-          <widget class="QLabel" name="label_61">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>140</y>
-             <width>62</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Centimeters:</string>
-           </property>
-          </widget>
-          <widget class="QDoubleSpinBox" name="spinBoxScaleCm">
-           <property name="geometry">
-            <rect>
-             <x>90</x>
-             <y>140</y>
-             <width>65</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>65</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <double>10000.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.500000000000000</double>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label">
-           <property name="geometry">
-            <rect>
-             <x>310</x>
-             <y>150</y>
-             <width>141</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Distancia entre os pontos</string>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEditScalePx">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="geometry">
-            <rect>
-             <x>320</x>
-             <y>170</y>
-             <width>65</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>65</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_2">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>170</y>
-             <width>31</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Scale</string>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="leScala">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="geometry">
-            <rect>
-             <x>70</x>
-             <y>170</y>
-             <width>65</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>65</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_3">
-           <property name="geometry">
-            <rect>
-             <x>140</x>
-             <y>170</y>
-             <width>47</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>px/cm</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_4">
-           <property name="geometry">
-            <rect>
-             <x>390</x>
-             <y>170</y>
-             <width>47</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>px</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_5">
-           <property name="geometry">
-            <rect>
-             <x>160</x>
-             <y>140</y>
-             <width>47</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>cm</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="pbConfEscala">
-           <property name="geometry">
-            <rect>
-             <x>190</x>
-             <y>150</y>
-             <width>101</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Salvar Scale</string>
-           </property>
-          </widget>
           <widget class="QGroupBox" name="groupBox_23">
            <property name="geometry">
             <rect>
@@ -1278,27 +1118,199 @@ p, li { white-space: pre-wrap; }
             </property>
            </widget>
           </widget>
-         </widget>
-         <widget class="QGroupBox" name="groupBox_24">
-          <property name="geometry">
-           <rect>
-            <x>260</x>
-            <y>410</y>
-            <width>171</width>
-            <height>131</height>
-           </rect>
-          </property>
-          <property name="title">
-           <string>Configuration-To-Do-Step</string>
-          </property>
+          <widget class="QGroupBox" name="groupBox_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>130</y>
+             <width>411</width>
+             <height>91</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string>Inform the distance between the triangles</string>
+           </property>
+           <widget class="QPushButton" name="pbConfEscala">
+            <property name="geometry">
+             <rect>
+              <x>170</x>
+              <y>40</y>
+              <width>101</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Salvar Scale</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label">
+            <property name="geometry">
+             <rect>
+              <x>290</x>
+              <y>10</y>
+              <width>121</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Distancia entre os pontos</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEditScalePx">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>300</x>
+              <y>40</y>
+              <width>65</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>65</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_4">
+            <property name="geometry">
+             <rect>
+              <x>380</x>
+              <y>40</y>
+              <width>47</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>px</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_61">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>30</y>
+              <width>62</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Centimeters:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_5">
+            <property name="geometry">
+             <rect>
+              <x>150</x>
+              <y>30</y>
+              <width>47</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>cm</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_2">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>60</y>
+              <width>31</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Scale</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="leScala">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>50</x>
+              <y>60</y>
+              <width>65</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>65</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_3">
+            <property name="geometry">
+             <rect>
+              <x>120</x>
+              <y>60</y>
+              <width>47</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>px/cm</string>
+            </property>
+           </widget>
+           <widget class="QDoubleSpinBox" name="spinBoxScaleCm">
+            <property name="geometry">
+             <rect>
+              <x>80</x>
+              <y>30</y>
+              <width>65</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>65</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="decimals">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <double>10000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.500000000000000</double>
+            </property>
+           </widget>
+           <zorder>label_61</zorder>
+           <zorder>leScala</zorder>
+           <zorder>pbConfEscala</zorder>
+           <zorder>label</zorder>
+           <zorder>lineEditScalePx</zorder>
+           <zorder>label_4</zorder>
+           <zorder>label_61</zorder>
+           <zorder>label_5</zorder>
+           <zorder>label_2</zorder>
+           <zorder>leScala</zorder>
+           <zorder>label_3</zorder>
+           <zorder>spinBoxScaleCm</zorder>
+          </widget>
          </widget>
          <widget class="QGroupBox" name="groupBox_25">
           <property name="geometry">
            <rect>
             <x>10</x>
-            <y>400</y>
-            <width>231</width>
-            <height>161</height>
+            <y>360</y>
+            <width>461</width>
+            <height>201</height>
            </rect>
           </property>
           <property name="title">
@@ -1340,7 +1352,13 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Posicione os triangulos nos em alguma distancia conhecida&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;Scale: &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;THEN&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt; click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;THEN&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt; press the “save scale” button&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Mark “&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;Noise reduction tools &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;“  checkbox to set the configurations  of two algorithms  that  help to control for tracking artifacts&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Mark “&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;Design multiple areas for analysis&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;” to  set multiple sub-areas  (squares, circles) of the maze from which you want to get specific reports and analysis.&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;THEN&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt; press the “&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;configure&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;” button&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
@@ -1356,51 +1374,41 @@ p, li { white-space: pre-wrap; }
             <x>10</x>
             <y>240</y>
             <width>441</width>
-            <height>111</height>
+            <height>102</height>
            </rect>
           </property>
           <property name="title">
            <string>Marque as Opcoes de interesse</string>
           </property>
-          <widget class="QCheckBox" name="cbNoise">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>30</y>
-             <width>151</width>
-             <height>17</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Tratamento de Ruido</string>
-           </property>
-          </widget>
-          <widget class="QCheckBox" name="cbArea">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>60</y>
-             <width>131</width>
-             <height>17</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Areas de Interesse</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="pbConfigureNioseArea">
-           <property name="geometry">
-            <rect>
-             <x>180</x>
-             <y>60</y>
-             <width>75</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Configure</string>
-           </property>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QCheckBox" name="cbNoise">
+             <property name="text">
+              <string>Noise reduction tools</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="cbArea">
+             <property name="text">
+              <string>Design multiple areas for analysis</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pbConfigureNioseArea">
+             <property name="maximumSize">
+              <size>
+               <width>225</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Configure</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </widget>
         <widget class="QWidget" name="tab">

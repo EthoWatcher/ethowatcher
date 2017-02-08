@@ -1546,3 +1546,8 @@ void telaCadastroFilme::on_lblCaminho_linkActivated(const QString &link)
 {
 
 }
+
+void telaCadastroFilme::on_lblFrameInicio_linkActivated(const QString &link)
+{
+
+}

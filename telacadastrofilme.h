@@ -261,6 +261,8 @@ private slots:
 
     void on_lblCaminho_linkActivated(const QString &link);
 
+    void on_lblFrameInicio_linkActivated(const QString &link);
+
 private:
     Ui::telaCadastroFilme *ui;
 
