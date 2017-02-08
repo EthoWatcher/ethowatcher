@@ -4554,18 +4554,16 @@ p, li { white-space: pre-wrap; }
           <property name="enabled">
            <bool>false</bool>
           </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
           <property name="text">
-           <string>        Slow                Fast</string>
+           <string>             Slow            Fast</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="label_25">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>           Velocity of reproduction</string>
           </property>
