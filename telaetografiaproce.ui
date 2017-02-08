@@ -118,19 +118,6 @@
         <property name="title">
          <string>Step 2</string>
         </property>
-        <widget class="QPushButton" name="pbEtoProce">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>80</y>
-           <width>211</width>
-           <height>23</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Etografia e processamento de imagem</string>
-         </property>
-        </widget>
         <widget class="QPushButton" name="pbEtoVideo">
          <property name="geometry">
           <rect>
@@ -158,6 +145,19 @@
          </property>
          <property name="text">
           <string>3-Traking</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pbEtoProce">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>80</y>
+           <width>211</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Etografia e processamento de imagem</string>
          </property>
         </widget>
        </widget>
@@ -1601,7 +1601,7 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>63</width>
+                   <width>62</width>
                    <height>70</height>
                   </rect>
                  </property>
@@ -1753,8 +1753,8 @@
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>269</width>
-                  <height>189</height>
+                  <width>267</width>
+                  <height>187</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_13">
