@@ -245,8 +245,11 @@ void moduloProcessamento::processamentoDeVideoRealTime(int i, QImage imgRecegida
             connect(this,SIGNAL(desenhaFigura(QImage,bool,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double)),
                     this,SLOT(gravaDesenhoFigura(QImage,bool,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double)));
 
-            connect(this,SIGNAL(dadosMorfologicos(QImage,bool,double,double,double,float,float)),
-                    this,SLOT(recebeDadosMorfologicos(QImage,bool,double,double,double,float,float)));
+//            connect(this,SIGNAL(dadosMorfologicos(QImage,bool,double,double,double,float,float,float)),
+//                    this,SLOT(recebeDadosMorfologicos(QImage,bool,double,double,double,float,float,float)));
+
+            connect(this,SIGNAL(dadosMorfologicos(QImage,bool,double,double,double,float,float,float)),
+                    this,SLOT(recebeDadosMorfologicos(QImage,bool,double,double,double,float,float,float)));
 
 //            connect(this,SIGNAL(dadosMorfoCinematico(QImage,bool,double,double,double,float,float,double,double,double,double,double,double,bool)),
 //                    this,SLOT(gravaDadosMorfoCinematico(QImage,bool,double,double,double,float,float,double,double,double,double,double,double,bool)));
@@ -331,11 +334,11 @@ void moduloProcessamento::processamentoDeVideoTodo( QImage imgRecegida,int i)
                 connect(this,SIGNAL(desenhaFigura(QImage,bool,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double)),
                         this,SLOT(gravaDesenhoFigura(QImage,bool,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double,double)));
 
-                connect(this,SIGNAL(dadosMorfologicos(QImage,bool,double,double,double,float,float)),
-                        this,SLOT(recebeDadosMorfologicos(QImage,bool,double,double,double,float,float)));
+                connect(this,SIGNAL(dadosMorfologicos(QImage,bool,double,double,double,float,float,float)),
+                        this,SLOT(recebeDadosMorfologicos(QImage,bool,double,double,double,float,float,float)));
 
-                connect(this,SIGNAL(dadosMorfoCinematico(QImage,bool,double,double,double,float,float,double,double,double,double,double,double,bool)),
-                        this,SLOT(gravaDadosMorfoCinematico(QImage,bool,double,double,double,float,float,double,double,double,double,double,double,bool)));
+                connect(this,SIGNAL(dadosMorfoCinematico(QImage,bool,double,double,double,float,float,float,double,double,double,double,double,double,float,float ,bool)),
+                        this,SLOT(gravaDadosMorfoCinematico(QImage,bool,double,double,double,float,float,float,double,double,double,double,double,double,float,float,bool)));
                 chPrimeiroVideoTodo=false;
 
                 mc.x=jaInte.origX + jaInte.width/2 ;
@@ -580,8 +583,9 @@ void moduloProcessamento::processamentoMorfologico(){
                      caixaCirculo.points(vertices1);
 
                      //qDebug()<< "o angulo da caixa" << caixaCirculo.angle;
-                     qDebug()<< "o height da caixa" << caixaCirculo.size.height;
-                     qDebug()<< "o height da caixa" << caixaCirculo.size.width;
+                     qDebug()<< frameDoVideo <<  " o height da caixa" << caixaCirculo.size.height;
+                     qDebug()<< frameDoVideo << " o width da caixa" << caixaCirculo.size.width;
+                     qDebug()<< frameDoVideo<<  " o angulo da caixa" << caixaCirculo.angle;
                    //  qDebug() << "mc x" << mc.x << " mc y " << mc.y;
                     // qDebug() << "mcRpo x" << mcRoi.x << " mcRoi y " << mcRoi.y;
 
@@ -870,9 +874,19 @@ void moduloProcessamento::processamentoMorfologico(){
                     //enciando o sinal para outro lugar
                      //qDebug() <<maiorArea;
 
-                        emit dadosMorfologicos(imgEnviada,objetoEncontrado,area,
-                                            (double) mc.x, (double) mc.y,
-                                            anguloVetor,maiorTamanho1);
+//                 qDebug()<< "o height da caixa" << caixaCirculo.size.height;
+//                 qDebug()<< "o width da caixa" << caixaCirculo.size.width;
+//                 qDebug()<< "o angulo da caixa" << caixaCirculo.angle;
+
+//                        emit dadosMorfologicos(imgEnviada,objetoEncontrado,area,
+//                                            (double) mc.x, (double) mc.y,
+//                                            anguloVetor,maiorTamanho1);
+
+                 //qDebug() << "emitido os dados morfológicos";
+                       emit dadosMorfologicos(imgEnviada,objetoEncontrado,area,
+                                             (double) mc.x, (double) mc.y,
+                                             caixaCirculo.angle,caixaCirculo.size.height,caixaCirculo.size.width);
+
 
                         emit desenhaFigura(imgEnviada2,true,mc.x,mc.y,
                                             pontoLongeCentro.x,  pontoLongeCentro.y,
@@ -885,7 +899,12 @@ void moduloProcessamento::processamentoMorfologico(){
                  antigaArea1=area;//a area é zero;
                  antigaMc1.x=mc.x;
                  antigaMc1.y=mc.y;
-                 antigaAnguloVetor1=anguloVetor;
+                 antigaAnguloVetor1=caixaCirculo.angle;
+                 //float antigaAltur, antigaLargur;
+                 antigaAltur=caixaCirculo.size.height;
+                 antigaLargur=caixaCirculo.size.width;
+
+
                  antigaMaiorTamanho1=maiorTamanho1;
                  antigaPontoLongeCentro.x=pontoLongeCentro.x;
                  antigaPontoLongeCentro.y=pontoLongeCentro.y;
@@ -961,10 +980,12 @@ void moduloProcessamento::processamentoMorfologico(){
 
 //            }
 
-
-            emit dadosMorfologicos(imgEnviada,objetoEncontrado,antigaArea1,
-                                   (double)antigaMc1.x,(double)antigaMc1.y,
-                                   antigaAnguloVetor1,antigaMaiorTamanho1);
+            emit dadosMorfologicos(imgEnviada,objetoEncontrado,area,
+                                  (double) mc.x, (double) mc.y,
+                                  caixaCirculo.angle,antigaAltur,antigaLargur);
+//            emit dadosMorfologicos(imgEnviada,objetoEncontrado,antigaArea1,
+//                                   (double)antigaMc1.x,(double)antigaMc1.y,
+//                                   antigaAnguloVetor1,antigaMaiorTamanho1);
 
 
             emit desenhaFigura(imgEnviada2,false,antigaMc1.x,antigaMc1.y,
@@ -1055,7 +1076,7 @@ void moduloProcessamento::gravaDesenhoFigura(QImage imaPro, bool desenha, double
 
 }
 
-void moduloProcessamento::gravaDadosMorfoCinematico(QImage imaProc, bool objeto, double area1, double mcX, double mcY, float anguloObjeto, float tamanhoObjeto, double varAngular, double varArea, double VarCenX, double VarCenY, double VarDistancia, double VarOBjeto, bool ruidoOn)
+void moduloProcessamento::gravaDadosMorfoCinematico(QImage imaProc, bool objeto, double area1, double mcX, double mcY, float anguloObjeto, float alturaObjeto, float larguraObjeto, double varAngular, double varArea, double VarCenX, double VarCenY, double VarDistancia, double VarOBjeto, float VarAltura, float VarLargura, bool ruidoOn)
 {
 //    QImage imaProc,
 //            bool objeto, //se o objeto foi encontrado
@@ -1078,14 +1099,19 @@ void moduloProcessamento::gravaDadosMorfoCinematico(QImage imaProc, bool objeto,
     reMorfo.centroidX.push_back(mcX);
     reMorfo.centroidY.push_back(mcY);
     reMorfo.anguloObj.push_back(anguloObjeto);
-    reMorfo.tamanhoObj.push_back(tamanhoObjeto);
+    //reMorfo.tamanhoObj.push_back(alturaObjeto);
+    reMorfo.altura.push_back(alturaObjeto);
+    reMorfo.largura.push_back(larguraObjeto);
     reCinema.varAngular.push_back(varAngular);
     reCinema.varArea.push_back(varArea);
     reCinema.varCenX.push_back(VarCenX);
     reCinema.varCenY.push_back(VarCenY);
     reCinema.varDistancia.push_back(VarDistancia);
     reCinema.varTamObjeto.push_back(VarOBjeto);
+    reCinema.varAltura.push_back(VarAltura);
+    reCinema.varLargura.push_back(VarLargura);
     reCinema.ruidoMaxVaria.push_back(ruidoOn);
+
 
     emit fimProce();
 
@@ -1329,9 +1355,9 @@ cv::Mat moduloProcessamento::moveVirtCamera(cv::Mat imagemInteresse, cv::Point c
 
 }
 
-void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnco, double areaRecebida, double centroideX, double centroideY, float angObjeto, float tamObjet)
+void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnco, double areaRecebida, double centroideX, double centroideY, float angObjeto, float altura, float largura)
 {
-
+//qDebug() << "recebe os dados morfológicos";
 //    qDebug() << tamObjet
 
     //maxVaria=1000;
@@ -1349,8 +1375,9 @@ void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnc
             antigoCentroideX=centroideX;
             antigoCentroideY=centroideY;
             antigoAnguloObj=angObjeto;
-            antigoTamanhoObj=tamObjet;
-
+            //antigoTamanhoObj=tamObjet;
+            antigoAltura=altura;
+            antigoLargura=largura;
 
             //aqui emite a variação igual a zero
 
@@ -1359,13 +1386,15 @@ void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnc
         }
         //emite zero de variação
 
+        //qDebug() << "emite os dadosMorfoCinematicos";
 
         emit dadosMorfoCinematico( imReceb , objetoEnco ,areaRecebida, //area
                                   centroideX, centroideY,
                                   angObjeto,
-                                  tamObjet,
+                                  altura,
+                                  largura,
                                   0, 0,
-                                  0, 0, 0, 0, false); //centroide
+                                  0, 0, 0, 0,0, 0, false); //centroide
 
 
 
@@ -1377,7 +1406,9 @@ void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnc
             novoCentroideX=centroideX;
             novoCentroideY=centroideY;
             novoAngObj=angObjeto;
-            novoTamanhoObj=tamObjet;
+            //novoTamanhoObj=tamObjet;
+            novoAltura=altura;
+            novoLargura=largura;
 
             moduloVaria= qSqrt( qPow(novoCentroideX - antigoCentroideX,2)+ qPow(novoCentroideY- antigoCentroideY,2) );
 
@@ -1385,17 +1416,30 @@ void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnc
             //se tudo ocorreu corretamente
 
                 novaVarAngular= novoAngObj- antigoAnguloObj;
-                novaVarTamanhoObj= novoTamanhoObj - antigoTamanhoObj;
+                //novaVarTamanhoObj= novoTamanhoObj - antigoTamanhoObj;
+//                float novaVarAltura,novaVarLargura;
+
+                novaVarAltura=novoAltura - antigoAltura;
+                novaVarLargura=novoLargura - antigoLargura;
+
+
                 novaVarArea= novoArea- antigoArea;
                 novaVarCenX=novoCentroideX - antigoCentroideX;
-                novaVarCenY=novoCentroideY- antigoCentroideY;
+                novaVarCenY=novoCentroideY - antigoCentroideY;
+
                 novaVarDistancia =qSqrt( qPow(novaVarCenY,2)+ qPow(novaVarCenX,2)  );
+
+
+
+
 
                 antigoArea=novoArea;
                 antigoCentroideX=novoCentroideX;
                 antigoCentroideY=novoCentroideY;
                 antigoAnguloObj=novoAngObj;
-                antigoTamanhoObj=novoTamanhoObj;
+                //antigoTamanhoObj=novoTamanhoObj;
+                antigoAltura=novoAltura;
+                antigoLargura=novoLargura;
 
 
                 //atualiza o antigo
@@ -1404,13 +1448,14 @@ void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnc
 //                antigaVarCenY=novaVarCenY;
 //                antigaVarCenX= novaVarCenX;
 //                antigaVarDistancia=novaVarDistancia;
-
+               // qDebug() << "emite os dadosMorfoCinematicos";
                 emit dadosMorfoCinematico( imReceb , objetoEnco ,areaRecebida, //area
                                           centroideX, centroideY,
                                           angObjeto,
-                                          tamObjet,
+                                          altura,
+                                           largura,
                                           novaVarAngular, novaVarArea,
-                                          novaVarCenX, novaVarCenY, novaVarDistancia, novaVarTamanhoObj,false); //centroide
+                                          novaVarCenX, novaVarCenY, novaVarDistancia, novaVarTamanhoObj,novaVarAltura,novaVarLargura, false); //centroide
                                                                                                             //fasle o ruido nao aconteceu
 
 
@@ -1419,13 +1464,14 @@ void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnc
                 //ele coloca os pontos anteriores
                 //aqui apenas emite os valores antigos porque houve o ruido
                 //emite os valores antigos
-
+              //  qDebug() << "emite os dadosMorfoCinematicos";
                emit dadosMorfoCinematico( imReceb , objetoEnco ,antigoArea, //area
                                           antigoCentroideX, antigoCentroideY,
                                           antigoAnguloObj,
-                                          antigoTamanhoObj,
+                                          antigoAltura,
+                                          antigoLargura,
                                           0, 0,
-                                          0, 0, 0, 0, true); //centroide
+                                          0, 0, 0, 0,0, 0, true); //centroide
 
 
 
@@ -1438,12 +1484,14 @@ void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnc
 
             //emite os valores antigos
 
+           // qDebug() << "emite os dadosMorfoCinematicos";
             emit dadosMorfoCinematico( imReceb , objetoEnco ,antigoArea, //area
                                       antigoCentroideX, antigoCentroideY,
                                       antigoAnguloObj,
-                                      antigoTamanhoObj,
+                                      antigoAltura,
+                                       antigoLargura,
                                       0, 0,
-                                      0, 0, 0, 0, true); //centroide
+                                      0, 0, 0, 0, 0, 0, true); //centroide
 
             qDebug() << "objeto nao encotrnado" << contMorfo;
 

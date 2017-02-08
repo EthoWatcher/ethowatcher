@@ -2616,8 +2616,12 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
          stream.writeAttribute("arM",QString::number(dados->reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
          stream.writeAttribute("ceX",QString::number(dados->reMorfo.centroidX[i]));
          stream.writeAttribute("ceY",QString::number(dados->reMorfo.centroidY[i]));
-         stream.writeAttribute("taP",QString::number(dados->reMorfo.tamanhoObj[i]));
-         stream.writeAttribute("taM",QString::number(dados->reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
+         stream.writeAttribute("taP",QString::number(dados->reMorfo.altura[i]));
+         stream.writeAttribute("taM",QString::number(dados->reMorfo.altura[i]/videoLista.escala[contadorDeVideo]));
+
+
+//         stream.writeAttribute("taP",QString::number(dados->reMorfo.tamanhoObj[i]));
+//         stream.writeAttribute("taM",QString::number(dados->reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
 
 
 //         double tamanhoObjeto=0;

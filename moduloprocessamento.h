@@ -73,6 +73,8 @@ public:
             std::vector<double> centroidY;
             std::vector<double> anguloObj;
             std::vector<double> tamanhoObj;
+            std::vector<float>  altura;
+            std::vector<float>  largura;
 
             std::vector<bool> objetoEncontrado; //quando o objeto é encontrado é true
 
@@ -89,6 +91,8 @@ public:
             std::vector<double>  varCenY;
             std::vector<double> varTamObjeto;
             std::vector<bool> ruidoMaxVaria;
+            std::vector<float> varAltura;
+            std::vector<float> varLargura;
 
 
 
@@ -123,7 +127,7 @@ signals:
     void dadosMorfologicos(QImage imaProc,bool objeto,double area1, //area
                            double mcX, double mcY,
                            float anguloObjeto,
-                           float tamanhoObjeto); //centroide
+                           float altura, float largura); //centroide
 
     void desenhaFigura(QImage imaPro, bool desenha, double cmX, double cmY,
                         double pMDCX,double pMDCY,
@@ -136,9 +140,10 @@ signals:
     void dadosMorfoCinematico(QImage imaProc, bool objeto,double area1, //area
                               double mcX, double mcY,
                               float anguloObjeto,
-                              float tamanhoObjeto,
+                              float alturaObj,
+                              float larguraObj,
                               double varAngular, double varArea,
-                              double VarCenX, double VarCenY, double VarDistancia, double VarOBjeto, bool ruido); //centroide
+                              double VarCenX, double VarCenY, double VarDistancia, double VarOBjeto, float varAlt, float varLar, bool ruido); //centroide
 
     void roiImage(QImage imageDeinteresse);
 
@@ -163,9 +168,10 @@ public slots:
     void gravaDadosMorfoCinematico(QImage imaProc, bool objeto, double area1, //area
                double mcX, double mcY,
                float anguloObjeto,
-               float tamanhoObjeto,
+               float alturaObjeto,
+               float larguraObjeto,
                double varAngular, double varArea,
-               double VarCenX, double VarCenY, double VarDistancia, double VarOBjeto, bool ruidoOn); //centroide
+               double VarCenX, double VarCenY, double VarDistancia, double VarOBjeto, float VarAltura, float VarLargura, bool ruidoOn); //centroide
 
 
     void calculaIntersection(cv::Point2f o1, cv::Point2f p1, cv::Point2f o2, cv::Point2f p2);
@@ -175,7 +181,7 @@ public slots:
     cv::Mat setCameraVirtual(cv::Point centroObjetoInicial, cv::Point origenRoi , int widthRoi, int heightRoi);
     cv::Mat moveVirtCamera(cv::Mat imagemInteresse, cv::Point centroMassa);
 
-    void recebeDadosMorfologicos(QImage imReceb, bool objetoEnco, double areaRecebida, double centroideX, double centroideY, float angObjeto, float tamObjet);
+    void recebeDadosMorfologicos(QImage imReceb, bool objetoEnco, double areaRecebida, double centroideX, double centroideY, float angObjeto, float altura, float largura);
 
 
 private:
@@ -331,17 +337,27 @@ int contGlobal;
 
 
     double antigoArea, antigoCentroideX,antigoCentroideY ;
-    double antigoAnguloObj;
-    double antigoTamanhoObj;
+    float antigoAnguloObj;
+    float antigoTamanhoObj;
+
+    float antigoAltura, antigoLargura;
+    float novoAltura,novoLargura;
+
+
     bool antigoRuido;
 
     double novaVarAngular, novaVarArea, novaVarCenY,novaVarCenX, novaVarDistancia, novaVarTamanhoObj;
+    float novaVarAltura,novaVarLargura;
     double antigaVarAngular, antigaVarArea, antigaVarCenY,antigaVarCenX, antigaVarDistancia, antigaVarTamanhoObj;
 
 
     double antigaArea1;
     cv::Point2f antigaMc1, antigaVtx[4];
     float antigaAnguloVetor1, antigaMaiorTamanho1;
+
+    float antigaAltur, antigaLargur;
+
+
     cv::Point antigaPontoLongeCentro, antigaPontoR, antigaPobjeto1,antigaPobjeto2;
 
 
