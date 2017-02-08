@@ -36,7 +36,7 @@
       </rect>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -52,7 +52,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Abir Video Cadastrado</string>
+        <string>Abrir Video Cadastrado</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pbAddVideo">

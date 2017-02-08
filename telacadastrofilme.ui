@@ -32,7 +32,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resourcefile.qrc">:/icons/cabecalho3.jpg</pixmap>
+      <pixmap>:/icons/cabecalho3.jpg</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -3720,7 +3720,7 @@ p, li { white-space: pre-wrap; }
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="resourcefile.qrc">
+           <iconset>
             <normaloff>:/icons/br_prev.ico</normaloff>:/icons/br_prev.ico</iconset>
           </property>
          </widget>
@@ -3774,7 +3774,7 @@ p, li { white-space: pre-wrap; }
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="resourcefile.qrc">
+           <iconset>
             <normaloff>:/icons/br_next.ico</normaloff>:/icons/br_next.ico</iconset>
           </property>
           <property name="shortcut">
@@ -3844,7 +3844,7 @@ p, li { white-space: pre-wrap; }
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resourcefile.qrc">
+             <iconset>
               <normaloff>:/icons/playback_pause.ico</normaloff>:/icons/playback_pause.ico</iconset>
             </property>
            </widget>
@@ -3873,7 +3873,7 @@ p, li { white-space: pre-wrap; }
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resourcefile.qrc">
+             <iconset>
               <normaloff>:/icons/playback_play.ico</normaloff>:/icons/playback_play.ico</iconset>
             </property>
            </widget>
