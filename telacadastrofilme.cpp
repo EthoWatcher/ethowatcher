@@ -39,6 +39,7 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
 //    //Inicializa itens da lista de cores de fundo para a segmentação
 //    ui->comboBoxBackground->addItem("White");
 //    ui->comboBoxBackground->addItem("Black");
+    imageFundopixMap = new QGraphicsPixmapItem();
 
 }
 
@@ -68,7 +69,14 @@ void telaCadastroFilme::recebeImagem(QImage qiCaptador, int numFrame)
           imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
           break;
       case 2:
-          imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameProce));
+          //primeiro vai permitir a imagem mudar;
+          if(chRoi){
+              imageFundopixMap->setPixmap( QPixmap::fromImage(qiCaptador.scaled(480, 360,Qt::KeepAspectRatio) ));
+
+          }else{ //encontra a primeira posição
+              imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameProce));
+          }
+
           break;
       case 3:
           imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
@@ -549,7 +557,7 @@ void telaCadastroFilme::on_pbAdquiriFrame_clicked()
    // ui->btPlay->setEnabled(true);
    // ui->btStop->setEnabled(false);
 }
-
+//escala
 void telaCadastroFilme::on_pbConfEscala_clicked()
 {
     ui->gbScale->setEnabled(false);
@@ -562,7 +570,7 @@ void telaCadastroFilme::on_pbConfEscala_clicked()
 void telaCadastroFilme::on_tabWPrincipal_currentChanged(int index)
 {
 
-    qDebug()<< " passou pela tab";
+    qDebug()<< " passou pela tab principal";
     if(index==0){
 
         areaInt->setVisible(false);
@@ -589,7 +597,7 @@ void telaCadastroFilme::on_tabWPrincipal_currentChanged(int index)
 
 void telaCadastroFilme::on_tabWCalib_currentChanged(int index)
 {
-     qDebug()<< " passou pela tab";
+     qDebug()<< " passou pela tab de calibracao";
 
     triBlueScala->setVisible(false);
     triRedScala->setVisible(false);
@@ -602,6 +610,7 @@ void telaCadastroFilme::on_tabWCalib_currentChanged(int index)
         listaAreaProce[c1]->setVisible(false);
 
     }
+    qDebug()<< " passou pela tab de calibracao1";
 
     if(index==0){
 
@@ -622,10 +631,11 @@ void telaCadastroFilme::on_tabWCalib_currentChanged(int index)
 
     }
     if(index==2){
+        qDebug()<<"tab treatment noise";
 
         chVideo=true;
         ui->tabWNoise->setCurrentIndex(0);
-        areaInt->setVisible(true);
+        areaInt->setVisible(false);
 
 
         imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameProce));
@@ -647,6 +657,8 @@ void telaCadastroFilme::on_tabWCalib_currentChanged(int index)
         }
         imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
     }
+
+    qDebug()<< " passou pela tab de calibracao2";
 }
 
 void telaCadastroFilme::on_sbScalP1X_editingFinished()
@@ -700,32 +712,54 @@ void telaCadastroFilme::on_sbP1YJanela_editingFinished()
 
 void telaCadastroFilme::on_sbWidthJanela_valueChanged(double arg1)
 {
-    areaInt->setWid(ui->sbWidthJanela->value()*scala);
+    areaInt->setWid(ui->leVarMax->text().toDouble()*scala);
+    //areaInt->setWid(ui->sbWidthJanela->value()*scala);
 }
 
 void telaCadastroFilme::on_sbHeiJanela_valueChanged(double arg1)
 {
-    areaInt->setHei(ui->sbHeiJanela->value()*scala);
+    areaInt->setHei(ui->leVarMax->text().toDouble()*scala);
+    //areaInt->setHei(ui->sbHeiJanela->value()*scala);
 }
+
+
 
 void telaCadastroFilme::on_tabWNoise_currentChanged(int index)
 {
 
-    if(index == 0 ){
+//    if(index == 1 ){
 
-        areaInt->setVisible(true);
-        triRedMax->setVisible(false);
-        triBlueMax->setVisible(false);
+//        areaInt->setVisible(true);
+//        triRedMax->setVisible(false);
+//        triBlueMax->setVisible(false);
 
-    }
+//    }
+//    if(index !=0){
+//        //quando aperta o next ele muda
+//        if(chRoi){
+//            areaInt->setVisible(true);
+//            triRedMax->setVisible(false);
+//            triBlueMax->setVisible(false);
 
-    if(index==1){
-        triRedMax->setVisible(true);
-        triBlueMax->setVisible(true);
-        areaInt->setVisible(false);
+//        }else{
+
+//            triRedMax->setVisible(true);
+//            triBlueMax->setVisible(true);
+//            areaInt->setVisible(false);
+
+//        }
+
+//    }
 
 
-    }
+
+//    if(index==2){
+//        triRedMax->setVisible(true);
+//        triBlueMax->setVisible(true);
+//        areaInt->setVisible(false);
+
+
+//    }
 }
 
 void telaCadastroFilme::on_sbJanelaP1X_editingFinished()
@@ -1247,11 +1281,12 @@ void telaCadastroFilme::on_pbCadastrar1_clicked()
     if(ui->checkBox->isChecked()){// janela de interesse
 
        stream.writeTextElement("ativado","true");
-       if(ui->cbMovel->isChecked()){//
+
+       //if(ui->cbMovel->isChecked()){// sempre vai ser movel
           stream.writeTextElement("movel","true");
-       }else{
-           stream.writeTextElement("movel","false");
-       }
+     //  }else{
+    //     stream.writeTextElement("movel","false");
+     // }
 
        stream.writeTextElement("origX",QString::number(areaInt->pos().x()*scalTrans)); //px
        stream.writeTextElement("origY",QString::number(areaInt->pos().y()*scalTrans)); //px
@@ -1282,7 +1317,7 @@ void telaCadastroFilme::on_pbCadastrar1_clicked()
 
      stream.writeStartElement("maximaVariacaoCentro");
 
-     if(ui->cbVariaca->isChecked()){// habilita maxima variação
+     if(ui->cbVariaca->isChecked()){// habilita minima variação
 
         stream.writeTextElement("ativado","true");
         stream.writeTextElement("tamanho",QString::number(maxVaria*scala*scalTrans));
@@ -1290,8 +1325,10 @@ void telaCadastroFilme::on_pbCadastrar1_clicked()
      }else{
          stream.writeTextElement("ativado","false");
          double varMax;
-         varMax= qPow(videoCadastrado.video_width,2)+ qPow(videoCadastrado.video_heigth,2);
-         varMax= qSqrt(varMax);
+//         varMax= qPow(videoCadastrado.video_width,2)+ qPow(videoCadastrado.video_heigth,2);
+//         varMax= qSqrt(varMax);
+         //trocado para menor variação
+         varMax =-1;
          stream.writeTextElement("tamanho",QString::number(varMax));
      }
 
@@ -1540,4 +1577,34 @@ void telaCadastroFilme::on_chbPrevi_clicked(bool checked)
 
     }
 
+}
+
+//void telaCadastroFilme::on_sbWidthJanela_editingFinished()
+//{
+
+//}
+
+void telaCadastroFilme::on_pushButton_2_clicked()
+{
+    chRoi= false;
+}
+
+void telaCadastroFilme::on_pbNextRoi_clicked()
+{
+    chRoi=false;
+    imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameProce));
+    areaInt->setWid(ui->leVarMax->text().toDouble()*scala);
+    areaInt->setHei(ui->leVarMax->text().toDouble()*scala);
+    areaInt->setVisible(true);
+    triRedMax->setVisible(false);
+    triBlueMax->setVisible(false);
+
+}
+
+void telaCadastroFilme::on_pbConfigureTreatment_clicked()
+{
+
+    triRedMax->setVisible(true);
+    triBlueMax->setVisible(true);
+    areaInt->setVisible(false);
 }

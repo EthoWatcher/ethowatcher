@@ -259,6 +259,14 @@ private slots:
 
     void on_chbPrevi_clicked(bool checked);
 
+//    void on_sbWidthJanela_editingFinished();
+
+    void on_pushButton_2_clicked();
+
+    void on_pbNextRoi_clicked();
+
+    void on_pbConfigureTreatment_clicked();
+
 private:
     Ui::telaCadastroFilme *ui;
 
@@ -364,6 +372,8 @@ private:
     void resetaCorConfi();
 
     bool chAddArea=false;
+
+    bool chRoi=true;
 
 
 signals:
