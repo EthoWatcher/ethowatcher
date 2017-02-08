@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>1076</width>
-    <height>770</height>
+    <height>777</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Register Video Files</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -57,7 +57,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_9">
        <attribute name="title">
@@ -418,8 +418,8 @@ p, li { white-space: pre-wrap; }
          <rect>
           <x>10</x>
           <y>10</y>
-          <width>501</width>
-          <height>591</height>
+          <width>489</width>
+          <height>674</height>
          </rect>
         </property>
         <property name="currentIndex">
@@ -427,7 +427,7 @@ p, li { white-space: pre-wrap; }
         </property>
         <widget class="QWidget" name="tab_3">
          <attribute name="title">
-          <string>Relevant Frames</string>
+          <string>Select relevant frames</string>
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_9">
           <item>
@@ -447,45 +447,28 @@ p, li { white-space: pre-wrap; }
             <property name="title">
              <string>Step 2.01</string>
             </property>
-            <widget class="QLabel" name="label_59">
-             <property name="geometry">
-              <rect>
-               <x>190</x>
-               <y>20</y>
-               <width>111</width>
-               <height>16</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>O frame inciial será o: </string>
-             </property>
-            </widget>
-            <widget class="QPushButton" name="pbAdquiriFrame">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>151</width>
-               <height>23</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Frame Edição</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="lblFrameInicio">
-             <property name="geometry">
-              <rect>
-               <x>320</x>
-               <y>20</y>
-               <width>41</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>0</string>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_26">
+             <item>
+              <widget class="QPushButton" name="pbAdquiriFrame">
+               <property name="text">
+                <string>Blind precedent frames</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblFrameInicio">
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
           <item>
@@ -527,7 +510,7 @@ p, li { white-space: pre-wrap; }
               </size>
              </property>
              <property name="text">
-              <string>Frame De Background</string>
+              <string>Background frame</string>
              </property>
             </widget>
             <widget class="QLabel" name="lblFrameBack">
@@ -727,48 +710,31 @@ p, li { white-space: pre-wrap; }
             <property name="title">
              <string>Step 2.03</string>
             </property>
-            <widget class="QPushButton" name="pbFrameProce">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>291</width>
-               <height>23</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Frame Inicio Processamento e Regristro Comportamental</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_64">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>50</y>
-               <width>161</width>
-               <height>16</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>O frame de processamento sera</string>
-             </property>
-            </widget>
-            <widget class="QLineEdit" name="leFramePro">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="geometry">
-              <rect>
-               <x>180</x>
-               <y>50</y>
-               <width>113</width>
-               <height>20</height>
-              </rect>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_21">
+             <item>
+              <widget class="QPushButton" name="pbFrameProce">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="text">
+                <string>Frame to Start the analysis</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="leFramePro">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
           <item>
@@ -788,62 +754,32 @@ p, li { white-space: pre-wrap; }
             <property name="title">
              <string>Step 2.04</string>
             </property>
-            <widget class="QPushButton" name="pbFrameFinal">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>30</y>
-               <width>151</width>
-               <height>23</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Set Final Frame</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_77">
-             <property name="geometry">
-              <rect>
-               <x>180</x>
-               <y>30</y>
-               <width>71</width>
-               <height>16</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>O frame final  </string>
-             </property>
-            </widget>
-            <widget class="QLineEdit" name="leFrameFinal">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="geometry">
-              <rect>
-               <x>260</x>
-               <y>30</y>
-               <width>113</width>
-               <height>20</height>
-              </rect>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QPushButton" name="pbFrameFinal">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="text">
+                <string>Frame to finish the analysis</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="leFrameFinal">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
           </item>
           <item>
            <widget class="QWidget" name="widget_6" native="true">
@@ -865,7 +801,7 @@ p, li { white-space: pre-wrap; }
                <property name="title">
                 <string>Tutor</string>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <layout class="QVBoxLayout" name="verticalLayout_4">
                 <item>
                  <widget class="QStackedWidget" name="swiTutorConfig_2">
                   <property name="currentIndex">
@@ -901,19 +837,14 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Confira as informações do video aberto no &lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Step 02&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Frame Inicio Exibição - Selecione o frame que o video comecara a ser mostrado, o frame logo depois do identificador &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Frame De BackGround, selecione o fram que apenas tem a imagem da arena.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Frame Inciio Processamento e Registro Comportamental- selecione no video qual o frame que o animal é inserido na arena.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Frame Final video - selecione qual sera o utilimo quadro exibido.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Step 2.01: Navigate in the video file to a a frame after any aspect that can identify your experiment (e.g., a clackette appearing before the start of the experiment) , and THEN click in the “blind precedent frame” button&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Step 2.02 Navigate in the video file to a frame  containing only the background of the maze (without the animal, and after the frame you’ve choose in the step 2.01), and THEN press the “Background frame” button.&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;THEN, Navigate in the video file to a frame  containing the animal. Select preview process box, and slide the “subtraction threshold”  cursor  (and/or set the level of erosion of the animal), to exclude  spots, shadow or other undesired aspects of the animal  and background. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Step 2.03: Navigate in the video file to a frame  where you want to start the analysis, and click on the “Frame to Start the analysis” button&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Step 2.04: Navigate in the video file to a frame  where you want to finish  the analysis, and click on the “Frame to Finish the analysis” button&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
                      </widget>
                     </item>
