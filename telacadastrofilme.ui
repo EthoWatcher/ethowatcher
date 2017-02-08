@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>1076</width>
-    <height>770</height>
+    <height>777</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Register Video Files</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
     <widget class="QLabel" name="label_98">
      <property name="minimumSize">
       <size>
@@ -39,7 +39,7 @@
      </property>
     </widget>
    </item>
-   <item>
+   <item row="1" column="0">
     <widget class="QWidget" name="widget_2" native="true">
      <property name="minimumSize">
       <size>
@@ -57,18 +57,18 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_9">
        <attribute name="title">
-        <string>Configuração</string>
+        <string>Video File Info</string>
        </attribute>
        <widget class="QGroupBox" name="groupBox_3">
         <property name="geometry">
          <rect>
           <x>10</x>
           <y>360</y>
-          <width>291</width>
+          <width>501</width>
           <height>241</height>
          </rect>
         </property>
@@ -111,7 +111,14 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Confira as informações do video aberto no &lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Step 02&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:9pt; color:#000000;&quot;&gt;1 - Click on the “load video” button to open an .AVI video file and check the data for this file (path, name, FPS, width/height). &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Calibri'; font-size:9pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;2 - Select  the module(s) (one or more)  that will be used to process this video file. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;Warning:: If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;If you want to use this video only for tracking, select the appropriate checkbox. For both tracking and ethography, select both checkboxes. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;If you also want to use the “video blinding” procedures (hiding the &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#ff0000;&quot;&gt;clacket&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt; and changing the file ID from the user who will transcript the recording session), then select also this checkbox. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;3 - Click on “Next” button &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
              </item>
@@ -125,9 +132,9 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>110</y>
+          <y>100</y>
           <width>491</width>
-          <height>111</height>
+          <height>121</height>
          </rect>
         </property>
         <property name="title">
@@ -159,7 +166,7 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="text">
-          <string>Nome do video</string>
+          <string>Video file Name</string>
          </property>
         </widget>
         <widget class="QLabel" name="lblCaminho">
@@ -188,7 +195,7 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="text">
-          <string>Caminho  do video</string>
+          <string>Video file path</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_14">
@@ -196,12 +203,12 @@ p, li { white-space: pre-wrap; }
           <rect>
            <x>20</x>
            <y>60</y>
-           <width>101</width>
+           <width>131</width>
            <height>16</height>
           </rect>
          </property>
          <property name="text">
-          <string>Fps</string>
+          <string>Frames per second (FPS)</string>
          </property>
         </widget>
         <widget class="QLabel" name="lblFps">
@@ -246,7 +253,7 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="text">
-          <string>Width</string>
+          <string>Width (px)</string>
          </property>
         </widget>
         <widget class="QLabel" name="lblHeight">
@@ -275,7 +282,7 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="text">
-          <string>Height</string>
+          <string>Height (px)</string>
          </property>
         </widget>
        </widget>
@@ -289,65 +296,49 @@ p, li { white-space: pre-wrap; }
          </rect>
         </property>
         <property name="title">
-         <string>Step 1.03 No que voe quer utilizar com esse video</string>
+         <string>Step 1.03 Select modules for video file processing</string>
         </property>
-        <widget class="QCheckBox" name="checkBox_2">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>50</y>
-           <width>151</width>
-           <height>17</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Registro comportamental</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="cbPro">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>80</y>
-           <width>161</width>
-           <height>17</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Processamento de Imagem</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="cbBlinding">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>20</y>
-           <width>161</width>
-           <height>17</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Blinding Analises</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QCheckBox" name="checkBox_2">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Video or Real-time ethography</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QCheckBox" name="cbPro">
+           <property name="text">
+            <string>Tracking &amp; morphologic/cinematic analysis</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QCheckBox" name="cbBlinding">
+           <property name="text">
+            <string>Blinding video file</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
        <widget class="QGroupBox" name="groupBox_9">
         <property name="geometry">
@@ -371,7 +362,7 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="text">
-          <string>Open a Video</string>
+          <string>Load Video</string>
          </property>
         </widget>
        </widget>
@@ -397,22 +388,9 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="text">
-          <string>Configure video registration</string>
+          <string>Next Step</string>
          </property>
         </widget>
-       </widget>
-       <widget class="QGroupBox" name="groupBox_15">
-        <property name="geometry">
-         <rect>
-          <x>310</x>
-          <y>370</y>
-          <width>181</width>
-          <height>221</height>
-         </rect>
-        </property>
-        <property name="title">
-         <string>Configuration-To-Do-Step</string>
-        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_10">
@@ -440,16 +418,16 @@ p, li { white-space: pre-wrap; }
          <rect>
           <x>10</x>
           <y>10</y>
-          <width>501</width>
-          <height>591</height>
+          <width>489</width>
+          <height>674</height>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <attribute name="title">
-          <string>Relevant Frames</string>
+          <string>Select relevant frames</string>
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_9">
           <item>
@@ -469,45 +447,28 @@ p, li { white-space: pre-wrap; }
             <property name="title">
              <string>Step 2.01</string>
             </property>
-            <widget class="QLabel" name="label_59">
-             <property name="geometry">
-              <rect>
-               <x>190</x>
-               <y>20</y>
-               <width>111</width>
-               <height>16</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>O frame inciial será o: </string>
-             </property>
-            </widget>
-            <widget class="QPushButton" name="pbAdquiriFrame">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>151</width>
-               <height>23</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Frame Edição</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="lblFrameInicio">
-             <property name="geometry">
-              <rect>
-               <x>320</x>
-               <y>20</y>
-               <width>41</width>
-               <height>21</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>0</string>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_26">
+             <item>
+              <widget class="QPushButton" name="pbAdquiriFrame">
+               <property name="text">
+                <string>Blind precedent frames</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lblFrameInicio">
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
           <item>
@@ -549,7 +510,7 @@ p, li { white-space: pre-wrap; }
               </size>
              </property>
              <property name="text">
-              <string>Frame De Background</string>
+              <string>Background frame</string>
              </property>
             </widget>
             <widget class="QLabel" name="lblFrameBack">
@@ -749,48 +710,31 @@ p, li { white-space: pre-wrap; }
             <property name="title">
              <string>Step 2.03</string>
             </property>
-            <widget class="QPushButton" name="pbFrameProce">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>291</width>
-               <height>23</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Frame Inicio Processamento e Regristro Comportamental</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_64">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>50</y>
-               <width>161</width>
-               <height>16</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>O frame de processamento sera</string>
-             </property>
-            </widget>
-            <widget class="QLineEdit" name="leFramePro">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="geometry">
-              <rect>
-               <x>180</x>
-               <y>50</y>
-               <width>113</width>
-               <height>20</height>
-              </rect>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_21">
+             <item>
+              <widget class="QPushButton" name="pbFrameProce">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="text">
+                <string>Frame to Start the analysis</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="leFramePro">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
           <item>
@@ -810,62 +754,32 @@ p, li { white-space: pre-wrap; }
             <property name="title">
              <string>Step 2.04</string>
             </property>
-            <widget class="QPushButton" name="pbFrameFinal">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>30</y>
-               <width>151</width>
-               <height>23</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Set Final Frame</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_77">
-             <property name="geometry">
-              <rect>
-               <x>180</x>
-               <y>30</y>
-               <width>71</width>
-               <height>16</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>O frame final  </string>
-             </property>
-            </widget>
-            <widget class="QLineEdit" name="leFrameFinal">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="geometry">
-              <rect>
-               <x>260</x>
-               <y>30</y>
-               <width>113</width>
-               <height>20</height>
-              </rect>
-             </property>
-            </widget>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QPushButton" name="pbFrameFinal">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="text">
+                <string>Frame to finish the analysis</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="leFrameFinal">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
           </item>
           <item>
            <widget class="QWidget" name="widget_6" native="true">
@@ -887,7 +801,7 @@ p, li { white-space: pre-wrap; }
                <property name="title">
                 <string>Tutor</string>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <layout class="QVBoxLayout" name="verticalLayout_4">
                 <item>
                  <widget class="QStackedWidget" name="swiTutorConfig_2">
                   <property name="currentIndex">
@@ -923,19 +837,14 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Confira as informações do video aberto no &lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Step 02&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Frame Inicio Exibição - Selecione o frame que o video comecara a ser mostrado, o frame logo depois do identificador &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Frame De BackGround, selecione o fram que apenas tem a imagem da arena.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Frame Inciio Processamento e Registro Comportamental- selecione no video qual o frame que o animal é inserido na arena.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#00ca00;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Frame Final video - selecione qual sera o utilimo quadro exibido.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Step 2.01: Navigate in the video file to a a frame after any aspect that can identify your experiment (e.g., a clackette appearing before the start of the experiment) , and THEN click in the “blind precedent frame” button&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Step 2.02 Navigate in the video file to a frame  containing only the background of the maze (without the animal, and after the frame you’ve choose in the step 2.01), and THEN press the “Background frame” button.&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;THEN, Navigate in the video file to a frame  containing the animal. Select preview process box, and slide the “subtraction threshold”  cursor  (and/or set the level of erosion of the animal), to exclude  spots, shadow or other undesired aspects of the animal  and background. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Step 2.03: Navigate in the video file to a frame  where you want to start the analysis, and click on the “Frame to Start the analysis” button&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Step 2.04: Navigate in the video file to a frame  where you want to finish  the analysis, and click on the “Frame to Finish the analysis” button&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
                      </widget>
                     </item>
@@ -967,166 +876,6 @@ p, li { white-space: pre-wrap; }
           <property name="title">
            <string>Scale</string>
           </property>
-          <widget class="QLabel" name="label_61">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>140</y>
-             <width>62</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Centimeters:</string>
-           </property>
-          </widget>
-          <widget class="QDoubleSpinBox" name="spinBoxScaleCm">
-           <property name="geometry">
-            <rect>
-             <x>90</x>
-             <y>140</y>
-             <width>65</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>65</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <double>10000.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.500000000000000</double>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label">
-           <property name="geometry">
-            <rect>
-             <x>310</x>
-             <y>150</y>
-             <width>141</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Distancia entre os pontos</string>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEditScalePx">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="geometry">
-            <rect>
-             <x>320</x>
-             <y>170</y>
-             <width>65</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>65</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_2">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>170</y>
-             <width>31</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Scale</string>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="leScala">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="geometry">
-            <rect>
-             <x>70</x>
-             <y>170</y>
-             <width>65</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>65</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_3">
-           <property name="geometry">
-            <rect>
-             <x>140</x>
-             <y>170</y>
-             <width>47</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>px/cm</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_4">
-           <property name="geometry">
-            <rect>
-             <x>390</x>
-             <y>170</y>
-             <width>47</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>px</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_5">
-           <property name="geometry">
-            <rect>
-             <x>160</x>
-             <y>140</y>
-             <width>47</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>cm</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="pbConfEscala">
-           <property name="geometry">
-            <rect>
-             <x>190</x>
-             <y>150</y>
-             <width>101</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Salvar Scale</string>
-           </property>
-          </widget>
           <widget class="QGroupBox" name="groupBox_23">
            <property name="geometry">
             <rect>
@@ -1369,14 +1118,199 @@ p, li { white-space: pre-wrap; }
             </property>
            </widget>
           </widget>
+          <widget class="QGroupBox" name="groupBox_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>130</y>
+             <width>411</width>
+             <height>91</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string>Inform the distance between the triangles</string>
+           </property>
+           <widget class="QPushButton" name="pbConfEscala">
+            <property name="geometry">
+             <rect>
+              <x>170</x>
+              <y>40</y>
+              <width>101</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Salvar Scale</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label">
+            <property name="geometry">
+             <rect>
+              <x>290</x>
+              <y>10</y>
+              <width>121</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Distancia entre os pontos</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="lineEditScalePx">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>300</x>
+              <y>40</y>
+              <width>65</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>65</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_4">
+            <property name="geometry">
+             <rect>
+              <x>380</x>
+              <y>40</y>
+              <width>47</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>px</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_61">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>30</y>
+              <width>62</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Centimeters:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_5">
+            <property name="geometry">
+             <rect>
+              <x>150</x>
+              <y>30</y>
+              <width>47</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>cm</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_2">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>60</y>
+              <width>31</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Scale</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="leScala">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>50</x>
+              <y>60</y>
+              <width>65</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>65</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_3">
+            <property name="geometry">
+             <rect>
+              <x>120</x>
+              <y>60</y>
+              <width>47</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>px/cm</string>
+            </property>
+           </widget>
+           <widget class="QDoubleSpinBox" name="spinBoxScaleCm">
+            <property name="geometry">
+             <rect>
+              <x>80</x>
+              <y>30</y>
+              <width>65</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>65</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="decimals">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <double>10000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.500000000000000</double>
+            </property>
+           </widget>
+           <zorder>label_61</zorder>
+           <zorder>leScala</zorder>
+           <zorder>pbConfEscala</zorder>
+           <zorder>label</zorder>
+           <zorder>lineEditScalePx</zorder>
+           <zorder>label_4</zorder>
+           <zorder>label_61</zorder>
+           <zorder>label_5</zorder>
+           <zorder>label_2</zorder>
+           <zorder>leScala</zorder>
+           <zorder>label_3</zorder>
+           <zorder>spinBoxScaleCm</zorder>
+          </widget>
          </widget>
          <widget class="QGroupBox" name="groupBox_25">
           <property name="geometry">
            <rect>
-            <x>20</x>
-            <y>380</y>
+            <x>10</x>
+            <y>360</y>
             <width>461</width>
-            <height>161</height>
+            <height>201</height>
            </rect>
           </property>
           <property name="title">
@@ -1418,7 +1352,13 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Posicione os triangulos nos em alguma distancia conhecida&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;Scale: &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;THEN&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt; click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;THEN&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt; press the “save scale” button&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Mark “&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;Noise reduction tools &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;“  checkbox to set the configurations  of two algorithms  that  help to control for tracking artifacts&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Mark “&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;Design multiple areas for analysis&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;” to  set multiple sub-areas  (squares, circles) of the maze from which you want to get specific reports and analysis.&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;THEN&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt; press the “&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;configure&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;” button&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
@@ -1434,51 +1374,41 @@ p, li { white-space: pre-wrap; }
             <x>10</x>
             <y>240</y>
             <width>441</width>
-            <height>111</height>
+            <height>102</height>
            </rect>
           </property>
           <property name="title">
            <string>Marque as Opcoes de interesse</string>
           </property>
-          <widget class="QCheckBox" name="cbNoise">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>30</y>
-             <width>151</width>
-             <height>17</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Tratamento de Ruido</string>
-           </property>
-          </widget>
-          <widget class="QCheckBox" name="cbArea">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>60</y>
-             <width>131</width>
-             <height>17</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Areas de Interesse</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="pbConfigureNioseArea">
-           <property name="geometry">
-            <rect>
-             <x>180</x>
-             <y>60</y>
-             <width>75</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Configure</string>
-           </property>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QCheckBox" name="cbNoise">
+             <property name="text">
+              <string>Noise reduction tools</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="cbArea">
+             <property name="text">
+              <string>Design multiple areas for analysis</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pbConfigureNioseArea">
+             <property name="maximumSize">
+              <size>
+               <width>225</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Configure</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </widget>
         <widget class="QWidget" name="tab">
@@ -3549,7 +3479,7 @@ p, li { white-space: pre-wrap; }
         <x>540</x>
         <y>0</y>
         <width>521</width>
-        <height>611</height>
+        <height>631</height>
        </rect>
       </property>
       <widget class="QGroupBox" name="groupBox">
@@ -3557,7 +3487,7 @@ p, li { white-space: pre-wrap; }
         <rect>
          <x>10</x>
          <y>450</y>
-         <width>181</width>
+         <width>211</width>
          <height>71</height>
         </rect>
        </property>
@@ -3765,13 +3695,13 @@ p, li { white-space: pre-wrap; }
         <rect>
          <x>20</x>
          <y>530</y>
-         <width>121</width>
-         <height>61</height>
+         <width>201</width>
+         <height>57</height>
         </rect>
        </property>
        <property name="maximumSize">
         <size>
-         <width>127</width>
+         <width>20000</width>
          <height>16777215</height>
         </size>
        </property>
@@ -3782,7 +3712,7 @@ p, li { white-space: pre-wrap; }
         </font>
        </property>
        <property name="title">
-        <string>Navigation</string>
+        <string>Navigation (no. of frames per advance</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
@@ -3821,6 +3751,9 @@ p, li { white-space: pre-wrap; }
             <weight>50</weight>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="frame">
+           <bool>true</bool>
           </property>
           <property name="readOnly">
            <bool>false</bool>
@@ -3885,10 +3818,10 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>250</x>
-         <y>450</y>
-         <width>214</width>
-         <height>141</height>
+         <x>300</x>
+         <y>440</y>
+         <width>179</width>
+         <height>181</height>
         </rect>
        </property>
        <property name="maximumSize">
@@ -3906,7 +3839,7 @@ p, li { white-space: pre-wrap; }
        <property name="title">
         <string>Controls</string>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
@@ -4656,6 +4589,26 @@ p, li { white-space: pre-wrap; }
            </widget>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_11">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>             Slow            Fast</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_25">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>           Velocity of reproduction</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
