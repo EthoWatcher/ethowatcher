@@ -1541,3 +1541,8 @@ void telaCadastroFilme::on_chbPrevi_clicked(bool checked)
     }
 
 }
+
+void telaCadastroFilme::on_lblCaminho_linkActivated(const QString &link)
+{
+
+}

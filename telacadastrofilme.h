@@ -259,6 +259,8 @@ private slots:
 
     void on_chbPrevi_clicked(bool checked);
 
+    void on_lblCaminho_linkActivated(const QString &link);
+
 private:
     Ui::telaCadastroFilme *ui;
 

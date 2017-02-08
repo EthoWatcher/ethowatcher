@@ -32,7 +32,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>:/icons/cabecalho3.jpg</pixmap>
+      <pixmap resource="resourcefile.qrc">:/icons/cabecalho3.jpg</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -61,14 +61,14 @@
       </property>
       <widget class="QWidget" name="tab_9">
        <attribute name="title">
-        <string>Configuração</string>
+        <string>Video File Info</string>
        </attribute>
        <widget class="QGroupBox" name="groupBox_3">
         <property name="geometry">
          <rect>
           <x>10</x>
           <y>360</y>
-          <width>291</width>
+          <width>501</width>
           <height>241</height>
          </rect>
         </property>
@@ -111,7 +111,14 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Confira as informações do video aberto no &lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Step 02&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:9pt; color:#000000;&quot;&gt;1 - Click on the “load video” button to open an .AVI video file and check the data for this file (path, name, FPS, width/height). &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Calibri'; font-size:9pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;2 - Select  the module(s) (one or more)  that will be used to process this video file. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;Warning:: If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;If you want to use this video only for tracking, select the appropriate checkbox. For both tracking and ethography, select both checkboxes. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;If you also want to use the “video blinding” procedures (hiding the &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#ff0000;&quot;&gt;clacket&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt; and changing the file ID from the user who will transcript the recording session), then select also this checkbox. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;3 - Click on “Next” button &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
              </item>
@@ -125,9 +132,9 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>110</y>
+          <y>100</y>
           <width>491</width>
-          <height>111</height>
+          <height>121</height>
          </rect>
         </property>
         <property name="title">
@@ -159,7 +166,7 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="text">
-          <string>Nome do video</string>
+          <string>Video file Name</string>
          </property>
         </widget>
         <widget class="QLabel" name="lblCaminho">
@@ -188,7 +195,7 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="text">
-          <string>Caminho  do video</string>
+          <string>Video file path</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_14">
@@ -196,12 +203,12 @@ p, li { white-space: pre-wrap; }
           <rect>
            <x>20</x>
            <y>60</y>
-           <width>101</width>
+           <width>131</width>
            <height>16</height>
           </rect>
          </property>
          <property name="text">
-          <string>Fps</string>
+          <string>Frames per second (FPS)</string>
          </property>
         </widget>
         <widget class="QLabel" name="lblFps">
@@ -246,7 +253,7 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="text">
-          <string>Width</string>
+          <string>Width (px)</string>
          </property>
         </widget>
         <widget class="QLabel" name="lblHeight">
@@ -275,7 +282,7 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="text">
-          <string>Height</string>
+          <string>Height (px)</string>
          </property>
         </widget>
        </widget>
@@ -289,65 +296,49 @@ p, li { white-space: pre-wrap; }
          </rect>
         </property>
         <property name="title">
-         <string>Step 1.03 No que voe quer utilizar com esse video</string>
+         <string>Step 1.03 Select modules for video file processing</string>
         </property>
-        <widget class="QCheckBox" name="checkBox_2">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>50</y>
-           <width>151</width>
-           <height>17</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Registro comportamental</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="cbPro">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>80</y>
-           <width>161</width>
-           <height>17</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Processamento de Imagem</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-        <widget class="QCheckBox" name="cbBlinding">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>20</y>
-           <width>161</width>
-           <height>17</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Blinding Analises</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QCheckBox" name="checkBox_2">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Video or Real-time ethography</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QCheckBox" name="cbPro">
+           <property name="text">
+            <string>Tracking &amp; morphologic/cinematic analysis</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QCheckBox" name="cbBlinding">
+           <property name="text">
+            <string>Blinding video file</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
        <widget class="QGroupBox" name="groupBox_9">
         <property name="geometry">
@@ -371,7 +362,7 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="text">
-          <string>Open a Video</string>
+          <string>Load Video</string>
          </property>
         </widget>
        </widget>
@@ -397,22 +388,9 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="text">
-          <string>Configure video registration</string>
+          <string>Next Step</string>
          </property>
         </widget>
-       </widget>
-       <widget class="QGroupBox" name="groupBox_15">
-        <property name="geometry">
-         <rect>
-          <x>310</x>
-          <y>370</y>
-          <width>181</width>
-          <height>221</height>
-         </rect>
-        </property>
-        <property name="title">
-         <string>Configuration-To-Do-Step</string>
-        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_10">
@@ -3460,7 +3438,7 @@ p, li { white-space: pre-wrap; }
         <x>540</x>
         <y>0</y>
         <width>521</width>
-        <height>611</height>
+        <height>631</height>
        </rect>
       </property>
       <widget class="QGroupBox" name="groupBox">
@@ -3468,7 +3446,7 @@ p, li { white-space: pre-wrap; }
         <rect>
          <x>10</x>
          <y>450</y>
-         <width>181</width>
+         <width>211</width>
          <height>71</height>
         </rect>
        </property>
@@ -3676,13 +3654,13 @@ p, li { white-space: pre-wrap; }
         <rect>
          <x>20</x>
          <y>530</y>
-         <width>121</width>
-         <height>61</height>
+         <width>201</width>
+         <height>57</height>
         </rect>
        </property>
        <property name="maximumSize">
         <size>
-         <width>127</width>
+         <width>20000</width>
          <height>16777215</height>
         </size>
        </property>
@@ -3693,7 +3671,7 @@ p, li { white-space: pre-wrap; }
         </font>
        </property>
        <property name="title">
-        <string>Navigation</string>
+        <string>Navigation (no. of frames per advance</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
@@ -3720,7 +3698,7 @@ p, li { white-space: pre-wrap; }
            <string/>
           </property>
           <property name="icon">
-           <iconset>
+           <iconset resource="resourcefile.qrc">
             <normaloff>:/icons/br_prev.ico</normaloff>:/icons/br_prev.ico</iconset>
           </property>
          </widget>
@@ -3732,6 +3710,9 @@ p, li { white-space: pre-wrap; }
             <weight>50</weight>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="frame">
+           <bool>true</bool>
           </property>
           <property name="readOnly">
            <bool>false</bool>
@@ -3774,7 +3755,7 @@ p, li { white-space: pre-wrap; }
            <string/>
           </property>
           <property name="icon">
-           <iconset>
+           <iconset resource="resourcefile.qrc">
             <normaloff>:/icons/br_next.ico</normaloff>:/icons/br_next.ico</iconset>
           </property>
           <property name="shortcut">
@@ -3796,10 +3777,10 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>250</x>
-         <y>450</y>
-         <width>214</width>
-         <height>141</height>
+         <x>280</x>
+         <y>440</y>
+         <width>181</width>
+         <height>181</height>
         </rect>
        </property>
        <property name="maximumSize">
@@ -3817,8 +3798,8 @@ p, li { white-space: pre-wrap; }
        <property name="title">
         <string>Controls</string>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
-        <item>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
            <widget class="QPushButton" name="btStop">
@@ -3844,7 +3825,7 @@ p, li { white-space: pre-wrap; }
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resourcefile.qrc">
               <normaloff>:/icons/playback_pause.ico</normaloff>:/icons/playback_pause.ico</iconset>
             </property>
            </widget>
@@ -3873,14 +3854,14 @@ p, li { white-space: pre-wrap; }
              <string/>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="resourcefile.qrc">
               <normaloff>:/icons/playback_play.ico</normaloff>:/icons/playback_play.ico</iconset>
             </property>
            </widget>
           </item>
          </layout>
         </item>
-        <item>
+        <item row="1" column="0">
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="1" column="8">
            <widget class="QLabel" name="label_46">
