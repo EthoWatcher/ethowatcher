@@ -149,6 +149,7 @@ public:
     cv::Point scalaP1,scalaP2;
     double disPonto,scala;
     double maxVaria;
+    double minVaria;
 
     cv::Point janelaP1,janelaMaxP1,janelaMaxP2;
     double janelaHei;
@@ -266,6 +267,8 @@ private slots:
     void on_pbNextRoi_clicked();
 
     void on_pbConfigureTreatment_clicked();
+
+    void on_pbConfRuidoInt_clicked();
 
 private:
     Ui::telaCadastroFilme *ui;

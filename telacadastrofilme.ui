@@ -1553,25 +1553,6 @@ p, li { white-space: pre-wrap; }
              <string>Configure</string>
             </property>
            </widget>
-           <widget class="QCheckBox" name="cbMovel">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="geometry">
-             <rect>
-              <x>170</x>
-              <y>50</y>
-              <width>61</width>
-              <height>17</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>mobile</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
           </widget>
           <widget class="QWidget" name="tab_2">
            <attribute name="title">

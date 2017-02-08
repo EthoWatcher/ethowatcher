@@ -1381,7 +1381,7 @@ void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnc
 
             moduloVaria= qSqrt( qPow(novoCentroideX - antigoCentroideX,2)+ qPow(novoCentroideY- antigoCentroideY,2) );
 
-            if((maxVaria) < (moduloVaria) ){
+            if((maxVaria) < (moduloVaria) ){ //foi trocado o sinal para menor
             //se tudo ocorreu corretamente
 
                 novaVarAngular= novoAngObj- antigoAnguloObj;

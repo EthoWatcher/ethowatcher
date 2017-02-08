@@ -1320,7 +1320,7 @@ void telaCadastroFilme::on_pbCadastrar1_clicked()
      if(ui->cbVariaca->isChecked()){// habilita minima variação
 
         stream.writeTextElement("ativado","true");
-        stream.writeTextElement("tamanho",QString::number(maxVaria*scala*scalTrans));
+        stream.writeTextElement("tamanho",QString::number(minVaria*scala*scalTrans));
 
      }else{
          stream.writeTextElement("ativado","false");
@@ -1607,4 +1607,9 @@ void telaCadastroFilme::on_pbConfigureTreatment_clicked()
     triRedMax->setVisible(true);
     triBlueMax->setVisible(true);
     areaInt->setVisible(false);
+}
+
+void telaCadastroFilme::on_pbConfRuidoInt_clicked()
+{
+    minVaria = ui->leMin->text().toDouble();
 }
