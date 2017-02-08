@@ -395,11 +395,13 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
         ui->hsTimer->setRange(0,(int)video_frames );
 
         imageFundopixMap = new QGraphicsPixmapItem();
-        scene = new QGraphicsScene(0,0,480,340,ui->graphicsView);
+        scene = new QGraphicsScene(0,0,480,360,ui->graphicsView);
         ui->graphicsView->setScene(scene);
         //imgResultado
 
         scene->addItem(imageFundopixMap);
+        //setando o tamanho da cena
+       // scene->setSceneRect(0,0,480,340);
 
 
 
@@ -419,7 +421,7 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
         scene->addItem(triBlueScala);
         scene->addItem(triRedScala);
 
-        triBlueScala->setPos(200,180);
+        triBlueScala->setPos(480,360);
         connect(triRedScala,SIGNAL(atualizoImage()),this,SLOT(on_sbScalP1X_editingFinished()));
 
         connect(triRedScala,SIGNAL(atualizoImage()),this,SLOT(on_sbScalP1Y_editingFinished()));
@@ -561,6 +563,10 @@ void telaCadastroFilme::on_pbAdquiriFrame_clicked()
 void telaCadastroFilme::on_pbConfEscala_clicked()
 {
     ui->gbScale->setEnabled(false);
+    disPonto = qPow(triRedScala->pos().x() - triBlueScala->pos().x(),2) +qPow( triRedScala->pos().y()- triBlueScala->pos().y(),2) ;
+
+    disPonto= qSqrt(disPonto);
+
     scala= disPonto/ui->spinBoxScaleCm->value();
 
     ui->leScala->setText(QString::number(scala));
@@ -682,6 +688,8 @@ void telaCadastroFilme::on_sbScalP1Y_editingFinished()
 void telaCadastroFilme::on_sbScalP2X_editingFinished()
 {
     ui->sbScalP2X->setValue(triBlueScala->pos().x());
+
+
 
     scalaP2.x = triBlueScala->pos().x();
     disPonto= qSqrt(qPow(scalaP2.x-scalaP1.x,2)+qPow(scalaP2.y-scalaP1.y,2));
@@ -1114,7 +1122,10 @@ void telaCadastroFilme::on_pbFrameFinal_clicked()
 void telaCadastroFilme::on_spinBoxScaleCm_valueChanged(double arg1)
 {
     if(arg1!=0){
-        scala= disPonto/arg1;
+        disPonto = qPow(triRedScala->pos().x() - triBlueScala->pos().x(),2) +qPow( triRedScala->pos().y()- triBlueScala->pos().y(),2) ;
+
+        disPonto= qSqrt(disPonto);
+        scala= disPonto/ ui->spinBoxScaleCm->value();
 
      ui->leScala->setText(QString::number(scala));
 
