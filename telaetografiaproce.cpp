@@ -867,7 +867,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
                if(streamReader.name() == "fps"){
 
                    conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
-            videoLista.fps.push_back(conversor.toInt());
+            videoLista.fps.push_back(conversor.toDouble());
 
                }
 

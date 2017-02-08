@@ -153,7 +153,7 @@ public:
         std::vector<int> erosao;
         std::vector<int> threshold;
         std::vector<double> escala;
-        std::vector<int> fps;
+        std::vector<double> fps;
         std::vector<bool> chProImaOn;
 
 
