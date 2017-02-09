@@ -534,7 +534,7 @@ void moduloProcessamento::processamentoMorfologico(){
 
          QImage imgEnviada2((uchar*) frameDisplay1.data, frameDisplay1.cols, frameDisplay1.rows, frameDisplay1.step, QImage::Format_RGB888);//1
 
-        cv::resize(frameDisplay,frameDisplay, cv::Size(320,240),0,0,cv::INTER_LANCZOS4);
+        //cv::resize(frameDisplay,frameDisplay, cv::Size(320,240),0,0,cv::INTER_LANCZOS4);
          QImage imgEnviada((uchar*) frameDisplay.data, frameDisplay.cols, frameDisplay.rows, frameDisplay.step, QImage::Format_RGB888);//1
 
 

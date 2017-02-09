@@ -421,7 +421,7 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
         scene->addItem(triBlueScala);
         scene->addItem(triRedScala);
 
-        triBlueScala->setPos(480,360);
+        triBlueScala->setPos(300,140);
         connect(triRedScala,SIGNAL(atualizoImage()),this,SLOT(on_sbScalP1X_editingFinished()));
 
         connect(triRedScala,SIGNAL(atualizoImage()),this,SLOT(on_sbScalP1Y_editingFinished()));
@@ -430,7 +430,7 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
 
 
 
-        triRedScala->setPos(280,180);
+        triRedScala->setPos(160,140);
 
 
         //para o maxima variacao
