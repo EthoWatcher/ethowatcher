@@ -66,20 +66,20 @@ void telaCadastroFilme::recebeImagem(QImage qiCaptador, int numFrame)
       switch (ui->tabWCalib->currentIndex()){
 
       case 1:
-          imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+          imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack1));
           break;
       case 2:
           //primeiro vai permitir a imagem mudar;
           if(chRoi){
-              imageFundopixMap->setPixmap( QPixmap::fromImage(qiCaptador.scaled(480, 360,Qt::KeepAspectRatio) ));
+              imageFundopixMap->setPixmap( QPixmap::fromImage(qiCaptador ));
 
           }else{ //encontra a primeira posição
-              imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameProce));
+              imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameProce1));
           }
 
           break;
       case 3:
-          imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+          imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack1));
           break;
       default:
           //imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
@@ -98,15 +98,17 @@ void telaCadastroFilme::recebeImagem(QImage qiCaptador, int numFrame)
 
         if(!chaveBack){
 
-            QImage small = qiCaptador.scaled(480, 360,Qt::KeepAspectRatio);
-            qiRecebida= small;
+            QImage small = qiCaptador;//qiCaptador.scaled(480, 360,Qt::KeepAspectRatio);
+
+            qiRecebida= qiCaptador;
+
             //ui->imgResultado->setPixmap(QPixmap::fromImage(small));
             imageFundopixMap->setPixmap(QPixmap::fromImage(small));
 
         }else{
 
-            QImage small2 = qiCaptador.scaled(480, 360,Qt::KeepAspectRatio);
-            qiRecebida=small2;
+            QImage small2 = qiCaptador;//iCaptador.scaled(480, 360,Qt::KeepAspectRatio);
+            qiRecebida=qiCaptador;
             frameAnimal = conQim2Mat(qiRecebida);
             cv::Mat frameAnimal2 = frameAnimal.clone();
 
@@ -395,7 +397,8 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
         ui->hsTimer->setRange(0,(int)video_frames );
 
         imageFundopixMap = new QGraphicsPixmapItem();
-        scene = new QGraphicsScene(0,0,480,360,ui->graphicsView);
+        //scene = new QGraphicsScene(0,0,)
+        scene = new QGraphicsScene(0,0,video_width,video_heigth,ui->graphicsView);
         ui->graphicsView->setScene(scene);
         //imgResultado
 
@@ -552,7 +555,7 @@ void telaCadastroFilme::on_pbAdquiriFrame_clicked()
     resultado.frameInicial=frame_atual;
 
   // if(frame_atual)
-    resultado.qiFrameInicial=qiRecebida;
+    resultado.qiFrameInicial1=qiRecebida;
     ui->lblFrameInicio->setText(QString::number(resultado.frameInicial));
    // ui->imgResultado->setPixmap(QPixmap::fromImage(resultado.qiFrameInicial));
 
@@ -632,7 +635,8 @@ void telaCadastroFilme::on_tabWCalib_currentChanged(int index)
         triBlueScala->setVisible(true);
         triRedScala->setVisible(true);
 
-        imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+        qDebug()<< " passou pela tab de calibracao1";
+        imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack1));
 
 
     }
@@ -644,7 +648,7 @@ void telaCadastroFilme::on_tabWCalib_currentChanged(int index)
         areaInt->setVisible(false);
 
 
-        imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameProce));
+        imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameProce1));
 
 
 
@@ -661,7 +665,7 @@ void telaCadastroFilme::on_tabWCalib_currentChanged(int index)
             }
 
         }
-        imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+        imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack1));
     }
 
     qDebug()<< " passou pela tab de calibracao2";
@@ -1066,7 +1070,7 @@ void telaCadastroFilme::on_pushButtonCapture_clicked()
     ui->chbPrevi->setChecked(true);
 
     resultado.frameFundo=frame_atual;
-    resultado.qiFrameBack=qiRecebida;
+    resultado.qiFrameBack1=qiRecebida;
 
     frameBackground = conQim2Mat(qiRecebida);
     ui->lblFrameBack->setText(QString::number(resultado.frameFundo));
@@ -1082,7 +1086,7 @@ void telaCadastroFilme::on_pbFrameProce_clicked()
     //chaveBack=true;
 
     resultado.frameProces=frame_atual;
-    resultado.qiFrameProce=qiRecebida;
+    resultado.qiFrameProce1=qiRecebida;
 
 //        frameProce = conQim2Mat(qiRecebida);
     ui->leFramePro->setText(QString::number(resultado.frameProces));
@@ -1603,7 +1607,7 @@ void telaCadastroFilme::on_pushButton_2_clicked()
 void telaCadastroFilme::on_pbNextRoi_clicked()
 {
     chRoi=false;
-    imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameProce));
+    imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameProce1));
     areaInt->setWid(ui->leVarMax->text().toDouble()*scala);
     areaInt->setHei(ui->leVarMax->text().toDouble()*scala);
     areaInt->setVisible(true);
@@ -1623,4 +1627,14 @@ void telaCadastroFilme::on_pbConfigureTreatment_clicked()
 void telaCadastroFilme::on_pbConfRuidoInt_clicked()
 {
     minVaria = ui->leMin->text().toDouble();
+}
+
+void telaCadastroFilme::on_pbZoomIn_clicked()
+{
+    ui->graphicsView->scale(1.1,1.1);
+}
+
+void telaCadastroFilme::on_pbZoomOut_clicked()
+{
+    ui->graphicsView->scale(0.9,0.9);
 }

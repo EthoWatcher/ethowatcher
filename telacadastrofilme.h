@@ -270,6 +270,10 @@ private slots:
 
     void on_pbConfRuidoInt_clicked();
 
+    void on_pbZoomIn_clicked();
+
+    void on_pbZoomOut_clicked();
+
 private:
     Ui::telaCadastroFilme *ui;
 
@@ -310,9 +314,9 @@ private:
         double frameProces;
         double frameFundo;
 
-        QImage qiFrameProce;
-        QImage qiFrameBack;
-        QImage qiFrameInicial;
+        QImage qiFrameProce1;
+        QImage qiFrameBack1;
+        QImage qiFrameInicial1;
 
 
 
