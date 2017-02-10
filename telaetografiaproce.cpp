@@ -187,8 +187,10 @@ void telaEtografiaProce::recebeImagem(QImage qiCaptador, int numFrame)
 //                 painter.drawPoint(pRetaA2X,pRetaA2Y);
 
 
+//                 double ponto1, ponto2, ponto3, ponto4
 
 //                 //desenha o centro de massa
+//                 ponto1=
 
                  if(ui->chbArea->isChecked()){
 
@@ -199,10 +201,70 @@ void telaEtografiaProce::recebeImagem(QImage qiCaptador, int numFrame)
                    painter.drawPoint(dados->desenhoSaida.vtxX1[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY1[numFrame-videoLista.frameProces[0]]);
                    painter.drawPoint(dados->desenhoSaida.vtxX2[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY2[numFrame-videoLista.frameProces[0]]);
                    painter.drawPoint(dados->desenhoSaida.vtxX3[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY3[numFrame-videoLista.frameProces[0]]);
-                   painter.drawPoint(dados->desenhoSaida.vtxX4[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY4[numFrame-videoLista.frameProces[0]]);
+                  // painter.drawPoint(dados->desenhoSaida.vtxX4[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY4[numFrame-videoLista.frameProces[0]]);
 
 
                  }
+
+                 QPoint ponto1,ponto2; //ponto 1 é o da cima e esquerda
+                                       //o ponto 2 é o ponto de cima e da direita
+                                       // o ponto 4 é o ponto de baixo e da direita
+                                       //o ponto 3 é o ponto de biaxo mas da esquerda
+                 //QPoint ponto3,ponto4;
+                 QPoint vetPont[4];
+
+                 vetPont[0].setX(dados->desenhoSaida.vtxX1[numFrame-videoLista.frameProces[0]]);
+                 vetPont[0].setY(dados->desenhoSaida.vtxY1[numFrame-videoLista.frameProces[0]]);
+                 vetPont[1].setX(dados->desenhoSaida.vtxX2[numFrame-videoLista.frameProces[0]]);
+                 vetPont[1].setY(dados->desenhoSaida.vtxY2[numFrame-videoLista.frameProces[0]]);
+                 vetPont[2].setX(dados->desenhoSaida.vtxX3[numFrame-videoLista.frameProces[0]]);
+                 vetPont[2].setY(dados->desenhoSaida.vtxY3[numFrame-videoLista.frameProces[0]]);
+                 vetPont[3].setX(dados->desenhoSaida.vtxX4[numFrame-videoLista.frameProces[0]]);
+                 vetPont[3].setY(dados->desenhoSaida.vtxY4[numFrame-videoLista.frameProces[0]]);
+
+
+//                 ponto1=vetPont[0];
+
+//                 for(int ja=0; ja< 4; ja++){
+
+//                     if((ponto1.x()< vetPont[ja]) &&)
+
+
+//                 }
+
+                 QPoint desenho1,desenho2,desenho3,desenho4;
+                 //esquerda
+                 desenho1.setX((vetPont[0].x()+vetPont[1].x())/2);
+                 desenho1.setY((vetPont[0].y()+vetPont[1].y())/2);
+
+                 //direita
+                 desenho2.setX((vetPont[1].x()+vetPont[2].x())/2);
+                 desenho2.setY((vetPont[1].y()+vetPont[2].y())/2);
+
+
+
+                 desenho3.setX((vetPont[2].x()+vetPont[3].x())/2);
+                 desenho3.setY((vetPont[2].y()+vetPont[3].y())/2);
+
+                 desenho4.setX((vetPont[3].x()+vetPont[0].x())/2);
+                 desenho4.setY((vetPont[3].y()+vetPont[0].y())/2);
+//                 desenho1.setX(ponto4.x()+ (ponto4.x()-ponto1.x())/2);
+//                 desenho1.setY(ponto1.y());
+                 //painter.drawLine(desenho1,desenho2);
+
+                 //painter.drawPoint(desenho1);
+                 painter.drawLine(desenho1,desenho3);
+                 painter.setPen(QColor(20,244,23));
+                 painter.drawLine(desenho2,desenho4);
+                // painter.drawLine(vetPont[1],vetPont[2]);
+
+
+
+
+
+
+
+
 
                  painter.setPen(canetaAmarela);
 

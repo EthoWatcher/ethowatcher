@@ -185,7 +185,7 @@ void moduloProcessamento::desenhaObjetoInterresse(cv::Mat frameErodido){
 
     frameSegmentacao= drawing-frameContornoBranco+frameContorno;
 
-    cv::imshow("frame de erosao de interesse",frameSegmentacao.clone());
+    //cv::imshow("frame de erosao de interesse",frameSegmentacao.clone());
     cv::waitKey(15);
 
     }
@@ -869,7 +869,7 @@ void moduloProcessamento::processamentoMorfologico(){
 
                  maiorTamanho1 = qSqrt(subX+subY);
 
-                 qDebug() << "tamanho do objeto " << maiorTamanho1;
+               //  qDebug() << "tamanho do objeto " << maiorTamanho1;
 
                     //enciando o sinal para outro lugar
                      //qDebug() <<maiorArea;

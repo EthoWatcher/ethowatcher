@@ -1542,18 +1542,6 @@
                </layout>
               </widget>
              </item>
-             <item>
-              <widget class="QGroupBox" name="groupBox_12">
-               <property name="title">
-                <string>Tutor</string>
-               </property>
-               <layout class="QVBoxLayout" name="verticalLayout_10">
-                <item>
-                 <widget class="QTextEdit" name="textEdit"/>
-                </item>
-               </layout>
-              </widget>
-             </item>
             </layout>
            </widget>
           </item>
@@ -1581,7 +1569,7 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
@@ -1601,8 +1589,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>306</width>
-                   <height>293</height>
+                   <width>323</width>
+                   <height>258</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1651,25 +1639,100 @@
                 </widget>
                </widget>
               </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_8">
+                <property name="minimumSize">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="title">
+                 <string>Results</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_15">
+                 <item>
+                  <widget class="QTableWidget" name="tabRegistro">
+                   <property name="alternatingRowColors">
+                    <bool>true</bool>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SingleSelection</enum>
+                   </property>
+                   <property name="selectionBehavior">
+                    <enum>QAbstractItemView::SelectRows</enum>
+                   </property>
+                   <property name="columnCount">
+                    <number>3</number>
+                   </property>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
+                   <column>
+                    <property name="text">
+                     <string>Category</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Begin Time</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>End Time</string>
+                    </property>
+                   </column>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pbDeleteRegistros">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Deletar Ultimo Registro</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
              </layout>
             </widget>
             <widget class="QWidget" name="tab_4">
              <attribute name="title">
-              <string>Registro</string>
+              <string>Tutor</string>
              </attribute>
-             <layout class="QVBoxLayout" name="verticalLayout_7"/>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QGroupBox" name="groupBox_12">
+                <property name="title">
+                 <string>Tutor</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_10">
+                 <item>
+                  <widget class="QTextEdit" name="textEdit"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
             </widget>
             <widget class="QWidget" name="tab_7">
              <attribute name="title">
-              <string>trackin</string>
+              <string>Trackin</string>
              </attribute>
              <widget class="QGroupBox" name="groupBox_2">
               <property name="geometry">
                <rect>
                 <x>10</x>
-                <y>30</y>
+                <y>20</y>
                 <width>261</width>
-                <height>91</height>
+                <height>111</height>
                </rect>
               </property>
               <property name="title">
@@ -1685,7 +1748,7 @@
                 </rect>
                </property>
                <property name="text">
-                <string>Area do Objeto</string>
+                <string>Altura</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -1701,7 +1764,7 @@
                 </rect>
                </property>
                <property name="text">
-                <string>Tamanho do Objeto</string>
+                <string>Largura</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -1728,9 +1791,9 @@
               <property name="geometry">
                <rect>
                 <x>10</x>
-                <y>140</y>
-                <width>301</width>
-                <height>221</height>
+                <y>130</y>
+                <width>321</width>
+                <height>171</height>
                </rect>
               </property>
               <property name="title">
@@ -1742,7 +1805,7 @@
                  <x>10</x>
                  <y>20</y>
                  <width>271</width>
-                 <height>191</height>
+                 <height>141</height>
                 </rect>
                </property>
                <property name="widgetResizable">
@@ -1754,7 +1817,7 @@
                   <x>0</x>
                   <y>0</y>
                   <width>269</width>
-                  <height>189</height>
+                  <height>139</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1764,6 +1827,61 @@
                 </layout>
                </widget>
               </widget>
+             </widget>
+             <widget class="QGroupBox" name="groupBox_10">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>310</y>
+                <width>331</width>
+                <height>201</height>
+               </rect>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>Results do Traking</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_16">
+               <item>
+                <widget class="QTableWidget" name="tabRegistro_2">
+                 <property name="alternatingRowColors">
+                  <bool>true</bool>
+                 </property>
+                 <property name="selectionMode">
+                  <enum>QAbstractItemView::SingleSelection</enum>
+                 </property>
+                 <property name="selectionBehavior">
+                  <enum>QAbstractItemView::SelectRows</enum>
+                 </property>
+                 <property name="columnCount">
+                  <number>3</number>
+                 </property>
+                 <attribute name="verticalHeaderVisible">
+                  <bool>false</bool>
+                 </attribute>
+                 <column>
+                  <property name="text">
+                   <string>Category</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Begin Time</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>End Time</string>
+                  </property>
+                 </column>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </widget>
             <widget class="QWidget" name="tab_6">
@@ -1848,79 +1966,7 @@
               <height>250</height>
              </size>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_11">
-             <item>
-              <widget class="QWidget" name="widget_8" native="true">
-               <layout class="QVBoxLayout" name="verticalLayout_12">
-                <item>
-                 <widget class="QTableWidget" name="tabRegistro">
-                  <property name="alternatingRowColors">
-                   <bool>true</bool>
-                  </property>
-                  <property name="selectionMode">
-                   <enum>QAbstractItemView::SingleSelection</enum>
-                  </property>
-                  <property name="selectionBehavior">
-                   <enum>QAbstractItemView::SelectRows</enum>
-                  </property>
-                  <property name="columnCount">
-                   <number>3</number>
-                  </property>
-                  <attribute name="verticalHeaderVisible">
-                   <bool>false</bool>
-                  </attribute>
-                  <column>
-                   <property name="text">
-                    <string>Category</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Begin Time</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>End Time</string>
-                   </property>
-                  </column>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QWidget" name="widget_9" native="true">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_8">
-                   <item>
-                    <widget class="QPushButton" name="pbDeleteRegistros">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Deletar Ultimo Registro</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-            </layout>
+            <layout class="QVBoxLayout" name="verticalLayout_11"/>
            </widget>
           </item>
          </layout>
