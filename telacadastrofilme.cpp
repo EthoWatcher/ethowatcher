@@ -391,7 +391,7 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
         //resetaCorConfi();
         ui->swiTutorConfig->setCurrentIndex(1);
 
-        ui->groVideoInfo->setStyleSheet("font: bold;""background-color: #00ac00;");
+        //ui->groVideoInfo->setStyleSheet("font: bold;""background-color: #00ac00;");
         ui->hsTimer->setRange(0,(int)video_frames );
 
         imageFundopixMap = new QGraphicsPixmapItem();
