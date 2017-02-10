@@ -24,6 +24,7 @@
 #include <QXmlStreamReader>
 //#include <QtGui>
 #include <QMessageBox>
+#include "parserxmltocsv.h"
 
 namespace Ui {
 class telaSegementacao;
@@ -230,6 +231,8 @@ private:
  //gravar timeBudeget
  QString nomeGravarCatalago;
  QFile Output;
+
+ parserXMLtoCSV *parser;
 
 signals:
 
