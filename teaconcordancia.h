@@ -22,6 +22,7 @@
 #include <QFile>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
+#include "parserxmltocsv.h"
 
 
 
@@ -229,6 +230,7 @@ private:
  //gravar timeBudeget
  QString nomeGravarCatalago;
  QFile Output;
+ parserXMLtoCSV *parser;
 
 signals:
 

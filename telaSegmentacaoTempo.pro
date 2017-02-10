@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += ProjetoSegmentacaoTempo/main.cpp\
         #ProjetoSegmentacaoTempo/mainwindow.cpp\
         telasegementacao.cpp\
-        emuladorsegmentacaotempo.cpp
+        emuladorsegmentacaotempo.cpp\
+        parserxmltocsv.cpp
 
 HEADERS  += telasegementacao.h\
-            emuladorsegmentacaotempo.h
+            emuladorsegmentacaotempo.h\
+            parserxmltocsv.h
         #ProjetoSegmentacaoTempo/mainwindow.h\
 
 FORMS    += telasegementacao.ui\

@@ -41,7 +41,8 @@ SOURCES += ProjetoEtografia/main.cpp\
         moduloprocessamento.cpp \
         telaetografiaproce.cpp\
          modulocaptador.cpp\
-         emuladortelaetografia.cpp
+         emuladortelaetografia.cpp\
+        parserxmltocsv.cpp
     #ethowatcheros.cpp \
     #ProjetoEtografia/areatraingulo.cpp
     #../estruturas.cpp
@@ -55,6 +56,7 @@ HEADERS  += telaetografia.h\
         telaetografiaproce.h \
         modulocaptador.h\
         emuladortelaetografia.h\
+         parserxmltocsv.h
 #ProjetoEtografia/mainwindow.h \
     #ethowatcheros.h \
    # ProjetoEtografia/areatraingulo.h

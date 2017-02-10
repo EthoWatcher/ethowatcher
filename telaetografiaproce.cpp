@@ -2471,6 +2471,10 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
    OutEtografia.close();
 
 
+   parser = new parserXMLtoCSV();
+   parser->converteArquivo(nomeGravarEtografia);
+
+
 
 //    totalizacoesEtografia();
 
@@ -2699,6 +2703,9 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
 
     OutEtografia.close();
 
+    //converte o xml para csv
+    parser = new parserXMLtoCSV();
+    parser->converteArquivo(nomeGravarProcesImagem);
 
 
      }
