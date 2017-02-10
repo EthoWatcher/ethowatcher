@@ -417,7 +417,10 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
                 reMorfo.centroidX.clear();
                 reMorfo.centroidY.clear();
                 reMorfo.objetoEncontrado.clear();
-                reMorfo.tamanhoObj.clear();
+                reMorfo.altura.clear();
+                reMorfo.largura.clear();
+
+                //reMorfo.tamanhoObj.clear();
 
                 reCinema.ruidoMaxVaria.clear();
                 reCinema.varAngular.clear();
@@ -425,7 +428,9 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
                 reCinema.varCenX.clear();
                 reCinema.varCenY.clear();
                 reCinema.varDistancia.clear();
-                reCinema.varTamObjeto.clear();
+                reCinema.varAltura.clear();
+                reCinema.varLargura.clear();
+                //reCinema.varTamObjeto.clear();
 //              KohoKappa.cohoKappaMatrix.push_back(KohoKappa.cohoKappa);
 ////                analiseSequencial.listaDados.push_back(analiseSequencial.dados);
 //              KohoKappa.cohoKappa.clear();
@@ -459,12 +464,16 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
                     reMorfo.centroidX.push_back(streamReader.attributes().value("ceX").toDouble());
                     reMorfo.centroidY.push_back(streamReader.attributes().value("ceY").toDouble());
 
+                    reMorfo.altura.push_back(streamReader.attributes().value("altP").toFloat());
+                    reMorfo.largura.push_back(streamReader.attributes().value("larP").toFloat());
+
+                    //altP, altM, larP, larM, an, Var , Vd, Valt, Vlar, Van, rMinV
 
 
-                    reMorfo.tamanhoObj.push_back(streamReader.attributes().value("taP").toDouble());
+                    //reMorfo.tamanhoObj.push_back(streamReader.attributes().value("taP").toDouble());
 
 
-                    QString conMax= streamReader.attributes().value("rMV").toString();
+                    QString conMax= streamReader.attributes().value("rMinV").toString();
 
                     if(conMax=="true"){
                         reCinema.ruidoMaxVaria.push_back(true);
@@ -478,7 +487,10 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
                     reCinema.varAngular.push_back(streamReader.attributes().value("Van").toDouble());
                     reCinema.varArea.push_back(streamReader.attributes().value("Var").toDouble());
                     reCinema.varDistancia.push_back(streamReader.attributes().value("Vd").toDouble());
-                    reCinema.varTamObjeto.push_back(streamReader.attributes().value("VtoP").toDouble());
+                    reCinema.varAltura.push_back(streamReader.attributes().value("Valt").toFloat());
+                    reCinema.varLargura.push_back(streamReader.attributes().value("Vlar").toFloat());
+
+                    //reCinema.varTamObjeto.push_back(streamReader.attributes().value("VtoP").toDouble());
 
 
 
@@ -1974,20 +1986,23 @@ void parserXMLtoCSV::escreverTrakinCsv()
 
         csvGravador <<  ";"      <<    ";"    << "Number of pixels;"     << "Area (in cm2);";
         csvGravador <<  "Horizontal coordinate of the centroid;"      <<    "Vertical coordinate of the centroid;";
-        csvGravador <<  "AA(in degrees);" <<"size of the animal;" <<"Object Detected;" ;
+        csvGravador <<  "AA(in degrees);" <<"Height of the animal;" <<"width of the animal;" <<"Object Detected;" ;
         csvGravador << "Distance travelled by the centroid;" << "Distance travelled by the centroid;";
         csvGravador << "Variation of Area (from the former frame);";
-        csvGravador << "Variation of Size of animal (from the former frame);";
+        csvGravador << "Variation of Height of animal (from the former frame);";
+        csvGravador << "Variation of width of animal (from the former frame);";
         csvGravador << "Variation of Angule of animal;";
         csvGravador << "Maximum variation distance travel by the centroid;" << "\n";
 
 
+        //a area de intesse 0 é sempre a altura e largura da imagem original;
 
         csvGravador << "frames;" << "second;" << "of the animal's body;" << "of the animal's body;";
-        csvGravador << "(in pixels, from 0 to 320);" << "(in pixels, from 0 to 320);";
-        csvGravador <<  "Angle between animal and Horizontal coordinate ;" << "in cm;" <<"true or false;" ;
+        csvGravador << "(in pixels, from" << "0 to "<< areasDeInteresse.width[0] <<  " );" << "(in pixels, from " <<  "0 to " << areasDeInteresse.heigth[0] << " );";
+        csvGravador <<  "Angle between animal and Horizontal coordinate ;" << "in cm;" << "in cm;" <<"true or false;" ;
         csvGravador << "(in pixels);" << "(in cm);";
         csvGravador << "in cm2;";
+        csvGravador << "in cm;";
         csvGravador << "in cm;";
         csvGravador << "in degrees;" ;
         csvGravador << "true or false" << "\n";
@@ -1999,7 +2014,8 @@ void parserXMLtoCSV::escreverTrakinCsv()
             csvGravador << conPontoVirgula(matrizReMorfo[ki].area[kj]) << ";" << conPontoVirgula(matrizReMorfo[ki].area[kj]/(videoLido->escala*videoLido->escala))<< ";";
             csvGravador << conPontoVirgula(matrizReMorfo[ki].centroidX[kj]) << ";" << conPontoVirgula(matrizReMorfo[ki].centroidY[kj])<<";";
             csvGravador << conPontoVirgula(matrizReMorfo[ki].anguloObj[kj]) << ";" ;
-            csvGravador << conPontoVirgula(matrizReMorfo[ki].tamanhoObj[kj]/(videoLido->escala)) << ";" ;
+            csvGravador << conPontoVirgula(matrizReMorfo[ki].altura[kj]/(videoLido->escala)) << ";" ;
+            csvGravador << conPontoVirgula(matrizReMorfo[ki].largura[kj]/(videoLido->escala)) << ";" ;
 //            reMorfo.tamanhoObj
 
            if( matrizReMorfo[ki].objetoEncontrado[kj]){
@@ -2009,8 +2025,11 @@ void parserXMLtoCSV::escreverTrakinCsv()
            }
            csvGravador << conPontoVirgula(matrizReCinema[ki].varDistancia[kj]) << ";" << conPontoVirgula(matrizReCinema[ki].varDistancia[kj]/(videoLido->escala))<< ";";
            csvGravador << conPontoVirgula(matrizReCinema[ki].varArea[kj]/(videoLido->escala*videoLido->escala) ) << ";" ;
-           csvGravador << conPontoVirgula(matrizReCinema[ki].varTamObjeto[kj]/(videoLido->escala) ) << ";" ;
+           csvGravador << conPontoVirgula(matrizReCinema[ki].varAltura[kj]/(videoLido->escala) ) << ";" ;
+           csvGravador << conPontoVirgula(matrizReCinema[ki].varLargura[kj]/(videoLido->escala) ) << ";" ;
            csvGravador << conPontoVirgula(matrizReCinema[ki].varAngular[kj] ) << ";" ;
+
+
            if( matrizReCinema[ki].ruidoMaxVaria[kj] ){
                   csvGravador << "true;";
         }else{

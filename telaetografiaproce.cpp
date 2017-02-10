@@ -2471,6 +2471,10 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
    OutEtografia.close();
 
 
+   parser = new parserXMLtoCSV();
+   parser->converteArquivo(nomeGravarEtografia);
+
+
 
 //    totalizacoesEtografia();
 
@@ -2616,8 +2620,12 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
          stream.writeAttribute("arM",QString::number(dados->reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
          stream.writeAttribute("ceX",QString::number(dados->reMorfo.centroidX[i]));
          stream.writeAttribute("ceY",QString::number(dados->reMorfo.centroidY[i]));
-         stream.writeAttribute("taP",QString::number(dados->reMorfo.altura[i]));
-         stream.writeAttribute("taM",QString::number(dados->reMorfo.altura[i]/videoLista.escala[contadorDeVideo]));
+         stream.writeAttribute("altP",QString::number(dados->reMorfo.altura[i]));
+         stream.writeAttribute("altM",QString::number(dados->reMorfo.altura[i]/videoLista.escala[contadorDeVideo]));
+         stream.writeAttribute("larP",QString::number(dados->reMorfo.largura[i]));
+         stream.writeAttribute("larM",QString::number(dados->reMorfo.largura[i]/videoLista.escala[contadorDeVideo]));
+         stream.writeAttribute("an",QString::number(dados->reMorfo.anguloObj[i])); //angulo do objeto
+
 
 
 //         stream.writeAttribute("taP",QString::number(dados->reMorfo.tamanhoObj[i]));
@@ -2636,18 +2644,24 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
 
 
 
-         stream.writeAttribute("an",QString::number(dados->reMorfo.anguloObj[i]));
+
 
          stream.writeAttribute("Var",QString::number(dados->reCinema.varArea[i]));
-         stream.writeAttribute("Van",QString::number(dados->reCinema.varAngular[i]));
          stream.writeAttribute("Vd",QString::number(dados->reCinema.varDistancia[i]));
-         stream.writeAttribute("VtoP",QString::number(dados->reCinema.varTamObjeto[i]));
+         stream.writeAttribute("Valt",QString::number(dados->reCinema.varAltura[i]));
+         stream.writeAttribute("Vlar",QString::number(dados->reCinema.varLargura[i]));
+
+         stream.writeAttribute("Van",QString::number(dados->reCinema.varAngular[i]));
+
+
+         std::vector<float> varAltura;
+         std::vector<float> varLargura;
 
          if(dados->reCinema.ruidoMaxVaria[i]){
-             stream.writeAttribute("rMV","true");
+             stream.writeAttribute("rMinV","true");
 
          }else{
-             stream.writeAttribute("rMV","false");
+             stream.writeAttribute("rMinV","false");
          }
          if(dados->reMorfo.objetoEncontrado[i]){
 
@@ -2699,6 +2713,9 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
 
     OutEtografia.close();
 
+    //converte o xml para csv
+    parser = new parserXMLtoCSV();
+    parser->converteArquivo(nomeGravarProcesImagem);
 
 
      }

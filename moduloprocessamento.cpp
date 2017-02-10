@@ -583,9 +583,9 @@ void moduloProcessamento::processamentoMorfologico(){
                      caixaCirculo.points(vertices1);
 
                      //qDebug()<< "o angulo da caixa" << caixaCirculo.angle;
-                     qDebug()<< frameDoVideo <<  " o height da caixa" << caixaCirculo.size.height;
-                     qDebug()<< frameDoVideo << " o width da caixa" << caixaCirculo.size.width;
-                     qDebug()<< frameDoVideo<<  " o angulo da caixa" << caixaCirculo.angle;
+                     //qDebug()<< frameDoVideo <<  " o height da caixa" << caixaCirculo.size.height;
+                    // qDebug()<< frameDoVideo << " o width da caixa" << caixaCirculo.size.width;
+                     //qDebug()<< frameDoVideo<<  " o angulo da caixa" << caixaCirculo.angle;
                    //  qDebug() << "mc x" << mc.x << " mc y " << mc.y;
                     // qDebug() << "mcRpo x" << mcRoi.x << " mcRoi y " << mcRoi.y;
 

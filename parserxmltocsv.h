@@ -200,6 +200,8 @@ public:
         std::vector<double> centroidY;
         std::vector<double> anguloObj;
         std::vector<double> tamanhoObj;
+        std::vector<float>  altura;
+        std::vector<float>  largura;
 
         std::vector<bool> objetoEncontrado; //quando o objeto é encontrado é true
 
@@ -220,6 +222,8 @@ public:
         std::vector<double>  varCenY;
         std::vector<double> varTamObjeto;
         std::vector<bool> ruidoMaxVaria;
+        std::vector<float> varAltura;
+        std::vector<float> varLargura;
 
 
 

@@ -643,6 +643,8 @@ void telaSegementacao::on_pbTotGravar_clicked()
     Output.setFileName(nomeGravarCatalago);
 
 
+
+
     Output.open(QIODevice::WriteOnly);
 
     QXmlStreamWriter stream(&Output); //passa o endereço
@@ -788,6 +790,11 @@ void telaSegementacao::on_pbTotGravar_clicked()
 
 
     Output.close();
+
+    //parserxmltocsv
+    parser = new parserXMLtoCSV();
+    parser->converteArquivo(nomeGravarCatalago);
+
 }
 
 void telaSegementacao::lerETOXML(QString nomeArquivo)

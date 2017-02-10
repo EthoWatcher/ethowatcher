@@ -553,6 +553,7 @@ void teaConcordancia::on_pbCohenGravar_clicked()
     Output.setFileName(nomeGravarCatalago);
 
 
+
     Output.open(QIODevice::WriteOnly);
 
     QXmlStreamWriter stream(&Output); //passa o endereço
@@ -767,6 +768,8 @@ void teaConcordancia::on_pbCohenGravar_clicked()
 
 
     Output.close();
+    parser = new parserXMLtoCSV();
+    parser->converteArquivo(nomeGravarCatalago);
 }
 
 void teaConcordancia::on_pbCarregarFleis_clicked()
@@ -1388,6 +1391,8 @@ void teaConcordancia::on_pbGerarKappa_clicked()
     stream.writeEndDocument();
 
     Output.close();
+    parser = new parserXMLtoCSV();
+    parser->converteArquivo(nomeGravarCatalago);
 }
 
 void teaConcordancia::lerETOXML(QString nomeArquivo)

@@ -42,6 +42,7 @@
 //modulorsa
 #include "modulorsa.h"
 #include "QtMath"
+#include "parserxmltocsv.h"
 
 
 #include "ethowatcheros.h"
@@ -360,6 +361,8 @@ private:
     std::vector<double>  vetorLatencia;
     double duracao;
     std::vector<double>  vetorDuracao;
+
+    parserXMLtoCSV *parser;
 
 
 
