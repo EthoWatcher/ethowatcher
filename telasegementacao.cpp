@@ -794,6 +794,7 @@ void telaSegementacao::on_pbTotGravar_clicked()
     //parserxmltocsv
     parser = new parserXMLtoCSV();
     parser->converteArquivo(nomeGravarCatalago);
+
 }
 
 void telaSegementacao::lerETOXML(QString nomeArquivo)

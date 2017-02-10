@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += ProjetoConcordancia/main.cpp\
        # ProjetoConcordancia/mainwindow.cpp\
         teaconcordancia.cpp \
-    emuladortelaconcordancia.cpp
+    emuladortelaconcordancia.cpp\
+    parserxmltocsv.cpp
 
 
 HEADERS  += teaconcordancia.h \
-    emuladortelaconcordancia.h
+    emuladortelaconcordancia.h\
+    parserxmltocsv.h
 
     #ProjetoConcordancia/mainwindow.h\
 
