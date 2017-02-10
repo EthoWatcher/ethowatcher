@@ -20,7 +20,8 @@ SOURCES += ProjetoMatrizTransicao/main.cpp\
         itemnovaseta.cpp\
         telamatriztransicao.cpp\
         parserxmltocsv.cpp \
-    emuladormatiztransicao.cpp
+    emuladormatiztransicao.cpp\
+
 
 HEADERS  += figuramatriz.h\
             itemcirculo.h\
