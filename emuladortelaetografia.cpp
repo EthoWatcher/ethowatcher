@@ -17,6 +17,7 @@ EmuladorTelaEtografia::~EmuladorTelaEtografia()
 
 void EmuladorTelaEtografia::on_pushButton_clicked()
 {
+     delete etoPro;
     etoPro= new telaEtografiaProce();
     etoPro->show();
 }

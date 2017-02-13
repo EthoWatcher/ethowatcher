@@ -605,7 +605,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
            if(streamReader.name() == "fps"){
 
                conversor = streamReader.readElementText();
-        videoLista.fps.push_back(conversor.toInt());
+        videoLista.fps.push_back(conversor.toDouble());
 
            }
 
@@ -2551,7 +2551,7 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
     nomeGravarProcesImagem = QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
-                "C://",
+                fonteVideoXML,
                "Traking Files (*.tkin)"
                );
 
@@ -2585,6 +2585,9 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
              stream.writeTextElement("escala",QString::number(videoLista.escala[contadorDeVideo]));
               stream.writeTextElement("fps",QString::number(videoLista.fps[contadorDeVideo]));
               stream.writeTextElement("tempoTotalProcessamento", ui->lblTime->text());
+              double perFrame =  ui->lblTime->text().toDouble();
+              perFrame = perFrame/(videoLista.frameFinal[contadorDeVideo]-videoLista.frameProces[contadorDeVideo]);
+              stream.writeTextElement("tempoPorFrame", QString::number(perFrame)  );
     stream.writeEndElement();//fecha informacoes
 
     stream.writeStartElement("dadosCatalago");

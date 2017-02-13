@@ -370,6 +370,7 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
             //escrita do gui na tab 1
             //ui->lblExt->setText(fonteVideoBitExt);
             ui->lblNomeVideo->setText(fonteVideoBitNomeArquivo);
+            qDebug() << "fonteVideoBitNome";
             ui->lblCaminho->setText(fonteVideoBitCaminhoArquivo);
 
         //video.release();
@@ -1142,7 +1143,7 @@ void telaCadastroFilme::on_pbCadastrar1_clicked()
     nomeArquivo = QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
-                "C:/EthoWatcherOS/Original Video",
+                fonteVideo,
                "Videos Cadastrados (*.vxml)"
                );
 
@@ -1517,6 +1518,8 @@ void telaCadastroFilme::on_pbConfigure1_clicked()
     ui->pbConfigure1->setEnabled(false);
     ui->cbPro->setEnabled(false);
     ui->cbBlinding->setEnabled(false);
+
+    ui->btPlay->click();
 
 
 

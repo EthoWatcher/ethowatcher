@@ -18,6 +18,7 @@ EmuladroCadastroVideo::~EmuladroCadastroVideo()
 
 void EmuladroCadastroVideo::on_pushButton_clicked()
 {
+    delete cadastroFilme;
     cadastroFilme = new telaCadastroFilme();
     cadastroFilme->show();
 }
