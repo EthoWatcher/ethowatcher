@@ -370,7 +370,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
-            videoLido->fps= conversor.toInt();
+            videoLido->fps= conversor.toDouble();
 
             }}
 

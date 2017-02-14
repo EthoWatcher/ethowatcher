@@ -126,7 +126,7 @@ public:
         double frameFinal;
         double frameProce;
         int frameBack;
-        int fps=30; //tem que corrigir isso de ler correto o valor
+        double fps; //tem que corrigir isso de ler correto o valor
         double escala;
 
     };
