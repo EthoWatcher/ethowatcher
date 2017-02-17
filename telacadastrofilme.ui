@@ -57,7 +57,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_9">
        <attribute name="title">
@@ -423,7 +423,7 @@ p, li { white-space: pre-wrap; }
          </rect>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab_3">
          <attribute name="title">
@@ -1290,18 +1290,6 @@ p, li { white-space: pre-wrap; }
              <double>0.500000000000000</double>
             </property>
            </widget>
-           <zorder>label_61</zorder>
-           <zorder>leScala</zorder>
-           <zorder>pbConfEscala</zorder>
-           <zorder>label</zorder>
-           <zorder>lineEditScalePx</zorder>
-           <zorder>label_4</zorder>
-           <zorder>label_61</zorder>
-           <zorder>label_5</zorder>
-           <zorder>label_2</zorder>
-           <zorder>leScala</zorder>
-           <zorder>label_3</zorder>
-           <zorder>spinBoxScaleCm</zorder>
           </widget>
          </widget>
          <widget class="QGroupBox" name="groupBox_25">
