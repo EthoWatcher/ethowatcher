@@ -32,7 +32,7 @@
    <item>
     <widget class="QStackedWidget" name="swPrincipal">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="config">
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -3069,7 +3069,7 @@
               </size>
              </property>
              <property name="currentIndex">
-              <number>2</number>
+              <number>3</number>
              </property>
              <widget class="QWidget" name="Captador">
               <attribute name="title">
@@ -3674,6 +3674,17 @@
                  <string>End Etography</string>
                 </property>
                </widget>
+               <widget class="QWidget" name="widget_8" native="true">
+                <property name="geometry">
+                 <rect>
+                  <x>230</x>
+                  <y>-140</y>
+                  <width>358</width>
+                  <height>608</height>
+                 </rect>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_15"/>
+               </widget>
               </widget>
              </widget>
             </widget>
@@ -3742,6 +3753,74 @@
                    </spacer>
                   </item>
                   <item>
+                   <widget class="QTableWidget" name="tabRegistro">
+                    <property name="alternatingRowColors">
+                     <bool>true</bool>
+                    </property>
+                    <property name="selectionMode">
+                     <enum>QAbstractItemView::SingleSelection</enum>
+                    </property>
+                    <property name="selectionBehavior">
+                     <enum>QAbstractItemView::SelectRows</enum>
+                    </property>
+                    <property name="columnCount">
+                     <number>3</number>
+                    </property>
+                    <attribute name="verticalHeaderVisible">
+                     <bool>false</bool>
+                    </attribute>
+                    <column>
+                     <property name="text">
+                      <string>Category</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>Begin Time</string>
+                     </property>
+                    </column>
+                    <column>
+                     <property name="text">
+                      <string>End Time</string>
+                     </property>
+                    </column>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="widget_9" native="true">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_14">
+                     <item>
+                      <widget class="QPushButton" name="pbDeleteRegistros">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>deletar registros</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
                    <widget class="QWidget" name="widget_10" native="true">
                     <property name="enabled">
                      <bool>false</bool>
@@ -3776,79 +3855,7 @@
              <attribute name="title">
               <string>Registro</string>
              </attribute>
-             <layout class="QVBoxLayout" name="verticalLayout_7">
-              <item>
-               <widget class="QWidget" name="widget_8" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_15">
-                 <item>
-                  <widget class="QTableWidget" name="tabRegistro">
-                   <property name="alternatingRowColors">
-                    <bool>true</bool>
-                   </property>
-                   <property name="selectionMode">
-                    <enum>QAbstractItemView::SingleSelection</enum>
-                   </property>
-                   <property name="selectionBehavior">
-                    <enum>QAbstractItemView::SelectRows</enum>
-                   </property>
-                   <property name="columnCount">
-                    <number>3</number>
-                   </property>
-                   <attribute name="verticalHeaderVisible">
-                    <bool>false</bool>
-                   </attribute>
-                   <column>
-                    <property name="text">
-                     <string>Category</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Begin Time</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>End Time</string>
-                    </property>
-                   </column>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widget_9" native="true">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_14">
-                 <item>
-                  <widget class="QPushButton" name="pbDeleteRegistros">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>deletar registros</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
+             <layout class="QVBoxLayout" name="verticalLayout_7"/>
             </widget>
             <widget class="QWidget" name="tab_15">
              <attribute name="title">

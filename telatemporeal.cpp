@@ -177,7 +177,7 @@ void telaTempoReal::atualizaImagem(int numeroFrame, QImage qimFoto,float Tempo)
 
     }
 
-
+    atualizaRegistro();
 
 
 
@@ -499,7 +499,7 @@ void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, doub
 
 //     QImage qimDisplay= qiCaptador.scaled(widthPanProcess,heightPanProcess,Qt::KeepAspectRatio);
 //     ui->imgResultado->setPixmap(QPixmap::fromImage(qimDisplay));
-
+    atualizaRegistro();
 
 
 
@@ -1722,6 +1722,77 @@ int telaTempoReal::getCodec(int indexCaixa)
 
 }
 
+void telaTempoReal::atualizaRegistro()
+{
+
+    if(chNovoValor){
+
+        chNovoValor=false;
+
+        bool chvEscreRow=true;
+
+        while(chvEscreRow){
+        //0 > 0
+        //2 > 2
+
+        if(saida.quantidadeDepontos > ui->tabRegistro->rowCount()){
+
+            ui->tabRegistro->insertRow(ui->tabRegistro->rowCount());
+            ui->tabRegistro->setItem (ui->tabRegistro->rowCount()-1,0,new QTableWidgetItem(
+                                         cAnaEto.nomeCategoria[saida.id[ui->tabRegistro->rowCount()-1]] ) );
+            ui->tabRegistro->setItem(ui->tabRegistro->rowCount()-1,1,new QTableWidgetItem(QString::number(vetorTempoFrame[saida.frameComeco[ui->tabRegistro->rowCount()-1]]
+                                     -vetorTempoFrame[frameInicioRegistro])));
+            ui->tabRegistro->setItem(ui->tabRegistro->rowCount()-1,2,new QTableWidgetItem(QString::number(vetorTempoFrame[saida.framFim[ui->tabRegistro->rowCount()-1]]
+                                     -vetorTempoFrame[frameInicioRegistro])));
+
+            saida.chPontoValido.push_back(true);
+
+
+            //configurando TableWidget
+            ui->tabRegistro->resizeColumnsToContents();
+            ui->tabRegistro->clearSelection();
+            ui->tabRegistro->clearFocus();
+
+
+        }else{
+
+            chvEscreRow= false;
+
+
+        }
+
+        for(int ka=0; ka< ui->tabRegistro->rowCount();ka++ ){
+
+    //                ui->tabRegistro->setRowCount(ka);
+    //                ui->tabRegistro->setColumnCount(1);
+    //                ui->tabRegistro->setItem();
+
+//            ui->tabRegistro->insertRow(ui->tabRegistro->rowCount());
+            ui->tabRegistro->setItem (ka,0,new QTableWidgetItem(
+                                         cAnaEto.nomeCategoria[saida.id[ka]] ) );
+            ui->tabRegistro->setItem(ka,1,new QTableWidgetItem(QString::number(vetorTempoFrame[saida.frameComeco[ka]]
+                                     -vetorTempoFrame[frameInicioRegistro])));
+            ui->tabRegistro->setItem(ka,2,new QTableWidgetItem(QString::number(vetorTempoFrame[saida.framFim[ka]]
+                                     -vetorTempoFrame[frameInicioRegistro])));
+
+          //  saida.chPontoValido.push_back(true);
+
+
+            //configurando TableWidget
+            ui->tabRegistro->resizeColumnsToContents();
+            ui->tabRegistro->clearSelection();
+            ui->tabRegistro->clearFocus();
+
+
+
+        }
+
+
+    }
+
+   }
+}
+
 void telaTempoReal::on_pbLerArquivoVxml_clicked()
 {
     fonteVideoXML = QFileDialog::getOpenFileName(
@@ -2276,8 +2347,9 @@ void telaTempoReal::on_cbNested_clicked(bool checked)
 
 void telaTempoReal::slotMapeado(int a)
 {
+    chNovoValor=true;
     //frame_atual = ui->labelFrames->text().toDouble();
-    double finalframe1 = 1000; //videoLista.frameFinal[0];
+    double finalframe1 =1000;// videoLista.frameFinal[0];
 
     //escolheSelecao=false; //true é auto
     //false nested
@@ -2326,97 +2398,477 @@ void telaTempoReal::slotMapeado(int a)
         }
     }else{ //se for apenas um botao por vez (auto esclusivo
 
-        //encontra o botão precionado
-        for(int i=0; i<numeroDeBotoes; i++){
-            if(i==a){
 
-                //diferencia se o botão esta clicado esta release
-                if(!clicado[i]){
-                    clicado[i]=true;
-                    buttonList[i]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
-                    buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")" +" (Marking)");
+        //nenhum botão precionado
+        //algum botão precionado
+        //precionado outro botão
 
-                    //dados
-                    saida.id.push_back(a);
-                    saida.frameComeco.push_back( frame_atual);
-                    //dados
-                    //saida.frameFinalBuffer[i]=frame_atual;
-                    saida.framFim.push_back(finalframe1);
-                    saida.pontosPostos[i]=count;
-                    count++;
-                    saida.quantidadeDepontos= count;
 
-                }else {
-                    clicado[i]=false;
-                    // for(int k=0;k<numeroDeBotoes;k++){
-                    buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
-                    buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")" +" (Ready)");
 
-                    saida.frameFinalBuffer[i]=frame_atual;
-                    //if(botaoJaClicado){
-                    int valorSaida;
-                    valorSaida= saida.pontosPostos[i];
-                    //dados
-                    saida.framFim[valorSaida]=frame_atual;
-                    //dados
+        if((compAnterior==-1) || (chCorrigir)){ //para o primeiro comportamento
+
+            for(int i=0; i<numeroDeBotoes; i++){
+                clicado[i]=false;
+                buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+                buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
+                buttonList[i]->setEnabled(true);
+
+            }
+
+
+            for(int i=0; i<numeroDeBotoes; i++){
+                if(i==a){
+
+                    //diferencia se o botão esta clicado esta release
+                    if(!clicado[i]){
+                        clicado[i]=true;
+                        buttonList[i]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
+                        buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
+                        buttonList[i]->setEnabled(false);
+
+                        //dados
+                        saida.id.push_back(a);
+                        saida.frameComeco.push_back( frame_atual);
+                        //dados
+                        //saida.frameFinalBuffer[i]=frame_atual;
+                        saida.framFim.push_back(finalframe1);
+                        saida.pontosPostos[i]=count;
+                        count++;
+                        saida.quantidadeDepontos= count;
+                        compAnterior=a;
+                        contAtivoReg++;
+
+                    }else {
+                        clicado[i]=false;
+                        // for(int k=0;k<numeroDeBotoes;k++){
+                        buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+                        buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")");
+                        buttonList[i]->setEnabled(true);
+
+                        saida.frameFinalBuffer[i]=frame_atual;
+                        //if(botaoJaClicado){
+                        int valorSaida;
+                        valorSaida= saida.pontosPostos[i];
+                        //dados
+                        saida.framFim[valorSaida]=frame_atual;
+                        //dados
+
+                    }
 
                 }
 
             }
 
-        }
 
-        if(habilita){
-            habilita=false;
-            for(int k=0;k<numeroDeBotoes;k++){
-                if(k==a){
-                    //clicado[k]=true;
-                    buttonList[k]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
-                    buttonList[k]->setText(nomeCate[k] +"(" + cAnaEto.atalho[k] +")" + " (Marking)");
-                    buttonList[k]->setEnabled(true);
+
+
+        }else{ //para os demais comportamentos
+
+            //primeiro tem que encerrar o comportamento anterior
+
+
+//            for(int i=0; i<numeroDeBotoes; i++){
+
+//                 if(compAnterior==i){
+
+
+
+
+//                 }
+
+
+
+//            }
+
+            contAtivoReg++;
+
+//            if(chCorrigir){
+//               for(int i=0; i<numeroDeBotoes; i++){
+//                   clicado[i]=false;
+//                   buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+//                   buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
+//                   buttonList[i]->setEnabled(true);
+
+//               }
+
+//            }
+
+            //clicado[compAnterior]=false;
+            //if(!chCorrigir){
+
+                //logica para o botão que tinha sido apertado anteriormente
+            clicado[compAnterior]=false;
+                // for(int k=0;k<numeroDeBotoes;k++){
+    //            buttonList[compAnterior]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+    //            buttonList[compAnterior]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")");
+    //            buttonList[compAnterior]->setEnabled(true);
+
+                saida.frameFinalBuffer[compAnterior]=frame_atual;
+                //if(botaoJaClicado){
+                int valorSaida;
+                valorSaida= saida.pontosPostos[compAnterior];
+                //dados
+                saida.framFim[valorSaida]=frame_atual;
+                qDebug()<< "id " << saida.id[valorSaida] << "inicio "<< saida.frameComeco[valorSaida] << "saida " <<saida.framFim[valorSaida];
+
+
+
+           // }
+          //  chCorrigir=false; //para nao permitir a parte do codigo de cima rodar
+                              //eh usado para nao deixar
+
+
+
+
+            //logica para o botão apertado
+            clicado[a]=true;
+//            buttonList[a]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
+//            buttonList[a]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")" +" (Marking)");
+//            buttonList[a]->setEnabled(false);
+
+            //dados
+            saida.id.push_back(a);
+            saida.frameComeco.push_back( frame_atual);
+            //dados
+            //saida.frameFinalBuffer[i]=frame_atual;
+            saida.framFim.push_back(finalframe1);
+            saida.pontosPostos[a]=count;
+            count++;
+            saida.quantidadeDepontos= count;
+            compAnterior=a;
+
+
+
+
+            for(int i=0; i<numeroDeBotoes; i++){
+
+                if(clicado[i]){
+
+                    buttonList[i]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
+                    buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
+                    buttonList[i]->setEnabled(false);
+
+
 
                 }else{
-                    //clicado[k]=false;
-                    buttonList[k]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
-                    buttonList[k]->setText(nomeCate[k]+ "(" + cAnaEto.atalho[k] +")" +" (blocked)");
-                    buttonList[k]->setEnabled(false);
 
+                    buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+                    buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
+                    buttonList[i]->setEnabled(true);
                 }
+
             }
 
-        } else {
-            habilita=true;
-            for(int k=0;k<numeroDeBotoes;k++){
-                //clicado[k]=true; /fase
-                buttonList[k]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
-                buttonList[k]->setText(nomeCate[k]+ "(" + cAnaEto.atalho[k] +")"+" (ready)");
-                buttonList[k]->setEnabled(true);
-            }
+
+//            for(int i=0; i<numeroDeBotoes; i++){
+//                if(i==a){
+
+//                    //diferencia se o botão esta clicado esta release
+//                    if(!clicado[i]){
+//                        clicado[i]=true;
+//                        buttonList[i]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
+//                        buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")" +" (Marking)");
+//                        buttonList[i]->setEnabled(false);
+
+//                        //dados
+//                        saida.id.push_back(a);
+//                        saida.frameComeco.push_back( frame_atual);
+//                        //dados
+//                        //saida.frameFinalBuffer[i]=frame_atual;
+//                        saida.framFim.push_back(finalframe1);
+//                        saida.pontosPostos[i]=count;
+//                        count++;
+//                        saida.quantidadeDepontos= count;
+//                        compAnterior=a;
+
+//                    }else {
+//                        clicado[i]=false;
+//                        // for(int k=0;k<numeroDeBotoes;k++){
+//                        buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+//                        buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")");
+//                        buttonList[i]->setEnabled(true);
+
+//                        saida.frameFinalBuffer[i]=frame_atual;
+//                        //if(botaoJaClicado){
+//                        int valorSaida;
+//                        valorSaida= saida.pontosPostos[i];
+//                        //dados
+//                        saida.framFim[valorSaida]=frame_atual;
+//                        //dados
+
+//                    }
+
+//                }
+
+//            }
+
+
+
+
+
+
+
+
+
         }
 
+        chCorrigir=false;
+
+//faz os controlador ficare enabled
+            //pq sao setados false quando é excluido algum ponto
+        //ui->widControes->setEnabled(true);
+     //   ui->widControle1->setEnabled(true);
+
+
+
+    }//fim da logica para botões auto-exclusivos
 
 
 
 
-    }
+
+
+        //encontra o botão precionado
+//        for(int i=0; i<numeroDeBotoes; i++){
+//            if(i==a){
+
+//                //diferencia se o botão esta clicado esta release
+//                if(!clicado[i]){
+//                    clicado[i]=true;
+//                    buttonList[i]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
+//                    buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")" +" (Marking)");
+
+//                    //dados
+//                    saida.id.push_back(a);
+//                    saida.frameComeco.push_back( frame_atual);
+//                    //dados
+//                    //saida.frameFinalBuffer[i]=frame_atual;
+//                    saida.framFim.push_back(finalframe1);
+//                    saida.pontosPostos[i]=count;
+//                    count++;
+//                    saida.quantidadeDepontos= count;
+//                    compAnterior=a;
+
+//                }else {
+//                    clicado[i]=false;
+//                    // for(int k=0;k<numeroDeBotoes;k++){
+//                    buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+//                    buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")" +" (Ready)");
+
+//                    saida.frameFinalBuffer[i]=frame_atual;
+//                    //if(botaoJaClicado){
+//                    int valorSaida;
+//                    valorSaida= saida.pontosPostos[i];
+//                    //dados
+//                    saida.framFim[valorSaida]=frame_atual;
+//                    //dados
+
+//                }
+
+//            }
+
+//        }
+
+
+        //controla as propiedade dos bo~toes
+
+//        if(habilita){
+//            habilita=false;
+//            for(int k=0;k<numeroDeBotoes;k++){
+//                if(k==a){
+//                    //clicado[k]=true;
+//                    buttonList[k]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
+//                    buttonList[k]->setText(nomeCate[k] +"(" + cAnaEto.atalho[k] +")" + " (Marking)");
+//                    buttonList[k]->setEnabled(true);
+
+//                }else{
+//                    //clicado[k]=false;
+//                    buttonList[k]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
+//                    buttonList[k]->setText(nomeCate[k]+ "(" + cAnaEto.atalho[k] +")" +" (blocked)");
+//                    buttonList[k]->setEnabled(false);
+
+//                }
+//            }
+
+//        } else {
+//            habilita=true;
+//            for(int k=0;k<numeroDeBotoes;k++){
+//                //clicado[k]=true; /fase
+//                buttonList[k]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+//                buttonList[k]->setText(nomeCate[k]+ "(" + cAnaEto.atalho[k] +")"+" (ready)");
+//                buttonList[k]->setEnabled(true);
+//            }
+//        }
+
+
+
+
+
+   // } //fim da logica para botões auto-exclusivos
 
 
     //ve se algum botão esta ativado
 
     bool chEditaOn=true;
 
-    for(int ka=0; ka <numeroDeBotoes;ka++){
+//    for(int ka=0; ka <numeroDeBotoes;ka++){
 
-        if(clicado[ka]){
+//        if(clicado[ka]){
 
-            chEditaOn=false;
-           // break;
+//            chEditaOn=false;
+//           // break;
 
-        }
+//        }
 
-    }
+//    }
 
     ui->tabButtons->setTabEnabled(1,chEditaOn);
+
+
+
+
+    //fim do antigo
+//    //frame_atual = ui->labelFrames->text().toDouble();
+//    double finalframe1 = 1000; //videoLista.frameFinal[0];
+
+//    //escolheSelecao=false; //true é auto
+//    //false nested
+//    if(!escolheSelecao){ //se pode clicar mais de um botão por vez
+//        for(int i=0; i<numeroDeBotoes; i++){
+//            if(i==a){
+
+//                if(!clicado[i]){
+//                    //se o botão nao estiver clicado
+//                    clicado[i]=true;
+//                    buttonList[i]->setStyleSheet("background-color: yellow;""color: blue;" "font: bold;");
+//                    buttonList[i]->setText(nomeCate[i]+ "(" + cAnaEto.atalho[i] +")" + " (Marking)");
+
+//                    //criando novo ponto apos clique
+//                    saida.id.push_back(a);
+//                    saida.frameComeco.push_back( frame_atual);
+//                    //saida.frameFinalBuffer[i]=frame_atual;
+//                    saida.framFim.push_back(finalframe1);
+//                    saida.pontosPostos[i]=count;
+//                    count++;
+
+//                    saida.quantidadeDepontos=count;
+
+
+
+//                }else {
+//                    //se o posição estiver clicado
+//                    clicado[i]=false;
+//                    // for(int k=0;k<numeroDeBotoes;k++){
+//                    buttonList[i]->setStyleSheet("background-color: green;""color: black; " "font: bold;");
+//                    buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")" +" (Ready)");
+//                    //saida.frameComeco.push_back(frame_atual);
+//                    //    }
+
+//                    saida.frameFinalBuffer[i]=frame_atual;
+//                    //if(botaoJaClicado){
+//                    int valorSaida;
+//                    valorSaida= saida.pontosPostos[i];
+//                    saida.framFim[valorSaida]=frame_atual;
+//                    //}
+//                    //        saida.frameFinalBuffer[i]=frame_atual;
+//                }
+//            }
+
+
+//        }
+//    }else{ //se for apenas um botao por vez (auto esclusivo
+
+//        //encontra o botão precionado
+//        for(int i=0; i<numeroDeBotoes; i++){
+//            if(i==a){
+
+//                //diferencia se o botão esta clicado esta release
+//                if(!clicado[i]){
+//                    clicado[i]=true;
+//                    buttonList[i]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
+//                    buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")" +" (Marking)");
+
+//                    //dados
+//                    saida.id.push_back(a);
+//                    saida.frameComeco.push_back( frame_atual);
+//                    //dados
+//                    //saida.frameFinalBuffer[i]=frame_atual;
+//                    saida.framFim.push_back(finalframe1);
+//                    saida.pontosPostos[i]=count;
+//                    count++;
+//                    saida.quantidadeDepontos= count;
+
+//                }else {
+//                    clicado[i]=false;
+//                    // for(int k=0;k<numeroDeBotoes;k++){
+//                    buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+//                    buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")" +" (Ready)");
+
+//                    saida.frameFinalBuffer[i]=frame_atual;
+//                    //if(botaoJaClicado){
+//                    int valorSaida;
+//                    valorSaida= saida.pontosPostos[i];
+//                    //dados
+//                    saida.framFim[valorSaida]=frame_atual;
+//                    //dados
+
+//                }
+
+//            }
+
+//        }
+
+//        if(habilita){
+//            habilita=false;
+//            for(int k=0;k<numeroDeBotoes;k++){
+//                if(k==a){
+//                    //clicado[k]=true;
+//                    buttonList[k]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
+//                    buttonList[k]->setText(nomeCate[k] +"(" + cAnaEto.atalho[k] +")" + " (Marking)");
+//                    buttonList[k]->setEnabled(true);
+
+//                }else{
+//                    //clicado[k]=false;
+//                    buttonList[k]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
+//                    buttonList[k]->setText(nomeCate[k]+ "(" + cAnaEto.atalho[k] +")" +" (blocked)");
+//                    buttonList[k]->setEnabled(false);
+
+//                }
+//            }
+
+//        } else {
+//            habilita=true;
+//            for(int k=0;k<numeroDeBotoes;k++){
+//                //clicado[k]=true; /fase
+//                buttonList[k]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+//                buttonList[k]->setText(nomeCate[k]+ "(" + cAnaEto.atalho[k] +")"+" (ready)");
+//                buttonList[k]->setEnabled(true);
+//            }
+//        }
+
+
+
+
+
+//    }
+
+
+//    //ve se algum botão esta ativado
+
+//    bool chEditaOn=true;
+
+//    for(int ka=0; ka <numeroDeBotoes;ka++){
+
+//        if(clicado[ka]){
+
+//            chEditaOn=false;
+//           // break;
+
+//        }
+
+//    }
+
+//    ui->tabButtons->setTabEnabled(1,chEditaOn);
 
 
 }
@@ -2455,6 +2907,32 @@ void telaTempoReal::on_tabButtons_tabBarClicked(int index)
 
 
             }
+
+
+        }
+
+        for(int ka=0; ka< ui->tabRegistro->rowCount();ka++ ){
+
+    //                ui->tabRegistro->setRowCount(ka);
+    //                ui->tabRegistro->setColumnCount(1);
+    //                ui->tabRegistro->setItem();
+
+//            ui->tabRegistro->insertRow(ui->tabRegistro->rowCount());
+            ui->tabRegistro->setItem (ka,0,new QTableWidgetItem(
+                                         cAnaEto.nomeCategoria[saida.id[ka]] ) );
+            ui->tabRegistro->setItem(ka,1,new QTableWidgetItem(QString::number(vetorTempoFrame[saida.frameComeco[ka]]
+                                     -vetorTempoFrame[frameInicioRegistro])));
+            ui->tabRegistro->setItem(ka,2,new QTableWidgetItem(QString::number(vetorTempoFrame[saida.framFim[ka]]
+                                     -vetorTempoFrame[frameInicioRegistro])));
+
+          //  saida.chPontoValido.push_back(true);
+
+
+            //configurando TableWidget
+            ui->tabRegistro->resizeColumnsToContents();
+            ui->tabRegistro->clearSelection();
+            ui->tabRegistro->clearFocus();
+
 
 
         }
@@ -2534,6 +3012,7 @@ void telaTempoReal::atualizaContadorRegistro()
         ui->lblEtogrStar->setText(QString::number(vetorTempoFrame[frameInicioRegistro]));
         primeiraB=false;
     }
+    atualizaRegistro();
 
 
 
@@ -2546,6 +3025,10 @@ void telaTempoReal::on_pbLerArquivoVxml_clicked(bool checked)
 
 void telaTempoReal::on_pbEtographyEnd_clicked()
 {
+
+    saida.framFim[saida.framFim.size()-1] = frame_atual-1;
+    //vetorTempoFrame[saida.quantidadeDepontos-1] = tresposta;
+    atualizaRegistro();
     ui->pbEtographyStart->setEnabled(false);
     ui->pbGravarAnalasiteEtografica->setEnabled(true);
 
@@ -2553,8 +3036,10 @@ void telaTempoReal::on_pbEtographyEnd_clicked()
     ui->tabButtons->setTabEnabled(0,false);
     ui->tabButtons->setTabEnabled(1,false);
 
-    if(!ui->chAImage->isChecked()){
+    if(!ui->chAImage->isChecked()){//entra quando s[p esta selecionado par aetografia
         tempoLerFrame->stop();
+
+
     }
 
     if(ui->cbCapturaVideo->isChecked()){
@@ -2571,6 +3056,12 @@ void telaTempoReal::on_pbEtographyEnd_clicked()
         //ui->pbGravaRelatorioFPS->click();
         //cv::waitKey(20);
 
+
+    }
+
+    if(ui->chAImage->isChecked()){
+        ui->pbStoCap->click();
+        cv::waitKey(20);
 
     }
 
@@ -2592,7 +3083,7 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
   // ui->pbGravarAnalasiteEtografica->setEnabled(false);
 
 
-     if(!ui->cbCapturaVideo->isChecked()){
+     if(!ui->cbCapturaVideo->isChecked()){ //só real time catalogo
 
          OutEtografia.setFileName(nomeGravarEtografia);
 
@@ -2614,7 +3105,7 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
                   stream.writeTextElement("frameInicial",QString::number(vetorTempoFrame[frameInicioRegistro]));
                   stream.writeTextElement("frameProces",QString::number(vetorTempoFrame[frameInicioRegistro]));
                   stream.writeTextElement("frameFinal", ui->lblTime->text()); //QString::number(vetorTempoFrame[vetorTempoFrame.size()-1]));
-                  stream.writeTextElement("fps",QString::number(1));
+                  stream.writeTextElement("fps",QString::number(0.01)); //fps de 10ms
          stream.writeEndElement();//fecha informacoes
 
          stream.writeStartElement("dadosCatalago");

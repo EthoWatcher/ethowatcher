@@ -405,6 +405,13 @@ private:
     QList<QCheckBox *> cheboxList;
     QCheckBox *chebox;
 
+     bool chNovoValor=true;
+     int compAnterior=-1;
+     int contAtivoReg=0;
+     bool chCorrigir=false;
+
+     void atualizaRegistro();
+
 
 signals:
     void desliga();
