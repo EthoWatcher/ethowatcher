@@ -411,6 +411,7 @@ private:
      bool chCorrigir=false;
 
      void atualizaRegistro();
+     int contTempo=0;
 
 
 signals:

@@ -94,6 +94,7 @@ telaTempoReal::~telaTempoReal()
 void telaTempoReal::atualizaImagem(int numeroFrame, QImage qimFoto,float Tempo)
 {
     cv::Mat troca= captadorDeVideo->conQim2Mat(qimFoto);
+    contTempo++;
 
     if(ui->cbCapturaVideo->isChecked()){
 
@@ -122,6 +123,11 @@ void telaTempoReal::atualizaImagem(int numeroFrame, QImage qimFoto,float Tempo)
         ui->lblNumero->setText(QString::number(numeroFrame));
         somaTempo=somaTempo+Tempo;
         ui->lblTempo->setText(QString::number(somaTempo));
+
+        if(!ui->pbEtographyStart->isEnabled()){
+           ui->lblTempoEto->setText("Time = "+QString::number(somaTempo-vetorTempoFrame[frameInicioRegistro])+"s");
+        }
+
         vetorTempoFrame.push_back(somaTempo);
 
 
@@ -155,6 +161,12 @@ void telaTempoReal::atualizaImagem(int numeroFrame, QImage qimFoto,float Tempo)
                  somaTempoFilming= somaTempoFilming+Tempo;
                  ui->lblTempoFilming->setText(QString::number(somaTempoFilming));
 
+                 if(!ui->pbEtographyStart->isEnabled()){
+                      ui->lblTempoEto->setText("Time = "+QString::number(somaTempoFilming-vetorTempoFrame[frameInicioRegistro])+"s");
+                 }
+
+                 //ui->lblTempoEto->setText(QString::number(somaTempoFilming-frameInicioRegistro));
+
                  vetorFrameAquisicao.push_back(numeroFrame);
                  vetorTempoAquisicao.push_back(Tempo);
 
@@ -177,7 +189,11 @@ void telaTempoReal::atualizaImagem(int numeroFrame, QImage qimFoto,float Tempo)
 
     }
 
-    atualizaRegistro();
+
+    if(contTempo%40==0){
+       atualizaRegistro();
+    }
+   // atualizaRegistro();
 
 
 
@@ -285,6 +301,7 @@ void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, doub
 
     widthPanProcess=ui->panProcess->size().width();
     heightPanProcess=ui->panProcess->size().height();
+    contTempo++;
 
     if(chDesenhar){
 
@@ -499,7 +516,10 @@ void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, doub
 
 //     QImage qimDisplay= qiCaptador.scaled(widthPanProcess,heightPanProcess,Qt::KeepAspectRatio);
 //     ui->imgResultado->setPixmap(QPixmap::fromImage(qimDisplay));
-    atualizaRegistro();
+    if(contTempo%40==0){
+       atualizaRegistro();
+    }
+
 
 
 
@@ -645,6 +665,7 @@ void telaTempoReal::on_pbConfig_clicked()
         captadorThread->start();
 
 
+        ui->pbStartCaptador->click();
 
 
     }else{ //se o usuario não quiser aquisição de imamge
@@ -767,6 +788,42 @@ void telaTempoReal::on_pbConfig_clicked()
 
 
     }
+
+
+
+//    if(ui->cbRegistro->isEnabled()){
+
+
+
+
+//       if(ui->chAImage->isEnabled()){
+
+//           if(ui->cbCapturaVideo->isEnabled()){
+
+//               ui->tabWControlador->setCurrentIndex(2);
+
+//           }
+
+
+
+
+//            ui->tabWControlador->setCurrentIndex(2);
+
+
+//        }else{
+
+
+//            ui->tabWControlador->setCurrentIndex(2);
+
+//        }
+
+
+
+//    }else{
+
+
+//    }
+
 
 
 }
@@ -2945,6 +3002,7 @@ void telaTempoReal::on_tabButtons_tabBarClicked(int index)
 void telaTempoReal::on_pbEtographyStart_clicked()
 {
     //qDebug()<<"inicialixou aa";
+    ui->pbEtographyStart->setEnabled(false);
     if(ui->chAImage->isChecked()){
 
           ui->tabWControlador->setCurrentIndex(0);
