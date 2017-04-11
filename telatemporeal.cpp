@@ -199,13 +199,13 @@ void telaTempoReal::atualizaImagem(int numeroFrame, QImage qimFoto,float Tempo)
     }
 
 
-//    if(ui->cbRegistro->isChecked()){
+    if(ui->cbRegistro->isChecked()){
 
-//        if(contTempo%40==0){
-//           atualizaRegistro();
-//        }
-//       // atualizaRegistro();
-//    }
+        if(contTempo%40==0){
+           atualizaRegistro();
+        }
+       // atualizaRegistro();
+    }
 
 
 
@@ -530,12 +530,12 @@ void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, doub
 //     QImage qimDisplay= qiCaptador.scaled(widthPanProcess,heightPanProcess,Qt::KeepAspectRatio);
 //     ui->imgResultado->setPixmap(QPixmap::fromImage(qimDisplay));
 
-//    if(ui->cbRegistro->isChecked()){
+    if(ui->cbRegistro->isChecked()){
 
-//        if(contTempo%40==0){
-//           atualizaRegistro();
-//        }
-//    }
+        if(contTempo%40==0){
+           atualizaRegistro();
+        }
+    }
 
 
 
@@ -3422,16 +3422,17 @@ void telaTempoReal::on_pbEtographyStart_clicked()
         frameInicioRegistro =frame_atual;
 
 
+
         if(ui->cbProcessInagem->isChecked()){
             //se esta habilitado o processamento de imagem
             ui->pushButton_4->clicked();
         }
 
-        if(ui->cbCapturaVideo->isChecked()){
+//        if(ui->cbCapturaVideo->isChecked()){
 
-            ui->pbStarrFilming->click();
+//            ui->pbStarrFilming->click();
 
-        }
+//        }
 
         //ui->lblEtogrStar->setText(QString::number(vetorTempoFrame[frameInicioRegistro]));
 
@@ -3469,7 +3470,7 @@ void telaTempoReal::atualizaContadorRegistro()
 
     if(primeiraB){
 
-        ui->lblEtogrStar->setText(QString::number(vetorTempoFrame[frameInicioRegistro]));
+        ui->lblEtogrStar->setText("Tempo inicial do processamento " + QString::number(vetorTempoFrame[frameInicioRegistro]) + " s");
         primeiraB=false;
     }
     atualizaRegistro();
@@ -3486,6 +3487,8 @@ void telaTempoReal::on_pbLerArquivoVxml_clicked(bool checked)
 void telaTempoReal::on_pbEtographyEnd_clicked()
 {
 
+
+
     saida.framFim[saida.framFim.size()-1] = frame_atual-1;
     //vetorTempoFrame[saida.quantidadeDepontos-1] = tresposta;
     atualizaRegistro();
@@ -3499,6 +3502,10 @@ void telaTempoReal::on_pbEtographyEnd_clicked()
     if(!ui->chAImage->isChecked()){//entra quando s[p esta selecionado par aetografia
         tempoLerFrame->stop();
 
+
+    }else{
+
+        ui->pbStoCap->click();
 
     }
 
@@ -3530,6 +3537,10 @@ void telaTempoReal::on_pbEtographyEnd_clicked()
 
 void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 {
+
+
+
+
     nomeGravarEtografia = QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
@@ -3540,10 +3551,24 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 
 
  if(!nomeGravarEtografia.isEmpty()){
-  // ui->pbGravarAnalasiteEtografica->setEnabled(false);
+//  // ui->pbGravarAnalasiteEtografica->setEnabled(false);
+
+//     if(ui->chAImage->isChecked()){ //se esta setado para capturar imagem ou não
 
 
-     if(!ui->cbCapturaVideo->isChecked()){ //só real time catalogo
+
+
+
+//     }else{
+
+
+
+//     }
+
+
+
+
+     if(!ui->cbCapturaVideo->isChecked()){ // quano não tem captura de video //só real time catalogo
 
          OutEtografia.setFileName(nomeGravarEtografia);
 
@@ -3562,7 +3587,7 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 
          stream.writeStartElement("dadosVideoAnalisado");
                //   stream.writeTextElement("nomeVxml",videoLista.nomeVXML[contadorDeVideo]);
-                  stream.writeTextElement("frameInicial",QString::number(vetorTempoFrame[frameInicioRegistro]));
+                  stream.writeTextElement("frameInicial", "0");//QString::number(vetorTempoFrame[frameInicioRegistro]));
                   stream.writeTextElement("frameProces",QString::number(vetorTempoFrame[frameInicioRegistro]));
                   stream.writeTextElement("frameFinal", ui->lblTime->text()); //QString::number(vetorTempoFrame[vetorTempoFrame.size()-1]));
                   stream.writeTextElement("fps",QString::number(0.01)); //fps de 10ms
@@ -3695,8 +3720,8 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
         stream.writeStartElement("dadosVideoAnalisado");
                  stream.writeTextElement("nomeVxml",nomeArquivo);
                  stream.writeTextElement("frameInicial",QString::number(0));
-                 stream.writeTextElement("frameProces",QString::number(frameInicioGravacao));
-                 stream.writeTextElement("frameFinal", ui->lblNumeroFilmin->text());  //QString::number(videoLista.frameFinal[contadorDeVideo]));
+                 stream.writeTextElement("frameProces",QString::number(frameInicioRegistro-frameInicioGravacao));
+                 stream.writeTextElement("frameFinal", QString::number(saida.framFim[saida.framFim.size()-1]-frameInicioGravacao));
                  stream.writeTextElement("fps", ui->leFps->text() ); //QString::number(videoLista.fps[contadorDeVideo]));
         stream.writeEndElement();//fecha informacoes
 
@@ -3750,8 +3775,8 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
                     stream.writeStartElement("analise");
                     stream.writeAttribute("ponto", QString::number(contEx));
                     stream.writeAttribute("id", QString::number(saida.id[i]));
-                    stream.writeAttribute("frameInicial", QString::number( saida.frameComeco[i]));
-                    stream.writeAttribute("frameFinal", QString::number(saida.framFim[i]));
+                    stream.writeAttribute("frameInicial", QString::number( saida.frameComeco[i]-frameInicioRegistro-frameInicioGravacao));
+                    stream.writeAttribute("frameFinal", QString::number(saida.framFim[i]-frameInicioRegistro-frameInicioGravacao));
 
                      stream.writeEndElement(); //fecha analise
 
@@ -3763,8 +3788,8 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
                 stream.writeStartElement("analise");
                 stream.writeAttribute("ponto", QString::number(contEx));
                 stream.writeAttribute("id", QString::number(saida.id[i]));
-                stream.writeAttribute("frameInicial", QString::number( saida.frameComeco[i]));
-                stream.writeAttribute("frameFinal", QString::number(saida.framFim[i]));
+                stream.writeAttribute("frameInicial", QString::number( saida.frameComeco[i]-frameInicioRegistro-frameInicioGravacao));
+                stream.writeAttribute("frameFinal", QString::number(saida.framFim[i]-frameInicioRegistro-frameInicioGravacao));
 
                  stream.writeEndElement(); //fecha analise
 
