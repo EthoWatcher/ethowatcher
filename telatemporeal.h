@@ -44,6 +44,10 @@
 #include <time.h>
 
 
+#include <parserxmltocsv.h>
+
+
+
 namespace Ui {
 class telaTempoReal;
 }
@@ -196,6 +200,8 @@ public:
         std::vector<double> centroidY;
         std::vector<double> anguloObj;
         std::vector<double> tamanhoObj;
+        std::vector<float>  altura;
+        std::vector<float>  largura;
 
         std::vector<bool> objetoEncontrado; //quando o objeto é encontrado é true
 
@@ -212,12 +218,15 @@ public:
         std::vector<double>  varCenY;
         std::vector<double> varTamObjeto;
         std::vector<bool> ruidoMaxVaria;
+        std::vector<float> varAltura;
+        std::vector<float> varLargura;
 
 
 
     };
 
     dadosCinema reCinema;
+    parserXMLtoCSV *parser;
 
 
 
@@ -248,12 +257,7 @@ private slots:
                                              float angObjeto, float tamObjet);
 
 
-   void gravaDadosMorfoCinematico(QImage imaProc, bool objeto, double area1, //area
-              double mcX, double mcY,
-              float anguloObjeto,
-              float tamanhoObjeto,
-              double varAngular, double varArea,
-              double VarCenX, double VarCenY, double VarDistancia, double VarOBjeto, bool ruidoOn); //centroide
+   void gravaDadosMorfoCinematico(QImage imaProc, bool objeto, double area1, double mcX, double mcY, float anguloObjeto, float alturaObjeto, float larguraObjeto, double varAngular, double varArea, double VarCenX, double VarCenY, double VarDistancia, double VarOBjeto, float VarAltura, float VarLargura, bool ruidoOn);
 
 
 
