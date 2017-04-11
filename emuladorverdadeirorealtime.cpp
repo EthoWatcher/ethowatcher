@@ -17,6 +17,8 @@ EmuladorVerdadeiroRealTime::~EmuladorVerdadeiroRealTime()
 
 void EmuladorVerdadeiroRealTime::on_pushButton_clicked()
 {
+
+    delete tempoReal;
     tempoReal = new telaTempoReal();
     //tempoReal1 = new telaTempoReal();
     //tempoReal2 = new telaTempoReal();

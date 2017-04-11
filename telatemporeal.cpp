@@ -61,6 +61,7 @@ telaTempoReal::telaTempoReal(QWidget *parent) :
     ui->pbPlanoFundo->setVisible(false);
     frameInicioGravacao=0;
     ui->pbSaveTraking->setVisible(false);
+//    ui->tabWidget->set
 }
 
 telaTempoReal::~telaTempoReal()
@@ -3809,10 +3810,12 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 
 void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 {
+    ui->pbStoCap->clicked(); //pausa
+
     nomeGravarProcesImagem = QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
-                "C://",
+                fonteVideoXML,
                "Traking Files (*.tkin)"
                );
 
@@ -3946,7 +3949,7 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
                if(matObjDentro[ka][i]){
 
                stream.writeStartElement("proce");
-               fraNumero++;
+
                stream.writeAttribute("f",QString::number(fraNumero));
                stream.writeAttribute("arP",QString::number(reMorfo.area[i]));
                stream.writeAttribute("arM",QString::number(reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
@@ -4009,6 +4012,7 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
                stream.writeEndElement(); //fecha proce
 
                }
+               fraNumero++;
            }
 
 
@@ -4109,7 +4113,7 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 
 
 
-        }else{ //se captura de video setado
+        }else{ //se captura de video não esta setado
 
           OutEtografia.setFileName(nomeGravarProcesImagem);
 
@@ -4129,7 +4133,7 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
                    stream.writeTextElement("nomeVxml",nomeArquivo);
                    stream.writeTextElement("frameInicial",QString::number(0));
                    stream.writeTextElement("frameBack",QString::number(0));
-                   stream.writeTextElement("frameProces",QString::number(frameInicioGravacao));
+                   stream.writeTextElement("frameProces",QString::number(ui->lblNumero->text().toDouble()- reMorfo.area.size()));
                    stream.writeTextElement("frameFinal",ui->lblNumero->text());
                    stream.writeTextElement("escala",QString::number(videoLista.escala[contadorDeVideo]));
                     stream.writeTextElement("fps",QString::number(1/(somaTempo/ui->lblNumero->text().toDouble())));
@@ -4218,21 +4222,35 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
            stream.writeAttribute("id",QString::number(ka));
 
            //stream.writeAttribute("");
-           int fraNumero=0;
-           for(int i=0; i< reMorfo.area.size();i++){
+
+
+           int fraNumero= ui->lblNumero->text().toDouble()- reMorfo.area.size();
+           qDebug()<<"2";
+
+           //fraNumero= contNumeroGrava - reMorfo.area.size();
+
+
+           for(int i=0; i<  reMorfo.area.size();i++){
 
                if(matObjDentro[ka][i]){
 
                stream.writeStartElement("proce");
-               fraNumero=i+ videoLista.frameProces[contadorDeVideo];
 
                stream.writeAttribute("f",QString::number(fraNumero));
                stream.writeAttribute("arP",QString::number(reMorfo.area[i]));
                stream.writeAttribute("arM",QString::number(reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
                stream.writeAttribute("ceX",QString::number(reMorfo.centroidX[i]));
                stream.writeAttribute("ceY",QString::number(reMorfo.centroidY[i]));
-               stream.writeAttribute("taP",QString::number(reMorfo.tamanhoObj[i]));
-               stream.writeAttribute("taM",QString::number(reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
+               stream.writeAttribute("altP",QString::number(reMorfo.altura[i]));
+               stream.writeAttribute("altM",QString::number(reMorfo.altura[i]/videoLista.escala[contadorDeVideo]));
+               stream.writeAttribute("larP",QString::number(reMorfo.largura[i]));
+               stream.writeAttribute("larM",QString::number(reMorfo.largura[i]/videoLista.escala[contadorDeVideo]));
+               stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i])); //angulo do objeto
+
+
+
+      //         stream.writeAttribute("taP",QString::number(dados->reMorfo.tamanhoObj[i]));
+      //         stream.writeAttribute("taM",QString::number(dados->reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
 
 
       //         double tamanhoObjeto=0;
@@ -4247,18 +4265,24 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 
 
 
-               stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i]));
+
 
                stream.writeAttribute("Var",QString::number(reCinema.varArea[i]));
-               stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
                stream.writeAttribute("Vd",QString::number(reCinema.varDistancia[i]));
-               stream.writeAttribute("VtoP",QString::number(reCinema.varTamObjeto[i]));
+               stream.writeAttribute("Valt",QString::number(reCinema.varAltura[i]));
+               stream.writeAttribute("Vlar",QString::number(reCinema.varLargura[i]));
+
+               stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
+
+
+               std::vector<float> varAltura;
+               std::vector<float> varLargura;
 
                if(reCinema.ruidoMaxVaria[i]){
-                   stream.writeAttribute("rMV","true");
+                   stream.writeAttribute("rMinV","true");
 
                }else{
-                   stream.writeAttribute("rMV","false");
+                   stream.writeAttribute("rMinV","false");
                }
                if(reMorfo.objetoEncontrado[i]){
 
@@ -4274,7 +4298,68 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
                stream.writeEndElement(); //fecha proce
 
                }
+
+               fraNumero++;
+
+
            }
+//           int fraNumero=0;
+//           for(int i=0; i< reMorfo.area.size();i++){
+
+//               if(matObjDentro[ka][i]){
+
+//               stream.writeStartElement("proce");
+//               fraNumero=i+ videoLista.frameProces[contadorDeVideo];
+
+//               stream.writeAttribute("f",QString::number(fraNumero));
+//               stream.writeAttribute("arP",QString::number(reMorfo.area[i]));
+//               stream.writeAttribute("arM",QString::number(reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
+//               stream.writeAttribute("ceX",QString::number(reMorfo.centroidX[i]));
+//               stream.writeAttribute("ceY",QString::number(reMorfo.centroidY[i]));
+//               stream.writeAttribute("taP",QString::number(reMorfo.tamanhoObj[i]));
+//               stream.writeAttribute("taM",QString::number(reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
+
+
+//      //         double tamanhoObjeto=0;
+
+//      //         tamanhoObjeto= qPow( dados->desenhoSaida.pob2X[i]-dados->desenhoSaida.pob1X[i],2) + qPow( dados->desenhoSaida.pob2Y[i]-dados->desenhoSaida.pob1Y[i],2);
+//      //         tamanhoObjeto = qSqrt(tamanhoObjeto);
+
+//      //         stream.writeAttribute("taM1", QString::number(tamanhoObjeto/videoLista.escala[contadorDeVideo]));
+
+
+//      //         //novo
+
+
+
+//               stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i]));
+
+//               stream.writeAttribute("Var",QString::number(reCinema.varArea[i]));
+//               stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
+//               stream.writeAttribute("Vd",QString::number(reCinema.varDistancia[i]));
+//               stream.writeAttribute("VtoP",QString::number(reCinema.varTamObjeto[i]));
+
+//               if(reCinema.ruidoMaxVaria[i]){
+//                   stream.writeAttribute("rMV","true");
+
+//               }else{
+//                   stream.writeAttribute("rMV","false");
+//               }
+//               if(reMorfo.objetoEncontrado[i]){
+
+//                   stream.writeAttribute("OE","true");
+
+//               }else{
+
+//                   stream.writeAttribute("OE","false");
+//               }
+
+
+
+//               stream.writeEndElement(); //fecha proce
+
+//               }
+//           }
 
 
       //     etografia.framFim;
