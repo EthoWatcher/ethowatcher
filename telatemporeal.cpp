@@ -673,7 +673,42 @@ void telaTempoReal::gravaDadosMorfoCinematico(QImage imaProc, bool objeto, doubl
     reCinema.varTamObjeto.push_back(VarOBjeto);
     reCinema.varAltura.push_back(VarAltura);
     reCinema.varLargura.push_back(VarLargura);
-    reCinema.ruidoMaxVaria.push_back(ruidoOn);
+    reCinema.ruidoMaxVaria.push_back(ruidoOn); //minima variação
+
+
+
+    if(objeto){
+         ui->tabWDesc->setItem(0,0,new QTableWidgetItem("true" ) );
+    }else{
+        ui->tabWDesc->setItem(0,0,new QTableWidgetItem("false" ) );
+    }
+
+    ui->tabWDesc->setItem(0,1,new QTableWidgetItem(QString::number(area1/(qPow(videoLista.escala[contadorDeVideo],2)) ) ));
+     ui->tabWDesc->setItem(0,2,new QTableWidgetItem(QString::number(mcX ) ));
+      ui->tabWDesc->setItem(0,3,new QTableWidgetItem(QString::number(mcY ) ));
+       ui->tabWDesc->setItem(0,4,new QTableWidgetItem(QString::number(anguloObjeto ) ));
+       ui->tabWDesc->setItem(0,5,new QTableWidgetItem(QString::number(alturaObjeto/videoLista.escala[contadorDeVideo]) ) );
+        ui->tabWDesc->setItem(0,6,new QTableWidgetItem(QString::number(larguraObjeto/videoLista.escala[contadorDeVideo]) ));
+
+        ui->tabWDesc->setItem(0,7,new QTableWidgetItem(QString::number(varAngular) ) );
+         ui->tabWDesc->setItem(0,8,new QTableWidgetItem(QString::number(varArea) ));
+          ui->tabWDesc->setItem(0,9,new QTableWidgetItem(QString::number(VarCenX) ));
+           ui->tabWDesc->setItem(0,10,new QTableWidgetItem(QString::number(VarCenY ) ));
+           ui->tabWDesc->setItem(0,11,new QTableWidgetItem(QString::number(VarDistancia) ) );
+           // ui->tabWDesc->setItem(0,12,new QTableWidgetItem(QString::number(VarOBjeto) ));
+            ui->tabWDesc->setItem(0,12,new QTableWidgetItem(QString::number(VarAltura ) ));
+            ui->tabWDesc->setItem(0,13,new QTableWidgetItem(QString::number(VarLargura) ) );
+
+             if(ruidoOn){
+
+                 ui->tabWDesc->setItem(0,14,new QTableWidgetItem("true" ));
+
+             }else{
+                 ui->tabWDesc->setItem(0,14,new QTableWidgetItem("false" ));
+
+             }
+
+
 
     //qDebug() << anguloObjeto;
 

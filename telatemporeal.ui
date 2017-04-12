@@ -4010,7 +4010,7 @@
               <property name="geometry">
                <rect>
                 <x>10</x>
-                <y>180</y>
+                <y>450</y>
                 <width>351</width>
                 <height>221</height>
                </rect>
@@ -4046,6 +4046,96 @@
                 </layout>
                </widget>
               </widget>
+             </widget>
+             <widget class="QTableWidget" name="tabWDesc">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>190</y>
+                <width>351</width>
+                <height>241</height>
+               </rect>
+              </property>
+              <row>
+               <property name="text">
+                <string>Objeto Encontrado</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Area</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>CentroideX</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>CentroideY</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Angulo</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Largura</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Altura</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação Angular</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação de Área</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação de Centroide X</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação de Centroide Y</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação de distancia</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação da Altura do objeto</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação da Largura do objeto</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <column>
+               <property name="text">
+                <string>Valor</string>
+               </property>
+              </column>
              </widget>
             </widget>
             <widget class="QWidget" name="tab_16">
