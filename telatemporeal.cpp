@@ -62,6 +62,7 @@ telaTempoReal::telaTempoReal(QWidget *parent) :
     frameInicioGravacao=0;
     ui->pbSaveTraking->setVisible(false);
 //    ui->tabWidget->set
+    ui->tabWidget->setVisible(false);
 }
 
 telaTempoReal::~telaTempoReal()
