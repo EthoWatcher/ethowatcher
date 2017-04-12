@@ -53,3 +53,6 @@ FORMS    += telatemporeal.ui \
     emuladorverdadeirorealtime.ui
 #mainwindow.ui \
 
+RESOURCES += \
+    resourcefile.qrc
+
