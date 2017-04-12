@@ -44,6 +44,21 @@
            <height>100</height>
           </size>
          </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_13">
+          <item>
+           <widget class="QLabel" name="label_16">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="resourcefile.qrc">:/icons/cabecalho6.jpg</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
        <item>
@@ -435,15 +450,23 @@
                </widget>
               </widget>
              </widget>
-             <widget class="QTextEdit" name="textEdit">
+             <widget class="QGroupBox" name="groupBox_2">
               <property name="geometry">
                <rect>
-                <x>20</x>
-                <y>410</y>
-                <width>981</width>
-                <height>151</height>
+                <x>0</x>
+                <y>310</y>
+                <width>1041</width>
+                <height>271</height>
                </rect>
               </property>
+              <property name="title">
+               <string>Tutor</string>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_18">
+               <item>
+                <widget class="QTextEdit" name="textEdit"/>
+               </item>
+              </layout>
              </widget>
             </widget>
             <widget class="QWidget" name="page_6"/>
@@ -959,7 +982,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset>
+                <iconset resource="resourcefile.qrc">
                  <normaloff>:/icons/photography.png</normaloff>:/icons/photography.png</iconset>
                </property>
               </widget>
@@ -3069,7 +3092,7 @@
               </size>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>2</number>
              </property>
              <widget class="QWidget" name="Captador">
               <attribute name="title">
@@ -3085,6 +3108,9 @@
                 </rect>
                </property>
                <widget class="QPushButton" name="pbStoCap">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="geometry">
                  <rect>
                   <x>10</x>
@@ -3447,180 +3473,184 @@
               <attribute name="title">
                <string>Processamento Imagem</string>
               </attribute>
-              <layout class="QVBoxLayout" name="verticalLayout_5">
-               <item>
-                <widget class="QTabWidget" name="tabWidget">
-                 <property name="enabled">
-                  <bool>true</bool>
+              <widget class="QTabWidget" name="tabWidget">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="geometry">
+                <rect>
+                 <x>499</x>
+                 <y>19</y>
+                 <width>121</width>
+                 <height>151</height>
+                </rect>
+               </property>
+               <property name="currentIndex">
+                <number>1</number>
+               </property>
+               <widget class="QWidget" name="tab_5">
+                <attribute name="title">
+                 <string>Calibration </string>
+                </attribute>
+               </widget>
+               <widget class="QWidget" name="tab_6">
+                <attribute name="title">
+                 <string>Save</string>
+                </attribute>
+                <widget class="QPushButton" name="pushButton">
+                 <property name="geometry">
+                  <rect>
+                   <x>460</x>
+                   <y>70</y>
+                   <width>121</width>
+                   <height>23</height>
+                  </rect>
                  </property>
-                 <property name="currentIndex">
-                  <number>0</number>
+                 <property name="text">
+                  <string>Start Processamento</string>
                  </property>
-                 <widget class="QWidget" name="tab_5">
-                  <attribute name="title">
-                   <string>Calibration </string>
-                  </attribute>
-                  <widget class="QPushButton" name="pushButton_4">
-                   <property name="geometry">
-                    <rect>
-                     <x>480</x>
-                     <y>30</y>
-                     <width>121</width>
-                     <height>23</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Inicia Proce</string>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="lblFundo">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>10</y>
-                     <width>160</width>
-                     <height>120</height>
-                    </rect>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>160</width>
-                     <height>120</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
-                  <widget class="QGroupBox" name="groupBox">
-                   <property name="geometry">
-                    <rect>
-                     <x>210</x>
-                     <y>10</y>
-                     <width>151</width>
-                     <height>111</height>
-                    </rect>
-                   </property>
-                   <property name="title">
-                    <string>Calibration</string>
-                   </property>
-                   <widget class="QLabel" name="label_14">
-                    <property name="geometry">
-                     <rect>
-                      <x>20</x>
-                      <y>20</y>
-                      <width>71</width>
-                      <height>16</height>
-                     </rect>
-                    </property>
-                    <property name="text">
-                     <string>Threshold</string>
-                    </property>
-                   </widget>
-                   <widget class="QLabel" name="lblThre">
-                    <property name="geometry">
-                     <rect>
-                      <x>20</x>
-                      <y>40</y>
-                      <width>71</width>
-                      <height>16</height>
-                     </rect>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                   <widget class="QLabel" name="label_15">
-                    <property name="geometry">
-                     <rect>
-                      <x>20</x>
-                      <y>60</y>
-                      <width>71</width>
-                      <height>16</height>
-                     </rect>
-                    </property>
-                    <property name="text">
-                     <string>Erode</string>
-                    </property>
-                   </widget>
-                   <widget class="QLabel" name="lblErode">
-                    <property name="geometry">
-                     <rect>
-                      <x>20</x>
-                      <y>80</y>
-                      <width>71</width>
-                      <height>16</height>
-                     </rect>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QPushButton" name="pbFimProcessamento">
-                   <property name="enabled">
-                    <bool>false</bool>
-                   </property>
-                   <property name="geometry">
-                    <rect>
-                     <x>480</x>
-                     <y>70</y>
-                     <width>121</width>
-                     <height>23</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>End Traking</string>
-                   </property>
-                  </widget>
-                 </widget>
-                 <widget class="QWidget" name="tab_6">
-                  <attribute name="title">
-                   <string>Save</string>
-                  </attribute>
-                  <widget class="QPushButton" name="pushButton">
-                   <property name="geometry">
-                    <rect>
-                     <x>460</x>
-                     <y>70</y>
-                     <width>121</width>
-                     <height>23</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Start Processamento</string>
-                   </property>
-                  </widget>
-                  <widget class="QPushButton" name="pbPlanoFundo">
-                   <property name="geometry">
-                    <rect>
-                     <x>460</x>
-                     <y>100</y>
-                     <width>131</width>
-                     <height>23</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>set Plano de Fundo</string>
-                   </property>
-                  </widget>
-                  <widget class="QPushButton" name="pbSaveTraking">
-                   <property name="geometry">
-                    <rect>
-                     <x>30</x>
-                     <y>40</y>
-                     <width>111</width>
-                     <height>23</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Salve Traking</string>
-                   </property>
-                  </widget>
-                 </widget>
                 </widget>
-               </item>
-              </layout>
+                <widget class="QPushButton" name="pbPlanoFundo">
+                 <property name="geometry">
+                  <rect>
+                   <x>460</x>
+                   <y>100</y>
+                   <width>131</width>
+                   <height>23</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>set Plano de Fundo</string>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="pbSaveTraking">
+                 <property name="geometry">
+                  <rect>
+                   <x>30</x>
+                   <y>40</y>
+                   <width>111</width>
+                   <height>23</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Salve Traking</string>
+                 </property>
+                </widget>
+               </widget>
+              </widget>
+              <widget class="QLabel" name="lblFundo">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>30</y>
+                 <width>160</width>
+                 <height>120</height>
+                </rect>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>160</width>
+                 <height>120</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+              <widget class="QGroupBox" name="groupBox">
+               <property name="geometry">
+                <rect>
+                 <x>190</x>
+                 <y>30</y>
+                 <width>151</width>
+                 <height>111</height>
+                </rect>
+               </property>
+               <property name="title">
+                <string>Calibration</string>
+               </property>
+               <widget class="QLabel" name="label_14">
+                <property name="geometry">
+                 <rect>
+                  <x>20</x>
+                  <y>20</y>
+                  <width>71</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Threshold</string>
+                </property>
+               </widget>
+               <widget class="QLabel" name="lblThre">
+                <property name="geometry">
+                 <rect>
+                  <x>20</x>
+                  <y>40</y>
+                  <width>71</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+               <widget class="QLabel" name="label_15">
+                <property name="geometry">
+                 <rect>
+                  <x>20</x>
+                  <y>60</y>
+                  <width>71</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Erode</string>
+                </property>
+               </widget>
+               <widget class="QLabel" name="lblErode">
+                <property name="geometry">
+                 <rect>
+                  <x>20</x>
+                  <y>80</y>
+                  <width>71</width>
+                  <height>16</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </widget>
+              <widget class="QPushButton" name="pushButton_4">
+               <property name="geometry">
+                <rect>
+                 <x>360</x>
+                 <y>60</y>
+                 <width>121</width>
+                 <height>23</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Inicia Proce</string>
+               </property>
+              </widget>
+              <widget class="QPushButton" name="pbFimProcessamento">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="geometry">
+                <rect>
+                 <x>360</x>
+                 <y>100</y>
+                 <width>121</width>
+                 <height>23</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>End Traking</string>
+               </property>
+              </widget>
              </widget>
              <widget class="QWidget" name="tab">
               <attribute name="title">
@@ -3749,7 +3779,7 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="tab_13">
              <attribute name="title">
@@ -3904,8 +3934,8 @@
                <rect>
                 <x>10</x>
                 <y>30</y>
-                <width>261</width>
-                <height>91</height>
+                <width>341</width>
+                <height>141</height>
                </rect>
               </property>
               <property name="title">
@@ -3927,17 +3957,17 @@
                 <bool>true</bool>
                </property>
               </widget>
-              <widget class="QCheckBox" name="chbTamnho">
+              <widget class="QCheckBox" name="chbAltLarg">
                <property name="geometry">
                 <rect>
                  <x>20</x>
                  <y>40</y>
-                 <width>131</width>
+                 <width>151</width>
                  <height>17</height>
                 </rect>
                </property>
                <property name="text">
-                <string>Tamanho do Objeto</string>
+                <string>Altura e largura do objeto</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -3959,13 +3989,29 @@
                 <bool>true</bool>
                </property>
               </widget>
+              <widget class="QCheckBox" name="chbAngulo">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>80</y>
+                 <width>111</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Angulo do objeto</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
              </widget>
              <widget class="QGroupBox" name="groupBox_5">
               <property name="geometry">
                <rect>
                 <x>10</x>
-                <y>140</y>
-                <width>301</width>
+                <y>450</y>
+                <width>351</width>
                 <height>221</height>
                </rect>
               </property>
@@ -3977,7 +4023,7 @@
                 <rect>
                  <x>10</x>
                  <y>20</y>
-                 <width>271</width>
+                 <width>331</width>
                  <height>191</height>
                 </rect>
                </property>
@@ -3989,7 +4035,7 @@
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>269</width>
+                  <width>329</width>
                   <height>189</height>
                  </rect>
                 </property>
@@ -4000,6 +4046,96 @@
                 </layout>
                </widget>
               </widget>
+             </widget>
+             <widget class="QTableWidget" name="tabWDesc">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>190</y>
+                <width>351</width>
+                <height>241</height>
+               </rect>
+              </property>
+              <row>
+               <property name="text">
+                <string>Objeto Encontrado</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Area</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>CentroideX</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>CentroideY</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Angulo</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Largura</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Altura</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação Angular</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação de Área</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação de Centroide X</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação de Centroide Y</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação de distancia</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação da Altura do objeto</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>Variação da Largura do objeto</string>
+               </property>
+              </row>
+              <row>
+               <property name="text">
+                <string>New Row</string>
+               </property>
+              </row>
+              <column>
+               <property name="text">
+                <string>Valor</string>
+               </property>
+              </column>
              </widget>
             </widget>
             <widget class="QWidget" name="tab_16">
@@ -4079,6 +4215,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="resourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>

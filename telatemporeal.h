@@ -245,11 +245,14 @@ private slots:
     void on_pushButton_4_clicked();
 
 
-    void recebeDesenho(QImage des1, bool desenhar, double centX, double centY,
-                       double poLongeX, double poLongey, double agulhX, double agulhy,
-                       double pRetaA1X, double pRetaA1Y, double pRetaA2X, double pRetaA2Y,
-                       double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3,
-                       double vtxY3, double vtxX4, double vtxY4);
+//    void recebeDesenho(QImage des1, bool desenhar, double centX, double centY,
+//                       double poLongeX, double poLongey, double agulhX, double agulhy,
+//                       double pRetaA1X, double pRetaA1Y, double pRetaA2X, double pRetaA2Y,
+//                       double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3,
+//                       double vtxY3, double vtxX4, double vtxY4);
+
+
+    void recebeDesenho(QImage imaPro, bool desenha, double cmX, double cmY, double pMDCX, double pMDCY, double agulhX, double agulhY, double pob1X, double pob1Y, double pob2X, double pob2Y, double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3, double vtxY3, double vtxX4, double vtxY4);
 
 
    void recebeDadosMorfologicos(QImage imReceb, bool objetoEnco, double areaRecebida,
