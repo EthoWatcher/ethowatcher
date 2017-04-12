@@ -3242,3 +3242,8 @@ void telaEtografiaProce::on_pbTraking_clicked()
 
 
 }
+
+void telaEtografiaProce::on_chbTamnho_clicked()
+{
+
+}

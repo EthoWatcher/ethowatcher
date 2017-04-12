@@ -310,7 +310,7 @@ void telaTempoReal::on_pushButton_4_clicked()
 
 }
 
-void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, double centY, double poLongeX, double poLongey, double agulhX, double agulhy, double pRetaA1X, double pRetaA1Y, double pRetaA2X, double pRetaA2Y, double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3, double vtxY3, double vtxX4, double vtxY4)
+void telaTempoReal::recebeDesenho(QImage imaPro, bool desenha, double cmX, double cmY, double pMDCX, double pMDCY, double agulhX, double agulhY, double pob1X, double pob1Y, double pob2X, double pob2Y, double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3, double vtxY3, double vtxX4, double vtxY4)       //QImage des1, bool desenhar, double centX, double centY, double poLongeX, double poLongey, double agulhX, double agulhy, double pRetaA1X, double pRetaA1Y, double pRetaA2X, double pRetaA2Y, double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3, double vtxY3, double vtxX4, double vtxY4)
 {
 
     widthPanProcess=ui->panProcess->size().width();
@@ -319,7 +319,7 @@ void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, doub
 
     if(chDesenhar){
 
-         QPainter painter(&des1); //o pintor vai pintar nesse inderesso
+         QPainter painter(&imaPro); //o pintor vai pintar nesse inderesso
          //define qual sera a caneta que ira pintar
          QPen canetaVermelha;
          canetaVermelha.setWidth(8);
@@ -328,7 +328,8 @@ void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, doub
          if(ui->chbCentroide->isChecked()){
 
              painter.setPen(canetaVermelha);
-             painter.drawPoint(centX,centY);
+             painter.drawPoint(cmX,cmY);
+             // painter.drawPoint(centX,centY);
          }
 
 //         if(ui->chbTamnho->isChecked()){
@@ -343,37 +344,122 @@ void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, doub
 
 
 
-         if(ui->chbTamnho->isChecked()){
+//         if(ui->chbTamnho->isChecked()){
 
-         QPen canetaAmarela;
-         canetaAmarela.setWidth(4);
-         canetaAmarela.setColor(QColor(0,255,255));
-         painter.setPen(canetaAmarela);
-         //painter.drawPoint(poLongeX,poLongey);
+//         QPen canetaAmarela;
+//         canetaAmarela.setWidth(4);
+//         canetaAmarela.setColor(QColor(0,255,255));
+//         painter.setPen(canetaAmarela);
+//         //painter.drawPoint(poLongeX,poLongey);
 
-         painter.drawLine(QPointF(pRetaA1X,pRetaA1Y),
-                          QPointF(pRetaA2X,pRetaA2Y));
-//         painter.drawPoint(pRetaA1X,pRetaA1Y);
-//         painter.drawPoint(pRetaA2X,pRetaA2Y);
+
+//        painter.drawLine(QPointF(pob1X,pob1Y),
+//                         QPointF(pob2X,pob2Y));
+////         painter.drawLine(QPointF(pRetaA1X,pRetaA1Y),
+////                          QPointF(pRetaA2X,pRetaA2Y));
+////         painter.drawPoint(pRetaA1X,pRetaA1Y);
+////         painter.drawPoint(pRetaA2X,pRetaA2Y);
+
+//         }
+
+
+         QPoint vetPont[4];
+
+         vetPont[0].setX(vtxX1);
+         vetPont[0].setY(vtxY1);
+         vetPont[1].setX(vtxX2);
+         vetPont[1].setY(vtxY2);
+         vetPont[2].setX(vtxX3);
+         vetPont[2].setY(vtxY3);
+         vetPont[3].setX(vtxX4);
+         vetPont[3].setY(vtxY4);
+
+
+//                 ponto1=vetPont[0];
+
+//                 for(int ja=0; ja< 4; ja++){
+
+//                     if((ponto1.x()< vetPont[ja]) &&)
+
+
+//                 }
+
+         QPoint desenho1,desenho2,desenho3,desenho4;
+         //esquerda
+         desenho1.setX((vetPont[0].x()+vetPont[1].x())/2);
+         desenho1.setY((vetPont[0].y()+vetPont[1].y())/2);
+
+         //direita
+         desenho2.setX((vetPont[1].x()+vetPont[2].x())/2);
+         desenho2.setY((vetPont[1].y()+vetPont[2].y())/2);
+
+
+
+         desenho3.setX((vetPont[2].x()+vetPont[3].x())/2);
+         desenho3.setY((vetPont[2].y()+vetPont[3].y())/2);
+
+         desenho4.setX((vetPont[3].x()+vetPont[0].x())/2);
+         desenho4.setY((vetPont[3].y()+vetPont[0].y())/2);
+
+
+         if(ui->chbAltLarg->isChecked()){
+
+//             QPen canetaAmarela;
+//             canetaAmarela.setWidth(4);
+//             canetaAmarela.setColor(QColor(0,255,255));
+//             painter.setPen(canetaAmarela);
+//             painter.drawPoint(agulhX,agulhY);
+//             painter.setPen(canetaAmarela);
+//             painter.drawLine(QPointF(pob1X,pob1Y),
+//                     QPointF(pob2X,pob2Y));
+
+
+
+//                 desenho1.setX(ponto4.x()+ (ponto4.x()-ponto1.x())/2);
+//                 desenho1.setY(ponto1.y());
+             //painter.drawLine(desenho1,desenho2);
+
+             //painter.drawPoint(desenho1);
+//             painter.drawLine(desenho1,desenho3);
+             painter.setPen(QColor(20,244,23));
+             painter.drawLine(desenho1,desenho3);
+             painter.setPen(QColor(20,244,23));
+             painter.drawLine(desenho2,desenho4);
+
 
          }
 
+
+
+         if(ui->chbAngulo->isChecked()){
+
+             painter.setPen(canetaVermelha);
+             painter.drawLine(desenho1,desenho3);
+
+         }
 
          //desenha o centro de massa
 
 
          if(ui->chbArea->isChecked()){
          QPen canetaQuadro;
-         canetaQuadro.setWidth(6);
+         canetaQuadro.setWidth(2);
          canetaQuadro.setColor(QColor(255,100,255));
          painter.setPen(canetaQuadro);
-         painter.drawPoint(vtxX1,vtxY1);
-         painter.drawPoint(vtxX2,vtxY2);
-         painter.drawPoint(vtxX3,vtxY3);
-         painter.drawPoint(vtxX4,vtxY4);
+
+         painter.drawLine(vtxX1,vtxY1,vtxX2,vtxY2);
+         painter.drawLine(vtxX2,vtxY2,vtxX3,vtxY3);
+         painter.drawLine(vtxX3,vtxY3,vtxX4,vtxY4);
+         painter.drawLine(vtxX4,vtxY4,vtxX1,vtxY1);
+//         painter.drawPoint(vtxX1,vtxY1);
+//         painter.drawPoint(vtxX2,vtxY2);
+//         painter.drawPoint(vtxX3,vtxY3);
+//         painter.drawPoint(vtxX4,vtxY4);
 
 
          }
+
+         //figuras
 
          int contCircle=0;
          int contREct=0;
@@ -423,7 +509,7 @@ void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, doub
 
 
 
-         QImage qimDisplay= des1.scaled(widthPanProcess,heightPanProcess,Qt::IgnoreAspectRatio);
+         QImage qimDisplay= imaPro.scaled(widthPanProcess,heightPanProcess,Qt::IgnoreAspectRatio);
          ui->panProcess->setPixmap(QPixmap::fromImage(qimDisplay));
     }
 
@@ -588,6 +674,8 @@ void telaTempoReal::gravaDadosMorfoCinematico(QImage imaProc, bool objeto, doubl
     reCinema.varAltura.push_back(VarAltura);
     reCinema.varLargura.push_back(VarLargura);
     reCinema.ruidoMaxVaria.push_back(ruidoOn);
+
+    //qDebug() << anguloObjeto;
 
 
     //qDebug()<<"chegou aqui lul" << reMorfo.objetoEncontrado.size();

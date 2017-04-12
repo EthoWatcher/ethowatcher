@@ -3625,7 +3625,7 @@
               <widget class="QPushButton" name="pushButton_4">
                <property name="geometry">
                 <rect>
-                 <x>370</x>
+                 <x>360</x>
                  <y>60</y>
                  <width>121</width>
                  <height>23</height>
@@ -3934,8 +3934,8 @@
                <rect>
                 <x>10</x>
                 <y>30</y>
-                <width>261</width>
-                <height>91</height>
+                <width>341</width>
+                <height>141</height>
                </rect>
               </property>
               <property name="title">
@@ -3957,17 +3957,17 @@
                 <bool>true</bool>
                </property>
               </widget>
-              <widget class="QCheckBox" name="chbTamnho">
+              <widget class="QCheckBox" name="chbAltLarg">
                <property name="geometry">
                 <rect>
                  <x>20</x>
                  <y>40</y>
-                 <width>131</width>
+                 <width>151</width>
                  <height>17</height>
                 </rect>
                </property>
                <property name="text">
-                <string>Tamanho do Objeto</string>
+                <string>Altura e largura do objeto</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -3989,13 +3989,29 @@
                 <bool>true</bool>
                </property>
               </widget>
+              <widget class="QCheckBox" name="chbAngulo">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>80</y>
+                 <width>111</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Angulo do objeto</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
              </widget>
              <widget class="QGroupBox" name="groupBox_5">
               <property name="geometry">
                <rect>
                 <x>10</x>
-                <y>140</y>
-                <width>301</width>
+                <y>180</y>
+                <width>351</width>
                 <height>221</height>
                </rect>
               </property>
@@ -4007,7 +4023,7 @@
                 <rect>
                  <x>10</x>
                  <y>20</y>
-                 <width>271</width>
+                 <width>331</width>
                  <height>191</height>
                 </rect>
                </property>
@@ -4019,7 +4035,7 @@
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>269</width>
+                  <width>329</width>
                   <height>189</height>
                  </rect>
                 </property>
