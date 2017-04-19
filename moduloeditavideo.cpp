@@ -324,11 +324,17 @@ double moduloEditaVideo::getFimVideo()
  return videoLista.frameFinal[0];
 }
 
+
+//funcao que é chamada para gravar o video
 void moduloEditaVideo::iniGraVidoCego(QString arquivoVideo,QString nomeCaminhoEditado, QString nomeVideoEditado, int codec)
 {
 
+    qDebug () <<"fim do TESTE" << QThread::currentThreadId();
      gravarNomeCaminhoVideo = nomeCaminhoEditado+"/"+nomeVideoEditado+".avi";
      gravarNomeVideo = nomeVideoEditado+".avi";
+
+     videoLista.nomeArquivoVXML.push_back(arquivoVideo);
+
     if(readXmlVideoOrignal(arquivoVideo)){
 
         setOpenVideo(videoLista.nomeOpencv[0]); //nome opencv do arquivo
@@ -456,8 +462,309 @@ void moduloEditaVideo::iniGraFluxoComportamento(QString nomeVXML, QString nomeEd
 
 }
 
+//funcao que le o xml
 void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 {
+//    OutVideo.setFileName(nomeArquivoLer);
+//    OutVideo.open(QIODevice::ReadOnly);
+
+//    QXmlStreamReader streamReader(&OutVideo); //passa o endereço
+
+//    QString conversor;
+
+//    while(!streamReader.atEnd() && !streamReader.hasError()){
+
+//        streamReader.readNext();
+
+//        if(streamReader.name()== "nomeOpencv"){
+//        videoLista.nomeOpencv.push_back(streamReader.readElementText());
+//           //qDebug() << leitorXML.readElementText();
+
+//        }
+
+
+//           if(streamReader.name()== "frameInicial"){
+
+//         conversor = streamReader.readElementText();
+//        videoLista.frameInicial.push_back(conversor.toInt());
+//              // qDebug() << leitorXML.readElementText();
+//           }
+
+//           if(streamReader.name()== "frameFinal"){
+//               conversor = streamReader.readElementText();
+//        videoLista.frameFinal.push_back(conversor.toInt());
+//              // qDebug() << leitorXML.readElementText();
+//           }
+
+
+
+//           if(streamReader.name() == "frameProces"){
+//               conversor = streamReader.readElementText();
+//        videoLista.frameProces.push_back(conversor.toInt());
+
+
+//           }
+//            if(streamReader.name() == "frameBack"){
+
+//                conversor = streamReader.readElementText();
+//         videoLista.frameBack.push_back(conversor.toInt());
+
+//            }
+
+
+
+//            if(streamReader.name() == "treshold"){
+
+//                       conversor = streamReader.readElementText();
+
+//                       videoLista.threshold.push_back(conversor.toInt());
+
+//              }
+
+//           if(streamReader.name() == "erosao"){
+
+//               conversor = streamReader.readElementText();
+//        videoLista.erosao.push_back(conversor.toInt());
+
+//           }
+
+
+//           if(streamReader.name() == "escala"){
+
+//               conversor = streamReader.readElementText();
+//        videoLista.escala.push_back(conversor.toDouble());
+
+//           }
+
+//           if(streamReader.name() == "fps"){
+
+//               conversor = streamReader.readElementText();
+//        videoLista.fps.push_back(conversor.toDouble());
+
+//           }
+
+//           if(streamReader.name()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
+
+//               conversor = streamReader.readElementText();
+//               if(conversor=="true"){
+//                   videoLista.chProImaOn.push_back(true); //tem o processamento de imagem
+
+//               }else{
+
+//                   videoLista.chProImaOn.push_back(false);
+
+//               }
+
+
+//           }
+
+//           if(streamReader.name()== "janelaInteresse"){
+
+//               if(chaJanInte==true){
+//                   chaJanInte=false;
+
+//               }else{
+//                   chaJanInte=true;
+
+//                   videoLista.areaJanInte.push_back(auxArea1);
+
+//               }
+//           }
+
+//           if(chaJanInte==true){
+//               if(streamReader.name() == "ativado"){
+
+//                   conversor = streamReader.readElementText();
+
+//                   if(conversor=="false"){
+//                     videoLista.chaInteMoveAtivado.push_back(false);
+//                   }else{
+//                     videoLista.chaInteMoveAtivado.push_back(true);
+//                   }
+
+
+//               }
+
+
+//               if(streamReader.name() == "movel"){
+
+//                   conversor = streamReader.readElementText();
+
+//                   if(conversor=="false"){
+//                     videoLista.chaInteMove.push_back(false);
+//                   }else{
+//                     videoLista.chaInteMove.push_back(true);
+//                   }
+
+
+//               }
+
+//               if(streamReader.name() == "origX"){
+
+//                   conversor = streamReader.readElementText();
+
+//                     videoLista.areaJanInte[contadorDeVideo].oriX.push_back(conversor.toDouble());
+
+//               }
+//               if(streamReader.name() == "origY"){
+
+//                conversor = streamReader.readElementText();
+//                videoLista.areaJanInte[contadorDeVideo].oriY.push_back(conversor.toDouble());
+
+//               }
+
+//               if(streamReader.name() == "width"){
+
+//                conversor = streamReader.readElementText();
+//                videoLista.areaJanInte[contadorDeVideo].width.push_back(conversor.toDouble());
+
+//               }
+//               if(streamReader.name() == "heigth"){
+
+//                conversor = streamReader.readElementText();
+//                videoLista.areaJanInte[contadorDeVideo].height.push_back(conversor.toDouble());
+
+//               }
+
+//           }
+
+
+//           if(streamReader.name()== "maximaVariacaoCentro"){
+
+//               if(chaMaxVari==true){
+//                   chaMaxVari=false;
+
+//               }else{
+//                   chaMaxVari=true;
+//                   //videoLista.areaJanInte.push_back(auxArea);
+
+//               }
+//           }
+
+//           if(chaMaxVari){
+
+//               if(streamReader.name() == "tamanho"){
+
+//                conversor = streamReader.readElementText();
+//                videoLista.tamMaxVar.push_back(conversor.toDouble());
+
+//               }
+
+
+//           }
+
+
+
+
+
+
+
+//           if(streamReader.name()== "areasDeInteresse"){
+
+//               if(chaveArea==true){
+//                   chaveArea=false;
+
+//               }else{
+//                   chaveArea=true;
+//                   videoLista.area.push_back(auxArea);
+
+//               }
+//           }
+
+//           if(chaveArea==true){
+
+
+//               if(streamReader.name()== "area"){
+
+//               QString conversora= streamReader.attributes().value("tipo").toString();
+//               if(!conversora.isEmpty()){//ele acaba entrando daus vez pra cada tag
+////                   videoLista.contQuantArea++;
+//                   //auxArea.tipo = conversora;
+//                   //videoLista.area.push_back(auxArea);
+//                   videoLista.area[contadorDeVideo].tipo.push_back(conversora);
+//                   //   analiseSequencial.classeCatalago.push_back(conversor);
+//                   // etografiaLida->caminho= conversor;
+//               }else{
+
+
+
+
+//                 //  analiseSequencial.listaDados.push_back(analiseSequencial.dados);
+//                 //  analiseSequencial.dados.clear();
+//                   //zerando os valores
+
+//               }
+
+//               }
+
+//               if(streamReader.name() == "nomeFig"){
+
+//                   conversor = streamReader.readElementText();
+//                   videoLista.area[contadorDeVideo].nomeFig.push_back(conversor);
+//                   //auxArea.oriX =  conversor.toDouble();
+
+//               }
+
+
+//               if(streamReader.name() == "oriX"){
+
+//                   conversor = streamReader.readElementText();
+//                   videoLista.area[contadorDeVideo].oriX.push_back(conversor.toDouble());
+//                   //auxArea.oriX =  conversor.toDouble();
+
+//               }
+
+//               if(streamReader.name() == "oriY"){
+
+//                   conversor = streamReader.readElementText();
+//                   videoLista.area[contadorDeVideo].oriY.push_back(conversor.toDouble());
+//                   //auxArea.oriY =  conversor.toDouble();
+
+//               }
+
+//               if(streamReader.name() == "height"){
+
+//                   conversor = streamReader.readElementText();
+//                   videoLista.area[contadorDeVideo].height.push_back(conversor.toDouble());
+//                   //auxArea.height =  conversor.toDouble();
+
+//               }
+
+//               if(streamReader.name() == "width"){
+
+//                   conversor = streamReader.readElementText();
+//                   videoLista.area[contadorDeVideo].width.push_back(conversor.toDouble());
+//                  // auxArea.width =  conversor.toDouble();
+
+//               }
+
+//               if(streamReader.name() == "rad"){
+
+//                   conversor = streamReader.readElementText();
+//                   videoLista.area[contadorDeVideo].raio.push_back(conversor.toDouble());
+//                   //auxArea.raio =  conversor.toDouble();
+
+//               }//fim if rad
+
+
+
+
+//           }//fim chave das areas
+
+
+
+
+
+
+//        }//fim while
+
+
+
+//    //videoLista.quantidadeDeDados++; //= contadorTamanho; //conta quantidade de dados;
+
+
+//   OutVideo.close();
+
     OutVideo.setFileName(nomeArquivoLer);
     OutVideo.open(QIODevice::ReadOnly);
 
@@ -549,6 +856,21 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 //            std::vector<double> width;
 //            std::vector<double> height;
 
+
+            if(streamReader.name()== "nomeOpencv"){
+            videoLista.nomeOpencv.push_back(streamReader.readElementText());
+               //qDebug() << leitorXML.readElementText();
+
+            }
+
+            if(streamReader.name()== "caminho"){
+            videoLista.caminho.push_back(streamReader.readElementText());
+               //qDebug() << leitorXML.readElementText();
+
+            }
+
+
+
             if(streamReader.name()== "quantidadeFrames"){
             videoLista.quantidadeFrames.push_back(streamReader.readElementText().toDouble());
                //qDebug() << leitorXML.readElementText();
@@ -588,11 +910,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
 
 
-        if(streamReader.name()== "nomeOpencv"){
-        videoLista.nomeOpencv.push_back(streamReader.readElementText());
-           //qDebug() << leitorXML.readElementText();
 
-        }
 
 
            if(streamReader.name()== "frameInicial"){
@@ -951,8 +1269,7 @@ bool moduloEditaVideo::readXmlVideoOrignal(QString nomeArquivoEditado)
 void moduloEditaVideo::writXmlVideoCego(QString nomeArquivoEditado)
 {
 
-
-
+    qDebug() << nomeArquivoEditado;
     QFile outputVideoEditado(nomeArquivoEditado);
 
     outputVideoEditado.open(QIODevice::WriteOnly);
@@ -1000,7 +1317,7 @@ void moduloEditaVideo::writXmlVideoCego(QString nomeArquivoEditado)
     //    std::vector<double> width;
     //    std::vector<double> height;
     stream.writeTextElement("tituloExperimento", rsa.criptoRSAQstring( videoLista.tituloExperimento[0]));
-    stream.writeTextElement("data",  rsa.criptoRSAQstring(videoLista.data[0]) );
+    //stream.writeTextElement("data",  rsa.criptoRSAQstring(videoLista.data[0]) );
     stream.writeTextElement("otherInfo",rsa.criptoRSAQstring( videoLista.otherInfo[0]));
     stream.writeTextElement("animalID", rsa.criptoRSAQstring(videoLista.animalID[0]));
     stream.writeTextElement("wight",rsa.criptoRSAQstring(videoLista.wight[0]));
@@ -1230,7 +1547,7 @@ void moduloEditaVideo::writXmlVideoCego(QString nomeArquivoEditado)
     //    std::vector<double> width;
     //    std::vector<double> height;
     stream.writeTextElement("tituloExperimento", rsa.criptoRSAQstring(videoLista.tituloExperimento[0]));
-    stream.writeTextElement("data",  rsa.criptoRSAQstring(videoLista.data[0] ));
+ //   stream.writeTextElement("data",  rsa.criptoRSAQstring(videoLista.data[0] ));
     stream.writeTextElement("otherInfo",rsa.criptoRSAQstring( videoLista.otherInfo[0]));
     stream.writeTextElement("animalID", rsa.criptoRSAQstring(videoLista.animalID[0]));
     stream.writeTextElement("wight",rsa.criptoRSAQstring(videoLista.wight[0]));

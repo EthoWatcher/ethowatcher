@@ -286,25 +286,25 @@ void parserXMLtoCSV::lerETOXML(QString nomeArquivo)
           if(streamReader.name() == "frameInicial"){
 
 
-              videoLido->frameInicial= streamReader.readElementText().toInt();
+              videoLido->frameInicial= streamReader.readElementText().toDouble();
 
           }
 
           if(streamReader.name() == "frameProces"){
 
 
-              videoLido->frameProce= streamReader.readElementText().toInt();
+              videoLido->frameProce= streamReader.readElementText().toDouble();
 
           }
 
           if(streamReader.name() == "frameFinal"){
-           videoLido->frameFinal= streamReader.readElementText().toInt();
+           videoLido->frameFinal= streamReader.readElementText().toDouble();
 
             //videoLido->controle=false;
         }
 
           if(streamReader.name() == "fps"){
-           videoLido->fps= streamReader.readElementText().toInt();
+           videoLido->fps= streamReader.readElementText().toDouble();
 
             videoLido->controle=false;
         }
@@ -350,20 +350,20 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
             if(streamReader.name()== "frameInicial"){
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
-            videoLido->frameInicial= conversor.toInt();
+            videoLido->frameInicial= conversor.toDouble();
             }}
 
             if(streamReader.name()== "frameProces"){
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
-            videoLido->frameProce= conversor.toInt();
+            videoLido->frameProce= conversor.toDouble();
             }}
 
 
             if(streamReader.name()== "frameFinal"){
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
-            videoLido->frameFinal= conversor.toInt();
+            videoLido->frameFinal= conversor.toDouble();
             }}
 
             if(streamReader.name()== "fps"){
@@ -821,22 +821,22 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
             if(xmlReader.name()== "frameInicial"){
             QString conversor= xmlReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
-            videoLido->frameInicial= conversor.toInt();
+            videoLido->frameInicial= conversor.toDouble();
             }}
             if(xmlReader.name()== "frameProces"){
             QString conversor= xmlReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
-            videoLido->frameProce= conversor.toInt();
+            videoLido->frameProce= conversor.toDouble();
             }}
             if(xmlReader.name()== "frameFinal"){
             QString conversor= xmlReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
-            videoLido->frameFinal= conversor.toInt();
+            videoLido->frameFinal= conversor.toDouble();
             }}
             if(xmlReader.name()== "fps"){
             QString conversor= xmlReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
-            videoLido->fps= conversor.toInt();
+            videoLido->fps= conversor.toDouble();
             }}
         }
 

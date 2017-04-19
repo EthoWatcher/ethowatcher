@@ -3714,7 +3714,7 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
                   stream.writeTextElement("frameInicial", "0");//QString::number(vetorTempoFrame[frameInicioRegistro]));
                   stream.writeTextElement("frameProces",QString::number(vetorTempoFrame[frameInicioRegistro]));
                   stream.writeTextElement("frameFinal", ui->lblTime->text()); //QString::number(vetorTempoFrame[vetorTempoFrame.size()-1]));
-                  stream.writeTextElement("fps",QString::number(0.01)); //fps de 10ms
+                  stream.writeTextElement("fps",QString::number(1)); //fps de 10ms
          stream.writeEndElement();//fecha informacoes
 
          stream.writeStartElement("dadosCatalago");
@@ -3808,6 +3808,8 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 
 
          OutEtografia.close();
+         parser = new parserXMLtoCSV();
+         parser->converteArquivo(nomeGravarEtografia);
 
 
 
@@ -3940,6 +3942,8 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 
 
         OutEtografia.close();
+        parser = new parserXMLtoCSV();
+        parser->converteArquivo(nomeGravarEtografia);
 
 
 
@@ -4543,7 +4547,8 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 
 
           OutEtografia.close();
-
+          parser = new parserXMLtoCSV();
+          parser->converteArquivo(nomeGravarProcesImagem);
 
 
 
