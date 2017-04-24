@@ -335,6 +335,8 @@ void moduloEditaVideo::iniGraVidoCego(QString arquivoVideo,QString nomeCaminhoEd
 
      videoLista.nomeArquivoVXML.push_back(arquivoVideo);
 
+     qDebug()<< "o nome vxml " << arquivoVideo;
+
     if(readXmlVideoOrignal(arquivoVideo)){
 
         setOpenVideo(videoLista.nomeOpencv[0]); //nome opencv do arquivo
@@ -1331,7 +1333,8 @@ void moduloEditaVideo::writXmlVideoCego(QString nomeArquivoEditado)
 
     //qDebug()<<"1";
    // qDebug()<<videoLista.nomeArquivoVXML[0];
-    stream.writeTextElement("nomeArquivoVXML",rsa.criptoRSAQstring(nomeArquivoEditado));
+    stream.writeTextElement("nomeArquivoVXML",rsa.criptoRSAQstring(videoLista.nomeArquivoVXML[0]));
+
 
    // qDebug()<<gravarNomeCaminhoVideo;
     stream.writeTextElement("nomeOpencv",rsa.criptoRSAQstring(gravarNomeCaminhoVideo)); //rsa.criptoRSAQstring(videoLista.nomeOpencv[0]));
@@ -1561,10 +1564,11 @@ void moduloEditaVideo::writXmlVideoCego(QString nomeArquivoEditado)
     stream.writeStartElement("dadoOriginal"); //abre o elemento de dado original
 
     stream.writeTextElement("nomeOpencv", rsa.criptoRSAQstring(videoLista.nomeOpencv[0]));
-    stream.writeTextElement("nomeArquivoVXML",rsa.criptoRSAQstring(videoLista.nomeArquivoVXML[0]));
+    //stream.writeTextElement("nomeArquivoVXML",rsa.criptoRSAQstring(videoLista.nomeArquivoVXML[0]));
+    stream.writeTextElement("nomeArquivoVXML",rsa.criptoRSAQstring(nomeArquivoEditado));
     /*         stream.writeTextElement("caminho", videoLista.caminho);
          stream.writeTextElement("nomeOriginal", videoLista.nome[0]);
-         stream.writeTextElement("extensao", videoLista.ext)*/;
+         stream.writeTextElement("extensao", videoLista.ext)*///;
     stream.writeTextElement("fps", rsa.criptoRSAQstring(QString::number(videoLista.fps[0])));
     stream.writeTextElement("quantidadeFrames",rsa.criptoRSAQstring(QString::number(videoLista.quantidadeFrames[0])));
     stream.writeTextElement("quantidadeTempo", rsa.criptoRSAQstring(QString::number(videoLista.quantidadeTempo[0])));
