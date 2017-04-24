@@ -121,6 +121,7 @@ public:
         std::vector<QString> nomeVXML;
         std::vector<QString> nomeArquivoVXML;
         std::vector<QString> nomeOpencv;    //nome do video
+        std::vector<QString> caminho;
         std::vector<int> frameFinal;    //frame final da analise
         std::vector<int> frameInicial; //frame Inicial da analise
         std::vector<int> frameProces;
@@ -128,7 +129,7 @@ public:
         std::vector<int> erosao;
         std::vector<int> threshold;
         std::vector<double> escala;
-        std::vector<int> fps;
+        std::vector<double> fps;
         std::vector<bool> chProImaOn;
 
 

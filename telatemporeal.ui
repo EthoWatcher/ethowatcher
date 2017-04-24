@@ -32,7 +32,7 @@
    <item>
     <widget class="QStackedWidget" name="swPrincipal">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="config">
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -3092,7 +3092,7 @@
               </size>
              </property>
              <property name="currentIndex">
-              <number>2</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="Captador">
               <attribute name="title">
@@ -3779,7 +3779,7 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tab_13">
              <attribute name="title">
@@ -3921,7 +3921,7 @@
             </widget>
             <widget class="QWidget" name="tab_14">
              <attribute name="title">
-              <string>Registro</string>
+              <string>Tutor</string>
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_7"/>
             </widget>
@@ -3946,12 +3946,12 @@
                 <rect>
                  <x>20</x>
                  <y>60</y>
-                 <width>111</width>
+                 <width>211</width>
                  <height>17</height>
                 </rect>
                </property>
                <property name="text">
-                <string>Area do Objeto</string>
+                <string>Retangulo que circunscreve o objeto</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
