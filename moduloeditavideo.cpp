@@ -971,7 +971,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
            if(streamReader.name() == "fps"){
 
                conversor = streamReader.readElementText();
-        videoLista.fps.push_back(conversor.toInt());
+        videoLista.fps.push_back(conversor.toDouble());
 
            }
 
