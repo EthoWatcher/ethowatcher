@@ -42,6 +42,13 @@ public:
     float tresposta;
     float trespostaCaptura;
     bool entrou1;
+    struct timerMedi{
+         std::vector<clock_t> timerInicial;
+         std::vector<clock_t> timerFinal;
+
+    };
+
+    timerMedi joao;
 
 
 

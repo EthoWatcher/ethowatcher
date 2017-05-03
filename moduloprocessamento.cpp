@@ -433,6 +433,7 @@ void moduloProcessamento::processamentoMorfologico(){
 
     }
 
+    tinicial1 = clock();
 
     frameDoVideo=a+offset;
 
@@ -1025,6 +1026,10 @@ void moduloProcessamento::processamentoMorfologico(){
          QImage imgEnviada3((uchar*) imaInteDisplay.data, imaInteDisplay.cols, imaInteDisplay.rows, imaInteDisplay.step, QImage::Format_RGB888);//1
 
          emit roiImage(imgEnviada3);
+         tfinal1 =clock();
+
+         joao.timerInicial.push_back(tinicial1);
+         joao.timerFinal.push_back(tfinal1);
 
    // qDebug() << "processamento morfologico fim" << contGlobal;
 

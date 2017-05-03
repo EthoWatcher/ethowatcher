@@ -313,6 +313,7 @@ void telaTempoReal::on_pushButton_4_clicked()
 void telaTempoReal::recebeDesenho(QImage imaPro, bool desenha, double cmX, double cmY, double pMDCX, double pMDCY, double agulhX, double agulhY, double pob1X, double pob1Y, double pob2X, double pob2Y, double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3, double vtxY3, double vtxX4, double vtxY4)       //QImage des1, bool desenhar, double centX, double centY, double poLongeX, double poLongey, double agulhX, double agulhy, double pRetaA1X, double pRetaA1Y, double pRetaA2X, double pRetaA2Y, double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3, double vtxY3, double vtxX4, double vtxY4)
 {
 
+    tinicial1 = clock();
     widthPanProcess=ui->panProcess->size().width();
     heightPanProcess=ui->panProcess->size().height();
     contTempo++;
@@ -626,6 +627,11 @@ void telaTempoReal::recebeDesenho(QImage imaPro, bool desenha, double cmX, doubl
 
 
 
+     tfinal1 = clock();
+
+     joao2.timerInicial.push_back(tinicial1);
+     joao2.timerFinal.push_back(tfinal1);
+
 
 
 
@@ -657,6 +663,7 @@ void telaTempoReal::gravaDadosMorfoCinematico(QImage imaProc, bool objeto, doubl
 
     //qDebug() <<"entrou";
 
+     tfinal2 = clock();
     reMorfo.objetoEncontrado.push_back(objeto);
     reMorfo.area.push_back(area1);
     reMorfo.centroidX.push_back(mcX);
@@ -708,6 +715,11 @@ void telaTempoReal::gravaDadosMorfoCinematico(QImage imaProc, bool objeto, doubl
 
              }
 
+
+             tfinal2 = clock();
+
+             joao2.timerInicial.push_back(tinicial2);
+             joao2.timerFinal.push_back(tfinal2);
 
 
     //qDebug() << anguloObjeto;
@@ -4573,3 +4585,55 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 
 //  qDebug() << "clicado ";
 //}
+
+void telaTempoReal::on_pbteste_clicked()
+{
+    QString testenome1;
+    testenome1 = QFileDialog::getSaveFileName(
+                this,
+                tr("Save File"),
+                "C://",
+               "etography files (*.csv)"
+               );
+
+
+   captadorDeVideo->joao.timerFinal;
+
+
+   outGravador.setFileName(testenome1);
+   outGravador.open(QIODevice::WriteOnly | QIODevice::Text );
+
+   QTextStream csvGravador(&outGravador);
+
+
+
+   double duracao=0;
+   csvGravador << "time" << ";" << CLOCKS_PER_SEC << ";" << "Duration(s)" << "\n";
+   csvGravador << "time inicial captura" << ";" << "time final captura"<< ";" << "Duration(s)" << "\n";
+
+   for(int ka1=0; ka1< captadorDeVideo->joao.timerFinal.size(); ka1++){
+
+       csvGravador << captadorDeVideo->joao.timerInicial[ka1];
+       //csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
+
+       csvGravador << ";";
+       csvGravador << captadorDeVideo->joao.timerFinal[ka1];
+       csvGravador << ";";
+
+//       duracao= etografiaLida->frameFinal[ka1]- etografiaLida->frameInicial[ka1];
+//       csvGravador <<conPontoVirgula( duracao / videoLido->fps);
+//       csvGravador << "\n";
+
+   }
+
+
+
+
+//    outGravador.write("O pesquisador foi o:, ");
+//    outGravador.write(experimentador.nome.toLatin1()+"\n");
+//    outGravador.write("a,b,c \n");
+   outGravador.close();
+
+
+
+}

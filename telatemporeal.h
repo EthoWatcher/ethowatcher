@@ -72,6 +72,18 @@ public:
 
     };
 
+    clock_t tinicial2,tfinal2;
+    clock_t tinicial1,tfinal1;
+
+    struct timerMedi{
+         std::vector<clock_t> timerInicial;
+         std::vector<clock_t> timerFinal;
+
+    };
+
+    timerMedi joao1, joao2;
+
+
     dadosEtografia dadosEto;
     dadosEtografia cAnaEto;
 
@@ -328,6 +340,8 @@ private slots:
 
 //   void on_pbCodec_clicked();
 
+   void on_pbteste_clicked();
+
 private:
     Ui::telaTempoReal *ui;
     moduloCaptador *captadorDeVideo;
@@ -342,7 +356,7 @@ private:
     int  heightPanProcess;
 
     int contNumeroGrava=0;
-
+    QFile outGravador;
 
 
     //converter o nome do arquivo pegado em um arquivo proprio para a openCV

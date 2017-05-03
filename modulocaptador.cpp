@@ -344,6 +344,9 @@ void moduloCaptador::gravando(int numFra, QImage imAdquirida, float tempo)
 
          emit enviaTempoGravacao(numFra,  trespostaCaptura);
 
+          joao.timerInicial.push_back(tinicial);
+          joao.timerFinal.push_back(tfinalCaptura);
+
          //qDebug()<< numFra;
          matGravAlex.release();
 
