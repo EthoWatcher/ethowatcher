@@ -75,6 +75,8 @@ public:
     clock_t tinicial2,tfinal2;
     clock_t tinicial1,tfinal1;
 
+    clock_t tinicialA,tfinalA;
+
     struct timerMedi{
          std::vector<clock_t> timerInicial;
          std::vector<clock_t> timerFinal;
