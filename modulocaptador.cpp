@@ -251,7 +251,52 @@ void moduloCaptador::captandoRealTime()
 
             //frameDisplay.release();
 
-             i++;
+           //  i++;
+
+
+             if((gravadorVideo->isOpened())&&(chGravador)){
+
+
+
+                 //se chParadaNegada for falsa ele para por numero
+                 //se chPardaNegada foi verdadeira ele só para
+                 if(((i<frameTotal)||(chParadaNegada))){
+
+
+
+                     matGravAlex= conQim2Mat(imgEnviada2);
+                     gravadorVideo->write(matGravAlex);
+
+                     tfinalCaptura = clock();
+                      trespostaCaptura=(float) (tfinalCaptura-tinicial)/CLOCKS_PER_SEC;
+
+                     emit enviaTempoGravacao(i,  trespostaCaptura);
+
+                      joao.timerInicial.push_back(tinicial);
+                      joao.timerFinal.push_back(tfinalCaptura);
+
+                     //qDebug()<< numFra;
+                     matGravAlex.release();
+
+                     //gravadorVideo.release();
+                 }else{
+
+
+
+                     terminaGravador();
+
+
+
+
+                 }
+
+
+
+             }
+
+
+            i++;
+
 
         }
         //if(cap.isOpened()){
@@ -326,45 +371,45 @@ void moduloCaptador::gravando(int numFra, QImage imAdquirida, float tempo)
 {
 
 
- if((gravadorVideo->isOpened())&&(chGravador)){
+// if((gravadorVideo->isOpened())&&(chGravador)){
 
 
 
-     //se chParadaNegada for falsa ele para por numero
-     //se chPardaNegada foi verdadeira ele só para
-     if(((numFra<frameTotal)||(chParadaNegada))){
+//     //se chParadaNegada for falsa ele para por numero
+//     //se chPardaNegada foi verdadeira ele só para
+//     if(((numFra<frameTotal)||(chParadaNegada))){
 
 
 
-         matGravAlex= conQim2Mat(imAdquirida);
-         gravadorVideo->write(matGravAlex);
+//         matGravAlex= conQim2Mat(imAdquirida);
+//         gravadorVideo->write(matGravAlex);
 
-         tfinalCaptura = clock();
-          trespostaCaptura=(float) (tfinalCaptura-tinicial)/CLOCKS_PER_SEC;
+//         tfinalCaptura = clock();
+//          trespostaCaptura=(float) (tfinalCaptura-tinicial)/CLOCKS_PER_SEC;
 
-         emit enviaTempoGravacao(numFra,  trespostaCaptura);
+//         emit enviaTempoGravacao(numFra,  trespostaCaptura);
 
-          joao.timerInicial.push_back(tinicial);
-          joao.timerFinal.push_back(tfinalCaptura);
+//          joao.timerInicial.push_back(tinicial);
+//          joao.timerFinal.push_back(tfinalCaptura);
 
-         //qDebug()<< numFra;
-         matGravAlex.release();
+//         //qDebug()<< numFra;
+//         matGravAlex.release();
 
-         //gravadorVideo.release();
-     }else{
-
-
-
-         terminaGravador();
+//         //gravadorVideo.release();
+//     }else{
 
 
 
-
-     }
-
+//         terminaGravador();
 
 
- }
+
+
+//     }
+
+
+
+// }
 
 
 
