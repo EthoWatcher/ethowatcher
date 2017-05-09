@@ -28,10 +28,20 @@ public:
     bool entrou1, entrou2;
     int frameTotal=300;
     clock_t tinicial,tfinal;
+    clock_t tinicial1,tfinal1;
     float tresposta;
     cv::Mat frameBackground;
 
     cv::Mat fraRecebido;
+
+    struct timerMedi{
+         std::vector<clock_t> timerInicial;
+         std::vector<clock_t> timerFinal;
+
+    };
+
+    timerMedi joao;
+
 
         bool entrada;//para a tela começar a ir atras do centro de imagem
 

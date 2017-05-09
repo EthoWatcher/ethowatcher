@@ -273,6 +273,8 @@ private slots:
 
     void on_pbTraking_clicked();
 
+    void on_chbTamnho_clicked();
+
 private:
     Ui::telaEtografiaProce *ui;
 

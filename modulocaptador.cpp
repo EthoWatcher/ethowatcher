@@ -11,6 +11,8 @@ cv::Mat moduloCaptador::conQim2Mat(QImage imaEntrada) //converte qimage para cv:
 //    QImage resultadoBackground((uchar*)resultado.matProce.data, resultado.matProce.cols, resultado.matProce.rows, resultado.matProce.step, QImage::Format_RGB888);
 //    resultProce= QPixmap::fromImage(resultadoBackground);
 //    resultado.matProce.release();
+
+
     matSaida= cv::Mat(imaEntrada.height(),imaEntrada.width(),CV_8UC3, const_cast<uchar*>(imaEntrada.bits()), imaEntrada.bytesPerLine()).clone();
 
     cv::cvtColor(matSaida,matSaida,CV_RGB2BGR );
@@ -41,10 +43,11 @@ moduloCaptador::~moduloCaptador(){
     //delete this;
     if(cap->isOpened()){
 
-        tempoLerFrame->stop();
+
+            tempoLerFrame->stop();
 
         cap->release();
-
+        this->setCapOn(false);
         //tempoLerFrame->deleteLater();
 
     }
@@ -340,6 +343,9 @@ void moduloCaptador::gravando(int numFra, QImage imAdquirida, float tempo)
           trespostaCaptura=(float) (tfinalCaptura-tinicial)/CLOCKS_PER_SEC;
 
          emit enviaTempoGravacao(numFra,  trespostaCaptura);
+
+          joao.timerInicial.push_back(tinicial);
+          joao.timerFinal.push_back(tfinalCaptura);
 
          //qDebug()<< numFra;
          matGravAlex.release();

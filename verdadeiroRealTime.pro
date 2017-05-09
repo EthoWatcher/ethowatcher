@@ -36,13 +36,15 @@ SOURCES += ProjetoTempoReal/main.cpp\
         modulocaptador.cpp \
     telatemporeal.cpp\
     moduloprocessamento.cpp \
-    emuladorverdadeirorealtime.cpp
+    emuladorverdadeirorealtime.cpp\
+    parserxmltocsv.cpp
 
 
 HEADERS  +=  modulocaptador.h \
         telatemporeal.h\
         moduloprocessamento.h \
-    emuladorverdadeirorealtime.h
+    emuladorverdadeirorealtime.h\
+    parserxmltocsv.h
 #ProjetoTempoReal/mainwindow.h\
 
 
@@ -50,4 +52,7 @@ HEADERS  +=  modulocaptador.h \
 FORMS    += telatemporeal.ui \
     emuladorverdadeirorealtime.ui
 #mainwindow.ui \
+
+RESOURCES += \
+    resourcefile.qrc
 

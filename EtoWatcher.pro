@@ -58,7 +58,8 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     telaunveil.cpp\
     telatemporeal.cpp\
     telafluxocomportamental.cpp\
-    parserxmltocsv.cpp
+    parserxmltocsv.cpp\
+    mysplash.cpp
 
 
 
@@ -88,7 +89,8 @@ HEADERS  += ethowatcher.h \
     telaunveil.h\
     telatemporeal.h\
     telafluxocomportamental.h\
-    parserxmltocsv.h
+    parserxmltocsv.h\
+    mysplash.h
 
 
 
