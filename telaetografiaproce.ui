@@ -144,7 +144,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>3-Traking</string>
+          <string>Traking</string>
          </property>
         </widget>
         <widget class="QPushButton" name="pbEtoProce">
@@ -166,12 +166,12 @@
          <rect>
           <x>50</x>
           <y>292</y>
-          <width>951</width>
-          <height>261</height>
+          <width>961</width>
+          <height>243</height>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="page_3">
          <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -290,8 +290,8 @@
         <widget class="QGroupBox" name="groupBox_13">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>60</y>
+           <x>0</x>
+           <y>50</y>
            <width>301</width>
            <height>71</height>
           </rect>
@@ -1569,7 +1569,7 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
@@ -1589,8 +1589,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>63</width>
-                   <height>70</height>
+                   <width>323</width>
+                   <height>258</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1726,67 +1726,6 @@
              <attribute name="title">
               <string>Trackin</string>
              </attribute>
-             <widget class="QGroupBox" name="groupBox_2">
-              <property name="geometry">
-               <rect>
-                <x>10</x>
-                <y>20</y>
-                <width>261</width>
-                <height>111</height>
-               </rect>
-              </property>
-              <property name="title">
-               <string>Morfological Data Print</string>
-              </property>
-              <widget class="QCheckBox" name="chbArea">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>60</y>
-                 <width>111</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Altura</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-              <widget class="QCheckBox" name="chbTamnho">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>40</y>
-                 <width>131</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Largura</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-              <widget class="QCheckBox" name="chbCentroide">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>20</y>
-                 <width>131</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Centroide do Objeto</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </widget>
              <widget class="QGroupBox" name="groupBox_5">
               <property name="geometry">
                <rect>
@@ -1848,40 +1787,167 @@
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_16">
                <item>
-                <widget class="QTableWidget" name="tabRegistro_2">
-                 <property name="alternatingRowColors">
-                  <bool>true</bool>
-                 </property>
-                 <property name="selectionMode">
-                  <enum>QAbstractItemView::SingleSelection</enum>
-                 </property>
-                 <property name="selectionBehavior">
-                  <enum>QAbstractItemView::SelectRows</enum>
-                 </property>
-                 <property name="columnCount">
-                  <number>3</number>
-                 </property>
-                 <attribute name="verticalHeaderVisible">
-                  <bool>false</bool>
-                 </attribute>
-                 <column>
+                <widget class="QTableWidget" name="tabWDesc">
+                 <row>
                   <property name="text">
-                   <string>Category</string>
+                   <string>Objeto Encontrado</string>
                   </property>
-                 </column>
-                 <column>
+                 </row>
+                 <row>
                   <property name="text">
-                   <string>Begin Time</string>
+                   <string>Area</string>
                   </property>
-                 </column>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>CentroideX</string>
+                  </property>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>CentroideY</string>
+                  </property>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>Angulo</string>
+                  </property>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>Largura</string>
+                  </property>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>Altura</string>
+                  </property>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>Variação Angular</string>
+                  </property>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>Variação de Área</string>
+                  </property>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>Variação de Centroide X</string>
+                  </property>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>Variação de Centroide Y</string>
+                  </property>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>Variação de distancia</string>
+                  </property>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>Variação da Altura do objeto</string>
+                  </property>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>Variação da Largura do objeto</string>
+                  </property>
+                 </row>
+                 <row>
+                  <property name="text">
+                   <string>New Row</string>
+                  </property>
+                 </row>
                  <column>
                   <property name="text">
-                   <string>End Time</string>
+                   <string>Valor</string>
                   </property>
                  </column>
                 </widget>
                </item>
               </layout>
+             </widget>
+             <widget class="QGroupBox" name="groupBox_11">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>20</y>
+                <width>321</width>
+                <height>111</height>
+               </rect>
+              </property>
+              <property name="title">
+               <string>Morfological Data Print</string>
+              </property>
+              <widget class="QCheckBox" name="chbArea">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>60</y>
+                 <width>211</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Retangulo que circunscreve o objeto</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+              <widget class="QCheckBox" name="chbAltLarg">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>40</y>
+                 <width>151</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Altura e largura do objeto</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+              <widget class="QCheckBox" name="chbCentroide">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>20</y>
+                 <width>131</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Centroide do Objeto</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+              <widget class="QCheckBox" name="chbAngulo">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>80</y>
+                 <width>111</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Angulo do objeto</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
              </widget>
             </widget>
             <widget class="QWidget" name="tab_6">

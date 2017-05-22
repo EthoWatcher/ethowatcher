@@ -152,6 +152,8 @@ void telaEtografiaProce::recebeImagem(QImage qiCaptador, int numFrame)
 
         if(chProceON){
 
+            atualizaProcess(numFrame-videoLista.frameProces[0]);
+
             widthPanProcess=ui->imgResultado->size().width();
             heightPanProcess=ui->imgResultado->size().height();
 
@@ -170,48 +172,17 @@ void telaEtografiaProce::recebeImagem(QImage qiCaptador, int numFrame)
 
                  }
 
-
-
-
-                 if(ui->chbTamnho->isChecked()){
-                     painter.setPen(canetaPreta);
-                     painter.drawPoint(dados->desenhoSaida.agulhX[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.agulhY[numFrame-videoLista.frameProces[0]]);
-                     painter.setPen(canetaAmarela);
-                     painter.drawLine(QPointF(dados->desenhoSaida.pob1X[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.pob1Y[numFrame-videoLista.frameProces[0]]),
-                             QPointF(dados->desenhoSaida.pob2X[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.pob2Y[numFrame-videoLista.frameProces[0]]));
-
-                 }
-
-//                 painter.drawPoint(poLongeX,poLongey);
-//                 painter.drawPoint(pRetaA1X,pRetaA1Y);
-//                 painter.drawPoint(pRetaA2X,pRetaA2Y);
-
-
-//                 double ponto1, ponto2, ponto3, ponto4
-
-//                 //desenha o centro de massa
-//                 ponto1=
-
-                 if(ui->chbArea->isChecked()){
-
-                     painter.setPen(canetaQuadro);
-    //                 painter.drawLine(QPoint(dados->desenhoSaida.vtxX1[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY1[numFrame-videoLista.frameProces[0]]),
-    //                                   QPoint(dados->desenhoSaida.vtxX2[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY2[numFrame-videoLista.frameProces[0]] ));
-
-                   painter.drawPoint(dados->desenhoSaida.vtxX1[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY1[numFrame-videoLista.frameProces[0]]);
-                   painter.drawPoint(dados->desenhoSaida.vtxX2[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY2[numFrame-videoLista.frameProces[0]]);
-                   painter.drawPoint(dados->desenhoSaida.vtxX3[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY3[numFrame-videoLista.frameProces[0]]);
-                  // painter.drawPoint(dados->desenhoSaida.vtxX4[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY4[numFrame-videoLista.frameProces[0]]);
-
-
-                 }
-
-                 QPoint ponto1,ponto2; //ponto 1 é o da cima e esquerda
-                                       //o ponto 2 é o ponto de cima e da direita
-                                       // o ponto 4 é o ponto de baixo e da direita
-                                       //o ponto 3 é o ponto de biaxo mas da esquerda
-                 //QPoint ponto3,ponto4;
                  QPoint vetPont[4];
+
+//                 vetPont[0].setX(vtxX1);
+//                 vetPont[0].setY(vtxY1);
+//                 vetPont[1].setX(vtxX2);
+//                 vetPont[1].setY(vtxY2);
+//                 vetPont[2].setX(vtxX3);
+//                 vetPont[2].setY(vtxY3);
+//                 vetPont[3].setX(vtxX4);
+//                 vetPont[3].setY(vtxY4);
+
 
                  vetPont[0].setX(dados->desenhoSaida.vtxX1[numFrame-videoLista.frameProces[0]]);
                  vetPont[0].setY(dados->desenhoSaida.vtxY1[numFrame-videoLista.frameProces[0]]);
@@ -223,14 +194,14 @@ void telaEtografiaProce::recebeImagem(QImage qiCaptador, int numFrame)
                  vetPont[3].setY(dados->desenhoSaida.vtxY4[numFrame-videoLista.frameProces[0]]);
 
 
-//                 ponto1=vetPont[0];
+        //                 ponto1=vetPont[0];
 
-//                 for(int ja=0; ja< 4; ja++){
+        //                 for(int ja=0; ja< 4; ja++){
 
-//                     if((ponto1.x()< vetPont[ja]) &&)
+        //                     if((ponto1.x()< vetPont[ja]) &&)
 
 
-//                 }
+        //                 }
 
                  QPoint desenho1,desenho2,desenho3,desenho4;
                  //esquerda
@@ -240,28 +211,142 @@ void telaEtografiaProce::recebeImagem(QImage qiCaptador, int numFrame)
                  //direita
                  desenho2.setX((vetPont[1].x()+vetPont[2].x())/2);
                  desenho2.setY((vetPont[1].y()+vetPont[2].y())/2);
-
-
-
                  desenho3.setX((vetPont[2].x()+vetPont[3].x())/2);
                  desenho3.setY((vetPont[2].y()+vetPont[3].y())/2);
-
                  desenho4.setX((vetPont[3].x()+vetPont[0].x())/2);
                  desenho4.setY((vetPont[3].y()+vetPont[0].y())/2);
-//                 desenho1.setX(ponto4.x()+ (ponto4.x()-ponto1.x())/2);
-//                 desenho1.setY(ponto1.y());
-                 //painter.drawLine(desenho1,desenho2);
-
-                 //painter.drawPoint(desenho1);
-                 painter.drawLine(desenho1,desenho3);
-                 painter.setPen(QColor(20,244,23));
-                 painter.drawLine(desenho2,desenho4);
-                // painter.drawLine(vetPont[1],vetPont[2]);
 
 
+                 if(ui->chbAltLarg->isChecked()){
+
+                     painter.setPen(QColor(255,34,23));
+                     painter.drawLine(desenho1,desenho3);
+                     painter.setPen(QColor(255,244,23));
+                     painter.drawLine(desenho2,desenho4);
+
+
+                 }
+
+
+                 if(ui->chbAngulo->isChecked()){
+
+                     QPen canetaQuadro1;
+                     canetaQuadro1.setWidth(2);
+                     canetaQuadro1.setColor(QColor(50,50,255));
+                     painter.setPen(canetaQuadro1);
+                     painter.drawLine(desenho1,desenho3);
+
+                 }
+
+                 if(ui->chbArea->isChecked()){
+                     QPen canetaQuadro;
+                     canetaQuadro.setWidth(2);
+                     canetaQuadro.setColor(QColor(255,100,255));
+                     painter.setPen(canetaQuadro);
+
+                     painter.drawLine(vetPont[0],vetPont[1]);
+                     painter.drawLine(vetPont[1],vetPont[2]);
+                     painter.drawLine(vetPont[2],vetPont[3]);
+                     painter.drawLine(vetPont[3],vetPont[0]);
+//                     painter.drawLine(vtxX1,vtxY1,vtxX2,vtxY2);
+//                     painter.drawLine(vtxX2,vtxY2,vtxX3,vtxY3);
+//                     painter.drawLine(vtxX3,vtxY3,vtxX4,vtxY4);
+//                     painter.drawLine(vtxX4,vtxY4,vtxX1,vtxY1);
+
+                 }
 
 
 
+
+//                 if(ui->chbTamnho->isChecked()){
+//                     painter.setPen(canetaPreta);
+//                     painter.drawPoint(dados->desenhoSaida.agulhX[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.agulhY[numFrame-videoLista.frameProces[0]]);
+//                     painter.setPen(canetaAmarela);
+//                     painter.drawLine(QPointF(dados->desenhoSaida.pob1X[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.pob1Y[numFrame-videoLista.frameProces[0]]),
+//                             QPointF(dados->desenhoSaida.pob2X[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.pob2Y[numFrame-videoLista.frameProces[0]]));
+
+//                 }
+
+//                 painter.drawPoint(poLongeX,poLongey);
+//                 painter.drawPoint(pRetaA1X,pRetaA1Y);
+//                 painter.drawPoint(pRetaA2X,pRetaA2Y);
+
+
+//                 double ponto1, ponto2, ponto3, ponto4
+
+//                 //desenha o centro de massa
+//                 ponto1=
+
+//                 if(ui->chbArea->isChecked()){
+
+//                     painter.setPen(canetaQuadro);
+//    //                 painter.drawLine(QPoint(dados->desenhoSaida.vtxX1[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY1[numFrame-videoLista.frameProces[0]]),
+//    //                                   QPoint(dados->desenhoSaida.vtxX2[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY2[numFrame-videoLista.frameProces[0]] ));
+
+//                   painter.drawPoint(dados->desenhoSaida.vtxX1[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY1[numFrame-videoLista.frameProces[0]]);
+//                   painter.drawPoint(dados->desenhoSaida.vtxX2[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY2[numFrame-videoLista.frameProces[0]]);
+//                   painter.drawPoint(dados->desenhoSaida.vtxX3[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY3[numFrame-videoLista.frameProces[0]]);
+//                  // painter.drawPoint(dados->desenhoSaida.vtxX4[numFrame-videoLista.frameProces[0]],dados->desenhoSaida.vtxY4[numFrame-videoLista.frameProces[0]]);
+
+
+//                 }
+
+//                 QPoint ponto1,ponto2; //ponto 1 é o da cima e esquerda
+//                                       //o ponto 2 é o ponto de cima e da direita
+//                                       // o ponto 4 é o ponto de baixo e da direita
+//                                       //o ponto 3 é o ponto de biaxo mas da esquerda
+//                 //QPoint ponto3,ponto4;
+//                 QPoint vetPont[4];
+
+//                 vetPont[0].setX(dados->desenhoSaida.vtxX1[numFrame-videoLista.frameProces[0]]);
+//                 vetPont[0].setY(dados->desenhoSaida.vtxY1[numFrame-videoLista.frameProces[0]]);
+//                 vetPont[1].setX(dados->desenhoSaida.vtxX2[numFrame-videoLista.frameProces[0]]);
+//                 vetPont[1].setY(dados->desenhoSaida.vtxY2[numFrame-videoLista.frameProces[0]]);
+//                 vetPont[2].setX(dados->desenhoSaida.vtxX3[numFrame-videoLista.frameProces[0]]);
+//                 vetPont[2].setY(dados->desenhoSaida.vtxY3[numFrame-videoLista.frameProces[0]]);
+//                 vetPont[3].setX(dados->desenhoSaida.vtxX4[numFrame-videoLista.frameProces[0]]);
+//                 vetPont[3].setY(dados->desenhoSaida.vtxY4[numFrame-videoLista.frameProces[0]]);
+
+
+////                 ponto1=vetPont[0];
+
+////                 for(int ja=0; ja< 4; ja++){
+
+////                     if((ponto1.x()< vetPont[ja]) &&)
+
+
+////                 }
+
+//                 QPoint desenho1,desenho2,desenho3,desenho4;
+//                 //esquerda
+//                 desenho1.setX((vetPont[0].x()+vetPont[1].x())/2);
+//                 desenho1.setY((vetPont[0].y()+vetPont[1].y())/2);
+
+//                 //direita
+//                 desenho2.setX((vetPont[1].x()+vetPont[2].x())/2);
+//                 desenho2.setY((vetPont[1].y()+vetPont[2].y())/2);
+
+
+
+//                 desenho3.setX((vetPont[2].x()+vetPont[3].x())/2);
+//                 desenho3.setY((vetPont[2].y()+vetPont[3].y())/2);
+
+//                 desenho4.setX((vetPont[3].x()+vetPont[0].x())/2);
+//                 desenho4.setY((vetPont[3].y()+vetPont[0].y())/2);
+////                 desenho1.setX(ponto4.x()+ (ponto4.x()-ponto1.x())/2);
+////                 desenho1.setY(ponto1.y());
+//                 //painter.drawLine(desenho1,desenho2);
+
+//                 //painter.drawPoint(desenho1);
+//                 painter.drawLine(desenho1,desenho3);
+//                 painter.setPen(QColor(20,244,23));
+//                 painter.drawLine(desenho2,desenho4);
+//                // painter.drawLine(vetPont[1],vetPont[2]);
+
+
+
+
+                //area
 
 
 
@@ -3246,4 +3331,57 @@ void telaEtografiaProce::on_pbTraking_clicked()
 void telaEtografiaProce::on_chbTamnho_clicked()
 {
 
+}
+
+void telaEtografiaProce::atualizaProcess(int numFrame)
+{
+
+    if(dados->reMorfo.objetoEncontrado[numFrame]){
+         ui->tabWDesc->setItem(0,0,new QTableWidgetItem("true" ) );
+    }else{
+        ui->tabWDesc->setItem(0,0,new QTableWidgetItem("false" ) );
+    }
+
+    //dados->reMorfo.objetoEncontrado[numFrame].push_back(objeto);
+   // reMorfo.area.push_back(area1);
+  // dados->reMorfo.centroidX[numFrame].push_back(mcX);
+   // dados->reMorfo.centroidY[numFrame].push_back(mcY);
+    //dados->reMorfo.anguloObj[numFrame]push_back(anguloObjeto);
+    //reMorfo.tamanhoObj.push_back(alturaObjeto);
+  // dados->reMorfo.altura[numFrame].push_back(alturaObjeto);
+    //dados->reMorfo.largura[numFrame].push_back(larguraObjeto);
+   // dados->reCinema.varAngular[numFrame].push_back(varAngular);
+   // dados->reCinema.varArea[numFrame].push_back(varArea);
+   // dados->reCinema.varCenX[numFrame].push_back(VarCenX);
+   // dados->reCinema.varCenY[numFrame].push_back(VarCenY);
+   //dados-> reCinema.varDistancia[numFrame].push_back(VarDistancia);
+    //dados->reCinema.varTamObjeto[numFrame].push_back(VarOBjeto);
+  // dados-> reCinema.varAltura[numFrame].push_back(VarAltura);
+  //  dados->reCinema.varLargura[numFrame].push_back(VarLargura);
+  //  dados->reCinema.ruidoMaxVaria[numFrame].push_back(ruidoOn); //minima variação
+
+    ui->tabWDesc->setItem(0,1,new QTableWidgetItem(QString::number(dados->reMorfo.area[numFrame]/(qPow(videoLista.escala[contadorDeVideo],2)) ) ));
+     ui->tabWDesc->setItem(0,2,new QTableWidgetItem(QString::number(dados->reMorfo.centroidX[numFrame]) ));
+      ui->tabWDesc->setItem(0,3,new QTableWidgetItem(QString::number(dados->reMorfo.centroidY[numFrame]) ));
+       ui->tabWDesc->setItem(0,4,new QTableWidgetItem(QString::number(dados->reMorfo.anguloObj[numFrame] ) ));
+       ui->tabWDesc->setItem(0,5,new QTableWidgetItem(QString::number(dados->reMorfo.altura[numFrame]/videoLista.escala[contadorDeVideo]) ) );
+        ui->tabWDesc->setItem(0,6,new QTableWidgetItem(QString::number(dados->reMorfo.largura[numFrame]/videoLista.escala[contadorDeVideo]) ));
+
+        ui->tabWDesc->setItem(0,7,new QTableWidgetItem(QString::number(dados->reCinema.varAngular[numFrame]) ) );
+         ui->tabWDesc->setItem(0,8,new QTableWidgetItem(QString::number(dados->reCinema.varArea[numFrame]) ));
+          ui->tabWDesc->setItem(0,9,new QTableWidgetItem(QString::number(dados->reCinema.varCenX[numFrame]) ));
+           ui->tabWDesc->setItem(0,10,new QTableWidgetItem(QString::number(dados->reCinema.varCenY[numFrame]) ));
+           ui->tabWDesc->setItem(0,11,new QTableWidgetItem(QString::number(dados-> reCinema.varDistancia[numFrame]) ) );
+           // ui->tabWDesc->setItem(0,12,new QTableWidgetItem(QString::number(VarOBjeto) ));
+            ui->tabWDesc->setItem(0,12,new QTableWidgetItem(QString::number(dados-> reCinema.varAltura[numFrame] ) ));
+            ui->tabWDesc->setItem(0,13,new QTableWidgetItem(QString::number(dados->reCinema.varLargura[numFrame]) ) );
+
+             if(dados->reCinema.ruidoMaxVaria[numFrame]){
+
+                 ui->tabWDesc->setItem(0,14,new QTableWidgetItem("true" ));
+
+             }else{
+                 ui->tabWDesc->setItem(0,14,new QTableWidgetItem("false" ));
+
+             }
 }

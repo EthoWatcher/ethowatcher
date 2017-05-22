@@ -70,7 +70,7 @@
     <rect>
      <x>20</x>
      <y>460</y>
-     <width>351</width>
+     <width>701</width>
      <height>131</height>
     </rect>
    </property>
@@ -80,26 +80,13 @@
    <widget class="QTextEdit" name="textEdit_3">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>311</width>
-      <height>71</height>
+      <x>10</x>
+      <y>20</y>
+      <width>681</width>
+      <height>91</height>
      </rect>
     </property>
    </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_4">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>460</y>
-     <width>261</width>
-     <height>121</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>To-do-list</string>
-   </property>
   </widget>
   <widget class="QStackedWidget" name="staWidPrin">
    <property name="geometry">
@@ -131,8 +118,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>79</width>
-             <height>79</height>
+             <width>89</width>
+             <height>89</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -179,8 +166,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>337</width>
-             <height>204</height>
+             <width>341</width>
+             <height>208</height>
             </rect>
            </property>
           </widget>
@@ -207,14 +194,27 @@
    <widget class="QLineEdit" name="leNomePadr">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>30</y>
+      <x>10</x>
+      <y>40</y>
       <width>113</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>blind</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Blind name</string>
     </property>
    </widget>
   </widget>
@@ -350,6 +350,25 @@
      </property>
     </item>
    </widget>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>701</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>:/icons/cabecalho4.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
   </widget>
  </widget>
  <resources/>

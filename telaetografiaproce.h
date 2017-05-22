@@ -275,6 +275,8 @@ private slots:
 
     void on_chbTamnho_clicked();
 
+    void atualizaProcess(int numFrame);
+
 private:
     Ui::telaEtografiaProce *ui;
 
