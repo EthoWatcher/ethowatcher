@@ -349,8 +349,8 @@
     <widget class="QGroupBox" name="groupBox_6">
      <property name="geometry">
       <rect>
-       <x>320</x>
-       <y>250</y>
+       <x>310</x>
+       <y>240</y>
        <width>301</width>
        <height>71</height>
       </rect>
@@ -372,6 +372,19 @@
       </property>
       <property name="text">
        <string>Analisar</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pbGravarTCCM">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>20</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Gravar</string>
       </property>
      </widget>
     </widget>
@@ -409,7 +422,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>0</string>
+        <string>100</string>
        </property>
       </widget>
       <widget class="QLabel" name="label">

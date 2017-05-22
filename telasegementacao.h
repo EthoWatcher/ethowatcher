@@ -25,6 +25,7 @@
 //#include <QtGui>
 #include <QMessageBox>
 #include "parserxmltocsv.h"
+#include "parserxml.h"
 
 namespace Ui {
 class telaSegementacao;
@@ -52,6 +53,8 @@ private slots:
     void on_chbHetero_clicked(bool checked);
 
     void on_pbTCCMfile_clicked();
+
+    void on_pbGravarTCCM_clicked();
 
 private:
     Ui::telaSegementacao *ui;
@@ -230,11 +233,18 @@ private:
  std::vector<std::vector< std::vector<int>  > > matrixframeTotCortado;
   std::vector<etografiaTotalizacoes> totalizacaoTot;
 
+ std::vector<std::vector<double> > arvoreDeFrames;
  //gravar timeBudeget
  QString nomeGravarCatalago;
  QFile Output;
 
  parserXMLtoCSV *parser;
+ parserXML *parserTCCM;
+ bool chTCCon;
+ QFile outGravador;
+
+ QString conPontoVirgula(double num);
+
 
 signals:
 
