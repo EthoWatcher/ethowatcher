@@ -12,6 +12,7 @@ telaSegementacao::telaSegementacao(QWidget *parent) :
     layoutLblSeg= new QVBoxLayout(ui->wLblSeg);
     layoutLeFim= new QVBoxLayout(ui->wLeFim);
     layoutLeInicio= new QVBoxLayout(ui->wLeInicio);
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 telaSegementacao::~telaSegementacao()
@@ -627,6 +628,7 @@ void telaSegementacao::on_pbTotalRes_clicked()
     ui->pbTotGravar->setEnabled(true);
 
     ui->swToTotal->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 void telaSegementacao::on_pbTotGravar_clicked()
@@ -892,7 +894,7 @@ void telaSegementacao::lerETOXML(QString nomeArquivo)
             }
 
             if(streamReader.name() == "fps"){
-                videoLido->fps= streamReader.readElementText().toInt();
+                videoLido->fps= streamReader.readElementText().toDouble();
 
                 videoLido->controle=false;
             }
@@ -926,4 +928,17 @@ void telaSegementacao::on_chbHetero_clicked(bool checked)
         ui->widHetero->setEnabled(true);
         ui->widHomo->setEnabled(false);
     }
+}
+
+void telaSegementacao::on_pbTCCMfile_clicked()
+{
+//    fonteVideoETOXML = QFileDialog::getOpenFileName(
+//                this,
+//                tr("Open File"),
+//                "C://Users//Bio//Desktop//videos//",
+//                "Video Files (*.etoxml)"
+//                );
+
+
+//    lerETOXML(fonteVideoETOXML);
 }

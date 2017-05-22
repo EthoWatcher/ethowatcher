@@ -26,3 +26,6 @@ HEADERS  += telasegementacao.h\
 FORMS    += telasegementacao.ui\
             emuladorsegmentacaotempo.ui
     #ProjetoSegmentacaoTempo/mainwindow.ui\
+
+RESOURCES += \
+    resourcefile.qrc

@@ -1370,6 +1370,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
 }
 
+//segmentacao de tempo
 void parserXMLtoCSV::escreverTimeCsv()
 {
 
@@ -1456,8 +1457,8 @@ void parserXMLtoCSV::escreverTimeCsv()
 
 
 
-      csvGravador <<"\n RESULTS FOR \n Segmentation initiated at ;"<< totalizacaoTot[tot].inicioSessao/videoLido->fps ;
-      csvGravador << ";  Segmentation terminated at ;" << totalizacaoTot[tot].finalSessao/videoLido->fps <<"\n\n";
+      csvGravador <<"\n RESULTS FOR \n Segmentation initiated at ;"<<  conPontoVirgula( totalizacaoTot[tot].inicioSessao/videoLido->fps) ;
+      csvGravador << ";  Segmentation terminated at ;" << conPontoVirgula( totalizacaoTot[tot].finalSessao/videoLido->fps) <<"\n\n";
      // csvGravador << "categoria;duracao;frequencia;latencia \n";
 
 
@@ -1502,7 +1503,7 @@ void parserXMLtoCSV::escreverTimeCsv()
 }
 
 
-
+//segmentao cade tempo
 void parserXMLtoCSV::escreverSeqCsv()
 {
 
@@ -1511,14 +1512,14 @@ void parserXMLtoCSV::escreverSeqCsv()
 
     QTextStream csvGravador(&outGravador);
 
-    csvGravador <<"sep=, \n";
+    csvGravador <<"sep=; \n";
     csvGravador << "Informacoes do usuario\n";
-    csvGravador <<"pesquisador , laboratorio" << "\n";
-    csvGravador <<experimentador.nome.toLatin1() <<"," << experimentador.lab.toLatin1() << "\n";
+    csvGravador <<"pesquisador ; laboratorio" << "\n";
+    csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
     csvGravador <<"\n";
     csvGravador <<"informacoes do video analisado: \n";
-    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
-    csvGravador << videoLido->nome<< "," << videoLido->fps << ","
+    csvGravador << "nome; fps; frame analisado inicial; frame analisado final \n";
+    csvGravador << videoLido->nome<< "," << videoLido->fps << ";"
          << videoLido->frameInicial << "," << videoLido->frameFinal<< "\n";
     csvGravador <<"\n";
     csvGravador <<"informacoes do catalogo analisado: \n";
@@ -1530,31 +1531,31 @@ void parserXMLtoCSV::escreverSeqCsv()
     }
     csvGravador <<"\n";
     csvGravador <<"As analises etograficas utilizadas \n";
-    csvGravador <<"id, caminho, tipo \n";
+    csvGravador <<"id; caminho, tipo \n";
     for(int i=0; i< etografiasLidas.size();i++){
 
-      csvGravador << i << "," << etografiasLidas[i]->caminho << "," << etografiasLidas[i]->tipoDeAnalise;
+      csvGravador << i << ";" << etografiasLidas[i]->caminho << ";" << etografiasLidas[i]->tipoDeAnalise;
     }
     csvGravador <<"\n";
     csvGravador <<"\n";
 
     //apartir daqui é diferente das outras analises
     csvGravador <<"As totalizacoes da analise sequencial\n";
-    csvGravador << "" <<",";
+    csvGravador << "" <<";";
     for(int grt=0; grt< analiseSequencial.listaDados.size(); grt++){
-       csvGravador << catalagoLido->nome[grt] <<",";
+       csvGravador << catalagoLido->nome[grt] <<";";
     }
     csvGravador << "\n";
 
     for(int tot=0; tot< analiseSequencial.listaDados.size(); tot++){
-//      csvGravador <<"\n do frame inicial , "<< totalizacaoTot[tot].inicioSessao <<"\n" ;
-//      csvGravador << "ate o frame final , " << totalizacaoTot[tot].finalSessao <<"\n";
+//      csvGravador <<"\n do frame inicial ; "<< totalizacaoTot[tot].inicioSessao <<"\n" ;
+//      csvGravador << "ate o frame final ; " << totalizacaoTot[tot].finalSessao <<"\n";
 
-        csvGravador << catalagoLido->nome[tot] <<",";
+        csvGravador << catalagoLido->nome[tot] <<";";
       for(int fr=0; fr< analiseSequencial.listaDados.size(); fr++){
 
 
-          csvGravador<< analiseSequencial.listaDados[tot][fr] <<",";
+          csvGravador<< conPontoVirgula( analiseSequencial.listaDados[tot][fr]) <<";";
       }
 
         csvGravador << "\n";

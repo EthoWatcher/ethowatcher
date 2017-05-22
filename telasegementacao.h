@@ -51,6 +51,8 @@ private slots:
 
     void on_chbHetero_clicked(bool checked);
 
+    void on_pbTCCMfile_clicked();
+
 private:
     Ui::telaSegementacao *ui;
 
@@ -66,7 +68,7 @@ private:
         double frameInicial;
         double frameFinal;
         int frameProce;
-        int fps=30; //tem que corrigir isso de ler correto o valor
+        double fps=30; //tem que corrigir isso de ler correto o valor
 
     };
     dadosVideo* videoLido;
