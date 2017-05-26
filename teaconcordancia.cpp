@@ -1465,7 +1465,7 @@ void teaConcordancia::lerETOXML(QString nomeArquivo)
 
           }
 
-          if(streamReader.name() == "frameInicial"){
+          if(streamReader.name() == "frameProces"){
 
               videoLido->frameInicial= streamReader.readElementText().toInt();
 

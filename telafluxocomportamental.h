@@ -28,6 +28,7 @@
 #include <QCheckBox>
 #include <moduloeditavideo.h>
 #include <QThread>
+#include <parserxml.h>
 
 
 
@@ -149,6 +150,8 @@ private slots:
 
     void on_pbSaveFile_clicked();
 
+    void on_pbOpenTCCM_clicked();
+
 private:
     Ui::telaFluxoComportamental *ui;
 
@@ -201,10 +204,21 @@ private:
      moduloEditaVideo *editaVideo;
      QThread* novaThread;
      void encontraPontosGravar();
+     void encontrarFrames();
      QList<int> editFrameInicio;
      QList<int> editFrameFim;
      QString nomeFluxoComportamental;
      int codecVideo;
+
+     parserXML parserTCCM;
+     QString fonteCaminhoTCCM;
+     bool chTCCon;
+
+     std::vector<parserXML::dadosMorfo *> segMorfo;
+     std::vector<parserXML::dadosCinema *> segCinema;
+
+
+
 
 signals:
 

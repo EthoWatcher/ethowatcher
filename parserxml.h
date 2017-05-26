@@ -33,12 +33,15 @@ public:
 
         std::vector<double> frame;
         std::vector<double> area;
+        std::vector<double>areaM;
         std::vector<double> centroidX;
         std::vector<double> centroidY;
         std::vector<double> anguloObj;
         std::vector<double> tamanhoObj;
         std::vector<float>  altura;
+        std::vector<float> alturaM;
         std::vector<float>  largura;
+        std::vector<float>larguraM;
 
         std::vector<bool> objetoEncontrado; //quando o objeto é encontrado é true
 

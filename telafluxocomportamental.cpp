@@ -10,6 +10,7 @@ telaFluxoComportamental::telaFluxoComportamental(QWidget *parent) :
     videoLido= new dadosVideo();
     etografiaLida= new analiseEtografica();
     chEtr=true;
+    chTCCon = false;
 }
 
 telaFluxoComportamental::~telaFluxoComportamental()
@@ -759,6 +760,48 @@ void telaFluxoComportamental::encontraPontosGravar()
 
 }
 
+void telaFluxoComportamental::encontrarFrames()
+{
+    parserXML::dadosMorfo *parserMorfo;
+     parserMorfo = new parserXML::dadosMorfo();
+    parserXML::dadosCinema *parserCinema;
+    parserCinema = new parserXML::dadosCinema();
+    for(int ka=0; editFrameFim.size(); ka++){ //para cada um das marcações
+
+        for(int ja=(editFrameInicio[ka]-parserTCCM.videoLido->frameProce); ja< (editFrameFim[ka]-parserTCCM.videoLido->frameProce); ja++ ){
+
+            parserMorfo->frame.push_back(parserTCCM.matrizReMorfo[0].frame[ja]);
+            parserMorfo->area.push_back(parserTCCM.matrizReMorfo[0].area[ja]);
+            parserMorfo->areaM.push_back(parserTCCM.matrizReMorfo[0].areaM[ja]);
+            parserMorfo->centroidX.push_back(parserTCCM.matrizReMorfo[0].centroidX[ja]);
+            parserMorfo->centroidY.push_back(parserTCCM.matrizReMorfo[0].centroidY[ja]);
+            parserMorfo->altura.push_back(parserTCCM.matrizReMorfo[0].altura[ja]);
+            parserMorfo->alturaM.push_back(parserTCCM.matrizReMorfo[0].alturaM[ja]);
+            parserMorfo->largura.push_back(parserTCCM.matrizReMorfo[0].largura[ja]);
+            parserMorfo->larguraM.push_back(parserTCCM.matrizReMorfo[0].larguraM[ja]);
+            parserMorfo->anguloObj.push_back(parserTCCM.matrizReMorfo[0].anguloObj[ja]);
+
+
+            parserCinema->varArea.push_back(parserTCCM.matrizReCinema[0].varArea[ja]);
+            parserCinema->varDistancia.push_back(parserTCCM.matrizReCinema[0].varDistancia[ja]);
+            parserCinema->varAltura.push_back(parserTCCM.matrizReCinema[0].varAltura[ja]);
+            parserCinema->varLargura.push_back(parserTCCM.matrizReCinema[0].varLargura[ja]);
+            parserCinema->varAngular.push_back(parserTCCM.matrizReCinema[0].varAngular[ja]);
+            parserCinema->ruidoMaxVaria.push_back(parserTCCM.matrizReCinema[0].ruidoMaxVaria[ja]);
+
+        }
+       segMorfo.push_back(parserMorfo);
+       segCinema.push_back(parserCinema);
+
+       parserMorfo = new parserXML::dadosMorfo();
+       parserCinema = new parserXML::dadosCinema();
+
+    }
+
+
+
+}
+
 
 
 
@@ -803,4 +846,23 @@ void telaFluxoComportamental::on_pbSaveFile_clicked()
 //     listaEditaVideo[jl]->moveToThread(listaDeThread[jl]);
 
     //geraTabela();
+}
+
+void telaFluxoComportamental::on_pbOpenTCCM_clicked()
+{
+
+    fonteCaminhoTCCM = QFileDialog::getOpenFileName(
+                this,
+                tr("Open File"),
+                "C://EthoWatcherOS",
+                "Ethowatcher Files (*.tkin )"
+                );
+
+    parserTCCM.readTCCM(fonteCaminhoTCCM);
+
+    encontraPontosGravar();
+
+     chTCCon = true;
+
+     encontrarFrames();
 }

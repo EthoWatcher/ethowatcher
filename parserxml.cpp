@@ -149,11 +149,14 @@ void parserXML::readTCCM(QString nomeArquivo)
                     reMorfo.frame.push_back(streamReader.attributes().value("f").toDouble());
                     reMorfo.anguloObj.push_back(streamReader.attributes().value("an").toDouble());
                     reMorfo.area.push_back(streamReader.attributes().value("arP").toDouble());
+                    reMorfo.areaM.push_back(streamReader.attributes().value("arM").toDouble());
                     reMorfo.centroidX.push_back(streamReader.attributes().value("ceX").toDouble());
                     reMorfo.centroidY.push_back(streamReader.attributes().value("ceY").toDouble());
 
                     reMorfo.altura.push_back(streamReader.attributes().value("altP").toFloat());
+                    reMorfo.alturaM.push_back(streamReader.attributes().value("altM").toFloat());
                     reMorfo.largura.push_back(streamReader.attributes().value("larP").toFloat());
+                    reMorfo.larguraM.push_back(streamReader.attributes().value("larM").toFloat());
 
                     //altP, altM, larP, larM, an, Var , Vd, Valt, Vlar, Van, rMinV
 

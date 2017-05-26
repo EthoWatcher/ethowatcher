@@ -73,6 +73,8 @@ void parserXMLtoCSV::converteArquivo(QString nomePath)
          lerTimeXml(2); //le os dados do video
          lerTimeXml(3); //le os dados do video
          lerTimeXml(5); //le o time budget do video
+
+          qDebug() <<"leu o xml";
 //         escreverSeqCsv();
          //ler xml timebudget;
          //manda para a função de ler esse video
@@ -986,6 +988,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
     if(qualLer==5){ //dados analise sequencial
     bool entrou=false;
+    bool entrouPorce=false;
 
 
     while(!xmlReader.atEnd() && !xmlReader.hasError()){
@@ -1048,7 +1051,58 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
 
         }
+
+        if(xmlReader.name()== "sessaoPorce"){
+            if(entrouPorce==true){
+                entrouPorce=false;
+            }else{
+                entrouPorce=true;
+            }
+        }
+
+
+
+        if(entrouPorce==true){
+
+
+            if(xmlReader.name()== "caAnaSegPorce"){
+
+            QString conversorlal= xmlReader.attributes().value("quant").toString();
+            if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
+                analiseSequencial.dadosPorce.push_back( conversorlal.toDouble());
+            }
+
+            }
+
+
+
+            if(xmlReader.name()== "categoriaPorce"){
+
+            QString conversor= xmlReader.attributes().value("name").toString();
+            if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
+           analiseSequencial.classeCatalagoPorcentagem.push_back(conversor);
+                // etografiaLida->caminho= conversor;
+            }else{
+
+                analiseSequencial.listaDadosPorcentagem.push_back(analiseSequencial.dadosPorce);
+                analiseSequencial.dadosPorce.clear();
+                //zerando os valores
+
+            }
+
+            }
+
+
+
+        }
+
+
+
+
+
+
     }
+
     }
 
 
@@ -1540,7 +1594,7 @@ void parserXMLtoCSV::escreverSeqCsv()
     csvGravador <<"\n";
 
     //apartir daqui é diferente das outras analises
-    csvGravador <<"As totalizacoes da analise sequencial\n";
+    csvGravador <<"A matriz de transição\n";
     csvGravador << "" <<";";
     for(int grt=0; grt< analiseSequencial.listaDados.size(); grt++){
        csvGravador << catalagoLido->nome[grt] <<";";
@@ -1556,6 +1610,31 @@ void parserXMLtoCSV::escreverSeqCsv()
 
 
           csvGravador<< conPontoVirgula( analiseSequencial.listaDados[tot][fr]) <<";";
+      }
+
+        csvGravador << "\n";
+
+    }
+
+
+
+    //apartir daqui é diferente das outras analises
+    csvGravador <<"As porcentagem da matrix de transição\n";
+    csvGravador << "" <<";";
+    for(int grt=0; grt< analiseSequencial.listaDadosPorcentagem.size(); grt++){
+       csvGravador << catalagoLido->nome[grt] <<";";
+    }
+    csvGravador << "\n";
+
+    for(int tot=0; tot< analiseSequencial.listaDadosPorcentagem.size(); tot++){
+//      csvGravador <<"\n do frame inicial ; "<< totalizacaoTot[tot].inicioSessao <<"\n" ;
+//      csvGravador << "ate o frame final ; " << totalizacaoTot[tot].finalSessao <<"\n";
+
+        csvGravador << catalagoLido->nome[tot] <<";";
+      for(int fr=0; fr< analiseSequencial.listaDadosPorcentagem.size(); fr++){
+
+
+          csvGravador<< conPontoVirgula( analiseSequencial.listaDadosPorcentagem[tot][fr]) <<";";
       }
 
         csvGravador << "\n";
