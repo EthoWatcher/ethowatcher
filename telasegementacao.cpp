@@ -121,517 +121,765 @@ void telaSegementacao::on_pbTotalRes_clicked()
     if(chTCCon){
         // esse é o contador que contem o tamanho cViSeg
         //vi1 = valor inicial primeiro
-        if(ui->chbHetero->isChecked()){
 
-            for(int vi1=0;vi1<cViSeg;vi1++){
 
-                totInicio.push_back(listaLineInicio[vi1]->text().toInt());
-                totFinal.push_back(listaLineFim[vi1]->text().toInt());
+       // double framesTotaisAnalise = videoLido->frameFinal - videoLido->frameProce;
 
 
-            }
+        bool chUnde=true;
 
-        }
+        for(int rl=videoLido->frameProce; rl< videoLido->frameFinal ; rl++){
 
+            //tem que testar pra todas os pontos
 
-        ///double cViseg;
-        double intervalo;
+            for(int rj=0;rj<etografiaLida->frameInicial.size();rj++){
 
-        if(ui->chbHomo->isChecked()){
+               if((rl>=etografiaLida->frameInicial[rj])&&(rl<etografiaLida->frameFinal[rj])){
 
-            if(ui->lieTime->text()=="0"){
+                   qDebug() <<" frame" << rl << etografiaLida->id[rj] << "e a transcrição é a " << rj;
 
-
-                QMessageBox::information(this,"ERROR", "homogenous time is equal to zero");
-
-                return;
-                //            QFileDialog dialog(this);
-                //            dialog.setFileMode(QFileDialog::Reject);
-
-
-            }
-
-            intervalo =(double) videoLido->frameFinal/videoLido->fps - (double) videoLido->frameProce/videoLido->fps;
-            cViSeg= intervalo/ ui->lieTime->text().toDouble();
-            cViSegInteiro= intervalo/ ui->lieTime->text().toDouble(); // ta se utilizando do truncamento do inteiro
-            dezenaCviSeg= cViSeg - cViSegInteiro ;
-            chNumeroQuebrado=false;
-
-            if(dezenaCviSeg!=0){
-                cViSeg = (cViSeg - dezenaCviSeg)+1;
-                chNumeroQuebrado=true;
-            }
-
-
-
-            totInicio.push_back(videoLido->frameProce);
-            totFinal.push_back(videoLido->frameFinal);
-
-
-            for(int jj=0; jj<cViSeg; jj++){
-
-                if(jj== (cViSeg-1)){
-
-
-                    if(chNumeroQuebrado){
-
-
-                        totInicio.push_back(totFinal[jj] );
-                        totFinal.push_back(videoLido->frameFinal );
-
-
-                    }else{
-
-                        totInicio.push_back(videoLido->frameProce + (jj* ui->lieTime->text().toDouble()* videoLido->fps) );
-                        totFinal.push_back(videoLido->frameProce + ((jj+1)* ui->lieTime->text().toDouble()* videoLido->fps) );
-
-                    }
-
-
-                }else{
-
-
-                    totInicio.push_back(videoLido->frameProce + (jj* ui->lieTime->text().toDouble()* videoLido->fps) );
-                    totFinal.push_back(videoLido->frameProce + ((jj+1)* ui->lieTime->text().toDouble()* videoLido->fps) );
-
-
-
-                }
-
-
-
-
-
-                // qDebug()<< "rolou" << totInicio[jj] << totFinal[jj];
-            }
-
-
-
-
-
-            //return;
-
-            //      for(int lol=0; lol< cViSeg; lol++){
-
-            //chave que faz entrar no ultimo elemento
-
-            //   if(ka== (cViSeg-1)){
-
-            //     if(chNumeroQuebrado){
-
-            //         totInicio.push_back(videoLido->frameProce + (ka* ui->lieTime->text().toDouble()* videoLido->fps) );
-            //        totFinal.push_back(videoLido->frameProce + ((ka+1)* ui->lieTime->text().toDouble()* videoLido->fps) );
-
-
-
-            //   }else{
-            //       totInicio.push_back(totFinal[ka-1] );
-            //        totFinal.push_back(videoLido->frameFinal );
-            //  }
-
-
-            //  }else{
-            //se nao é o ultimo elemento
-            //          totInicio.push_back(videoLido->frameProce + (lol* ui->lieTime->text().toDouble()* videoLido->fps) );
-            //          totFinal.push_back(videoLido->frameProce + ((lol+1)* ui->lieTime->text().toDouble()* videoLido->fps) );
-
-            //  }
-
-
-            //        }//fim do for
-
-        }//fim de se for homo
-
-
-
-
-        //lendo as posições iniciais que o usuario informou
-
-
-
-        //conversão dos ponto
-        int qDPontos=0;
-        int pontos=0;
-        //bool entrou= false;
-        int v=0;
-        int lido;
-        //cria um vetor
-
-        for(int m=0; m<catalagoLido->quantidadeDeCategorias; m++){
-
-            //        std::vector<double> fInicial;
-            //        std::vector<double> fFinal;
-            fInicial.clear();
-            fFinal.clear();
-            frameInfo.clear();
-            pontos=0;
-            //encontra as regioões de determinada categoria do catalago
-            //encontra de acordo com o valor de m
-            for(qDPontos=0; qDPontos<etografiaLida->quantidadeDePontos; qDPontos++){
-
-
-                if(etografiaLida->id[qDPontos] ==m){
-                    fInicial.push_back(etografiaLida->frameInicial[qDPontos]);
-                    fFinal.push_back(etografiaLida->frameFinal[qDPontos]);
-                    pontos++;
-                }
-
-
-
-            }
-            //qDPontos é o numero de pontos postos
-
-            //gera um for com um valor inicial igual ao frame inicial do video
-            //gera umf or com um valor final de acordo com o valor final do video
-            for(int frame= videoLido->frameInicial; frame <
-                videoLido->frameFinal; frame++){
-                //para cada frame do video lido
-                //o video lido é de acorodo com valor v
-                for(int geraVetor=0; geraVetor<pontos; geraVetor++){
-
-                    // ele testa o frame para cada intervalo de pontos lido
-                    // se encontrar ele coloca um  ponto com o valor do id da categoria
-                    if(((frame>=fInicial[geraVetor])&&(frame<=fFinal[geraVetor]))){
-
-                        frameInfo.push_back(m);
-                        entrou= true;
-                    }
-
-                }
-                //se o frame nao estiver dentro do intervalo o programa coloca o valor de -1
-                //-1 porque os id do catalago são sempre valores positivos
-
-                if(!entrou){
-                    frameInfo.push_back(-1); //quer dissser que o usuario nao deixou precionado o botão
-
-                }
-                entrou= false;
-
-
-            }
-
-            //ao fim dos looping  de encontras os valores das categorias
-            //ele grava o vetor em uma matrix de pontos
-            frameTotOriginal.push_back(frameInfo);
-            frameInfo.clear();
-            fInicial.clear();
-            fFinal.clear();
-
-        }
-
-
-
-
-
-
-
-        //    //el = etografia lida
-        //    //se = segmentacao
-
-        //corte das sesões para serem analisados
-        for(int se=0;se<(cViSeg+1);se++){
-
-            //        pontosTot.clear();
-            frameTotCortado.clear();
-            for(int cat=0;cat<catalagoLido->quantidadeDeCategorias;cat++){
-
-                frameInfo.clear();
-                for(int el1=(totInicio[se]-videoLido->frameInicial);el1<(totFinal[se]-videoLido->frameInicial);el1++){
-
-
-
-                    frameInfo.push_back(frameTotOriginal[cat][el1]);
-
-                }
-
-                frameTotCortado.push_back(frameInfo);
-
-            }
-
-
-
-
-
-            matrixframeTotCortado.push_back(frameTotCortado);
-
-
-        }
-
-
-
-        //faz o zero
-
-        for(int i=0;i<catalagoLido->quantidadeDeCategorias;i++){
-
-            totalizacao1.freq.push_back(0);
-            totalizacao1.latencia.push_back(videoLido->frameFinal);
-            totalizacao1.duracao.push_back(0);
-            totalizacao1.componente.push_back(catalagoLido->nome[i]);
-            totalizacao1.clicado.push_back(false);
-            totalizacao1.bordaSubida.push_back(false);
-
-        }
-
-        for(int se1=0;se1<(cViSeg+1);se1++){
-
-            //        matrixframeTotCortado[a][b][c]
-            //        [a]= numero de segmentacao
-            //        [b]= numero da catecotira
-            //        [c]= frame numero;
-            //zerando
-            //        totalizacaoTot.clear();
-
-            for(int i=0;i<catalagoLido->quantidadeDeCategorias;i++){
-
-                totalizacao1.freq[i] = 0;
-                totalizacao1.latencia[i] = matrixframeTotCortado[se1][i].size();
-                totalizacao1.duracao[i] = 0 ;
-                totalizacao1.componente[i] =catalagoLido->nome[i];
-                totalizacao1.clicado[i]=false;
-                totalizacao1.bordaSubida[i]=false;
-
-            }
-
-
-
-
-            for(int cat1=0;cat1<catalagoLido->quantidadeDeCategorias;cat1++){
-
-                int tamanha=matrixframeTotCortado[se1][cat1].size();
-
-
-
-                for(int el2= 0 ;el2<= tamanha  ;el2++){
-
-
-                    //tamanho
-                    if(matrixframeTotCortado[se1][cat1][el2]== cat1){
-
-                        totalizacao1.duracao[cat1]= totalizacao1.duracao[cat1]+ 1;
-
-
-                    }
-
-                    //latencia
-
-                    if((matrixframeTotCortado[se1][cat1][el2]== cat1)
-                            &&(!totalizacao1.clicado[cat1])){
-                        totalizacao1.clicado[cat1]= true;
-
-                        totalizacao1.latencia[cat1]= el2;
-
-
-                    }
-
-
-                    //freq
-                    if((!totalizacao1.bordaSubida[cat1])
-                            &&(matrixframeTotCortado[se1][cat1][el2]== cat1))
-                    {
-                        totalizacao1.bordaSubida[cat1]= true;
-                        totalizacao1.freq[cat1]=totalizacao1.freq[cat1] +1;
-
-
-                    }
-
-
-                    if((totalizacao1.bordaSubida[cat1])
-                            &&(matrixframeTotCortado[se1][cat1][el2]== -1))
-                    {
-
-                        totalizacao1.bordaSubida[cat1]= false;
-
-                    }
-
-
-
-
-
-                }
-
-
-            }
-
-
-
-
-
-
-            totalizacaoTot.push_back(totalizacao1);
-
-
-
-        }
-
-
-
-
-
-        // bool clicado = totalizacaoTot[0].clicado[0]; //forma de acessar o std vector
-
-
-
-        QStringList listaString;
-        QStringList listaString2;
-        QStringList listaString3;
-        QLabel* jo1;
-        QTableWidget* lista1;
-        QWidget* lWid;
-
-        lWid= new QWidget(ui->wTabTotal);
-
-
-        jo1 = new QLabel();
-
-
-
-
-        listaString << "Category"<< "Duration(s)" << "Frequency" ;//<< "Latencia";
-        listaString3 << "Category"<< "Duration(s)" << "Frequency" << "Latency(s)";
-
-        for(int cat23;cat23<catalagoLido->quantidadeDeCategorias;cat23++){
-
-
-            listaString2 << catalagoLido->nome[cat23];
-        }
-
-
-        //colcoa a tabela
-        for(int se=0;se<(cViSeg+1);se++ ){
-            jo1 = new QLabel();
-            lista1 = new QTableWidget();
-            //jo1 = new QLabel();
-
-            if(se==0){
-
-                lista1->setColumnCount(4);
+                   vetorPontos.push_back(etografiaLida->id[rj]);
+                   quadrosPontos.push_back(rl);
+                   chUnde=false;
 
             }else{
+                   //não categorizado
 
-                lista1->setColumnCount(3);
-            }
-
-
-
-
-            for(int k=0;k<catalagoLido->quantidadeDeCategorias;k++){
-                lista1->insertRow(lista1->rowCount());
-                //categoria
-                lista1->setItem(lista1->rowCount()-1
-                                ,0,new QTableWidgetItem(
-                                    catalagoLido->nome[k]));
-                //duracao
-                lista1->setItem(lista1->rowCount()-1,
-                                1,new QTableWidgetItem(
-                                    QString::number(totalizacaoTot[se].duracao[k]/videoLido->fps)));
-                //frequencia
-                lista1->setItem(lista1->rowCount()-1,
-                                2,new QTableWidgetItem(
-                                    QString::number(totalizacaoTot[se].freq[k])));
-
-                if(se==0){
-
-                    lista1->setHorizontalHeaderLabels(listaString3);
-                    //latencia
-                    lista1->setItem(lista1->rowCount()-1,
-                                    3,new QTableWidgetItem(
-                                        QString::number(totalizacaoTot[se].latencia[k]/videoLido->fps)));
+//                vetorPontos.push_back(-1);
+//                quadrosPontos.push_back(rl);
 
 
 
-                }else{
-
-                    lista1->setHorizontalHeaderLabels(listaString);
-                }
-
-
+               }
 
 
             }
 
 
-            lista1->setVerticalHeaderLabels(listaString2);
-            lista1->setFixedHeight(100);
 
-            listaTabelaTotal.push_back(lista1);
+            if(chUnde==true){
+                //se não enocntrou nenhuma classificao é undefinido
+                //é caracterizado como menos 1
 
+                vetorPontos.push_back(-1);
+            }else{
 
-
-            jo1->setText("|| Segmentation number "+ QString::number(se)+
-                         " || Begin Time " + QString::number(totInicio[se]/videoLido->fps)+
-                         " (s) ||  End Time " + QString::number(totFinal[se]/videoLido->fps)+ " (s) ||");
-            jo1->setFixedHeight(30);
-            // jo1->setFixedHeight(200);
-            listaLabel.push_back(jo1);
+                chUnde=true;
+            }
 
 
 
         }
 
+        chUnde=true;
 
-        layoutTabWid = new QVBoxLayout(ui->wTabTotal);
+        for(int rj=0;rj<etografiaLida->frameInicial.size();rj++){
 
-        for(int se1=0 ; se1<(cViSeg+1); se1++ ){
+           if((videoLido->frameFinal==etografiaLida->frameFinal[rj])){
 
+               qDebug() <<" frame" << videoLido->frameFinal << etografiaLida->id[rj] << "e a transcrição é a " << rj;
 
-            //listaTabelaTotal.push_back(lista1);
+               vetorPontos.push_back(etografiaLida->id[rj]);
+               quadrosPontos.push_back(videoLido->frameFinal);
+               chUnde=false;
 
+        }else{
+               //não categorizado
 
-
-            //jo1->setText("Segmento "+ QString::number(se1));
-
-
-            //         layoutTabWid->addWidget(listaLabel[se1]);
-
-            //         layoutTabWid->addWidget(listaTabelaTotal[se1]);
-
-
-            //        layoutMut = new QVBoxLayout();
-
-            //        layoutMut->addWidget(listaLabel[se1]);
-
-            //        layoutMut->addWidget(listaTabelaTotal[se1]);
+//            vetorPontos.push_back(-1);
+//            quadrosPontos.push_back(videoLido->frameFinal);
 
 
-            layoutTabWid->addWidget(listaLabel[se1]);
-
-            layoutTabWid->addWidget(listaTabelaTotal[se1]);
 
 
-            //        layoutTabWid->addWidget(*layoutMut);
-
+           }
 
 
         }
 
+        if(chUnde==true){
+            //se não enocntrou nenhuma classificao é undefinido
+            //é caracterizado como menos 1
+
+            vetorPontos.push_back(-1);
+        }else{
+
+            chUnde=true;
+        }
+
+
+        //fim de encontrar os pontos do vídeo
+        //agora tem que segmentar pelo tempo
 
 
 
-        //    layoutTabWid->addWidget(jo1);
-
-        //    layoutTabWid->addWidget(listaTabelaTotal[0]);
 
 
 
+//        double timeInicio=videoLido->frameProce/videoLido->fps;
+//        std::vector<double> framesSeg;
 
-        //magica acontece
-
-
+         double varia =ui->lieTime->text().toDouble() * videoLido->fps; //frames
+         double frameInico = videoLido->frameProce;
 
 
 
 
 
 
-        // listaTabelaTotal
 
 
 
-        //listaLineFim[0]->setText("123123");
+         do{
+
+             inicioPeriodo.push_back(frameInico);
+             fimPeriodo.push_back(frameInico+varia);
+
+             frameInico= frameInico+varia;
+
+
+
+         }while (frameInico<=videoLido->frameFinal);
+
+
+
+//         if(fimPeriodo[fimPeriodo.size()-1]>videoLido->frameFinal){
+
+
+//             fimPeriodo[fimPeriodo.size()-1]= videoLido->frameFinal;
+//         }
+
+
+         //tenho todos os peridos agora tem que fazer os vetores de cada periodo
+            //para depois contabilizar
+
+         //para todos os segmentoss
+         for(int ka=0; ka<fimPeriodo.size(); ka++){
+
+             //para todos os quadros
+             for(int kb=videoLido->frameProce; kb<videoLido->frameFinal;kb++){
+
+                 //vou testar se esta dentro da segmentação
+                 //se estiver dentro da segmentação ele pega o valor de pontos
+                 if((kb>=inicioPeriodo[ka]) && (kb<fimPeriodo[ka])){
+
+                    vetorPontosSegmentados.push_back(vetorPontos[kb-videoLido->frameProce]);
+
+                 }
+
+                 //para quando ser o ultimo frma ele estar incluso dentro dos pontos segmentados
+                 if(kb==videoLido->frameFinal){
+
+                     vetorPontosSegmentados.push_back(vetorPontos[kb-videoLido->frameProce]);
+
+                     qDebug() << "ultimo frame colocado dentro do vetor de segmentação";
+                 }
+
+
+
+
+
+
+             }//fim dos testes dos quadros
+
+             vetorPontosSegmentadosMatriz.push_back(vetorPontosSegmentados);
+             vetorPontosSegmentados.clear();
+
+
+         }
+
+
+
+//         std::vector<double> latenciaTotal;
+//         std::vector<double> duracaoTotal;
+//         std::vector<double> frequenciaTotal;
+//         std::vector<std::vector<double> > duracaoTotalMatriz;
+//         std::vector<std::vector<double> > frequenciaTotalMatriz;
+
+         latenciaTotal= latencia(vetorPontos);
+
+
+
+         duracaoTotal = duracaoCategoria(vetorPontos);
+         frequenciaTotal = frequenciaCategorias(vetorPontos);
+
+
+         duracaoTotalMatriz.push_back(duracaoTotal);
+         frequenciaTotalMatriz.push_back(frequenciaTotal);
+         duracaoTotal.clear();
+         frequenciaTotal.clear();
+
+
+
+         //para todos os vetores de pontos
+         for(int cVePon=0; cVePon <vetorPontosSegmentadosMatriz.size(); cVePon++){
+
+
+
+             duracaoTotal = duracaoCategoria(vetorPontosSegmentadosMatriz[cVePon]);
+             frequenciaTotal = frequenciaCategorias(vetorPontosSegmentadosMatriz[cVePon]);
+
+
+             duracaoTotalMatriz.push_back(duracaoTotal);
+             frequenciaTotalMatriz.push_back(frequenciaTotal);
+             duracaoTotal.clear();
+             frequenciaTotal.clear();
+
+         }
+
+
+
+
+         //encontrei os pontos de segmentação
+
+
+         //achar latencia, duração e periodo;
+
+
+
+
+//         for(int ko=frameInico; ko<(frameInico+varia); ko++){
+
+
+//             vetorPontosSegmentados.push_back(vetorPontos[ko]);
+
+
+
+//         }
+
+//         vetorPontosSegmentadosMatriz.push_back(vetorPontosSegmentados);
+//         vetorPontosSegmentados.clear();
+//         frameInico= frameInico +varia;
+
+
+//
+
+//             //            double time= parserTCCM->videoLido->frameProce/parserTCCM->videoLido->fps;
+//             //            double frame = parserTCCM->videoLido->frameProce;
+
+
+
+
+//                         arvoreDeFrames.push_back(framesSeg);
+//                         framesSeg.clear();
+
+//                         frameInico= frameInico +varia;
+//
+
+
+//        if(ui->chbHetero->isChecked()){
+
+//            for(int vi1=0;vi1<cViSeg;vi1++){
+
+//                totInicio.push_back(listaLineInicio[vi1]->text().toInt());
+//                totFinal.push_back(listaLineFim[vi1]->text().toInt());
+
+
+//            }
+
+//        }
+
+
+//        ///double cViseg;
+//        double intervalo;
+
+//        if(ui->chbHomo->isChecked()){
+
+//            if(ui->lieTime->text()=="0"){
+
+
+//                QMessageBox::information(this,"ERROR", "homogenous time is equal to zero");
+
+//                return;
+//                //            QFileDialog dialog(this);
+//                //            dialog.setFileMode(QFileDialog::Reject);
+
+
+//            }
+
+//            intervalo =(double) videoLido->frameFinal/videoLido->fps - (double) videoLido->frameProce/videoLido->fps;
+//            cViSeg= intervalo/ ui->lieTime->text().toDouble();
+//            cViSegInteiro= intervalo/ ui->lieTime->text().toDouble(); // ta se utilizando do truncamento do inteiro
+//            dezenaCviSeg= cViSeg - cViSegInteiro ;
+//            chNumeroQuebrado=false;
+
+//            if(dezenaCviSeg!=0){
+//                cViSeg = (cViSeg - dezenaCviSeg)+1;
+//                chNumeroQuebrado=true;
+//            }
+
+
+
+//            totInicio.push_back(videoLido->frameProce);
+//            totFinal.push_back(videoLido->frameFinal);
+
+
+//            for(int jj=0; jj<cViSeg; jj++){
+
+//                if(jj== (cViSeg-1)){
+
+
+//                    if(chNumeroQuebrado){
+
+
+//                        totInicio.push_back(totFinal[jj] );
+//                        totFinal.push_back(videoLido->frameFinal );
+
+
+//                    }else{
+
+//                        totInicio.push_back(videoLido->frameProce + (jj* ui->lieTime->text().toDouble()* videoLido->fps) );
+//                        totFinal.push_back(videoLido->frameProce + ((jj+1)* ui->lieTime->text().toDouble()* videoLido->fps) );
+
+//                    }
+
+
+//                }else{
+
+
+//                    totInicio.push_back(videoLido->frameProce + (jj* ui->lieTime->text().toDouble()* videoLido->fps) );
+//                    totFinal.push_back(videoLido->frameProce + ((jj+1)* ui->lieTime->text().toDouble()* videoLido->fps) );
+
+
+
+//                }
+
+
+
+
+
+//                // qDebug()<< "rolou" << totInicio[jj] << totFinal[jj];
+//            }
+
+
+
+
+
+//            //return;
+
+//            //      for(int lol=0; lol< cViSeg; lol++){
+
+//            //chave que faz entrar no ultimo elemento
+
+//            //   if(ka== (cViSeg-1)){
+
+//            //     if(chNumeroQuebrado){
+
+//            //         totInicio.push_back(videoLido->frameProce + (ka* ui->lieTime->text().toDouble()* videoLido->fps) );
+//            //        totFinal.push_back(videoLido->frameProce + ((ka+1)* ui->lieTime->text().toDouble()* videoLido->fps) );
+
+
+
+//            //   }else{
+//            //       totInicio.push_back(totFinal[ka-1] );
+//            //        totFinal.push_back(videoLido->frameFinal );
+//            //  }
+
+
+//            //  }else{
+//            //se nao é o ultimo elemento
+//            //          totInicio.push_back(videoLido->frameProce + (lol* ui->lieTime->text().toDouble()* videoLido->fps) );
+//            //          totFinal.push_back(videoLido->frameProce + ((lol+1)* ui->lieTime->text().toDouble()* videoLido->fps) );
+
+//            //  }
+
+
+//            //        }//fim do for
+
+//        }//fim de se for homo
+
+
+
+
+//        //lendo as posições iniciais que o usuario informou
+
+
+
+//        //conversão dos ponto
+//        int qDPontos=0;
+//        int pontos=0;
+//        //bool entrou= false;
+//        int v=0;
+//        int lido;
+//        //cria um vetor
+
+//        for(int m=0; m<catalagoLido->quantidadeDeCategorias; m++){
+
+//            //        std::vector<double> fInicial;
+//            //        std::vector<double> fFinal;
+//            fInicial.clear();
+//            fFinal.clear();
+//            frameInfo.clear();
+//            pontos=0;
+//            //encontra as regioões de determinada categoria do catalago
+//            //encontra de acordo com o valor de m
+//            for(qDPontos=0; qDPontos<etografiaLida->quantidadeDePontos; qDPontos++){
+
+
+//                if(etografiaLida->id[qDPontos] ==m){
+//                    fInicial.push_back(etografiaLida->frameInicial[qDPontos]);
+//                    fFinal.push_back(etografiaLida->frameFinal[qDPontos]);
+//                    pontos++;
+//                }
+
+
+
+//            }
+//            //qDPontos é o numero de pontos postos
+
+//            //gera um for com um valor inicial igual ao frame inicial do video
+//            //gera umf or com um valor final de acordo com o valor final do video
+//            for(int frame= videoLido->frameInicial; frame <
+//                videoLido->frameFinal; frame++){
+//                //para cada frame do video lido
+//                //o video lido é de acorodo com valor v
+//                for(int geraVetor=0; geraVetor<pontos; geraVetor++){
+
+//                    // ele testa o frame para cada intervalo de pontos lido
+//                    // se encontrar ele coloca um  ponto com o valor do id da categoria
+//                    if(((frame>=fInicial[geraVetor])&&(frame<=fFinal[geraVetor]))){
+
+//                        frameInfo.push_back(m);
+//                        entrou= true;
+//                    }
+
+//                }
+//                //se o frame nao estiver dentro do intervalo o programa coloca o valor de -1
+//                //-1 porque os id do catalago são sempre valores positivos
+
+//                if(!entrou){
+//                    frameInfo.push_back(-1); //quer dissser que o usuario nao deixou precionado o botão
+
+//                }
+//                entrou= false;
+
+
+//            }
+
+//            //ao fim dos looping  de encontras os valores das categorias
+//            //ele grava o vetor em uma matrix de pontos
+//            frameTotOriginal.push_back(frameInfo);
+//            frameInfo.clear();
+//            fInicial.clear();
+//            fFinal.clear();
+
+//        }
+
+
+
+
+
+
+
+//        //    //el = etografia lida
+//        //    //se = segmentacao
+
+//        //corte das sesões para serem analisados
+//        for(int se=0;se<(cViSeg+1);se++){
+
+//            //        pontosTot.clear();
+//            frameTotCortado.clear();
+//            for(int cat=0;cat<catalagoLido->quantidadeDeCategorias;cat++){
+
+//                frameInfo.clear();
+//                for(int el1=(totInicio[se]-videoLido->frameInicial);el1<(totFinal[se]-videoLido->frameInicial);el1++){
+
+
+
+//                    frameInfo.push_back(frameTotOriginal[cat][el1]);
+
+//                }
+
+//                frameTotCortado.push_back(frameInfo);
+
+//            }
+
+
+
+
+
+//            matrixframeTotCortado.push_back(frameTotCortado);
+
+
+//        }
+
+
+
+//        //faz o zero
+
+//        for(int i=0;i<catalagoLido->quantidadeDeCategorias;i++){
+
+//            totalizacao1.freq.push_back(0);
+//            totalizacao1.latencia.push_back(videoLido->frameFinal);
+//            totalizacao1.duracao.push_back(0);
+//            totalizacao1.componente.push_back(catalagoLido->nome[i]);
+//            totalizacao1.clicado.push_back(false);
+//            totalizacao1.bordaSubida.push_back(false);
+
+//        }
+
+//        for(int se1=0;se1<(cViSeg+1);se1++){
+
+//            //        matrixframeTotCortado[a][b][c]
+//            //        [a]= numero de segmentacao
+//            //        [b]= numero da catecotira
+//            //        [c]= frame numero;
+//            //zerando
+//            //        totalizacaoTot.clear();
+
+//            for(int i=0;i<catalagoLido->quantidadeDeCategorias;i++){
+
+//                totalizacao1.freq[i] = 0;
+//                totalizacao1.latencia[i] = matrixframeTotCortado[se1][i].size();
+//                totalizacao1.duracao[i] = 0 ;
+//                totalizacao1.componente[i] =catalagoLido->nome[i];
+//                totalizacao1.clicado[i]=false;
+//                totalizacao1.bordaSubida[i]=false;
+
+//            }
+
+
+
+
+//            for(int cat1=0;cat1<catalagoLido->quantidadeDeCategorias;cat1++){
+
+//                int tamanha=matrixframeTotCortado[se1][cat1].size();
+
+
+
+//                for(int el2= 0 ;el2<= tamanha  ;el2++){
+
+
+//                    //tamanho
+//                    if(matrixframeTotCortado[se1][cat1][el2]== cat1){
+
+//                        totalizacao1.duracao[cat1]= totalizacao1.duracao[cat1]+ 1;
+
+
+//                    }
+
+//                    //latencia
+
+//                    if((matrixframeTotCortado[se1][cat1][el2]== cat1)
+//                            &&(!totalizacao1.clicado[cat1])){
+//                        totalizacao1.clicado[cat1]= true;
+
+//                        totalizacao1.latencia[cat1]= el2;
+
+
+//                    }
+
+
+//                    //freq
+//                    if((!totalizacao1.bordaSubida[cat1])
+//                            &&(matrixframeTotCortado[se1][cat1][el2]== cat1))
+//                    {
+//                        totalizacao1.bordaSubida[cat1]= true;
+//                        totalizacao1.freq[cat1]=totalizacao1.freq[cat1] +1;
+
+
+//                    }
+
+
+//                    if((totalizacao1.bordaSubida[cat1])
+//                            &&(matrixframeTotCortado[se1][cat1][el2]== -1))
+//                    {
+
+//                        totalizacao1.bordaSubida[cat1]= false;
+
+//                    }
+
+
+
+
+
+//                }
+
+
+//            }
+
+
+
+
+
+
+//            totalizacaoTot.push_back(totalizacao1);
+
+
+
+//        }
+
+
+
+
+
+//        // bool clicado = totalizacaoTot[0].clicado[0]; //forma de acessar o std vector
+
+
+
+//        QStringList listaString;
+//        QStringList listaString2;
+//        QStringList listaString3;
+//        QLabel* jo1;
+//        QTableWidget* lista1;
+//        QWidget* lWid;
+
+//        lWid= new QWidget(ui->wTabTotal);
+
+
+//        jo1 = new QLabel();
+
+
+
+
+//        listaString << "Category"<< "Duration(s)" << "Frequency" ;//<< "Latencia";
+//        listaString3 << "Category"<< "Duration(s)" << "Frequency" << "Latency(s)";
+
+//        for(int cat23;cat23<catalagoLido->quantidadeDeCategorias;cat23++){
+
+
+//            listaString2 << catalagoLido->nome[cat23];
+//        }
+
+
+//        //colcoa a tabela
+//        for(int se=0;se<(cViSeg+1);se++ ){
+//            jo1 = new QLabel();
+//            lista1 = new QTableWidget();
+//            //jo1 = new QLabel();
+
+//            if(se==0){
+
+//                lista1->setColumnCount(4);
+
+//            }else{
+
+//                lista1->setColumnCount(3);
+//            }
+
+
+
+
+//            for(int k=0;k<catalagoLido->quantidadeDeCategorias;k++){
+//                lista1->insertRow(lista1->rowCount());
+//                //categoria
+//                lista1->setItem(lista1->rowCount()-1
+//                                ,0,new QTableWidgetItem(
+//                                    catalagoLido->nome[k]));
+//                //duracao
+//                lista1->setItem(lista1->rowCount()-1,
+//                                1,new QTableWidgetItem(
+//                                    QString::number(totalizacaoTot[se].duracao[k]/videoLido->fps)));
+//                //frequencia
+//                lista1->setItem(lista1->rowCount()-1,
+//                                2,new QTableWidgetItem(
+//                                    QString::number(totalizacaoTot[se].freq[k])));
+
+//                if(se==0){
+
+//                    lista1->setHorizontalHeaderLabels(listaString3);
+//                    //latencia
+//                    lista1->setItem(lista1->rowCount()-1,
+//                                    3,new QTableWidgetItem(
+//                                        QString::number(totalizacaoTot[se].latencia[k]/videoLido->fps)));
+
+
+
+//                }else{
+
+//                    lista1->setHorizontalHeaderLabels(listaString);
+//                }
+
+
+
+
+//            }
+
+
+//            lista1->setVerticalHeaderLabels(listaString2);
+//            lista1->setFixedHeight(100);
+
+//            listaTabelaTotal.push_back(lista1);
+
+
+
+//            jo1->setText("|| Segmentation number "+ QString::number(se)+
+//                         " || Begin Time " + QString::number(totInicio[se]/videoLido->fps)+
+//                         " (s) ||  End Time " + QString::number(totFinal[se]/videoLido->fps)+ " (s) ||");
+//            jo1->setFixedHeight(30);
+//            // jo1->setFixedHeight(200);
+//            listaLabel.push_back(jo1);
+
+
+
+//        }
+
+
+//        layoutTabWid = new QVBoxLayout(ui->wTabTotal);
+
+//        for(int se1=0 ; se1<(cViSeg+1); se1++ ){
+
+
+//            //listaTabelaTotal.push_back(lista1);
+
+
+
+//            //jo1->setText("Segmento "+ QString::number(se1));
+
+
+//            //         layoutTabWid->addWidget(listaLabel[se1]);
+
+//            //         layoutTabWid->addWidget(listaTabelaTotal[se1]);
+
+
+//            //        layoutMut = new QVBoxLayout();
+
+//            //        layoutMut->addWidget(listaLabel[se1]);
+
+//            //        layoutMut->addWidget(listaTabelaTotal[se1]);
+
+
+//            layoutTabWid->addWidget(listaLabel[se1]);
+
+//            layoutTabWid->addWidget(listaTabelaTotal[se1]);
+
+
+//            //        layoutTabWid->addWidget(*layoutMut);
+
+
+
+//        }
+
+
+
+
+//        //    layoutTabWid->addWidget(jo1);
+
+//        //    layoutTabWid->addWidget(listaTabelaTotal[0]);
+
+
+
+
+//        //magica acontece
+
+
+
+
+
+
+
+
+//        // listaTabelaTotal
+
+
+
+//        //listaLineFim[0]->setText("123123");
+//        ui->pbTotGravar->setEnabled(true);
+
+//        ui->swToTotal->setCurrentIndex(1);
+//        ui->stackedWidget->setCurrentIndex(0);
+        ui->pbTotGravar->setVisible(true);
         ui->pbTotGravar->setEnabled(true);
-
-        ui->swToTotal->setCurrentIndex(1);
-        ui->stackedWidget->setCurrentIndex(0);
 
         qDebug() << " foi selecionado par afaze a segmentação do relatorio de TCC";
     }else{
@@ -814,24 +1062,79 @@ void telaSegementacao::on_pbTotGravar_clicked()
 
     stream.writeStartElement("sessoes");
 
-    for(int se2=0;se2<cViSeg;se2++){
+//    std::vector<double> inicioPeriodo;
+//    std::vector<double> fimPeriodo;
+//    latenciaTotal= latencia(vetorPontos);
+//    duracaoTotalMatriz.push_back(duracaoTotal);
+//    frequenciaTotalMatriz.push_back(frequenciaTotal);
+    //arrumar hoje
+
+    stream.writeStartElement("sessao");
+    stream.writeAttribute("id", QString::number(0));
+    stream.writeAttribute("inicio",QString::number(videoLido->frameProce));
+    stream.writeAttribute("fim",QString::number(videoLido->frameFinal));
+
+    for(int cat=0; cat<(catalagoLido->quantidadeDeCategorias);cat++){
+        stream.writeStartElement("categoria");
+        stream.writeAttribute("idcat", QString::number(cat));
+        stream.writeAttribute("name", catalagoLido->nome[cat]);
+        stream.writeTextElement("duracao",QString::number(duracaoTotalMatriz[0][cat]*videoLido->fps));
+        stream.writeTextElement("frequencia",QString::number(frequenciaTotalMatriz[0][cat]*videoLido->fps));
+        stream.writeTextElement("latencia",QString::number(latenciaTotal[cat]*videoLido->fps));
+        stream.writeEndElement(); //fecha categoria
+    }
+     stream.writeEndElement(); //fecha sessao
+
+    //quantidade de segmentação de tempo
+    for(int cSegTeg=0; cSegTeg<inicioPeriodo.size(); cSegTeg++ ){
         stream.writeStartElement("sessao");
-        stream.writeAttribute("id", QString::number(se2));
-        stream.writeAttribute("inicio",QString::number(totInicio[se2]));
-        stream.writeAttribute("fim",QString::number(totFinal[se2]));
+        stream.writeAttribute("id", QString::number((cSegTeg)));
+        stream.writeAttribute("inicio",QString::number(inicioPeriodo[cSegTeg]));
+
+//        if(cSegTeg==(inicioPeriodo.size()-1)){
+//            //no ultimo
+//            stream.writeAttribute("fim",QString::number(fimPeriodo[cSegTeg]+1));
+//            qDebug()<< "entrou no ultimo";
+//        }else{
+            stream.writeAttribute("fim",QString::number(fimPeriodo[cSegTeg]));
+//        }
+
+
 
         for(int cat=0; cat<(catalagoLido->quantidadeDeCategorias);cat++){
             stream.writeStartElement("categoria");
             stream.writeAttribute("idcat", QString::number(cat));
             stream.writeAttribute("name", catalagoLido->nome[cat]);
-            stream.writeTextElement("duracao",QString::number(totalizacaoTot[se2].duracao[cat]));
-            stream.writeTextElement("frequencia",QString::number(totalizacaoTot[se2].freq[cat]));
-            stream.writeTextElement("latencia",QString::number(totalizacaoTot[se2].latencia[cat]));
+            stream.writeTextElement("duracao",QString::number(duracaoTotalMatriz[cSegTeg+1][cat]*videoLido->fps));
+            stream.writeTextElement("frequencia",QString::number(frequenciaTotalMatriz[cSegTeg+1][cat]));
+            stream.writeTextElement("latencia",QString::number(0));
             stream.writeEndElement(); //fecha categoria
         }
+
         stream.writeEndElement(); //fecha sessao
 
+
     }
+
+
+//    for(int se2=0;se2<cViSeg;se2++){
+//        stream.writeStartElement("sessao");
+//        stream.writeAttribute("id", QString::number(se2));
+//        stream.writeAttribute("inicio",QString::number(totInicio[se2]));
+//        stream.writeAttribute("fim",QString::number(totFinal[se2]));
+
+//        for(int cat=0; cat<(catalagoLido->quantidadeDeCategorias);cat++){
+//            stream.writeStartElement("categoria");
+//            stream.writeAttribute("idcat", QString::number(cat));
+//            stream.writeAttribute("name", catalagoLido->nome[cat]);
+//            stream.writeTextElement("duracao",QString::number(totalizacaoTot[se2].duracao[cat]));
+//            stream.writeTextElement("frequencia",QString::number(totalizacaoTot[se2].freq[cat]));
+//            stream.writeTextElement("latencia",QString::number(totalizacaoTot[se2].latencia[cat]));
+//            stream.writeEndElement(); //fecha categoria
+//        }
+//        stream.writeEndElement(); //fecha sessao
+
+//    }
 
     stream.writeEndElement();
 
@@ -981,6 +1284,120 @@ QString telaSegementacao::conPontoVirgula(double num)
     return  QString::fromLatin1( numeroArraySaida);
 
 }
+
+std::vector<double> telaSegementacao::latencia(std::vector<int> entrada)
+{
+
+    //para cada categoria do catalogo
+    std::vector<double> latenciaCateogrias;
+    for(int cCat=0; cCat<catalagoLido->quantidadeDeCategorias;cCat++){
+
+        double somLa=0;
+        //para cada frame analisado
+        for(int cFra=0; cFra<(entrada.size()); cFra++){
+
+            if(entrada[cFra]!=cCat){
+
+                somLa=somLa+ 1 ;
+
+            }else{
+
+                break;
+
+            }
+
+
+        }
+
+
+        latenciaCateogrias.push_back(somLa/videoLido->fps);
+        somLa=0;
+
+
+
+
+
+    }
+
+
+
+       return latenciaCateogrias;
+
+
+
+}
+
+std::vector<double> telaSegementacao::duracaoCategoria(std::vector<int> entrada)
+{
+    std::vector<double> duracaoCateogrias;
+
+    double somLa=0;
+    for(int cCat=0; cCat<catalagoLido->quantidadeDeCategorias;cCat++){
+
+         for(int cFra=0; cFra<(entrada.size()); cFra++){
+
+             if(entrada[cFra]==cCat){
+
+                 somLa=somLa+ 1 ;
+
+             }
+
+
+         }
+
+        duracaoCateogrias.push_back(somLa/videoLido->fps);
+        somLa=0;
+    }
+
+
+    return duracaoCateogrias;
+
+}
+
+std::vector<double> telaSegementacao::frequenciaCategorias(std::vector<int> entrada)
+{
+    std::vector<double> frequenciaoCateogrias;
+    bool cBSub  =false;
+    bool cBDescida = true;
+
+    double somLa=0;
+    for(int cCat=0; cCat<catalagoLido->quantidadeDeCategorias;cCat++){
+
+         for(int cFra=0; cFra<(entrada.size()); cFra++){
+
+             if((entrada[cFra]==cCat)&&(cBDescida)){
+
+
+                 cBSub = true;
+                 somLa=somLa+ 1 ;
+                 cBDescida =false;
+
+             }
+
+             if((cBSub)&&(entrada[cFra]!=cCat)){
+                 cBSub=false;
+                 cBDescida=true;
+
+             }
+
+
+
+         }
+
+        frequenciaoCateogrias.push_back(somLa);
+        somLa=0;
+        cBSub  =false;
+        cBDescida = true;
+    }
+
+
+    return frequenciaoCateogrias;
+}
+
+
+
+
+
 
 void telaSegementacao::on_chbHomo_clicked(bool checked)
 {

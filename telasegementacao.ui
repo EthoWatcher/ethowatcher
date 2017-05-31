@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>671</width>
-    <height>688</height>
+    <width>642</width>
+    <height>666</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -278,7 +278,7 @@
                  <x>0</x>
                  <y>0</y>
                  <width>593</width>
-                 <height>561</height>
+                 <height>590</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -293,7 +293,7 @@
                      <x>0</x>
                      <y>0</y>
                      <width>573</width>
-                     <height>541</height>
+                     <height>570</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -306,16 +306,6 @@
                 </item>
                </layout>
               </widget>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pbTotGravar">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="text">
-               <string>gravar Analise</string>
-              </property>
              </widget>
             </item>
            </layout>
@@ -352,7 +342,7 @@
        <x>310</x>
        <y>240</y>
        <width>301</width>
-       <height>71</height>
+       <height>91</height>
       </rect>
      </property>
      <property name="title">
@@ -385,6 +375,22 @@
       </property>
       <property name="text">
        <string>Gravar</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pbTotGravar">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>60</y>
+        <width>81</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>gravar Analise</string>
       </property>
      </widget>
     </widget>
@@ -422,7 +428,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>100</string>
+        <string>15</string>
        </property>
       </widget>
       <widget class="QLabel" name="label">

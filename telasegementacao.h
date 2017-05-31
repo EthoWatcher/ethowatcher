@@ -246,6 +246,26 @@ private:
  QString conPontoVirgula(double num);
 
 
+ std::vector<int> vetorPontos;
+ std::vector<double> quadrosPontos;
+
+ std::vector<int> vetorPontosSegmentados;
+ std::vector<std::vector<int> > vetorPontosSegmentadosMatriz;
+
+
+ std::vector<double> inicioPeriodo;
+ std::vector<double> fimPeriodo;
+ std::vector<double> latenciaTotal;
+ std::vector<double> duracaoTotal;
+ std::vector<double> frequenciaTotal;
+ std::vector<std::vector<double> > duracaoTotalMatriz;
+ std::vector<std::vector<double> > frequenciaTotalMatriz;
+ std::vector<double> latencia(std::vector<int> entrada);
+ std::vector<double> duracaoCategoria(std::vector<int> entrada);
+ std::vector<double> frequenciaCategorias(std::vector<int> entrada);
+
+
+
 signals:
 
  void fimLeituraEtografia();

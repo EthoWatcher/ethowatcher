@@ -67,6 +67,7 @@ private:
         bool controle =true;
         QString nome;
         int frameInicial;
+        int frameProce;
         int frameFinal;
         int fps=30; //tem que corrigir isso de ler correto o valor
 
