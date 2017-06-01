@@ -32,6 +32,8 @@
 
 
 
+
+
 namespace Ui {
 class telaFluxoComportamental;
 }
@@ -114,7 +116,7 @@ public:
         double frameFinal;
         double frameProce;
         int frameBack;
-        int fps=30; //tem que corrigir isso de ler correto o valor
+        double fps=30; //tem que corrigir isso de ler correto o valor
         double escala;
 
     };
@@ -207,6 +209,7 @@ private:
      void encontrarFrames();
      QList<int> editFrameInicio;
      QList<int> editFrameFim;
+     QList<int> categoria;
      QString nomeFluxoComportamental;
      int codecVideo;
 
@@ -217,8 +220,9 @@ private:
      std::vector<parserXML::dadosMorfo *> segMorfo;
      std::vector<parserXML::dadosCinema *> segCinema;
 
+     void gravaXML(QString nomeArquivo);
 
-
+     QFile Output;
 
 signals:
 

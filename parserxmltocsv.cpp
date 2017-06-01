@@ -1143,7 +1143,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 //                    }
 //            }
 
-            if(xmlReader.name()== "categoria"){
+            if(xmlReader.name()== "categoriaKK"){
 
             QString conversor= xmlReader.attributes().value("nome").toString();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1187,7 +1187,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
 
 
-            if(xmlReader.name()== "categoria"){
+            if(xmlReader.name()== "categoriaKK"){
 
             QString conversor= xmlReader.attributes().value("nome").toString();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1663,18 +1663,18 @@ void parserXMLtoCSV::escreverKohoCsv()
 
     QTextStream csvGravador(&outGravador);
 
-    csvGravador <<"sep=, \n";
+    csvGravador <<"sep=; \n";
     csvGravador << "Informacoes do usuario\n";
-    csvGravador <<"pesquisador , laboratorio" << "\n";
-    csvGravador <<experimentador.nome.toLatin1() <<"," << experimentador.lab.toLatin1() << "\n";
+    csvGravador <<"pesquisador ; laboratorio" << "\n";
+    csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
     csvGravador <<"\n";
     csvGravador <<"informacoes do video analisado: \n";
-    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
-    csvGravador << videoLido->nome<< "," << videoLido->fps << ","
-         << videoLido->frameInicial << "," << videoLido->frameFinal<< "\n";
+    csvGravador << "nome; fps; frame analisado inicial; frame analisado final \n";
+    csvGravador << videoLido->nome<< ";" << videoLido->fps << ";"
+         << videoLido->frameInicial << ";" << videoLido->frameFinal<< "\n";
     csvGravador <<"\n";
     csvGravador <<"informacoes do catalogo analisado: \n";
-    csvGravador <<"O catalogo utilizado foi o " <<"," << catalagoLido->caminhoArquivo << "\n";
+    csvGravador <<"O catalogo utilizado foi o " <<";" << catalagoLido->caminhoArquivo << "\n";
     csvGravador <<"categorias\n";
     for(int i=0; i< catalagoLido->nome.size(); i++ ){
        csvGravador << catalagoLido->nome[i]<< "\n";
@@ -1682,21 +1682,21 @@ void parserXMLtoCSV::escreverKohoCsv()
     }
     csvGravador <<"\n";
     csvGravador <<"As analises etograficas utilizadas \n";
-    csvGravador <<"id, caminho, tipo \n";
+    csvGravador <<"id; caminho; tipo \n";
     for(int i=0; i< etografiasLidas.size();i++){
 
-      csvGravador << i << "," << etografiasLidas[i]->caminho << "," << etografiasLidas[i]->tipoDeAnalise;
+      csvGravador << i << ";" << etografiasLidas[i]->caminho << ";" << etografiasLidas[i]->tipoDeAnalise;
     }
     csvGravador <<"\n";
     csvGravador <<"\n";
 
     //apartir daqui é diferente das outras analises
     csvGravador <<"A matriz de concordancia kohone kappa\n";
-    csvGravador << "" <<",";
+    csvGravador << "" <<";";
 
 
     for(int grt=0; grt< KohoKappa.cohoKappaMatrix.size(); grt++){
-       csvGravador << catalagoLido->nome[grt] <<",";
+       csvGravador << catalagoLido->nome[grt] <<";";
     }
     csvGravador << "\n";
 
@@ -1704,11 +1704,11 @@ void parserXMLtoCSV::escreverKohoCsv()
 //      csvGravador <<"\n do frame inicial , "<< totalizacaoTot[tot].inicioSessao <<"\n" ;
 //      csvGravador << "ate o frame final , " << totalizacaoTot[tot].finalSessao <<"\n";
 
-        csvGravador << catalagoLido->nome[tot] <<",";
+        csvGravador << catalagoLido->nome[tot] <<";";
       for(int fr=0; fr< KohoKappa.cohoKappaMatrix.size(); fr++){
 
 
-          csvGravador<< KohoKappa.cohoKappaMatrix[tot][fr] <<",";
+          csvGravador<< conPontoVirgula(KohoKappa.cohoKappaMatrix[tot][fr]) <<";";
       }
 
         csvGravador << "\n";
@@ -1716,23 +1716,23 @@ void parserXMLtoCSV::escreverKohoCsv()
     }
 
     csvGravador <<"A matriz de porcentagem do kohone kappa\n";
-    csvGravador << "" <<",";
+    csvGravador << "" <<";";
 
 
     for(int grt=0; grt< KohoKappa.cohoKappaPorMatrix.size(); grt++){
-       csvGravador << catalagoLido->nome[grt] <<",";
+       csvGravador << catalagoLido->nome[grt] <<";";
     }
     csvGravador << "\n";
 
     for(int tot=0; tot< KohoKappa.cohoKappaPorMatrix.size(); tot++){
-//      csvGravador <<"\n do frame inicial , "<< totalizacaoTot[tot].inicioSessao <<"\n" ;
-//      csvGravador << "ate o frame final , " << totalizacaoTot[tot].finalSessao <<"\n";
+//      csvGravador <<"\n do frame inicial ; "<< totalizacaoTot[tot].inicioSessao <<"\n" ;
+//      csvGravador << "ate o frame final ; " << totalizacaoTot[tot].finalSessao <<"\n";
 
-        csvGravador << catalagoLido->nome[tot] <<",";
+        csvGravador << catalagoLido->nome[tot] <<";";
       for(int fr=0; fr< KohoKappa.cohoKappaPorMatrix.size(); fr++){
 
 
-          csvGravador<< KohoKappa.cohoKappaPorMatrix[tot][fr] <<",";
+          csvGravador<< conPontoVirgula(KohoKappa.cohoKappaPorMatrix[tot][fr]) <<";";
       }
 
         csvGravador << "\n";
@@ -1742,9 +1742,9 @@ void parserXMLtoCSV::escreverKohoCsv()
       csvGravador << "\n";
        csvGravador << "O resultado final ficou\n";
 
-    csvGravador <<"O k1, " <<KohoKappa.k1 <<"\n" ;
-    csvGravador <<"O k2, " <<KohoKappa.k2 <<"\n" ;
-    csvGravador <<"O Kohone Kappa, " <<KohoKappa.kappa <<"\n" ;
+    csvGravador <<"A porcentagem de concordancia (k1); " << conPontoVirgula(   KohoKappa.k1 *100) <<"\n" ;
+    csvGravador <<"A porcentagem de concordancai por acaso (k2); " << conPontoVirgula(KohoKappa.k2 *100) <<"\n" ;
+    csvGravador <<"O Cohen Kappa; " <<conPontoVirgula(KohoKappa.kappa *100) <<"\n" ;
 
 //    outGravador.write("O pesquisador foi o:, ");
 //    outGravador.write(experimentador.nome.toLatin1()+"\n");
@@ -1765,18 +1765,18 @@ void parserXMLtoCSV::escreverFleisCsv()
 
     QTextStream csvGravador(&outGravador);
 
-    csvGravador <<"sep=, \n";
+    csvGravador <<"sep=; \n";
     csvGravador << "Informacoes do usuario\n";
-    csvGravador <<"pesquisador , laboratorio" << "\n";
-    csvGravador <<experimentador.nome.toLatin1() <<"," << experimentador.lab.toLatin1() << "\n";
+    csvGravador <<"pesquisador ; laboratorio" << "\n";
+    csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
     csvGravador <<"\n";
     csvGravador <<"informacoes do video analisado: \n";
-    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
-    csvGravador << videoLido->nome<< "," << videoLido->fps << ","
-         << videoLido->frameInicial << "," << videoLido->frameFinal<< "\n";
+    csvGravador << "nome; fps; frame analisado inicial; frame analisado final \n";
+    csvGravador << videoLido->nome<< ";" << videoLido->fps << ";"
+         << videoLido->frameInicial << ";" << videoLido->frameFinal<< "\n";
     csvGravador <<"\n";
     csvGravador <<"informacoes do catalogo analisado: \n";
-    csvGravador <<"O catalogo utilizado foi o " <<"," << catalagoLido->caminhoArquivo << "\n";
+    csvGravador <<"O catalogo utilizado foi o " <<";" << catalagoLido->caminhoArquivo << "\n";
     csvGravador <<"categorias\n";
     for(int i=0; i< catalagoLido->nome.size(); i++ ){
        csvGravador << catalagoLido->nome[i]<< "\n";
@@ -1784,62 +1784,62 @@ void parserXMLtoCSV::escreverFleisCsv()
     }
     csvGravador <<"\n";
     csvGravador <<"As analises etograficas utilizadas \n";
-    csvGravador <<"id, caminho, tipo \n";
+    csvGravador <<"id; caminho; tipo \n";
     for(int i=0; i< etografiasLidas.size();i++){
 
-      csvGravador << i << "," << etografiasLidas[i]->caminho << "," << etografiasLidas[i]->tipoDeAnalise;
+      csvGravador << i << ";" << etografiasLidas[i]->caminho << ";" << etografiasLidas[i]->tipoDeAnalise;
     }
     csvGravador <<"\n";
     csvGravador <<"\n";
 
     //apartir daqui é diferente das outras analises
     csvGravador <<"As totalizacoes da analise sequencial\n";
-    csvGravador << "" <<",";
+    csvGravador << "" <<";";
     for(int grt=0; grt< catalagoLido->nome.size(); grt++){
-       csvGravador << catalagoLido->nome[grt] <<",";
+       csvGravador << catalagoLido->nome[grt] <<";";
     }
-    csvGravador << "undefinido"<<",";
+    csvGravador << "undefinido"<<";";
     csvGravador << "\n";
 
     for(int tot=0; tot< flKaDa.matrizConcordancia.size(); tot++){
 //      csvGravador <<"\n do frame inicial , "<< totalizacaoTot[tot].inicioSessao <<"\n" ;
 //      csvGravador << "ate o frame final , " << totalizacaoTot[tot].finalSessao <<"\n";
 
-        csvGravador << tot <<",";
+        csvGravador << tot <<";";
       for(int fr=0; fr< flKaDa.matrizConcordancia[tot].size(); fr++){
 
 
-          csvGravador<< flKaDa.matrizConcordancia[tot][fr] <<",";
+          csvGravador<< conPontoVirgula( flKaDa.matrizConcordancia[tot][fr]) <<";";
       }
 
         csvGravador << "\n";
 
     }
 
-    csvGravador << "somatorio" <<",";
-  for(int fr=0; fr< flKaDa.somatorio.size(); fr++){
+//    csvGravador << "somatorio" <<",";
+//  for(int fr=0; fr< flKaDa.somatorio.size(); fr++){
 
 
-      csvGravador<< flKaDa.somatorio[fr] <<",";
-  }
-  csvGravador << "\n";
+//      csvGravador<< flKaDa.somatorio[fr] <<",";
+//  }
+//  csvGravador << "\n";
 
-  csvGravador << "pi" <<",";
-for(int fr=0; fr< flKaDa.pi.size(); fr++){
+//  csvGravador << "pi" <<",";
+//for(int fr=0; fr< flKaDa.pi.size(); fr++){
 
 
-    csvGravador<< flKaDa.pi[fr] <<",";
-}
-csvGravador << "\n";
+//    csvGravador<< flKaDa.pi[fr] <<",";
+//}
+//csvGravador << "\n";
 
 
      csvGravador << "\n";
       csvGravador << "\n";
        csvGravador << "O resultado final ficou\n";
 
-    csvGravador <<"O p, " <<flKaDa.p <<"\n" ;
-    csvGravador <<"O pe, " <<flKaDa.pe <<"\n" ;
-    csvGravador <<"O Fleiss Kappa, " <<flKaDa.indiceFleissKappa <<"\n" ;
+    csvGravador <<"A porcentagem de concordancia por acaso p; " <<flKaDa.p <<"\n" ;
+    csvGravador <<"A porcentagem de concordância média pe; " <<flKaDa.pe <<"\n" ;
+    csvGravador <<"O Fleiss Kappa; " <<flKaDa.indiceFleissKappa <<"\n" ;
 
 
 

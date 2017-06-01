@@ -127,11 +127,13 @@ void telaSegementacao::on_pbTotalRes_clicked()
 
 
         bool chUnde=true;
+        //para cada quadro do v´deio
 
         for(int rl=videoLido->frameProce; rl< videoLido->frameFinal ; rl++){
 
             //tem que testar pra todas os pontos
 
+            //para cada transcrição lida
             for(int rj=0;rj<etografiaLida->frameInicial.size();rj++){
 
                if((rl>=etografiaLida->frameInicial[rj])&&(rl<etografiaLida->frameFinal[rj])){
@@ -922,11 +924,28 @@ void telaSegementacao::on_pbTotalRes_clicked()
                          }
 
 
-                         arvoreDeFrames.push_back(framesSeg);
-                         framesSeg.clear();
-
                          frameInico= frameInico +varia;
+
+                         if(frameInico<parserTCCM->videoLido->frameFinal){
+                             arvoreDeFrames.push_back(framesSeg);
+
+                             framesSeg.clear();
+
+                         }else{
+
+                         }
+
+
+
          }while (frameInico<parserTCCM->videoLido->frameFinal);
+
+
+        // framesSeg.push_back(parserTCCM->matrizReMorfo[0].frame[parserTCCM->matrizReMorfo[0].frame.size()-1]);
+         arvoreDeFrames.push_back(framesSeg);
+
+         framesSeg.clear();
+
+
 
 
           ui->pbGravarTCCM->setVisible(true);
@@ -1542,7 +1561,7 @@ void telaSegementacao::on_pbGravarTCCM_clicked()
 
             int ki=0;
 
-           if((parserTCCM-> matrizReMorfo[0].frame[kj]>= iniSeg)&&(parserTCCM-> matrizReMorfo[0].frame[kj] < fimSeg)){
+           if((parserTCCM-> matrizReMorfo[0].frame[kj]>= iniSeg)&&(parserTCCM-> matrizReMorfo[0].frame[kj] <= fimSeg)){
 
 
                csvGravador << parserTCCM-> matrizReMorfo[0].frame[kj] << ";"<< conPontoVirgula((parserTCCM->matrizReMorfo[0].frame[kj] ) / parserTCCM-> videoLido->fps) << ";" ;

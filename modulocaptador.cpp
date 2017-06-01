@@ -634,7 +634,7 @@ void moduloCaptador::setCaptaVideoTodo()
     }
 
 
-    if(i<frFim){
+    if(i<=frFim){ //ultimo frame de análise
 
    // while(i< frFim){
         //i=c1;

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>987</width>
-    <height>556</height>
+    <width>889</width>
+    <height>645</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,8 +21,8 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>410</y>
-         <width>891</width>
+         <y>480</y>
+         <width>811</width>
          <height>111</height>
         </rect>
        </property>
@@ -39,7 +39,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>260</y>
+         <y>350</y>
          <width>171</width>
          <height>121</height>
         </rect>
@@ -78,9 +78,9 @@
        <property name="geometry">
         <rect>
          <x>190</x>
-         <y>110</y>
-         <width>731</width>
-         <height>291</height>
+         <y>130</y>
+         <width>641</width>
+         <height>341</height>
         </rect>
        </property>
        <property name="title">
@@ -97,13 +97,15 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>709</width>
-             <height>256</height>
+             <width>619</width>
+             <height>306</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <widget class="QWidget" name="widCatego" native="true"/>
+             <widget class="QWidget" name="widCatego" native="true">
+              <zorder>label</zorder>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -115,7 +117,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>90</y>
+         <y>180</y>
          <width>161</width>
          <height>81</height>
         </rect>
@@ -196,7 +198,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>20</y>
+         <y>120</y>
          <width>161</width>
          <height>61</height>
         </rect>
@@ -222,7 +224,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>180</y>
+         <y>260</y>
          <width>161</width>
          <height>71</height>
         </rect>
@@ -244,17 +246,23 @@
         </property>
        </widget>
       </widget>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>20</x>
          <y>20</y>
-         <width>691</width>
-         <height>71</height>
+         <width>821</width>
+         <height>91</height>
         </rect>
        </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resourcefile.qrc">:/icons/cabecalho6.jpg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>
@@ -263,6 +271,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="resourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>

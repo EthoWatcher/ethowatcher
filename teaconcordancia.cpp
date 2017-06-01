@@ -622,7 +622,7 @@ void teaConcordancia::on_pbCohenGravar_clicked()
 
     for(int qdv=0;qdv<quantidadeDeVideo;qdv++){
 
-        stream.writeStartElement("categoria");
+        stream.writeStartElement("categoriaKK");
         stream.writeAttribute("id", 0);
         stream.writeAttribute("tipo",catalagoKoho[qdv].tipoAnalise);
         stream.writeTextElement("caminhoAnalis"
@@ -655,7 +655,7 @@ void teaConcordancia::on_pbCohenGravar_clicked()
         int cat=0;
         for(cat=0; cat<(catalagoLido->quantidadeDeCategorias+1);cat++){
 
-            stream.writeStartElement("categoria");
+            stream.writeStartElement("categoriaKK");
             stream.writeAttribute("idcat", QString::number(cat));
             if(cat<catalagoLido->quantidadeDeCategorias){
                stream.writeAttribute("nome", catalagoKoho[0].nome[cat]);
@@ -691,7 +691,7 @@ void teaConcordancia::on_pbCohenGravar_clicked()
 
 //somatorio
 
-        stream.writeStartElement("categoria");
+        stream.writeStartElement("categoriaKK");
         stream.writeAttribute("idcat", QString::number(cat));
         stream.writeAttribute("nome", "Somatorio");
 
@@ -718,7 +718,7 @@ void teaConcordancia::on_pbCohenGravar_clicked()
         for(int c10=0;c10<(catalagoKoho[0].quantidadeDeCategorias+1+1);c10++){
 
 
-            stream.writeStartElement("categoria");
+            stream.writeStartElement("categoriaKK");
             stream.writeAttribute("idcat", QString::number(c10));
             if(c10<catalagoLido->quantidadeDeCategorias){
                stream.writeAttribute("nome", catalagoKoho[0].nome[c10]);
@@ -813,6 +813,9 @@ void teaConcordancia::on_pbCarregarFleis_clicked()
 
 }
 
+
+//vou trabalhar
+//tabFleKapp
 void teaConcordancia::on_pbAnaFleissKappa_clicked()
 {
     //cria um vetor com alocação dinamica de memoria no qual ele tem o tamanho de quantidadeDeVideo
@@ -1022,13 +1025,93 @@ void teaConcordancia::on_pbAnaFleissKappa_clicked()
 
            }
 
+           //frameFleisTabela; essa variavel contem a tabela
+           //tem que calcular pj
+           //tem que calcular pi
+
+           pEntrada.n=quantidadeDeVideo;
+           pEntrada.N=frameFleisTabela.size();
+           pEntrada.k=frameFleisTabela[0].size();
+
+           qDebug() << "a quantidade de TCC" << pEntrada.n <<
+                       "a quantidade de Quadros" << pEntrada.N <<
+                       "a quantidade de Categorias" << pEntrada.n;
+
+           //calculando pi i=quadros
+           //para cada um dos quadros
+           for(int cQua=0; cQua<=frameFleisTabela.size(); cQua++ ){
+
+
+               PIcalculados.push_back(calcularPI(   frameFleisTabela[cQua]));
+
+
+           }
+           //calcular pj
+           //primeiro tem que fazer uma matriz transposta
+
+           std::vector<int> linha;
+           //quantidade de categorias
+           for(int ti=0; ti<frameFleisTabela[0].size(); ti++){
+
+               //quantidade de quadros
+               for(int tj=0; tj<frameFleisTabela.size(); tj++){
+
+                   linha.push_back(frameFleisTabela[tj][ti]);
+               }
+
+
+               PJcalculados.push_back(calcularPJ(linha));
+
+               linha.clear();
+
+           }
+
+           //encontrando Pe concordancia por acaso
+
+           for(int cSom=0; cSom<PJcalculados.size();cSom++){
+
+               pEntrada.Pe= (PJcalculados[cSom] *PJcalculados[cSom] )+ pEntrada.Pe;
+           }
+
+           qDebug()<<"Concordancia por acaso Pe" << pEntrada.Pe;
+
+
+
+           for(int cSom=0; cSom<PIcalculados.size();cSom++){
+
+               pEntrada.P_medio= PIcalculados[cSom] +pEntrada.P_medio;
+           }
+
+           pEntrada.P_medio = pEntrada.P_medio/pEntrada.N;
+
+           qDebug()<<"Média de concordancia " << pEntrada.P_medio;
+
+           pEntrada.Kappa = (pEntrada.P_medio -pEntrada.Pe)/(1- pEntrada.Pe);
+
+           qDebug()<<"Kapppa médio " << pEntrada.Kappa;
+
+
+
+
+           ui->leFleKappa->setText(QString::number(pEntrada.Kappa*100));
+
+           ui->lePe->setText(QString::number(pEntrada.Pe * 100));
+           ui->leP->setText(QString::number(pEntrada.P_medio *100));
+
+
+
+
+
+
+
+
             for(int k=0; k<catalagoKoho[0].quantidadeDeCategorias+1; k++){
 
                  if(k<catalagoKoho[0].quantidadeDeCategorias){
                      titulos << catalagoKoho[0].nome[k];
                  }else{
 
-                     titulos << "Undefinido" << "Somatório";
+                     titulos << "Undefinido" ;//<< "Somatório";
                  }
 
 
@@ -1036,7 +1119,7 @@ void teaConcordancia::on_pbAnaFleissKappa_clicked()
             }
 
 
-            ui->tabFleKapp->setColumnCount(catalagoKoho[0].quantidadeDeCategorias+1+1);
+            ui->tabFleKapp->setColumnCount(catalagoKoho[0].quantidadeDeCategorias+1);
 
             ui->tabFleKapp->setHorizontalHeaderLabels(titulos);
 
@@ -1057,116 +1140,116 @@ void teaConcordancia::on_pbAnaFleissKappa_clicked()
             }
 
 
-           // ui->tabFleKapp->setVerticalHeaderLabels(titulos);
+//           // ui->tabFleKapp->setVerticalHeaderLabels(titulos);
 
-            //somatorio das colunas
+//            //somatorio das colunas
 
-         for(int c5=0; c5<(catalagoKoho[0].quantidadeDeCategorias+1); c5++){
-
-
-            somatorioFleisColuna.push_back(0);
-
-         }
+//         for(int c5=0; c5<(catalagoKoho[0].quantidadeDeCategorias+1); c5++){
 
 
-          for(int c5=0; c5<(catalagoKoho[0].quantidadeDeCategorias+1); c5++){
+//            somatorioFleisColuna.push_back(0);
 
-            for(int f2=0;f2<(videosKoho[0].frameFinal- videosKoho[0].frameInicial);f2++){
-
-                somatorioFleisColuna[c5]= somatorioFleisColuna[c5] + frameFleisTabela[f2][c5];
+//         }
 
 
-            }
-          }
+//          for(int c5=0; c5<(catalagoKoho[0].quantidadeDeCategorias+1); c5++){
 
-          ui->tabFleSoma->setColumnCount(catalagoKoho[0].quantidadeDeCategorias+1);
-          ui->tabFleSoma->setHorizontalHeaderLabels(titulos);
-          ui->tabFleSoma->insertRow(ui->tabFleSoma->rowCount());
-          //cria uma nova linha
-          //categoria
+//            for(int f2=0;f2<(videosKoho[0].frameFinal- videosKoho[0].frameInicial);f2++){
 
-          for(int c5=0; c5<(catalagoKoho[0].quantidadeDeCategorias+1); c5++){
-              //no valor zero coloca
-            ui->tabFleSoma->setItem(ui->tabFleSoma->rowCount()-1
-                                     ,c5,new QTableWidgetItem(
-                                         QString::number(somatorioFleisColuna[c5])));
+//                somatorioFleisColuna[c5]= somatorioFleisColuna[c5] + frameFleisTabela[f2][c5];
 
 
-          }
+//            }
+//          }
+
+//          ui->tabFleSoma->setColumnCount(catalagoKoho[0].quantidadeDeCategorias+1);
+//          ui->tabFleSoma->setHorizontalHeaderLabels(titulos);
+//          ui->tabFleSoma->insertRow(ui->tabFleSoma->rowCount());
+//          //cria uma nova linha
+//          //categoria
+
+//          for(int c5=0; c5<(catalagoKoho[0].quantidadeDeCategorias+1); c5++){
+//              //no valor zero coloca
+//            ui->tabFleSoma->setItem(ui->tabFleSoma->rowCount()-1
+//                                     ,c5,new QTableWidgetItem(
+//                                         QString::number(somatorioFleisColuna[c5])));
 
 
-          int totalFrames= videosKoho[0].frameFinal-videosKoho[0].frameInicial;
-
-          double constante= (double) 1/(totalFrames*(catalagoKoho[0].quantidadeDeCategorias+1));
+//          }
 
 
-          ui->tabFleSoma->insertRow(ui->tabFleSoma->rowCount());
-          for(int c6=0;c6<(catalagoKoho[0].quantidadeDeCategorias+1);c6++){
+//          int totalFrames= videosKoho[0].frameFinal-videosKoho[0].frameInicial;
 
-              somatorioProporcao.push_back((double)somatorioFleisColuna[c6]*constante);
-
-              ui->tabFleSoma->setItem(ui->tabFleSoma->rowCount()-1
-                                       ,c6,new QTableWidgetItem(
-                                           QString::number(somatorioProporcao[c6])));
-          }
+//          double constante= (double) 1/(totalFrames*(catalagoKoho[0].quantidadeDeCategorias+1));
 
 
-          QStringList titulos2;
+//          ui->tabFleSoma->insertRow(ui->tabFleSoma->rowCount());
+//          for(int c6=0;c6<(catalagoKoho[0].quantidadeDeCategorias+1);c6++){
 
-          titulos2<<" Somatório" << "Pi";
-          ui->tabFleSoma->setVerticalHeaderLabels(titulos2);
+//              somatorioProporcao.push_back((double)somatorioFleisColuna[c6]*constante);
 
-
-          for(int c7=0;c7<(catalagoKoho[0].quantidadeDeCategorias+1);c7++){
-
-
-              proporcaoConcordancia= proporcaoConcordancia+ qPow(somatorioProporcao[c7],2);
-
-          }
-
-          ui->lePe->setText(QString::number(proporcaoConcordancia));
+//              ui->tabFleSoma->setItem(ui->tabFleSoma->rowCount()-1
+//                                       ,c6,new QTableWidgetItem(
+//                                           QString::number(somatorioProporcao[c6])));
+//          }
 
 
+//          QStringList titulos2;
 
-          double valor=0;
-          double constante1;
-          double nConstante;
-          nConstante=catalagoKoho[0].quantidadeDeCategorias+1;
-          constante1= 1/(nConstante*(nConstante-1));
+//          titulos2<<" Somatório" << "Pi";
+//          ui->tabFleSoma->setVerticalHeaderLabels(titulos2);
 
 
-           for(int f3=0;f3<(videosKoho[0].frameFinal- videosKoho[0].frameInicial);f3++){
-              valor=0;
-              for(int c10=0;c10<(catalagoKoho[0].quantidadeDeCategorias+1);c10++)
-              {
-
-                  valor= (double) valor+ frameFleisTabela[f3][c10]*(frameFleisTabela[f3][c10]-1);
-              }
-
-              pNumero.push_back(valor*constante1);
-          }
+//          for(int c7=0;c7<(catalagoKoho[0].quantidadeDeCategorias+1);c7++){
 
 
-           somatorioP=0;
-        for(int f4=0;f4<(videosKoho[0].frameFinal- videosKoho[0].frameInicial);f4++){
+//              proporcaoConcordancia= proporcaoConcordancia+ qPow(somatorioProporcao[c7],2);
 
-            somatorioP=pNumero[f4]+ somatorioP;
+//          }
 
-
-        }
-           somatorioP= (double) somatorioP/(videosKoho[0].frameFinal- videosKoho[0].frameInicial);
+//          ui->lePe->setText(QString::number(proporcaoConcordancia));
 
 
-           ui->leP->setText(QString::number(somatorioP));
 
-           fleKappa= (somatorioP-proporcaoConcordancia)/(1-proporcaoConcordancia);
+//          double valor=0;
+//          double constante1;
+//          double nConstante;
+//          nConstante=catalagoKoho[0].quantidadeDeCategorias+1;
+//          constante1= 1/(nConstante*(nConstante-1));
 
 
-           ui->leFleKappa->setText(QString::number(fleKappa));
+//           for(int f3=0;f3<(videosKoho[0].frameFinal- videosKoho[0].frameInicial);f3++){
+//              valor=0;
+//              for(int c10=0;c10<(catalagoKoho[0].quantidadeDeCategorias+1);c10++)
+//              {
 
-        //  QString nome2;
-        //  nome2="Somatorio";
-        //    ui->tabFleSoma->setHorizontalHeaderLabels(nome2);
+//                  valor= (double) valor+ frameFleisTabela[f3][c10]*(frameFleisTabela[f3][c10]-1);
+//              }
+
+//              pNumero.push_back(valor*constante1);
+//          }
+
+
+//           somatorioP=0;
+//        for(int f4=0;f4<(videosKoho[0].frameFinal- videosKoho[0].frameInicial);f4++){
+
+//            somatorioP=pNumero[f4]+ somatorioP;
+
+
+//        }
+//           somatorioP= (double) somatorioP/(videosKoho[0].frameFinal- videosKoho[0].frameInicial);
+
+
+//           ui->leP->setText(QString::number(somatorioP));
+
+//           fleKappa= (somatorioP-proporcaoConcordancia)/(1-proporcaoConcordancia);
+
+
+//           ui->leFleKappa->setText(QString::number(fleKappa));
+
+//        //  QString nome2;
+//        //  nome2="Somatorio";
+//        //    ui->tabFleSoma->setHorizontalHeaderLabels(nome2);
 
 
 
@@ -1265,24 +1348,24 @@ void teaConcordancia::on_pbGerarKappa_clicked()
 
     stream.writeStartElement("analiseFleissKappa");
 
-    stream.writeStartElement("cabecalho");
-        for(int c12=0;c12<(catalagoKoho[0].quantidadeDeCategorias+1);c12++)
-        {
-            stream.writeStartElement("categoria");
-            stream.writeAttribute("id", QString::number(c12));
-            if(c12<(catalagoKoho[0].quantidadeDeCategorias)){
-               stream.writeAttribute("nome", catalagoKoho[0].nome[c12]);
-            }else{
-                stream.writeAttribute("nome", "Undeterminado");
+//    stream.writeStartElement("cabecalho");
+//        for(int c12=0;c12<(catalagoKoho[0].quantidadeDeCategorias+1);c12++)
+//        {
+//            stream.writeStartElement("categoria");
+//            stream.writeAttribute("id", QString::number(c12));
+//            if(c12<(catalagoKoho[0].quantidadeDeCategorias)){
+//               stream.writeAttribute("nome", catalagoKoho[0].nome[c12]);
+//            }else{
+//                stream.writeAttribute("nome", "Undeterminado");
 
-            }
+//            }
 
-            stream.writeEndElement();
+//            stream.writeEndElement();
 
-        }
+//        }
 
 
-    stream.writeEndElement();
+//    stream.writeEndElement();
 
     stream.writeStartElement("tabelaConcordante");
 
@@ -1345,35 +1428,39 @@ void teaConcordancia::on_pbGerarKappa_clicked()
 //             stream.writeEndElement(); //fecha a tabelaConcordante
 //    }
 
-    stream.writeEndElement(); //fecha a tabelasomatorio a mais
-    stream.writeStartElement("tabelaSomatorio");
+//    stream.writeEndElement(); //fecha a tabelasomatorio a mais
+//    stream.writeStartElement("tabelaSomatorio");
 
-    for(int c5=0; c5<(catalagoKoho[0].quantidadeDeCategorias+1); c5++){
-         stream.writeStartElement("con");
-      stream.writeAttribute("q",QString::number(somatorioFleisColuna[c5]));
-        stream.writeEndElement(); //fecha a tabelasomatorio
-    }
+//    for(int c5=0; c5<(catalagoKoho[0].quantidadeDeCategorias+1); c5++){
+//         stream.writeStartElement("con");
+//      stream.writeAttribute("q",QString::number(somatorioFleisColuna[c5]));
+//        stream.writeEndElement(); //fecha a tabelasomatorio
+//    }
 
-    stream.writeEndElement(); //fecha a tabelasomatorio
+//    stream.writeEndElement(); //fecha a tabelasomatorio
 
 
-    stream.writeStartElement("pi");
+//    stream.writeStartElement("pi");
 
-    for(int c5=0; c5<(catalagoKoho[0].quantidadeDeCategorias+1); c5++){
-    stream.writeStartElement("con");
-      stream.writeAttribute("q",QString::number(somatorioFleisColuna[c5]));
-       stream.writeEndElement(); //fecha a tabelasomatorio
+//    for(int c5=0; c5<(catalagoKoho[0].quantidadeDeCategorias+1); c5++){
+//    stream.writeStartElement("con");
+//      stream.writeAttribute("q",QString::number(somatorioFleisColuna[c5]));
+//       stream.writeEndElement(); //fecha a tabelasomatorio
 
-    }
+//    }
 
-    stream.writeEndElement(); //fecha 0 pi
+//    stream.writeEndElement(); //fecha 0 pi
 
 
     stream.writeStartElement("resultadoFinal");
 
-    stream.writeTextElement("Pe",QString::number(proporcaoConcordancia) );
-    stream.writeTextElement("P",QString::number(somatorioP));
-    stream.writeTextElement("indiceFleissKappa",QString::number(fleKappa));
+//    stream.writeTextElement("Pe",QString::number(proporcaoConcordancia) );
+//    stream.writeTextElement("P",QString::number(somatorioP));
+//    stream.writeTextElement("indiceFleissKappa",QString::number(fleKappa));
+
+    stream.writeTextElement("Pe",QString::number(pEntrada.Pe) );
+    stream.writeTextElement("P",QString::number(pEntrada.P_medio));
+    stream.writeTextElement("indiceFleissKappa",QString::number(pEntrada.Kappa));
 
     stream.writeEndElement(); //fecha 0 pi
 //    somatorioProporcao somatorioFleisColuna
@@ -1416,7 +1503,8 @@ void teaConcordancia::lerETOXML(QString nomeArquivo)
               etografiaLida->ponto.push_back(streamReader.attributes().value("ponto").toInt());
               etografiaLida->id.push_back(streamReader.attributes().value("id").toInt());
               etografiaLida->frameInicial.push_back(streamReader.attributes().value("frameInicial").toDouble());
-              etografiaLida->frameFinal.push_back(streamReader.attributes().value("frameFinal").toDouble());
+              etografiaLida->frameFinal.push_back(streamReader.attributes().value("frameFinal").toDouble()-1);
+             // etografiaLida->frameFinal.push_back(streamReader.attributes().value("frameFinal").toDouble());
               //   contadorTamanho++;
               etografiaLida->quantidadeDePontos++;
 
@@ -1476,12 +1564,61 @@ void teaConcordancia::lerETOXML(QString nomeArquivo)
 
             videoLido->controle=false;
         }
+          if(streamReader.name() == "fps"){
+              videoLido->fps= streamReader.readElementText().toDouble();
+
+              videoLido->controle=false;
+          }
+
 
         }
 
     }
 
+    //correção
+    etografiaLida->frameFinal[etografiaLida->frameFinal.size()-1]++;
+
+    OutEtografia.close();
+}
+
+double teaConcordancia::calcularPI(std::vector<int> entrada)
+{
+
+    double mult = 1/(pEntrada.n *(pEntrada.n -1));
+    double quadroSoma =0;
+
+    //para cada categoria analisada no quadro
+    for(int qCat=0;qCat < entrada.size(); qCat++){
+
+        quadroSoma= (entrada[qCat]*(entrada[qCat]-1)) +quadroSoma;
+    }
+
+    qDebug()<< "mult " << mult << "soma " << quadroSoma;
+
+    return quadroSoma*mult;
 
 
-   OutEtografia.close();
+
+
+}
+
+double teaConcordancia::calcularPJ(std::vector<int> entrada)
+{
+
+    double mult = 1/(pEntrada.N*pEntrada.n);
+    double quadroSoma =0;
+
+    //para cada quadro analisado
+    for(int qCquadro=0;qCquadro < entrada.size(); qCquadro++){
+
+        quadroSoma = entrada[qCquadro] + quadroSoma;
+
+    }
+
+
+    qDebug()<< "mult " << mult << "soma " << quadroSoma;
+
+
+    return quadroSoma * mult;
+
 }
