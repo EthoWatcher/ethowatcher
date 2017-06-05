@@ -51,7 +51,7 @@
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap resource="resourcefile.qrc">:/icons/cabecalho6.jpg</pixmap>
+             <pixmap>:/icons/cabecalho6.jpg</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -437,20 +437,6 @@
                   </property>
                  </widget>
                 </widget>
-                <zorder>label_26</zorder>
-                <zorder>comboBoX</zorder>
-                <zorder>cbParadaFrame</zorder>
-                <zorder>leFrameTotal</zorder>
-                <zorder>label_25</zorder>
-                <zorder>pbConfigurarVideo</zorder>
-                <zorder>lblFrameTotalSec</zorder>
-                <zorder>leFps</zorder>
-                <zorder>lblFrameTotal</zorder>
-                <zorder>leFps</zorder>
-                <zorder>cbParadaFrame</zorder>
-                <zorder>label_25</zorder>
-                <zorder>pbConfigurarVideo</zorder>
-                <zorder>widParadaFrame</zorder>
                </widget>
               </widget>
               <widget class="QWidget" name="widProceImagem" native="true">
@@ -1195,7 +1181,7 @@
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="resourcefile.qrc">
+                <iconset>
                  <normaloff>:/icons/photography.png</normaloff>:/icons/photography.png</iconset>
                </property>
               </widget>
@@ -3992,7 +3978,7 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="tab_13">
              <attribute name="title">
@@ -4441,8 +4427,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="resourcefile.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
