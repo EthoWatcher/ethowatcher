@@ -291,7 +291,7 @@ p, li { white-space: pre-wrap; }
          <rect>
           <x>20</x>
           <y>240</y>
-          <width>251</width>
+          <width>261</width>
           <height>111</height>
          </rect>
         </property>
@@ -305,7 +305,7 @@ p, li { white-space: pre-wrap; }
             <bool>false</bool>
            </property>
            <property name="text">
-            <string>Video or Real-time ethography</string>
+            <string>Vídeo- or real-time ethography</string>
            </property>
            <property name="checked">
             <bool>true</bool>
@@ -315,7 +315,7 @@ p, li { white-space: pre-wrap; }
          <item row="1" column="0">
           <widget class="QCheckBox" name="cbPro">
            <property name="text">
-            <string>Tracking &amp; morphologic/cinematic analysis</string>
+            <string>Tracking and Morphological/Kinematic analysis</string>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -395,7 +395,7 @@ p, li { white-space: pre-wrap; }
       </widget>
       <widget class="QWidget" name="tab_10">
        <attribute name="title">
-        <string>Dados da Calibracao</string>
+        <string>Calibration session</string>
        </attribute>
        <widget class="QLabel" name="lblThre">
         <property name="geometry">
@@ -1140,7 +1140,7 @@ p, li { white-space: pre-wrap; }
              </rect>
             </property>
             <property name="text">
-             <string>Salvar Scale</string>
+             <string>Save scale</string>
             </property>
            </widget>
            <widget class="QLabel" name="label">
@@ -1401,7 +1401,7 @@ p, li { white-space: pre-wrap; }
         </widget>
         <widget class="QWidget" name="tab">
          <attribute name="title">
-          <string>Treatment noise</string>
+          <string>Noise treatment</string>
          </attribute>
          <widget class="QTabWidget" name="tabWNoise">
           <property name="geometry">
@@ -1429,20 +1429,20 @@ p, li { white-space: pre-wrap; }
              </rect>
             </property>
             <property name="text">
-             <string>Janela de interesse movel</string>
+             <string>Mobile virtual camera</string>
             </property>
            </widget>
            <widget class="QCheckBox" name="cbVariaca">
             <property name="geometry">
              <rect>
               <x>10</x>
-              <y>60</y>
+              <y>70</y>
               <width>171</width>
               <height>17</height>
              </rect>
             </property>
             <property name="text">
-             <string>ruido intriseco</string>
+             <string>Intrinsic noise</string>
             </property>
            </widget>
            <widget class="QPushButton" name="pbConfigureTreatment">
@@ -1461,7 +1461,7 @@ p, li { white-space: pre-wrap; }
           </widget>
           <widget class="QWidget" name="tab_2">
            <attribute name="title">
-            <string>Janela de interesse</string>
+            <string>Mobile virtual camera</string>
            </attribute>
            <widget class="QPushButton" name="pbNextRoi">
             <property name="geometry">
@@ -1507,18 +1507,18 @@ p, li { white-space: pre-wrap; }
              <rect>
               <x>10</x>
               <y>80</y>
-              <width>101</width>
+              <width>121</width>
               <height>16</height>
              </rect>
             </property>
             <property name="text">
-             <string>Biger size of animal</string>
+             <string>Animal’s maximum lenght</string>
             </property>
            </widget>
           </widget>
           <widget class="QWidget" name="tab_7">
            <attribute name="title">
-            <string>Ruido Intresico</string>
+            <string>Intrinsic noise</string>
            </attribute>
            <widget class="QPushButton" name="pbConfRuidoInt">
             <property name="geometry">
@@ -1533,69 +1533,43 @@ p, li { white-space: pre-wrap; }
              <string>Configure</string>
             </property>
            </widget>
-           <widget class="QGroupBox" name="groupBox_2">
+           <widget class="QLabel" name="label_99">
             <property name="geometry">
              <rect>
-              <x>20</x>
-              <y>80</y>
-              <width>221</width>
-              <height>81</height>
+              <x>140</x>
+              <y>30</y>
+              <width>13</width>
+              <height>20</height>
              </rect>
             </property>
-            <property name="title">
-             <string>GroupBox</string>
+            <property name="text">
+             <string>cm</string>
             </property>
-            <widget class="QLabel" name="label_99">
-             <property name="geometry">
-              <rect>
-               <x>130</x>
-               <y>40</y>
-               <width>13</width>
-               <height>20</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>cm</string>
-             </property>
-            </widget>
-            <widget class="QLineEdit" name="leMin">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>40</y>
-               <width>113</width>
-               <height>20</height>
-              </rect>
-             </property>
-            </widget>
-            <widget class="QLabel" name="label_11">
-             <property name="geometry">
-              <rect>
-               <x>10</x>
-               <y>20</y>
-               <width>111</width>
-               <height>16</height>
-              </rect>
-             </property>
-             <property name="text">
-              <string>Ruido Intrinseco</string>
-             </property>
-            </widget>
            </widget>
-           <widget class="QLabel" name="label_74">
+           <widget class="QLabel" name="label_11">
             <property name="geometry">
              <rect>
               <x>20</x>
-              <y>30</y>
-              <width>291</width>
+              <y>10</y>
+              <width>111</width>
               <height>16</height>
              </rect>
             </property>
             <property name="text">
-             <string>Indique a menor variação que a centroide pode ter</string>
+             <string>Intrinsic noise</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="leMin">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>30</y>
+              <width>113</width>
+              <height>20</height>
+             </rect>
             </property>
            </widget>
           </widget>
@@ -2609,7 +2583,7 @@ p, li { white-space: pre-wrap; }
            <rect>
             <x>20</x>
             <y>360</y>
-            <width>231</width>
+            <width>441</width>
             <height>161</height>
            </rect>
           </property>
@@ -2661,19 +2635,6 @@ p, li { white-space: pre-wrap; }
             </widget>
            </item>
           </layout>
-         </widget>
-         <widget class="QGroupBox" name="groupBox_30">
-          <property name="geometry">
-           <rect>
-            <x>270</x>
-            <y>370</y>
-            <width>171</width>
-            <height>131</height>
-           </rect>
-          </property>
-          <property name="title">
-           <string>Configuration-To-Do-Step</string>
-          </property>
          </widget>
          <widget class="QGroupBox" name="groupBox_34">
           <property name="geometry">
@@ -2940,7 +2901,7 @@ p, li { white-space: pre-wrap; }
                  </size>
                 </property>
                 <property name="text">
-                 <string>Radio:</string>
+                 <string>Radius:</string>
                 </property>
                </widget>
               </item>
@@ -3185,7 +3146,7 @@ p, li { white-space: pre-wrap; }
       </widget>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">
-        <string>Dados do Experimento</string>
+        <string>Identification Session</string>
        </attribute>
        <widget class="QGroupBox" name="groupBox_35">
         <property name="geometry">

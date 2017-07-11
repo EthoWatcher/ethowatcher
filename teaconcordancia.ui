@@ -141,7 +141,7 @@ p, li { white-space: pre-wrap; }
            </rect>
           </property>
           <property name="text">
-           <string>Load Etography</string>
+           <string>Load ethography</string>
           </property>
          </widget>
         </widget>
@@ -155,7 +155,7 @@ p, li { white-space: pre-wrap; }
           </rect>
          </property>
          <property name="title">
-          <string>Opened Etography</string>
+          <string>Opened Ethography</string>
          </property>
          <widget class="QTableWidget" name="tabDadCat">
           <property name="geometry">
@@ -207,7 +207,7 @@ p, li { white-space: pre-wrap; }
           </attribute>
           <column>
            <property name="text">
-            <string>Etography</string>
+            <string>Ethography</string>
            </property>
           </column>
          </widget>
@@ -234,7 +234,7 @@ p, li { white-space: pre-wrap; }
            </rect>
           </property>
           <property name="text">
-           <string> Cohen Kappa Analise</string>
+           <string> Cohen Kappa analysis</string>
           </property>
          </widget>
         </widget>
@@ -262,23 +262,23 @@ p, li { white-space: pre-wrap; }
         <widget class="QTabWidget" name="tabWidget_2">
          <property name="geometry">
           <rect>
-           <x>10</x>
+           <x>0</x>
            <y>70</y>
-           <width>561</width>
+           <width>571</width>
            <height>321</height>
           </rect>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab_5">
           <attribute name="title">
-           <string>Tabela de concordancia</string>
+           <string>Agreement table</string>
           </attribute>
           <widget class="QTableWidget" name="tabCoKapp">
            <property name="geometry">
             <rect>
-             <x>50</x>
+             <x>70</x>
              <y>40</y>
              <width>451</width>
              <height>191</height>
@@ -293,12 +293,12 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>20</x>
              <y>250</y>
-             <width>61</width>
+             <width>101</width>
              <height>16</height>
             </rect>
            </property>
            <property name="text">
-            <string>Analise 1 =</string>
+            <string>Ethography 1 =</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_6">
@@ -306,20 +306,20 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>20</x>
              <y>270</y>
-             <width>61</width>
+             <width>111</width>
              <height>20</height>
             </rect>
            </property>
            <property name="text">
-            <string>Analise 2 =</string>
+            <string>Ethography 2 =</string>
            </property>
           </widget>
           <widget class="QLabel" name="lblVideo1">
            <property name="geometry">
             <rect>
-             <x>80</x>
+             <x>130</x>
              <y>250</y>
-             <width>221</width>
+             <width>421</width>
              <height>16</height>
             </rect>
            </property>
@@ -330,9 +330,9 @@ p, li { white-space: pre-wrap; }
           <widget class="QLabel" name="lblVideo2">
            <property name="geometry">
             <rect>
-             <x>80</x>
+             <x>130</x>
              <y>270</y>
-             <width>211</width>
+             <width>411</width>
              <height>16</height>
             </rect>
            </property>
@@ -345,12 +345,12 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>0</x>
              <y>130</y>
-             <width>47</width>
-             <height>13</height>
+             <width>71</width>
+             <height>16</height>
             </rect>
            </property>
            <property name="text">
-            <string>Analise 1</string>
+            <string>Ethography 1</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_8">
@@ -358,18 +358,18 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>160</x>
              <y>20</y>
-             <width>47</width>
-             <height>13</height>
+             <width>91</width>
+             <height>16</height>
             </rect>
            </property>
            <property name="text">
-            <string>Analise 2</string>
+            <string>Ethography 2</string>
            </property>
           </widget>
          </widget>
          <widget class="QWidget" name="tab_6">
           <attribute name="title">
-           <string>Tabela de porcentage</string>
+           <string>Por cent agreement table</string>
           </attribute>
           <widget class="QTableWidget" name="tabPoKapp">
            <property name="geometry">
@@ -410,7 +410,7 @@ p, li { white-space: pre-wrap; }
          </widget>
          <widget class="QWidget" name="tab_7">
           <attribute name="title">
-           <string>Indice Kappa</string>
+           <string>Kappa constant</string>
           </attribute>
           <widget class="QLabel" name="label_9">
            <property name="geometry">
@@ -422,7 +422,7 @@ p, li { white-space: pre-wrap; }
             </rect>
            </property>
            <property name="text">
-            <string>Concordante (k1)</string>
+            <string>Agreement (k1)</string>
            </property>
           </widget>
           <widget class="QLineEdit" name="leK1">
@@ -455,7 +455,7 @@ p, li { white-space: pre-wrap; }
             </rect>
            </property>
            <property name="text">
-            <string>Concordante ao acaso (k2)</string>
+            <string>Agreement by chance (k2)</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_11">
@@ -468,7 +468,7 @@ p, li { white-space: pre-wrap; }
             </rect>
            </property>
            <property name="text">
-            <string>Indice cohen  Kappa</string>
+            <string> Kappa index</string>
            </property>
           </widget>
           <widget class="QLineEdit" name="leCKappa">
@@ -503,7 +503,7 @@ p, li { white-space: pre-wrap; }
              </rect>
             </property>
             <property name="text">
-             <string>Gerar Relatorio</string>
+             <string>Save</string>
             </property>
            </widget>
           </widget>
@@ -543,7 +543,7 @@ p, li { white-space: pre-wrap; }
        <item>
         <widget class="QStackedWidget" name="swFleissKappa">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page_12">
           <widget class="QGroupBox" name="groupBox_7">
@@ -568,7 +568,7 @@ p, li { white-space: pre-wrap; }
              </rect>
             </property>
             <property name="text">
-             <string>Load Analise</string>
+             <string>Load Ethography file</string>
             </property>
            </widget>
           </widget>
@@ -582,7 +582,7 @@ p, li { white-space: pre-wrap; }
             </rect>
            </property>
            <property name="title">
-            <string>Etography Opened</string>
+            <string>Ethography Opened</string>
            </property>
            <widget class="QTableWidget" name="tabDadCat_2">
             <property name="geometry">
@@ -634,7 +634,7 @@ p, li { white-space: pre-wrap; }
             </attribute>
             <column>
              <property name="text">
-              <string>Etography</string>
+              <string>Ethography</string>
              </property>
             </column>
            </widget>
@@ -656,12 +656,12 @@ p, li { white-space: pre-wrap; }
              <rect>
               <x>20</x>
               <y>30</y>
-              <width>75</width>
+              <width>121</width>
               <height>23</height>
              </rect>
             </property>
             <property name="text">
-             <string>Fleis Analise</string>
+             <string>Fleiss Kappa  analysis</string>
             </property>
            </widget>
           </widget>
@@ -741,7 +741,7 @@ p, li { white-space: pre-wrap; }
                  </rect>
                 </property>
                 <property name="text">
-                 <string>Gerar Relatorio</string>
+                 <string>Save</string>
                 </property>
                </widget>
               </widget>
@@ -782,12 +782,12 @@ p, li { white-space: pre-wrap; }
                  <rect>
                   <x>40</x>
                   <y>290</y>
-                  <width>47</width>
-                  <height>13</height>
+                  <width>111</width>
+                  <height>16</height>
                  </rect>
                 </property>
                 <property name="text">
-                 <string>Kappa</string>
+                 <string> Kappa index</string>
                 </property>
                </widget>
                <widget class="QLineEdit" name="lePe">
@@ -810,7 +810,7 @@ p, li { white-space: pre-wrap; }
                  </rect>
                 </property>
                 <property name="text">
-                 <string>Porcentragem de acordo pelo acaso</string>
+                 <string>Agreement by chance</string>
                 </property>
                </widget>
                <widget class="QLabel" name="label_13">
@@ -823,7 +823,7 @@ p, li { white-space: pre-wrap; }
                  </rect>
                 </property>
                 <property name="text">
-                 <string>Porcentam de acordo médio</string>
+                 <string>Average agreement</string>
                 </property>
                </widget>
                <widget class="QLineEdit" name="leP">

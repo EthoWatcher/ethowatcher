@@ -275,7 +275,7 @@ p, li { white-space: pre-wrap; }
              </property>
              <widget class="QWidget" name="tab">
               <attribute name="title">
-               <string>Database Managements Tools</string>
+               <string>Database managements tools</string>
               </attribute>
               <widget class="QGroupBox" name="groupBox">
                <property name="geometry">
@@ -679,7 +679,7 @@ p, li { white-space: pre-wrap; }
              </widget>
              <widget class="QWidget" name="tab_2">
               <attribute name="title">
-               <string>Ethographic and Tracking Tools</string>
+               <string>Ethographic and tracking tools</string>
               </attribute>
               <widget class="QGroupBox" name="groupBox_9">
                <property name="geometry">
@@ -703,7 +703,7 @@ p, li { white-space: pre-wrap; }
                  </rect>
                 </property>
                 <property name="text">
-                 <string>Etografia video based</string>
+                 <string>vídeo-based ethograpy</string>
                 </property>
                </widget>
                <widget class="QPushButton" name="pbRealTime">
@@ -716,7 +716,7 @@ p, li { white-space: pre-wrap; }
                  </rect>
                 </property>
                 <property name="text">
-                 <string>Etografia real time</string>
+                 <string>real-time ethograpy</string>
                 </property>
                </widget>
               </widget>
@@ -970,7 +970,7 @@ p, li { white-space: pre-wrap; }
              </widget>
              <widget class="QWidget" name="tab_3">
               <attribute name="title">
-               <string>Data Analysis Tools</string>
+               <string>Data analysis tools</string>
               </attribute>
               <widget class="QGroupBox" name="groupBox_8">
                <property name="geometry">
@@ -994,7 +994,7 @@ p, li { white-space: pre-wrap; }
                  </rect>
                 </property>
                 <property name="text">
-                 <string>Segmentacao por tempo</string>
+                 <string>Time segmentation</string>
                 </property>
                </widget>
                <widget class="QPushButton" name="pbTransicao">
@@ -1007,7 +1007,7 @@ p, li { white-space: pre-wrap; }
                  </rect>
                 </property>
                 <property name="text">
-                 <string>Análise de Transição</string>
+                 <string>Sequential analysis</string>
                 </property>
                </widget>
                <widget class="QPushButton" name="pbConcordancia">
@@ -1020,7 +1020,7 @@ p, li { white-space: pre-wrap; }
                  </rect>
                 </property>
                 <property name="text">
-                 <string>Análise de Concordancia</string>
+                 <string>Reliability calculation</string>
                 </property>
                </widget>
               </widget>
@@ -1041,12 +1041,12 @@ p, li { white-space: pre-wrap; }
                  <rect>
                   <x>10</x>
                   <y>30</y>
-                  <width>111</width>
+                  <width>131</width>
                   <height>23</height>
                  </rect>
                 </property>
                 <property name="text">
-                 <string>Rede Neural Artificial</string>
+                 <string>Artificial neural network</string>
                 </property>
                </widget>
               </widget>

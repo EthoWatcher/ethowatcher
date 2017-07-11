@@ -277,8 +277,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>593</width>
-                 <height>590</height>
+                 <width>89</width>
+                 <height>89</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -292,8 +292,8 @@
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>573</width>
-                     <height>570</height>
+                     <width>69</width>
+                     <height>69</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -361,7 +361,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Analisar</string>
+       <string>Analyse</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pbGravarTCCM">
@@ -374,7 +374,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Gravar</string>
+       <string>Save</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pbTotGravar">
@@ -383,7 +383,7 @@
       </property>
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>140</x>
         <y>60</y>
         <width>81</width>
         <height>23</height>
@@ -553,14 +553,14 @@
       <item>
        <widget class="QPushButton" name="pbCaTotalSe">
         <property name="text">
-         <string>Open TCC file</string>
+         <string>Open ethography file</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pbTCCMfile">
         <property name="text">
-         <string>Open TCCM File</string>
+         <string>Open tracking File</string>
         </property>
        </widget>
       </item>

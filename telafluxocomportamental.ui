@@ -103,9 +103,7 @@
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <widget class="QWidget" name="widCatego" native="true">
-              <zorder>label</zorder>
-             </widget>
+             <widget class="QWidget" name="widCatego" native="true"/>
             </item>
            </layout>
           </widget>
@@ -216,7 +214,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>Open TCC file</string>
+         <string>Open ethography file</string>
         </property>
        </widget>
       </widget>
@@ -242,7 +240,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>Open TCCM file</string>
+         <string>Open tracking file</string>
         </property>
        </widget>
       </widget>

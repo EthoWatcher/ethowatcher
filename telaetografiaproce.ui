@@ -17,7 +17,7 @@
    <item>
     <widget class="QStackedWidget" name="swPrincipal">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <widget class="QLabel" name="label_2">
@@ -76,7 +76,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>Abrir um Catalago</string>
+          <string>Open behavioral catalog</string>
          </property>
         </widget>
         <widget class="QGroupBox" name="groupBox_15">
@@ -128,7 +128,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>Etografia baseada em video</string>
+          <string>Video-based ethography</string>
          </property>
         </widget>
         <widget class="QPushButton" name="pbTraking">
@@ -144,7 +144,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>Traking</string>
+          <string>Tracking</string>
          </property>
         </widget>
         <widget class="QPushButton" name="pbEtoProce">
@@ -157,7 +157,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>Etografia e processamento de imagem</string>
+          <string>Video-based ethography and tracking</string>
          </property>
         </widget>
        </widget>
@@ -1569,11 +1569,11 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
-              <string>Botoes de Registro</string>
+              <string>ethography</string>
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_8">
               <item>
@@ -1694,7 +1694,7 @@
                     </size>
                    </property>
                    <property name="text">
-                    <string>Deletar Ultimo Registro</string>
+                    <string>Delete the last record</string>
                    </property>
                   </widget>
                  </item>
@@ -1736,7 +1736,7 @@
                </rect>
               </property>
               <property name="title">
-               <string>Areas Show</string>
+               <string>Show areas</string>
               </property>
               <widget class="QScrollArea" name="scrollArea_2">
                <property name="geometry">
@@ -1773,7 +1773,7 @@
                 <x>10</x>
                 <y>310</y>
                 <width>331</width>
-                <height>201</height>
+                <height>211</height>
                </rect>
               </property>
               <property name="minimumSize">
@@ -1783,14 +1783,14 @@
                </size>
               </property>
               <property name="title">
-               <string>Results do Traking</string>
+               <string>Results of the tracking</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_16">
                <item>
                 <widget class="QTableWidget" name="tabWDesc">
                  <row>
                   <property name="text">
-                   <string>Objeto Encontrado</string>
+                   <string>Object Detected</string>
                   </property>
                  </row>
                  <row>
@@ -1800,37 +1800,37 @@
                  </row>
                  <row>
                   <property name="text">
-                   <string>CentroideX</string>
+                   <string>Horizontal coordinate of the centroid</string>
                   </property>
                  </row>
                  <row>
                   <property name="text">
-                   <string>CentroideY</string>
+                   <string>Vertical coordinate of the centroid</string>
                   </property>
                  </row>
                  <row>
                   <property name="text">
-                   <string>Angulo</string>
+                   <string>Angle between animal and Horizontal coordinate</string>
                   </property>
                  </row>
                  <row>
                   <property name="text">
-                   <string>Largura</string>
+                   <string>Width</string>
                   </property>
                  </row>
                  <row>
                   <property name="text">
-                   <string>Altura</string>
+                   <string>Height</string>
                   </property>
                  </row>
                  <row>
                   <property name="text">
-                   <string>Variação Angular</string>
+                   <string>Variation of Angule</string>
                   </property>
                  </row>
                  <row>
                   <property name="text">
-                   <string>Variação de Área</string>
+                   <string>Variation of Area</string>
                   </property>
                  </row>
                  <row>
@@ -1845,17 +1845,17 @@
                  </row>
                  <row>
                   <property name="text">
-                   <string>Variação de distancia</string>
+                   <string>Distance travelled by the centroid</string>
                   </property>
                  </row>
                  <row>
                   <property name="text">
-                   <string>Variação da Altura do objeto</string>
+                   <string>Variation of Height of animal</string>
                   </property>
                  </row>
                  <row>
                   <property name="text">
-                   <string>Variação da Largura do objeto</string>
+                   <string>Variation of width of animal </string>
                   </property>
                  </row>
                  <row>
@@ -1894,7 +1894,7 @@
                 </rect>
                </property>
                <property name="text">
-                <string>Retangulo que circunscreve o objeto</string>
+                <string>Rectangle that circumscribes the object</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -1910,7 +1910,7 @@
                 </rect>
                </property>
                <property name="text">
-                <string>Altura e largura do objeto</string>
+                <string>Height and width of the object</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -1926,7 +1926,7 @@
                 </rect>
                </property>
                <property name="text">
-                <string>Centroide do Objeto</string>
+                <string>Center of mass</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -1942,7 +1942,7 @@
                 </rect>
                </property>
                <property name="text">
-                <string>Angulo do objeto</string>
+                <string>Angle of object</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -1974,12 +1974,12 @@
                 <rect>
                  <x>10</x>
                  <y>50</y>
-                 <width>131</width>
+                 <width>161</width>
                  <height>23</height>
                 </rect>
                </property>
                <property name="text">
-                <string>Save Tracking</string>
+                <string>Save the results of tracking</string>
                </property>
               </widget>
               <widget class="QPushButton" name="pbGravarAnalasiteEtografica">
@@ -1990,12 +1990,12 @@
                 <rect>
                  <x>10</x>
                  <y>20</y>
-                 <width>131</width>
+                 <width>161</width>
                  <height>23</height>
                 </rect>
                </property>
                <property name="text">
-                <string>Save Ethography</string>
+                <string>Save Video-based ethography</string>
                </property>
               </widget>
               <widget class="QPushButton" name="pbSaveImage">
@@ -2006,7 +2006,7 @@
                 <rect>
                  <x>10</x>
                  <y>80</y>
-                 <width>131</width>
+                 <width>161</width>
                  <height>23</height>
                 </rect>
                </property>
