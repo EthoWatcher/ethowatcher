@@ -374,7 +374,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Save</string>
+       <string>Save analisys</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pbTotGravar">
@@ -390,7 +390,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>gravar Analise</string>
+       <string>Save analisys</string>
       </property>
      </widget>
     </widget>

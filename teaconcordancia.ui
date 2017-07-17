@@ -17,7 +17,7 @@
    <item>
     <widget class="QStackedWidget" name="swPrincipal">
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <widget class="QGroupBox" name="groupBox">
@@ -116,7 +116,7 @@ p, li { white-space: pre-wrap; }
         </rect>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="page_9">
         <widget class="QGroupBox" name="groupBox_2">
@@ -265,7 +265,7 @@ p, li { white-space: pre-wrap; }
            <x>0</x>
            <y>70</y>
            <width>571</width>
-           <height>321</height>
+           <height>291</height>
           </rect>
          </property>
          <property name="currentIndex">
@@ -287,58 +287,6 @@ p, li { white-space: pre-wrap; }
            <attribute name="horizontalHeaderStretchLastSection">
             <bool>false</bool>
            </attribute>
-          </widget>
-          <widget class="QLabel" name="label_5">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>250</y>
-             <width>101</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Ethography 1 =</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_6">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>270</y>
-             <width>111</width>
-             <height>20</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Ethography 2 =</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="lblVideo1">
-           <property name="geometry">
-            <rect>
-             <x>130</x>
-             <y>250</y>
-             <width>421</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>TextLabel</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="lblVideo2">
-           <property name="geometry">
-            <rect>
-             <x>130</x>
-             <y>270</y>
-             <width>411</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>TextLabel</string>
-           </property>
           </widget>
           <widget class="QLabel" name="label_7">
            <property name="geometry">
@@ -374,7 +322,7 @@ p, li { white-space: pre-wrap; }
           <widget class="QTableWidget" name="tabPoKapp">
            <property name="geometry">
             <rect>
-             <x>60</x>
+             <x>100</x>
              <y>40</y>
              <width>431</width>
              <height>192</height>
@@ -386,12 +334,12 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>150</x>
              <y>20</y>
-             <width>47</width>
-             <height>13</height>
+             <width>71</width>
+             <height>16</height>
             </rect>
            </property>
            <property name="text">
-            <string>Analise 2</string>
+            <string>Ethography 2</string>
            </property>
           </widget>
           <widget class="QLabel" name="label_24">
@@ -399,12 +347,12 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>10</x>
              <y>120</y>
-             <width>47</width>
-             <height>13</height>
+             <width>71</width>
+             <height>16</height>
             </rect>
            </property>
            <property name="text">
-            <string>Analise 1</string>
+            <string>Ethography 1 </string>
            </property>
           </widget>
          </widget>
@@ -508,6 +456,58 @@ p, li { white-space: pre-wrap; }
            </widget>
           </widget>
          </widget>
+        </widget>
+        <widget class="QLabel" name="lblVideo2">
+         <property name="geometry">
+          <rect>
+           <x>120</x>
+           <y>390</y>
+           <width>411</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_6">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>390</y>
+           <width>111</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Ethography 2 =</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="lblVideo1">
+         <property name="geometry">
+          <rect>
+           <x>120</x>
+           <y>370</y>
+           <width>421</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_5">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>370</y>
+           <width>101</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Ethography 1 =</string>
+         </property>
         </widget>
        </widget>
       </widget>
