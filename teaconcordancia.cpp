@@ -524,6 +524,7 @@ void teaConcordancia::on_pushButton_6_clicked()
                               for(int cont=0; cont<(catalagoKoho[0].quantidadeDeCategorias+1);cont++ ){
 
                                   cohoK2= (float)cohoK2 + porcentageTabela[ultimaPosicao][cont] * porcentageTabela[cont][ultimaPosicao];
+                                  qDebug() << porcentageTabela[ultimaPosicao][cont]  <<  porcentageTabela[cont][ultimaPosicao]  ;
 
                               }
 

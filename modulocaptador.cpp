@@ -172,6 +172,8 @@ void moduloCaptador::captando(){
 
     if(i< video_frames){//    if(chaveVideo){
 
+
+         tinicial = clock();
         cap->set(CV_CAP_PROP_POS_FRAMES,i);
         //freeBytes.acquire();
         cap->read(frameLido);
@@ -632,12 +634,17 @@ void moduloCaptador::setCaptaVideoTodo()
         i=frInicio;
         chInicio=false;
     }
+    tfinal = clock();
+
+    joao.timerFinal.push_back(tfinal);
 
 
     if(i<=frFim){ //ultimo frame de análise
 
    // while(i< frFim){
         //i=c1;
+        tinicial =clock();
+        joao.timerInicial.push_back(tinicial);
         cap->set(CV_CAP_PROP_POS_FRAMES,i);
         //freeBytes.acquire();
         cap->read(frameLido);

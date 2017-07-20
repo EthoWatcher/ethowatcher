@@ -51,6 +51,9 @@ telaEtografiaProce::telaEtografiaProce(QWidget *parent) :
     captadorDeVideo = new moduloCaptador();
 
      chPriemira= true;
+     ui->pbGravarTempo->setVisible(false);
+
+    // ui->pbGravarTempo->setVisible(false);
 
 }
 
@@ -97,6 +100,7 @@ void telaEtografiaProce::recebeContadorMorfo(int contador)
         chPriemira = false;
 
         tinicial = clock();
+        tTroca= tinicial;
 
     }else{
 
@@ -104,6 +108,15 @@ void telaEtografiaProce::recebeContadorMorfo(int contador)
 
         tresposta=(float) (tfinal-tinicial)/CLOCKS_PER_SEC;
         //somatTresposta = somatTresposta + tresposta;
+
+
+
+        tGuarda = (float) (tfinal-tTroca)/CLOCKS_PER_SEC;
+
+        tTroca = tfinal;
+
+        //qDebug()<<tGuarda;
+       tRegistro123.push_back(tGuarda);
 
         ui->lblTime->setText(QString::number(tresposta));
 
@@ -3179,7 +3192,7 @@ void telaEtografiaProce::on_pbSaveImage_clicked()
 
     QPainter painter1(&imgLida);
     QPen caneta1;
-    caneta1.setWidth(1);
+    caneta1.setWidth(5);
     caneta1.setColor(QColor(0,0,255));
 
     painter1.setPen(caneta1);
@@ -3384,4 +3397,39 @@ void telaEtografiaProce::atualizaProcess(int numFrame)
                  ui->tabWDesc->setItem(0,14,new QTableWidgetItem("false" ));
 
              }
+}
+
+void telaEtografiaProce::on_pbGravarTempo_clicked()
+{
+
+    QString grac;
+
+    grac = QFileDialog::getSaveFileName(
+                this,
+                tr("Save File"),
+                "C://",
+               "etography files (*.csv)"
+               );
+    outGravador.setFileName(grac);
+    outGravador.open(QIODevice::WriteOnly | QIODevice::Text );
+
+    QTextStream csvGravador(&outGravador);
+
+    csvGravador <<"sep=; \n";
+    csvGravador <<"\n";
+
+    qDebug() << captador->joao.timerInicial.size();
+    qDebug() << dados->joao.timerFinal.size();
+    qDebug() << tRegistro123.size();
+
+    for(int i=0; i< captador->joao.timerInicial.size(); i++ ){
+
+    //    csvGravador << tRegistro123[i] << ";";
+        csvGravador << captador->joao.timerInicial[i]<< ";";
+        csvGravador << captador->joao.timerFinal[i]<< ";";
+
+        csvGravador <<"\n";
+    }
+    outGravador.close();
+
 }
