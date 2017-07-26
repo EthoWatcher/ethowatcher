@@ -67,8 +67,9 @@ private:
         bool controle =true;
         QString nome;
         int frameInicial;
+        int frameProce;
         int frameFinal;
-        int fps=30; //tem que corrigir isso de ler correto o valor
+        double fps=30; //tem que corrigir isso de ler correto o valor
 
     };
     dadosVideo* videoLido;
@@ -232,9 +233,27 @@ private:
  QFile Output;
  parserXMLtoCSV *parser;
 
+ double calcularPI(std::vector<int> entrada); //quados
+ double calcularPJ(std::vector<int> entrada);
+
+ std::vector<double> PIcalculados;
+ std::vector<double> PJcalculados;
+
+ struct paramtrosFleiss{
+     double n=0; //quantidade de transcrições
+     double N=0; //quantidade de quadros
+     double k=0; //quantidade de categorias;
+     double Pe=0; //concordancia média por acsao
+     double P_medio =0; //porcentagem de concordância média
+     double Kappa=0;
+ };
+ paramtrosFleiss pEntrada;
+
+
 signals:
 
  void fimLeituraEtografia();
+
 
 
 };

@@ -33,7 +33,7 @@ public:
     ~figuraMatriz();
 
     void setNovoCirculo(QString Nome);
-    void recebeDadosSeq(std::vector<int> dados);
+    void recebeDadosSeq(std::vector<double> dados);
 
 private slots:
     void on_pbSave_clicked();
@@ -71,9 +71,9 @@ private:
     int conTCirc=0;
 
 
-    std::vector<int> dadoLinha;
+    std::vector<double> dadoLinha;
     std::vector<bool> logicaLinha;
-    std::vector<std::vector<int> > dadosMat;
+    std::vector<std::vector<double> > dadosMat;
     std::vector<std::vector<bool> > logicaMat;
 
 //    QList<int> dadoLinha;

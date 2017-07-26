@@ -66,7 +66,7 @@ void figuraMatriz::setNovoCirculo(QString Nome)
 
 }
 
-void figuraMatriz::recebeDadosSeq(std::vector<int> dados)
+void figuraMatriz::recebeDadosSeq(std::vector<double> dados)
 {
 
     int soma=0;
@@ -180,7 +180,7 @@ void figuraMatriz::on_pbAtualiza_clicked()
 
         for(int c2=0; c2<conTCirc; c2++){
 
-            int aux= dadosMat[c1][c2];
+            double aux= dadosMat[c1][c2];
 
             //se tem um valor apontando para a propria categoria
             if((aux!=0)&& ( c1==c2)){

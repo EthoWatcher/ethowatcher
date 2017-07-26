@@ -19,6 +19,8 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
     tempoReal = new telaTempoReal();
     fluxoComportamental = new telaFluxoComportamental();
 
+    ui->pbConversorXMLCSV->setVisible(false);
+
     //ui->treeWidget->
 
     //cadastroPessoa = new telaCadastroPessoa(); //eh necessario para a alocacao da memoria

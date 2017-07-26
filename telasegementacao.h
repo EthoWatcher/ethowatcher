@@ -25,6 +25,7 @@
 //#include <QtGui>
 #include <QMessageBox>
 #include "parserxmltocsv.h"
+#include "parserxml.h"
 
 namespace Ui {
 class telaSegementacao;
@@ -51,6 +52,10 @@ private slots:
 
     void on_chbHetero_clicked(bool checked);
 
+    void on_pbTCCMfile_clicked();
+
+    void on_pbGravarTCCM_clicked();
+
 private:
     Ui::telaSegementacao *ui;
 
@@ -66,7 +71,7 @@ private:
         double frameInicial;
         double frameFinal;
         int frameProce;
-        int fps=30; //tem que corrigir isso de ler correto o valor
+        double fps=30; //tem que corrigir isso de ler correto o valor
 
     };
     dadosVideo* videoLido;
@@ -228,11 +233,38 @@ private:
  std::vector<std::vector< std::vector<int>  > > matrixframeTotCortado;
   std::vector<etografiaTotalizacoes> totalizacaoTot;
 
+ std::vector<std::vector<double> > arvoreDeFrames;
  //gravar timeBudeget
  QString nomeGravarCatalago;
  QFile Output;
 
  parserXMLtoCSV *parser;
+ parserXML *parserTCCM;
+ bool chTCCon;
+ QFile outGravador;
+
+ QString conPontoVirgula(double num);
+
+
+ std::vector<int> vetorPontos;
+ std::vector<double> quadrosPontos;
+
+ std::vector<int> vetorPontosSegmentados;
+ std::vector<std::vector<int> > vetorPontosSegmentadosMatriz;
+
+
+ std::vector<double> inicioPeriodo;
+ std::vector<double> fimPeriodo;
+ std::vector<double> latenciaTotal;
+ std::vector<double> duracaoTotal;
+ std::vector<double> frequenciaTotal;
+ std::vector<std::vector<double> > duracaoTotalMatriz;
+ std::vector<std::vector<double> > frequenciaTotalMatriz;
+ std::vector<double> latencia(std::vector<int> entrada);
+ std::vector<double> duracaoCategoria(std::vector<int> entrada);
+ std::vector<double> frequenciaCategorias(std::vector<int> entrada);
+
+
 
 signals:
 

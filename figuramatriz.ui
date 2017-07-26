@@ -17,7 +17,7 @@
    <item>
     <widget class="QGroupBox" name="groupBox_5">
      <property name="title">
-      <string>Fluxograma</string>
+      <string>drawing</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_5">
       <item>
@@ -98,7 +98,7 @@
            </rect>
           </property>
           <property name="text">
-           <string>Desenha as linhas</string>
+           <string>Line drawing</string>
           </property>
          </widget>
         </widget>

@@ -26,3 +26,5 @@ HEADERS  += telaunveil.h\
 FORMS    += telaunveil.ui\
     emuladorunveil.ui
 #    ProjetoCegoUnveil/mainwindow.ui\
+
+RESOURCES += resourcefile.qrc

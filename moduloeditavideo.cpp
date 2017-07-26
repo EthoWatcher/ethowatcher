@@ -915,16 +915,17 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name()== "frameInicial"){
+           if(streamReader.name() == "frameInicial"){
 
          conversor = streamReader.readElementText();
         videoLista.frameInicial.push_back(conversor.toInt());
-              // qDebug() << leitorXML.readElementText();
+               qDebug() << "o frame incial  " << conversor;
            }
 
            if(streamReader.name()== "frameFinal"){
                conversor = streamReader.readElementText();
         videoLista.frameFinal.push_back(conversor.toInt());
+        qDebug() << "o frame final  " << conversor;
               // qDebug() << leitorXML.readElementText();
            }
 

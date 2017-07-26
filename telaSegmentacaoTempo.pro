@@ -16,13 +16,18 @@ SOURCES += ProjetoSegmentacaoTempo/main.cpp\
         #ProjetoSegmentacaoTempo/mainwindow.cpp\
         telasegementacao.cpp\
         emuladorsegmentacaotempo.cpp\
-        parserxmltocsv.cpp
+        parserxmltocsv.cpp \
+    parserxml.cpp
 
 HEADERS  += telasegementacao.h\
             emuladorsegmentacaotempo.h\
-            parserxmltocsv.h
+            parserxmltocsv.h \
+    parserxml.h
         #ProjetoSegmentacaoTempo/mainwindow.h\
 
 FORMS    += telasegementacao.ui\
             emuladorsegmentacaotempo.ui
     #ProjetoSegmentacaoTempo/mainwindow.ui\
+
+RESOURCES += \
+    resourcefile.qrc

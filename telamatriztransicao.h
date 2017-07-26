@@ -228,6 +228,8 @@ private:
 
 
   figuraMatriz *matriz;
+
+   std::vector<double> porcentagemMatrix;
 signals:
 
  void fimLeituraEtografia();

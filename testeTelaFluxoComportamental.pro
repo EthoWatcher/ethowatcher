@@ -36,16 +36,21 @@ SOURCES += ProjetoFluxoComportamental/main.cpp\
     telafluxocomportamental.cpp\
     modulorsa.cpp\
     moduloeditavideo.cpp \
-    emuladortelafluxocomportamental.cpp
+    emuladortelafluxocomportamental.cpp\
+    parserxml.cpp
 
 
 HEADERS  += telafluxocomportamental.h\
     modulorsa.h\
     moduloeditavideo.h \
-    emuladortelafluxocomportamental.h
+    emuladortelafluxocomportamental.h\
+    parserxml.h
 # ProjetoFluxoComportamental/mainwindow.h \
 
 
 FORMS    += telafluxocomportamental.ui \
     emuladortelafluxocomportamental.ui
 #ProjetoFluxoComportamental/mainwindow.ui \
+
+RESOURCES += \
+    resourcefile.qrc

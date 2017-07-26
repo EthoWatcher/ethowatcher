@@ -29,3 +29,5 @@ FORMS    += teaconcordancia.ui \
     emuladortelaconcordancia.ui
 
 #ProjetoConcordancia/mainwindow.ui\
+RESOURCES += \
+    resourcefile.qrc
