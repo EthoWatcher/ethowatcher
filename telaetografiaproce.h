@@ -277,6 +277,8 @@ private slots:
 
     void atualizaProcess(int numFrame);
 
+    void on_pbGravarTempo_clicked();
+
 private:
     Ui::telaEtografiaProce *ui;
 
@@ -344,8 +346,10 @@ private:
     moduloRsa rsaCon;
 
 
-    clock_t tinicial,tfinal;
+    clock_t tinicial,tfinal, tTroca;
     float tresposta;
+    float tGuarda ;
+    std::vector<float>  tRegistro123;
     float somatTresposta=0;
     bool chPriemira;
 
