@@ -200,6 +200,7 @@ public:
 
         std::vector<double> frame;
         std::vector<double> area;
+        std::vector<double> areaM;
         std::vector<double> centroidX;
         std::vector<double> centroidY;
         std::vector<double> anguloObj;

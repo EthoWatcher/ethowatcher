@@ -326,6 +326,10 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
     OutEtografia.setFileName(nomeArquivo);
     OutEtografia.open(QIODevice::ReadOnly);
 
+    if(OutEtografia.isOpen()){
+        qDebug() << "esta aberto o arquivo de trankin na leitura";
+    }
+
     QXmlStreamReader streamReader(&OutEtografia); //passa o endereço
 
     QString conversor;
@@ -336,6 +340,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
         streamReader.readNext();
 
+      //  qDebug()<< streamReader.name();
 
         if(streamReader.name()== "dadosVideosAnalisado"){
             entrou1=~entrou1;
@@ -404,7 +409,10 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
             if(streamReader.name()== "area"){
 
             QString conversor= streamReader.attributes().value("id").toString();
+            qDebug()<< " o conversor da area tem o valor " << conversor;
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
+
+                qDebug() << " hahahahahah ";
            //KohoKappa.nomeCate.push_back(conversor);
                 //analiseSequencial.classeCatalago.push_back(conversor);
                 // etografiaLida->caminho= conversor;
@@ -1961,6 +1969,7 @@ void parserXMLtoCSV::escreverEtografiaCsv()
 
 void parserXMLtoCSV::escreverTrakinCsv()
 {
+
 
  for(int ki=0; ki< matrizReMorfo.size() ; ki++){
 
