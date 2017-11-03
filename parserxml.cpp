@@ -90,7 +90,7 @@ void parserXML::readTCCM(QString nomeArquivo)
             if(streamReader.name()== "area"){
 
             QString conversor= streamReader.attributes().value("id").toString();
-            if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
+            if(conversor != ""){//ele acaba entrando daus vez pra cada tag
            //KohoKappa.nomeCate.push_back(conversor);
                 //analiseSequencial.classeCatalago.push_back(conversor);
                 // etografiaLida->caminho= conversor;

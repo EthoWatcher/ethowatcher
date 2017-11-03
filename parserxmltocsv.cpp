@@ -333,14 +333,14 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
     QXmlStreamReader streamReader(&OutEtografia); //passa o endereço
 
     QString conversor;
-    bool entrou;
-    bool entrou1;
+    bool entrou=false;
+    bool entrou1=false;
     bool entrou2=false;
     while(!streamReader.atEnd() && !streamReader.hasError()){
 
         streamReader.readNext();
 
-      //  qDebug()<< streamReader.name();
+        qDebug()<< streamReader.name();
 
         if(streamReader.name()== "dadosVideosAnalisado"){
             entrou1=~entrou1;
@@ -410,7 +410,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
             QString conversor= streamReader.attributes().value("id").toString();
             qDebug()<< " o conversor da area tem o valor " << conversor;
-            if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
+            if( !conversor.isEmpty() ){//ele acaba entrando daus vez pra cada tag
 
                 qDebug() << " hahahahahah ";
            //KohoKappa.nomeCate.push_back(conversor);
