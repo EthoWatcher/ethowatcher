@@ -31,7 +31,15 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <widget class="QPlainTextEdit" name="plainTextEdit"/>
+         <widget class="QPlainTextEdit" name="plainTextEdit">
+          <property name="plainText">
+           <string>Fazer step 1.0
+Escolher a categoria
+Escolher o codec
+Fazre o step 1.2
+Fazer o step 1.3</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
