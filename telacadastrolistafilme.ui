@@ -40,7 +40,7 @@
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>Informações do video</string>
+       <string>Video Info</string>
       </attribute>
       <widget class="QPushButton" name="pbOpenXml">
        <property name="geometry">
@@ -52,7 +52,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Abrir Video Cadastrado</string>
+        <string>Open registered video</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pbAddVideo">
@@ -68,7 +68,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Adicionar Video na lista</string>
+        <string>Add Video to list</string>
        </property>
       </widget>
       <widget class="QLabel" name="label">
@@ -81,7 +81,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Nome</string>
+        <string>Name</string>
        </property>
       </widget>
       <widget class="QLabel" name="lblNome">
@@ -126,7 +126,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Caminho</string>
+        <string>Path</string>
        </property>
       </widget>
       <widget class="QLabel" name="lblExtensao">
@@ -155,13 +155,13 @@
         </rect>
        </property>
        <property name="text">
-        <string>Extensao</string>
+        <string>Extension</string>
        </property>
       </widget>
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>Informações da Lista de Video</string>
+       <string>Video List Info</string>
       </attribute>
       <widget class="QListWidget" name="listWidget">
        <property name="geometry">
@@ -183,7 +183,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>deletar</string>
+        <string>Delete</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pbGravarXML">
@@ -196,7 +196,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Gravar</string>
+        <string>Save</string>
        </property>
       </widget>
      </widget>

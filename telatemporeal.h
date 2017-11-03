@@ -44,6 +44,10 @@
 #include <time.h>
 
 
+#include <parserxmltocsv.h>
+
+
+
 namespace Ui {
 class telaTempoReal;
 }
@@ -67,6 +71,20 @@ public:
         int quantidadeDeDados=0;
 
     };
+
+    clock_t tinicial2,tfinal2;
+    clock_t tinicial1,tfinal1;
+
+    clock_t tinicialA,tfinalA;
+
+    struct timerMedi{
+         std::vector<clock_t> timerInicial;
+         std::vector<clock_t> timerFinal;
+
+    };
+
+    timerMedi joao1, joao2;
+
 
     dadosEtografia dadosEto;
     dadosEtografia cAnaEto;
@@ -196,6 +214,8 @@ public:
         std::vector<double> centroidY;
         std::vector<double> anguloObj;
         std::vector<double> tamanhoObj;
+        std::vector<float>  altura;
+        std::vector<float>  largura;
 
         std::vector<bool> objetoEncontrado; //quando o objeto é encontrado é true
 
@@ -212,12 +232,15 @@ public:
         std::vector<double>  varCenY;
         std::vector<double> varTamObjeto;
         std::vector<bool> ruidoMaxVaria;
+        std::vector<float> varAltura;
+        std::vector<float> varLargura;
 
 
 
     };
 
     dadosCinema reCinema;
+    parserXMLtoCSV *parser;
 
 
 
@@ -236,11 +259,14 @@ private slots:
     void on_pushButton_4_clicked();
 
 
-    void recebeDesenho(QImage des1, bool desenhar, double centX, double centY,
-                       double poLongeX, double poLongey, double agulhX, double agulhy,
-                       double pRetaA1X, double pRetaA1Y, double pRetaA2X, double pRetaA2Y,
-                       double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3,
-                       double vtxY3, double vtxX4, double vtxY4);
+//    void recebeDesenho(QImage des1, bool desenhar, double centX, double centY,
+//                       double poLongeX, double poLongey, double agulhX, double agulhy,
+//                       double pRetaA1X, double pRetaA1Y, double pRetaA2X, double pRetaA2Y,
+//                       double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3,
+//                       double vtxY3, double vtxX4, double vtxY4);
+
+
+    void recebeDesenho(QImage imaPro, bool desenha, double cmX, double cmY, double pMDCX, double pMDCY, double agulhX, double agulhY, double pob1X, double pob1Y, double pob2X, double pob2Y, double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3, double vtxY3, double vtxX4, double vtxY4);
 
 
    void recebeDadosMorfologicos(QImage imReceb, bool objetoEnco, double areaRecebida,
@@ -248,12 +274,7 @@ private slots:
                                              float angObjeto, float tamObjet);
 
 
-   void gravaDadosMorfoCinematico(QImage imaProc, bool objeto, double area1, //area
-              double mcX, double mcY,
-              float anguloObjeto,
-              float tamanhoObjeto,
-              double varAngular, double varArea,
-              double VarCenX, double VarCenY, double VarDistancia, double VarOBjeto, bool ruidoOn); //centroide
+   void gravaDadosMorfoCinematico(QImage imaProc, bool objeto, double area1, double mcX, double mcY, float anguloObjeto, float alturaObjeto, float larguraObjeto, double varAngular, double varArea, double VarCenX, double VarCenY, double VarDistancia, double VarOBjeto, float VarAltura, float VarLargura, bool ruidoOn);
 
 
 
@@ -321,6 +342,8 @@ private slots:
 
 //   void on_pbCodec_clicked();
 
+   void on_pbteste_clicked();
+
 private:
     Ui::telaTempoReal *ui;
     moduloCaptador *captadorDeVideo;
@@ -335,7 +358,7 @@ private:
     int  heightPanProcess;
 
     int contNumeroGrava=0;
-
+    QFile outGravador;
 
 
     //converter o nome do arquivo pegado em um arquivo proprio para a openCV
@@ -404,6 +427,14 @@ private:
 
     QList<QCheckBox *> cheboxList;
     QCheckBox *chebox;
+
+     bool chNovoValor=true;
+     int compAnterior=-1;
+     int contAtivoReg=0;
+     bool chCorrigir=false;
+
+     void atualizaRegistro();
+     int contTempo=0;
 
 
 signals:

@@ -40,8 +40,8 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     telacadastrolistafilme.cpp \
     modulocaptador.cpp\
     telacego.cpp\
-    telaetografia.cpp\
-    etografia.cpp\
+    #telaetografia.cpp\
+    #etografia.cpp\
     modulorsa.cpp\
     moduloprocessamento.cpp\
     #telaconversorxmlcsv.cpp\
@@ -58,7 +58,9 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     telaunveil.cpp\
     telatemporeal.cpp\
     telafluxocomportamental.cpp\
-    parserxmltocsv.cpp
+    parserxmltocsv.cpp\
+    mysplash.cpp\
+    parserxml.cpp
 
 
 
@@ -70,8 +72,8 @@ HEADERS  += ethowatcher.h \
     telacadastrolistafilme.h\
     modulocaptador.h\
     telacego.h\
-    telaetografia.h\
-    etografia.h\
+    #telaetografia.h\
+    #etografia.h\
     modulorsa.h\
     moduloprocessamento.h\
     #telaconversorxmlcsv.h\
@@ -88,7 +90,9 @@ HEADERS  += ethowatcher.h \
     telaunveil.h\
     telatemporeal.h\
     telafluxocomportamental.h\
-    parserxmltocsv.h
+    parserxmltocsv.h\
+    mysplash.h\
+    parserxml.h
 
 
 
@@ -97,8 +101,8 @@ FORMS    += ethowatcher.ui \
     telacadastrofilme.ui \
     telacadastrolistafilme.ui \
     telacego.ui\
-    telaetografia.ui\
-    etografia.ui\
+    #telaetografia.ui\
+    #etografia.ui\
     #telaconversorxmlcsv.ui\
     telasegementacao.ui \
     telamatriztransicao.ui \

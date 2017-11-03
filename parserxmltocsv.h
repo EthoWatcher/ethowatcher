@@ -65,8 +65,12 @@ public:
     struct analiseSequencialComportamento{
 
           std::vector<int> dados;
+          std::vector<double> dadosPorce;
           std::vector< std::vector<int> > listaDados;
+          std::vector< std::vector<double> > listaDadosPorcentagem;
+
           std::vector<QString> classeCatalago;
+           std::vector<QString> classeCatalagoPorcentagem;
 
 
 
@@ -196,6 +200,7 @@ public:
 
         std::vector<double> frame;
         std::vector<double> area;
+        std::vector<double> areaM;
         std::vector<double> centroidX;
         std::vector<double> centroidY;
         std::vector<double> anguloObj;

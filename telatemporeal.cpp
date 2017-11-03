@@ -57,7 +57,14 @@ telaTempoReal::telaTempoReal(QWidget *parent) :
                           //false pode apertar todos os botões
     frame_atual=0;
     ui->pbGravaRelatorioFPS->setVisible(false);
-
+    ui->pushButton->setVisible(false);
+    ui->pbPlanoFundo->setVisible(false);
+    frameInicioGravacao=0;
+    ui->pbSaveTraking->setVisible(false);
+//    ui->tabWidget->set
+    ui->tabWidget->setVisible(false);
+    ui->pbGravaRelatorioFPS->setVisible(false);
+    ui->pbteste->setVisible(false);
 }
 
 telaTempoReal::~telaTempoReal()
@@ -94,6 +101,7 @@ telaTempoReal::~telaTempoReal()
 void telaTempoReal::atualizaImagem(int numeroFrame, QImage qimFoto,float Tempo)
 {
     cv::Mat troca= captadorDeVideo->conQim2Mat(qimFoto);
+    contTempo++;
 
     if(ui->cbCapturaVideo->isChecked()){
 
@@ -122,6 +130,16 @@ void telaTempoReal::atualizaImagem(int numeroFrame, QImage qimFoto,float Tempo)
         ui->lblNumero->setText(QString::number(numeroFrame));
         somaTempo=somaTempo+Tempo;
         ui->lblTempo->setText(QString::number(somaTempo));
+
+        if(ui->cbRegistro->isChecked()){
+
+            if(!ui->pbEtographyStart->isEnabled()){
+               ui->lblTempoEto->setText("Time = "+QString::number(somaTempo-vetorTempoFrame[frameInicioRegistro])+"s");
+            }
+
+        }
+
+
         vetorTempoFrame.push_back(somaTempo);
 
 
@@ -155,6 +173,12 @@ void telaTempoReal::atualizaImagem(int numeroFrame, QImage qimFoto,float Tempo)
                  somaTempoFilming= somaTempoFilming+Tempo;
                  ui->lblTempoFilming->setText(QString::number(somaTempoFilming));
 
+                 if(!ui->pbEtographyStart->isEnabled()){
+                      ui->lblTempoEto->setText("Time = "+QString::number(somaTempoFilming-vetorTempoFrame[frameInicioRegistro])+"s");
+                 }
+
+                 //ui->lblTempoEto->setText(QString::number(somaTempoFilming-frameInicioRegistro));
+
                  vetorFrameAquisicao.push_back(numeroFrame);
                  vetorTempoAquisicao.push_back(Tempo);
 
@@ -177,6 +201,14 @@ void telaTempoReal::atualizaImagem(int numeroFrame, QImage qimFoto,float Tempo)
 
     }
 
+
+    if(ui->cbRegistro->isChecked()){
+
+        if(contTempo%40==0){
+           atualizaRegistro();
+        }
+       // atualizaRegistro();
+    }
 
 
 
@@ -263,8 +295,8 @@ void telaTempoReal::on_pushButton_4_clicked()
 
 
 
-    connect(dados,SIGNAL(dadosMorfoCinematico(QImage,bool,double,double,double,float,float,double,double,double,double,double,double,bool)),
-                        this,SLOT(gravaDadosMorfoCinematico(QImage,bool,double,double,double,float,float,double,double,double,double,double,double,bool)));
+    connect(dados,SIGNAL(dadosMorfoCinematico(QImage,bool,double,double,double,float,float,float,double,double,double,double,double,double,float,float,bool)),
+                        this,SLOT(gravaDadosMorfoCinematico(QImage,bool,double,double,double,float,float,float,double,double,double,double,double,double,float,float,bool)));
 
 
     frameInicioPro = frame_atual;
@@ -280,15 +312,17 @@ void telaTempoReal::on_pushButton_4_clicked()
 
 }
 
-void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, double centY, double poLongeX, double poLongey, double agulhX, double agulhy, double pRetaA1X, double pRetaA1Y, double pRetaA2X, double pRetaA2Y, double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3, double vtxY3, double vtxX4, double vtxY4)
+void telaTempoReal::recebeDesenho(QImage imaPro, bool desenha, double cmX, double cmY, double pMDCX, double pMDCY, double agulhX, double agulhY, double pob1X, double pob1Y, double pob2X, double pob2Y, double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3, double vtxY3, double vtxX4, double vtxY4)       //QImage des1, bool desenhar, double centX, double centY, double poLongeX, double poLongey, double agulhX, double agulhy, double pRetaA1X, double pRetaA1Y, double pRetaA2X, double pRetaA2Y, double vtxX1, double vtxY1, double vtxX2, double vtxY2, double vtxX3, double vtxY3, double vtxX4, double vtxY4)
 {
 
+    tinicialA = clock();
     widthPanProcess=ui->panProcess->size().width();
     heightPanProcess=ui->panProcess->size().height();
+    contTempo++;
 
     if(chDesenhar){
 
-         QPainter painter(&des1); //o pintor vai pintar nesse inderesso
+         QPainter painter(&imaPro); //o pintor vai pintar nesse inderesso
          //define qual sera a caneta que ira pintar
          QPen canetaVermelha;
          canetaVermelha.setWidth(8);
@@ -297,7 +331,8 @@ void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, doub
          if(ui->chbCentroide->isChecked()){
 
              painter.setPen(canetaVermelha);
-             painter.drawPoint(centX,centY);
+             painter.drawPoint(cmX,cmY);
+             // painter.drawPoint(centX,centY);
          }
 
 //         if(ui->chbTamnho->isChecked()){
@@ -312,37 +347,122 @@ void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, doub
 
 
 
-         if(ui->chbTamnho->isChecked()){
+//         if(ui->chbTamnho->isChecked()){
 
-         QPen canetaAmarela;
-         canetaAmarela.setWidth(4);
-         canetaAmarela.setColor(QColor(0,255,255));
-         painter.setPen(canetaAmarela);
-         //painter.drawPoint(poLongeX,poLongey);
+//         QPen canetaAmarela;
+//         canetaAmarela.setWidth(4);
+//         canetaAmarela.setColor(QColor(0,255,255));
+//         painter.setPen(canetaAmarela);
+//         //painter.drawPoint(poLongeX,poLongey);
 
-         painter.drawLine(QPointF(pRetaA1X,pRetaA1Y),
-                          QPointF(pRetaA2X,pRetaA2Y));
-//         painter.drawPoint(pRetaA1X,pRetaA1Y);
-//         painter.drawPoint(pRetaA2X,pRetaA2Y);
+
+//        painter.drawLine(QPointF(pob1X,pob1Y),
+//                         QPointF(pob2X,pob2Y));
+////         painter.drawLine(QPointF(pRetaA1X,pRetaA1Y),
+////                          QPointF(pRetaA2X,pRetaA2Y));
+////         painter.drawPoint(pRetaA1X,pRetaA1Y);
+////         painter.drawPoint(pRetaA2X,pRetaA2Y);
+
+//         }
+
+
+         QPoint vetPont[4];
+
+         vetPont[0].setX(vtxX1);
+         vetPont[0].setY(vtxY1);
+         vetPont[1].setX(vtxX2);
+         vetPont[1].setY(vtxY2);
+         vetPont[2].setX(vtxX3);
+         vetPont[2].setY(vtxY3);
+         vetPont[3].setX(vtxX4);
+         vetPont[3].setY(vtxY4);
+
+
+//                 ponto1=vetPont[0];
+
+//                 for(int ja=0; ja< 4; ja++){
+
+//                     if((ponto1.x()< vetPont[ja]) &&)
+
+
+//                 }
+
+         QPoint desenho1,desenho2,desenho3,desenho4;
+         //esquerda
+         desenho1.setX((vetPont[0].x()+vetPont[1].x())/2);
+         desenho1.setY((vetPont[0].y()+vetPont[1].y())/2);
+
+         //direita
+         desenho2.setX((vetPont[1].x()+vetPont[2].x())/2);
+         desenho2.setY((vetPont[1].y()+vetPont[2].y())/2);
+
+
+
+         desenho3.setX((vetPont[2].x()+vetPont[3].x())/2);
+         desenho3.setY((vetPont[2].y()+vetPont[3].y())/2);
+
+         desenho4.setX((vetPont[3].x()+vetPont[0].x())/2);
+         desenho4.setY((vetPont[3].y()+vetPont[0].y())/2);
+
+
+         if(ui->chbAltLarg->isChecked()){
+
+//             QPen canetaAmarela;
+//             canetaAmarela.setWidth(4);
+//             canetaAmarela.setColor(QColor(0,255,255));
+//             painter.setPen(canetaAmarela);
+//             painter.drawPoint(agulhX,agulhY);
+//             painter.setPen(canetaAmarela);
+//             painter.drawLine(QPointF(pob1X,pob1Y),
+//                     QPointF(pob2X,pob2Y));
+
+
+
+//                 desenho1.setX(ponto4.x()+ (ponto4.x()-ponto1.x())/2);
+//                 desenho1.setY(ponto1.y());
+             //painter.drawLine(desenho1,desenho2);
+
+             //painter.drawPoint(desenho1);
+//             painter.drawLine(desenho1,desenho3);
+             painter.setPen(QColor(20,244,23));
+             painter.drawLine(desenho1,desenho3);
+             painter.setPen(QColor(20,244,23));
+             painter.drawLine(desenho2,desenho4);
+
 
          }
 
+
+
+         if(ui->chbAngulo->isChecked()){
+
+             painter.setPen(canetaVermelha);
+             painter.drawLine(desenho1,desenho3);
+
+         }
 
          //desenha o centro de massa
 
 
          if(ui->chbArea->isChecked()){
          QPen canetaQuadro;
-         canetaQuadro.setWidth(6);
+         canetaQuadro.setWidth(2);
          canetaQuadro.setColor(QColor(255,100,255));
          painter.setPen(canetaQuadro);
-         painter.drawPoint(vtxX1,vtxY1);
-         painter.drawPoint(vtxX2,vtxY2);
-         painter.drawPoint(vtxX3,vtxY3);
-         painter.drawPoint(vtxX4,vtxY4);
+
+         painter.drawLine(vtxX1,vtxY1,vtxX2,vtxY2);
+         painter.drawLine(vtxX2,vtxY2,vtxX3,vtxY3);
+         painter.drawLine(vtxX3,vtxY3,vtxX4,vtxY4);
+         painter.drawLine(vtxX4,vtxY4,vtxX1,vtxY1);
+//         painter.drawPoint(vtxX1,vtxY1);
+//         painter.drawPoint(vtxX2,vtxY2);
+//         painter.drawPoint(vtxX3,vtxY3);
+//         painter.drawPoint(vtxX4,vtxY4);
 
 
          }
+
+         //figuras
 
          int contCircle=0;
          int contREct=0;
@@ -392,7 +512,7 @@ void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, doub
 
 
 
-         QImage qimDisplay= des1.scaled(widthPanProcess,heightPanProcess,Qt::IgnoreAspectRatio);
+         QImage qimDisplay= imaPro.scaled(widthPanProcess,heightPanProcess,Qt::IgnoreAspectRatio);
          ui->panProcess->setPixmap(QPixmap::fromImage(qimDisplay));
     }
 
@@ -500,6 +620,19 @@ void telaTempoReal::recebeDesenho(QImage des1, bool desenhar, double centX, doub
 //     QImage qimDisplay= qiCaptador.scaled(widthPanProcess,heightPanProcess,Qt::KeepAspectRatio);
 //     ui->imgResultado->setPixmap(QPixmap::fromImage(qimDisplay));
 
+    if(ui->cbRegistro->isChecked()){
+
+        if(contTempo%40==0){
+           atualizaRegistro();
+        }
+    }
+
+
+
+     tfinalA = clock();
+
+     joao2.timerInicial.push_back(tinicialA);
+     joao2.timerFinal.push_back(tfinalA);
 
 
 
@@ -513,22 +646,86 @@ void telaTempoReal::recebeDadosMorfologicos(QImage imReceb, bool objetoEnco, dou
 
 }
 
-void telaTempoReal::gravaDadosMorfoCinematico(QImage imaProc, bool objeto, double area1, double mcX, double mcY, float anguloObjeto, float tamanhoObjeto, double varAngular, double varArea, double VarCenX, double VarCenY, double VarDistancia, double VarOBjeto, bool ruidoOn)
+void telaTempoReal::gravaDadosMorfoCinematico(QImage imaProc, bool objeto, double area1, double mcX, double mcY, float anguloObjeto, float alturaObjeto, float larguraObjeto, double varAngular, double varArea, double VarCenX, double VarCenY, double VarDistancia, double VarOBjeto, float VarAltura, float VarLargura, bool ruidoOn)
 {
 //    qDebug()<< mcX << "  " << mcY ;
+//    reMorfo.objetoEncontrado.push_back(objeto);
+//    reMorfo.area.push_back(area1);
+//    reMorfo.centroidX.push_back(mcX);
+//    reMorfo.centroidY.push_back(mcY);
+//    reMorfo.anguloObj.push_back(anguloObjeto);
+//    reMorfo.tamanhoObj.push_back(tamanhoObjeto);
+//    reCinema.varAngular.push_back(varAngular);
+//    reCinema.varArea.push_back(varArea);
+//    reCinema.varCenX.push_back(VarCenX);
+//    reCinema.varCenY.push_back(VarCenY);
+//    reCinema.varDistancia.push_back(VarDistancia);
+//    reCinema.varTamObjeto.push_back(VarOBjeto);
+//    reCinema.ruidoMaxVaria.push_back(ruidoOn);
+
+    //qDebug() <<"entrou";
+
+     tinicial2 = clock();
     reMorfo.objetoEncontrado.push_back(objeto);
     reMorfo.area.push_back(area1);
     reMorfo.centroidX.push_back(mcX);
     reMorfo.centroidY.push_back(mcY);
     reMorfo.anguloObj.push_back(anguloObjeto);
-    reMorfo.tamanhoObj.push_back(tamanhoObjeto);
+    //reMorfo.tamanhoObj.push_back(alturaObjeto);
+    reMorfo.altura.push_back(alturaObjeto);
+    reMorfo.largura.push_back(larguraObjeto);
     reCinema.varAngular.push_back(varAngular);
     reCinema.varArea.push_back(varArea);
     reCinema.varCenX.push_back(VarCenX);
     reCinema.varCenY.push_back(VarCenY);
     reCinema.varDistancia.push_back(VarDistancia);
     reCinema.varTamObjeto.push_back(VarOBjeto);
-    reCinema.ruidoMaxVaria.push_back(ruidoOn);
+    reCinema.varAltura.push_back(VarAltura);
+    reCinema.varLargura.push_back(VarLargura);
+    reCinema.ruidoMaxVaria.push_back(ruidoOn); //minima variação
+
+
+
+    if(objeto){
+         ui->tabWDesc->setItem(0,0,new QTableWidgetItem("true" ) );
+    }else{
+        ui->tabWDesc->setItem(0,0,new QTableWidgetItem("false" ) );
+    }
+
+    ui->tabWDesc->setItem(0,1,new QTableWidgetItem(QString::number(area1/(qPow(videoLista.escala[contadorDeVideo],2)) ) ));
+     ui->tabWDesc->setItem(0,2,new QTableWidgetItem(QString::number(mcX ) ));
+      ui->tabWDesc->setItem(0,3,new QTableWidgetItem(QString::number(mcY ) ));
+       ui->tabWDesc->setItem(0,4,new QTableWidgetItem(QString::number(anguloObjeto ) ));
+       ui->tabWDesc->setItem(0,5,new QTableWidgetItem(QString::number(alturaObjeto/videoLista.escala[contadorDeVideo]) ) );
+        ui->tabWDesc->setItem(0,6,new QTableWidgetItem(QString::number(larguraObjeto/videoLista.escala[contadorDeVideo]) ));
+
+        ui->tabWDesc->setItem(0,7,new QTableWidgetItem(QString::number(varAngular) ) );
+         ui->tabWDesc->setItem(0,8,new QTableWidgetItem(QString::number(varArea) ));
+          ui->tabWDesc->setItem(0,9,new QTableWidgetItem(QString::number(VarCenX) ));
+           ui->tabWDesc->setItem(0,10,new QTableWidgetItem(QString::number(VarCenY ) ));
+           ui->tabWDesc->setItem(0,11,new QTableWidgetItem(QString::number(VarDistancia) ) );
+           // ui->tabWDesc->setItem(0,12,new QTableWidgetItem(QString::number(VarOBjeto) ));
+            ui->tabWDesc->setItem(0,12,new QTableWidgetItem(QString::number(VarAltura ) ));
+            ui->tabWDesc->setItem(0,13,new QTableWidgetItem(QString::number(VarLargura) ) );
+
+             if(ruidoOn){
+
+                 ui->tabWDesc->setItem(0,14,new QTableWidgetItem("true" ));
+
+             }else{
+                 ui->tabWDesc->setItem(0,14,new QTableWidgetItem("false" ));
+
+             }
+
+
+             tfinal2 = clock();
+
+             joao1.timerInicial.push_back(tinicial2);
+             joao1.timerFinal.push_back(tfinal2);
+
+
+    //qDebug() << anguloObjeto;
+
 
     //qDebug()<<"chegou aqui lul" << reMorfo.objetoEncontrado.size();
 
@@ -645,6 +842,7 @@ void telaTempoReal::on_pbConfig_clicked()
         captadorThread->start();
 
 
+       // ui->pbStartCaptador->click();
 
 
     }else{ //se o usuario não quiser aquisição de imamge
@@ -767,6 +965,42 @@ void telaTempoReal::on_pbConfig_clicked()
 
 
     }
+
+
+
+//    if(ui->cbRegistro->isEnabled()){
+
+
+
+
+//       if(ui->chAImage->isEnabled()){
+
+//           if(ui->cbCapturaVideo->isEnabled()){
+
+//               ui->tabWControlador->setCurrentIndex(2);
+
+//           }
+
+
+
+
+//            ui->tabWControlador->setCurrentIndex(2);
+
+
+//        }else{
+
+
+//            ui->tabWControlador->setCurrentIndex(2);
+
+//        }
+
+
+
+//    }else{
+
+
+//    }
+
 
 
 }
@@ -1722,6 +1956,77 @@ int telaTempoReal::getCodec(int indexCaixa)
 
 }
 
+void telaTempoReal::atualizaRegistro()
+{
+
+    if(chNovoValor){
+
+        chNovoValor=false;
+
+        bool chvEscreRow=true;
+
+        while(chvEscreRow){
+        //0 > 0
+        //2 > 2
+
+        if(saida.quantidadeDepontos > ui->tabRegistro->rowCount()){
+
+            ui->tabRegistro->insertRow(ui->tabRegistro->rowCount());
+            ui->tabRegistro->setItem (ui->tabRegistro->rowCount()-1,0,new QTableWidgetItem(
+                                         cAnaEto.nomeCategoria[saida.id[ui->tabRegistro->rowCount()-1]] ) );
+            ui->tabRegistro->setItem(ui->tabRegistro->rowCount()-1,1,new QTableWidgetItem(QString::number(vetorTempoFrame[saida.frameComeco[ui->tabRegistro->rowCount()-1]]
+                                     -vetorTempoFrame[frameInicioRegistro])));
+            ui->tabRegistro->setItem(ui->tabRegistro->rowCount()-1,2,new QTableWidgetItem(QString::number(vetorTempoFrame[saida.framFim[ui->tabRegistro->rowCount()-1]]
+                                     -vetorTempoFrame[frameInicioRegistro])));
+
+            saida.chPontoValido.push_back(true);
+
+
+            //configurando TableWidget
+            ui->tabRegistro->resizeColumnsToContents();
+            ui->tabRegistro->clearSelection();
+            ui->tabRegistro->clearFocus();
+
+
+        }else{
+
+            chvEscreRow= false;
+
+
+        }
+
+        for(int ka=0; ka< ui->tabRegistro->rowCount();ka++ ){
+
+    //                ui->tabRegistro->setRowCount(ka);
+    //                ui->tabRegistro->setColumnCount(1);
+    //                ui->tabRegistro->setItem();
+
+//            ui->tabRegistro->insertRow(ui->tabRegistro->rowCount());
+            ui->tabRegistro->setItem (ka,0,new QTableWidgetItem(
+                                         cAnaEto.nomeCategoria[saida.id[ka]] ) );
+            ui->tabRegistro->setItem(ka,1,new QTableWidgetItem(QString::number(vetorTempoFrame[saida.frameComeco[ka]]
+                                     -vetorTempoFrame[frameInicioRegistro])));
+            ui->tabRegistro->setItem(ka,2,new QTableWidgetItem(QString::number(vetorTempoFrame[saida.framFim[ka]]
+                                     -vetorTempoFrame[frameInicioRegistro])));
+
+          //  saida.chPontoValido.push_back(true);
+
+
+            //configurando TableWidget
+            ui->tabRegistro->resizeColumnsToContents();
+            ui->tabRegistro->clearSelection();
+            ui->tabRegistro->clearFocus();
+
+
+
+        }
+
+
+    }
+
+   }
+}
+
 void telaTempoReal::on_pbLerArquivoVxml_clicked()
 {
     fonteVideoXML = QFileDialog::getOpenFileName(
@@ -1826,6 +2131,10 @@ void telaTempoReal::on_cbProcessInagem_clicked()
 
 void telaTempoReal::on_pbFimProcessamento_clicked()
 {
+
+    //ui->pbPlanoFundo->click();
+
+    ui->pbStoCap->click();
     disconnect(captadorDeVideo,SIGNAL(enviaInformacoes(int,QImage,float)),dados,SLOT(processamentoDeVideoRealTime(int,QImage,float)));
     chDesenhar=false; //serve para controlar o desenho na tela;
     ui->staWidImgExibi->setCurrentIndex(0);
@@ -1859,32 +2168,30 @@ void telaTempoReal::on_pbFimProcessamento_clicked()
 
 void telaTempoReal::on_pbSaveTraking_clicked()
 {
+
+    ui->pbStoCap->clicked(); //pausa
+
     nomeGravarProcesImagem = QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
-                "C://",
+                fonteVideoXML,
                "Traking Files (*.tkin)"
                );
 
 
 
-    qDebug()<<"oi 1";
 
     enconPontoArea();
 
-    qDebug()<<"oi 2";
 
     if(!nomeGravarProcesImagem.isEmpty()){
-    OutEtografia2.setFileName(nomeGravarProcesImagem);
+    OutEtografia.setFileName(nomeGravarProcesImagem);
 
-    qDebug()<<"oi 2.1";
-    OutEtografia2.open(QIODevice::WriteOnly);
-    qDebug()<<"oi 2.1.a";
-    QXmlStreamWriter stream(&OutEtografia2); //passa o endereço
-    qDebug()<<"oi 2.1.b";
+    OutEtografia.open(QIODevice::WriteOnly);
+
+    QXmlStreamWriter stream(&OutEtografia); //passa o endereço
     stream.setAutoFormatting(true);
 
-    qDebug()<<"oi 2.1.c";
     stream.writeStartDocument();//começa o documento
     stream.writeStartElement("analiseProcessaImage");
     stream.writeStartElement("dadosExperimentador");
@@ -1892,25 +2199,58 @@ void telaTempoReal::on_pbSaveTraking_clicked()
              stream.writeTextElement("laboratorio",experimentador.lab);
     stream.writeEndElement();//fecha analiseEtografica
 
-     qDebug()<<"oi 2.1.d";
-    stream.writeStartElement("dadosVideoAnalisado");
-             stream.writeTextElement("nomeVxml",videoLista.nomeVXML[contadorDeVideo]);
-             stream.writeTextElement("frameInicial",QString::number(videoLista.frameInicial[contadorDeVideo]));
-             stream.writeTextElement("frameBack",QString::number(videoLista.frameBack[contadorDeVideo]));
-             stream.writeTextElement("frameProces",QString::number(videoLista.frameProces[contadorDeVideo]));
-             stream.writeTextElement("frameFinal",QString::number(videoLista.frameFinal[contadorDeVideo]));
-             stream.writeTextElement("escala",QString::number(videoLista.escala[contadorDeVideo]));
-              stream.writeTextElement("fps",QString::number(videoLista.fps[contadorDeVideo]));
-    stream.writeEndElement();//fecha informacoes
 
-    qDebug()<<"oi 2.1.e";
+    if(ui->cbCapturaVideo->isChecked()){
+        stream.writeStartElement("dadosVideoAnalisado");
+                 stream.writeTextElement("nomeVxml",videoLista.nomeVXML[contadorDeVideo]);
+                 stream.writeTextElement("nomeArquivoVideo", nomeArquivo);
+                 stream.writeTextElement("frameInicial",QString::number(0));
+                 stream.writeTextElement("frameBack",QString::number(0));
+                 stream.writeTextElement("frameProces", QString::number(contNumeroGrava-videoLista.area.size()));   //QString::number(videoLista.frameProces[contadorDeVideo]-frameInicioGravacao-frameInicioPro));
+                 stream.writeTextElement("frameFinal",QString::number(contNumeroGrava));
+                 stream.writeTextElement("escala",QString::number(videoLista.escala[contadorDeVideo]));
+                  stream.writeTextElement("fps",QString::number(videoLista.fps[contadorDeVideo]));
+                  stream.writeTextElement("tempoTotalProcessamento", ui->lblTime->text());
+                  double perFrame =  ui->lblTime->text().toDouble();
+                  perFrame = perFrame/(videoLista.frameFinal[contadorDeVideo]-videoLista.frameProces[contadorDeVideo]);
+                  stream.writeTextElement("tempoPorFrame", QString::number(perFrame)  );
+        stream.writeEndElement();//fecha informacoes
+
+    }else{
+        stream.writeStartElement("dadosVideoAnalisado");
+                 stream.writeTextElement("nomeVxml",videoLista.nomeVXML[contadorDeVideo]);
+                 stream.writeTextElement("frameInicial",QString::number(videoLista.frameInicial[contadorDeVideo]));
+                 stream.writeTextElement("frameBack",QString::number(videoLista.frameBack[contadorDeVideo]));
+                 stream.writeTextElement("frameProces",QString::number(videoLista.frameProces[contadorDeVideo]));
+                 stream.writeTextElement("frameFinal",QString::number(videoLista.frameFinal[contadorDeVideo]));
+                 stream.writeTextElement("escala",QString::number(videoLista.escala[contadorDeVideo]));
+                  stream.writeTextElement("fps",QString::number(videoLista.fps[contadorDeVideo]));
+                  stream.writeTextElement("tempoTotalProcessamento", ui->lblTime->text());
+                  double perFrame =  ui->lblTime->text().toDouble();
+                  perFrame = perFrame/(videoLista.frameFinal[contadorDeVideo]-videoLista.frameProces[contadorDeVideo]);
+                  stream.writeTextElement("tempoPorFrame", QString::number(perFrame)  );
+        stream.writeEndElement();//fecha informacoes
+    }
+
+//    stream.writeStartElement("dadosVideoAnalisado");
+//             stream.writeTextElement("nomeVxml",videoLista.nomeVXML[contadorDeVideo]);
+//             stream.writeTextElement("frameInicial",QString::number(videoLista.frameInicial[contadorDeVideo]-frameInicioGravacao));
+//             stream.writeTextElement("frameBack",QString::number(videoLista.frameBack[contadorDeVideo]));
+//             stream.writeTextElement("frameProces", QString::number(frameInicioPro-frameInicioGravacao));   //QString::number(videoLista.frameProces[contadorDeVideo]-frameInicioGravacao-frameInicioPro));
+//             stream.writeTextElement("frameFinal",QString::number(videoLista.frameFinal[contadorDeVideo]-frameInicioGravacao));
+//             stream.writeTextElement("escala",QString::number(videoLista.escala[contadorDeVideo]));
+//              stream.writeTextElement("fps",QString::number(videoLista.fps[contadorDeVideo]));
+//              stream.writeTextElement("tempoTotalProcessamento", ui->lblTime->text());
+//              double perFrame =  ui->lblTime->text().toDouble();
+//              perFrame = perFrame/(videoLista.frameFinal[contadorDeVideo]-videoLista.frameProces[contadorDeVideo]);
+//              stream.writeTextElement("tempoPorFrame", QString::number(perFrame)  );
+//    stream.writeEndElement();//fecha informacoes
 
     stream.writeStartElement("dadosCatalago");
     stream.writeTextElement("nomeCaminhoExt", nomeGravarCatalago);
 
 
 
-     qDebug()<<"oi 2.2";
     stream.writeStartElement("Categorias");
     int contador=0;
 
@@ -1924,8 +2264,6 @@ void telaTempoReal::on_pbSaveTraking_clicked()
        }
     stream.writeEndElement();
 
-
-    qDebug()<<"oi 2.3";
     stream.writeStartElement("areasDeInteresse");
 
     for(int ja=0; ja< videoLista.area[contadorDeVideo].tipo.size(); ja++ ){
@@ -1969,16 +2307,12 @@ void telaTempoReal::on_pbSaveTraking_clicked()
     stream.writeStartElement("dadosAnalise");
 
     if(ui->cbAuto->isChecked()){
-
-        stream.writeTextElement("tipoAnalise","Autoesclusiva" );
-    }else{
-
-         stream.writeTextElement("tipoAnalise","sobreposta" );
+     stream.writeTextElement("tipoAnalise","Autoesclusiva" );
     }
 
-//    if(ui->cbNested->isChecked()){
-//     stream.writeTextElement("tipoAnalise","sobreposta" );
-//    }
+    if(ui->cbNested->isChecked()){
+     stream.writeTextElement("tipoAnalise","sobreposta" );
+    }
 
 
      stream.writeStartElement("anaProceImagem");
@@ -1993,55 +2327,166 @@ void telaTempoReal::on_pbSaveTraking_clicked()
 
      stream.writeAttribute("id",QString::number(ka));
 
-      qDebug()<<"oi 3";
-
      //stream.writeAttribute("");
      int fraNumero=0;
-     for(int i=0; i< reMorfo.area.size();i++){
 
-         if(matObjDentro[ka][i]){
+     if(ui->cbCapturaVideo->isChecked()){
 
-         stream.writeStartElement("proce");
-         fraNumero=i+ videoLista.frameProces[contadorDeVideo];
+         fraNumero= contNumeroGrava - reMorfo.area.size();
 
-         stream.writeAttribute("f",QString::number(fraNumero));
-         stream.writeAttribute("arP",QString::number(reMorfo.area[i]));
-         stream.writeAttribute("arM",QString::number(reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
-         stream.writeAttribute("ceX",QString::number(reMorfo.centroidX[i]));
-         stream.writeAttribute("ceY",QString::number(reMorfo.centroidY[i]));
-         stream.writeAttribute("taP",QString::number(reMorfo.tamanhoObj[i]));
-         stream.writeAttribute("taM",QString::number(reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
-         stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i]));
 
-         stream.writeAttribute("Var",QString::number(reCinema.varArea[i]));
-         stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
-         stream.writeAttribute("Vd",QString::number(reCinema.varDistancia[i]));
-         stream.writeAttribute("VtoP",QString::number(reCinema.varTamObjeto[i]));
+         for(int i=0; i<  reMorfo.area.size();i++){
 
-         if(reCinema.ruidoMaxVaria[i]){
-             stream.writeAttribute("rMV","true");
+             if(matObjDentro[ka][i]){
 
-         }else{
-             stream.writeAttribute("rMV","false");
+             stream.writeStartElement("proce");
+             fraNumero=i+ fraNumero;
+
+             stream.writeAttribute("f",QString::number(fraNumero));
+             stream.writeAttribute("arP",QString::number(reMorfo.area[i]));
+             stream.writeAttribute("arM",QString::number(reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
+             stream.writeAttribute("ceX",QString::number(reMorfo.centroidX[i]));
+             stream.writeAttribute("ceY",QString::number(reMorfo.centroidY[i]));
+             stream.writeAttribute("altP",QString::number(reMorfo.altura[i]));
+             stream.writeAttribute("altM",QString::number(reMorfo.altura[i]/videoLista.escala[contadorDeVideo]));
+             stream.writeAttribute("larP",QString::number(reMorfo.largura[i]));
+             stream.writeAttribute("larM",QString::number(reMorfo.largura[i]/videoLista.escala[contadorDeVideo]));
+             stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i])); //angulo do objeto
+
+
+
+    //         stream.writeAttribute("taP",QString::number(dados->reMorfo.tamanhoObj[i]));
+    //         stream.writeAttribute("taM",QString::number(dados->reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
+
+
+    //         double tamanhoObjeto=0;
+
+    //         tamanhoObjeto= qPow( dados->desenhoSaida.pob2X[i]-dados->desenhoSaida.pob1X[i],2) + qPow( dados->desenhoSaida.pob2Y[i]-dados->desenhoSaida.pob1Y[i],2);
+    //         tamanhoObjeto = qSqrt(tamanhoObjeto);
+
+    //         stream.writeAttribute("taM1", QString::number(tamanhoObjeto/videoLista.escala[contadorDeVideo]));
+
+
+    //         //novo
+
+
+
+
+
+             stream.writeAttribute("Var",QString::number(reCinema.varArea[i]));
+             stream.writeAttribute("Vd",QString::number(reCinema.varDistancia[i]));
+             stream.writeAttribute("Valt",QString::number(reCinema.varAltura[i]));
+             stream.writeAttribute("Vlar",QString::number(reCinema.varLargura[i]));
+
+             stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
+
+
+             std::vector<float> varAltura;
+             std::vector<float> varLargura;
+
+             if(reCinema.ruidoMaxVaria[i]){
+                 stream.writeAttribute("rMinV","true");
+
+             }else{
+                 stream.writeAttribute("rMinV","false");
+             }
+             if(reMorfo.objetoEncontrado[i]){
+
+                 stream.writeAttribute("OE","true");
+
+             }else{
+
+                 stream.writeAttribute("OE","false");
+             }
+
+
+
+             stream.writeEndElement(); //fecha proce
+
+             }
          }
-         if(reMorfo.objetoEncontrado[i]){
 
-             stream.writeAttribute("OE","true");
 
-         }else{
 
-             stream.writeAttribute("OE","false");
+     }else{ //caso nao tenha selecionado gravar o video com o processamento
+
+         for(int i=0; i<  reMorfo.area.size();i++){
+
+             if(matObjDentro[ka][i]){
+
+             stream.writeStartElement("proce");
+             fraNumero=i+ videoLista.frameProces[contadorDeVideo];
+
+             stream.writeAttribute("f",QString::number(fraNumero));
+             stream.writeAttribute("arP",QString::number(reMorfo.area[i]));
+             stream.writeAttribute("arM",QString::number(reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
+             stream.writeAttribute("ceX",QString::number(reMorfo.centroidX[i]));
+             stream.writeAttribute("ceY",QString::number(reMorfo.centroidY[i]));
+             stream.writeAttribute("altP",QString::number(reMorfo.altura[i]));
+             stream.writeAttribute("altM",QString::number(reMorfo.altura[i]/videoLista.escala[contadorDeVideo]));
+             stream.writeAttribute("larP",QString::number(reMorfo.largura[i]));
+             stream.writeAttribute("larM",QString::number(reMorfo.largura[i]/videoLista.escala[contadorDeVideo]));
+             stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i])); //angulo do objeto
+
+
+
+    //         stream.writeAttribute("taP",QString::number(dados->reMorfo.tamanhoObj[i]));
+    //         stream.writeAttribute("taM",QString::number(dados->reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
+
+
+    //         double tamanhoObjeto=0;
+
+    //         tamanhoObjeto= qPow( dados->desenhoSaida.pob2X[i]-dados->desenhoSaida.pob1X[i],2) + qPow( dados->desenhoSaida.pob2Y[i]-dados->desenhoSaida.pob1Y[i],2);
+    //         tamanhoObjeto = qSqrt(tamanhoObjeto);
+
+    //         stream.writeAttribute("taM1", QString::number(tamanhoObjeto/videoLista.escala[contadorDeVideo]));
+
+
+    //         //novo
+
+
+
+
+
+             stream.writeAttribute("Var",QString::number(reCinema.varArea[i]));
+             stream.writeAttribute("Vd",QString::number(reCinema.varDistancia[i]));
+             stream.writeAttribute("Valt",QString::number(reCinema.varAltura[i]));
+             stream.writeAttribute("Vlar",QString::number(reCinema.varLargura[i]));
+
+             stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
+
+
+             std::vector<float> varAltura;
+             std::vector<float> varLargura;
+
+             if(reCinema.ruidoMaxVaria[i]){
+                 stream.writeAttribute("rMinV","true");
+
+             }else{
+                 stream.writeAttribute("rMinV","false");
+             }
+             if(reMorfo.objetoEncontrado[i]){
+
+                 stream.writeAttribute("OE","true");
+
+             }else{
+
+                 stream.writeAttribute("OE","false");
+             }
+
+
+
+             stream.writeEndElement(); //fecha proce
+
+             }
          }
 
 
-
-         stream.writeEndElement(); //fecha proce
-
-         }
      }
 
 
-     qDebug()<<"oi 4";
+
+
 
 //     etografia.framFim;
 //    for(int i=0;i<etografia.quantidadeDepontos;i++){
@@ -2074,11 +2519,234 @@ void telaTempoReal::on_pbSaveTraking_clicked()
     stream.writeEndDocument();
 
 
-    OutEtografia2.close();
-qDebug()<<"oi 5";
+    OutEtografia.close();
+
+    //converte o xml para csv
+    parser = new parserXMLtoCSV();
+    parser->converteArquivo(nomeGravarProcesImagem);
 
 
      }
+//    nomeGravarProcesImagem = QFileDialog::getSaveFileName(
+//                this,
+//                tr("Save File"),
+//                "C://",
+//               "Traking Files (*.tkin)"
+//               );
+
+
+
+//    qDebug()<<"oi 1";
+
+//    enconPontoArea();
+
+//    qDebug()<<"oi 2";
+
+//    if(!nomeGravarProcesImagem.isEmpty()){
+//    OutEtografia2.setFileName(nomeGravarProcesImagem);
+
+//    qDebug()<<"oi 2.1";
+//    OutEtografia2.open(QIODevice::WriteOnly);
+//    qDebug()<<"oi 2.1.a";
+//    QXmlStreamWriter stream(&OutEtografia2); //passa o endereço
+//    qDebug()<<"oi 2.1.b";
+//    stream.setAutoFormatting(true);
+
+//    qDebug()<<"oi 2.1.c";
+//    stream.writeStartDocument();//começa o documento
+//    stream.writeStartElement("analiseProcessaImage");
+//    stream.writeStartElement("dadosExperimentador");
+//             stream.writeTextElement("experimentador",experimentador.nome);
+//             stream.writeTextElement("laboratorio",experimentador.lab);
+//    stream.writeEndElement();//fecha analiseEtografica
+
+//     qDebug()<<"oi 2.1.d";
+//    stream.writeStartElement("dadosVideoAnalisado");
+//             stream.writeTextElement("nomeVxml",videoLista.nomeVXML[contadorDeVideo]);
+//             stream.writeTextElement("frameInicial",QString::number(videoLista.frameInicial[contadorDeVideo]));
+//             stream.writeTextElement("frameBack",QString::number(videoLista.frameBack[contadorDeVideo]));
+//             stream.writeTextElement("frameProces",QString::number(videoLista.frameProces[contadorDeVideo]));
+//             stream.writeTextElement("frameFinal",QString::number(videoLista.frameFinal[contadorDeVideo]));
+//             stream.writeTextElement("escala",QString::number(videoLista.escala[contadorDeVideo]));
+//              stream.writeTextElement("fps",QString::number(videoLista.fps[contadorDeVideo]));
+//    stream.writeEndElement();//fecha informacoes
+
+//    qDebug()<<"oi 2.1.e";
+
+//    stream.writeStartElement("dadosCatalago");
+//    stream.writeTextElement("nomeCaminhoExt", nomeGravarCatalago);
+
+
+
+//     qDebug()<<"oi 2.2";
+//    stream.writeStartElement("Categorias");
+//    int contador=0;
+
+//    for(int i=0;i<cAnaEto.quantidadeDeDados;i++){
+
+//       stream.writeStartElement("categoria");
+//       stream.writeAttribute("id", QString::number(i));
+//       stream.writeAttribute("nome",cAnaEto.nomeCategoria[i]);
+//       stream.writeEndElement();
+
+//       }
+//    stream.writeEndElement();
+
+
+//    qDebug()<<"oi 2.3";
+//    stream.writeStartElement("areasDeInteresse");
+
+//    for(int ja=0; ja< videoLista.area[contadorDeVideo].tipo.size(); ja++ ){
+
+//        stream.writeStartElement("infoArea");
+//        stream.writeAttribute("id", QString::number(ja));
+//        stream.writeTextElement("figName",videoLista.area[contadorDeVideo].nomeFig[ja]);
+//        if(videoLista.area[contadorDeVideo].tipo[ja]=="circle"){
+
+//        stream.writeTextElement("tipoArea",videoLista.area[contadorDeVideo].tipo[ja]);
+//        stream.writeTextElement("centX",QString::number(videoLista.area[contadorDeVideo].oriX[ja]));
+//        stream.writeTextElement("centY",QString::number(videoLista.area[contadorDeVideo].oriY[ja]));
+
+//        stream.writeTextElement("raio",QString::number(videoLista.area[contadorDeVideo].raio[conCir2]));
+
+//        conCir2++;
+
+//        }else{
+//            stream.writeTextElement("tipoArea",videoLista.area[contadorDeVideo].tipo[ja]);
+//            stream.writeTextElement("centX",QString::number(videoLista.area[contadorDeVideo].oriX[ja]));
+//            stream.writeTextElement("centY",QString::number(videoLista.area[contadorDeVideo].oriY[ja]));
+
+//            stream.writeTextElement("width",QString::number(videoLista.area[contadorDeVideo].width[conRet2]));
+//            stream.writeTextElement("heigth",QString::number(videoLista.area[contadorDeVideo].height[conRet2]));
+//        conRet2++;
+
+//        }
+//        //stream.writeTextElement("centX",QString::number(videoLista.area[contadorDeVideo].oriX[ja]));
+//        //        stream.writeAttribute("tipo",videoLista.area[contadorDeVideo].oriX[ja];
+//        stream.writeEndElement();
+
+//    }
+
+
+//     stream.writeEndElement(); //fecha caminho Ext
+
+
+//    stream.writeEndElement();//fecha Categorias
+//   // stream.writeEndElement();//fecha dadosCatalago
+
+//    stream.writeStartElement("dadosAnalise");
+
+//    if(ui->cbAuto->isChecked()){
+
+//        stream.writeTextElement("tipoAnalise","Autoesclusiva" );
+//    }else{
+
+//         stream.writeTextElement("tipoAnalise","sobreposta" );
+//    }
+
+////    if(ui->cbNested->isChecked()){
+////     stream.writeTextElement("tipoAnalise","sobreposta" );
+////    }
+
+
+//     stream.writeStartElement("anaProceImagem");
+
+
+//     for(int ka=0; ka< videoLista.area[contadorDeVideo].oriX.size(); ka++ ){
+
+
+
+//     stream.writeStartElement("area");
+
+
+//     stream.writeAttribute("id",QString::number(ka));
+
+//      qDebug()<<"oi 3";
+
+//     //stream.writeAttribute("");
+//     int fraNumero=0;
+//     for(int i=0; i< reMorfo.area.size();i++){
+
+//         if(matObjDentro[ka][i]){
+
+//         stream.writeStartElement("proce");
+//         fraNumero=i+ videoLista.frameProces[contadorDeVideo];
+
+//         stream.writeAttribute("f",QString::number(fraNumero));
+//         stream.writeAttribute("arP",QString::number(reMorfo.area[i]));
+//         stream.writeAttribute("arM",QString::number(reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
+//         stream.writeAttribute("ceX",QString::number(reMorfo.centroidX[i]));
+//         stream.writeAttribute("ceY",QString::number(reMorfo.centroidY[i]));
+//         stream.writeAttribute("taP",QString::number(reMorfo.tamanhoObj[i]));
+//         stream.writeAttribute("taM",QString::number(reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
+//         stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i]));
+
+//         stream.writeAttribute("Var",QString::number(reCinema.varArea[i]));
+//         stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
+//         stream.writeAttribute("Vd",QString::number(reCinema.varDistancia[i]));
+//         stream.writeAttribute("VtoP",QString::number(reCinema.varTamObjeto[i]));
+
+//         if(reCinema.ruidoMaxVaria[i]){
+//             stream.writeAttribute("rMV","true");
+
+//         }else{
+//             stream.writeAttribute("rMV","false");
+//         }
+//         if(reMorfo.objetoEncontrado[i]){
+
+//             stream.writeAttribute("OE","true");
+
+//         }else{
+
+//             stream.writeAttribute("OE","false");
+//         }
+
+
+
+//         stream.writeEndElement(); //fecha proce
+
+//         }
+//     }
+
+
+//     qDebug()<<"oi 4";
+
+////     etografia.framFim;
+////    for(int i=0;i<etografia.quantidadeDepontos;i++){
+
+////       stream.writeStartElement("analise");
+////       stream.writeAttribute("ponto", QString::number(i));
+////       stream.writeAttribute("id", QString::number(etografia.id[i]));
+////       stream.writeAttribute("frameInicial", QString::number( etografia.frameComeco[i]));
+
+////       stream.writeAttribute("frameFinal", QString::number(etografia.framFim[i]));
+
+////        stream.writeEndElement(); //fecha analise
+
+////        }
+
+
+
+//     stream.writeEndElement();//fecha analises
+
+//     }
+
+//    stream.writeEndElement();//fecha area
+//    stream.writeEndElement();// fecha dadosAnalise
+
+
+
+
+
+//    stream.writeEndElement();//fecha analiseEtografica
+//    stream.writeEndDocument();
+
+
+//    OutEtografia2.close();
+//qDebug()<<"oi 5";
+
+
+//     }
 }
 
 void telaTempoReal::on_pbGravaRelatorioFPS_clicked()
@@ -2276,8 +2944,9 @@ void telaTempoReal::on_cbNested_clicked(bool checked)
 
 void telaTempoReal::slotMapeado(int a)
 {
+    chNovoValor=true;
     //frame_atual = ui->labelFrames->text().toDouble();
-    double finalframe1 = 1000; //videoLista.frameFinal[0];
+    double finalframe1 =1000;// videoLista.frameFinal[0];
 
     //escolheSelecao=false; //true é auto
     //false nested
@@ -2326,97 +2995,477 @@ void telaTempoReal::slotMapeado(int a)
         }
     }else{ //se for apenas um botao por vez (auto esclusivo
 
-        //encontra o botão precionado
-        for(int i=0; i<numeroDeBotoes; i++){
-            if(i==a){
 
-                //diferencia se o botão esta clicado esta release
-                if(!clicado[i]){
-                    clicado[i]=true;
-                    buttonList[i]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
-                    buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")" +" (Marking)");
+        //nenhum botão precionado
+        //algum botão precionado
+        //precionado outro botão
 
-                    //dados
-                    saida.id.push_back(a);
-                    saida.frameComeco.push_back( frame_atual);
-                    //dados
-                    //saida.frameFinalBuffer[i]=frame_atual;
-                    saida.framFim.push_back(finalframe1);
-                    saida.pontosPostos[i]=count;
-                    count++;
-                    saida.quantidadeDepontos= count;
 
-                }else {
-                    clicado[i]=false;
-                    // for(int k=0;k<numeroDeBotoes;k++){
-                    buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
-                    buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")" +" (Ready)");
 
-                    saida.frameFinalBuffer[i]=frame_atual;
-                    //if(botaoJaClicado){
-                    int valorSaida;
-                    valorSaida= saida.pontosPostos[i];
-                    //dados
-                    saida.framFim[valorSaida]=frame_atual;
-                    //dados
+        if((compAnterior==-1) || (chCorrigir)){ //para o primeiro comportamento
+
+            for(int i=0; i<numeroDeBotoes; i++){
+                clicado[i]=false;
+                buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+                buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
+                buttonList[i]->setEnabled(true);
+
+            }
+
+
+            for(int i=0; i<numeroDeBotoes; i++){
+                if(i==a){
+
+                    //diferencia se o botão esta clicado esta release
+                    if(!clicado[i]){
+                        clicado[i]=true;
+                        buttonList[i]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
+                        buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
+                        buttonList[i]->setEnabled(false);
+
+                        //dados
+                        saida.id.push_back(a);
+                        saida.frameComeco.push_back( frame_atual);
+                        //dados
+                        //saida.frameFinalBuffer[i]=frame_atual;
+                        saida.framFim.push_back(finalframe1);
+                        saida.pontosPostos[i]=count;
+                        count++;
+                        saida.quantidadeDepontos= count;
+                        compAnterior=a;
+                        contAtivoReg++;
+
+                    }else {
+                        clicado[i]=false;
+                        // for(int k=0;k<numeroDeBotoes;k++){
+                        buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+                        buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")");
+                        buttonList[i]->setEnabled(true);
+
+                        saida.frameFinalBuffer[i]=frame_atual;
+                        //if(botaoJaClicado){
+                        int valorSaida;
+                        valorSaida= saida.pontosPostos[i];
+                        //dados
+                        saida.framFim[valorSaida]=frame_atual;
+                        //dados
+
+                    }
 
                 }
 
             }
 
-        }
 
-        if(habilita){
-            habilita=false;
-            for(int k=0;k<numeroDeBotoes;k++){
-                if(k==a){
-                    //clicado[k]=true;
-                    buttonList[k]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
-                    buttonList[k]->setText(nomeCate[k] +"(" + cAnaEto.atalho[k] +")" + " (Marking)");
-                    buttonList[k]->setEnabled(true);
+
+
+        }else{ //para os demais comportamentos
+
+            //primeiro tem que encerrar o comportamento anterior
+
+
+//            for(int i=0; i<numeroDeBotoes; i++){
+
+//                 if(compAnterior==i){
+
+
+
+
+//                 }
+
+
+
+//            }
+
+            contAtivoReg++;
+
+//            if(chCorrigir){
+//               for(int i=0; i<numeroDeBotoes; i++){
+//                   clicado[i]=false;
+//                   buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+//                   buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
+//                   buttonList[i]->setEnabled(true);
+
+//               }
+
+//            }
+
+            //clicado[compAnterior]=false;
+            //if(!chCorrigir){
+
+                //logica para o botão que tinha sido apertado anteriormente
+            clicado[compAnterior]=false;
+                // for(int k=0;k<numeroDeBotoes;k++){
+    //            buttonList[compAnterior]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+    //            buttonList[compAnterior]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")");
+    //            buttonList[compAnterior]->setEnabled(true);
+
+                saida.frameFinalBuffer[compAnterior]=frame_atual;
+                //if(botaoJaClicado){
+                int valorSaida;
+                valorSaida= saida.pontosPostos[compAnterior];
+                //dados
+                saida.framFim[valorSaida]=frame_atual;
+                qDebug()<< "id " << saida.id[valorSaida] << "inicio "<< saida.frameComeco[valorSaida] << "saida " <<saida.framFim[valorSaida];
+
+
+
+           // }
+          //  chCorrigir=false; //para nao permitir a parte do codigo de cima rodar
+                              //eh usado para nao deixar
+
+
+
+
+            //logica para o botão apertado
+            clicado[a]=true;
+//            buttonList[a]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
+//            buttonList[a]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")" +" (Marking)");
+//            buttonList[a]->setEnabled(false);
+
+            //dados
+            saida.id.push_back(a);
+            saida.frameComeco.push_back( frame_atual);
+            //dados
+            //saida.frameFinalBuffer[i]=frame_atual;
+            saida.framFim.push_back(finalframe1);
+            saida.pontosPostos[a]=count;
+            count++;
+            saida.quantidadeDepontos= count;
+            compAnterior=a;
+
+
+
+
+            for(int i=0; i<numeroDeBotoes; i++){
+
+                if(clicado[i]){
+
+                    buttonList[i]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
+                    buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
+                    buttonList[i]->setEnabled(false);
+
+
 
                 }else{
-                    //clicado[k]=false;
-                    buttonList[k]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
-                    buttonList[k]->setText(nomeCate[k]+ "(" + cAnaEto.atalho[k] +")" +" (blocked)");
-                    buttonList[k]->setEnabled(false);
 
+                    buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+                    buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
+                    buttonList[i]->setEnabled(true);
                 }
+
             }
 
-        } else {
-            habilita=true;
-            for(int k=0;k<numeroDeBotoes;k++){
-                //clicado[k]=true; /fase
-                buttonList[k]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
-                buttonList[k]->setText(nomeCate[k]+ "(" + cAnaEto.atalho[k] +")"+" (ready)");
-                buttonList[k]->setEnabled(true);
-            }
+
+//            for(int i=0; i<numeroDeBotoes; i++){
+//                if(i==a){
+
+//                    //diferencia se o botão esta clicado esta release
+//                    if(!clicado[i]){
+//                        clicado[i]=true;
+//                        buttonList[i]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
+//                        buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")" +" (Marking)");
+//                        buttonList[i]->setEnabled(false);
+
+//                        //dados
+//                        saida.id.push_back(a);
+//                        saida.frameComeco.push_back( frame_atual);
+//                        //dados
+//                        //saida.frameFinalBuffer[i]=frame_atual;
+//                        saida.framFim.push_back(finalframe1);
+//                        saida.pontosPostos[i]=count;
+//                        count++;
+//                        saida.quantidadeDepontos= count;
+//                        compAnterior=a;
+
+//                    }else {
+//                        clicado[i]=false;
+//                        // for(int k=0;k<numeroDeBotoes;k++){
+//                        buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+//                        buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")");
+//                        buttonList[i]->setEnabled(true);
+
+//                        saida.frameFinalBuffer[i]=frame_atual;
+//                        //if(botaoJaClicado){
+//                        int valorSaida;
+//                        valorSaida= saida.pontosPostos[i];
+//                        //dados
+//                        saida.framFim[valorSaida]=frame_atual;
+//                        //dados
+
+//                    }
+
+//                }
+
+//            }
+
+
+
+
+
+
+
+
+
         }
 
+        chCorrigir=false;
+
+//faz os controlador ficare enabled
+            //pq sao setados false quando é excluido algum ponto
+        //ui->widControes->setEnabled(true);
+     //   ui->widControle1->setEnabled(true);
+
+
+
+    }//fim da logica para botões auto-exclusivos
 
 
 
 
-    }
+
+
+        //encontra o botão precionado
+//        for(int i=0; i<numeroDeBotoes; i++){
+//            if(i==a){
+
+//                //diferencia se o botão esta clicado esta release
+//                if(!clicado[i]){
+//                    clicado[i]=true;
+//                    buttonList[i]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
+//                    buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")" +" (Marking)");
+
+//                    //dados
+//                    saida.id.push_back(a);
+//                    saida.frameComeco.push_back( frame_atual);
+//                    //dados
+//                    //saida.frameFinalBuffer[i]=frame_atual;
+//                    saida.framFim.push_back(finalframe1);
+//                    saida.pontosPostos[i]=count;
+//                    count++;
+//                    saida.quantidadeDepontos= count;
+//                    compAnterior=a;
+
+//                }else {
+//                    clicado[i]=false;
+//                    // for(int k=0;k<numeroDeBotoes;k++){
+//                    buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+//                    buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")" +" (Ready)");
+
+//                    saida.frameFinalBuffer[i]=frame_atual;
+//                    //if(botaoJaClicado){
+//                    int valorSaida;
+//                    valorSaida= saida.pontosPostos[i];
+//                    //dados
+//                    saida.framFim[valorSaida]=frame_atual;
+//                    //dados
+
+//                }
+
+//            }
+
+//        }
+
+
+        //controla as propiedade dos bo~toes
+
+//        if(habilita){
+//            habilita=false;
+//            for(int k=0;k<numeroDeBotoes;k++){
+//                if(k==a){
+//                    //clicado[k]=true;
+//                    buttonList[k]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
+//                    buttonList[k]->setText(nomeCate[k] +"(" + cAnaEto.atalho[k] +")" + " (Marking)");
+//                    buttonList[k]->setEnabled(true);
+
+//                }else{
+//                    //clicado[k]=false;
+//                    buttonList[k]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
+//                    buttonList[k]->setText(nomeCate[k]+ "(" + cAnaEto.atalho[k] +")" +" (blocked)");
+//                    buttonList[k]->setEnabled(false);
+
+//                }
+//            }
+
+//        } else {
+//            habilita=true;
+//            for(int k=0;k<numeroDeBotoes;k++){
+//                //clicado[k]=true; /fase
+//                buttonList[k]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+//                buttonList[k]->setText(nomeCate[k]+ "(" + cAnaEto.atalho[k] +")"+" (ready)");
+//                buttonList[k]->setEnabled(true);
+//            }
+//        }
+
+
+
+
+
+   // } //fim da logica para botões auto-exclusivos
 
 
     //ve se algum botão esta ativado
 
     bool chEditaOn=true;
 
-    for(int ka=0; ka <numeroDeBotoes;ka++){
+//    for(int ka=0; ka <numeroDeBotoes;ka++){
 
-        if(clicado[ka]){
+//        if(clicado[ka]){
 
-            chEditaOn=false;
-           // break;
+//            chEditaOn=false;
+//           // break;
 
-        }
+//        }
 
-    }
+//    }
 
     ui->tabButtons->setTabEnabled(1,chEditaOn);
+
+
+
+
+    //fim do antigo
+//    //frame_atual = ui->labelFrames->text().toDouble();
+//    double finalframe1 = 1000; //videoLista.frameFinal[0];
+
+//    //escolheSelecao=false; //true é auto
+//    //false nested
+//    if(!escolheSelecao){ //se pode clicar mais de um botão por vez
+//        for(int i=0; i<numeroDeBotoes; i++){
+//            if(i==a){
+
+//                if(!clicado[i]){
+//                    //se o botão nao estiver clicado
+//                    clicado[i]=true;
+//                    buttonList[i]->setStyleSheet("background-color: yellow;""color: blue;" "font: bold;");
+//                    buttonList[i]->setText(nomeCate[i]+ "(" + cAnaEto.atalho[i] +")" + " (Marking)");
+
+//                    //criando novo ponto apos clique
+//                    saida.id.push_back(a);
+//                    saida.frameComeco.push_back( frame_atual);
+//                    //saida.frameFinalBuffer[i]=frame_atual;
+//                    saida.framFim.push_back(finalframe1);
+//                    saida.pontosPostos[i]=count;
+//                    count++;
+
+//                    saida.quantidadeDepontos=count;
+
+
+
+//                }else {
+//                    //se o posição estiver clicado
+//                    clicado[i]=false;
+//                    // for(int k=0;k<numeroDeBotoes;k++){
+//                    buttonList[i]->setStyleSheet("background-color: green;""color: black; " "font: bold;");
+//                    buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")" +" (Ready)");
+//                    //saida.frameComeco.push_back(frame_atual);
+//                    //    }
+
+//                    saida.frameFinalBuffer[i]=frame_atual;
+//                    //if(botaoJaClicado){
+//                    int valorSaida;
+//                    valorSaida= saida.pontosPostos[i];
+//                    saida.framFim[valorSaida]=frame_atual;
+//                    //}
+//                    //        saida.frameFinalBuffer[i]=frame_atual;
+//                }
+//            }
+
+
+//        }
+//    }else{ //se for apenas um botao por vez (auto esclusivo
+
+//        //encontra o botão precionado
+//        for(int i=0; i<numeroDeBotoes; i++){
+//            if(i==a){
+
+//                //diferencia se o botão esta clicado esta release
+//                if(!clicado[i]){
+//                    clicado[i]=true;
+//                    buttonList[i]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
+//                    buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")" +" (Marking)");
+
+//                    //dados
+//                    saida.id.push_back(a);
+//                    saida.frameComeco.push_back( frame_atual);
+//                    //dados
+//                    //saida.frameFinalBuffer[i]=frame_atual;
+//                    saida.framFim.push_back(finalframe1);
+//                    saida.pontosPostos[i]=count;
+//                    count++;
+//                    saida.quantidadeDepontos= count;
+
+//                }else {
+//                    clicado[i]=false;
+//                    // for(int k=0;k<numeroDeBotoes;k++){
+//                    buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+//                    buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")" +" (Ready)");
+
+//                    saida.frameFinalBuffer[i]=frame_atual;
+//                    //if(botaoJaClicado){
+//                    int valorSaida;
+//                    valorSaida= saida.pontosPostos[i];
+//                    //dados
+//                    saida.framFim[valorSaida]=frame_atual;
+//                    //dados
+
+//                }
+
+//            }
+
+//        }
+
+//        if(habilita){
+//            habilita=false;
+//            for(int k=0;k<numeroDeBotoes;k++){
+//                if(k==a){
+//                    //clicado[k]=true;
+//                    buttonList[k]->setStyleSheet("background-color: yellow;""color: black;" "font: bold;");
+//                    buttonList[k]->setText(nomeCate[k] +"(" + cAnaEto.atalho[k] +")" + " (Marking)");
+//                    buttonList[k]->setEnabled(true);
+
+//                }else{
+//                    //clicado[k]=false;
+//                    buttonList[k]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
+//                    buttonList[k]->setText(nomeCate[k]+ "(" + cAnaEto.atalho[k] +")" +" (blocked)");
+//                    buttonList[k]->setEnabled(false);
+
+//                }
+//            }
+
+//        } else {
+//            habilita=true;
+//            for(int k=0;k<numeroDeBotoes;k++){
+//                //clicado[k]=true; /fase
+//                buttonList[k]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+//                buttonList[k]->setText(nomeCate[k]+ "(" + cAnaEto.atalho[k] +")"+" (ready)");
+//                buttonList[k]->setEnabled(true);
+//            }
+//        }
+
+
+
+
+
+//    }
+
+
+//    //ve se algum botão esta ativado
+
+//    bool chEditaOn=true;
+
+//    for(int ka=0; ka <numeroDeBotoes;ka++){
+
+//        if(clicado[ka]){
+
+//            chEditaOn=false;
+//           // break;
+
+//        }
+
+//    }
+
+//    ui->tabButtons->setTabEnabled(1,chEditaOn);
 
 
 }
@@ -2459,6 +3508,32 @@ void telaTempoReal::on_tabButtons_tabBarClicked(int index)
 
         }
 
+        for(int ka=0; ka< ui->tabRegistro->rowCount();ka++ ){
+
+    //                ui->tabRegistro->setRowCount(ka);
+    //                ui->tabRegistro->setColumnCount(1);
+    //                ui->tabRegistro->setItem();
+
+//            ui->tabRegistro->insertRow(ui->tabRegistro->rowCount());
+            ui->tabRegistro->setItem (ka,0,new QTableWidgetItem(
+                                         cAnaEto.nomeCategoria[saida.id[ka]] ) );
+            ui->tabRegistro->setItem(ka,1,new QTableWidgetItem(QString::number(vetorTempoFrame[saida.frameComeco[ka]]
+                                     -vetorTempoFrame[frameInicioRegistro])));
+            ui->tabRegistro->setItem(ka,2,new QTableWidgetItem(QString::number(vetorTempoFrame[saida.framFim[ka]]
+                                     -vetorTempoFrame[frameInicioRegistro])));
+
+          //  saida.chPontoValido.push_back(true);
+
+
+            //configurando TableWidget
+            ui->tabRegistro->resizeColumnsToContents();
+            ui->tabRegistro->clearSelection();
+            ui->tabRegistro->clearFocus();
+
+
+
+        }
+
 
 
     }
@@ -2467,6 +3542,7 @@ void telaTempoReal::on_tabButtons_tabBarClicked(int index)
 void telaTempoReal::on_pbEtographyStart_clicked()
 {
     //qDebug()<<"inicialixou aa";
+    ui->pbEtographyStart->setEnabled(false);
     if(ui->chAImage->isChecked()){
 
           ui->tabWControlador->setCurrentIndex(0);
@@ -2484,16 +3560,17 @@ void telaTempoReal::on_pbEtographyStart_clicked()
         frameInicioRegistro =frame_atual;
 
 
+
         if(ui->cbProcessInagem->isChecked()){
             //se esta habilitado o processamento de imagem
             ui->pushButton_4->clicked();
         }
 
-        if(ui->cbCapturaVideo->isChecked()){
+//        if(ui->cbCapturaVideo->isChecked()){
 
-            ui->pbStarrFilming->click();
+//            ui->pbStarrFilming->click();
 
-        }
+//        }
 
         //ui->lblEtogrStar->setText(QString::number(vetorTempoFrame[frameInicioRegistro]));
 
@@ -2531,9 +3608,10 @@ void telaTempoReal::atualizaContadorRegistro()
 
     if(primeiraB){
 
-        ui->lblEtogrStar->setText(QString::number(vetorTempoFrame[frameInicioRegistro]));
+        ui->lblEtogrStar->setText("Tempo inicial do processamento " + QString::number(vetorTempoFrame[frameInicioRegistro]) + " s");
         primeiraB=false;
     }
+    atualizaRegistro();
 
 
 
@@ -2546,6 +3624,12 @@ void telaTempoReal::on_pbLerArquivoVxml_clicked(bool checked)
 
 void telaTempoReal::on_pbEtographyEnd_clicked()
 {
+
+
+
+    saida.framFim[saida.framFim.size()-1] = frame_atual-1;
+    //vetorTempoFrame[saida.quantidadeDepontos-1] = tresposta;
+    atualizaRegistro();
     ui->pbEtographyStart->setEnabled(false);
     ui->pbGravarAnalasiteEtografica->setEnabled(true);
 
@@ -2553,8 +3637,14 @@ void telaTempoReal::on_pbEtographyEnd_clicked()
     ui->tabButtons->setTabEnabled(0,false);
     ui->tabButtons->setTabEnabled(1,false);
 
-    if(!ui->chAImage->isChecked()){
+    if(!ui->chAImage->isChecked()){//entra quando s[p esta selecionado par aetografia
         tempoLerFrame->stop();
+
+
+    }else{
+
+        ui->pbStoCap->click();
+
     }
 
     if(ui->cbCapturaVideo->isChecked()){
@@ -2574,11 +3664,21 @@ void telaTempoReal::on_pbEtographyEnd_clicked()
 
     }
 
+    if(ui->chAImage->isChecked()){
+        ui->pbStoCap->click();
+        cv::waitKey(20);
+
+    }
+
 
 }
 
 void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 {
+
+
+
+
     nomeGravarEtografia = QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
@@ -2589,10 +3689,24 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 
 
  if(!nomeGravarEtografia.isEmpty()){
-  // ui->pbGravarAnalasiteEtografica->setEnabled(false);
+//  // ui->pbGravarAnalasiteEtografica->setEnabled(false);
+
+//     if(ui->chAImage->isChecked()){ //se esta setado para capturar imagem ou não
 
 
-     if(!ui->cbCapturaVideo->isChecked()){
+
+
+
+//     }else{
+
+
+
+//     }
+
+
+
+
+     if(!ui->cbCapturaVideo->isChecked()){ // quano não tem captura de video //só real time catalogo
 
          OutEtografia.setFileName(nomeGravarEtografia);
 
@@ -2611,10 +3725,10 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 
          stream.writeStartElement("dadosVideoAnalisado");
                //   stream.writeTextElement("nomeVxml",videoLista.nomeVXML[contadorDeVideo]);
-                  stream.writeTextElement("frameInicial",QString::number(vetorTempoFrame[frameInicioRegistro]));
+                  stream.writeTextElement("frameInicial", "0");//QString::number(vetorTempoFrame[frameInicioRegistro]));
                   stream.writeTextElement("frameProces",QString::number(vetorTempoFrame[frameInicioRegistro]));
                   stream.writeTextElement("frameFinal", ui->lblTime->text()); //QString::number(vetorTempoFrame[vetorTempoFrame.size()-1]));
-                  stream.writeTextElement("fps",QString::number(1));
+                  stream.writeTextElement("fps",QString::number(1)); //fps de 10ms
          stream.writeEndElement();//fecha informacoes
 
          stream.writeStartElement("dadosCatalago");
@@ -2708,6 +3822,8 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 
 
          OutEtografia.close();
+         parser = new parserXMLtoCSV();
+         parser->converteArquivo(nomeGravarEtografia);
 
 
 
@@ -2744,8 +3860,8 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
         stream.writeStartElement("dadosVideoAnalisado");
                  stream.writeTextElement("nomeVxml",nomeArquivo);
                  stream.writeTextElement("frameInicial",QString::number(0));
-                 stream.writeTextElement("frameProces",QString::number(frameInicioGravacao));
-                 stream.writeTextElement("frameFinal", ui->lblNumeroFilmin->text());  //QString::number(videoLista.frameFinal[contadorDeVideo]));
+                 stream.writeTextElement("frameProces",QString::number(frameInicioRegistro-frameInicioGravacao));
+                 stream.writeTextElement("frameFinal", QString::number(saida.framFim[saida.framFim.size()-1]-frameInicioGravacao));
                  stream.writeTextElement("fps", ui->leFps->text() ); //QString::number(videoLista.fps[contadorDeVideo]));
         stream.writeEndElement();//fecha informacoes
 
@@ -2799,8 +3915,8 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
                     stream.writeStartElement("analise");
                     stream.writeAttribute("ponto", QString::number(contEx));
                     stream.writeAttribute("id", QString::number(saida.id[i]));
-                    stream.writeAttribute("frameInicial", QString::number( saida.frameComeco[i]));
-                    stream.writeAttribute("frameFinal", QString::number(saida.framFim[i]));
+                    stream.writeAttribute("frameInicial", QString::number( saida.frameComeco[i]-frameInicioRegistro-frameInicioGravacao));
+                    stream.writeAttribute("frameFinal", QString::number(saida.framFim[i]-frameInicioRegistro-frameInicioGravacao));
 
                      stream.writeEndElement(); //fecha analise
 
@@ -2812,8 +3928,8 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
                 stream.writeStartElement("analise");
                 stream.writeAttribute("ponto", QString::number(contEx));
                 stream.writeAttribute("id", QString::number(saida.id[i]));
-                stream.writeAttribute("frameInicial", QString::number( saida.frameComeco[i]));
-                stream.writeAttribute("frameFinal", QString::number(saida.framFim[i]));
+                stream.writeAttribute("frameInicial", QString::number( saida.frameComeco[i]-frameInicioRegistro-frameInicioGravacao));
+                stream.writeAttribute("frameFinal", QString::number(saida.framFim[i]-frameInicioRegistro-frameInicioGravacao));
 
                  stream.writeEndElement(); //fecha analise
 
@@ -2840,6 +3956,8 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 
 
         OutEtografia.close();
+        parser = new parserXMLtoCSV();
+        parser->converteArquivo(nomeGravarEtografia);
 
 
 
@@ -2859,10 +3977,12 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 
 void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 {
+    ui->pbStoCap->clicked(); //pausa
+
     nomeGravarProcesImagem = QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
-                "C://",
+                fonteVideoXML,
                "Traking Files (*.tkin)"
                );
 
@@ -2876,7 +3996,7 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
     if(!nomeGravarProcesImagem.isEmpty()){
 
 
-      if( !ui->cbCapturaVideo->isChecked()){
+      if( ui->cbCapturaVideo->isChecked()){
 
           OutEtografia.setFileName(nomeGravarProcesImagem);
 
@@ -2895,9 +4015,9 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
           stream.writeStartElement("dadosVideoAnalisado");
                    stream.writeTextElement("nomeVxml",nomeArquivo);
                    stream.writeTextElement("frameInicial",QString::number(0));
-                   stream.writeTextElement("frameBack",QString::number(0));
-                   stream.writeTextElement("frameProces",QString::number(frameInicioGravacao));
-                   stream.writeTextElement("frameFinal",ui->lblNumero->text());
+                   stream.writeTextElement("frameBack",QString::number(-1));
+                   stream.writeTextElement("frameProces",QString::number(contNumeroGrava-reMorfo.area.size()));
+                   stream.writeTextElement("frameFinal",QString::number(contNumeroGrava));
                    stream.writeTextElement("escala",QString::number(videoLista.escala[contadorDeVideo]));
                     stream.writeTextElement("fps",ui->leFps->text());
                     stream.writeTextElement("tempoTotalProcessamento", ui->lblTime->text());
@@ -2987,20 +4107,31 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
            //stream.writeAttribute("");
            int fraNumero=0;
            qDebug()<<"2";
-           for(int i=0; i< reMorfo.area.size();i++){
+
+           fraNumero= contNumeroGrava - reMorfo.area.size();
+
+
+           for(int i=0; i<  reMorfo.area.size();i++){
 
                if(matObjDentro[ka][i]){
 
                stream.writeStartElement("proce");
-               fraNumero=i+ videoLista.frameProces[contadorDeVideo];
 
                stream.writeAttribute("f",QString::number(fraNumero));
                stream.writeAttribute("arP",QString::number(reMorfo.area[i]));
                stream.writeAttribute("arM",QString::number(reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
                stream.writeAttribute("ceX",QString::number(reMorfo.centroidX[i]));
                stream.writeAttribute("ceY",QString::number(reMorfo.centroidY[i]));
-               stream.writeAttribute("taP",QString::number(reMorfo.tamanhoObj[i]));
-               stream.writeAttribute("taM",QString::number(reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
+               stream.writeAttribute("altP",QString::number(reMorfo.altura[i]));
+               stream.writeAttribute("altM",QString::number(reMorfo.altura[i]/videoLista.escala[contadorDeVideo]));
+               stream.writeAttribute("larP",QString::number(reMorfo.largura[i]));
+               stream.writeAttribute("larM",QString::number(reMorfo.largura[i]/videoLista.escala[contadorDeVideo]));
+               stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i])); //angulo do objeto
+
+
+
+      //         stream.writeAttribute("taP",QString::number(dados->reMorfo.tamanhoObj[i]));
+      //         stream.writeAttribute("taM",QString::number(dados->reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
 
 
       //         double tamanhoObjeto=0;
@@ -3015,18 +4146,24 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 
 
 
-               stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i]));
+
 
                stream.writeAttribute("Var",QString::number(reCinema.varArea[i]));
-               stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
                stream.writeAttribute("Vd",QString::number(reCinema.varDistancia[i]));
-               stream.writeAttribute("VtoP",QString::number(reCinema.varTamObjeto[i]));
+               stream.writeAttribute("Valt",QString::number(reCinema.varAltura[i]));
+               stream.writeAttribute("Vlar",QString::number(reCinema.varLargura[i]));
+
+               stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
+
+
+               std::vector<float> varAltura;
+               std::vector<float> varLargura;
 
                if(reCinema.ruidoMaxVaria[i]){
-                   stream.writeAttribute("rMV","true");
+                   stream.writeAttribute("rMinV","true");
 
                }else{
-                   stream.writeAttribute("rMV","false");
+                   stream.writeAttribute("rMinV","false");
                }
                if(reMorfo.objetoEncontrado[i]){
 
@@ -3042,7 +4179,66 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
                stream.writeEndElement(); //fecha proce
 
                }
+               fraNumero++;
            }
+
+
+//           for(int i=0; i< reMorfo.area.size();i++){
+
+//               if(matObjDentro[ka][i]){
+
+//               stream.writeStartElement("proce");
+//               fraNumero=i+ videoLista.frameProces[contadorDeVideo];
+
+//               stream.writeAttribute("f",QString::number(fraNumero));
+//               stream.writeAttribute("arP",QString::number(reMorfo.area[i]));
+//               stream.writeAttribute("arM",QString::number(reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
+//               stream.writeAttribute("ceX",QString::number(reMorfo.centroidX[i]));
+//               stream.writeAttribute("ceY",QString::number(reMorfo.centroidY[i]));
+//               stream.writeAttribute("taP",QString::number(reMorfo.tamanhoObj[i]));
+//               stream.writeAttribute("taM",QString::number(reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
+
+
+//      //         double tamanhoObjeto=0;
+
+//      //         tamanhoObjeto= qPow( dados->desenhoSaida.pob2X[i]-dados->desenhoSaida.pob1X[i],2) + qPow( dados->desenhoSaida.pob2Y[i]-dados->desenhoSaida.pob1Y[i],2);
+//      //         tamanhoObjeto = qSqrt(tamanhoObjeto);
+
+//      //         stream.writeAttribute("taM1", QString::number(tamanhoObjeto/videoLista.escala[contadorDeVideo]));
+
+
+//      //         //novo
+
+
+
+//               stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i]));
+
+//               stream.writeAttribute("Var",QString::number(reCinema.varArea[i]));
+//               stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
+//               stream.writeAttribute("Vd",QString::number(reCinema.varDistancia[i]));
+//               stream.writeAttribute("VtoP",QString::number(reCinema.varTamObjeto[i]));
+
+//               if(reCinema.ruidoMaxVaria[i]){
+//                   stream.writeAttribute("rMV","true");
+
+//               }else{
+//                   stream.writeAttribute("rMV","false");
+//               }
+//               if(reMorfo.objetoEncontrado[i]){
+
+//                   stream.writeAttribute("OE","true");
+
+//               }else{
+
+//                   stream.writeAttribute("OE","false");
+//               }
+
+
+
+//               stream.writeEndElement(); //fecha proce
+
+//               }
+//           }
 
 
       //     etografia.framFim;
@@ -3077,12 +4273,14 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 
 
           OutEtografia.close();
+          parser = new parserXMLtoCSV();
+          parser->converteArquivo(nomeGravarProcesImagem);
 
 
 
 
 
-        }else{ //se captura de video setado
+        }else{ //se captura de video não esta setado
 
           OutEtografia.setFileName(nomeGravarProcesImagem);
 
@@ -3102,7 +4300,7 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
                    stream.writeTextElement("nomeVxml",nomeArquivo);
                    stream.writeTextElement("frameInicial",QString::number(0));
                    stream.writeTextElement("frameBack",QString::number(0));
-                   stream.writeTextElement("frameProces",QString::number(frameInicioGravacao));
+                   stream.writeTextElement("frameProces",QString::number(ui->lblNumero->text().toDouble()- reMorfo.area.size()));
                    stream.writeTextElement("frameFinal",ui->lblNumero->text());
                    stream.writeTextElement("escala",QString::number(videoLista.escala[contadorDeVideo]));
                     stream.writeTextElement("fps",QString::number(1/(somaTempo/ui->lblNumero->text().toDouble())));
@@ -3191,21 +4389,35 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
            stream.writeAttribute("id",QString::number(ka));
 
            //stream.writeAttribute("");
-           int fraNumero=0;
-           for(int i=0; i< reMorfo.area.size();i++){
+
+
+           int fraNumero= ui->lblNumero->text().toDouble()- reMorfo.area.size();
+           qDebug()<<"2";
+
+           //fraNumero= contNumeroGrava - reMorfo.area.size();
+
+
+           for(int i=0; i<  reMorfo.area.size();i++){
 
                if(matObjDentro[ka][i]){
 
                stream.writeStartElement("proce");
-               fraNumero=i+ videoLista.frameProces[contadorDeVideo];
 
                stream.writeAttribute("f",QString::number(fraNumero));
                stream.writeAttribute("arP",QString::number(reMorfo.area[i]));
                stream.writeAttribute("arM",QString::number(reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
                stream.writeAttribute("ceX",QString::number(reMorfo.centroidX[i]));
                stream.writeAttribute("ceY",QString::number(reMorfo.centroidY[i]));
-               stream.writeAttribute("taP",QString::number(reMorfo.tamanhoObj[i]));
-               stream.writeAttribute("taM",QString::number(reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
+               stream.writeAttribute("altP",QString::number(reMorfo.altura[i]));
+               stream.writeAttribute("altM",QString::number(reMorfo.altura[i]/videoLista.escala[contadorDeVideo]));
+               stream.writeAttribute("larP",QString::number(reMorfo.largura[i]));
+               stream.writeAttribute("larM",QString::number(reMorfo.largura[i]/videoLista.escala[contadorDeVideo]));
+               stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i])); //angulo do objeto
+
+
+
+      //         stream.writeAttribute("taP",QString::number(dados->reMorfo.tamanhoObj[i]));
+      //         stream.writeAttribute("taM",QString::number(dados->reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
 
 
       //         double tamanhoObjeto=0;
@@ -3220,18 +4432,24 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 
 
 
-               stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i]));
+
 
                stream.writeAttribute("Var",QString::number(reCinema.varArea[i]));
-               stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
                stream.writeAttribute("Vd",QString::number(reCinema.varDistancia[i]));
-               stream.writeAttribute("VtoP",QString::number(reCinema.varTamObjeto[i]));
+               stream.writeAttribute("Valt",QString::number(reCinema.varAltura[i]));
+               stream.writeAttribute("Vlar",QString::number(reCinema.varLargura[i]));
+
+               stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
+
+
+               std::vector<float> varAltura;
+               std::vector<float> varLargura;
 
                if(reCinema.ruidoMaxVaria[i]){
-                   stream.writeAttribute("rMV","true");
+                   stream.writeAttribute("rMinV","true");
 
                }else{
-                   stream.writeAttribute("rMV","false");
+                   stream.writeAttribute("rMinV","false");
                }
                if(reMorfo.objetoEncontrado[i]){
 
@@ -3247,7 +4465,68 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
                stream.writeEndElement(); //fecha proce
 
                }
+
+               fraNumero++;
+
+
            }
+//           int fraNumero=0;
+//           for(int i=0; i< reMorfo.area.size();i++){
+
+//               if(matObjDentro[ka][i]){
+
+//               stream.writeStartElement("proce");
+//               fraNumero=i+ videoLista.frameProces[contadorDeVideo];
+
+//               stream.writeAttribute("f",QString::number(fraNumero));
+//               stream.writeAttribute("arP",QString::number(reMorfo.area[i]));
+//               stream.writeAttribute("arM",QString::number(reMorfo.area[i]/(qPow(videoLista.escala[contadorDeVideo],2))));
+//               stream.writeAttribute("ceX",QString::number(reMorfo.centroidX[i]));
+//               stream.writeAttribute("ceY",QString::number(reMorfo.centroidY[i]));
+//               stream.writeAttribute("taP",QString::number(reMorfo.tamanhoObj[i]));
+//               stream.writeAttribute("taM",QString::number(reMorfo.tamanhoObj[i]/videoLista.escala[contadorDeVideo]));
+
+
+//      //         double tamanhoObjeto=0;
+
+//      //         tamanhoObjeto= qPow( dados->desenhoSaida.pob2X[i]-dados->desenhoSaida.pob1X[i],2) + qPow( dados->desenhoSaida.pob2Y[i]-dados->desenhoSaida.pob1Y[i],2);
+//      //         tamanhoObjeto = qSqrt(tamanhoObjeto);
+
+//      //         stream.writeAttribute("taM1", QString::number(tamanhoObjeto/videoLista.escala[contadorDeVideo]));
+
+
+//      //         //novo
+
+
+
+//               stream.writeAttribute("an",QString::number(reMorfo.anguloObj[i]));
+
+//               stream.writeAttribute("Var",QString::number(reCinema.varArea[i]));
+//               stream.writeAttribute("Van",QString::number(reCinema.varAngular[i]));
+//               stream.writeAttribute("Vd",QString::number(reCinema.varDistancia[i]));
+//               stream.writeAttribute("VtoP",QString::number(reCinema.varTamObjeto[i]));
+
+//               if(reCinema.ruidoMaxVaria[i]){
+//                   stream.writeAttribute("rMV","true");
+
+//               }else{
+//                   stream.writeAttribute("rMV","false");
+//               }
+//               if(reMorfo.objetoEncontrado[i]){
+
+//                   stream.writeAttribute("OE","true");
+
+//               }else{
+
+//                   stream.writeAttribute("OE","false");
+//               }
+
+
+
+//               stream.writeEndElement(); //fecha proce
+
+//               }
+//           }
 
 
       //     etografia.framFim;
@@ -3282,7 +4561,8 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 
 
           OutEtografia.close();
-
+          parser = new parserXMLtoCSV();
+          parser->converteArquivo(nomeGravarProcesImagem);
 
 
 
@@ -3307,3 +4587,81 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 
 //  qDebug() << "clicado ";
 //}
+
+void telaTempoReal::on_pbteste_clicked()
+{
+    QString testenome1;
+    testenome1 = QFileDialog::getSaveFileName(
+                this,
+                tr("Save File"),
+                "C://",
+               "etography files (*.csv)"
+               );
+
+
+   captadorDeVideo->joao.timerFinal;
+
+
+   outGravador.setFileName(testenome1);
+   outGravador.open(QIODevice::WriteOnly | QIODevice::Text );
+
+   QTextStream csvGravador(&outGravador);
+
+
+
+   double duracao=0;
+   csvGravador << "time" << ";" << CLOCKS_PER_SEC << ";" << "Duration(s)" << "\n";
+   csvGravador << "time inicial captura" << ";" << "time final captura"<< ";" << "time inicial processamento" <<";" <<"time final processamento" << ";" << "time inicial gravar" << ";" << "time final gravar"<< ";" << "time inicial mostrar na tela " <<";" <<"time final mostrar na tela " << ";" << "\n";
+
+   for(int ka1=0; ka1< captadorDeVideo->joao.timerFinal.size(); ka1++){
+
+       csvGravador << captadorDeVideo->joao.timerInicial[ka1];
+       //csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
+
+       csvGravador << ";";
+       csvGravador << captadorDeVideo->joao.timerFinal[ka1];
+
+       csvGravador << ";";
+       csvGravador << dados->joao.timerInicial[ka1];
+       //csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
+
+       csvGravador << ";";
+       csvGravador << dados->joao.timerFinal[ka1];
+
+       csvGravador << ";";
+       csvGravador <<  joao1.timerInicial[ka1];
+       //csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
+
+       csvGravador << ";";
+       csvGravador <<  joao1.timerFinal[ka1];
+
+       csvGravador << ";";
+       csvGravador <<  joao2.timerInicial[ka1];
+       //csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
+
+       csvGravador << ";";
+       csvGravador <<  joao2.timerFinal[ka1];
+
+
+
+
+
+       csvGravador << "\n";
+
+//       duracao= etografiaLida->frameFinal[ka1]- etografiaLida->frameInicial[ka1];
+//       csvGravador <<conPontoVirgula( duracao / videoLido->fps);
+//       csvGravador << "\n";
+
+   }
+
+
+
+
+//    outGravador.write("O pesquisador foi o:, ");
+//    outGravador.write(experimentador.nome.toLatin1()+"\n");
+//    outGravador.write("a,b,c \n");
+   outGravador.close();
+
+    qDebug()<<"clock por sec " << CLOCKS_PER_SEC ;
+
+}

@@ -46,6 +46,8 @@ void telaMatrizTransicao::on_pbAnaliseSeq_clicked()
 
     }
 
+    double quantidadeDePontos=0;
+
     int contador=0;
     int testeFinal=0;
     int valorAdd=0;
@@ -63,6 +65,7 @@ void telaMatrizTransicao::on_pbAnaliseSeq_clicked()
                 if(etografiaLida->id[j]==k){
                     //for(int m=0; m<catalagoLido.quantidadeDeCategorias;m++){
                     valorAdd= etografiaLida->id[j+1];
+                    quantidadeDePontos= quantidadeDePontos+1;
                     //if(k==m){
                     analiseSequencial.dados[contador+valorAdd]= analiseSequencial.dados[contador+valorAdd]+1;
                 }
@@ -79,6 +82,8 @@ void telaMatrizTransicao::on_pbAnaliseSeq_clicked()
 
 
     }
+
+
 
 
 
@@ -114,6 +119,31 @@ void telaMatrizTransicao::on_pbAnaliseSeq_clicked()
         }
 
     }
+
+    loopContador=0;
+
+
+
+
+
+
+    for(int m=0;m<catalagoLido->quantidadeDeCategorias;m++){
+
+        //categoria
+
+
+        for(int l=0; l<catalagoLido->quantidadeDeCategorias; l++){
+                porcentagemMatrix.push_back(analiseSequencial.dados[loopContador]/quantidadeDePontos);
+
+            loopContador++;
+        }
+
+    }
+
+
+
+
+
 
 
     ui->tabDadSeq->setVerticalHeaderLabels(titulos);
@@ -242,6 +272,37 @@ void telaMatrizTransicao::on_pbGeraRelaSeq_clicked()
         }
     stream.writeEndElement(); //fecha sessao
 
+
+
+    //porcentagem nova
+    stream.writeStartElement("sessaoPorce");
+    stream.writeAttribute("id", QString::number(0));
+
+    contadorQuant=0;
+    for(int cat=0; cat<(catalagoLido->quantidadeDeCategorias);cat++){
+
+        stream.writeStartElement("categoriaPorce");
+        stream.writeAttribute("idcat", QString::number(cat));
+        stream.writeAttribute("name", catalagoLido->nome[cat]);
+        for(int cata=0; cata<(catalagoLido->quantidadeDeCategorias);cata++){
+            stream.writeStartElement("caAnaSegPorce");
+            stream.writeAttribute("idcat", QString::number(cata));
+            stream.writeAttribute("quant", QString::number(porcentagemMatrix[cata+contadorQuant]));
+            stream.writeEndElement(); //fecha categoria
+
+        }
+
+        contadorQuant+=catalagoLido->quantidadeDeCategorias;
+
+        stream.writeEndElement(); //fecha sessao
+
+    }
+stream.writeEndElement(); //fecha sessao
+
+
+
+
+
 //    }
 
     stream.writeEndElement();
@@ -265,6 +326,8 @@ void telaMatrizTransicao::on_pbGeraRelaSeq_clicked()
     Output.close();
 
     parser = new parserXMLtoCSV();
+
+    qDebug() <<"gravou o xml";
 
     parser->converteArquivo(nomeGravarCatalago);
 
@@ -381,7 +444,9 @@ void telaMatrizTransicao::on_pbMakeGraph_clicked()
 
     }
 
-    matriz->recebeDadosSeq(analiseSequencial.dados);
+    //analiseSequencial.dados
+
+    matriz->recebeDadosSeq(porcentagemMatrix);
 
 
     matriz->show();

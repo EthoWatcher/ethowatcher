@@ -170,9 +170,33 @@ void telaUnveil::on_pbUnveil_clicked()
     csvGravador <<"Observer" << experimentador.nome.toLatin1() << "\n";
     csvGravador <<"Lab" << experimentador.lab.toLatin1() << "\n";
 
-    csvGravador <<" .*vcxml file ;" <<"blinded video;" << ".*vxml file" << "Original Video"<< "\n";
+    csvGravador <<" Arquivo do cadastro do video cegado ;" <<"Arquivo de video cegado;" << "Arquivo de cadastro do video original;" << "Arquivo de video original"<< "\n";
     int ak=0;
     int max=0;
+    int cont=0;
+
+    std::vector<QString> vxml;
+
+    for(int k1=0;k1 < videoLista.nomeArquivoVXML.size(); k1++){
+
+        QString recebe=  videoLista.nomeArquivoVXML[k1];
+        QByteArray teste =recebe.toLatin1();
+        if(teste.contains(".vxml")){
+            vxml.push_back(recebe);
+            vxml.push_back(recebe);
+
+        }
+
+
+       // qDebug() << videoLista.nomeOpencv[k1];
+        qDebug() << videoLista.nomeArquivoVXML[k1];
+    }
+
+
+
+
+
+
     while(ak<contVideo){
 
 
@@ -180,14 +204,22 @@ void telaUnveil::on_pbUnveil_clicked()
 
 
         csvGravador << videoLista.nomeVXML[ak] << ";" <<videoLista.nomeOpencv[ak] <<";"
-                    << videoLista.nomeArquivoVXML[ak]<< ";" <<  videoLista.nomeOpencv[ak+1] <<"\n";
+                    << vxml[(ak)]<< ";" <<  videoLista.nomeOpencv[ak+1] <<"\n";
         csvGravador << "\n"<< "\n";
 
 
         }
 
         ak=ak+2;
+        cont++;
 
+    }
+
+
+    for(int k1=0;k1 < videoLista.nomeArquivoVXML.size(); k1++){
+
+       // qDebug() << videoLista.nomeOpencv[k1];
+        qDebug() << videoLista.nomeArquivoVXML[k1];
     }
 
      //csvGravador <<"fim";

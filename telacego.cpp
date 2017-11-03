@@ -979,6 +979,8 @@ void telaCego::on_pbBliding_clicked()
 
      QString textoEditado;
      textoEditado =ui->leNomePadr->text()+QString::number(jl);
+
+     qDebug() << "arquivo vxml é o"<< nomeDosVideosAleatorizado[jl];
      emit enviIncio(nomeDosVideosAleatorizado[jl],caminhoArquivo, textoEditado,ui->comboBoX->currentIndex());
 
      disconnect(this,SIGNAL(enviIncio(QString,QString,QString,int)),listaEditaVideo[jl],SLOT(iniGraVidoCego(QString,QString,QString,int)));

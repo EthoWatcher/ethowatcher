@@ -11,6 +11,8 @@ cv::Mat moduloCaptador::conQim2Mat(QImage imaEntrada) //converte qimage para cv:
 //    QImage resultadoBackground((uchar*)resultado.matProce.data, resultado.matProce.cols, resultado.matProce.rows, resultado.matProce.step, QImage::Format_RGB888);
 //    resultProce= QPixmap::fromImage(resultadoBackground);
 //    resultado.matProce.release();
+
+
     matSaida= cv::Mat(imaEntrada.height(),imaEntrada.width(),CV_8UC3, const_cast<uchar*>(imaEntrada.bits()), imaEntrada.bytesPerLine()).clone();
 
     cv::cvtColor(matSaida,matSaida,CV_RGB2BGR );
@@ -41,10 +43,11 @@ moduloCaptador::~moduloCaptador(){
     //delete this;
     if(cap->isOpened()){
 
-        tempoLerFrame->stop();
+
+            tempoLerFrame->stop();
 
         cap->release();
-
+        this->setCapOn(false);
         //tempoLerFrame->deleteLater();
 
     }
@@ -248,7 +251,52 @@ void moduloCaptador::captandoRealTime()
 
             //frameDisplay.release();
 
-             i++;
+           //  i++;
+
+
+             if((gravadorVideo->isOpened())&&(chGravador)){
+
+
+
+                 //se chParadaNegada for falsa ele para por numero
+                 //se chPardaNegada foi verdadeira ele só para
+                 if(((i<frameTotal)||(chParadaNegada))){
+
+
+
+                     matGravAlex= conQim2Mat(imgEnviada2);
+                     gravadorVideo->write(matGravAlex);
+
+                     tfinalCaptura = clock();
+                      trespostaCaptura=(float) (tfinalCaptura-tinicial)/CLOCKS_PER_SEC;
+
+                     emit enviaTempoGravacao(i,  trespostaCaptura);
+
+                      joao.timerInicial.push_back(tinicial);
+                      joao.timerFinal.push_back(tfinalCaptura);
+
+                     //qDebug()<< numFra;
+                     matGravAlex.release();
+
+                     //gravadorVideo.release();
+                 }else{
+
+
+
+                     terminaGravador();
+
+
+
+
+                 }
+
+
+
+             }
+
+
+            i++;
+
 
         }
         //if(cap.isOpened()){
@@ -323,42 +371,45 @@ void moduloCaptador::gravando(int numFra, QImage imAdquirida, float tempo)
 {
 
 
- if((gravadorVideo->isOpened())&&(chGravador)){
+// if((gravadorVideo->isOpened())&&(chGravador)){
 
 
 
-     //se chParadaNegada for falsa ele para por numero
-     //se chPardaNegada foi verdadeira ele só para
-     if(((numFra<frameTotal)||(chParadaNegada))){
+//     //se chParadaNegada for falsa ele para por numero
+//     //se chPardaNegada foi verdadeira ele só para
+//     if(((numFra<frameTotal)||(chParadaNegada))){
 
 
 
-         matGravAlex= conQim2Mat(imAdquirida);
-         gravadorVideo->write(matGravAlex);
+//         matGravAlex= conQim2Mat(imAdquirida);
+//         gravadorVideo->write(matGravAlex);
 
-         tfinalCaptura = clock();
-          trespostaCaptura=(float) (tfinalCaptura-tinicial)/CLOCKS_PER_SEC;
+//         tfinalCaptura = clock();
+//          trespostaCaptura=(float) (tfinalCaptura-tinicial)/CLOCKS_PER_SEC;
 
-         emit enviaTempoGravacao(numFra,  trespostaCaptura);
+//         emit enviaTempoGravacao(numFra,  trespostaCaptura);
 
-         //qDebug()<< numFra;
-         matGravAlex.release();
+//          joao.timerInicial.push_back(tinicial);
+//          joao.timerFinal.push_back(tfinalCaptura);
 
-         //gravadorVideo.release();
-     }else{
+//         //qDebug()<< numFra;
+//         matGravAlex.release();
 
-
-
-         terminaGravador();
-
+//         //gravadorVideo.release();
+//     }else{
 
 
 
-     }
+//         terminaGravador();
 
 
 
- }
+
+//     }
+
+
+
+// }
 
 
 
@@ -583,7 +634,7 @@ void moduloCaptador::setCaptaVideoTodo()
     }
 
 
-    if(i<frFim){
+    if(i<=frFim){ //ultimo frame de análise
 
    // while(i< frFim){
         //i=c1;

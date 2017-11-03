@@ -6,210 +6,279 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>799</width>
-    <height>484</height>
+    <width>889</width>
+    <height>645</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QGroupBox" name="groupBox_3">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>30</y>
-     <width>161</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Step 1.0</string>
-   </property>
-   <widget class="QPushButton" name="pbAnaliseFile">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>131</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Open Alasyses file</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_4">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>190</y>
-     <width>171</width>
-     <height>121</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Step 1.2</string>
-   </property>
-   <widget class="QPushButton" name="pbSaveFile">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>131</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Edit File</string>
-    </property>
-   </widget>
-   <widget class="QProgressBar" name="progressBar">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>80</y>
-      <width>141</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>0</number>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>310</y>
-     <width>741</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>GroupBox</string>
-   </property>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_2">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>30</y>
-     <width>491</width>
-     <height>231</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Chose Category</string>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QScrollArea" name="scrollArea">
-      <property name="widgetResizable">
-       <bool>true</bool>
-      </property>
-      <widget class="QWidget" name="scrollAreaWidgetContents">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <widget class="QWidget" name="page">
+      <widget class="QGroupBox" name="groupBox">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>465</width>
-         <height>192</height>
+         <x>20</x>
+         <y>480</y>
+         <width>811</width>
+         <height>111</height>
         </rect>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="title">
+        <string>Tutor</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <widget class="QWidget" name="widCatego" native="true"/>
+         <widget class="QPlainTextEdit" name="plainTextEdit">
+          <property name="plainText">
+           <string>Fazer step 1.0
+Escolher a categoria
+Escolher o codec
+Fazre o step 1.2
+Fazer o step 1.3</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
+      <widget class="QGroupBox" name="groupBox_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>350</y>
+         <width>171</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Step 1.3</string>
+       </property>
+       <widget class="QPushButton" name="pbSaveFile">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Edit File</string>
+        </property>
+       </widget>
+       <widget class="QProgressBar" name="progressBar">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>80</y>
+          <width>141</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>130</y>
+         <width>641</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Chose Category</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QScrollArea" name="scrollArea">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>619</width>
+             <height>306</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QWidget" name="widCatego" native="true"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>180</y>
+         <width>161</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Step 1.1</string>
+       </property>
+       <widget class="QComboBox" name="comboBoX">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>131</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Microsoft RLE</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Microsoft Video1</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Intel IYUV codec</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Cinepack Codec by radius</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Lagarith Lossles Codec</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>H264</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>XVid</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>ffdshow Video Codec</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>H264</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_26">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>28</y>
+          <width>51</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Codec</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>120</y>
+         <width>161</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Step 1.0</string>
+       </property>
+       <widget class="QPushButton" name="pbAnaliseFile">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Open ethography file</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>260</y>
+         <width>161</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Step 1.2</string>
+       </property>
+       <widget class="QPushButton" name="pbOpenTCCM">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Open tracking file</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>821</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="resourcefile.qrc">:/icons/cabecalho6.jpg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_5">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>100</y>
-     <width>161</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Step 1.1</string>
-   </property>
-   <widget class="QComboBox" name="comboBoX">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>131</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>Microsoft RLE</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Microsoft Video1</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Intel IYUV codec</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Cinepack Codec by radius</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Lagarith Lossles Codec</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>H264</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>XVid</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>ffdshow Video Codec</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>H264</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLabel" name="label_26">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>28</y>
-      <width>51</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Codec</string>
-    </property>
-   </widget>
-  </widget>
+     <widget class="QWidget" name="page_2"/>
+    </widget>
+   </item>
+  </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="resourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>

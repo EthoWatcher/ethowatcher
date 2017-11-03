@@ -379,6 +379,8 @@ private:
     bool chRoi=true;
 
 
+
+
 signals:
     void fimCadastro();
     void deletaTudo();

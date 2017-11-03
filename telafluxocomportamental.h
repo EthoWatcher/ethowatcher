@@ -28,6 +28,9 @@
 #include <QCheckBox>
 #include <moduloeditavideo.h>
 #include <QThread>
+#include <parserxml.h>
+
+
 
 
 
@@ -113,7 +116,7 @@ public:
         double frameFinal;
         double frameProce;
         int frameBack;
-        int fps=30; //tem que corrigir isso de ler correto o valor
+        double fps=30; //tem que corrigir isso de ler correto o valor
         double escala;
 
     };
@@ -148,6 +151,8 @@ private slots:
     void on_pbAnaliseFile_clicked();
 
     void on_pbSaveFile_clicked();
+
+    void on_pbOpenTCCM_clicked();
 
 private:
     Ui::telaFluxoComportamental *ui;
@@ -201,10 +206,23 @@ private:
      moduloEditaVideo *editaVideo;
      QThread* novaThread;
      void encontraPontosGravar();
+     void encontrarFrames();
      QList<int> editFrameInicio;
      QList<int> editFrameFim;
+     QList<int> categoria;
      QString nomeFluxoComportamental;
      int codecVideo;
+
+     parserXML parserTCCM;
+     QString fonteCaminhoTCCM;
+     bool chTCCon;
+
+     std::vector<parserXML::dadosMorfo *> segMorfo;
+     std::vector<parserXML::dadosCinema *> segCinema;
+
+     void gravaXML(QString nomeArquivo);
+
+     QFile Output;
 
 signals:
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>608</width>
-    <height>595</height>
+    <width>606</width>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,13 +17,13 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>190</y>
+     <y>390</y>
      <width>191</width>
      <height>80</height>
     </rect>
    </property>
    <property name="title">
-    <string>Passo 3</string>
+    <string>Step 3</string>
    </property>
    <widget class="QPushButton" name="pbMakeGraph">
     <property name="enabled">
@@ -52,7 +52,7 @@
     </rect>
    </property>
    <property name="title">
-    <string>Passo 2</string>
+    <string>Step 2</string>
    </property>
    <widget class="QPushButton" name="pbAnaliseSeq">
     <property name="enabled">
@@ -67,7 +67,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Analisar</string>
+     <string>Analyze</string>
     </property>
    </widget>
   </widget>
@@ -81,7 +81,7 @@
     </rect>
    </property>
    <property name="title">
-    <string>Passo 1</string>
+    <string>Step 1:</string>
    </property>
    <widget class="QPushButton" name="pbSeqCarregar">
     <property name="geometry">
@@ -93,21 +93,21 @@
      </rect>
     </property>
     <property name="text">
-     <string>Carregar análise etografica</string>
+     <string>Open ethography file</string>
     </property>
    </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_4">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>190</y>
+     <x>270</x>
+     <y>390</y>
      <width>141</width>
      <height>80</height>
     </rect>
    </property>
    <property name="title">
-    <string>Passo 4</string>
+    <string>Step 4</string>
    </property>
    <widget class="QPushButton" name="pbGeraRelaSeq">
     <property name="enabled">
@@ -122,7 +122,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Gerar relatório</string>
+     <string>Save</string>
     </property>
    </widget>
   </widget>
@@ -130,7 +130,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>460</y>
+     <y>510</y>
      <width>571</width>
      <height>101</height>
     </rect>
@@ -156,13 +156,13 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>270</y>
+     <y>180</y>
      <width>571</width>
      <height>181</height>
     </rect>
    </property>
    <property name="title">
-    <string>Matriz de transição</string>
+    <string>Transitional matrix</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
