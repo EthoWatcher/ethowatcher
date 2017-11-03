@@ -1053,13 +1053,13 @@ void telaFluxoComportamental::gravaXML(QString nomeArquivo)
             stream.writeAttribute("f",QString::number(segMorfo[cSeg]->frame[cFaixa]));
 
             stream.writeAttribute("arP",QString::number(segMorfo[cSeg]->area[cFaixa]));
-            stream.writeAttribute("arM",QString::number(segMorfo[cSeg]->area[cFaixa]/(qPow(parserTCCM.videoLido->escala,2))));
+            stream.writeAttribute("arM",QString::number(segMorfo[cSeg]->areaM[cFaixa]));///(qPow(parserTCCM.videoLido->escala,2))));
             stream.writeAttribute("ceX",QString::number(segMorfo[cSeg]->centroidX[cFaixa]));
             stream.writeAttribute("ceY",QString::number(segMorfo[cSeg]->centroidY[cFaixa]));
             stream.writeAttribute("altP",QString::number(segMorfo[cSeg]->altura[cFaixa]));
-            stream.writeAttribute("altM",QString::number(segMorfo[cSeg]->altura[cFaixa]/parserTCCM.videoLido->escala));
+            stream.writeAttribute("altM",QString::number(segMorfo[cSeg]->alturaM[cFaixa]));///parserTCCM.videoLido->escala));
             stream.writeAttribute("larP",QString::number(segMorfo[cSeg]->largura[cFaixa]));
-            stream.writeAttribute("larM",QString::number(segMorfo[cSeg]->largura[cFaixa]/parserTCCM.videoLido->escala));
+            stream.writeAttribute("larM",QString::number(segMorfo[cSeg]->larguraM[cFaixa]));///parserTCCM.videoLido->escala));
             stream.writeAttribute("an",QString::number(segMorfo[cSeg]->anguloObj[cFaixa])); //angulo do objeto
 
 

@@ -15,8 +15,8 @@ void parserXML::readTCCM(QString nomeArquivo)
     QXmlStreamReader streamReader(&OutEtografia); //passa o endereço
 
     QString conversor;
-    bool entrou;
-    bool entrou1;
+    bool entrou=false;
+    bool entrou1=false;
     bool entrou2=false;
     while(!streamReader.atEnd() && !streamReader.hasError()){
 
