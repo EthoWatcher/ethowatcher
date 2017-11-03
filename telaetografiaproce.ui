@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Video-based ethography</string>
+   <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_6">
    <item>
@@ -76,7 +76,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>Open behavioral catalog</string>
+          <string>Abrir um Catalago</string>
          </property>
         </widget>
         <widget class="QGroupBox" name="groupBox_15">
@@ -128,7 +128,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>Video-based ethography</string>
+          <string>Etografia baseada em video</string>
          </property>
         </widget>
         <widget class="QPushButton" name="pbTraking">
@@ -144,7 +144,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>Tracking</string>
+          <string>3-Traking</string>
          </property>
         </widget>
         <widget class="QPushButton" name="pbEtoProce">
@@ -157,7 +157,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>Video-based ethography and tracking</string>
+          <string>Etografia e processamento de imagem</string>
          </property>
         </widget>
        </widget>
@@ -166,12 +166,12 @@
          <rect>
           <x>50</x>
           <y>292</y>
-          <width>961</width>
-          <height>243</height>
+          <width>951</width>
+          <height>261</height>
          </rect>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="page_3">
          <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -290,8 +290,8 @@
         <widget class="QGroupBox" name="groupBox_13">
          <property name="geometry">
           <rect>
-           <x>0</x>
-           <y>50</y>
+           <x>10</x>
+           <y>60</y>
            <width>301</width>
            <height>71</height>
           </rect>
@@ -1569,11 +1569,16 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
+<<<<<<< .mine
              <number>3</number>
+=======
+             <number>2</number>
+>>>>>>> .theirs
+            </property>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
-              <string>ethography</string>
+              <string>Botoes de Registro</string>
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_8">
               <item>
@@ -1589,8 +1594,13 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
+<<<<<<< .mine
                    <width>323</width>
                    <height>258</height>
+=======
+                   <width>66</width>
+                   <height>70</height>
+>>>>>>> .theirs
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1694,7 +1704,7 @@
                     </size>
                    </property>
                    <property name="text">
-                    <string>Delete the last record</string>
+                    <string>Deletar Ultimo Registro</string>
                    </property>
                   </widget>
                  </item>
@@ -1726,6 +1736,67 @@
              <attribute name="title">
               <string>Trackin</string>
              </attribute>
+             <widget class="QGroupBox" name="groupBox_2">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>20</y>
+                <width>261</width>
+                <height>111</height>
+               </rect>
+              </property>
+              <property name="title">
+               <string>Morfological Data Print</string>
+              </property>
+              <widget class="QCheckBox" name="chbArea">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>60</y>
+                 <width>111</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Altura</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+              <widget class="QCheckBox" name="chbTamnho">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>40</y>
+                 <width>131</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Largura</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+              <widget class="QCheckBox" name="chbCentroide">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>20</y>
+                 <width>131</width>
+                 <height>17</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Centroide do Objeto</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </widget>
              <widget class="QGroupBox" name="groupBox_5">
               <property name="geometry">
                <rect>
@@ -1736,7 +1807,7 @@
                </rect>
               </property>
               <property name="title">
-               <string>Show areas</string>
+               <string>Areas Show</string>
               </property>
               <widget class="QScrollArea" name="scrollArea_2">
                <property name="geometry">
@@ -1773,7 +1844,7 @@
                 <x>10</x>
                 <y>310</y>
                 <width>331</width>
-                <height>211</height>
+                <height>201</height>
                </rect>
               </property>
               <property name="minimumSize">
@@ -1783,171 +1854,44 @@
                </size>
               </property>
               <property name="title">
-               <string>Results of the tracking</string>
+               <string>Results do Traking</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_16">
                <item>
-                <widget class="QTableWidget" name="tabWDesc">
-                 <row>
-                  <property name="text">
-                   <string>Object Detected</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Area</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Horizontal coordinate of the centroid</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Vertical coordinate of the centroid</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Angle between animal and Horizontal coordinate</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Width</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Height</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Variation of Angule</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Variation of Area</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Variação de Centroide X</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Variação de Centroide Y</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Distance travelled by the centroid</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Variation of Height of animal</string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>Variation of width of animal </string>
-                  </property>
-                 </row>
-                 <row>
-                  <property name="text">
-                   <string>New Row</string>
-                  </property>
-                 </row>
+                <widget class="QTableWidget" name="tabRegistro_2">
+                 <property name="alternatingRowColors">
+                  <bool>true</bool>
+                 </property>
+                 <property name="selectionMode">
+                  <enum>QAbstractItemView::SingleSelection</enum>
+                 </property>
+                 <property name="selectionBehavior">
+                  <enum>QAbstractItemView::SelectRows</enum>
+                 </property>
+                 <property name="columnCount">
+                  <number>3</number>
+                 </property>
+                 <attribute name="verticalHeaderVisible">
+                  <bool>false</bool>
+                 </attribute>
                  <column>
                   <property name="text">
-                   <string>Valor</string>
+                   <string>Category</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Begin Time</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>End Time</string>
                   </property>
                  </column>
                 </widget>
                </item>
               </layout>
-             </widget>
-             <widget class="QGroupBox" name="groupBox_11">
-              <property name="geometry">
-               <rect>
-                <x>10</x>
-                <y>20</y>
-                <width>321</width>
-                <height>111</height>
-               </rect>
-              </property>
-              <property name="title">
-               <string>Morfological Data Print</string>
-              </property>
-              <widget class="QCheckBox" name="chbArea">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>60</y>
-                 <width>211</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Rectangle that circumscribes the object</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-              <widget class="QCheckBox" name="chbAltLarg">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>40</y>
-                 <width>151</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Height and width of the object</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-              <widget class="QCheckBox" name="chbCentroide">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>20</y>
-                 <width>131</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Center of mass</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-              <widget class="QCheckBox" name="chbAngulo">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>80</y>
-                 <width>111</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Angle of object</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
              </widget>
             </widget>
             <widget class="QWidget" name="tab_6">
@@ -1974,12 +1918,12 @@
                 <rect>
                  <x>10</x>
                  <y>50</y>
-                 <width>161</width>
+                 <width>131</width>
                  <height>23</height>
                 </rect>
                </property>
                <property name="text">
-                <string>Save the results of tracking</string>
+                <string>Save Tracking</string>
                </property>
               </widget>
               <widget class="QPushButton" name="pbGravarAnalasiteEtografica">
@@ -1990,12 +1934,12 @@
                 <rect>
                  <x>10</x>
                  <y>20</y>
-                 <width>161</width>
+                 <width>131</width>
                  <height>23</height>
                 </rect>
                </property>
                <property name="text">
-                <string>Save Video-based ethography</string>
+                <string>Save Ethography</string>
                </property>
               </widget>
               <widget class="QPushButton" name="pbSaveImage">
@@ -2006,7 +1950,7 @@
                 <rect>
                  <x>10</x>
                  <y>80</y>
-                 <width>161</width>
+                 <width>131</width>
                  <height>23</height>
                 </rect>
                </property>

@@ -3291,7 +3291,7 @@
               </size>
              </property>
              <property name="currentIndex">
-              <number>1</number>
+              <number>3</number>
              </property>
              <widget class="QWidget" name="Captador">
               <attribute name="title">
@@ -3361,7 +3361,7 @@
                  <item>
                   <widget class="QLabel" name="label_123">
                    <property name="text">
-                    <string>Time=</string>
+                    <string>Time Amount=</string>
                    </property>
                   </widget>
                  </item>
@@ -3794,7 +3794,7 @@
                  </rect>
                 </property>
                 <property name="text">
-                 <string>Erode</string>
+                 <string>Erosion</string>
                 </property>
                </widget>
                <widget class="QLabel" name="lblErode">
@@ -4000,7 +4000,7 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="tab_13">
              <attribute name="title">
@@ -4361,7 +4361,7 @@
             </widget>
             <widget class="QWidget" name="tab_16">
              <attribute name="title">
-              <string>Exit and Save</string>
+              <string>Exit and save</string>
              </attribute>
              <widget class="QGroupBox" name="groupBox_9">
               <property name="geometry">

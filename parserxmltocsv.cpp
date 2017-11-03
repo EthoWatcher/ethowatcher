@@ -115,7 +115,7 @@ void parserXMLtoCSV::converteArquivo(QString nomePath)
 
      if(fonteVideoBitExt==".tkin"){
 
-
+        qDebug() << "arquivo de traking";
          lerTRKING(fonteCaminhoArquivo);
 
 
