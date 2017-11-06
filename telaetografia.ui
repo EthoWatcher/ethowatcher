@@ -38,7 +38,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>:/icons/ethoMenor.png</pixmap>
+        <pixmap resource="resourcefile.qrc">:/icons/ethoMenor.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -611,6 +611,8 @@ p, li { white-space: pre-wrap; }
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>

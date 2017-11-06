@@ -107,6 +107,9 @@
        <height>20</height>
       </rect>
      </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="page_2"/>

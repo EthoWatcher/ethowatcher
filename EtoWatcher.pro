@@ -116,5 +116,6 @@ FORMS    += ethowatcher.ui \
 
 
 RESOURCES += \
-    resourcefile.qrc
+    resourcefile.qrc\
+    recursos.qrc
 

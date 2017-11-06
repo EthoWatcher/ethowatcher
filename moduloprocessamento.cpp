@@ -511,9 +511,6 @@ void moduloProcessamento::processamentoMorfologico(){
 
 
 
-        cv::imshow("camera", imaInte);
-        cv::waitKey(20);
-
 
         frameErosaoInterese=imaInte.clone();
 
@@ -1122,8 +1119,6 @@ void moduloProcessamento::gravaDadosMorfoCinematico(QImage imaProc, bool objeto,
 
 
     emit fimProce();
-
-
 
 
 

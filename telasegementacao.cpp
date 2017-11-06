@@ -1098,7 +1098,7 @@ void telaSegementacao::on_pbTotGravar_clicked()
         stream.writeAttribute("idcat", QString::number(cat));
         stream.writeAttribute("name", catalagoLido->nome[cat]);
         stream.writeTextElement("duracao",QString::number(duracaoTotalMatriz[0][cat]*videoLido->fps));
-        stream.writeTextElement("frequencia",QString::number(frequenciaTotalMatriz[0][cat]));
+        stream.writeTextElement("frequencia",QString::number(frequenciaTotalMatriz[0][cat]*videoLido->fps));
         stream.writeTextElement("latencia",QString::number(latenciaTotal[cat]*videoLido->fps));
         stream.writeEndElement(); //fecha categoria
     }

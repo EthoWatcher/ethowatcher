@@ -19,7 +19,6 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
     tempoReal = new telaTempoReal();
     fluxoComportamental = new telaFluxoComportamental();
 
-
     ui->pbConversorXMLCSV->setVisible(false);
 
     //ui->treeWidget->
@@ -152,7 +151,6 @@ void ethoWatcher::mudaTela(){
 //abre janela para cadastrar filme
 void ethoWatcher::on_pbTela2ListaVideo_clicked()
 {
-    //delete cadastroListaFilme;
     cadastroFilme = new telaCadastroFilme();
     //cadastroFilme->setExperimentador("joao","lala2");
     cadastroFilme->show();
