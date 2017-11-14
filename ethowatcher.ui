@@ -255,7 +255,7 @@ p, li { white-space: pre-wrap; }
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="resourcefile.qrc">:/icons/cabecalho6.jpg</pixmap>
+              <pixmap>:/icons/cabecalho6.jpg</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -271,7 +271,7 @@ p, li { white-space: pre-wrap; }
               </size>
              </property>
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab">
               <attribute name="title">
@@ -584,8 +584,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>269</width>
-                   <height>109</height>
+                   <width>267</width>
+                   <height>107</height>
                   </rect>
                  </property>
                 </widget>
@@ -1345,7 +1345,7 @@ p, li { white-space: pre-wrap; }
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resourcefile.qrc">:/icons/IEBUFSC.jpg</pixmap>
+         <pixmap>:/icons/IEBUFSC.jpg</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1364,7 +1364,7 @@ p, li { white-space: pre-wrap; }
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resourcefile.qrc">:/icons/LCNeurophysiology.jpg</pixmap>
+         <pixmap>:/icons/LCNeurophysiology.jpg</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1383,7 +1383,7 @@ p, li { white-space: pre-wrap; }
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resourcefile.qrc">:/icons/ufsc-logo-3.png</pixmap>
+         <pixmap>:/icons/ufsc-logo-3.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1413,7 +1413,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>989</width>
-     <height>21</height>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuEthoWatcher">
@@ -1446,8 +1446,6 @@ p, li { white-space: pre-wrap; }
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="resourcefile.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

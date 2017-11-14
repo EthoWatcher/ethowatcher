@@ -141,12 +141,15 @@ void telaCadastroCatalago::on_pbCadastroCatalago_clicked()
 
 
     stream.writeEndElement();//fecha Categorias
-
     stream.writeEndElement();//fecha catalago
     stream.writeEndDocument();
 
 
     Output.close();
+
+    this->close();
+    //deleta a janela (chama o destrutor);
+    delete this;
 
     //para colocar as variaveis dentro da variavel cAnaEto
     //que sera usada para fazer a analise etografica
@@ -158,4 +161,6 @@ void telaCadastroCatalago::on_pbCadastroCatalago_clicked()
 //    if(!nomeGravarCatalago.isEmpty()){
 //    ui->pbEtografia->setEnabled(true);
 //    }
+
+
 }
