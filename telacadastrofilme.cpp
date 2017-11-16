@@ -1519,8 +1519,9 @@ void telaCadastroFilme::on_pbConfigure1_clicked()
     ui->cbPro->setEnabled(false);
     ui->cbBlinding->setEnabled(false);
 
-    ui->btPlay->click();
+    //ui->btPlay->click();
 
+    ui->tabWPrincipal->setCurrentIndex(1);
 
 
 }
