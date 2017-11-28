@@ -1,5 +1,6 @@
 #include "telacadastropessoa.h"
 #include "ui_telacadastropessoa.h"
+#include <QMessageBox>
 
 telaCadastroPessoa::telaCadastroPessoa(QWidget *parent) :
     QWidget(parent),
@@ -126,6 +127,8 @@ void telaCadastroPessoa::on_pushButton_2_clicked()
     //nomeExtensao = extensao.insert(0,nomeArquivo);
 
     gravandoXML();
+
+    QMessageBox::information(this,tr("Message"),tr("Saved successfully"));
 
     emit this->fechouJanela();
     //emite um sinal para fechar a janela (fehca a janela)
