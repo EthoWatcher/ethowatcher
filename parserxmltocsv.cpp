@@ -276,7 +276,7 @@ void parserXMLtoCSV::lerETOXML(QString nomeArquivo)
 
         }
 
-        if((streamReader.name() == "dadosVideoAnalisado")||(videoLido->controle)){
+//        if((streamReader.name() == "dadosVideoAnalisado")||(videoLido->controle)){
 
 
           if(streamReader.name() == "nomeVxml"){
@@ -311,7 +311,7 @@ void parserXMLtoCSV::lerETOXML(QString nomeArquivo)
             videoLido->controle=false;
         }
 
-        }
+//        }
 
     }
 
@@ -342,12 +342,12 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
         qDebug()<< streamReader.name();
 
-        if(streamReader.name()== "dadosVideosAnalisado"){
-            entrou1=~entrou1;
-        }
+//        if(streamReader.name()== "dadosVideosAnalisado"){
+//            entrou1=~entrou1;
+//        }
 
 
-        if(entrou1==true){
+//        if(entrou1==true){
 
             if(streamReader.name()== "nomeVxml"){
             QString conversor= streamReader.readElementText();
@@ -390,7 +390,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
             }
             }
 
-        }
+//        }
 
 
 
@@ -2007,8 +2007,8 @@ void parserXMLtoCSV::escreverTrakinCsv()
     csvGravador << "TRACKING - ACTIVITY REPORT" << "\n";
 ////    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
     csvGravador << "video file is " << videoLido->nome<< "\n";
-    csvGravador << "Start in ;" << videoLido->frameProce / videoLido->fps << ";" << "seconds ;" << videoLido->frameProce << "; frames "  "\n";
-    csvGravador << "End in ;" << videoLido->frameFinal / videoLido->fps << ";" << "seconds ;" << videoLido->frameFinal << "; frames "  "\n";
+    csvGravador << "Start in ;" << conPontoVirgula( videoLido->frameProce / videoLido->fps) << ";" << "seconds ;" << videoLido->frameProce << "; frames "  "\n";
+    csvGravador << "End in ;" << conPontoVirgula( videoLido->frameFinal / videoLido->fps )<< ";" << "seconds ;" << videoLido->frameFinal << "; frames "  "\n";
 //    csvGravador << "Analysis initiated at " << conPontoVirgula( videoLido->frameProce /videoLido->fps)  << " (seconds) of the video file \n ";
 //    csvGravador << "Analysis terminated at " << conPontoVirgula(videoLido->frameFinal / videoLido->fps) << " (seconds) of the video file \n";
     csvGravador << "1 cm = ;" << conPontoVirgula( videoLido->escala) << ";" << " pixeis\n";
