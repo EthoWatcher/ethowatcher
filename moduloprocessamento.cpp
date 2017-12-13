@@ -1509,6 +1509,7 @@ void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnc
    // if(contMorfo%40){
 
         emit enviaMorfInt(contGlobal);
+        //qDebug() <<contGlobal;
        // emit enviaMorfInt(contMorfo);
   //  }
 

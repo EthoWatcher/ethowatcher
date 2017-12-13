@@ -54,8 +54,15 @@ telaEtografiaProce::telaEtografiaProce(QWidget *parent) :
 
 }
 
+void telaEtografiaProce::closeEvent(QCloseEvent *event)
+{
+    qDebug() << "fechou a tela ";
+    delete this;
+}
+
 telaEtografiaProce::~telaEtografiaProce()
 {
+    qDebug() << "destrutor da etrografia baseada em vídeo ativada ";
     delete captador;
     delete dados;
     delete captadorDeVideo;
@@ -83,6 +90,7 @@ void telaEtografiaProce::startVideoTodo()
 
 void telaEtografiaProce::recebeContadorMorfo(int contador)
 {
+    //qDebug() << contador;
     ui->progressBar->setValue(contador);
     //ui->progressBar->setValue(contador+ videoLista.frameProces[0]);
 

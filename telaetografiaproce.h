@@ -57,6 +57,8 @@ class telaEtografiaProce : public QWidget
 
 public:
     explicit telaEtografiaProce(QWidget *parent = 0);
+    void closeEvent(QCloseEvent * event);
+
     ~telaEtografiaProce();
 
     struct dadosEtografia{
