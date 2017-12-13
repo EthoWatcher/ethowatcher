@@ -33,6 +33,7 @@
 #include <QGraphicsItem>
 #include "itemareainte.h"
 #include "areatraingulo.h"
+#include <QMessageBox>
 
 namespace Ui {
 class telaCadastroFilme;
@@ -81,6 +82,9 @@ public:
         QString lab;
 
     };
+    dadosExperimentador experimentador;
+    void setExperimentador(QString nome1, QString lab1);
+
 
     struct DadosCalibracao{
         QString video;

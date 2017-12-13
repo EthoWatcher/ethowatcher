@@ -19,5 +19,7 @@ void EmuladorTelaEtografia::on_pushButton_clicked()
 {
     // delete etoPro;
     etoPro= new telaEtografiaProce();
+    etoPro->experimentador.nome ="feito pelo emulador";
+    etoPro->experimentador.lab = "ieb ";
     etoPro->show();
 }

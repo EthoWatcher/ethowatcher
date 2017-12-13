@@ -69,6 +69,18 @@ telaEtografiaProce::~telaEtografiaProce()
     delete ui;
 }
 
+/**
+ *Função para setar o experimentador
+ * @brief telaEtografiaProce::setExperimentador Função para setar o experimentador
+ * @param nome1 Nome do experimentador
+ * @param lab1 Laboratório do experimenatdor.
+ */
+void telaEtografiaProce::setExperimentador(QString nome1, QString lab1)
+{
+    experimentador.nome = nome1;
+    experimentador.lab = lab1;
+}
+
 cv::Mat telaEtografiaProce::conQim2Mat(QImage imaEntrada)
 {
     cv::Mat matSaida;

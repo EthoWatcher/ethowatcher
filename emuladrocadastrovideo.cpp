@@ -20,5 +20,7 @@ void EmuladroCadastroVideo::on_pushButton_clicked()
 {
     //delete cadastroFilme;
     cadastroFilme = new telaCadastroFilme();
+    cadastroFilme->experimentador.nome ="feito pelo emulador";
+    cadastroFilme->experimentador.lab = "ieb ";
     cadastroFilme->show();
 }

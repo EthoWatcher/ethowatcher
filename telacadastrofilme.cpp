@@ -56,6 +56,18 @@ void telaCadastroFilme::closeEvent(QCloseEvent *event)
     delete this;
 }
 
+/**
+ *Função para setar o experimentador
+ * @brief telaEtografiaProce::setExperimentador Função para setar o experimentador
+ * @param nome1 Nome do experimentador
+ * @param lab1 Laboratório do experimenatdor.
+ */
+void telaCadastroFilme::setExperimentador(QString nome1, QString lab1)
+{
+    videoCadastrado.experimentador.nome = nome1;
+   videoCadastrado. experimentador.lab = lab1;
+ }
+
 
 void telaCadastroFilme::recebeImagem(QImage qiCaptador, int numFrame)
 {
@@ -1476,6 +1488,8 @@ void telaCadastroFilme::on_pbCadastrar1_clicked()
     stream.writeEndElement(); //abre o cadastroVideo
     stream.writeEndDocument(); //fecha o documento
     output.close(); //termina a gravacao
+    QMessageBox::information(this,tr("Message"),tr("Saved successfully"));
+    this->close();
 
 
 }

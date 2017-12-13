@@ -76,7 +76,7 @@ void telaCadastroPessoa::lendoXML(){
        }
     if(xmlReader.name() == "laboratorio"){
        //qDebug() << xmlReader.readElementText();
-       nomeLaboratorio = xmlReader.readElementText();
+       lab = xmlReader.readElementText();
        //adsa=true;
        }
     if(xmlReader.name() == "idObservador"){

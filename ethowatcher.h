@@ -84,6 +84,7 @@ private slots:
 
 private:
     Ui::ethoWatcher *ui;
+    bool chLoadUser;
 
     //telaAquisicaoFilme *aquisicaoFilme;
     telaCadastroPessoa *cadastroPessoa;

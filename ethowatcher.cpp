@@ -7,8 +7,10 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(1);
+    ui->tabWiEthowatcher->setCurrentIndex(0);
 
     ui->tabWiEthowatcher->setEnabled(true);
+    chLoadUser= false;
     cadastroFilme = new telaCadastroFilme();
     cego = new telaCego();
     segment = new telaSegementacao();
@@ -112,7 +114,10 @@ void ethoWatcher::on_pbTela1Yes_clicked()
                  //ui->stackedWidget->setCurrentIndex(1);
                  ui->tabWiEthowatcher->setEnabled(true);
                  //ui->widBotoCadas->setEnabled(false);
+                 qDebug() << cadastroPessoa->nome + " lab " + cadastroPessoa->lab;
+                 chLoadUser =true;
         }
+
 
 }
 
@@ -133,6 +138,7 @@ void ethoWatcher::mudaTela(){
                 "5-Fazer uma analise cinematica tanto de um video como de uma lista de videos \n"+
                 "6-Utilizar uma RNA para analisar seus experimentos ";
 
+        qDebug() << cadastroPessoa->nome + " oi" + cadastroPessoa->lab;
 
         //ui->tePrimeiro->setText(fraseInicial);
 
@@ -154,7 +160,10 @@ void ethoWatcher::mudaTela(){
 void ethoWatcher::on_pbTela2ListaVideo_clicked()
 {
     cadastroFilme = new telaCadastroFilme();
-    //cadastroFilme->setExperimentador("joao","lala2");
+    if(chLoadUser){
+            cadastroFilme->setExperimentador(cadastroPessoa->nome,cadastroPessoa->lab);
+    }
+
     cadastroFilme->show();
 
 
@@ -179,7 +188,9 @@ void ethoWatcher::on_pbAnaliseEtograma_clicked()
 {
     //tela de etografia.
     etografaProce= new telaEtografiaProce();
-
+     if(chLoadUser){
+        etografaProce->setExperimentador(cadastroPessoa->nome,cadastroPessoa->lab);
+     }
     etografaProce->show();
     //etografia= new telaEtografia();
     //etografia->setExperimentador("Joao e ","UFSC BIOENGENHARIA");
