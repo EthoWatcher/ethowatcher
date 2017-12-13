@@ -50,6 +50,12 @@ telaCadastroFilme::~telaCadastroFilme()
     delete ui;
     qDebug() <<"destruindo telaCadastroVideo1 ";
 }
+void telaCadastroFilme::closeEvent(QCloseEvent *event)
+{
+    qDebug() << "fechou a tela ";
+    delete this;
+}
+
 
 void telaCadastroFilme::recebeImagem(QImage qiCaptador, int numFrame)
 {

@@ -7,18 +7,18 @@ EmuladroCadastroVideo::EmuladroCadastroVideo(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    cadastroFilme = new telaCadastroFilme();
+    //cadastroFilme = new telaCadastroFilme();
 }
 
 EmuladroCadastroVideo::~EmuladroCadastroVideo()
 {
-    delete cadastroFilme;
+    //delete cadastroFilme;
     delete ui;
 }
 
 void EmuladroCadastroVideo::on_pushButton_clicked()
 {
-    delete cadastroFilme;
+    //delete cadastroFilme;
     cadastroFilme = new telaCadastroFilme();
     cadastroFilme->show();
 }

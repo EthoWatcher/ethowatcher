@@ -48,8 +48,10 @@ ethoWatcher::~ethoWatcher()
     delete tempoReal;
     delete unveil;
     delete cego;
-    delete cadastroFilme;
-    delete etografaProce;
+    //foi arrumado com onovo sistema de destruição
+    //delete cadastroFilme;
+    //foi arrumado com o novo sistema de destruição
+    // delete etografaProce;
     delete ui;
 
 
@@ -175,7 +177,7 @@ void ethoWatcher::on_pbCadastrarListaVideo_clicked()
 
 void ethoWatcher::on_pbAnaliseEtograma_clicked()
 {
-
+    //tela de etografia.
     etografaProce= new telaEtografiaProce();
 
     etografaProce->show();

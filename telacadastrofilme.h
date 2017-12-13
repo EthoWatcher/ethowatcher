@@ -45,6 +45,7 @@ class telaCadastroFilme : public QWidget
 public:
     explicit telaCadastroFilme(QWidget *parent = 0);
     ~telaCadastroFilme();
+    void closeEvent(QCloseEvent *event);
 
     QString fonteVideo; //string original do caminho+nome+extensao
 
