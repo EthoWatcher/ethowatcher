@@ -579,9 +579,9 @@ void moduloProcessamento::processamentoMorfologico(){
                      mc.y= mu.m01/mu.m00+novaOrigem.y;//origiemRoi.y; //ponto do centro de massa da imagem origianl
                      caixaCirculo= cv::minAreaRect(contornosRoi);
 
-                     cv::Point2f vertices1[4];
+//                     cv::Point2f vertices1[4];
 
-                     caixaCirculo.points(vertices1);
+//                     caixaCirculo.points(vertices1);
 
                      //qDebug()<< "o angulo da caixa" << caixaCirculo.angle;
                      //qDebug()<< frameDoVideo <<  " o height da caixa" << caixaCirculo.size.height;
@@ -618,18 +618,18 @@ void moduloProcessamento::processamentoMorfologico(){
                   // cv::rectangle(animal,caixaReta,Scalar(0,150,200),1,300,0);
                      //namedWindow("animalMarcado",CV_WINDOW_FREERATIO);
                      //imshow("animalMarcado",animal);
-                     cv::fitLine(cv::Mat(contours[ponto]),comprimento,CV_DIST_L2,0,0.01,0.01);
-                     int lefty = (-comprimento[2]*comprimento[1]/comprimento[0])+comprimento[3];
-                     int righty = ((frameErosao.cols-comprimento[2])*comprimento[1]/comprimento[0])+comprimento[3];
+//                     cv::fitLine(cv::Mat(contours[ponto]),comprimento,CV_DIST_L2,0,0.01,0.01);
+//                     int lefty = (-comprimento[2]*comprimento[1]/comprimento[0])+comprimento[3];
+//                     int righty = ((frameErosao.cols-comprimento[2])*comprimento[1]/comprimento[0])+comprimento[3];
 
-                      caixaDelAnimal= cv::minAreaRect(cv::Mat(contours[ponto]));
-                      //caixaDelAnimal tem angle
-                                      //center x e y
-                                      //size height widht
+//                      caixaDelAnimal= cv::minAreaRect(cv::Mat(contours[ponto]));
+//                      //caixaDelAnimal tem angle
+//                                      //center x e y
+//                                      //size height widht
 
 
 
-                      caixaDelAnimal.points(vtxRoi);
+                      caixaCirculo.points(vtxRoi);
 
                       for(int acerta=0;acerta<4;acerta++){
                           vtx[acerta].x=vtxRoi[acerta].x+novaOrigem.x;
@@ -639,56 +639,56 @@ void moduloProcessamento::processamentoMorfologico(){
 
                       //marcela
 
-                      for( int i = 0; i < 4; i++ )
-                     {
+//                      for( int i = 0; i < 4; i++ )
+//                     {
 
-                          //entra origem 1, posicao 1 , origem 2,  posicao 2
-                          calculaIntersection(cv::Point(frameErosao.cols-1,righty),cv::Point(0,lefty),vtxRoi[i],vtxRoi[(i+1)%4]);
+//                          //entra origem 1, posicao 1 , origem 2,  posicao 2
+//                          calculaIntersection(cv::Point(frameErosao.cols-1,righty),cv::Point(0,lefty),vtxRoi[i],vtxRoi[(i+1)%4]);
 
-                          if(intersection==true){
+//                          if(intersection==true){
 
-                              comprimentoAnimal.insert(comprimentoAnimal.count(),pointIntersection);
+//                              comprimentoAnimal.insert(comprimentoAnimal.count(),pointIntersection);
 
-                            //comprimentoAnimal.insert(1,pointIntersection);
+//                            //comprimentoAnimal.insert(1,pointIntersection);
 
-                          }
+//                          }
 
-                      }
-
-
-
-
-                    if(intersection==true){
-
-                     if(comprimentoAnimal.count()!=2)
-                      {
-                         // d;
-                          dmax=0;
-                          //cv::Point2f p1, p2;
-                          for(int i=0; i<3;i++)
-                         {
-                             for(int j=i+1;j<4;j++)
-                             {
-                                d =   qSqrt( qPow( (comprimentoAnimal[i].x -comprimentoAnimal[j].x), 2 ) +
-                                            qPow( (comprimentoAnimal[i].y -comprimentoAnimal[j].y) ,2 ) );
+//                      }
 
 
 
-                                if(d>dmax)
-                                {
-                                    dmax=d;
-                                     p11=comprimentoAnimal[i]; //acha o ponto da extremidade
-                                     p21=comprimentoAnimal[j];
-                                }
-                                //
-                       }
-                     }
 
-                          comprimentoAnimal.removeOne(p11); //retira os pontos da extremidade
-                          comprimentoAnimal.removeOne(p21);
+//                    if(intersection==true){
 
-                     }
-                    }
+//                     if(comprimentoAnimal.count()!=2)
+//                      {
+//                         // d;
+//                          dmax=0;
+//                          //cv::Point2f p1, p2;
+//                          for(int i=0; i<3;i++)
+//                         {
+//                             for(int j=i+1;j<4;j++)
+//                             {
+//                                d =   qSqrt( qPow( (comprimentoAnimal[i].x -comprimentoAnimal[j].x), 2 ) +
+//                                            qPow( (comprimentoAnimal[i].y -comprimentoAnimal[j].y) ,2 ) );
+
+
+
+//                                if(d>dmax)
+//                                {
+//                                    dmax=d;
+//                                     p11=comprimentoAnimal[i]; //acha o ponto da extremidade
+//                                     p21=comprimentoAnimal[j];
+//                                }
+//                                //
+//                       }
+//                     }
+
+//                          comprimentoAnimal.removeOne(p11); //retira os pontos da extremidade
+//                          comprimentoAnimal.removeOne(p21);
+
+//                     }
+//                    }
 
 
 
@@ -731,14 +731,14 @@ void moduloProcessamento::processamentoMorfologico(){
                      //pontoR.x= mcRoi.x+40+novaOrigem.x; //contornosRoi[ponto2].x;
                      //pontoR.y= mcRoi.y +novaOrigem.y;
 
-                     pobjeto1= comprimentoAnimal[0];
-                     pobjeto2= comprimentoAnimal[1];
+//                     pobjeto1= comprimentoAnimal[0];
+//                     pobjeto2= comprimentoAnimal[1];
 
-                     pobjeto1.x= comprimentoAnimal[0].x+ novaOrigem.x;
-                     pobjeto1.y= comprimentoAnimal[0].y+ novaOrigem.y;
+                     pobjeto1.x= caixaCirculo.size.width+ novaOrigem.x;
+                     pobjeto1.y=  caixaCirculo.size.height+ novaOrigem.y;
 
-                     pobjeto2.x= comprimentoAnimal[1].x+ novaOrigem.x;
-                     pobjeto2.y= comprimentoAnimal[1].y+ novaOrigem.y;
+                     pobjeto2.x= caixaCirculo.size.width+ novaOrigem.x;
+                     pobjeto2.y= caixaCirculo.size.height+ novaOrigem.y;
 
                      //pontoR é usado para desenhar a linha reta
 //                     deseRoi.linhaAgulha= pontoR;
@@ -928,7 +928,26 @@ void moduloProcessamento::processamentoMorfologico(){
 
                  } //fim de area diferente de zero
 
-                 //qDebug() <<maiorTamanho1;
+
+                if(area==0){
+
+                    objetoEncontrado=false;
+
+
+                    emit dadosMorfologicos(imgEnviada,objetoEncontrado,area,
+                                          (double) mc.x, (double) mc.y,
+                                          caixaCirculo.angle,antigaAltur,antigaLargur);
+
+
+                    emit desenhaFigura(imgEnviada2,false,antigaMc1.x,antigaMc1.y,
+                                       antigaPontoLongeCentro.x,antigaPontoLongeCentro.y,
+                                       antigaPontoR.x,antigaPontoR.y,
+                                       antigaPobjeto1.x,antigaPobjeto1.y, antigaPobjeto2.x, antigaPobjeto2.y,
+                                       antigaVtx[0].x,antigaVtx[0].y,antigaVtx[1].x,antigaVtx[1].y,
+                                        antigaVtx[2].x,antigaVtx[2].y,antigaVtx[3].x,antigaVtx[3].y);
+
+                }
+
 
 
 

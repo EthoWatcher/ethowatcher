@@ -340,7 +340,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
         streamReader.readNext();
 
-        qDebug()<< streamReader.name();
+//        qDebug()<< streamReader.name();
 
 //        if(streamReader.name()== "dadosVideosAnalisado"){
 //            entrou1=~entrou1;

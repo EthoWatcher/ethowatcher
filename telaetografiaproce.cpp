@@ -2887,6 +2887,8 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
     parser = new parserXMLtoCSV();
     parser->converteArquivo(nomeGravarProcesImagem);
 
+    QMessageBox::information(this,tr("Message"),tr("Saved successfully"));
+
 
      }
 
