@@ -275,6 +275,10 @@ private slots:
 
     void on_pbConfRuidoInt_clicked();
 
+    void on_SliderThreshold_sliderMoved(int position);
+
+    void on_cbNoise_clicked();
+
 private:
     Ui::telaCadastroFilme *ui;
 

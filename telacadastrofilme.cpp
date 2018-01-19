@@ -40,7 +40,11 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
 //    ui->comboBoxBackground->addItem("White");
 //    ui->comboBoxBackground->addItem("Black");
     imageFundopixMap = new QGraphicsPixmapItem();
+    ui->gbOpcoes->setEnabled(false);
+    ui->leTreshold->setText(QString::number(ui->SliderThreshold->value()));
 
+    //deixando a jenal com tamanho fixo
+   this->setFixedSize(this->width(),this->height());
 }
 
 telaCadastroFilme::~telaCadastroFilme()
@@ -408,7 +412,7 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
         ui->gbControle->setEnabled(true);
 
         //resetaCorConfi();
-        ui->swiTutorConfig->setCurrentIndex(1);
+       // ui->swiTutorConfig->setCurrentIndex(0);
 
         //ui->groVideoInfo->setStyleSheet("font: bold;""background-color: #00ac00;");
         ui->hsTimer->setRange(0,(int)video_frames );
@@ -590,6 +594,8 @@ void telaCadastroFilme::on_pbConfEscala_clicked()
 
     ui->leScala->setText(QString::number(scala));
     videoCadastrado.resultado.escala=scala;
+
+    ui->gbOpcoes->setEnabled(true);
 }
 
 void telaCadastroFilme::on_tabWPrincipal_currentChanged(int index)
@@ -1568,15 +1574,22 @@ void telaCadastroFilme::on_pbConfigureNioseArea_clicked()
 
 
     }else{
-        if(ui->cbNoise->isChecked()){
 
-            ui->tabWCalib->setTabEnabled(2,true);
+        if(ui->cbNoise->isChecked() && ui->cbArea->isChecked()){
+             ui->tabWCalib->setTabEnabled(2,true);
+             ui->tabWCalib->setTabEnabled(3,true);
+             ui->tabWCalib->setCurrentIndex(2);
 
-        }
-        if(ui->cbArea->isChecked()){
+        }else if(ui->cbNoise->isChecked()){
+             ui->tabWCalib->setTabEnabled(2,true);
+             ui->tabWCalib->setCurrentIndex(2);
 
+        }else if(ui->cbArea->isChecked()){
             ui->tabWCalib->setTabEnabled(3,true);
+            ui->tabWCalib->setCurrentIndex(3);
         }
+
+
 
 
         ui->pbConfigureNioseArea->setEnabled(false);
@@ -1647,4 +1660,14 @@ void telaCadastroFilme::on_pbConfigureTreatment_clicked()
 void telaCadastroFilme::on_pbConfRuidoInt_clicked()
 {
     minVaria = ui->leMin->text().toDouble();
+}
+
+void telaCadastroFilme::on_SliderThreshold_sliderMoved(int position)
+{
+    ui->leTreshold->setText(QString::number( position));
+}
+
+void telaCadastroFilme::on_cbNoise_clicked()
+{
+
 }
