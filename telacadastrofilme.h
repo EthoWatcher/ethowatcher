@@ -279,6 +279,20 @@ private slots:
 
     void on_cbNoise_clicked();
 
+    void on_pbConfigure1_2_clicked();
+
+    void on_checkBox_clicked(bool checked);
+
+    void on_checkBox_clicked();
+
+    void on_pbNextRoi_2_clicked();
+
+    void on_cbVariaca_clicked(bool checked);
+
+    void on_pbConfRuidoInt_2_clicked();
+
+    void on_pbNexStep3_clicked();
+
 private:
     Ui::telaCadastroFilme *ui;
 

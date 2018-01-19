@@ -45,6 +45,8 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
 
     //deixando a jenal com tamanho fixo
    this->setFixedSize(this->width(),this->height());
+
+    ui->widMobileConfim->setVisible(false);
 }
 
 telaCadastroFilme::~telaCadastroFilme()
@@ -485,7 +487,9 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
 
          }
 
-
+    //colocando a primeira imagem na tela.
+    captador->setFrame(ui->labelFrames->text().toInt());
+    captador->captando();
 
 
 }
@@ -1524,7 +1528,7 @@ void telaCadastroFilme::on_pbConfigure1_clicked()
     if(ui->cbPro->isChecked()){
 
         ui->gbBack->setVisible(true);
-        ui->tabWCalib->setTabEnabled(1,true);
+        ui->tabWCalib->setTabEnabled(1,false);
 
     }else{
         ui->gbBack->setVisible(false);
@@ -1538,7 +1542,7 @@ void telaCadastroFilme::on_pbConfigure1_clicked()
 
     ui->tabWPrincipal->setTabEnabled(0,true);
     ui->tabWPrincipal->setTabEnabled(1,true);
-    ui->tabWPrincipal->setTabEnabled(2,true);
+    ui->tabWPrincipal->setTabEnabled(2,false);
 
 
     ui->pbConfigure1->setEnabled(false);
@@ -1548,6 +1552,8 @@ void telaCadastroFilme::on_pbConfigure1_clicked()
     //ui->btPlay->click();
 
     ui->tabWPrincipal->setCurrentIndex(1);
+
+
 
 
 }
@@ -1587,6 +1593,9 @@ void telaCadastroFilme::on_pbConfigureNioseArea_clicked()
         }else if(ui->cbArea->isChecked()){
             ui->tabWCalib->setTabEnabled(3,true);
             ui->tabWCalib->setCurrentIndex(3);
+        }else{
+            ui->tabWPrincipal->setCurrentIndex(2);
+            ui->tabWPrincipal->setTabEnabled(2,true);
         }
 
 
@@ -1646,6 +1655,10 @@ void telaCadastroFilme::on_pbNextRoi_clicked()
     areaInt->setVisible(true);
     triRedMax->setVisible(false);
     triBlueMax->setVisible(false);
+    ui->checkBox->setEnabled(false);
+    ui->widMobileConfim->setVisible(true);
+    ui->pbNextRoi->setEnabled(false);
+
 
 }
 
@@ -1670,4 +1683,68 @@ void telaCadastroFilme::on_SliderThreshold_sliderMoved(int position)
 void telaCadastroFilme::on_cbNoise_clicked()
 {
 
+}
+
+void telaCadastroFilme::on_pbConfigure1_2_clicked()
+{
+
+    ui->gbBlinding->setEnabled(false);
+    ui->gbBack->setEnabled(false);
+    ui->gbStartAnaly->setEnabled(false);
+    ui->gpFrameFinis->setEnabled(false);
+    ui->groupBox_15->setEnabled(false);
+
+    if(ui->cbPro->isChecked() || ui->cbBlinding->isChecked()){
+        ui->tabWCalib->setCurrentIndex(1);
+        ui->tabWCalib->setTabEnabled(1,true);
+
+    }else{
+        ui->tabWPrincipal->setCurrentIndex(2);
+        ui->tabWPrincipal->setTabEnabled(2,true);
+    }
+
+}
+
+void telaCadastroFilme::on_checkBox_clicked(bool checked)
+{
+    triRedMax->setVisible(checked);
+    triBlueMax->setVisible(checked);
+    areaInt->setVisible(false);
+}
+
+void telaCadastroFilme::on_checkBox_clicked()
+{
+
+}
+
+void telaCadastroFilme::on_pbNextRoi_2_clicked()
+{
+    areaInt->setVisible(false);
+    triRedMax->setVisible(false);
+    triBlueMax->setVisible(false);
+    ui->gpMobileVirtualCamera->setEnabled(false);
+}
+
+void telaCadastroFilme::on_cbVariaca_clicked(bool checked)
+{
+   ui-> widIntrinsic ->setEnabled(checked);
+}
+
+void telaCadastroFilme::on_pbConfRuidoInt_2_clicked()
+{
+   if(ui->cbArea->isChecked()){
+
+       ui->tabWCalib->setCurrentIndex(3);
+   }else{
+
+       ui->tabWPrincipal->setCurrentIndex(2);
+       ui->tabWPrincipal->setTabEnabled(2,true);
+   }
+
+}
+
+void telaCadastroFilme::on_pbNexStep3_clicked()
+{
+    ui->tabWPrincipal->setCurrentIndex(2);
+    ui->tabWPrincipal->setTabEnabled(2,true);
 }
