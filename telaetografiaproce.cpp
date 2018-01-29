@@ -3237,48 +3237,59 @@ void telaEtografiaProce::on_pbTraking_clicked()
     captadorThread = new QThread();
     captador->moveToThread(captadorThread); //a
 
-    dados = new moduloProcessamento();
-    thrProce = new QThread();
-
 
     captador->setCaptador(videoLista.nomeOpencv[0]);
     //dados->frameBackground = conQim2Mat( captador->pegaPlanoFundoQImage(videoLista.frameBack[0]));
     //dados->setFrameFundo(captador->pegaPlanoFundoQImage(videoLista.frameBack[0]));
-    dados->setBackground(captador->pegaPlanoFundo(videoLista.frameBack[0]));
 
-    dados->moveToThread(thrProce);//a
-//    cv::imshow("fundio",dados->frameBackground );
-//    cv::waitKey(20);
-    //cv::Mat frameDisplay = captadorDeVideo->frameBackground;
-
-//    cv::imshow("oi",frameDisplay);
-
-//    cv::waitKey(10);
-   // QImage imgLida((uchar*)frameDisplay.data, frameDisplay.cols, frameDisplay.rows, frameDisplay.step, QImage::Format_RGB888);
-
-    //qiFundo = imgLida;
     captador->getParamVideo();
-    dados->setCalibracao(videoLista.threshold[0],videoLista.erosao[0]);
-    dados->setParametrosVideo(captador->video_width,captador->video_heigth);
-    dados->confiCameraVir(videoLista.areaJanInte[0].oriX[0],
-            videoLista.areaJanInte[0].oriY[0],
-            videoLista.areaJanInte[contadorDeVideo].width[0],
-            videoLista.areaJanInte[contadorDeVideo].height[0],
-            videoLista.chaInteMoveAtivado[0],videoLista.chaInteMove[0]);
-    dados->setMaxVariacao(videoLista.tamMaxVar[0]);
-    //dados->confiCameraVir(0,0,captador->video_width,captador->video_heigth,false);
-
     connect(captadorThread,SIGNAL(started()),captador,SLOT(setCaptaVideoTodo()));
-   // connect(captadorDeVideo,SIGNAL(fimConfiguracao()),captadorDeVideo,SLOT(captandoRealTime()));
-//    connect(captadorDeVideo,SIGNAL(enviaInformacoes(int,QImage,float)),this,SLOT(atualizaImagem(int,QImage,float)));
 
     captador->setCaptadorRange(videoLista.frameProces[0],videoLista.frameFinal[0]);
 
-    connect(captador,SIGNAL(enviaImagem(QImage,int)),dados,SLOT(processamentoDeVideoTodo(QImage,int)));
-    connect(dados,SIGNAL(fimProce()),captador,SLOT(setCaptaVideoTodo()));
-    connect(dados,SIGNAL(enviaMorfInt(int)), this,SLOT(recebeContadorMorfo(int)));
-   // connect(captador,SIGNAL(enviaInt(int)), ui->probCaptador,SLOT(setValue(int)));
-    //connect(captador,SIGNAL(enviaInt(int)), this,SLOT(recebeContadorMorfo(int)));
+
+
+    for(int i=0; i<videoLista.area[0].nomeFig.size(); i++){
+
+        thrProce = new QThread();
+
+
+
+        dados = new moduloProcessamento();
+        dados->setBackground(captador->pegaPlanoFundo(videoLista.frameBack[0]));
+
+        dados->setCalibracao(videoLista.threshold[0],videoLista.erosao[0]);
+        dados->setParametrosVideo(captador->video_width,captador->video_heigth);
+        dados->confiCameraVir(videoLista.areaJanInte[0].oriX[0],
+                videoLista.areaJanInte[0].oriY[0],
+                videoLista.areaJanInte[contadorDeVideo].width[0],
+                videoLista.areaJanInte[contadorDeVideo].height[0],
+                videoLista.chaInteMoveAtivado[0],videoLista.chaInteMove[0]);
+        dados->setMaxVariacao(videoLista.tamMaxVar[0]);
+
+
+        listaProcessamento.push_back(dados);
+        listaThreadProcessamento.push_back(thrProce);
+
+        listaProcessamento[i]->moveToThread(listaThreadProcessamento[i]);//
+
+
+        connect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[i],SLOT(processamentoDeVideoTodo(QImage,int)));
+
+
+        connect(listaProcessamento[i],SIGNAL(fimProce()),captador,SLOT(setCaptaVideoTodo()));
+        connect(listaProcessamento[i],SIGNAL(enviaMorfInt(int)), this,SLOT(recebeContadorMorfo(int)));
+
+        listaThreadProcessamento[i]->start();
+
+    }
+
+
+
+
+
+
+
 
     //ui->probCaptador->setRange(videoLista.frameProces[0],videoLista.frameFinal[0]-1);
     ui->progressBar->setRange(videoLista.frameProces[0],videoLista.frameFinal[0]-1);
@@ -3287,7 +3298,7 @@ void telaEtografiaProce::on_pbTraking_clicked()
     captador->setCaptaVideoTodo(); //b
     //para thread
     captadorThread->start();//a
-    thrProce->start();//a
+//    thrProce->start();//a
 
 
     //

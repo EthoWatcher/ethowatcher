@@ -1526,7 +1526,7 @@ void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnc
     }
 
    // if(contMorfo%40){
-
+ //       qDebug() << contGlobal << " da tarefa " << QThread::currentThreadId();
         emit enviaMorfInt(contGlobal);
         //qDebug() <<contGlobal;
        // emit enviaMorfInt(contMorfo);

@@ -295,11 +295,17 @@ private:
     //int dados[3];
     moduloCaptador *captadorDeVideo;
     moduloCaptador *captador;
+
+
+
     QThread *captadorThread;
     float somaTempo=0;
     float somaTempoFilming=0;
     moduloProcessamento *dados;
     QThread * thrProce;
+
+    std::vector<moduloProcessamento*> listaProcessamento;
+    std::vector<QThread * >listaThreadProcessamento;
 
     int widthPanProcess;
     int  heightPanProcess;
