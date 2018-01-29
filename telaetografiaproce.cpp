@@ -173,8 +173,17 @@ void telaEtografiaProce::recebeImagem(QImage qiCaptador, int numFrame)
         ui->hsTimer->setValue(numFrame);
 
 
-
+//se esta ligado o processamento de imagem
         if(chProceON){
+            for(int i=0; i<cheboxList.size();i++){
+
+                if(cheboxList[i]->isChecked()){
+                    dados = listaProcessamento[i];
+                }
+
+            }
+
+
 
             atualizaProcess(numFrame-videoLista.frameProces[0]);
 
@@ -2774,6 +2783,7 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
      for(int ka=0; ka< videoLista.area[contadorDeVideo].oriX.size(); ka++ ){
 
 
+         dados= listaProcessamento[ka];
 
      stream.writeStartElement("area");
 
@@ -2784,7 +2794,7 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
      int fraNumero=0;
      for(int i=0; i< dados->reMorfo.area.size();i++){
 
-         if(matObjDentro[ka][i]){
+ //        if(matObjDentro[ka][i]){
 
          stream.writeStartElement("proce");
          fraNumero=i+ videoLista.frameProces[contadorDeVideo];
@@ -2850,7 +2860,7 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
 
          stream.writeEndElement(); //fecha proce
 
-         }
+       //  }
      }
 
 
@@ -3274,12 +3284,14 @@ void telaEtografiaProce::on_pbTraking_clicked()
             //caso for circulo
 
             dados->setAreaInteresse(videoLista.area[0].oriX[contProce], videoLista.area[0].oriY[contProce], videoLista.area[0].raio[contadorCirculo]);
+            dados->setNomeFigura(videoLista.area[contadorDeVideo].nomeFig[i]);
             contadorCirculo++;
 
 
         }else{
 
             dados->setAreaInteresse(videoLista.area[0].oriX[contProce], videoLista.area[0].oriY[contProce], videoLista.area[0].height[contadorRetangulo],videoLista.area[0].width[contadorRetangulo]);
+            dados->setNomeFigura(videoLista.area[contadorDeVideo].nomeFig[i]);
             //caso for retangulo
             contadorRetangulo++;
 
@@ -3332,7 +3344,13 @@ void telaEtografiaProce::on_pbTraking_clicked()
     for(int ka=0; ka< videoLista.area[contadorDeVideo].nomeFig.size(); ka++){
 
         chebox = new QCheckBox();
-        chebox->setChecked(true);
+        if(ka==0){
+           chebox->setChecked(true);
+        }else{
+            chebox->setChecked(false);
+        }
+        chebox->setAutoExclusive(true);
+
         chebox->setText(videoLista.area[contadorDeVideo].nomeFig[ka]);
         cheboxList.push_back(chebox);
         vBoxLay->addWidget(cheboxList[ka]);
@@ -3387,12 +3405,23 @@ void telaEtografiaProce::on_chbTamnho_clicked()
 void telaEtografiaProce::atualizaProcess(int numFrame)
 {
 
+    for(int i=0; i<cheboxList.size();i++){
+
+        if(cheboxList[i]->isChecked()){
+            dados = listaProcessamento[i];
+        }
+
+    }
+
+
+
     if(dados->reMorfo.objetoEncontrado[numFrame]){
          ui->tabWDesc->setItem(0,0,new QTableWidgetItem("true" ) );
     }else{
         ui->tabWDesc->setItem(0,0,new QTableWidgetItem("false" ) );
     }
 
+//    dados = listaProcessamento[2];
     //dados->reMorfo.objetoEncontrado[numFrame].push_back(objeto);
    // reMorfo.area.push_back(area1);
   // dados->reMorfo.centroidX[numFrame].push_back(mcX);

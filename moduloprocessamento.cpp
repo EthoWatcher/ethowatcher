@@ -149,6 +149,11 @@ void moduloProcessamento::setAreaInteresse(double x, double y, double height, do
 
 }
 
+void moduloProcessamento::setNomeFigura(QString nome)
+{
+    figuraNome = nome;
+}
+
 cv::Mat moduloProcessamento::conQim2Mat(QImage imaEntrada)
 {
     cv::Mat matSaida;
@@ -501,8 +506,17 @@ void moduloProcessamento::processamentoMorfologico(){
 
         cv::bitwise_and(frameAreaInteresseB.clone(),frameLimiarizacao.clone(),frameLimiarizacao);
 //       frameLimiarizacao= cv::   abs(frameAreaInteresseB+frameLimiarizacao.clone());
-//        cv::imshow("soma binaria", frameLimiarizacao);
-//        cv::waitKey(20);
+//        qDebug() << reMorfo.area.size()%20;
+//        if((reMorfo.area.size() % 30) == 0){
+//            QString c;
+//            c= figuraNome;
+
+//            cv::imshow(c.toStdString(), frameLimiarizacao);
+//            cv::waitKey(20);
+//        }
+
+                   qDebug()<< figuraNome << " na tarefa "<< QThread::currentThreadId() ;
+
         //---------------------------------------------------------------------------------------------------
         //------FrameErosao: Erosão da máscara do animal------------------------------------------------------
        //  erosao=2; //0 até 10
