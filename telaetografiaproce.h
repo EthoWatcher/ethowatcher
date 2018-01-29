@@ -221,6 +221,10 @@ public:
     double contRet=0;
     double conRet2=0;
 
+    int contadorCirculo;
+    int contadorRetangulo;
+    int contProce;
+
 cv::Mat conQim2Mat(QImage imaEntrada);
 
 

@@ -52,6 +52,10 @@ telaEtografiaProce::telaEtografiaProce(QWidget *parent) :
 
      chPriemira= true;
 
+     contProce=0;
+     contadorCirculo=0;
+     contadorRetangulo=0;
+
 }
 
 void telaEtografiaProce::closeEvent(QCloseEvent *event)
@@ -3266,6 +3270,20 @@ void telaEtografiaProce::on_pbTraking_clicked()
                 videoLista.areaJanInte[contadorDeVideo].height[0],
                 videoLista.chaInteMoveAtivado[0],videoLista.chaInteMove[0]);
         dados->setMaxVariacao(videoLista.tamMaxVar[0]);
+        if(videoLista.area[contadorDeVideo].tipo[i]=="circle"){
+            //caso for circulo
+
+            dados->setAreaInteresse(videoLista.area[0].oriX[contProce], videoLista.area[0].oriY[contProce], videoLista.area[0].raio[contadorCirculo]);
+            contadorCirculo++;
+
+
+        }else{
+
+            dados->setAreaInteresse(videoLista.area[0].oriX[contProce], videoLista.area[0].oriY[contProce], videoLista.area[0].height[contadorRetangulo],videoLista.area[0].width[contadorRetangulo]);
+            //caso for retangulo
+            contadorRetangulo++;
+
+        }
 
 
         listaProcessamento.push_back(dados);

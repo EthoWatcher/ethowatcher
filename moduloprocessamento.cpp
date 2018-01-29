@@ -114,6 +114,41 @@ void moduloProcessamento::setMaxVariacao(double max)
     maxVaria= max;
 }
 
+void moduloProcessamento::setAreaInteresse(double x, double y, double tamanho)
+{
+
+     cv::Mat M( video_heigth, video_width, CV_8UC3, cv::Scalar(0,0,0));//cv::Mat::ones(cv::Size(video_width, video_heigth),CV_8UC3);
+   frameAreaInteresse = M.clone();
+     cv::ellipse(frameAreaInteresse,cv::Point(x+tamanho,y+tamanho),cv::Size(tamanho,tamanho),0,0,360,cv::Scalar(255,255,255),-1,8,0);
+
+     cv::cvtColor( frameAreaInteresse.clone(), frameAreaInteresse, CV_RGB2GRAY );
+
+     cv::threshold( frameAreaInteresse.clone(), frameAreaInteresseB, 100, 255,CV_THRESH_BINARY);
+
+
+}
+///
+/// \brief moduloProcessamento::setAreaInteresse
+/// \param x
+/// \param y
+/// \param height
+/// \param width
+///
+void moduloProcessamento::setAreaInteresse(double x, double y, double height, double width){
+
+    cv::Mat M( video_heigth, video_width, CV_8UC3, cv::Scalar(0,0,0));//cv::Mat::ones(cv::Size(video_width, video_heigth),CV_8UC3);
+
+    frameAreaInteresse = M.clone();
+
+    cv::rectangle(frameAreaInteresse,cv::Rect(x,y,width,height),cv::Scalar(255,255,255),-1,8,0);
+
+    cv::cvtColor( frameAreaInteresse.clone(), frameAreaInteresse, CV_RGB2GRAY );
+
+    cv::threshold( frameAreaInteresse.clone(), frameAreaInteresseB, 100, 255,CV_THRESH_BINARY);
+
+
+}
+
 cv::Mat moduloProcessamento::conQim2Mat(QImage imaEntrada)
 {
     cv::Mat matSaida;
@@ -464,6 +499,10 @@ void moduloProcessamento::processamentoMorfologico(){
         cv::cvtColor( frameSubtracao.clone(), frameSubtracao_gray, CV_RGB2GRAY );
         cv::threshold( frameSubtracao_gray.clone(), frameLimiarizacao, threshold_value, 255,CV_THRESH_BINARY);
 
+        cv::bitwise_and(frameAreaInteresseB.clone(),frameLimiarizacao.clone(),frameLimiarizacao);
+//       frameLimiarizacao= cv::   abs(frameAreaInteresseB+frameLimiarizacao.clone());
+//        cv::imshow("soma binaria", frameLimiarizacao);
+//        cv::waitKey(20);
         //---------------------------------------------------------------------------------------------------
         //------FrameErosao: Erosão da máscara do animal------------------------------------------------------
        //  erosao=2; //0 até 10
