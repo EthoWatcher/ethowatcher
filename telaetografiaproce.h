@@ -277,6 +277,8 @@ private slots:
 
     void on_pbSaveImage_clicked();
 
+    void setProcessamento();
+
     void on_pbTraking_clicked();
 
     void on_chbTamnho_clicked();

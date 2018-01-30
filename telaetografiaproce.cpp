@@ -1585,13 +1585,14 @@ void telaEtografiaProce::reiniciaProcessamento()
 
         disconnect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[contPrcessamento],SLOT(processamentoDeVideoTodo(QImage,int)));
         disconnect(listaProcessamento[contPrcessamento],SIGNAL(fimProce()),captador,SLOT(setCaptaVideoTodo()));
-        disconnect(listaProcessamento[contPrcessamento],SIGNAL(enviaMorfInt(int)), this,SLOT(recebeContadorMorfo(int)));
+        connect(listaProcessamento[contPrcessamento],SIGNAL(enviaMorfInt(int)), this,SLOT(recebeContadorMorfo(int)));
        qDebug() << contPrcessamento<< " foi proximo";
         contPrcessamento++;
 
+        setProcessamento();
 
-        connect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[contPrcessamento],SLOT(processamentoDeVideoTodo(QImage,int)));
-        captador->setCaptaVideoTodo(); //b
+//        connect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[contPrcessamento],SLOT(processamentoDeVideoTodo(QImage,int)));
+//        captador->setCaptaVideoTodo(); //b
         emit reiniciaProce();
 
 
@@ -3270,6 +3271,61 @@ void telaEtografiaProce::on_pbSaveImage_clicked()
 
 }
 
+void telaEtografiaProce::setProcessamento()
+{
+    moduloProcessamento *dados1;
+
+    captador->getParamVideo();
+
+    dados1 = new moduloProcessamento();
+    dados1->setBackground(captador->pegaPlanoFundo(videoLista.frameBack[0]));
+
+    dados1->setCalibracao(videoLista.threshold[0],videoLista.erosao[0]);
+    dados1->setParametrosVideo(captador->video_width,captador->video_heigth);
+    dados1->confiCameraVir(videoLista.areaJanInte[0].oriX[0],
+            videoLista.areaJanInte[0].oriY[0],
+            videoLista.areaJanInte[contadorDeVideo].width[0],
+            videoLista.areaJanInte[contadorDeVideo].height[0],
+            videoLista.chaInteMoveAtivado[0],videoLista.chaInteMove[0]);
+    dados1->setMaxVariacao(videoLista.tamMaxVar[0]);
+    if(videoLista.area[contadorDeVideo].tipo[contPrcessamento]=="circle"){
+
+
+        dados1->setAreaInteresse(videoLista.area[0].oriX[contPrcessamento], videoLista.area[0].oriY[contPrcessamento], videoLista.area[0].raio[contadorCirculo]);
+        dados1->setNomeFigura(videoLista.area[contadorDeVideo].nomeFig[contPrcessamento]);
+        contadorCirculo++;
+
+
+    }else{
+
+        dados1->setAreaInteresse(videoLista.area[0].oriX[contPrcessamento], videoLista.area[0].oriY[contPrcessamento], videoLista.area[0].height[contadorRetangulo],videoLista.area[0].width[contadorRetangulo]);
+        dados1->setNomeFigura(videoLista.area[contadorDeVideo].nomeFig[contPrcessamento]);
+        //caso for retangulo
+        contadorRetangulo++;
+
+    }
+
+
+    //frInicio
+    listaProcessamento.push_back(dados1);
+    listaThreadProcessamento.push_back(thrProce);
+//        delete dados;
+//        delete thrProce;
+
+    listaProcessamento[contPrcessamento]->moveToThread(listaThreadProcessamento[contPrcessamento]);//
+
+
+//        connect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[i],SLOT(processamentoDeVideoTodo(QImage,int)));
+
+
+    connect(listaProcessamento[contPrcessamento],SIGNAL(fimProce()),captador,SLOT(setCaptaVideoTodo()));
+    connect(listaProcessamento[contPrcessamento],SIGNAL(enviaMorfInt(int)), this,SLOT(recebeContadorMorfo(int)));
+
+    listaThreadProcessamento[contPrcessamento]->start();
+
+connect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[contPrcessamento],SLOT(processamentoDeVideoTodo(QImage,int)));
+}
+
 void telaEtografiaProce::on_pbTraking_clicked()
 {
     captador = new moduloCaptador();
@@ -3290,63 +3346,13 @@ void telaEtografiaProce::on_pbTraking_clicked()
 
 
 
-    for(int i=0; i<videoLista.area[0].nomeFig.size(); i++){
+   // for(int i=0; i<videoLista.area[0].nomeFig.size(); i++){
 
         thrProce = new QThread();
 
 
 
-        dados = new moduloProcessamento();
-        dados->setBackground(captador->pegaPlanoFundo(videoLista.frameBack[0]));
-
-        dados->setCalibracao(videoLista.threshold[0],videoLista.erosao[0]);
-        dados->setParametrosVideo(captador->video_width,captador->video_heigth);
-        dados->confiCameraVir(videoLista.areaJanInte[0].oriX[0],
-                videoLista.areaJanInte[0].oriY[0],
-                videoLista.areaJanInte[contadorDeVideo].width[0],
-                videoLista.areaJanInte[contadorDeVideo].height[0],
-                videoLista.chaInteMoveAtivado[0],videoLista.chaInteMove[0]);
-        dados->setMaxVariacao(videoLista.tamMaxVar[0]);
-        if(videoLista.area[contadorDeVideo].tipo[i]=="circle"){
-            //caso for circulo
-
-            dados->setAreaInteresse(videoLista.area[0].oriX[contProce], videoLista.area[0].oriY[contProce], videoLista.area[0].raio[contadorCirculo]);
-            dados->setNomeFigura(videoLista.area[contadorDeVideo].nomeFig[i]);
-            contadorCirculo++;
-
-
-        }else{
-
-            dados->setAreaInteresse(videoLista.area[0].oriX[contProce], videoLista.area[0].oriY[contProce], videoLista.area[0].height[contadorRetangulo],videoLista.area[0].width[contadorRetangulo]);
-            dados->setNomeFigura(videoLista.area[contadorDeVideo].nomeFig[i]);
-            //caso for retangulo
-            contadorRetangulo++;
-
-        }
-
-
-        //frInicio
-        listaProcessamento.push_back(dados);
-        listaThreadProcessamento.push_back(thrProce);
-//        delete dados;
-//        delete thrProce;
-
-        listaProcessamento[i]->moveToThread(listaThreadProcessamento[i]);//
-
-
-//        connect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[i],SLOT(processamentoDeVideoTodo(QImage,int)));
-
-
-        connect(listaProcessamento[i],SIGNAL(fimProce()),captador,SLOT(setCaptaVideoTodo()));
-        connect(listaProcessamento[i],SIGNAL(enviaMorfInt(int)), this,SLOT(recebeContadorMorfo(int)));
-
-        listaThreadProcessamento[i]->start();
-
-    }
-
-    //conetadno o primeiro
-    connect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[contPrcessamento],SLOT(processamentoDeVideoTodo(QImage,int)));
-
+        setProcessamento();
 
 
 
