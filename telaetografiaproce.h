@@ -379,6 +379,11 @@ private:
     std::vector<double>  vetorDuracao;
 
     parserXMLtoCSV *parser;
+    int contPrcessamento=0;
+
+    void reiniciaProcessamento();
+signals:
+    void reiniciaProce();
 
 
 

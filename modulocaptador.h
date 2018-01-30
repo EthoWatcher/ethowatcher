@@ -92,6 +92,7 @@ signals:
 
 
 public slots:
+    void setReinicio();
 
 
     void setCaptaVideoTodo();

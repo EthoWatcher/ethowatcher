@@ -110,10 +110,14 @@ void telaEtografiaProce::recebeContadorMorfo(int contador)
     ui->progressBar->setValue(contador);
     //ui->progressBar->setValue(contador+ videoLista.frameProces[0]);
 
-    if((contador)>= (videoLista.frameFinal[0]-1)){
+    if((contador)== (videoLista.frameFinal[0])){
     //if((contador+ videoLista.frameProces[0])>= (videoLista.frameFinal[0]-1)){
 
         ui->pbStart->setEnabled(true);
+        //se chegou no fim cahma outuro processamento;
+        reiniciaProcessamento();
+
+
     }
 
 
@@ -524,7 +528,7 @@ void telaEtografiaProce::on_pbEtoProce_clicked()
     //connect(captador,SIGNAL(enviaInt(int)), this,SLOT(recebeContadorMorfo(int)));
 
     //ui->probCaptador->setRange(videoLista.frameProces[0],videoLista.frameFinal[0]-1);
-    ui->progressBar->setRange(videoLista.frameProces[0],videoLista.frameFinal[0]-1);
+    ui->progressBar->setRange(videoLista.frameProces[0],videoLista.frameFinal[0]);
 
 
     captador->setCaptaVideoTodo(); //b
@@ -1571,6 +1575,27 @@ void telaEtografiaProce::atualizaRegistro()
 
     }
 
+
+}
+
+void telaEtografiaProce::reiniciaProcessamento()
+{
+    if(contPrcessamento< (videoLista.area[0].nomeFig.size()-1)){
+
+
+        disconnect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[contPrcessamento],SLOT(processamentoDeVideoTodo(QImage,int)));
+        disconnect(listaProcessamento[contPrcessamento],SIGNAL(fimProce()),captador,SLOT(setCaptaVideoTodo()));
+        disconnect(listaProcessamento[contPrcessamento],SIGNAL(enviaMorfInt(int)), this,SLOT(recebeContadorMorfo(int)));
+       qDebug() << contPrcessamento<< " foi proximo";
+        contPrcessamento++;
+
+
+        connect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[contPrcessamento],SLOT(processamentoDeVideoTodo(QImage,int)));
+        captador->setCaptaVideoTodo(); //b
+        emit reiniciaProce();
+
+
+    }
 
 }
 
@@ -3252,12 +3277,14 @@ void telaEtografiaProce::on_pbTraking_clicked()
     captador->moveToThread(captadorThread); //a
 
 
+    connect(this,SIGNAL(reiniciaProce()),captador,SLOT(setReinicio()));
     captador->setCaptador(videoLista.nomeOpencv[0]);
     //dados->frameBackground = conQim2Mat( captador->pegaPlanoFundoQImage(videoLista.frameBack[0]));
     //dados->setFrameFundo(captador->pegaPlanoFundoQImage(videoLista.frameBack[0]));
 
     captador->getParamVideo();
-    connect(captadorThread,SIGNAL(started()),captador,SLOT(setCaptaVideoTodo()));
+    //connect(captadorThread,SIGNAL(started()),captador,SLOT(setCaptaVideoTodo()));
+    connect(this,SIGNAL(reiniciaProce()),captador,SLOT(setCaptaVideoTodo()));
 
     captador->setCaptadorRange(videoLista.frameProces[0],videoLista.frameFinal[0]);
 
@@ -3298,13 +3325,16 @@ void telaEtografiaProce::on_pbTraking_clicked()
         }
 
 
+        //frInicio
         listaProcessamento.push_back(dados);
         listaThreadProcessamento.push_back(thrProce);
+//        delete dados;
+//        delete thrProce;
 
         listaProcessamento[i]->moveToThread(listaThreadProcessamento[i]);//
 
 
-        connect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[i],SLOT(processamentoDeVideoTodo(QImage,int)));
+//        connect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[i],SLOT(processamentoDeVideoTodo(QImage,int)));
 
 
         connect(listaProcessamento[i],SIGNAL(fimProce()),captador,SLOT(setCaptaVideoTodo()));
@@ -3314,6 +3344,9 @@ void telaEtografiaProce::on_pbTraking_clicked()
 
     }
 
+    //conetadno o primeiro
+    connect(captador,SIGNAL(enviaImagem(QImage,int)),listaProcessamento[contPrcessamento],SLOT(processamentoDeVideoTodo(QImage,int)));
+
 
 
 
@@ -3322,12 +3355,15 @@ void telaEtografiaProce::on_pbTraking_clicked()
 
 
     //ui->probCaptador->setRange(videoLista.frameProces[0],videoLista.frameFinal[0]-1);
-    ui->progressBar->setRange(videoLista.frameProces[0],videoLista.frameFinal[0]-1);
+    ui->progressBar->setRange(videoLista.frameProces[0],videoLista.frameFinal[0]);
 
 
-    captador->setCaptaVideoTodo(); //b
+//    captador->setCaptaVideoTodo(); //b
     //para thread
     captadorThread->start();//a
+
+//    reiniciaProcessamento();
+   emit reiniciaProce();
 //    thrProce->start();//a
 
 
