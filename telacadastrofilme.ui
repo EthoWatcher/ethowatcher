@@ -55,8 +55,8 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>513</width>
-        <height>778</height>
+        <width>509</width>
+        <height>757</height>
        </rect>
       </property>
       <property name="currentIndex">
@@ -112,7 +112,7 @@ p, li { white-space: pre-wrap; }
          </rect>
         </property>
         <property name="title">
-         <string>Step 1.02 Video Open Info</string>
+         <string>Video Open Info</string>
         </property>
         <widget class="QLabel" name="lblNomeVideo">
          <property name="geometry">
@@ -270,7 +270,7 @@ p, li { white-space: pre-wrap; }
          </rect>
         </property>
         <property name="title">
-         <string>Step 1.03 Select modules for video file processing</string>
+         <string>Step 2</string>
         </property>
         <layout class="QGridLayout" name="gridLayout">
          <item row="0" column="0">
@@ -324,7 +324,7 @@ p, li { white-space: pre-wrap; }
          </rect>
         </property>
         <property name="title">
-         <string>Step 1.01</string>
+         <string>Step 1</string>
         </property>
         <widget class="QPushButton" name="pbAbreVideo">
          <property name="geometry">
@@ -350,7 +350,7 @@ p, li { white-space: pre-wrap; }
          </rect>
         </property>
         <property name="title">
-         <string>Step 1.04</string>
+         <string>Step 3</string>
         </property>
         <widget class="QPushButton" name="pbConfigure1">
          <property name="geometry">
