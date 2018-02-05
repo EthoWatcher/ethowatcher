@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT +=xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -39,13 +40,15 @@ SOURCES += ProjetoCego/main.cpp\
     telacego.cpp\
     modulorsa.cpp\
     moduloeditavideo.cpp\
-    emuladortelacego.cpp
+    emuladortelacego.cpp\
+    tutoretho.cpp
 
 
 HEADERS  += telacego.h\
     modulorsa.h \
     moduloeditavideo.h\
-    emuladortelacego.h
+    emuladortelacego.h\
+    tutoretho.h
 #ProjetoCego/mainwindow.h \
 
 FORMS    += telacego.ui\

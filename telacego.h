@@ -23,6 +23,7 @@
 #include <QXmlStreamWriter>
 #include "modulorsa.h"
 #include "moduloeditavideo.h"
+#include "tutoretho.h"
 
 
 
@@ -37,6 +38,7 @@ class telaCego : public QWidget
 public:
     explicit telaCego(QWidget *parent = 0);
     ~telaCego();
+    TutorEtho tutor;
 
 //    struct dadosExperimentador{
 //        QString nome;

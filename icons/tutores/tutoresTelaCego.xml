@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tutores>
+<tutor id="j"><html><header><title>j</title></header><body>Hello world j</body></html></tutor>
+
+<tutor id="macarao"><html><header><title>macarao</title></header><body>Hello world <b>macarao</b></body></html></tutor>
+<tutor id="indio"><html><header><title>indio</title></header><body>Hello world indio</body></html></tutor>
+<tutor id="luiz"><html><header><title>luiz</title></header><body>Hello world luiz</body></html></tutor>
+	
+	
+</tutores>

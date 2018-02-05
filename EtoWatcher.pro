@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT +=xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -60,7 +61,8 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     telafluxocomportamental.cpp\
     parserxmltocsv.cpp\
     mysplash.cpp\
-    parserxml.cpp
+    parserxml.cpp\
+    tutoretho.cpp
 
 
 
@@ -92,7 +94,8 @@ HEADERS  += ethowatcher.h \
     telafluxocomportamental.h\
     parserxmltocsv.h\
     mysplash.h\
-    parserxml.h
+    parserxml.h\
+    tutoretho.h
 
 
 
