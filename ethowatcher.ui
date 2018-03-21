@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>989</width>
+    <width>978</width>
     <height>709</height>
    </rect>
   </property>
@@ -271,36 +271,146 @@ p, li { white-space: pre-wrap; }
               </size>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>2</number>
              </property>
              <widget class="QWidget" name="tab">
               <attribute name="title">
                <string>Database managements tools</string>
               </attribute>
-              <widget class="QGroupBox" name="groupBox">
-               <property name="geometry">
-                <rect>
-                 <x>10</x>
-                 <y>250</y>
-                 <width>601</width>
-                 <height>181</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Tutor</string>
-               </property>
-               <layout class="QVBoxLayout" name="verticalLayout">
-                <item>
-                 <widget class="QStackedWidget" name="swidTutorBancoDados">
-                  <property name="currentIndex">
-                   <number>5</number>
-                  </property>
-                  <widget class="QWidget" name="Inicio">
-                   <layout class="QVBoxLayout" name="verticalLayout_9">
+              <layout class="QVBoxLayout" name="verticalLayout_2">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout">
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_2">
+                   <property name="title">
+                    <string>Registration Box</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout">
+                    <item row="0" column="0">
+                     <widget class="QWidget" name="widget" native="true">
+                      <property name="minimumSize">
+                       <size>
+                        <width>50</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <layout class="QGridLayout" name="gridLayout_2">
+                       <item row="0" column="0">
+                        <widget class="QPushButton" name="pbTela1No">
+                         <property name="text">
+                          <string>Register new user</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="2" column="0">
+                        <widget class="QPushButton" name="pbRegisterCatalog">
+                         <property name="text">
+                          <string>Register behavioral catalog</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="5" column="0">
+                        <widget class="QPushButton" name="pbTela2ListaVideo">
+                         <property name="text">
+                          <string>Register video files</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
+                        <widget class="QPushButton" name="pbTela1Yes">
+                         <property name="text">
+                          <string>Load user</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item row="1" column="1">
+                        <widget class="QWidget" name="widget_2" native="true">
+                         <layout class="QVBoxLayout" name="verticalLayout_7">
+                          <item>
+                           <widget class="QPushButton" name="pbConversorXMLCSV">
+                            <property name="text">
+                             <string>.xml-to-.csv file converter</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_3">
+                   <property name="title">
+                    <string>Video management tools</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_8">
                     <item>
-                     <widget class="QTextEdit" name="textBancoDeDados">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                     <widget class="QPushButton" name="pbCadastrarListaVideo">
+                      <property name="text">
+                       <string>Build video file list</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pbDuploCego">
+                      <property name="text">
+                       <string>&quot;Blind&quot; video files</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pbUnveil">
+                      <property name="text">
+                       <string>Unveil &quot;blinded&quot; video files</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pbBehaviorSample">
+                      <property name="text">
+                       <string>Build a behavioral-sample video</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>100</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox">
+                 <property name="title">
+                  <string>Tutor</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout">
+                  <item>
+                   <widget class="QStackedWidget" name="swidTutorBancoDados">
+                    <property name="currentIndex">
+                     <number>5</number>
+                    </property>
+                    <widget class="QWidget" name="Inicio">
+                     <layout class="QVBoxLayout" name="verticalLayout_9">
+                      <item>
+                       <widget class="QTextEdit" name="textBancoDeDados">
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -312,17 +422,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;GroupBox  1&lt;/span&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;you can acesse &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600;&quot;&gt;GroupBox 2&lt;/span&gt; &lt;span style=&quot; color:#000000;&quot;&gt;you can acess&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_7">
-                   <layout class="QVBoxLayout" name="verticalLayout_17">
-                    <item>
-                     <widget class="QTextEdit" name="textLoadUSer">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                    <widget class="QWidget" name="page_7">
+                     <layout class="QVBoxLayout" name="verticalLayout_17">
+                      <item>
+                       <widget class="QTextEdit" name="textLoadUSer">
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -334,17 +444,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_4">
-                   <layout class="QVBoxLayout" name="verticalLayout_16">
-                    <item>
-                     <widget class="QTextEdit" name="textLoadUSer_2">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                    <widget class="QWidget" name="page_4">
+                     <layout class="QVBoxLayout" name="verticalLayout_16">
+                      <item>
+                       <widget class="QTextEdit" name="textLoadUSer_2">
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -354,17 +464,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_5">
-                   <layout class="QVBoxLayout" name="verticalLayout_15">
-                    <item>
-                     <widget class="QTextEdit" name="textLoadUSer_3">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                    <widget class="QWidget" name="page_5">
+                     <layout class="QVBoxLayout" name="verticalLayout_15">
+                      <item>
+                       <widget class="QTextEdit" name="textLoadUSer_3">
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -375,17 +485,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_6">
-                   <layout class="QVBoxLayout" name="verticalLayout_14">
-                    <item>
-                     <widget class="QTextEdit" name="textLoadUSer_5">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                    <widget class="QWidget" name="page_6">
+                     <layout class="QVBoxLayout" name="verticalLayout_14">
+                      <item>
+                       <widget class="QTextEdit" name="textLoadUSer_5">
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -398,17 +508,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_8">
-                   <layout class="QVBoxLayout" name="verticalLayout_13">
-                    <item>
-                     <widget class="QTextEdit" name="textLoadUSer_6">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                    <widget class="QWidget" name="page_8">
+                     <layout class="QVBoxLayout" name="verticalLayout_13">
+                      <item>
+                       <widget class="QTextEdit" name="textLoadUSer_6">
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -416,279 +526,85 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Para isso você &lt;span style=&quot; font-weight:600;&quot;&gt;precisará&lt;/span&gt; de um arquivo&lt;span style=&quot; color:#ff1007;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;.lvxml&lt;/span&gt;&lt;span style=&quot; color:#ff1007;&quot;&gt; &lt;/span&gt;gerado pelo&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt; módulo de cadastro de lista de video &lt;/span&gt;e um arquivo de usuário&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;.uxml&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;gerado pelo &lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;módulo de cadastro de Usuário. &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_2">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>0</y>
-                 <width>334</width>
-                 <height>241</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Registration Box</string>
-               </property>
-               <layout class="QGridLayout" name="gridLayout">
-                <item row="0" column="0">
-                 <widget class="QWidget" name="widget" native="true">
-                  <property name="minimumSize">
-                   <size>
-                    <width>50</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_2">
-                   <item row="0" column="0">
-                    <widget class="QPushButton" name="pbTela1No">
-                     <property name="text">
-                      <string>Register new user</string>
-                     </property>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
                     </widget>
-                   </item>
-                   <item row="2" column="0">
-                    <widget class="QPushButton" name="pbRegisterCatalog">
-                     <property name="text">
-                      <string>Register behavioral catalog</string>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_2">
+              <attribute name="title">
+               <string>Ethographic and tracking tools</string>
+              </attribute>
+              <layout class="QVBoxLayout" name="verticalLayout_20">
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_18">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_2">
+                   <item>
+                    <widget class="QGroupBox" name="groupBox_9">
+                     <property name="title">
+                      <string>GroupBox</string>
                      </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="0">
-                    <widget class="QPushButton" name="pbTela2ListaVideo">
-                     <property name="text">
-                      <string>Register video files</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QPushButton" name="pbTela1Yes">
-                     <property name="text">
-                      <string>Load user</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="QWidget" name="widget_2" native="true">
-                     <layout class="QVBoxLayout" name="verticalLayout_7">
+                     <layout class="QVBoxLayout" name="verticalLayout_19">
                       <item>
-                       <widget class="QPushButton" name="pbConversorXMLCSV">
+                       <widget class="QPushButton" name="pbAnaliseEtograma">
                         <property name="text">
-                         <string>.xml-to-.csv file converter</string>
+                         <string>vídeo-based ethograpy</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="pbRealTime">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
+                        <property name="text">
+                         <string>real-time ethograpy</string>
                         </property>
                        </widget>
                       </item>
                      </layout>
                     </widget>
                    </item>
+                   <item>
+                    <spacer name="horizontalSpacer_4">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>180</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
                   </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_3">
-               <property name="geometry">
-                <rect>
-                 <x>380</x>
-                 <y>20</y>
-                 <width>231</width>
-                 <height>221</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Video management tools</string>
-               </property>
-               <layout class="QVBoxLayout" name="verticalLayout_8">
-                <item>
-                 <widget class="QPushButton" name="pbCadastrarListaVideo">
-                  <property name="text">
-                   <string>Build video file list</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pbDuploCego">
-                  <property name="text">
-                   <string>&quot;Blind&quot; video files</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pbUnveil">
-                  <property name="text">
-                   <string>Unveil &quot;blinded&quot; video files</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pbBehaviorSample">
-                  <property name="text">
-                   <string>Build a behavioral-sample video</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_10">
-               <property name="geometry">
-                <rect>
-                 <x>630</x>
-                 <y>20</y>
-                 <width>271</width>
-                 <height>291</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Help</string>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout">
-                <item>
-                 <widget class="QTreeWidget" name="treeWidget">
-                  <property name="font">
-                   <font>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <column>
-                   <property name="text">
-                    <string>Double Click for HELP!</string>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_11">
+                   <property name="title">
+                    <string>Tutor</string>
                    </property>
-                  </column>
-                  <item>
-                   <property name="text">
-                    <string>Registration Box</string>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Register Behavioral Catalog</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Register Videos Files</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Register User</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Load User</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>.xml-to-.csv file converter</string>
-                    </property>
-                   </item>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Video management tools</string>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Build a video file list</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>&quot;Blind&quot; video files</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Unveil &quot;blinded&quot; video files</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Build a single category vídeo</string>
-                    </property>
-                   </item>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </widget>
-             <widget class="QWidget" name="tab_2">
-              <attribute name="title">
-               <string>Ethographic and tracking tools</string>
-              </attribute>
-              <widget class="QGroupBox" name="groupBox_9">
-               <property name="geometry">
-                <rect>
-                 <x>40</x>
-                 <y>40</y>
-                 <width>211</width>
-                 <height>101</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>GroupBox</string>
-               </property>
-               <widget class="QPushButton" name="pbAnaliseEtograma">
-                <property name="geometry">
-                 <rect>
-                  <x>20</x>
-                  <y>30</y>
-                  <width>151</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>vídeo-based ethograpy</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="pbRealTime">
-                <property name="geometry">
-                 <rect>
-                  <x>20</x>
-                  <y>60</y>
-                  <width>151</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>real-time ethograpy</string>
-                </property>
-               </widget>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_11">
-               <property name="geometry">
-                <rect>
-                 <x>10</x>
-                 <y>200</y>
-                 <width>561</width>
-                 <height>241</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Tutor</string>
-               </property>
-               <layout class="QVBoxLayout" name="verticalLayout_3">
-                <item>
-                 <widget class="QStackedWidget" name="swidTutorBancoDados_2">
-                  <property name="currentIndex">
-                   <number>0</number>
-                  </property>
-                  <widget class="QWidget" name="Inicio_2">
-                   <layout class="QVBoxLayout" name="verticalLayout_10">
+                   <layout class="QVBoxLayout" name="verticalLayout_3">
                     <item>
-                     <widget class="QTextEdit" name="textBancoDeDados_2">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                     <widget class="QStackedWidget" name="swidTutorBancoDados_2">
+                      <property name="currentIndex">
+                       <number>0</number>
+                      </property>
+                      <widget class="QWidget" name="Inicio_2">
+                       <layout class="QVBoxLayout" name="verticalLayout_10">
+                        <item>
+                         <widget class="QTextEdit" name="textBancoDeDados_2">
+                          <property name="html">
+                           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -699,23 +615,23 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;GroupBox  1&lt;/span&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;you can acesse &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600;&quot;&gt;GroupBox 2&lt;/span&gt; &lt;span style=&quot; color:#000000;&quot;&gt;you can acess&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_9">
-                   <widget class="QTextEdit" name="textLoadUSer_8">
-                    <property name="geometry">
-                     <rect>
-                      <x>0</x>
-                      <y>9</y>
-                      <width>523</width>
-                      <height>181</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                      <widget class="QWidget" name="page_9">
+                       <widget class="QTextEdit" name="textLoadUSer_8">
+                        <property name="geometry">
+                         <rect>
+                          <x>0</x>
+                          <y>9</y>
+                          <width>523</width>
+                          <height>181</height>
+                         </rect>
+                        </property>
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -727,21 +643,21 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_10">
-                   <widget class="QTextEdit" name="textLoadUSer_9">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                        </property>
+                       </widget>
+                      </widget>
+                      <widget class="QWidget" name="page_10">
+                       <widget class="QTextEdit" name="textLoadUSer_9">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>20</y>
+                          <width>523</width>
+                          <height>170</height>
+                         </rect>
+                        </property>
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -751,21 +667,21 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_11">
-                   <widget class="QTextEdit" name="textLoadUSer_10">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                        </property>
+                       </widget>
+                      </widget>
+                      <widget class="QWidget" name="page_11">
+                       <widget class="QTextEdit" name="textLoadUSer_10">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>20</y>
+                          <width>523</width>
+                          <height>170</height>
+                         </rect>
+                        </property>
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -776,21 +692,21 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_12">
-                   <widget class="QTextEdit" name="textLoadUSer_11">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                        </property>
+                       </widget>
+                      </widget>
+                      <widget class="QWidget" name="page_12">
+                       <widget class="QTextEdit" name="textLoadUSer_11">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>20</y>
+                          <width>523</width>
+                          <height>170</height>
+                         </rect>
+                        </property>
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -803,21 +719,21 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_13">
-                   <widget class="QTextEdit" name="textLoadUSer_12">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                        </property>
+                       </widget>
+                      </widget>
+                      <widget class="QWidget" name="page_13">
+                       <widget class="QTextEdit" name="textLoadUSer_12">
+                        <property name="geometry">
+                         <rect>
+                          <x>10</x>
+                          <y>20</y>
+                          <width>523</width>
+                          <height>170</height>
+                         </rect>
+                        </property>
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -825,165 +741,103 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Para isso você &lt;span style=&quot; font-weight:600;&quot;&gt;precisará&lt;/span&gt; de um arquivo&lt;span style=&quot; color:#ff1007;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;.lvxml&lt;/span&gt;&lt;span style=&quot; color:#ff1007;&quot;&gt; &lt;/span&gt;gerado pelo&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt; módulo de cadastro de lista de video &lt;/span&gt;e um arquivo de usuário&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;.uxml&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;gerado pelo &lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;módulo de cadastro de Usuário. &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
+                        </property>
+                       </widget>
+                      </widget>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_12">
-               <property name="geometry">
-                <rect>
-                 <x>600</x>
-                 <y>10</y>
-                 <width>301</width>
-                 <height>291</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Help</string>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
-                <item>
-                 <widget class="QTreeWidget" name="treeWidget_2">
-                  <property name="font">
-                   <font>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <column>
-                   <property name="text">
-                    <string>Double Click for HELP!</string>
-                   </property>
-                  </column>
-                  <item>
-                   <property name="text">
-                    <string>GroupBox 0</string>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Etografia Video Based</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Etografia Real Time</string>
-                    </property>
-                   </item>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
              </widget>
              <widget class="QWidget" name="tab_3">
               <attribute name="title">
                <string>Data analysis tools</string>
               </attribute>
-              <widget class="QGroupBox" name="groupBox_8">
-               <property name="geometry">
-                <rect>
-                 <x>30</x>
-                 <y>30</y>
-                 <width>221</width>
-                 <height>151</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Group Box 1</string>
-               </property>
-               <widget class="QPushButton" name="pbEstatistica">
-                <property name="geometry">
-                 <rect>
-                  <x>30</x>
-                  <y>20</y>
-                  <width>141</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Time segmentation</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="pbTransicao">
-                <property name="geometry">
-                 <rect>
-                  <x>30</x>
-                  <y>50</y>
-                  <width>141</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Sequential analysis</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="pbConcordancia">
-                <property name="geometry">
-                 <rect>
-                  <x>30</x>
-                  <y>80</y>
-                  <width>141</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Reliability calculation</string>
-                </property>
-               </widget>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_7">
-               <property name="geometry">
-                <rect>
-                 <x>280</x>
-                 <y>40</y>
-                 <width>211</width>
-                 <height>141</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>GroupBox 2</string>
-               </property>
-               <widget class="QPushButton" name="pbRNA">
-                <property name="geometry">
-                 <rect>
-                  <x>10</x>
-                  <y>30</y>
-                  <width>131</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Artificial neural network</string>
-                </property>
-               </widget>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_13">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>180</y>
-                 <width>561</width>
-                 <height>241</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Tutor</string>
-               </property>
-               <layout class="QVBoxLayout" name="verticalLayout_11">
-                <item>
-                 <widget class="QStackedWidget" name="swidTutorBancoDados_3">
-                  <property name="currentIndex">
-                   <number>5</number>
-                  </property>
-                  <widget class="QWidget" name="Inicio_3">
-                   <layout class="QVBoxLayout" name="verticalLayout_12">
+              <layout class="QVBoxLayout" name="verticalLayout_21">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_8">
+                   <property name="title">
+                    <string>Group Box 1</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_22">
                     <item>
-                     <widget class="QTextEdit" name="textBancoDeDados_3">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                     <widget class="QPushButton" name="pbEstatistica">
+                      <property name="text">
+                       <string>Time segmentation</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pbTransicao">
+                      <property name="text">
+                       <string>Sequential analysis</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pbConcordancia">
+                      <property name="text">
+                       <string>Reliability calculation</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_7">
+                   <property name="title">
+                    <string>GroupBox 2</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_23">
+                    <item>
+                     <widget class="QPushButton" name="pbRNA">
+                      <property name="text">
+                       <string>Artificial neural network</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_2">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox_13">
+                 <property name="title">
+                  <string>Tutor</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_11">
+                  <item>
+                   <widget class="QStackedWidget" name="swidTutorBancoDados_3">
+                    <property name="currentIndex">
+                     <number>5</number>
+                    </property>
+                    <widget class="QWidget" name="Inicio_3">
+                     <layout class="QVBoxLayout" name="verticalLayout_12">
+                      <item>
+                       <widget class="QTextEdit" name="textBancoDeDados_3">
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -994,23 +848,23 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;GroupBox  1&lt;/span&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;you can acesse &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600;&quot;&gt;GroupBox 2&lt;/span&gt; &lt;span style=&quot; color:#000000;&quot;&gt;you can acess&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                    <widget class="QWidget" name="page_14">
+                     <widget class="QTextEdit" name="textLoadUSer_13">
+                      <property name="geometry">
+                       <rect>
+                        <x>0</x>
+                        <y>9</y>
+                        <width>523</width>
+                        <height>181</height>
+                       </rect>
                       </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_14">
-                   <widget class="QTextEdit" name="textLoadUSer_13">
-                    <property name="geometry">
-                     <rect>
-                      <x>0</x>
-                      <y>9</y>
-                      <width>523</width>
-                      <height>181</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                      <property name="html">
+                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -1022,21 +876,21 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_15">
-                   <widget class="QTextEdit" name="textLoadUSer_14">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                      </property>
+                     </widget>
+                    </widget>
+                    <widget class="QWidget" name="page_15">
+                     <widget class="QTextEdit" name="textLoadUSer_14">
+                      <property name="geometry">
+                       <rect>
+                        <x>10</x>
+                        <y>20</y>
+                        <width>523</width>
+                        <height>170</height>
+                       </rect>
+                      </property>
+                      <property name="html">
+                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -1046,21 +900,21 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_16">
-                   <widget class="QTextEdit" name="textLoadUSer_15">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                      </property>
+                     </widget>
+                    </widget>
+                    <widget class="QWidget" name="page_16">
+                     <widget class="QTextEdit" name="textLoadUSer_15">
+                      <property name="geometry">
+                       <rect>
+                        <x>10</x>
+                        <y>20</y>
+                        <width>523</width>
+                        <height>170</height>
+                       </rect>
+                      </property>
+                      <property name="html">
+                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -1071,21 +925,21 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_17">
-                   <widget class="QTextEdit" name="textLoadUSer_16">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                      </property>
+                     </widget>
+                    </widget>
+                    <widget class="QWidget" name="page_17">
+                     <widget class="QTextEdit" name="textLoadUSer_16">
+                      <property name="geometry">
+                       <rect>
+                        <x>10</x>
+                        <y>20</y>
+                        <width>523</width>
+                        <height>170</height>
+                       </rect>
+                      </property>
+                      <property name="html">
+                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -1098,21 +952,15 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_18">
-                   <widget class="QTextEdit" name="textLoadUSer_17">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                      </property>
+                     </widget>
+                    </widget>
+                    <widget class="QWidget" name="page_18">
+                     <layout class="QVBoxLayout" name="verticalLayout_24">
+                      <item>
+                       <widget class="QTextEdit" name="textLoadUSer_17">
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -1120,58 +968,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Para isso você &lt;span style=&quot; font-weight:600;&quot;&gt;precisará&lt;/span&gt; de um arquivo&lt;span style=&quot; color:#ff1007;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;.lvxml&lt;/span&gt;&lt;span style=&quot; color:#ff1007;&quot;&gt; &lt;/span&gt;gerado pelo&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt; módulo de cadastro de lista de video &lt;/span&gt;e um arquivo de usuário&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;.uxml&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;gerado pelo &lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;módulo de cadastro de Usuário. &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
                    </widget>
-                  </widget>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_15">
-               <property name="geometry">
-                <rect>
-                 <x>610</x>
-                 <y>10</y>
-                 <width>301</width>
-                 <height>291</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Help</string>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_3">
-                <item>
-                 <widget class="QTreeWidget" name="treeWidget_3">
-                  <property name="font">
-                   <font>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <column>
-                   <property name="text">
-                    <string>Double Click for HELP!</string>
-                   </property>
-                  </column>
-                  <item>
-                   <property name="text">
-                    <string>GroupBox 0</string>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Etografia Video Based</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Etografia Real Time</string>
-                    </property>
-                   </item>
                   </item>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </widget>
            </item>
@@ -1287,8 +1094,8 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>989</width>
-     <height>21</height>
+     <width>978</width>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuEthoWatcher">

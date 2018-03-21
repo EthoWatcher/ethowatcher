@@ -114,6 +114,12 @@ public:
         void setFrameFundo(QImage imaEntrada);
         void confiCameraVir(double origX, double origY, double width, double height, bool chMove, bool chelaMove);
         void setMaxVariacao(double max);
+        void setAreaInteresse(double x, double y, double tamanho);
+        void setAreaInteresse(double x, double y, double height, double width);
+        void setNomeFigura(QString nome);
+        QString figuraNome;
+        cv::Mat frameAreaInteresse;
+        cv::Mat frameAreaInteresseB;
         cv::Mat conQim2Mat(QImage imaEntrada);
 
         void desenhaObjetoInterresse(cv::Mat frameErodido);

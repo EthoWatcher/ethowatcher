@@ -68,8 +68,6 @@ private slots:
 
     void on_pbBackLicense_clicked();
 
-    void on_treeWidget_doubleClicked(const QModelIndex &index);
-
     void on_pbRegisterCatalog_clicked();
 
     void on_pbTransicao_clicked();

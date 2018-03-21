@@ -114,6 +114,49 @@ void moduloProcessamento::setMaxVariacao(double max)
     maxVaria= max;
 }
 
+void moduloProcessamento::setAreaInteresse(double x, double y, double tamanho)
+{
+    qDebug() <<"o valor de x é " << x <<" o valor de Y é " << y <<
+               "o valor de tamanho é" << tamanho;
+
+     cv::Mat M( video_heigth, video_width, CV_8UC3, cv::Scalar(0,0,0));//cv::Mat::ones(cv::Size(video_width, video_heigth),CV_8UC3);
+   frameAreaInteresse = M.clone();
+     cv::ellipse(frameAreaInteresse,cv::Point(x+tamanho,y+tamanho),cv::Size(tamanho,tamanho),0,0,360,cv::Scalar(255,255,255),-1,8,0);
+
+     cv::cvtColor( frameAreaInteresse.clone(), frameAreaInteresse, CV_RGB2GRAY );
+
+     cv::threshold( frameAreaInteresse.clone(), frameAreaInteresseB, 100, 255,CV_THRESH_BINARY);
+
+
+}
+///
+/// \brief moduloProcessamento::setAreaInteresse
+/// \param x
+/// \param y
+/// \param height
+/// \param width
+///
+void moduloProcessamento::setAreaInteresse(double x, double y, double height, double width){
+
+    cv::Mat M( video_heigth, video_width, CV_8UC3, cv::Scalar(0,0,0));//cv::Mat::ones(cv::Size(video_width, video_heigth),CV_8UC3);
+
+    frameAreaInteresse = M.clone();
+//    qDebug() <<"o valor de x é " << x <<" o valor de Y é " << y <<
+//               "o valor de HEIGHT é " << height << " e o valor de width é " <<  width;
+    cv::rectangle(frameAreaInteresse,cv::Rect(x,y,width,height),cv::Scalar(255,255,255),-1,8,0);
+
+    cv::cvtColor( frameAreaInteresse.clone(), frameAreaInteresse, CV_RGB2GRAY );
+
+    cv::threshold( frameAreaInteresse.clone(), frameAreaInteresseB, 100, 255,CV_THRESH_BINARY);
+
+
+}
+
+void moduloProcessamento::setNomeFigura(QString nome)
+{
+    figuraNome = nome;
+}
+
 cv::Mat moduloProcessamento::conQim2Mat(QImage imaEntrada)
 {
     cv::Mat matSaida;
@@ -463,6 +506,20 @@ void moduloProcessamento::processamentoMorfologico(){
        // threshold_value= 60; //0 até 255
         cv::cvtColor( frameSubtracao.clone(), frameSubtracao_gray, CV_RGB2GRAY );
         cv::threshold( frameSubtracao_gray.clone(), frameLimiarizacao, threshold_value, 255,CV_THRESH_BINARY);
+
+        cv::bitwise_and(frameAreaInteresseB.clone(),frameLimiarizacao.clone(),frameLimiarizacao);
+//       frameLimiarizacao= cv::   abs(frameAreaInteresseB+frameLimiarizacao.clone());
+//        qDebug() << reMorfo.area.size()%20;
+//        if((reMorfo.area.size() % 30) == 0){
+//            QString c;
+//            c= figuraNome;
+
+//            cv::imshow(c.toStdString()+"bir",frameAreaInteresse);
+//            cv::imshow(c.toStdString(), frameLimiarizacao);
+//            cv::waitKey(20);
+//        }
+
+//      qDebug()<< figuraNome << " na tarefa "<< QThread::currentThreadId() ;
 
         //---------------------------------------------------------------------------------------------------
         //------FrameErosao: Erosão da máscara do animal------------------------------------------------------
@@ -1526,7 +1583,7 @@ void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnc
     }
 
    // if(contMorfo%40){
-
+ //       qDebug() << contGlobal << " da tarefa " << QThread::currentThreadId();
         emit enviaMorfInt(contGlobal);
         //qDebug() <<contGlobal;
        // emit enviaMorfInt(contMorfo);

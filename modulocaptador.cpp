@@ -624,6 +624,26 @@ void moduloCaptador::setCaptadorRange(int inicio, int fim)
 
 }
 
+void moduloCaptador::setReinicio()
+{
+    chInicio=true;
+//    i=frInicio;
+//    i=frInicio;
+//    cap->set(CV_CAP_PROP_POS_FRAMES,i);
+//    //freeBytes.acquire();
+//    cap->read(frameLido);
+//   // usedBytes.release();
+//   // oVideoWriter.write(bufferMat[i % tamanhoBuffer]);
+
+//    cv::cvtColor(frameLido,frameDisplay,CV_BGR2RGB );
+//   // resultado.frameProces=frame_atual;
+//    //resultado.matProce= frameReduzido;
+////        resultado.background=frame;
+//    QImage imgLida((uchar*)frameDisplay.data, frameDisplay.cols, frameDisplay.rows, frameDisplay.step, QImage::Format_RGB888);
+
+//    emit enviaImagem(imgLida, i);
+}
+
 void moduloCaptador::setCaptaVideoTodo()
 {
     //for(int c1=frInicio; c1< frFim; c1++){

@@ -221,6 +221,10 @@ public:
     double contRet=0;
     double conRet2=0;
 
+    int contadorCirculo;
+    int contadorRetangulo;
+    int contProce;
+
 cv::Mat conQim2Mat(QImage imaEntrada);
 
 
@@ -273,6 +277,8 @@ private slots:
 
     void on_pbSaveImage_clicked();
 
+    void setProcessamento();
+
     void on_pbTraking_clicked();
 
     void on_chbTamnho_clicked();
@@ -295,11 +301,17 @@ private:
     //int dados[3];
     moduloCaptador *captadorDeVideo;
     moduloCaptador *captador;
+
+
+
     QThread *captadorThread;
     float somaTempo=0;
     float somaTempoFilming=0;
     moduloProcessamento *dados;
     QThread * thrProce;
+
+    std::vector<moduloProcessamento*> listaProcessamento;
+    std::vector<QThread * >listaThreadProcessamento;
 
     int widthPanProcess;
     int  heightPanProcess;
@@ -369,6 +381,11 @@ private:
     std::vector<double>  vetorDuracao;
 
     parserXMLtoCSV *parser;
+    int contPrcessamento=0;
+
+    void reiniciaProcessamento();
+signals:
+    void reiniciaProce();
 
 
 
