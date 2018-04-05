@@ -26,6 +26,7 @@ void parserXMLtoCSV::converteArquivo(QString nomePath)
 
     //fiz uma alteração
     //outra alteração
+    //outra alteração sob
 
     fonteCaminhoArquivo = nomePath;
 
