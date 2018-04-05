@@ -24,6 +24,8 @@ void parserXMLtoCSV::converteArquivo(QString nomePath)
 //               "Arquivos do Ethowatcher (*.aseq *.fkf *.kkf *.tbf *.etoxml *.tkin )"
 //                );
 
+    //fiz uma alteração
+
     fonteCaminhoArquivo = nomePath;
 
     qDebug() << "entrou " << fonteCaminhoArquivo;
