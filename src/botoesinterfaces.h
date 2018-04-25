@@ -15,6 +15,7 @@ class BotoesInterfaces : public QPushButton
 
 public:
    explicit BotoesInterfaces(QWidget *InterfaceEtho);
+
     QWidget *nova;
 public slots:
     void botaoClicado(bool clickado);
