@@ -47,6 +47,15 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
    this->setFixedSize(this->width(),this->height());
 
     ui->widMobileConfim->setVisible(false);
+
+    primeiraCalibracao=true;
+    clik=false;
+    chVideo=false;
+    conQtArea=0;
+    countArea=0;
+    chCirculoOn=false;
+    chAddArea=false;
+    chRoi=true;
 }
 
 telaCadastroFilme::~telaCadastroFilme()

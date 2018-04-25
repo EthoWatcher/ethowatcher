@@ -21,7 +21,7 @@ public:
     bool selecionado;
     bool permitidoDoubleClick;
     qreal ajustX, ajustY;
-    int contador=0;
+    int contador;
    // qreal extra;
 
 

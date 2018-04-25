@@ -25,7 +25,7 @@ class moduloCaptador : public QObject
 public:
 
     cv::Mat conQim2Mat(QImage imaEntrada);
-    bool chInicio= true;
+    bool chInicio;
     int frameTotal;
     explicit moduloCaptador(QObject *parent = 0);
     ~moduloCaptador();
@@ -138,11 +138,11 @@ private:
     std::string fonteVideoOpenCVString;
 
 
-    bool chaveVideo= false;
-    bool chaveDisp= false;
-    bool chCaptador=true;
-    bool chLigaCaptador=true;
-    bool chGravador=true; //se o gravador esta on ou off
+    bool chaveVideo;
+    bool chaveDisp;
+    bool chCaptador;
+    bool chLigaCaptador;
+    bool chGravador; //se o gravador esta on ou off
     bool chParadaNegada;        //se for verdadeiro ele nao termina nucna
     cv::VideoWriter *gravadorVideo;
      cv::Mat matGravAlex;

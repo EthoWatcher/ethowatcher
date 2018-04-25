@@ -23,6 +23,12 @@ cv::Mat moduloCaptador::conQim2Mat(QImage imaEntrada) //converte qimage para cv:
 
 moduloCaptador::moduloCaptador(QObject *parent) : QObject(parent)
 {
+    chaveVideo= false;
+    chaveDisp= false;
+    chCaptador=true;
+    chLigaCaptador=true;
+    chGravador=true; //se o gravador esta on ou off
+    chInicio= true;
     i=0;
     frameTotal=300;
     //codec = CV_FOURCC('x', '2', '6', '4');
