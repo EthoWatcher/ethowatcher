@@ -33,7 +33,7 @@ LIBS += C:\opencv\RELEASE\bin\libopencv_video2411.dll
 LIBS += C:\opencv\RELEASE\bin\libopencv_videostab2411.dll
 
 
-SOURCES += EthoInpi/main.cpp\
+SOURCES += EthoWatcherInpi/main.cpp\
         ethoinpi.cpp\
         telacadastrocatalago.cpp \
     botoesinterfaces.cpp \
