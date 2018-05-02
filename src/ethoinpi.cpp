@@ -29,12 +29,12 @@ void EthoInpi::on_pbTranscrition_clicked()
 
  // addiciona uma nova tela cadastro
     telaCadastroCatalago * cads = new telaCadastroCatalago();
-//    telaCadastroFilme* filme = new telaCadastroFilme();
+    telaCadastroFilme* filme = new telaCadastroFilme();
 //    telaCadastroFilme * filme = new telaCadastroFilme();
 
 
     novaTelaTrascription->addBotoesInterface(adicionaInterfaceNoBotao(cads));
- //   novaTelaTrascription->addBotoesInterface(adicionaInterfaceNoBotao(filme));
+    novaTelaTrascription->addBotoesInterface(adicionaInterfaceNoBotao(filme));
 
     novaTelaTrascription->mostraInterface();
 

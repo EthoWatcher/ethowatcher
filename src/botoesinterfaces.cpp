@@ -3,17 +3,22 @@
 BotoesInterfaces::BotoesInterfaces(QWidget *InterfaceEtho)
 {
     this->nova = InterfaceEtho;
+
     this->setText("oi");
-    qDebug("oi mundo");
-    connect(this,SIGNAL(clicked(bool)),this,SLOT(botaoClicado(bool)));
+
+    connect(this,SIGNAL(pressed()),this,SLOT(botaoClicado()));
 //    QObject::connect(this,SIGNAL(clicked(bool)),this,SLOT(botaoClicado(bool)));
 
 
 
 }
 
-void BotoesInterfaces::botaoClicado(bool clickado)
+void BotoesInterfaces::botaoClicado()
 {
-    qDebug("botao clicaldo");
+
+
     this-> nova->show();
+    //caso a interface tenha sido destruida
+
+
 }

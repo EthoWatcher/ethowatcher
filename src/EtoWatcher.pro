@@ -62,7 +62,7 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     parserxmltocsv.cpp\
     mysplash.cpp\
     parserxml.cpp\
-    tutoretho.cpp
+    #tutoretho.cpp
 
 
 
@@ -95,7 +95,7 @@ HEADERS  += ethowatcher.h \
     parserxmltocsv.h\
     mysplash.h\
     parserxml.h\
-    tutoretho.h
+    #tutoretho.h
 
 
 

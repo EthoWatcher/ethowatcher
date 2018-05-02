@@ -1,4 +1,4 @@
-#ifndef ETHOWATCHER_H
+#ifndef EHOWATCHER_H
 #define ETHOWATCHER_H
 
 #include <QMainWindow>

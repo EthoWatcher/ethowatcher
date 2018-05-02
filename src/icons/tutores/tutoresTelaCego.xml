@@ -2,9 +2,24 @@
 <tutores>
 <tutor id="j"><html><header><title>j</title></header><body>Hello world j</body></html></tutor>
 
-<tutor id="macarao"><html><header><title>macarao</title></header><body>Hello world <b>macarao</b></body></html></tutor>
+<tutor id="macarao">
+<html><header>
+<title>macarao</title>
+</header><body>Choose the type of recording and analysis to be carried out: 1. "Real time" Ethography: record behavioral directly from, and as they occur in the environment (or from an external video source). The temporal information is extracted from the computer clock. 2. Ethography from a digital video: Open a digital video file to gather behavioral data. You can navigate frame-by-frame through the video and the timestamp data are derived from the pictures of the video file. 3. Activity Analysis: It allows for the automatic determination of the animal's path in the arena ("tracking") and of numeric indicators of general activity (distance travelled, velocity, angle changes, etc.) from the digital video files. It can be carried out simultaneously to the Digital Ethography from the same video file.</body>
+
+</html></tutor>
+
+<tutor id="inicio">
+<html><header>
+<title>inicio</title>
+</header><body>Choose the type of recording and analysis to be carried out: 1. "Real time" Ethography: record behavioral directly from, and as they occur in the environment (or from an external video source). The temporal information is extracted from the computer clock. 2. Ethography from a digital video: Open a digital video file to gather behavioral data. You can navigate frame-by-frame through the video and the timestamp data are derived from the pictures of the video file. 3. Activity Analysis: It allows for the automatic determination of the animal's path in the arena ("tracking") and of numeric indicators of general activity (distance travelled, velocity, angle changes, etc.) from the digital video files. It can be carried out simultaneously to the Digital Ethography from the same video file.</body>
+
+</html></tutor>
+
+
+
 <tutor id="indio"><html><header><title>indio</title></header><body>Hello world indio</body></html></tutor>
 <tutor id="luiz"><html><header><title>luiz</title></header><body>Hello world luiz</body></html></tutor>
-	
-	
+
+
 </tutores>

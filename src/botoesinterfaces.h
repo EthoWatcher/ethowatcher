@@ -17,8 +17,9 @@ public:
    explicit BotoesInterfaces(QWidget *InterfaceEtho);
 
     QWidget *nova;
+    QWidget *antigo;
 public slots:
-    void botaoClicado(bool clickado);
+    void botaoClicado();
 
 
 };
