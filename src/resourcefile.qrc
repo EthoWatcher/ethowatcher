@@ -39,6 +39,10 @@
         <file>icons/IEBUFSC.jpg</file>
         <file>icons/LCNeurophysiology.jpg</file>
         <file>icons/image3710.png</file>
-        <file>icons/tutores/tutoresTelaCego.xml</file>
+    </qresource>
+    <qresource prefix="/tutor">
+        <file>tutores/etografiaVideo.xml</file>
+        <file>tutores/tutoresTelaCego.xml</file>
+        <file>tutores/ethowatcherInpi.xml</file>
     </qresource>
 </RCC>

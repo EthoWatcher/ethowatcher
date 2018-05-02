@@ -13,6 +13,8 @@ itemAreaInte::itemAreaInte()
     setFlag(ItemIsMovable,false);
     selecionado=false;
     permitidoDoubleClick=false;
+
+    contador=0;
 }
 
 itemAreaInte::itemAreaInte(bool fomra)

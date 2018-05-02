@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tutores>
+<tutor id="default"><html><header><title>j</title></header><body>Hello world j</body></html></tutor>
+
+
+<tutor id="defautl1"><html><body>
+Hello world indio
+
+</body></html>
+</tutor>
+
+<tutor id="selectBehaviorSintax"><html><body>
+After selecting one of the ethography modalities, choose the syntax to be used in the ethographic recording. Auto-exclusive events are used when the occurrence of a new behavioral unit necessarily ends the former. Overlapping/nested events are used when you have behavioral units that occurs during (or partially overlapped with) other states or behaviors also recorded during the session.
+
+</body></html>
+</tutor>
+
+<tutor id="startAnalysis"><html><body>
+Click in "Start Analysis" to start the Ethography.
+
+</body></html>
+</tutor>
+
+
+
+<tutor id="ethoCatalogo"><html><body>
+Clique em sim se você tem um catalogo e não caso vocÊ naõ teja. O catalogo comportamental é usado para
+
+</body></html>
+</tutor>
+
+
+<tutor id="ethoregistroVideo"><html><body>
+Você tem o vídeo que quer analisar cadastrado ?
+<p>
+    O registro de vídeo é usado para a realização da etografia em vídeo  a
+</p>
+
+
+</body></html>
+</tutor>
+
+
+<tutor id="startAnalysis"><html><body>
+Click in "Start Analysis" to start the Ethography.
+
+</body></html>
+</tutor>
+
+
+
+
+
+
+</tutores>

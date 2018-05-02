@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tutores>
+<tutor id="default"><html><header><title>j</title></header><body>Hello world j</body></html></tutor>
+
+
+<tutor id="defautl1"><html><body>
+Hello world indio
+
+</body></html>
+</tutor>
+
+
+<tutor id="ethoInicio"><html><body>
+Choose the type of recording and analysis to be carried out: Ethography from a digital video: Open a digital video file to gather behavioral data. You can navigate frame-by-frame through the video and the timestamp data are derived from the pictures of the video file. 3. Activity Analysis: It allows for the automatic determination of the animal's path in the arena ("tracking") and of numeric indicators of general activity (distance travelled, velocity, angle changes, etc.) from the digital video files. It can be carried out simultaneously to the Digital Ethography from the same video file.
+</body></html>
+</tutor>
+
+
+<tutor id="ethoCatalogo"><html><body>
+Clique em sim se você tem um catalogo e não caso vocÊ naõ teja. O catalogo comportamental é usado para
+
+</body></html>
+</tutor>
+
+
+<tutor id="ethoregistroVideoTraking"><html><body>
+Clique em sim caso você queria fazer um trakign de vídeo.
+<p>
+    Você nessa interface pode fazer etografia e trakign .
+</p>
+
+</body></html>
+</tutor>
+
+
+
+
+<tutor id="ethoregistroVideo"><html><body>
+Você tem o vídeo que quer analisar cadastrado ?
+<p>
+    O registro de vídeo é usado para a realização da etografia em vídeo  a
+</p>
+
+
+</body></html>
+</tutor>
+
+
+<tutor id="startAnalysis"><html><body>
+Click in "Start Analysis" to start the Ethography.
+
+</body></html>
+</tutor>
+
+
+
+
+
+
+</tutores>

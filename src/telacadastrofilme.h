@@ -75,7 +75,7 @@ public:
 
     //variaveis de saida
 
-    bool primeiraCalibracao=true;
+    bool primeiraCalibracao;
 
     struct dadosExperimentador{
         QString nome;
@@ -300,8 +300,8 @@ private:
     QGraphicsPixmapItem  * imageFundopixMap;
     QGraphicsScene * scene;
     itemAreaInte *areaInt;
-    bool clik=false;
-    bool chVideo=false;
+    bool clik;
+    bool chVideo;
 
 
 //    void lendoXml(int qualLer);
@@ -380,7 +380,7 @@ private:
     };
     QList <dadosArea> area;
     //std::vector<dadosArea> area;
-    int conQtArea=0;
+    int conQtArea;
 
     areaTraingulo *triRedScala, *triBlueScala;
      areaTraingulo *triRedMax, *triBlueMax;
@@ -390,16 +390,16 @@ private:
      QList<itemAreaInte*> listaAreaProce;
      QList<bool> listAreaBool;
      QString nomeFigura;
-     int countArea=0;
+     int countArea;
      int itemSelecionado;
 
-    bool chCirculoOn=false;
+    bool chCirculoOn;
 
     void resetaCorConfi();
 
-    bool chAddArea=false;
+    bool chAddArea;
 
-    bool chRoi=true;
+    bool chRoi;
 
 
 
