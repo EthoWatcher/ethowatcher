@@ -32,7 +32,14 @@ public:
     void lendoXML();
 
     QString nome,nomeArquivo,extensao,nomeExtensao,lab,idObservador,sexo,arquivo;
+    int vezes,tutor;
 
+    void loadUser();
+    void setLocalArquivo();
+    void gravandoUserXML();
+
+
+    void setTutor(bool chTutor);
 signals:
 
     void fechouJanela();

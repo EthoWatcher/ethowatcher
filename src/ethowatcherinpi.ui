@@ -62,14 +62,14 @@
        <item>
         <widget class="QPushButton" name="pbLoadUser">
          <property name="text">
-          <string>PushButton</string>
+          <string>Load User</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pbCreateUser">
          <property name="text">
-          <string>PushButton</string>
+          <string>Create User</string>
          </property>
         </widget>
        </item>

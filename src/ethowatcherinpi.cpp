@@ -82,6 +82,13 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 
 EthoWatcherInpi::~EthoWatcherInpi()
 {
+
+//    if(telaPessoa->nomeArquivo !=""){
+
+//        telaPessoa->gravandoUserXML();
+
+//    }
+
     delete ui;
 }
 
@@ -429,5 +436,19 @@ void EthoWatcherInpi::on_pbConfigAnalyses_clicked()
 {
     setNextInterface();
     configurandoAnalise();
+
+}
+
+void EthoWatcherInpi::on_pbCreateUser_clicked()
+{
+    telaPessoa = new telaCadastroPessoa();
+    telaPessoa->show();
+}
+
+void EthoWatcherInpi::on_pbLoadUser_clicked()
+{
+    telaPessoa = new telaCadastroPessoa();
+    telaPessoa->loadUser();
+    qDebug() << telaPessoa->nomeArquivo;
 
 }

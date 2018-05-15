@@ -9,19 +9,40 @@ telaCadastroPessoa::telaCadastroPessoa(QWidget *parent) :
     ui->setupUi(this);
 
    QObject::connect(this,SIGNAL(fechouJanela()),this,SLOT(mudaLetra()));
+   vezes=0;
+   tutor=1;
+   nomeArquivo="";
+}
+
+void telaCadastroPessoa::setTutor(bool chTutor){
+    if(chTutor){
+        tutor=1;
+    }else{
+        tutor=0;
+    }
+
 }
 
 telaCadastroPessoa::~telaCadastroPessoa()
 {
     qDebug() <<" tela cadastro pessoa fechou";
     emit fechouJanela();
+    if(nomeArquivo !=""){
+        gravandoUserXML();
+        qDebug() <<" gtravou o usuario apos o usuario ser destruido";
+    }else{
+
+
+    }
     delete ui;
 }
 
-void telaCadastroPessoa::gravandoXML(){
+void telaCadastroPessoa::gravandoUserXML(){
 
     QFile output(nomeArquivo);
     //output.open(stdout, );
+
+    vezes++;
     output.open(QIODevice::WriteOnly);
 //! [write output]
 //! [start stream]
@@ -34,6 +55,8 @@ void telaCadastroPessoa::gravandoXML(){
     stream.writeTextElement("nome", nome);
     stream.writeTextElement("laboratorio", lab);
     stream.writeTextElement("password", ui->lePass->text());
+    stream.writeTextElement("vezes",  QString::number(vezes));
+    stream.writeTextElement("tutor",  QString::number(tutor));
 
 
     //stream.writeTextElement("sexo", sexo);
@@ -79,6 +102,12 @@ void telaCadastroPessoa::lendoXML(){
        lab = xmlReader.readElementText();
        //adsa=true;
        }
+
+    if(xmlReader.name() == "vezes"){
+       //qDebug() << xmlReader.readElementText();
+       vezes = xmlReader.readElementText().toInt();
+       //adsa=true;
+       }
     if(xmlReader.name() == "idObservador"){
        qDebug() << xmlReader.readElementText();
        //adsa=true;
@@ -107,16 +136,37 @@ void telaCadastroPessoa::lendoXML(){
 
 //salvar
 
-void telaCadastroPessoa::on_pushButton_2_clicked()
-{
-    //abre uma janela para salvar
+void telaCadastroPessoa::setLocalArquivo(){
+
     nomeArquivo = QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
                 "C://",
-               "Catalog files (*.uxml)"
+               "User files (*.uxml)"
                );
+}
 
+void telaCadastroPessoa::loadUser(){
+
+    nomeArquivo = QFileDialog::getOpenFileName(
+                this,
+                tr("Load File"),
+                "C://",
+               "User files (*.uxml)"
+               );
+    lendoXML();
+
+
+
+}
+
+
+
+void telaCadastroPessoa::on_pushButton_2_clicked()
+{
+    //abre uma janela para salvar
+
+    setLocalArquivo();
     nome= ui->leNome->text();
     lab = ui->leLab->text();
 
@@ -126,7 +176,7 @@ void telaCadastroPessoa::on_pushButton_2_clicked()
     //extensao= ".uxml";
     //nomeExtensao = extensao.insert(0,nomeArquivo);
 
-    gravandoXML();
+    gravandoUserXML();
 
     QMessageBox::information(this,tr("Message"),tr("Saved successfully"));
 
@@ -134,7 +184,7 @@ void telaCadastroPessoa::on_pushButton_2_clicked()
     //emite um sinal para fechar a janela (fehca a janela)
     this->close();
     //deleta a janela (chama o destrutor);
-    delete this;
+//    delete this;
 
 }
 
