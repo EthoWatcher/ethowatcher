@@ -57,6 +57,8 @@ private slots:
     bool tutorEscolhidoE(QString nomeTutor);
     void proximaInterface(bool chNext);
 
+    void on_pbConfigAnalyses_clicked();
+
 private:
     Ui::EthoWatcherInpi *ui;
     TutorEtho tutor;

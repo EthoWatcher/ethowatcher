@@ -24,6 +24,8 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     escondeBotoes();
     ui->stackedPassos->setCurrentIndex(0);
 
+
+
     //arrumando os tutores
     ArrumandoTutores();
 //    configuraLinhas();
@@ -73,6 +75,8 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     controleCalibracao=true;
     controleCatalogo=true;
     controleOpcoesEtografia=false;
+
+    ui->cbEthoAna->setVisible(false);
 
 }
 
@@ -431,3 +435,10 @@ void EthoWatcherInpi::on_pushButtonVoltar_clicked()
     }
 }
 
+
+
+
+void EthoWatcherInpi::on_pbConfigAnalyses_clicked()
+{
+    ui->pushButtonAvancar->click();
+}
