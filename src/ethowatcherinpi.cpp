@@ -88,6 +88,7 @@ EthoWatcherInpi::~EthoWatcherInpi()
 //        telaPessoa->gravandoUserXML();
 
 //    }
+    delete telaPessoa;
 
     delete ui;
 }
@@ -443,6 +444,11 @@ void EthoWatcherInpi::on_pbCreateUser_clicked()
 {
     telaPessoa = new telaCadastroPessoa();
     telaPessoa->show();
+    if(telaPessoa->tutor == 1){
+        ui->cbTutor->setChecked(true);
+    }else{
+        ui->cbTutor->setChecked(false);
+    }
 }
 
 void EthoWatcherInpi::on_pbLoadUser_clicked()
@@ -451,4 +457,15 @@ void EthoWatcherInpi::on_pbLoadUser_clicked()
     telaPessoa->loadUser();
     qDebug() << telaPessoa->nomeArquivo;
 
+    if(telaPessoa->getTutor()){
+        ui->cbTutor->setVisible(true);
+    }else{
+        ui->cbTutor->setVisible(false);
+    }
+
+}
+
+void EthoWatcherInpi::on_cbTutor_clicked(bool checked)
+{
+    telaPessoa->setTutor(checked);
 }

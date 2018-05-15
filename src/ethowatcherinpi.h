@@ -66,6 +66,8 @@ private slots:
 
     void on_pbLoadUser_clicked();
 
+    void on_cbTutor_clicked(bool checked);
+
 private:
     Ui::EthoWatcherInpi *ui;
     TutorEtho tutor;

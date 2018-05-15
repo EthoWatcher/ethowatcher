@@ -40,6 +40,7 @@ public:
 
 
     void setTutor(bool chTutor);
+    bool getTutor();
 signals:
 
     void fechouJanela();

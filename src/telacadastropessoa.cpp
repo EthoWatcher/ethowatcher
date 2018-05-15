@@ -23,6 +23,14 @@ void telaCadastroPessoa::setTutor(bool chTutor){
 
 }
 
+bool telaCadastroPessoa::getTutor(){
+    if(tutor == 1){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 telaCadastroPessoa::~telaCadastroPessoa()
 {
     qDebug() <<" tela cadastro pessoa fechou";

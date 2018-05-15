@@ -47,6 +47,13 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
+        <widget class="QCheckBox" name="cbTutor">
+         <property name="text">
+          <string>Tutor</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="lblUser">
          <property name="minimumSize">
           <size>
@@ -364,6 +371,7 @@ p, li { white-space: pre-wrap; }
     </property>
     <addaction name="actionLicense_Agreement"/>
     <addaction name="actionAbout"/>
+    <addaction name="actionControl_Tutor"/>
    </widget>
    <addaction name="menuSystem_Information"/>
   </widget>
@@ -375,6 +383,11 @@ p, li { white-space: pre-wrap; }
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionControl_Tutor">
+   <property name="text">
+    <string>Control Tutor</string>
    </property>
   </action>
  </widget>
