@@ -33,6 +33,9 @@ public:
     QPushButton getButon();
     //void setResultadoCalibracao(QString *);
 
+    void configurandoEtografia();
+    void configurandoTrackin();
+    void configurandoAnalise();
 private slots:
 
     void on_pushButtonAvancar_clicked();
@@ -75,12 +78,18 @@ private:
     EstruturaDeTutor estruturaTutorEscolhido;
     EstruturaDeTutor estruturaTutorDigi;
     EstruturaDeTutor estruturaTutorTraking;
+    EstruturaDeTutor estruturaTutorAnalys;
+    EstruturaDeTutor estruturaTutorDigiAnalys;
+    EstruturaDeTutor estruturaTutorTrakingAnalys;
 
 
     WarningTutor *tutorCatalogo;
     WarningTutor *tutorRegistroVideo;
     WarningTutor *tutorVideoTraking;
-    WarningTutor *tutorSegmentacao;
+    WarningTutor *tutorSegComp;
+    WarningTutor *tutorSegTempo;
+    WarningTutor *tutorAnaSeq;
+    WarningTutor *tutorAnaConcordancia;
 
     void ArrumandoTutores();
 
