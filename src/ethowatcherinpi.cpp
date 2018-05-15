@@ -24,6 +24,8 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     escondeBotoes();
     ui->stackedPassos->setCurrentIndex(0);
 
+
+
     //arrumando os tutores
     ArrumandoTutores();
 //    configuraLinhas();
@@ -73,6 +75,8 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     controleCalibracao=true;
     controleCatalogo=true;
     controleOpcoesEtografia=false;
+
+    ui->cbEthoAna->setVisible(false);
 
 }
 
@@ -163,6 +167,40 @@ void EthoWatcherInpi::ArrumandoTutores()
     tutorVideoTraking->setTextYes("yes");
     tutorVideoTraking->setTextNo("No");
 
+
+
+    tutorSegComp = new WarningTutor();
+    connect(tutorSegComp,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+    tutorSegComp->setTextDestaque("Do you wanna make a segmentacao por comportamento ?");
+    tutorSegComp->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
+    tutorSegComp->setTextYes("yes");
+    tutorSegComp->setTextNo("No");
+
+
+    tutorSegTempo = new WarningTutor();
+    connect(tutorSegTempo,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+    tutorSegTempo->setTextDestaque("Do you wanna make a segmentacao por tempo ?");
+    tutorSegTempo->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
+    tutorSegTempo->setTextYes("yes");
+    tutorSegTempo->setTextNo("No");
+
+    tutorAnaSeq = new WarningTutor();
+    connect(tutorAnaSeq,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+    tutorAnaSeq->setTextDestaque("Do you wanna make a analise sequencial ?");
+    tutorAnaSeq->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
+    tutorAnaSeq->setTextYes("yes");
+    tutorAnaSeq->setTextNo("No");
+
+
+    tutorAnaConcordancia = new WarningTutor();
+    connect(tutorAnaConcordancia,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+    tutorAnaConcordancia->setTextDestaque("Do you wanna make uma analise de concordancia ?");
+    tutorAnaConcordancia->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
+    tutorAnaConcordancia->setTextYes("yes");
+    tutorAnaConcordancia->setTextNo("No");
+
+
+
     configuraLinhas();
 
 }
@@ -177,9 +215,24 @@ bool EthoWatcherInpi::botaoClicado(bool clicado)
 
         }
 
-    if(tutorEscolhidoE(("outro"))){
+    if(tutorEscolhidoE("chaveTrakin")){
+        qDebug() <<"chave digital";
+        proximaInterface(true);
+
+        }
+
+    if(tutorEscolhidoE(("chaveDigiAna"))){
         proximaInterface(true);
     }
+
+    if(tutorEscolhidoE(("chaveAna"))){
+        proximaInterface(true);
+    }
+
+
+
+
+
 
 
 
@@ -194,6 +247,35 @@ void EthoWatcherInpi::configuraLinhas()
     estruturaTutorDigi.tutor.append(tutorVideoTraking);
     estruturaTutorDigi.passoAtual =0;
     estruturaTutorDigi.nomeCaminhotutor = "chaveDigi";
+
+
+    estruturaTutorTraking.tutor.append(tutorRegistroVideo);
+    estruturaTutorTraking.tutor.append(tutorVideoTraking);
+    estruturaTutorTraking.passoAtual =0;
+    estruturaTutorTraking.nomeCaminhotutor = "chaveTrakin";
+
+
+    estruturaTutorAnalys.tutor.append(tutorSegTempo);
+    estruturaTutorAnalys.tutor.append(tutorSegComp);
+    estruturaTutorAnalys.tutor.append(tutorAnaSeq);
+    estruturaTutorAnalys.tutor.append(tutorAnaConcordancia);
+    estruturaTutorAnalys.passoAtual =0;
+    estruturaTutorAnalys.nomeCaminhotutor = "chaveAna";
+
+
+
+
+    estruturaTutorDigiAnalys.tutor.append(tutorRegistroVideo);
+    estruturaTutorDigiAnalys.tutor.append(tutorVideoTraking);
+    estruturaTutorDigiAnalys.tutor.append(tutorSegTempo);
+    estruturaTutorDigiAnalys.tutor.append(tutorSegComp);
+    estruturaTutorDigiAnalys.tutor.append(tutorAnaSeq);
+    estruturaTutorDigiAnalys.tutor.append(tutorAnaConcordancia);
+    estruturaTutorDigiAnalys.passoAtual =0;
+    estruturaTutorDigiAnalys.nomeCaminhotutor = "chaveDigiAna";
+
+
+
 
 }
 /**
@@ -235,34 +317,28 @@ void EthoWatcherInpi::proximaInterface(bool chNext){
 void EthoWatcherInpi::on_pushButtonAvancar_clicked()
 {
 
+
+
+    //selecionado só etografia
+    //porem é o emsmo caminho quando seleciona a etografia e o trakin
     if(ui->cbEthoDigi->isChecked()){
-        //configurando apra aparecer os botões
-        ui->pbBehavioralCatalog->setVisible(true);
-        ui->pbRegisterVideo->setVisible(true);
-        ui->pbVideoEtho->setVisible(true);
+        configurandoEtografia();
 
-        //configurando o tutor escolhido
-        estruturaTutorEscolhido = estruturaTutorDigi;
-        botaoClicado(false);
-    }
-
-
-    if(ui->cbEthoDigiTraking->isChecked()){
-        ui->pbRegisterVideo->setVisible(true);
-        ui->pbVideoEtho->setVisible(true);
-
-
-//        estruturaTutorEscolhido = estruturaTutorDigi;
-        botaoClicado(false);
-
-
+    // foi selecionado só o trakin
+    }else if(ui->cbEthoDigiTraking->isChecked()){
+        configurandoTrackin();
 
     }
 
-    if(ui->cbEthoAna->isChecked()){
-        ui->pbTimeSegmentation->setVisible(true);
-    }
 
+    setNextInterface();
+
+
+}
+
+
+void EthoWatcherInpi::setNextInterface(){
+    //controlando a janela
 
       //  this->objControleTutorFerramenta->avancaPasso();
 
@@ -279,7 +355,46 @@ void EthoWatcherInpi::on_pushButtonAvancar_clicked()
 
             ui->stackedPassos->setCurrentIndex(janelaAtual+1);
         }
+
 }
+
+void EthoWatcherInpi::configurandoEtografia(){
+    //configurando apra aparecer os botões
+    ui->pbBehavioralCatalog->setVisible(true);
+    ui->pbRegisterVideo->setVisible(true);
+    ui->pbVideoEtho->setVisible(true);
+
+    //configurando o tutor escolhido
+    estruturaTutorEscolhido = estruturaTutorDigi ;
+    botaoClicado(false);
+    qDebug() << "o selecionado foi a etografia";
+
+}
+
+void EthoWatcherInpi::configurandoAnalise(){
+    //configurando apra aparecer os botões
+    ui->pbTimeSegmentation->setVisible(true);
+    ui->pbSegCompor->setVisible(true);
+    ui->pbAnaliseSeque->setVisible(true);
+    ui->pbAnliseConcor->setVisible(true);
+
+    estruturaTutorEscolhido =  estruturaTutorAnalys;
+    botaoClicado(false);
+
+}
+
+void EthoWatcherInpi::configurandoTrackin(){
+    ui->pbRegisterVideo->setVisible(true);
+    ui->pbVideoEtho->setVisible(true);
+
+
+    estruturaTutorEscolhido = estruturaTutorTraking;
+    botaoClicado(false);
+    qDebug() << "o selecionado foi o trakin";
+
+}
+
+
 /**
  * @brief EthoWatcherInpi::on_pushButtonVoltar_clicked
  */
@@ -289,7 +404,7 @@ void EthoWatcherInpi::on_pushButtonVoltar_clicked()
     {
 //        this->objControleTutorFerramenta->retrocedePasso();
 
-        escondeBotoes();
+//        escondeBotoes();
 
         janelaAtual = ui->stackedPassos->currentIndex();
         qtdJanelas = ui->stackedPassos->count();
@@ -307,3 +422,12 @@ void EthoWatcherInpi::on_pushButtonVoltar_clicked()
     }
 }
 
+
+
+
+void EthoWatcherInpi::on_pbConfigAnalyses_clicked()
+{
+    setNextInterface();
+    configurandoAnalise();
+
+}

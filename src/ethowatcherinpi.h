@@ -33,6 +33,9 @@ public:
     QPushButton getButon();
     //void setResultadoCalibracao(QString *);
 
+    void configurandoEtografia();
+    void configurandoTrackin();
+    void configurandoAnalise();
 private slots:
 
     void on_pushButtonAvancar_clicked();
@@ -53,6 +56,8 @@ private slots:
     void configuraLinhas();
     bool tutorEscolhidoE(QString nomeTutor);
     void proximaInterface(bool chNext);
+
+    void on_pbConfigAnalyses_clicked();
 
 private:
     Ui::EthoWatcherInpi *ui;
@@ -75,12 +80,18 @@ private:
     EstruturaDeTutor estruturaTutorEscolhido;
     EstruturaDeTutor estruturaTutorDigi;
     EstruturaDeTutor estruturaTutorTraking;
+    EstruturaDeTutor estruturaTutorAnalys;
+    EstruturaDeTutor estruturaTutorDigiAnalys;
+    EstruturaDeTutor estruturaTutorTrakingAnalys;
 
 
     WarningTutor *tutorCatalogo;
     WarningTutor *tutorRegistroVideo;
     WarningTutor *tutorVideoTraking;
-    WarningTutor *tutorSegmentacao;
+    WarningTutor *tutorSegComp;
+    WarningTutor *tutorSegTempo;
+    WarningTutor *tutorAnaSeq;
+    WarningTutor *tutorAnaConcordancia;
 
     void ArrumandoTutores();
 
@@ -129,6 +140,7 @@ private:
     bool controleCalibracao, controleCatalogo, controleOpcoesEtografia;
 
     WarningTutor tuto1;
+    void setNextInterface();
 };
 
 

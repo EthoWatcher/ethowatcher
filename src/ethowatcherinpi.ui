@@ -110,7 +110,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedPassos">
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="pageIdentificacao">
           <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -141,7 +141,7 @@
                 <string>Digital Video-Based Ethographyand  Activity Analysis</string>
                </property>
                <property name="checked">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>
@@ -169,6 +169,9 @@
              </item>
              <item>
               <widget class="QCheckBox" name="cbEthoAna">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
                <property name="font">
                 <font>
                  <weight>50</weight>
@@ -177,6 +180,17 @@
                </property>
                <property name="text">
                 <string>Ethography Analysis</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButtonAvancar">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resourcefile.qrc">
+                 <normaloff>:/icons/old_go_next.ico</normaloff>:/icons/old_go_next.ico</iconset>
                </property>
               </widget>
              </item>
@@ -224,6 +238,23 @@
                </widget>
               </item>
               <item>
+               <widget class="QPushButton" name="pbConfigAnalyses">
+                <property name="text">
+                 <string>S4- Analyses</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="pageCalibracao">
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QWidget" name="widget_3" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_10">
+              <item>
                <widget class="QPushButton" name="pbTimeSegmentation">
                 <property name="text">
                  <string>S4 -Time segmentation</string>
@@ -255,62 +286,6 @@
             </widget>
            </item>
           </layout>
-         </widget>
-         <widget class="QWidget" name="pageCalibracao">
-          <widget class="QLabel" name="label_14">
-           <property name="geometry">
-            <rect>
-             <x>300</x>
-             <y>10</y>
-             <width>181</width>
-             <height>16</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Calibration</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="botCalibracao">
-           <property name="geometry">
-            <rect>
-             <x>280</x>
-             <y>90</y>
-             <width>99</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Calibration</string>
-           </property>
-          </widget>
-          <widget class="QTextEdit" name="textEnderecoVideo">
-           <property name="geometry">
-            <rect>
-             <x>190</x>
-             <y>170</y>
-             <width>271</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::NoFrame</enum>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-          </widget>
          </widget>
         </widget>
        </item>
@@ -356,59 +331,18 @@ p, li { white-space: pre-wrap; }
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButtonVoltar">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="resourcefile.qrc">
-             <normaloff>:/icons/old_go_previous.ico</normaloff>:/icons/old_go_previous.ico</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButtonAvancar">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="resourcefile.qrc">
-             <normaloff>:/icons/old_go_next.ico</normaloff>:/icons/old_go_next.ico</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
+        <widget class="QPushButton" name="pushButtonVoltar">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resourcefile.qrc">
+           <normaloff>:/icons/old_go_previous.ico</normaloff>:/icons/old_go_previous.ico</iconset>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
