@@ -140,6 +140,7 @@ private:
     bool controleCalibracao, controleCatalogo, controleOpcoesEtografia;
 
     WarningTutor tuto1;
+    void setNextInterface();
 };
 
 

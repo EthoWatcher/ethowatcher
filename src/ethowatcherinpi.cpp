@@ -318,41 +318,26 @@ void EthoWatcherInpi::on_pushButtonAvancar_clicked()
 {
 
 
-    //foi selecionado os modulos
-    if(ui->cbEthoAna->isChecked()){
-        configurandoAnalise();
 
-        if(ui->cbEthoDigi->isChecked()){
-            configurandoEtografia();
+    //selecionado só etografia
+    //porem é o emsmo caminho quando seleciona a etografia e o trakin
+    if(ui->cbEthoDigi->isChecked()){
+        configurandoEtografia();
 
-            estruturaTutorEscolhido = estruturaTutorDigiAnalys ;
-
-        // foi selecionado só o trakin
-        }else if(ui->cbEthoDigiTraking->isChecked()){
-            configurandoTrackin();
-
-        }
-
-         estruturaTutorEscolhido = estruturaTutorAnalys ;
-
-         botaoClicado(false);
-
-        qDebug() << "o selecionado foi a etografia ";
-    }else{
-
-        //selecionado só etografia
-        //porem é o emsmo caminho quando seleciona a etografia e o trakin
-        if(ui->cbEthoDigi->isChecked()){
-            configurandoEtografia();
-
-        // foi selecionado só o trakin
-        }else if(ui->cbEthoDigiTraking->isChecked()){
-            configurandoTrackin();
-
-        }
+    // foi selecionado só o trakin
+    }else if(ui->cbEthoDigiTraking->isChecked()){
+        configurandoTrackin();
 
     }
 
+
+    setNextInterface();
+
+
+}
+
+
+void EthoWatcherInpi::setNextInterface(){
     //controlando a janela
 
       //  this->objControleTutorFerramenta->avancaPasso();
@@ -370,8 +355,8 @@ void EthoWatcherInpi::on_pushButtonAvancar_clicked()
 
             ui->stackedPassos->setCurrentIndex(janelaAtual+1);
         }
-}
 
+}
 
 void EthoWatcherInpi::configurandoEtografia(){
     //configurando apra aparecer os botões
@@ -393,6 +378,8 @@ void EthoWatcherInpi::configurandoAnalise(){
     ui->pbAnaliseSeque->setVisible(true);
     ui->pbAnliseConcor->setVisible(true);
 
+    estruturaTutorEscolhido =  estruturaTutorAnalys;
+    botaoClicado(false);
 
 }
 
@@ -417,7 +404,7 @@ void EthoWatcherInpi::on_pushButtonVoltar_clicked()
     {
 //        this->objControleTutorFerramenta->retrocedePasso();
 
-        escondeBotoes();
+//        escondeBotoes();
 
         janelaAtual = ui->stackedPassos->currentIndex();
         qtdJanelas = ui->stackedPassos->count();
@@ -440,5 +427,7 @@ void EthoWatcherInpi::on_pushButtonVoltar_clicked()
 
 void EthoWatcherInpi::on_pbConfigAnalyses_clicked()
 {
-    ui->pushButtonAvancar->click();
+    setNextInterface();
+    configurandoAnalise();
+
 }
