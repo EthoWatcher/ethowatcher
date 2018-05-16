@@ -77,11 +77,22 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     controleOpcoesEtografia=false;
 
     ui->cbEthoAna->setVisible(false);
+    ui->cbTutor->setVisible(false);
+     ui->stackedPassos->setEnabled(false);
+//     ui->grpTutor->setVisible(false);
 
 }
 
 EthoWatcherInpi::~EthoWatcherInpi()
 {
+
+//    if(telaPessoa->nomeArquivo !=""){
+
+//        telaPessoa->gravandoUserXML();
+
+//    }
+    delete telaPessoa;
+
     delete ui;
 }
 
@@ -430,4 +441,45 @@ void EthoWatcherInpi::on_pbConfigAnalyses_clicked()
     setNextInterface();
     configurandoAnalise();
 
+}
+
+void EthoWatcherInpi::on_pbCreateUser_clicked()
+{
+    telaPessoa = new telaCadastroPessoa();
+    telaPessoa->show();
+    if(telaPessoa->tutor == 1){
+        ui->cbTutor->setChecked(true);
+    }else{
+        ui->cbTutor->setChecked(false);
+    }
+
+    ui->lblNomeUsuario->setText(telaPessoa->nome);
+
+    ui->stackedPassos->setEnabled(true);
+    ui->pbLoadUser->setEnabled(false);
+    ui->pbCreateUser->setEnabled(false);
+}
+
+void EthoWatcherInpi::on_pbLoadUser_clicked()
+{
+    telaPessoa = new telaCadastroPessoa();
+    telaPessoa->loadUser();
+    qDebug() << telaPessoa->nomeArquivo;
+
+    if(telaPessoa->getTutor()){
+        ui->cbTutor->setCheckable(true);
+    }else{
+        ui->cbTutor->setCheckable(false);
+    }
+
+    ui->lblNomeUsuario->setText(telaPessoa->nome);
+     ui->stackedPassos->setEnabled(true);
+     ui->pbLoadUser->setEnabled(false);
+     ui->pbCreateUser->setEnabled(false);
+
+}
+
+void EthoWatcherInpi::on_cbTutor_clicked(bool checked)
+{
+    telaPessoa->setTutor(checked);
 }

@@ -35,13 +35,16 @@ LIBS += C:\opencv\RELEASE\bin\libopencv_videostab2411.dll
 SOURCES += EthoWatcherInpi/main.cpp\
         ethowatcherinpi.cpp\
         warningtutor.cpp\
-        tutoretho.cpp
+        tutoretho.cpp\
+        telacadastropessoa.cpp
 
 HEADERS  += ethowatcherinpi.h\
     warningtutor.h\
-    tutoretho.h
+    tutoretho.h\
+    telacadastropessoa.h
 
 FORMS    += ethowatcherinpi.ui\
-    warningtutor.ui
+    warningtutor.ui\
+    telacadastropessoa.ui
 
 RESOURCES += resourcefile.qrc

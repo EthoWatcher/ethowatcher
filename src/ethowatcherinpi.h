@@ -14,6 +14,9 @@
 #include "opencv2/video/background_segm.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 
+
+#include "telacadastropessoa.h"
+
 const   QString      mensagemErro05_TFNC     =       "Error: Select a type of ethography. ";
 const   QString      mensagemErro06_TFNC     =       "Error: Perform all the steps.";
 
@@ -58,6 +61,12 @@ private slots:
     void proximaInterface(bool chNext);
 
     void on_pbConfigAnalyses_clicked();
+
+    void on_pbCreateUser_clicked();
+
+    void on_pbLoadUser_clicked();
+
+    void on_cbTutor_clicked(bool checked);
 
 private:
     Ui::EthoWatcherInpi *ui;
@@ -141,6 +150,9 @@ private:
 
     WarningTutor tuto1;
     void setNextInterface();
+
+
+    telaCadastroPessoa *telaPessoa;
 };
 
 
