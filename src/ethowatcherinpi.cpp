@@ -77,6 +77,9 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     controleOpcoesEtografia=false;
 
     ui->cbEthoAna->setVisible(false);
+    ui->cbTutor->setVisible(false);
+     ui->stackedPassos->setEnabled(false);
+//     ui->grpTutor->setVisible(false);
 
 }
 
@@ -449,6 +452,12 @@ void EthoWatcherInpi::on_pbCreateUser_clicked()
     }else{
         ui->cbTutor->setChecked(false);
     }
+
+    ui->lblNomeUsuario->setText(telaPessoa->nome);
+
+    ui->stackedPassos->setEnabled(true);
+    ui->pbLoadUser->setEnabled(false);
+    ui->pbCreateUser->setEnabled(false);
 }
 
 void EthoWatcherInpi::on_pbLoadUser_clicked()
@@ -458,10 +467,15 @@ void EthoWatcherInpi::on_pbLoadUser_clicked()
     qDebug() << telaPessoa->nomeArquivo;
 
     if(telaPessoa->getTutor()){
-        ui->cbTutor->setVisible(true);
+        ui->cbTutor->setCheckable(true);
     }else{
-        ui->cbTutor->setVisible(false);
+        ui->cbTutor->setCheckable(false);
     }
+
+    ui->lblNomeUsuario->setText(telaPessoa->nome);
+     ui->stackedPassos->setEnabled(true);
+     ui->pbLoadUser->setEnabled(false);
+     ui->pbCreateUser->setEnabled(false);
 
 }
 

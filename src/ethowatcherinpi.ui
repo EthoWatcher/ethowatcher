@@ -47,9 +47,19 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
+        <widget class="QLabel" name="lblNomeUsuario">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QCheckBox" name="cbTutor">
          <property name="text">
           <string>Tutor</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -117,7 +127,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedPassos">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="pageIdentificacao">
           <layout class="QVBoxLayout" name="verticalLayout_8">
