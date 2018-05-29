@@ -17,6 +17,8 @@ WarningTutor::WarningTutor(QWidget *parent) :
 
     new QShortcut( Qt::Key_Y, this, SLOT(on_pbYes_clicked()));
     new QShortcut( Qt::Key_N, this, SLOT(on_pbNo_clicked()));
+
+    tutorId="";
 }
 
 WarningTutor::~WarningTutor()
@@ -28,6 +30,11 @@ void WarningTutor::setTextDestaque(QString Text)
 {
     ui->lblDestaque->setText(Text);
 
+}
+
+void WarningTutor::setId(QString text){
+
+    tutorId = text;
 }
 
 void WarningTutor::setTextTutor(QString Text)
@@ -70,6 +77,19 @@ void WarningTutor::setNoOn(bool chave)
 {
     ui->pbNo->setEnabled(chave);
     ui->pbNo->setVisible(chave);
+
+}
+
+bool WarningTutor::getId(QString textId)
+{
+    if (textId == tutorId){
+
+        return true;
+    }else{
+
+        return false;
+    }
+
 
 }
 

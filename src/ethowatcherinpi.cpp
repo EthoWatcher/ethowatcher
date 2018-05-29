@@ -88,7 +88,10 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 
 
      estruturaTutorEscolhido = estruturaInicio;
-     tutorInicio->show();
+//     estruturaTutorEscolhido.tutor[0]->show();
+//     qDebug()<< estruturaTutorEscolhido.passoAtual ;
+     estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->show();
+//     proximaInterface(false);
 
 
 }
@@ -170,6 +173,7 @@ void EthoWatcherInpi::ArrumandoTutores()
 
     connect(tutorInicio,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
     tutorInicio->setTextDestaque(tutor.getTextoById("ethoInicioTitulo"));
+    tutorInicio->setId("ethoInicio");
     tutorInicio->setTextTutor(tutor.getTextoById("ethoInicio"));
     tutorInicio->setTextYes("yes");
     tutorInicio->setTextNo("No");
@@ -239,31 +243,47 @@ bool EthoWatcherInpi::botaoClicado(bool clicado)
 {
 
     qDebug() <<"chegou o sinal de clicar no botoao";
-    if(tutorEscolhidoE("chaveDigi")){
-        qDebug() <<"chave digital";
-        proximaInterface(true);
 
+    if(estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->getId("ethoInicio")){
+        qDebug() <<"oi mundo ";
+        if(clicado){
+
+            ui->pbLoadUser->click();
+        }else{
+            ui->pbCreateUser->click();
         }
 
-    if(tutorEscolhidoE("chaveDigi")){
-        qDebug() <<"chave digital";
-        proximaInterface(true);
-
-        }
-
-    if(tutorEscolhidoE("chaveTrakin")){
-        qDebug() <<"chave digital";
-        proximaInterface(true);
-
-        }
-
-    if(tutorEscolhidoE(("chaveDigiAna"))){
-        proximaInterface(true);
     }
 
-    if(tutorEscolhidoE(("chaveAna"))){
-        proximaInterface(true);
-    }
+
+    proximaInterface(true);
+
+
+//    if(tutorEscolhidoE("chaveDigi")){
+//        qDebug() <<"chave digital";
+//        proximaInterface(true);
+
+//        }
+
+//    if(tutorEscolhidoE("chaveDigi")){
+//        qDebug() <<"chave digital";
+//        proximaInterface(true);
+
+//        }
+
+//    if(tutorEscolhidoE("chaveTrakin")){
+//        qDebug() <<"chave digital";
+//        proximaInterface(true);
+
+//        }
+
+//    if(tutorEscolhidoE(("chaveDigiAna"))){
+//        proximaInterface(true);
+//    }
+
+//    if(tutorEscolhidoE(("chaveAna"))){
+//
+//    }
 
 
 
@@ -278,6 +298,8 @@ void EthoWatcherInpi::configuraLinhas()
 {
 
     estruturaInicio.tutor.append(tutorInicio);
+    estruturaInicio.passoAtual =0;
+    estruturaInicio.nomeCaminhotutor = "chaveInicio";
 
 
     //arrumando o tutor da seleçãod digital video based ethografi

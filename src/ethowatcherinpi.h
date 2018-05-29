@@ -87,6 +87,8 @@ private:
         int passoAtual;
         QString nomeCaminhotutor;
     };
+
+    EstruturaDeTutor estruturaInicio;
     EstruturaDeTutor estruturaTutorEscolhido;
     EstruturaDeTutor estruturaTutorDigi;
     EstruturaDeTutor estruturaTutorTraking;
