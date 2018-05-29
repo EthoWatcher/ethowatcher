@@ -154,7 +154,7 @@ void telaCadastroPessoa::setLocalArquivo(){
                );
 }
 
-void telaCadastroPessoa::loadUser(){
+bool telaCadastroPessoa::loadUser(){
 
     nomeArquivo = QFileDialog::getOpenFileName(
                 this,
@@ -162,7 +162,17 @@ void telaCadastroPessoa::loadUser(){
                 "C://",
                "User files (*.uxml)"
                );
-    lendoXML();
+
+
+    if(nomeArquivo == ""){
+
+        return false;
+
+    }else{
+         lendoXML();
+         return true;
+    }
+
 
 
 

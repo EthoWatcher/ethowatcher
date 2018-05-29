@@ -16,6 +16,7 @@
 
 
 #include "telacadastropessoa.h"
+#include "telacadastrocatalago.h"
 
 const   QString      mensagemErro05_TFNC     =       "Error: Select a type of ethography. ";
 const   QString      mensagemErro06_TFNC     =       "Error: Perform all the steps.";
@@ -153,6 +154,7 @@ private:
 
 
     telaCadastroPessoa *telaPessoa;
+    telaCadastroCatalago *telaCatalogo;
 };
 
 

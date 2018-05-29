@@ -36,15 +36,19 @@ SOURCES += EthoWatcherInpi/main.cpp\
         ethowatcherinpi.cpp\
         warningtutor.cpp\
         tutoretho.cpp\
-        telacadastropessoa.cpp
+        telacadastropessoa.cpp\
+        telacadastrocatalago.cpp
 
 HEADERS  += ethowatcherinpi.h\
     warningtutor.h\
     tutoretho.h\
-    telacadastropessoa.h
+    telacadastropessoa.h\
+    telacadastrocatalago.h
+
 
 FORMS    += ethowatcherinpi.ui\
     warningtutor.ui\
-    telacadastropessoa.ui
+    telacadastropessoa.ui\
+    telacadastrocatalago.ui
 
 RESOURCES += resourcefile.qrc
