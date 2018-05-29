@@ -95,6 +95,7 @@ private:
     EstruturaDeTutor estruturaTutorTrakingAnalys;
 
 
+    WarningTutor *tutorInicio;
     WarningTutor *tutorCatalogo;
     WarningTutor *tutorRegistroVideo;
     WarningTutor *tutorVideoTraking;

@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     EthoWatcherInpi w;
-    w.show();
+//    w.show();
 //    TutorEtho tutor;
 
 //    tutor.lerXml(":/icons/tutores/tutoresTelaCego.xml");

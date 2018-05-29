@@ -34,7 +34,6 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 
 
 
-
 //    ui->stackedPassos->setCurrentIndex(0);
 //    ui->imgCfgStaCal->setVisible(false);
 //    ui->imgCfgStaCatEto->setVisible(false);
@@ -80,6 +79,20 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     ui->cbTutor->setVisible(false);
      ui->stackedPassos->setEnabled(false);
 //     ui->grpTutor->setVisible(false);
+
+
+     tutorInicio = new WarningTutor();
+
+     connect(tutorInicio,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+     tutorInicio->setTextDestaque("Do you have a catalog ?");
+     tutorInicio->setTextTutor(tutor.getTextoById("ethoCatalogo"));
+     tutorInicio->setTextYes("yes");
+ //    tutorInicio->setTextNo("No");
+
+     this->show();
+
+     tutorInicio->show();
+
 
 }
 
