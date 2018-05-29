@@ -81,16 +81,13 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 //     ui->grpTutor->setVisible(false);
 
 
-     tutorInicio = new WarningTutor();
 
-     connect(tutorInicio,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-     tutorInicio->setTextDestaque("Do you have a catalog ?");
-     tutorInicio->setTextTutor(tutor.getTextoById("ethoCatalogo"));
-     tutorInicio->setTextYes("yes");
- //    tutorInicio->setTextNo("No");
 
      this->show();
 
+
+
+     estruturaTutorEscolhido = estruturaInicio;
      tutorInicio->show();
 
 
@@ -169,6 +166,14 @@ void EthoWatcherInpi::escondeBotoes()
 
 void EthoWatcherInpi::ArrumandoTutores()
 {
+    tutorInicio = new WarningTutor();
+
+    connect(tutorInicio,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+    tutorInicio->setTextDestaque(tutor.getTextoById("ethoInicioTitulo"));
+    tutorInicio->setTextTutor(tutor.getTextoById("ethoInicio"));
+    tutorInicio->setTextYes("yes");
+    tutorInicio->setTextNo("No");
+
     tutorCatalogo = new WarningTutor();
 
     connect(tutorCatalogo,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
@@ -240,6 +245,12 @@ bool EthoWatcherInpi::botaoClicado(bool clicado)
 
         }
 
+    if(tutorEscolhidoE("chaveDigi")){
+        qDebug() <<"chave digital";
+        proximaInterface(true);
+
+        }
+
     if(tutorEscolhidoE("chaveTrakin")){
         qDebug() <<"chave digital";
         proximaInterface(true);
@@ -265,6 +276,9 @@ bool EthoWatcherInpi::botaoClicado(bool clicado)
 
 void EthoWatcherInpi::configuraLinhas()
 {
+
+    estruturaInicio.tutor.append(tutorInicio);
+
 
     //arrumando o tutor da seleçãod digital video based ethografi
     estruturaTutorDigi.tutor.append(tutorCatalogo);
