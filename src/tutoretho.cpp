@@ -117,6 +117,56 @@ QString TutorEtho::getTextoById(QString id)
     return "erro nao encontrou";
 }
 
+QString TutorEtho::getTitulo(QString id)
+{
+    for(int i=0; i<tutores.size();i++){
+        if(tutores[i].getId() == id){
+            return tutores[i].getTitulo();
+        }
+
+    }
+    return "erro nao encontrou";
+}
+
+QString TutorEtho::getPbS(QString id)
+{
+    for(int i=0; i<tutores.size();i++){
+        if(tutores[i].getId() == id){
+            return tutores[i].getPbS();
+        }
+
+    }
+    return "erro nao encontrou";
+}
+
+QString TutorEtho::getPbN(QString id)
+{
+    for(int i=0; i<tutores.size();i++){
+        if(tutores[i].getId() == id){
+            return tutores[i].getPbN();
+        }
+
+    }
+    return "erro nao encontrou";
+}
+
+QString TutorEtho::getTextoByNumero(int numero)
+{
+    for(int i=0; i<tutores.size();i++){
+        if(i == numero){
+            return tutores[i].getTexto();
+        }
+
+    }
+
+    return "erro nao encontrou";
+}
+
+int TutorEtho::getSize()
+{
+    return tutores.size();
+}
+
 
 
 Tutores::Tutores()
@@ -163,4 +213,20 @@ QString Tutores::getId()
 {
     return this->id;
 
+}
+
+QString Tutores::getPbS()
+{
+    return this->pbS;
+}
+
+QString Tutores::getPbN()
+{
+
+    return this->pbN;
+}
+
+QString Tutores::getTitulo()
+{
+    return this->titulo;
 }

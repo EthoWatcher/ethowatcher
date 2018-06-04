@@ -18,6 +18,9 @@ public:
 
     QString getTexto();
     QString getId();
+    QString getPbS();
+    QString getPbN();
+    QString getTitulo();
 //    void addId();
 //    void addTitulo();
 //    void addPbS();
@@ -34,7 +37,10 @@ private:
     bool    chPbN;
 
 };
-
+/**
+ * @brief The TutorEtho class
+ * Essa classe le o texto xml e retira os parametros das interfaces
+ */
 class TutorEtho : public QObject
 {
     Q_OBJECT
@@ -42,9 +48,16 @@ public:
     explicit TutorEtho(QObject *parent = 0);
 
     void lerXml(QString arquivo);
+
     void debugID();
     void debugTexto();
     QString getTextoById(QString id);
+    QString getTitulo(QString id);
+    QString getPbS(QString id);
+    QString getPbN(QString id);
+
+    QString getTextoByNumero(int numero);
+    int getSize();
 
 private:
 

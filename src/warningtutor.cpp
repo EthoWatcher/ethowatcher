@@ -112,3 +112,62 @@ void QWidget::closeEvent(QCloseEvent *){
     qDebug() << "isso fechou";
 
 }
+
+ControladoWarningTutor::ControladoWarningTutor(QString XML)
+{
+
+    //ja pega todos os tutores xml
+    tutor.lerXml(XML);
+    tutor.debugID();
+    contador=0;
+    //":/tutor/tutores/ethowatcherInpi.xml");
+//    qDebug() << "Arrumando tutor";
+
+//    for(int i=0; i< tutor.getSize();i++){
+
+//    qDebug() << tutor.getTextoByNumero(0)+" o numero";
+//    }
+    // aqui le todos os tutores;
+
+
+
+}
+
+void ControladoWarningTutor::setLista(QList<QString> sequencia)
+{
+
+    qDebug() << "================= 123123 12==========";
+    this->sequenciaTutores = sequencia;
+
+    for(int i=0; i< this->sequenciaTutores.size(); i++){
+        qDebug() << this->sequenciaTutores[i];
+
+        tutorAbs = new WarningTutor();
+        tutorAbs->setTextDestaque(tutor.getTextoById(this->sequenciaTutores[i]));
+        tutorAbs->setId(this->sequenciaTutores[i]);
+        tutorAbs->setTextTutor(tutor.getTitulo(this->sequenciaTutores[i]));
+        tutorAbs->setTextYes(tutor.getPbS(this->sequenciaTutores[i]));
+        tutorAbs->setTextNo(tutor.getPbN(this->sequenciaTutores[i]));
+
+        listaTutores.append(tutorAbs);
+    }
+
+
+}
+
+void ControladoWarningTutor::nextList(bool chNext)
+{
+    for(int i=0; i< listaTutores.size(); i++){
+        if(listaTutores[i]->getId(this->sequenciaTutores[contador])){
+            listaTutores[i]->show();
+
+            if(chNext){
+                contador++;
+            }
+
+            break;
+        }
+    }
+
+    qDebug() << "nao encontrado o tutor";
+}

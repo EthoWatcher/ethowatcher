@@ -12,7 +12,7 @@ Hello world indio
 </body></html></tutor>
 
 
-<tutor id="ethoInicio" titulo="oi mundo" pbS="yes" pbN="no"><html><body>
+<tutor id="ethoInicio" titulo="Você já tem um cadastro ?" pbS="yes" pbN="no"><html><body>
 Ola! 
 Bem vindo ao ethowatcher open source. Cadastre-se para utilizar as funcionalidade do programa.
 
@@ -41,7 +41,7 @@ Clique em não para se cadastrar.
 </tutor>
 
 
-<tutor id="ethoregistroVideoTraking"titulo="oi mundo" pbS="yes" pbN="no"><html><body>
+<tutor id="ethoregistroVideoTraking" titulo="Você tem um registro de vídeo?" pbS="yes" pbN="no"><html><body>
 Clique em sim caso você queria fazer um trakign de vídeo.
 <p>
     Você nessa interface pode fazer etografia e trakign .
@@ -64,7 +64,7 @@ Você tem o vídeo que quer analisar cadastrado ?
 </tutor>
 
 
-<tutor id="startAnalysis" titulo="oi mundo" pbS="yes" pbN="no"><html><body>
+<tutor id="startAnalysis" titulo="Comece a análise de etografai" pbS="yes" pbN="no"><html><body>
 Click in "Start Analysis" to start the Ethography.
 
 </body></html>

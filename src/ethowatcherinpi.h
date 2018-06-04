@@ -75,6 +75,8 @@ private:
     int janelaAtual;
     int qtdJanelas;
     QPalette palette;
+
+    ControladoWarningTutor *controlWarnig;
 //    TControleTutorFerramenta *objControleTutorFerramenta;
 //    QString fileCatalogo="";
 //    QString fileVideo="";

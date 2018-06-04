@@ -12,6 +12,19 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 {
    ui->setupUi(this);
 //   qDebug ()<< tutor.getTextoById("j");
+
+   controlWarnig = new ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
+   QList<QString> seq;
+
+   seq.append("ethoInicioTitulo");
+   seq.append("ethoCatalogo");
+
+   controlWarnig->setLista(seq);
+
+   controlWarnig->nextList(false);
+
+
+
    tutor.lerXml(":/tutor/tutores/ethowatcherInpi.xml");
 
     ui->textoTutor->setText(tutor.getTextoById("ethoInicio"));

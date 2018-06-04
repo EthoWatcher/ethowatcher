@@ -6,6 +6,8 @@
 #include <QShortcut>
 #include <QPushButton>
 
+#include <tutoretho.h>
+
 namespace Ui {
 class WarningTutor;
 }
@@ -40,6 +42,26 @@ private slots:
 private:
     Ui::WarningTutor *ui;
     QString tutorId;
+};
+
+class ControladoWarningTutor{
+
+    public:
+    QList<WarningTutor *> listaTutores;
+
+    TutorEtho tutor;
+
+    WarningTutor *tutorAbs;
+
+    ControladoWarningTutor(QString XML);
+
+    QList<QString> sequenciaTutores;
+    void setLista(QList<QString> sequencia);
+
+    void nextList(bool chNext);
+private:
+    int contador;
+
 };
 
 #endif // WARNINGTUTOR_H
