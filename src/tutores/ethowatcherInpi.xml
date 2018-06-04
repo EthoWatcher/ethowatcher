@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tutores>
-<tutor id="default"><html><header><title>j</title></header><body>Hello world j</body></html></tutor>
+<tutor id="default">
+<config>oi
+</config>
+<html><header><title>j</title></header><body>Hello world j</body></html></tutor>
 
 
-<tutor id="defautl1"><html><body>
+<tutor id="defautl1">
+<config>oi default1
+</config>
+<html><body>
 Hello world indio
 
 </body></html>
 </tutor>
 
 
-<tutor id="ethoInicio"><html><body>
+<tutor id="ethoInicio" titulo="oi mundo" pbS="yes" pbN="no"><html><body>
 Ola! 
-Bem vindo ao ethowatcher open source. Cadastre-se para utilizar as funcionalidade do programa.
+Bem vindo ao ethowatcher open source. Cadastre-se para utilizar as funcionalidade do programa.
 
 </body></html>
 </tutor>
@@ -23,7 +29,12 @@ Você já tem um cadastro ?
 </tutor>
 
 
-<tutor id="ethoCatalogo"><html><body>
+<tutor id="ethoCatalogo">
+<config>oi
+</config>
+
+
+<html><body>
 Clique em sim se você já é cadastrado
 
 

@@ -29,10 +29,14 @@ void TutorEtho::lerXml(QString arquivo)
 
         QDomNodeList a = rootElement.elementsByTagName("tutor");
         QDomNodeList b = rootElement.elementsByTagName("html");
+        QDomNodeList c = rootElement.elementsByTagName("config");
         for (int i=0; i< a.length(); i ++) {
 
             QString aContent;
+
             QTextStream ts(&aContent);
+
+
             b.at(i).save(ts,0);
 
            // qDebug() << aContent;
@@ -46,12 +50,27 @@ void TutorEtho::lerXml(QString arquivo)
            // qDebug()<<"a primeira tab tem o atributo" << itemEle.attribute("id");
 
             tutorLido.id = itemEle.attribute("id");
+            qDebug() << itemEle.attribute("titulo");
 
             tutores.push_back(tutorLido);
 
 
 
         }
+
+//    for (int i=0; i< c.length(); i ++) {
+//    QString cContent="";
+
+//    QTextStream tsC(&cContent);
+//    c.at(i).save(tsC,0);
+//    QDomNode itemNode= a.at(i);
+//    QDomElement itemEle = itemNode.toElement();
+
+//     qDebug() << cContent;
+
+
+
+//    }
 
     }else{
         qDebug() << "nao encontrou/leu o arquivo xml";
