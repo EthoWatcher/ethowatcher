@@ -34,7 +34,7 @@ public:
     QString nome,nomeArquivo,extensao,nomeExtensao,lab,idObservador,sexo,arquivo;
     int vezes,tutor;
 
-    void loadUser();
+    bool loadUser();
     void setLocalArquivo();
     void gravandoUserXML();
 

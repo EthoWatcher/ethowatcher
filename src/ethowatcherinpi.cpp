@@ -34,7 +34,6 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 
 
 
-
 //    ui->stackedPassos->setCurrentIndex(0);
 //    ui->imgCfgStaCal->setVisible(false);
 //    ui->imgCfgStaCatEto->setVisible(false);
@@ -81,6 +80,20 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
      ui->stackedPassos->setEnabled(false);
 //     ui->grpTutor->setVisible(false);
 
+
+
+
+     this->show();
+
+
+
+     estruturaTutorEscolhido = estruturaInicio;
+//     estruturaTutorEscolhido.tutor[0]->show();
+//     qDebug()<< estruturaTutorEscolhido.passoAtual ;
+     estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->show();
+//     proximaInterface(false);
+
+
 }
 
 EthoWatcherInpi::~EthoWatcherInpi()
@@ -107,7 +120,8 @@ EthoWatcherInpi::~EthoWatcherInpi()
  */
 void EthoWatcherInpi::on_pbBehavioralCatalog_clicked()
 {
-    tutorCatalogo->show();
+    telaCatalogo = new telaCadastroCatalago();
+    telaCatalogo->show();
 }
 
 /**
@@ -115,14 +129,14 @@ void EthoWatcherInpi::on_pbBehavioralCatalog_clicked()
  */
 void EthoWatcherInpi::on_pbRegisterVideo_clicked()
 {
-    tutorRegistroVideo->show();
+
 }
 /**
  * @brief EthoWatcherInpi::on_pbVideoEtho_clicked
  */
 void EthoWatcherInpi::on_pbVideoEtho_clicked()
 {
-    tuto1.show();
+
 }
 /**
  * @brief EthoWatcherInpi::on_cbEthoDigi_clicked
@@ -155,6 +169,15 @@ void EthoWatcherInpi::escondeBotoes()
 
 void EthoWatcherInpi::ArrumandoTutores()
 {
+    tutorInicio = new WarningTutor();
+
+    connect(tutorInicio,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+    tutorInicio->setTextDestaque(tutor.getTextoById("ethoInicioTitulo"));
+    tutorInicio->setId("ethoInicio");
+    tutorInicio->setTextTutor(tutor.getTextoById("ethoInicio"));
+    tutorInicio->setTextYes("yes");
+    tutorInicio->setTextNo("No");
+
     tutorCatalogo = new WarningTutor();
 
     connect(tutorCatalogo,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
@@ -220,25 +243,47 @@ bool EthoWatcherInpi::botaoClicado(bool clicado)
 {
 
     qDebug() <<"chegou o sinal de clicar no botoao";
-    if(tutorEscolhidoE("chaveDigi")){
-        qDebug() <<"chave digital";
-        proximaInterface(true);
 
+    if(estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->getId("ethoInicio")){
+        qDebug() <<"oi mundo ";
+        if(clicado){
+
+            ui->pbLoadUser->click();
+        }else{
+            ui->pbCreateUser->click();
         }
 
-    if(tutorEscolhidoE("chaveTrakin")){
-        qDebug() <<"chave digital";
-        proximaInterface(true);
-
-        }
-
-    if(tutorEscolhidoE(("chaveDigiAna"))){
-        proximaInterface(true);
     }
 
-    if(tutorEscolhidoE(("chaveAna"))){
-        proximaInterface(true);
-    }
+
+    proximaInterface(true);
+
+
+//    if(tutorEscolhidoE("chaveDigi")){
+//        qDebug() <<"chave digital";
+//        proximaInterface(true);
+
+//        }
+
+//    if(tutorEscolhidoE("chaveDigi")){
+//        qDebug() <<"chave digital";
+//        proximaInterface(true);
+
+//        }
+
+//    if(tutorEscolhidoE("chaveTrakin")){
+//        qDebug() <<"chave digital";
+//        proximaInterface(true);
+
+//        }
+
+//    if(tutorEscolhidoE(("chaveDigiAna"))){
+//        proximaInterface(true);
+//    }
+
+//    if(tutorEscolhidoE(("chaveAna"))){
+//
+//    }
 
 
 
@@ -251,6 +296,11 @@ bool EthoWatcherInpi::botaoClicado(bool clicado)
 
 void EthoWatcherInpi::configuraLinhas()
 {
+
+    estruturaInicio.tutor.append(tutorInicio);
+    estruturaInicio.passoAtual =0;
+    estruturaInicio.nomeCaminhotutor = "chaveInicio";
+
 
     //arrumando o tutor da seleçãod digital video based ethografi
     estruturaTutorDigi.tutor.append(tutorCatalogo);
@@ -463,19 +513,25 @@ void EthoWatcherInpi::on_pbCreateUser_clicked()
 void EthoWatcherInpi::on_pbLoadUser_clicked()
 {
     telaPessoa = new telaCadastroPessoa();
-    telaPessoa->loadUser();
-    qDebug() << telaPessoa->nomeArquivo;
+    if(telaPessoa->loadUser()){
+        qDebug() << telaPessoa->nomeArquivo;
 
-    if(telaPessoa->getTutor()){
-        ui->cbTutor->setCheckable(true);
+        if(telaPessoa->getTutor()){
+            ui->cbTutor->setCheckable(true);
+        }else{
+            ui->cbTutor->setCheckable(false);
+        }
+
+        ui->lblNomeUsuario->setText(telaPessoa->nome);
+         ui->stackedPassos->setEnabled(true);
+         ui->pbLoadUser->setEnabled(false);
+         ui->pbCreateUser->setEnabled(false);
+
     }else{
-        ui->cbTutor->setCheckable(false);
+
+        qDebug() << "voce não carregou nenhum usuario";
     }
 
-    ui->lblNomeUsuario->setText(telaPessoa->nome);
-     ui->stackedPassos->setEnabled(true);
-     ui->pbLoadUser->setEnabled(false);
-     ui->pbCreateUser->setEnabled(false);
 
 }
 

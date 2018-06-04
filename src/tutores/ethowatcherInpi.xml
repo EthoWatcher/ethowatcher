@@ -11,13 +11,24 @@ Hello world indio
 
 
 <tutor id="ethoInicio"><html><body>
-Choose the type of recording and analysis to be carried out: Ethography from a digital video: Open a digital video file to gather behavioral data. You can navigate frame-by-frame through the video and the timestamp data are derived from the pictures of the video file. 3. Activity Analysis: It allows for the automatic determination of the animal's path in the arena ("tracking") and of numeric indicators of general activity (distance travelled, velocity, angle changes, etc.) from the digital video files. It can be carried out simultaneously to the Digital Ethography from the same video file.
+Ola! 
+Bem vindo ao ethowatcher open source. Cadastre-se para utilizar as funcionalidade do programa.
+
+</body></html>
+</tutor>
+
+<tutor id="ethoInicioTitulo"><html><body>
+Você já tem um cadastro ?
 </body></html>
 </tutor>
 
 
 <tutor id="ethoCatalogo"><html><body>
-Clique em sim se você tem um catalogo e não caso vocÊ naõ teja. O catalogo comportamental é usado para
+Clique em sim se você já é cadastrado
+
+
+Clique em não para se cadastrar.
+
 
 </body></html>
 </tutor>

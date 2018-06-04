@@ -23,8 +23,10 @@ public:
     void setTextNo(QString Text);
     void setYesOn(bool chave);
     void setNoOn(bool chave);
+    bool getId(QString textId);
 //    void setButtonYes(QPushButton botao);
 
+    void setId(QString text);
 signals:
     void clickYes();
     void clickNo();
@@ -37,6 +39,7 @@ private slots:
 
 private:
     Ui::WarningTutor *ui;
+    QString tutorId;
 };
 
 #endif // WARNINGTUTOR_H
