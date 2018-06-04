@@ -44,9 +44,13 @@ private:
     QString tutorId;
 };
 
-class ControladoWarningTutor{
+class ControladoWarningTutor: public QObject{
+
+    Q_OBJECT
 
     public:
+
+
     QList<WarningTutor *> listaTutores;
 
     TutorEtho tutor;
@@ -58,7 +62,15 @@ class ControladoWarningTutor{
     QList<QString> sequenciaTutores;
     void setLista(QList<QString> sequencia);
 
+    WarningTutor *getListaTutores();
+
     void nextList(bool chNext);
+
+public slots:
+    void wrapper(bool chBotao);
+
+signals:
+    void clicou(bool);
 private:
     int contador;
 

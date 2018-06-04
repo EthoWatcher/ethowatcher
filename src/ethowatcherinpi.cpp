@@ -16,7 +16,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
    QList<QString> seq;
 
-   seq.append("ethoInicioTitulo");
+   seq.append("ethoInicio");
    seq.append("ethoCatalogo");
 
    controlWarnig->setLista(seq);

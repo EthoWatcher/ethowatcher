@@ -143,17 +143,32 @@ void ControladoWarningTutor::setLista(QList<QString> sequencia)
         qDebug() << this->sequenciaTutores[i];
 
         tutorAbs = new WarningTutor();
-        tutorAbs->setTextDestaque(tutor.getTextoById(this->sequenciaTutores[i]));
+        tutorAbs->setTextDestaque(tutor.getTitulo(this->sequenciaTutores[i]));
         tutorAbs->setId(this->sequenciaTutores[i]);
-        tutorAbs->setTextTutor(tutor.getTitulo(this->sequenciaTutores[i]));
+        tutorAbs->setTextTutor( tutor.getTextoById(this->sequenciaTutores[i]));
         tutorAbs->setTextYes(tutor.getPbS(this->sequenciaTutores[i]));
         tutorAbs->setTextNo(tutor.getPbN(this->sequenciaTutores[i]));
 
         listaTutores.append(tutorAbs);
+
+
+        connect(listaTutores[i],SIGNAL(clicou(bool)),this,SLOT(wrapper(bool)));
+
     }
 
 
 }
+
+/**
+ * @brief ControladoWarningTutor::wrapper
+ * @param chBotao
+ */
+void ControladoWarningTutor::wrapper(bool chBotao){
+
+    qDebug()<< "oi mundo 12312 ";
+    emit clicou(chBotao);
+}
+
 
 void ControladoWarningTutor::nextList(bool chNext)
 {
