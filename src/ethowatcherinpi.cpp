@@ -22,7 +22,6 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 
    controlWarnig->setLista(seq);
 
-   controlWarnig->nextList(false);
 
    connect(controlWarnig,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
 
@@ -106,6 +105,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
      this->show();
 
 
+     controlWarnig->nextList(true);
 
      estruturaTutorEscolhido = estruturaInicio;
 //     estruturaTutorEscolhido.tutor[0]->show();
