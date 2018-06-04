@@ -41,7 +41,7 @@ void TutorEtho::lerXml(QString arquivo)
 
            // qDebug() << aContent;
 
-            tutorLido.texto = aContent;
+//            tutorLido.texto = aContent;
 
 
             QDomNode itemNode= a.at(i);
@@ -49,8 +49,17 @@ void TutorEtho::lerXml(QString arquivo)
 
            // qDebug()<<"a primeira tab tem o atributo" << itemEle.attribute("id");
 
-            tutorLido.id = itemEle.attribute("id");
-            qDebug() << itemEle.attribute("titulo");
+            tutorLido.addParamatros(itemEle.attribute("id"),
+                                    aContent,
+                                    itemEle.attribute("titulo"),
+                                    itemEle.attribute("pbS"),
+                                    itemEle.attribute("pbN")
+                                    );
+//            tutorLido.id = itemEle.attribute("id");
+//            tutorLido.titulo = itemEle.attribute("titulo");
+//            tutorLido.pbN = itemEle.attribute("pbN");
+//            tutorLido.pbS = itemEle.attribute("pbS");
+//            qDebug() << itemEle.attribute("titulo");
 
             tutores.push_back(tutorLido);
 
@@ -58,19 +67,6 @@ void TutorEtho::lerXml(QString arquivo)
 
         }
 
-//    for (int i=0; i< c.length(); i ++) {
-//    QString cContent="";
-
-//    QTextStream tsC(&cContent);
-//    c.at(i).save(tsC,0);
-//    QDomNode itemNode= a.at(i);
-//    QDomElement itemEle = itemNode.toElement();
-
-//     qDebug() << cContent;
-
-
-
-//    }
 
     }else{
         qDebug() << "nao encontrou/leu o arquivo xml";
@@ -86,7 +82,7 @@ void TutorEtho::debugID()
 {
     qDebug()<<"================================id=====================================";
     for(int i=0; i<tutores.size();i++){
-         qDebug() << tutores[i].id;
+         qDebug() << tutores[i].getId();
     }
 
 }
@@ -98,7 +94,7 @@ void TutorEtho::debugTexto()
 {
     qDebug()<<"================================texto=====================================";
     for(int i=0; i<tutores.size();i++){
-        qDebug() << tutores[i].texto;
+        qDebug() << tutores[i].getTexto();
 
     }
 
@@ -112,8 +108,8 @@ void TutorEtho::debugTexto()
 QString TutorEtho::getTextoById(QString id)
 {
     for(int i=0; i<tutores.size();i++){
-        if(tutores[i].id == id){
-            return tutores[i].texto;
+        if(tutores[i].getId() == id){
+            return tutores[i].getTexto();
         }
 
     }
@@ -122,3 +118,49 @@ QString TutorEtho::getTextoById(QString id)
 }
 
 
+
+Tutores::Tutores()
+{
+    chPbS= false;
+    chPbN= false;
+    qDebug() << "feito o primeiro leitor de tutor;";
+}
+
+void Tutores::addParamatros(QString id, QString texto, QString Titulo, QString pbS, QString pbN)
+{
+
+    this->id=id;
+    this->texto = texto;
+    this->titulo = Titulo;
+    this->pbN = pbN;
+    this->pbS = pbS;
+
+
+    if(this->pbN == ""){
+
+        this->chPbN=false;
+    }else{
+
+        this->chPbN=true;
+    }
+
+    if(this->pbS == ""){
+
+        this->chPbS=false;
+    }else{
+
+        this->chPbS=true;
+    }
+}
+
+QString Tutores::getTexto()
+{
+    return this->texto;
+
+}
+
+QString Tutores::getId()
+{
+    return this->id;
+
+}

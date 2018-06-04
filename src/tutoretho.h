@@ -8,6 +8,33 @@
 #include <QDomElement>
 
 
+class Tutores{
+
+public:
+    Tutores();
+    void addParamatros(QString id,QString texto , QString Titulo,
+                       QString pbS, QString pbN);
+
+
+    QString getTexto();
+    QString getId();
+//    void addId();
+//    void addTitulo();
+//    void addPbS();
+//    void addPbN();
+
+
+private:
+    QString texto;
+    QString id;
+    QString titulo;
+    QString pbS;
+    bool    chPbS;
+    QString pbN;
+    bool    chPbN;
+
+};
+
 class TutorEtho : public QObject
 {
     Q_OBJECT
@@ -21,10 +48,6 @@ public:
 
 private:
 
-    struct Tutores{
-        QString texto;
-        QString id;
-    };
     QList<Tutores> tutores;
 
 
@@ -37,5 +60,8 @@ signals:
 
 public slots:
 };
+
+
+
 
 #endif // TUTORETHO_H
