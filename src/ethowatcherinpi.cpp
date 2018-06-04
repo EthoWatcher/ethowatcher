@@ -13,6 +13,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
    ui->setupUi(this);
 //   qDebug ()<< tutor.getTextoById("j");
 
+   //novos
    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
    QList<QString> seq;
 
@@ -23,11 +24,17 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 
    controlWarnig->nextList(false);
 
+   connect(controlWarnig,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+
+   //antigo
+
 
 
    tutor.lerXml(":/tutor/tutores/ethowatcherInpi.xml");
 
     ui->textoTutor->setText(tutor.getTextoById("ethoInicio"));
+
+
     tutor.debugID();
 
     QString html;
@@ -256,47 +263,48 @@ bool EthoWatcherInpi::botaoClicado(bool clicado)
 {
 
     qDebug() <<"chegou o sinal de clicar no botoao";
+    controlWarnig->nextList(true);
 
-    if(estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->getId("ethoInicio")){
-        qDebug() <<"oi mundo ";
-        if(clicado){
+//    if(estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->getId("ethoInicio")){
+//        qDebug() <<"oi mundo ";
+//        if(clicado){
 
-            ui->pbLoadUser->click();
-        }else{
-            ui->pbCreateUser->click();
-        }
-
-    }
-
-
-    proximaInterface(true);
-
-
-//    if(tutorEscolhidoE("chaveDigi")){
-//        qDebug() <<"chave digital";
-//        proximaInterface(true);
-
+//            ui->pbLoadUser->click();
+//        }else{
+//            ui->pbCreateUser->click();
 //        }
 
-//    if(tutorEscolhidoE("chaveDigi")){
-//        qDebug() <<"chave digital";
-//        proximaInterface(true);
-
-//        }
-
-//    if(tutorEscolhidoE("chaveTrakin")){
-//        qDebug() <<"chave digital";
-//        proximaInterface(true);
-
-//        }
-
-//    if(tutorEscolhidoE(("chaveDigiAna"))){
-//        proximaInterface(true);
 //    }
 
-//    if(tutorEscolhidoE(("chaveAna"))){
-//
-//    }
+
+//    proximaInterface(true);
+
+
+////    if(tutorEscolhidoE("chaveDigi")){
+////        qDebug() <<"chave digital";
+////        proximaInterface(true);
+
+////        }
+
+////    if(tutorEscolhidoE("chaveDigi")){
+////        qDebug() <<"chave digital";
+////        proximaInterface(true);
+
+////        }
+
+////    if(tutorEscolhidoE("chaveTrakin")){
+////        qDebug() <<"chave digital";
+////        proximaInterface(true);
+
+////        }
+
+////    if(tutorEscolhidoE(("chaveDigiAna"))){
+////        proximaInterface(true);
+////    }
+
+////    if(tutorEscolhidoE(("chaveAna"))){
+////
+////    }
 
 
 

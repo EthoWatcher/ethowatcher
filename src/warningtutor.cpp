@@ -173,15 +173,20 @@ void ControladoWarningTutor::wrapper(bool chBotao){
 void ControladoWarningTutor::nextList(bool chNext)
 {
     for(int i=0; i< listaTutores.size(); i++){
-        if(listaTutores[i]->getId(this->sequenciaTutores[contador])){
-            listaTutores[i]->show();
 
-            if(chNext){
-                contador++;
+        if(contador<listaTutores.size()){
+
+            if(listaTutores[i]->getId(this->sequenciaTutores[contador])){
+                listaTutores[i]->show();
+
+                if((chNext)){
+                    contador++;
+                }
+                 break;
             }
 
-            break;
         }
+
     }
 
     qDebug() << "nao encontrado o tutor";
