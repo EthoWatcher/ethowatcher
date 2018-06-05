@@ -13,6 +13,13 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
    ui->setupUi(this);
 //   qDebug ()<< tutor.getTextoById("j");
 
+   controlInicio = new  ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
+   QList<QString> seq1;
+   seq1.append("ethoApresentacao");
+   seq1.append("ethoInicio");
+
+
+
    //novos
    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
    QList<QString> seq;
@@ -279,43 +286,6 @@ bool EthoWatcherInpi::botaoClicado(bool clicado, QString id)
         }
 
     }
-
-
-//    proximaInterface(true);
-
-
-////    if(tutorEscolhidoE("chaveDigi")){
-////        qDebug() <<"chave digital";
-////        proximaInterface(true);
-
-////        }
-
-////    if(tutorEscolhidoE("chaveDigi")){
-////        qDebug() <<"chave digital";
-////        proximaInterface(true);
-
-////        }
-
-////    if(tutorEscolhidoE("chaveTrakin")){
-////        qDebug() <<"chave digital";
-////        proximaInterface(true);
-
-////        }
-
-////    if(tutorEscolhidoE(("chaveDigiAna"))){
-////        proximaInterface(true);
-////    }
-
-////    if(tutorEscolhidoE(("chaveAna"))){
-////
-////    }
-
-
-
-
-
-
-
 
 }
 

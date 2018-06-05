@@ -77,6 +77,8 @@ private:
     QPalette palette;
 
     ControladoWarningTutor *controlWarnig;
+
+    ControladoWarningTutor *controlInicio;
 //    TControleTutorFerramenta *objControleTutorFerramenta;
 //    QString fileCatalogo="";
 //    QString fileVideo="";

@@ -121,24 +121,32 @@ ControladoWarningTutor::ControladoWarningTutor(QString XML)
     tutor.lerXml(XML);
     tutor.debugID();
     contador=0;
-    //":/tutor/tutores/ethowatcherInpi.xml");
-//    qDebug() << "Arrumando tutor";
 
-//    for(int i=0; i< tutor.getSize();i++){
+}
+/**
+ * @brief ControladoWarningTutor::setLista metodo para criar uma lista de interface de tutores
+ * @param sequencia de tutores que quer
+ */
+void ControladoWarningTutor::setLista(QList<QString> sequencia)
+{
 
-//    qDebug() << tutor.getTextoByNumero(0)+" o numero";
-//    }
-    // aqui le todos os tutores;
+    desconectandoListaTutores();
+    contador=0;
+    qDebug() << "================= 123123 12==========";
+    this->sequenciaTutores = sequencia;
+
+
+    criandoInterfaces();
+
+
 
 
 
 }
+void ControladoWarningTutor::criandoInterfaces(){
 
-void ControladoWarningTutor::setLista(QList<QString> sequencia)
-{
+//    QList<WarningTutor *> lista;
 
-    qDebug() << "================= 123123 12==========";
-    this->sequenciaTutores = sequencia;
 
     for(int i=0; i< this->sequenciaTutores.size(); i++){
         qDebug() << this->sequenciaTutores[i];
@@ -160,6 +168,21 @@ void ControladoWarningTutor::setLista(QList<QString> sequencia)
 
 }
 
+
+void ControladoWarningTutor::desconectandoListaTutores(){
+
+    qDebug() << "desconectando 1";
+    for(int i=0; i<listaTutores.size();i++){
+        disconnect(listaTutores[i],SIGNAL(clicou(bool,QString)),this,SLOT(wrapper(bool,QString)));
+        listaTutores.pop_back();
+    }
+    qDebug() << "desconectando 2";
+
+
+}
+
+
+
 /**
  * @brief ControladoWarningTutor::wrapper para enviar se foi clicado o botao yes ou no
  * @param chBotao
@@ -171,24 +194,34 @@ void ControladoWarningTutor::wrapper(bool chBotao, QString id){
 }
 
 
+void ControladoWarningTutor::nextById(QString id){
+    for(int i=0; i<listaTutores.size();i++){
+        if(listaTutores[i]->getId(id) ){
+            listaTutores[i]->show();
+            break;
+        }
+    }
+}
+
+/**
+ * @brief ControladoWarningTutor::nextList método para ir para o próximo da lista
+ * @param chNext
+ */
 void ControladoWarningTutor::nextList(bool chNext)
 {
     for(int i=0; i< listaTutores.size(); i++){
 
         if(contador<listaTutores.size()){
 
-            if(listaTutores[i]->getId(this->sequenciaTutores[contador])){
-                listaTutores[i]->show();
+            this->nextById(this->sequenciaTutores[contador]);
 
                 if((chNext)){
                     contador++;
                 }
-                 break;
+
             }
 
         }
 
     }
 
-    qDebug() << "nao encontrado o tutor";
-}

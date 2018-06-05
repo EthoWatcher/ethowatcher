@@ -66,12 +66,18 @@ class ControladoWarningTutor: public QObject{
 
     void nextList(bool chNext);
 
+
+
+    void nextById(QString id);
 public slots:
     void wrapper(bool chBotao, QString id);
 
 signals:
     void clicou(bool,QString);
 private:
+
+    void criandoInterfaces();
+    void desconectandoListaTutores();
     int contador;
 
 };
