@@ -50,23 +50,9 @@ class ControladoWarningTutor: public QObject{
 
     public:
 
-
-    QList<WarningTutor *> listaTutores;
-
-    TutorEtho tutor;
-
-    WarningTutor *tutorAbs;
-
-
-
-
-
-    QList<QString> sequenciaTutores;
-    void setLista(QList<QString> sequencia);
-
-    WarningTutor *getListaTutores();
-
+    //api
     ControladoWarningTutor(QString XML);
+    void setLista(QList<QString> sequencia);
     void nextList(bool chNext);
     void nextById(QString id);
     void setTutor(bool chLigaTutor);
@@ -80,6 +66,10 @@ signals:
     void clicou(bool,QString);
 private:
 
+    QList<WarningTutor *> listaTutores;
+    TutorEtho tutor;
+    WarningTutor *tutorAbs;
+    QList<QString> sequenciaTutores;
     bool chHabilitaTutor;
     void criandoInterfaces();
     void desconectandoListaTutores();

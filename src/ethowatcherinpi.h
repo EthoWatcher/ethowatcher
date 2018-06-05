@@ -3,7 +3,7 @@
 
 
 #include <QMainWindow>
-#include "tutoretho.h"
+//#include "tutoretho.h"
 #include "warningtutor.h"
 #include "opencv2/opencv.hpp"
 #include "opencv2/core/core.hpp"
