@@ -96,14 +96,15 @@ bool WarningTutor::getId(QString textId)
 void WarningTutor::on_pbYes_clicked()
 {
     emit clickYes();
-    emit clicou(true);
+
+    emit clicou(true,tutorId);
     this->close();
 }
 
 void WarningTutor::on_pbNo_clicked()
 {
     emit clickNo();
-    emit clicou(false);
+    emit clicou(false,tutorId);
     this->close();
 }
 
@@ -152,7 +153,7 @@ void ControladoWarningTutor::setLista(QList<QString> sequencia)
         listaTutores.append(tutorAbs);
 
 
-        connect(listaTutores[i],SIGNAL(clicou(bool)),this,SLOT(wrapper(bool)));
+        connect(listaTutores[i],SIGNAL(clicou(bool,QString)),this,SLOT(wrapper(bool,QString)));
 
     }
 
@@ -160,13 +161,13 @@ void ControladoWarningTutor::setLista(QList<QString> sequencia)
 }
 
 /**
- * @brief ControladoWarningTutor::wrapper
+ * @brief ControladoWarningTutor::wrapper para enviar se foi clicado o botao yes ou no
  * @param chBotao
  */
-void ControladoWarningTutor::wrapper(bool chBotao){
+void ControladoWarningTutor::wrapper(bool chBotao, QString id){
 
     qDebug()<< "oi mundo 12312 ";
-    emit clicou(chBotao);
+    emit clicou(chBotao,id);
 }
 
 

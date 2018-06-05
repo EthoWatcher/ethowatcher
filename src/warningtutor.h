@@ -32,7 +32,7 @@ public:
 signals:
     void clickYes();
     void clickNo();
-    void clicou(bool);
+    void clicou(bool,QString);
 
 private slots:
     void on_pbYes_clicked();
@@ -67,10 +67,10 @@ class ControladoWarningTutor: public QObject{
     void nextList(bool chNext);
 
 public slots:
-    void wrapper(bool chBotao);
+    void wrapper(bool chBotao, QString id);
 
 signals:
-    void clicou(bool);
+    void clicou(bool,QString);
 private:
     int contador;
 

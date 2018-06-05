@@ -23,7 +23,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
    controlWarnig->setLista(seq);
 
 
-   connect(controlWarnig,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+   connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
 
    //antigo
 
@@ -107,10 +107,10 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 
      controlWarnig->nextList(true);
 
-     estruturaTutorEscolhido = estruturaInicio;
-//     estruturaTutorEscolhido.tutor[0]->show();
-//     qDebug()<< estruturaTutorEscolhido.passoAtual ;
-     estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->show();
+//     estruturaTutorEscolhido = estruturaInicio;
+////     estruturaTutorEscolhido.tutor[0]->show();
+////     qDebug()<< estruturaTutorEscolhido.passoAtual ;
+//     estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->show();
 //     proximaInterface(false);
 
 
@@ -259,10 +259,10 @@ void EthoWatcherInpi::ArrumandoTutores()
 
 }
 
-bool EthoWatcherInpi::botaoClicado(bool clicado)
+bool EthoWatcherInpi::botaoClicado(bool clicado, QString id)
 {
 
-    qDebug() <<"chegou o sinal de clicar no botoao";
+    qDebug() << " o id chegou " + id;
     controlWarnig->nextList(true);
 
 //    if(estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->getId("ethoInicio")){
@@ -448,7 +448,7 @@ void EthoWatcherInpi::configurandoEtografia(){
 
     //configurando o tutor escolhido
     estruturaTutorEscolhido = estruturaTutorDigi ;
-    botaoClicado(false);
+//    botaoClicado(false);
     qDebug() << "o selecionado foi a etografia";
 
 }
@@ -461,7 +461,7 @@ void EthoWatcherInpi::configurandoAnalise(){
     ui->pbAnliseConcor->setVisible(true);
 
     estruturaTutorEscolhido =  estruturaTutorAnalys;
-    botaoClicado(false);
+//    botaoClicado(false);
 
 }
 
@@ -471,7 +471,7 @@ void EthoWatcherInpi::configurandoTrackin(){
 
 
     estruturaTutorEscolhido = estruturaTutorTraking;
-    botaoClicado(false);
+//    botaoClicado(false);
     qDebug() << "o selecionado foi o trakin";
 
 }

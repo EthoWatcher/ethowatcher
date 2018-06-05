@@ -21,10 +21,6 @@ public:
     QString getPbS();
     QString getPbN();
     QString getTitulo();
-//    void addId();
-//    void addTitulo();
-//    void addPbS();
-//    void addPbN();
 
 
 private:

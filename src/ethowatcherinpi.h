@@ -56,7 +56,7 @@ private slots:
 
     void on_cbEthoAna_clicked();
     void escondeBotoes();
-    bool botaoClicado(bool clicado);
+    bool botaoClicado(bool clicado, QString id);
     void configuraLinhas();
     bool tutorEscolhidoE(QString nomeTutor);
     void proximaInterface(bool chNext);
