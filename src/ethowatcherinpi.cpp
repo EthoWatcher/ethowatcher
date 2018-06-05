@@ -12,9 +12,28 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 {
    ui->setupUi(this);
 //   qDebug ()<< tutor.getTextoById("j");
+
+   //novos
+   controlWarnig = new ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
+   QList<QString> seq;
+
+   seq.append("ethoInicio");
+   seq.append("ethoCatalogo");
+
+   controlWarnig->setLista(seq);
+
+
+   connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
+
+   //antigo
+
+
+
    tutor.lerXml(":/tutor/tutores/ethowatcherInpi.xml");
 
     ui->textoTutor->setText(tutor.getTextoById("ethoInicio"));
+
+
     tutor.debugID();
 
     QString html;
@@ -86,11 +105,12 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
      this->show();
 
 
+     controlWarnig->nextList(true);
 
-     estruturaTutorEscolhido = estruturaInicio;
-//     estruturaTutorEscolhido.tutor[0]->show();
-//     qDebug()<< estruturaTutorEscolhido.passoAtual ;
-     estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->show();
+//     estruturaTutorEscolhido = estruturaInicio;
+////     estruturaTutorEscolhido.tutor[0]->show();
+////     qDebug()<< estruturaTutorEscolhido.passoAtual ;
+//     estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->show();
 //     proximaInterface(false);
 
 
@@ -239,51 +259,52 @@ void EthoWatcherInpi::ArrumandoTutores()
 
 }
 
-bool EthoWatcherInpi::botaoClicado(bool clicado)
+bool EthoWatcherInpi::botaoClicado(bool clicado, QString id)
 {
 
-    qDebug() <<"chegou o sinal de clicar no botoao";
+    qDebug() << " o id chegou " + id;
+    controlWarnig->nextList(true);
 
-    if(estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->getId("ethoInicio")){
-        qDebug() <<"oi mundo ";
-        if(clicado){
+//    if(estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->getId("ethoInicio")){
+//        qDebug() <<"oi mundo ";
+//        if(clicado){
 
-            ui->pbLoadUser->click();
-        }else{
-            ui->pbCreateUser->click();
-        }
-
-    }
-
-
-    proximaInterface(true);
-
-
-//    if(tutorEscolhidoE("chaveDigi")){
-//        qDebug() <<"chave digital";
-//        proximaInterface(true);
-
+//            ui->pbLoadUser->click();
+//        }else{
+//            ui->pbCreateUser->click();
 //        }
 
-//    if(tutorEscolhidoE("chaveDigi")){
-//        qDebug() <<"chave digital";
-//        proximaInterface(true);
-
-//        }
-
-//    if(tutorEscolhidoE("chaveTrakin")){
-//        qDebug() <<"chave digital";
-//        proximaInterface(true);
-
-//        }
-
-//    if(tutorEscolhidoE(("chaveDigiAna"))){
-//        proximaInterface(true);
 //    }
 
-//    if(tutorEscolhidoE(("chaveAna"))){
-//
-//    }
+
+//    proximaInterface(true);
+
+
+////    if(tutorEscolhidoE("chaveDigi")){
+////        qDebug() <<"chave digital";
+////        proximaInterface(true);
+
+////        }
+
+////    if(tutorEscolhidoE("chaveDigi")){
+////        qDebug() <<"chave digital";
+////        proximaInterface(true);
+
+////        }
+
+////    if(tutorEscolhidoE("chaveTrakin")){
+////        qDebug() <<"chave digital";
+////        proximaInterface(true);
+
+////        }
+
+////    if(tutorEscolhidoE(("chaveDigiAna"))){
+////        proximaInterface(true);
+////    }
+
+////    if(tutorEscolhidoE(("chaveAna"))){
+////
+////    }
 
 
 
@@ -427,7 +448,7 @@ void EthoWatcherInpi::configurandoEtografia(){
 
     //configurando o tutor escolhido
     estruturaTutorEscolhido = estruturaTutorDigi ;
-    botaoClicado(false);
+//    botaoClicado(false);
     qDebug() << "o selecionado foi a etografia";
 
 }
@@ -440,7 +461,7 @@ void EthoWatcherInpi::configurandoAnalise(){
     ui->pbAnliseConcor->setVisible(true);
 
     estruturaTutorEscolhido =  estruturaTutorAnalys;
-    botaoClicado(false);
+//    botaoClicado(false);
 
 }
 
@@ -450,7 +471,7 @@ void EthoWatcherInpi::configurandoTrackin(){
 
 
     estruturaTutorEscolhido = estruturaTutorTraking;
-    botaoClicado(false);
+//    botaoClicado(false);
     qDebug() << "o selecionado foi o trakin";
 
 }

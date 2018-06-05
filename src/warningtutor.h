@@ -6,6 +6,8 @@
 #include <QShortcut>
 #include <QPushButton>
 
+#include <tutoretho.h>
+
 namespace Ui {
 class WarningTutor;
 }
@@ -30,7 +32,7 @@ public:
 signals:
     void clickYes();
     void clickNo();
-    void clicou(bool);
+    void clicou(bool,QString);
 
 private slots:
     void on_pbYes_clicked();
@@ -40,6 +42,38 @@ private slots:
 private:
     Ui::WarningTutor *ui;
     QString tutorId;
+};
+
+class ControladoWarningTutor: public QObject{
+
+    Q_OBJECT
+
+    public:
+
+
+    QList<WarningTutor *> listaTutores;
+
+    TutorEtho tutor;
+
+    WarningTutor *tutorAbs;
+
+    ControladoWarningTutor(QString XML);
+
+    QList<QString> sequenciaTutores;
+    void setLista(QList<QString> sequencia);
+
+    WarningTutor *getListaTutores();
+
+    void nextList(bool chNext);
+
+public slots:
+    void wrapper(bool chBotao, QString id);
+
+signals:
+    void clicou(bool,QString);
+private:
+    int contador;
+
 };
 
 #endif // WARNINGTUTOR_H

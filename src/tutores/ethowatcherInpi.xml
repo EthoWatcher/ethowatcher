@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tutores>
-<tutor id="default"><html><header><title>j</title></header><body>Hello world j</body></html></tutor>
+<tutor id="default" titulo="oi mundo" pbS="yes" pbN="no">
+
+<html><header><title>j</title></header><body>Hello world j</body></html></tutor>
 
 
-<tutor id="defautl1"><html><body>
+<tutor id="defautl1" titulo="oi mundo" pbS="yes" pbN="no">
+<html><body>
 Hello world indio
 
-</body></html>
-</tutor>
+</body></html></tutor>
 
 
-<tutor id="ethoInicio"><html><body>
+<tutor id="ethoInicio" titulo="Você já tem um cadastro ?" pbS="yes" pbN="no"><html><body>
 Ola! 
-Bem vindo ao ethowatcher open source. Cadastre-se para utilizar as funcionalidade do programa.
+Bem vindo ao ethowatcher open source. Cadastre-se para utilizar as funcionalidade do programa.
 
 </body></html>
 </tutor>
 
-<tutor id="ethoInicioTitulo"><html><body>
+<tutor id="ethoInicioTitulo" titulo="oi mundo" pbS="yes" pbN="no"><html><body>
 Você já tem um cadastro ?
 </body></html>
 </tutor>
 
 
-<tutor id="ethoCatalogo"><html><body>
+<tutor id="ethoCatalogo" titulo="oi mundo" pbS="yes" pbN="no">
+<config>oi
+</config>
+
+
+<html><body>
 Clique em sim se você já é cadastrado
 
 
@@ -34,7 +41,7 @@ Clique em não para se cadastrar.
 </tutor>
 
 
-<tutor id="ethoregistroVideoTraking"><html><body>
+<tutor id="ethoregistroVideoTraking" titulo="Você tem um registro de vídeo?" pbS="yes" pbN="no"><html><body>
 Clique em sim caso você queria fazer um trakign de vídeo.
 <p>
     Você nessa interface pode fazer etografia e trakign .
@@ -46,7 +53,7 @@ Clique em sim caso você queria fazer um trakign de vídeo.
 
 
 
-<tutor id="ethoregistroVideo"><html><body>
+<tutor id="ethoregistroVideo" titulo="oi mundo" pbS="yes" pbN="no"><html><body>
 Você tem o vídeo que quer analisar cadastrado ?
 <p>
     O registro de vídeo é usado para a realização da etografia em vídeo  a
@@ -57,7 +64,7 @@ Você tem o vídeo que quer analisar cadastrado ?
 </tutor>
 
 
-<tutor id="startAnalysis"><html><body>
+<tutor id="startAnalysis" titulo="Comece a análise de etografai" pbS="yes" pbN="no"><html><body>
 Click in "Start Analysis" to start the Ethography.
 
 </body></html>

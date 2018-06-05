@@ -96,14 +96,15 @@ bool WarningTutor::getId(QString textId)
 void WarningTutor::on_pbYes_clicked()
 {
     emit clickYes();
-    emit clicou(true);
+
+    emit clicou(true,tutorId);
     this->close();
 }
 
 void WarningTutor::on_pbNo_clicked()
 {
     emit clickNo();
-    emit clicou(false);
+    emit clicou(false,tutorId);
     this->close();
 }
 
@@ -111,4 +112,83 @@ void QWidget::closeEvent(QCloseEvent *){
 
     qDebug() << "isso fechou";
 
+}
+
+ControladoWarningTutor::ControladoWarningTutor(QString XML)
+{
+
+    //ja pega todos os tutores xml
+    tutor.lerXml(XML);
+    tutor.debugID();
+    contador=0;
+    //":/tutor/tutores/ethowatcherInpi.xml");
+//    qDebug() << "Arrumando tutor";
+
+//    for(int i=0; i< tutor.getSize();i++){
+
+//    qDebug() << tutor.getTextoByNumero(0)+" o numero";
+//    }
+    // aqui le todos os tutores;
+
+
+
+}
+
+void ControladoWarningTutor::setLista(QList<QString> sequencia)
+{
+
+    qDebug() << "================= 123123 12==========";
+    this->sequenciaTutores = sequencia;
+
+    for(int i=0; i< this->sequenciaTutores.size(); i++){
+        qDebug() << this->sequenciaTutores[i];
+
+        tutorAbs = new WarningTutor();
+        tutorAbs->setTextDestaque(tutor.getTitulo(this->sequenciaTutores[i]));
+        tutorAbs->setId(this->sequenciaTutores[i]);
+        tutorAbs->setTextTutor( tutor.getTextoById(this->sequenciaTutores[i]));
+        tutorAbs->setTextYes(tutor.getPbS(this->sequenciaTutores[i]));
+        tutorAbs->setTextNo(tutor.getPbN(this->sequenciaTutores[i]));
+
+        listaTutores.append(tutorAbs);
+
+
+        connect(listaTutores[i],SIGNAL(clicou(bool,QString)),this,SLOT(wrapper(bool,QString)));
+
+    }
+
+
+}
+
+/**
+ * @brief ControladoWarningTutor::wrapper para enviar se foi clicado o botao yes ou no
+ * @param chBotao
+ */
+void ControladoWarningTutor::wrapper(bool chBotao, QString id){
+
+    qDebug()<< "oi mundo 12312 ";
+    emit clicou(chBotao,id);
+}
+
+
+void ControladoWarningTutor::nextList(bool chNext)
+{
+    for(int i=0; i< listaTutores.size(); i++){
+
+        if(contador<listaTutores.size()){
+
+            if(listaTutores[i]->getId(this->sequenciaTutores[contador])){
+                listaTutores[i]->show();
+
+                if((chNext)){
+                    contador++;
+                }
+                 break;
+            }
+
+        }
+
+    }
+
+    qDebug() << "nao encontrado o tutor";
 }

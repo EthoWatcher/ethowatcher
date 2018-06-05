@@ -8,6 +8,35 @@
 #include <QDomElement>
 
 
+class Tutores{
+
+public:
+    Tutores();
+    void addParamatros(QString id,QString texto , QString Titulo,
+                       QString pbS, QString pbN);
+
+
+    QString getTexto();
+    QString getId();
+    QString getPbS();
+    QString getPbN();
+    QString getTitulo();
+
+
+private:
+    QString texto;
+    QString id;
+    QString titulo;
+    QString pbS;
+    bool    chPbS;
+    QString pbN;
+    bool    chPbN;
+
+};
+/**
+ * @brief The TutorEtho class
+ * Essa classe le o texto xml e retira os parametros das interfaces
+ */
 class TutorEtho : public QObject
 {
     Q_OBJECT
@@ -15,16 +44,19 @@ public:
     explicit TutorEtho(QObject *parent = 0);
 
     void lerXml(QString arquivo);
+
     void debugID();
     void debugTexto();
     QString getTextoById(QString id);
+    QString getTitulo(QString id);
+    QString getPbS(QString id);
+    QString getPbN(QString id);
+
+    QString getTextoByNumero(int numero);
+    int getSize();
 
 private:
 
-    struct Tutores{
-        QString texto;
-        QString id;
-    };
     QList<Tutores> tutores;
 
 
@@ -37,5 +69,8 @@ signals:
 
 public slots:
 };
+
+
+
 
 #endif // TUTORETHO_H
