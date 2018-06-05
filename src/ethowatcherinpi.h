@@ -71,14 +71,17 @@ private slots:
 
 private:
     Ui::EthoWatcherInpi *ui;
-    TutorEtho tutor;
     int janelaAtual;
     int qtdJanelas;
     QPalette palette;
 
     ControladoWarningTutor *controlWarnig;
 
-    ControladoWarningTutor *controlInicio;
+    QList<QString> seqInicial;
+    QList<QString> seqTrakin;
+    QList<QString> seqTrakinDigital;
+
+
 //    TControleTutorFerramenta *objControleTutorFerramenta;
 //    QString fileCatalogo="";
 //    QString fileVideo="";

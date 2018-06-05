@@ -11,91 +11,39 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     ui(new Ui::EthoWatcherInpi)
 {
    ui->setupUi(this);
+
+
 //   qDebug ()<< tutor.getTextoById("j");
 
-   controlInicio = new  ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
-   QList<QString> seq1;
-   seq1.append("ethoApresentacao");
-   seq1.append("ethoInicio");
+//   controlInicio = new  ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
+//   QList<QString> seq1;
+//   seq1.append("ethoApresentacao");
+//   seq1.append("ethoInicio");
 
 
 
    //novos
    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
-   QList<QString> seq;
-
-   seq.append("ethoInicio");
-   seq.append("ethoCatalogo");
-
-   controlWarnig->setLista(seq);
-
-
    connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
 
-   //antigo
+   configuraLinhas();
+
+
+   controlWarnig->setLista(seqInicial);
 
 
 
-   tutor.lerXml(":/tutor/tutores/ethowatcherInpi.xml");
-
-    ui->textoTutor->setText(tutor.getTextoById("ethoInicio"));
 
 
-    tutor.debugID();
 
     QString html;
-
 
     //deixando todos os boteos invisiveisi
     escondeBotoes();
     ui->stackedPassos->setCurrentIndex(0);
-
-
-
-    //arrumando os tutores
     ArrumandoTutores();
-//    configuraLinhas();
 
-
-
-
-
-//    ui->stackedPassos->setCurrentIndex(0);
-//    ui->imgCfgStaCal->setVisible(false);
-//    ui->imgCfgStaCatEto->setVisible(false);
-//    ui->rotCfgCal->setVisible(false);
-//    ui->rotCfgCatEto->setVisible(false);
-//    ui->radCatAutExc->setChecked(true);
-//    this->objControleTutorFerramenta = new TControleTutorFerramenta;
-//    this->objControleTutorFerramenta->setPageCalibracao(ui->pageCalibracao);
-//    this->objControleTutorFerramenta->setPageCatalogoEtografico(ui->pageCatalogoEtografico);
-//    this->objControleTutorFerramenta->setPageTipEto(ui->pageTipEto);
-//    this->objControleTutorFerramenta->setPageStartAnalysis(ui->pageStartAnalysis);
-//    this->objControleTutorFerramenta->setStackedPassos(ui->stackedPassos);
-//    this->objControleTutorFerramenta->setGrpStatus(ui->grpStatus);
-//    this->objControleTutorFerramenta->setGrpTutor(ui->grpTutor);
-//    this->objControleTutorFerramenta->setChkOpcEtoAmb(ui->chkOpcEtoAmb);
-//    this->objControleTutorFerramenta->setChkOpcEtoMan(ui->chkOpcEtoMan);
-//    this->objControleTutorFerramenta->setChkOpcEtoTrk(ui->chkOpcEtoTrk);
-//    this->objControleTutorFerramenta->setRotCfgCatEto(ui->rotCfgCatEto);
-//    this->objControleTutorFerramenta->setRotCfgCal(ui->rotCfgCal);
-//    this->objControleTutorFerramenta->setImgCfgStaCatEto(ui->imgCfgStaCatEto);
-//    this->objControleTutorFerramenta->setImgCfgStaCal(ui->imgCfgStaCal);
-//    this->objControleTutorFerramenta->setTextoTutor(ui->textoTutor);
-//    this->objControleTutorFerramenta->avancaPasso();
     palette.setColor(QPalette::WindowText, Qt::red);
-//    this->objControleTutorFerramenta->sinalizaEtapaCalibracaoEmAberto(palette);
-//    this->objControleTutorFerramenta->sinalizaEtapaCatalogoEtograficoEmAberto(palette);
-
-//    new QShortcut( Qt::Key_X, this, SLOT(on_pushButtonAvancar_clicked()));
-//    new QShortcut( Qt::Key_Z, this, SLOT(on_pushButtonVoltar_clicked()));
-
-//    ui->pushButtonAvancar->setToolTip("Clik or press 'D' to go forward.");
-//    ui->pushButtonVoltar->setToolTip("Click or press 'A' to go back.");
-//    ui->btAbrCatEto->setToolTip("Click for create a new catalog.");
-//    ui->brNovCatEto->setToolTip("Click for open the catalog.");
-//    ui->botCalibracao->setToolTip("Click for calibration.");
-//    ui->btIniciarAnalise->setToolTip("Click for start the analysis.");
 
     controleCalibracao=true;
     controleCatalogo=true;
@@ -104,21 +52,14 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     ui->cbEthoAna->setVisible(false);
     ui->cbTutor->setVisible(false);
      ui->stackedPassos->setEnabled(false);
-//     ui->grpTutor->setVisible(false);
+     ui->grpTutor->setVisible(false);
 
 
 
 
      this->show();
 
-
      controlWarnig->nextList(true);
-
-//     estruturaTutorEscolhido = estruturaInicio;
-////     estruturaTutorEscolhido.tutor[0]->show();
-////     qDebug()<< estruturaTutorEscolhido.passoAtual ;
-//     estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->show();
-//     proximaInterface(false);
 
 
 }
@@ -292,6 +233,8 @@ bool EthoWatcherInpi::botaoClicado(bool clicado, QString id)
 void EthoWatcherInpi::configuraLinhas()
 {
 
+    seqInicial.append("ethoInicio");
+    seqInicial.append("ethoCatalogo");
 //    estruturaInicio.tutor.append(tutorInicio);
 //    estruturaInicio.passoAtual =0;
 //    estruturaInicio.nomeCaminhotutor = "chaveInicio";
