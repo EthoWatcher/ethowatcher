@@ -238,55 +238,28 @@ bool EthoWatcherInpi::botaoClicado(bool clicado, QString id)
 void EthoWatcherInpi::configuraLinhas()
 {
 
+    //sequencia inicial
     seqInicial.append("ethoInicio");
     seqInicial.append("ethoCadastroPessoa");
+    seqInicial.append("ethoEscolhaEthoTraking");
+
 //    seqInicial.append("default");
 
-
+    //sequencia por traking
     seqTrakin.append("ethoregistroTraking");
     seqTrakin.append("ethoTrakingVideo");
 
+    //sequencia por catalogo
     seqEtho.append("ethoCatalogo");
     seqEtho.append("ethoRegistroVideo");
     seqEtho.append("ethoEtho");
-//    seqEtho.append();
-//    estruturaInicio.tutor.append(tutorInicio);
-//    estruturaInicio.passoAtual =0;
-//    estruturaInicio.nomeCaminhotutor = "chaveInicio";
 
 
-//    //arrumando o tutor da seleçãod digital video based ethografi
-//    estruturaTutorDigi.tutor.append(tutorCatalogo);
-//    estruturaTutorDigi.tutor.append(tutorRegistroVideo);
-//    estruturaTutorDigi.tutor.append(tutorVideoTraking);
-//    estruturaTutorDigi.passoAtual =0;
-//    estruturaTutorDigi.nomeCaminhotutor = "chaveDigi";
-
-
-//    estruturaTutorTraking.tutor.append(tutorRegistroVideo);
-//    estruturaTutorTraking.tutor.append(tutorVideoTraking);
-//    estruturaTutorTraking.passoAtual =0;
-//    estruturaTutorTraking.nomeCaminhotutor = "chaveTrakin";
-
-
-//    estruturaTutorAnalys.tutor.append(tutorSegTempo);
-//    estruturaTutorAnalys.tutor.append(tutorSegComp);
-//    estruturaTutorAnalys.tutor.append(tutorAnaSeq);
-//    estruturaTutorAnalys.tutor.append(tutorAnaConcordancia);
-//    estruturaTutorAnalys.passoAtual =0;
-//    estruturaTutorAnalys.nomeCaminhotutor = "chaveAna";
-
-
-
-
-//    estruturaTutorDigiAnalys.tutor.append(tutorRegistroVideo);
-//    estruturaTutorDigiAnalys.tutor.append(tutorVideoTraking);
-//    estruturaTutorDigiAnalys.tutor.append(tutorSegTempo);
-//    estruturaTutorDigiAnalys.tutor.append(tutorSegComp);
-//    estruturaTutorDigiAnalys.tutor.append(tutorAnaSeq);
-//    estruturaTutorDigiAnalys.tutor.append(tutorAnaConcordancia);
-//    estruturaTutorDigiAnalys.passoAtual =0;
-//    estruturaTutorDigiAnalys.nomeCaminhotutor = "chaveDigiAna";
+    //sequencia de analise
+    seqAnalise.append("tutorSegTempo");
+    seqAnalise.append("tutorSegComp");
+    seqAnalise.append("tutorAnaSeq");
+    seqAnalise.append("tutorConcordancia");
 
 
 
@@ -446,6 +419,9 @@ void EthoWatcherInpi::on_pushButtonVoltar_clicked()
 
 void EthoWatcherInpi::on_pbConfigAnalyses_clicked()
 {
+
+    controlWarnig->setLista(seqAnalise);
+    controlWarnig->nextList(true);
     setNextInterface();
     configurandoAnalise();
 

@@ -30,6 +30,12 @@ Você já tem um cadastro de usuário ?
 </body></html></tutor>
 
 
+<tutor id="ethoEscolhaEthoTraking" titulo="Escolha o que você quer fazer no programa" pbS="OK!" pbN=""><html><body>
+Você quer realizar um rastreamento ?
+
+
+</body></html></tutor>
+
 
 <tutor id="ethoCatalogo" titulo="Você já tem um Catalogo de comportamentos cadastrado?" pbS="yes(y)" pbN="no(n)">
 <html><body>
@@ -91,7 +97,30 @@ Você quer realizar um rastreamento ?
 
 
 
+<tutor id="tutorSegTempo" titulo="Você quer realizar uma seguementação por tempo da etografia?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
 
+</body></html>
+</tutor>
+
+<tutor id="tutorSegComp" titulo="Você quer realizar uma segmentação por comportamento??" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+
+<tutor id="tutorAnaSeq" titulo="Você quer realizar uma analise sequencial?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+<tutor id="tutorConcordancia" titulo="Você quer realizar a analise de concordancia?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
 
 
 </tutores>

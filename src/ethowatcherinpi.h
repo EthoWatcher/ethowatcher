@@ -74,6 +74,7 @@ private:
     QList<QString> seqInicial;
     QList<QString> seqTrakin;
     QList<QString> seqEtho;
+    QList<QString> seqAnalise;
 
 
     struct EstruturaDeTutor{
