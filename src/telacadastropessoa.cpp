@@ -12,6 +12,15 @@ telaCadastroPessoa::telaCadastroPessoa(QWidget *parent) :
    vezes=0;
    tutor=1;
    nomeArquivo="";
+
+
+
+   controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastroPessoa.xml");
+   seqInicial.append("tutorInicio");
+   seqInicial.append("tutorSaida");
+
+   connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
+
 }
 
 void telaCadastroPessoa::setTutor(bool chTutor){
@@ -31,10 +40,20 @@ bool telaCadastroPessoa::getTutor(){
     }
 }
 
+void telaCadastroPessoa::showInterface()
+{
+    this->show();
+
+    controlWarnig->setLista(seqInicial);
+    controlWarnig->nextList(true);
+
+}
+
 telaCadastroPessoa::~telaCadastroPessoa()
 {
     qDebug() <<" tela cadastro pessoa fechou";
-    emit fechouJanela();
+    controlWarnig->fechandoJanelas();
+   // emit fechouJanela();
     if(nomeArquivo !=""){
         gravandoUserXML();
         qDebug() <<" gtravou o usuario apos o usuario ser destruido";
@@ -170,6 +189,7 @@ bool telaCadastroPessoa::loadUser(){
 
     }else{
          lendoXML();
+         emit this->fechouJanela();
          return true;
     }
 
@@ -209,4 +229,9 @@ void telaCadastroPessoa::on_pushButton_2_clicked()
 void telaCadastroPessoa::mudaLetra(){
 
     ui->label->setText("oii");
+}
+
+void telaCadastroPessoa::botaoClicado(bool, QString)
+{
+
 }

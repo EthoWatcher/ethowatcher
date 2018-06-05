@@ -13,46 +13,61 @@ Hello world indio
 
 
 <tutor id="ethoInicio" titulo="Bem vindo ao EthoWatcherOS" pbS="ok!" pbN=""><html><body>
-Ola! 
-Bem vindo ao ethowatcher open source. Eu serei seu tutor nessa jornada.
+Ola!
+Bem vindo ao <font color="red">ethowatcher open source (EthoWatcherOS)</font>. Eu serei seu tutor nessa jornada.
 
 </body></html>
 </tutor>
 
 
-<tutor id="ethoCadastroPessoa" titulo="Você já tem um cadastro pessoal ?" pbS="yes(y)" pbN="no(n)">
+<tutor id="ethoCadastroPessoa" titulo="Faça seu cadastro pessoal" pbS="Create User" pbN="Load User">
 <html><body>
-Para começar o uso do ethoWatcherOS você precisa de um cadastro de usuario.
-
-Você já tem um cadastro de usuário ?
+    <p>
+Para começar o uso do <font color="red">ethoWatcherOS</font> você precisa de um cadastro de usuario. Nesse cadastro você podera informar uma série
+de informações sobre você (e.g. nome). Clique em "Create User"
+</p>
+<p>
+    Casp vpcê já tenha se registrado clique em load User
+</p>
 
 
 </body></html></tutor>
 
 
-<tutor id="ethoEscolhaEthoTraking" titulo="Escolha o que você quer fazer no programa" pbS="OK!" pbN=""><html><body>
-Você quer realizar um rastreamento ?
+<tutor id="ethoEscolhaEthoTraking" titulo="Escolha as opções pertinentes e aperte next" pbS="OK!" pbN=""><html><body>
+Escolha entre :
+
+    <ul>
+      <li><font color="red">Digital Video-Based Ethography an Active Analysis!:</font>É uma etografia baseada em um vídeo</li>
+      <li><font color="red">Trakin:</font>Tecnuica para rastrear o animal na areana</li>
+      <li><font color="red">both:</font>Oção para fazer tanto etografia quanto trakin</li>
+    </ul>
 
 
 </body></html></tutor>
 
 
-<tutor id="ethoCatalogo" titulo="Você já tem um Catalogo de comportamentos cadastrado?" pbS="yes(y)" pbN="no(n)">
+<tutor id="ethoCatalogo" titulo="Faça um catalogo comportamental" pbS="yes(y)" pbN="no(n)">
 <html><body>
-
+<p>
+Crie um catalogo comportamental.
+</p>
+<p>
 Para realizar uma etografia baseado em vídeo é necessário ter um cadastro de comportamentos.
-
-Você já tem um Catalogo de comportamentos cadastrado?
+</p>
+<p>
+Caso você já tenha um catalogo comportamental registrado aperte em não.
+</p>
 
 </body></html>
 </tutor>
 
 
-<tutor id="ethoRegistroVideo" titulo="Você já tem um vídeo de experimento cadastrado?" pbS="yes(y)" pbN="no(n)">
+<tutor id="ethoRegistroVideo" titulo="Faça o registro dos vídeos experimentais" pbS="yes(y)" pbN="no(n)">
 <html><body>
 
 Para realizar uma etografia baseado em vídeo é necessário cadastrar um vídeo .avi do experimento. Nesse
-cadastro você vai configurar uma série de parametros improtantes. 
+cadastro você vai configurar uma série de parametros improtantes.
 
 </body></html>
 </tutor>
@@ -61,7 +76,7 @@ cadastro você vai configurar uma série de parametros improtantes.
 <tutor id="ethoregistroVideoTraking" titulo="Você já tem um vídeo de experimento cadastrado?" pbS="yes(y)" pbN="no(n)"><html><body>
 Para realizar uma etografia baseado em vídeo é necessário cadastrar um vídeo .avi do experimento. Nesse
 cadastro você vai configurar uma série de parametros improtantes.
-falar mais sobre o traking 
+falar mais sobre o traking
 
 </body></html>
 </tutor>
@@ -70,7 +85,7 @@ falar mais sobre o traking
 
 <tutor id="ethoregistroTraking" titulo="oi mundo" pbS="yes(y)" pbN="no(n)"><html><body>
 Para realizar um rastreamento em vídeo é necessário cadastrar um vídeo .avi do experimento. Nesse
-cadastro você vai configurar uma série de parametros improtantes. 
+cadastro você vai configurar uma série de parametros improtantes.
 </body></html>
 </tutor>
 

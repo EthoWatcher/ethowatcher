@@ -37,6 +37,8 @@ public:
     void closeEvent(QCloseEvent *event);
 
 
+public slots:
+    void telaFechou();
 private slots:
 
     void on_pushButtonAvancar_clicked();

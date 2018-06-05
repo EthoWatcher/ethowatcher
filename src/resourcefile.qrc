@@ -46,5 +46,6 @@
         <file>tutores/etografiaVideo.xml</file>
         <file>tutores/tutoresTelaCego.xml</file>
         <file>tutores/ethowatcherInpi.xml</file>
+        <file>tutores/tutoresTelaCadastroPessoa.xml</file>
     </qresource>
 </RCC>

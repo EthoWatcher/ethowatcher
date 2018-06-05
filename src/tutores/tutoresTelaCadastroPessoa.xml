@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tutores>
+
+    <tutor id="tutorInicio" titulo="Registre seu usuario" pbS="yes(y)" pbN="">
+    <html><body>
+        <p>
+            Bem vindo a tela de cadastro de usuário. Esse registro serve para você informar algumas informações sobre voe.
+        </p>
+
+    <p>
+    Preencha os campos
+        <ul>
+          <li><font color="red">User ID:</font>Nome do usuario </li>
+          <li><font color="red">Lab info:</font>Nome do laboratório</li>
+          <li><font color="red">Password:</font>Password</li>
+        </ul>
+    </p>
+
+    </body></html></tutor>
+
+    <tutor id="tutorSaida" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <html><body>
+        Seu usuario foi cadastro com sucesso!
+
+    </body></html></tutor>
+
+
+
+
+</tutores>

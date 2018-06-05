@@ -43,7 +43,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     //deixando todos os boteos invisiveisi
     escondeBotoes();
     ui->stackedPassos->setCurrentIndex(0);
-    ArrumandoTutores();
+//    ArrumandoTutores();
 
     palette.setColor(QPalette::WindowText, Qt::red);
 
@@ -148,95 +148,29 @@ void EthoWatcherInpi::escondeBotoes()
 
 }
 
-void EthoWatcherInpi::ArrumandoTutores()
-{
-//    tutorInicio = new WarningTutor();
-
-//    connect(tutorInicio,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-//    tutorInicio->setTextDestaque(tutor.getTextoById("ethoInicioTitulo"));
-//    tutorInicio->setId("ethoInicio");
-//    tutorInicio->setTextTutor(tutor.getTextoById("ethoInicio"));
-//    tutorInicio->setTextYes("yes");
-//    tutorInicio->setTextNo("No");
-
-//    tutorCatalogo = new WarningTutor();
-
-//    connect(tutorCatalogo,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-//    tutorCatalogo->setTextDestaque("Do you have a catalog ?");
-//    tutorCatalogo->setTextTutor(tutor.getTextoById("ethoCatalogo"));
-//    tutorCatalogo->setTextYes("yes");
-//    tutorCatalogo->setTextNo("No");
-
-
-//    tutorRegistroVideo = new WarningTutor();
-//    connect(tutorRegistroVideo,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-//    tutorRegistroVideo->setTextDestaque("Do you have a register off video ?");
-//    tutorRegistroVideo->setTextTutor(tutor.getTextoById("ethoregistroVideo"));
-//    tutorRegistroVideo->setTextYes("yes");
-//    tutorRegistroVideo->setTextNo("No");
-
-//    tutorVideoTraking = new WarningTutor();
-//    connect(tutorVideoTraking,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-//    tutorVideoTraking->setTextDestaque("Do you wanna make a etografia or traking ?");
-//    tutorVideoTraking->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
-//    tutorVideoTraking->setTextYes("yes");
-//    tutorVideoTraking->setTextNo("No");
-
-
-
-//    tutorSegComp = new WarningTutor();
-//    connect(tutorSegComp,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-//    tutorSegComp->setTextDestaque("Do you wanna make a segmentacao por comportamento ?");
-//    tutorSegComp->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
-//    tutorSegComp->setTextYes("yes");
-//    tutorSegComp->setTextNo("No");
-
-
-//    tutorSegTempo = new WarningTutor();
-//    connect(tutorSegTempo,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-//    tutorSegTempo->setTextDestaque("Do you wanna make a segmentacao por tempo ?");
-//    tutorSegTempo->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
-//    tutorSegTempo->setTextYes("yes");
-//    tutorSegTempo->setTextNo("No");
-
-//    tutorAnaSeq = new WarningTutor();
-//    connect(tutorAnaSeq,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-//    tutorAnaSeq->setTextDestaque("Do you wanna make a analise sequencial ?");
-//    tutorAnaSeq->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
-//    tutorAnaSeq->setTextYes("yes");
-//    tutorAnaSeq->setTextNo("No");
-
-
-//    tutorAnaConcordancia = new WarningTutor();
-//    connect(tutorAnaConcordancia,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-//    tutorAnaConcordancia->setTextDestaque("Do you wanna make uma analise de concordancia ?");
-//    tutorAnaConcordancia->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
-//    tutorAnaConcordancia->setTextYes("yes");
-//    tutorAnaConcordancia->setTextNo("No");
-
-
-
-//    configuraLinhas();
-
-}
 
 bool EthoWatcherInpi::botaoClicado(bool clicado, QString id)
 {
 
     qDebug() << " o id chegou " + id;
-    controlWarnig->nextList(true);
+    if(id == "ethoInicio"){
+        controlWarnig->nextList(true);
+    }
 
     if(id == "ethoCadastroPessoa"){
         qDebug() <<"oi mundo ";
-
         if(clicado){
+            ui->pbCreateUser->click();
+
+        }else{
 
             ui->pbLoadUser->click();
-        }else{
-            ui->pbCreateUser->click();
+
         }
 
     }
+
+
 
 }
 
@@ -435,7 +369,11 @@ void EthoWatcherInpi::on_pbConfigAnalyses_clicked()
 void EthoWatcherInpi::on_pbCreateUser_clicked()
 {
     telaPessoa = new telaCadastroPessoa();
-    telaPessoa->show();
+    telaPessoa->showInterface();
+    //        controlWarnig->nextList(true);
+    connect(telaPessoa, SIGNAL(fechouJanela()),this, SLOT(telaFechou()));
+
+
     if(telaPessoa->tutor == 1){
         ui->cbTutor->setChecked(true);
     }else{
@@ -449,9 +387,12 @@ void EthoWatcherInpi::on_pbCreateUser_clicked()
     ui->pbCreateUser->setEnabled(false);
 }
 
+
 void EthoWatcherInpi::on_pbLoadUser_clicked()
 {
     telaPessoa = new telaCadastroPessoa();
+
+    connect(telaPessoa, SIGNAL(fechouJanela()),this, SLOT(telaFechou()));
     if(telaPessoa->loadUser()){
         qDebug() << telaPessoa->nomeArquivo;
 
@@ -472,6 +413,10 @@ void EthoWatcherInpi::on_pbLoadUser_clicked()
     }
 
 
+}
+
+void EthoWatcherInpi::telaFechou(){
+    controlWarnig->nextList(true);
 }
 
 void EthoWatcherInpi::on_cbTutor_clicked(bool checked)

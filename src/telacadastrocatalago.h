@@ -12,6 +12,9 @@
 #include <QListWidget>
 #include <QMessageBox>
 
+
+#include "warningtutor.h"
+
 namespace Ui {
 class telaCadastroCatalago;
 }
