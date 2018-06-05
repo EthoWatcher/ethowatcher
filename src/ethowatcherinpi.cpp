@@ -29,7 +29,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
    configuraLinhas();
 
 
-   controlWarnig->setLista(seqInicial);
+//   controlWarnig->setLista(seqInicial);
 
 
 
@@ -61,6 +61,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 
      this->show();
 
+     controlWarnig->setLista(seqInicial);
      controlWarnig->nextList(true);
 
 
@@ -237,10 +238,16 @@ void EthoWatcherInpi::configuraLinhas()
 
     seqInicial.append("ethoInicio");
     seqInicial.append("ethoCadastroPessoa");
-    seqInicial.append("default");
+//    seqInicial.append("default");
 
 
-    seqTrakin.append("ethoInicio");
+    seqTrakin.append("ethoregistroTraking");
+    seqTrakin.append("ethoTrakingVideo");
+
+    seqEtho.append("ethoCatalogo");
+    seqEtho.append("ethoRegistroVideo");
+    seqEtho.append("ethoEtho");
+//    seqEtho.append();
 //    estruturaInicio.tutor.append(tutorInicio);
 //    estruturaInicio.passoAtual =0;
 //    estruturaInicio.nomeCaminhotutor = "chaveInicio";
@@ -328,10 +335,14 @@ void EthoWatcherInpi::on_pushButtonAvancar_clicked()
     //selecionado só etografia
     //porem é o emsmo caminho quando seleciona a etografia e o trakin
     if(ui->cbEthoDigi->isChecked()){
+        controlWarnig->setLista(seqEtho);
+        controlWarnig->nextList(true);
         configurandoEtografia();
 
     // foi selecionado só o trakin
     }else if(ui->cbEthoDigiTraking->isChecked()){
+        controlWarnig->setLista(seqTrakin);
+        controlWarnig->nextList(true);
         configurandoTrackin();
 
     }

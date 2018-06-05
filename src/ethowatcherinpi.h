@@ -73,7 +73,7 @@ private:
 
     QList<QString> seqInicial;
     QList<QString> seqTrakin;
-    QList<QString> seqTrakinDigital;
+    QList<QString> seqEtho;
 
 
     struct EstruturaDeTutor{

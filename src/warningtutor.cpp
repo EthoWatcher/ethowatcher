@@ -55,7 +55,12 @@ void WarningTutor::setTextTutor(QString Text)
 void WarningTutor::setTextYes(QString Text)
 {
     ui->pbYes->setText(Text);
-    this->setYesOn(true);
+
+    if(Text== ""){
+        this->setYesOn(false);
+    }else{
+        this->setYesOn(true);
+    }
 
 }
 
@@ -63,7 +68,12 @@ void WarningTutor::setTextNo(QString Text)
 {
 
     ui->pbNo->setText(Text);
-    this->setNoOn(true);
+    if(Text == ""){
+        this->setNoOn(false);
+    }else{
+        this->setNoOn(true);
+    }
+
 }
 
 void WarningTutor::setYesOn(bool chave)

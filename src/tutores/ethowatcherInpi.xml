@@ -12,11 +12,6 @@ Hello world indio
 </body></html></tutor>
 
 
-
-
-
-
-
 <tutor id="ethoInicio" titulo="Bem vindo ao EthoWatcherOS" pbS="ok!" pbN=""><html><body>
 Ola! 
 Bem vindo ao ethowatcher open source. Eu serei seu tutor nessa jornada.
@@ -25,7 +20,7 @@ Bem vindo ao ethowatcher open source. Eu serei seu tutor nessa jornada.
 </tutor>
 
 
-<tutor id="ethoCadastroPessoa" titulo="Você já tem um cadastro ?" pbS="yes" pbN="no">
+<tutor id="ethoCadastroPessoa" titulo="Você já tem um cadastro pessoal ?" pbS="yes" pbN="no">
 <html><body>
 Para começar o uso do ethoWatcherOS você precisa de um cadastro de usuario.
 
@@ -36,47 +31,61 @@ Você já tem um cadastro de usuário ?
 
 
 
-<tutor id="ethoCatalogo" titulo="oi mundo" pbS="yes" pbN="no">
-<config>oi
-</config>
-
-
+<tutor id="ethoCatalogo" titulo="Você já tem um Catalogo de comportamentos cadastrado?" pbS="yes" pbN="no">
 <html><body>
-Clique em sim se você já é cadastrado
 
+Para realizar uma etografia baseado em vídeo é necessário ter um cadastro de comportamentos.
 
-Clique em não para se cadastrar.
-
-
-</body></html>
-</tutor>
-
-
-<tutor id="ethoregistroVideoTraking" titulo="Você tem um registro de vídeo?" pbS="yes" pbN="no"><html><body>
-Clique em sim caso você queria fazer um trakign de vídeo.
-<p>
-    Você nessa interface pode fazer etografia e trakign .
-</p>
+Você já tem um Catalogo de comportamentos cadastrado?
 
 </body></html>
 </tutor>
 
 
+<tutor id="ethoRegistroVideo" titulo="Você já tem um vídeo de experimento cadastrado?" pbS="yes" pbN="no">
+<html><body>
 
-
-<tutor id="ethoregistroVideo" titulo="oi mundo" pbS="yes" pbN="no"><html><body>
-Você tem o vídeo que quer analisar cadastrado ?
-<p>
-    O registro de vídeo é usado para a realização da etografia em vídeo  a
-</p>
-
+Para realizar uma etografia baseado em vídeo é necessário cadastrar um vídeo .avi do experimento. Nesse
+cadastro você vai configurar uma série de parametros improtantes. 
 
 </body></html>
 </tutor>
 
 
-<tutor id="startAnalysis" titulo="Comece a análise de etografai" pbS="yes" pbN="no"><html><body>
-Click in "Start Analysis" to start the Ethography.
+<tutor id="ethoregistroVideoTraking" titulo="Você já tem um vídeo de experimento cadastrado?" pbS="yes" pbN="no"><html><body>
+Para realizar uma etografia baseado em vídeo é necessário cadastrar um vídeo .avi do experimento. Nesse
+cadastro você vai configurar uma série de parametros improtantes.
+falar mais sobre o traking 
+
+</body></html>
+</tutor>
+
+
+
+
+<tutor id="ethoregistroTraking" titulo="oi mundo" pbS="yes" pbN="no"><html><body>
+Para realizar um rastreamento em vídeo é necessário cadastrar um vídeo .avi do experimento. Nesse
+cadastro você vai configurar uma série de parametros improtantes. 
+</body></html>
+</tutor>
+
+
+<tutor id="ethoEtho" titulo="Você quer realizar uma etografia baseada em vídeo?" pbS="yes" pbN="no"><html><body>
+Você quer realizar uma etografia baseada em v´dio ?
+
+</body></html>
+</tutor>
+
+
+<tutor id="ethoTraking" titulo="Você quer realizar uma etografia baseada em vídeo?" pbS="yes" pbN="no"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+
+<tutor id="ethoTrakingVideo" titulo="Você quer realizar uma etografia baseada em vídeo e um traking??" pbS="yes" pbN="no"><html><body>
+Você quer realizar um rastreamento ?
 
 </body></html>
 </tutor>
