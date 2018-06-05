@@ -1,78 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tutores>
-<tutor id="default" titulo="oi mundo" pbS="yes" pbN="no">
+<tutor id="default" titulo="oi mundo" pbS="yes(y)" pbN="no(n)">
 
 <html><header><title>j</title></header><body>Hello world j</body></html></tutor>
 
 
-<tutor id="defautl1" titulo="oi mundo" pbS="yes" pbN="no">
+<tutor id="defautl1" titulo="oi mundo" pbS="yes(y)" pbN="no(n)">
 <html><body>
 Hello world indio
 
 </body></html></tutor>
 
 
-<tutor id="ethoInicio" titulo="Você já tem um cadastro ?" pbS="yes" pbN="no"><html><body>
+<tutor id="ethoInicio" titulo="Bem vindo ao EthoWatcherOS" pbS="ok!" pbN=""><html><body>
 Ola! 
-Bem vindo ao ethowatcher open source. Cadastre-se para utilizar as funcionalidade do programa.
+Bem vindo ao ethowatcher open source. Eu serei seu tutor nessa jornada.
 
 </body></html>
 </tutor>
 
-<tutor id="ethoInicioTitulo" titulo="oi mundo" pbS="yes" pbN="no"><html><body>
-Você já tem um cadastro ?
-</body></html>
-</tutor>
 
-
-<tutor id="ethoCatalogo" titulo="oi mundo" pbS="yes" pbN="no">
-<config>oi
-</config>
-
-
+<tutor id="ethoCadastroPessoa" titulo="Você já tem um cadastro pessoal ?" pbS="yes(y)" pbN="no(n)">
 <html><body>
-Clique em sim se você já é cadastrado
+Para começar o uso do ethoWatcherOS você precisa de um cadastro de usuario.
+
+Você já tem um cadastro de usuário ?
 
 
-Clique em não para se cadastrar.
+</body></html></tutor>
 
 
-</body></html>
-</tutor>
+<tutor id="ethoEscolhaEthoTraking" titulo="Escolha o que você quer fazer no programa" pbS="OK!" pbN=""><html><body>
+Você quer realizar um rastreamento ?
 
 
-<tutor id="ethoregistroVideoTraking" titulo="Você tem um registro de vídeo?" pbS="yes" pbN="no"><html><body>
-Clique em sim caso você queria fazer um trakign de vídeo.
-<p>
-    Você nessa interface pode fazer etografia e trakign .
-</p>
-
-</body></html>
-</tutor>
+</body></html></tutor>
 
 
+<tutor id="ethoCatalogo" titulo="Você já tem um Catalogo de comportamentos cadastrado?" pbS="yes(y)" pbN="no(n)">
+<html><body>
 
+Para realizar uma etografia baseado em vídeo é necessário ter um cadastro de comportamentos.
 
-<tutor id="ethoregistroVideo" titulo="oi mundo" pbS="yes" pbN="no"><html><body>
-Você tem o vídeo que quer analisar cadastrado ?
-<p>
-    O registro de vídeo é usado para a realização da etografia em vídeo  a
-</p>
-
+Você já tem um Catalogo de comportamentos cadastrado?
 
 </body></html>
 </tutor>
 
 
-<tutor id="startAnalysis" titulo="Comece a análise de etografai" pbS="yes" pbN="no"><html><body>
-Click in "Start Analysis" to start the Ethography.
+<tutor id="ethoRegistroVideo" titulo="Você já tem um vídeo de experimento cadastrado?" pbS="yes(y)" pbN="no(n)">
+<html><body>
+
+Para realizar uma etografia baseado em vídeo é necessário cadastrar um vídeo .avi do experimento. Nesse
+cadastro você vai configurar uma série de parametros improtantes. 
+
+</body></html>
+</tutor>
+
+
+<tutor id="ethoregistroVideoTraking" titulo="Você já tem um vídeo de experimento cadastrado?" pbS="yes(y)" pbN="no(n)"><html><body>
+Para realizar uma etografia baseado em vídeo é necessário cadastrar um vídeo .avi do experimento. Nesse
+cadastro você vai configurar uma série de parametros improtantes.
+falar mais sobre o traking 
 
 </body></html>
 </tutor>
 
 
 
+<tutor id="ethoregistroTraking" titulo="oi mundo" pbS="yes(y)" pbN="no(n)"><html><body>
+Para realizar um rastreamento em vídeo é necessário cadastrar um vídeo .avi do experimento. Nesse
+cadastro você vai configurar uma série de parametros improtantes. 
+</body></html>
+</tutor>
 
+
+<tutor id="ethoEtho" titulo="Você quer realizar uma etografia baseada em vídeo?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar uma etografia baseada em v´dio ?
+
+</body></html>
+</tutor>
+
+
+<tutor id="ethoTraking" titulo="Você quer realizar uma etografia baseada em vídeo?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+
+<tutor id="ethoTrakingVideo" titulo="Você quer realizar uma etografia baseada em vídeo e um traking??" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+
+
+<tutor id="tutorSegTempo" titulo="Você quer realizar uma seguementação por tempo da etografia?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+<tutor id="tutorSegComp" titulo="Você quer realizar uma segmentação por comportamento??" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+
+<tutor id="tutorAnaSeq" titulo="Você quer realizar uma analise sequencial?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+<tutor id="tutorConcordancia" titulo="Você quer realizar a analise de concordancia?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
 
 
 </tutores>

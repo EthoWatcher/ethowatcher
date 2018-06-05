@@ -11,84 +11,41 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     ui(new Ui::EthoWatcherInpi)
 {
    ui->setupUi(this);
+
+
 //   qDebug ()<< tutor.getTextoById("j");
+
+//   controlInicio = new  ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
+//   QList<QString> seq1;
+//   seq1.append("ethoApresentacao");
+//   seq1.append("ethoInicio");
+
+
 
    //novos
    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
-   QList<QString> seq;
-
-   seq.append("ethoInicio");
-   seq.append("ethoCatalogo");
-
-   controlWarnig->setLista(seq);
-
-
    connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
 
-   //antigo
+   configuraLinhas();
+
+
+//   controlWarnig->setLista(seqInicial);
 
 
 
-   tutor.lerXml(":/tutor/tutores/ethowatcherInpi.xml");
-
-    ui->textoTutor->setText(tutor.getTextoById("ethoInicio"));
 
 
-    tutor.debugID();
+
+
 
     QString html;
-
 
     //deixando todos os boteos invisiveisi
     escondeBotoes();
     ui->stackedPassos->setCurrentIndex(0);
-
-
-
-    //arrumando os tutores
     ArrumandoTutores();
-//    configuraLinhas();
 
-
-
-
-
-//    ui->stackedPassos->setCurrentIndex(0);
-//    ui->imgCfgStaCal->setVisible(false);
-//    ui->imgCfgStaCatEto->setVisible(false);
-//    ui->rotCfgCal->setVisible(false);
-//    ui->rotCfgCatEto->setVisible(false);
-//    ui->radCatAutExc->setChecked(true);
-//    this->objControleTutorFerramenta = new TControleTutorFerramenta;
-//    this->objControleTutorFerramenta->setPageCalibracao(ui->pageCalibracao);
-//    this->objControleTutorFerramenta->setPageCatalogoEtografico(ui->pageCatalogoEtografico);
-//    this->objControleTutorFerramenta->setPageTipEto(ui->pageTipEto);
-//    this->objControleTutorFerramenta->setPageStartAnalysis(ui->pageStartAnalysis);
-//    this->objControleTutorFerramenta->setStackedPassos(ui->stackedPassos);
-//    this->objControleTutorFerramenta->setGrpStatus(ui->grpStatus);
-//    this->objControleTutorFerramenta->setGrpTutor(ui->grpTutor);
-//    this->objControleTutorFerramenta->setChkOpcEtoAmb(ui->chkOpcEtoAmb);
-//    this->objControleTutorFerramenta->setChkOpcEtoMan(ui->chkOpcEtoMan);
-//    this->objControleTutorFerramenta->setChkOpcEtoTrk(ui->chkOpcEtoTrk);
-//    this->objControleTutorFerramenta->setRotCfgCatEto(ui->rotCfgCatEto);
-//    this->objControleTutorFerramenta->setRotCfgCal(ui->rotCfgCal);
-//    this->objControleTutorFerramenta->setImgCfgStaCatEto(ui->imgCfgStaCatEto);
-//    this->objControleTutorFerramenta->setImgCfgStaCal(ui->imgCfgStaCal);
-//    this->objControleTutorFerramenta->setTextoTutor(ui->textoTutor);
-//    this->objControleTutorFerramenta->avancaPasso();
     palette.setColor(QPalette::WindowText, Qt::red);
-//    this->objControleTutorFerramenta->sinalizaEtapaCalibracaoEmAberto(palette);
-//    this->objControleTutorFerramenta->sinalizaEtapaCatalogoEtograficoEmAberto(palette);
-
-//    new QShortcut( Qt::Key_X, this, SLOT(on_pushButtonAvancar_clicked()));
-//    new QShortcut( Qt::Key_Z, this, SLOT(on_pushButtonVoltar_clicked()));
-
-//    ui->pushButtonAvancar->setToolTip("Clik or press 'D' to go forward.");
-//    ui->pushButtonVoltar->setToolTip("Click or press 'A' to go back.");
-//    ui->btAbrCatEto->setToolTip("Click for create a new catalog.");
-//    ui->brNovCatEto->setToolTip("Click for open the catalog.");
-//    ui->botCalibracao->setToolTip("Click for calibration.");
-//    ui->btIniciarAnalise->setToolTip("Click for start the analysis.");
 
     controleCalibracao=true;
     controleCatalogo=true;
@@ -97,21 +54,15 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     ui->cbEthoAna->setVisible(false);
     ui->cbTutor->setVisible(false);
      ui->stackedPassos->setEnabled(false);
-//     ui->grpTutor->setVisible(false);
+     ui->grpTutor->setVisible(false);
 
 
 
 
      this->show();
 
-
+     controlWarnig->setLista(seqInicial);
      controlWarnig->nextList(true);
-
-//     estruturaTutorEscolhido = estruturaInicio;
-////     estruturaTutorEscolhido.tutor[0]->show();
-////     qDebug()<< estruturaTutorEscolhido.passoAtual ;
-//     estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->show();
-//     proximaInterface(false);
 
 
 }
@@ -124,7 +75,12 @@ EthoWatcherInpi::~EthoWatcherInpi()
 //        telaPessoa->gravandoUserXML();
 
 //    }
-    delete telaPessoa;
+//    if(telaPessoa != NULL ){
+//      delete telaPessoa;
+//    }
+
+
+
 
     delete ui;
 }
@@ -189,73 +145,73 @@ void EthoWatcherInpi::escondeBotoes()
 
 void EthoWatcherInpi::ArrumandoTutores()
 {
-    tutorInicio = new WarningTutor();
+//    tutorInicio = new WarningTutor();
 
-    connect(tutorInicio,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-    tutorInicio->setTextDestaque(tutor.getTextoById("ethoInicioTitulo"));
-    tutorInicio->setId("ethoInicio");
-    tutorInicio->setTextTutor(tutor.getTextoById("ethoInicio"));
-    tutorInicio->setTextYes("yes");
-    tutorInicio->setTextNo("No");
+//    connect(tutorInicio,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+//    tutorInicio->setTextDestaque(tutor.getTextoById("ethoInicioTitulo"));
+//    tutorInicio->setId("ethoInicio");
+//    tutorInicio->setTextTutor(tutor.getTextoById("ethoInicio"));
+//    tutorInicio->setTextYes("yes");
+//    tutorInicio->setTextNo("No");
 
-    tutorCatalogo = new WarningTutor();
+//    tutorCatalogo = new WarningTutor();
 
-    connect(tutorCatalogo,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-    tutorCatalogo->setTextDestaque("Do you have a catalog ?");
-    tutorCatalogo->setTextTutor(tutor.getTextoById("ethoCatalogo"));
-    tutorCatalogo->setTextYes("yes");
-    tutorCatalogo->setTextNo("No");
-
-
-    tutorRegistroVideo = new WarningTutor();
-    connect(tutorRegistroVideo,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-    tutorRegistroVideo->setTextDestaque("Do you have a register off video ?");
-    tutorRegistroVideo->setTextTutor(tutor.getTextoById("ethoregistroVideo"));
-    tutorRegistroVideo->setTextYes("yes");
-    tutorRegistroVideo->setTextNo("No");
-
-    tutorVideoTraking = new WarningTutor();
-    connect(tutorVideoTraking,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-    tutorVideoTraking->setTextDestaque("Do you wanna make a etografia or traking ?");
-    tutorVideoTraking->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
-    tutorVideoTraking->setTextYes("yes");
-    tutorVideoTraking->setTextNo("No");
+//    connect(tutorCatalogo,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+//    tutorCatalogo->setTextDestaque("Do you have a catalog ?");
+//    tutorCatalogo->setTextTutor(tutor.getTextoById("ethoCatalogo"));
+//    tutorCatalogo->setTextYes("yes");
+//    tutorCatalogo->setTextNo("No");
 
 
+//    tutorRegistroVideo = new WarningTutor();
+//    connect(tutorRegistroVideo,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+//    tutorRegistroVideo->setTextDestaque("Do you have a register off video ?");
+//    tutorRegistroVideo->setTextTutor(tutor.getTextoById("ethoregistroVideo"));
+//    tutorRegistroVideo->setTextYes("yes");
+//    tutorRegistroVideo->setTextNo("No");
 
-    tutorSegComp = new WarningTutor();
-    connect(tutorSegComp,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-    tutorSegComp->setTextDestaque("Do you wanna make a segmentacao por comportamento ?");
-    tutorSegComp->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
-    tutorSegComp->setTextYes("yes");
-    tutorSegComp->setTextNo("No");
-
-
-    tutorSegTempo = new WarningTutor();
-    connect(tutorSegTempo,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-    tutorSegTempo->setTextDestaque("Do you wanna make a segmentacao por tempo ?");
-    tutorSegTempo->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
-    tutorSegTempo->setTextYes("yes");
-    tutorSegTempo->setTextNo("No");
-
-    tutorAnaSeq = new WarningTutor();
-    connect(tutorAnaSeq,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-    tutorAnaSeq->setTextDestaque("Do you wanna make a analise sequencial ?");
-    tutorAnaSeq->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
-    tutorAnaSeq->setTextYes("yes");
-    tutorAnaSeq->setTextNo("No");
-
-
-    tutorAnaConcordancia = new WarningTutor();
-    connect(tutorAnaConcordancia,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
-    tutorAnaConcordancia->setTextDestaque("Do you wanna make uma analise de concordancia ?");
-    tutorAnaConcordancia->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
-    tutorAnaConcordancia->setTextYes("yes");
-    tutorAnaConcordancia->setTextNo("No");
+//    tutorVideoTraking = new WarningTutor();
+//    connect(tutorVideoTraking,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+//    tutorVideoTraking->setTextDestaque("Do you wanna make a etografia or traking ?");
+//    tutorVideoTraking->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
+//    tutorVideoTraking->setTextYes("yes");
+//    tutorVideoTraking->setTextNo("No");
 
 
 
-    configuraLinhas();
+//    tutorSegComp = new WarningTutor();
+//    connect(tutorSegComp,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+//    tutorSegComp->setTextDestaque("Do you wanna make a segmentacao por comportamento ?");
+//    tutorSegComp->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
+//    tutorSegComp->setTextYes("yes");
+//    tutorSegComp->setTextNo("No");
+
+
+//    tutorSegTempo = new WarningTutor();
+//    connect(tutorSegTempo,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+//    tutorSegTempo->setTextDestaque("Do you wanna make a segmentacao por tempo ?");
+//    tutorSegTempo->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
+//    tutorSegTempo->setTextYes("yes");
+//    tutorSegTempo->setTextNo("No");
+
+//    tutorAnaSeq = new WarningTutor();
+//    connect(tutorAnaSeq,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+//    tutorAnaSeq->setTextDestaque("Do you wanna make a analise sequencial ?");
+//    tutorAnaSeq->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
+//    tutorAnaSeq->setTextYes("yes");
+//    tutorAnaSeq->setTextNo("No");
+
+
+//    tutorAnaConcordancia = new WarningTutor();
+//    connect(tutorAnaConcordancia,SIGNAL(clicou(bool)),this,SLOT(botaoClicado(bool)));
+//    tutorAnaConcordancia->setTextDestaque("Do you wanna make uma analise de concordancia ?");
+//    tutorAnaConcordancia->setTextTutor(tutor.getTextoById("ethoregistroVideoTraking"));
+//    tutorAnaConcordancia->setTextYes("yes");
+//    tutorAnaConcordancia->setTextNo("No");
+
+
+
+//    configuraLinhas();
 
 }
 
@@ -265,96 +221,45 @@ bool EthoWatcherInpi::botaoClicado(bool clicado, QString id)
     qDebug() << " o id chegou " + id;
     controlWarnig->nextList(true);
 
-//    if(estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->getId("ethoInicio")){
-//        qDebug() <<"oi mundo ";
-//        if(clicado){
+    if(id == "ethoCadastroPessoa"){
+        qDebug() <<"oi mundo ";
 
-//            ui->pbLoadUser->click();
-//        }else{
-//            ui->pbCreateUser->click();
-//        }
+        if(clicado){
 
-//    }
+            ui->pbLoadUser->click();
+        }else{
+            ui->pbCreateUser->click();
+        }
 
-
-//    proximaInterface(true);
-
-
-////    if(tutorEscolhidoE("chaveDigi")){
-////        qDebug() <<"chave digital";
-////        proximaInterface(true);
-
-////        }
-
-////    if(tutorEscolhidoE("chaveDigi")){
-////        qDebug() <<"chave digital";
-////        proximaInterface(true);
-
-////        }
-
-////    if(tutorEscolhidoE("chaveTrakin")){
-////        qDebug() <<"chave digital";
-////        proximaInterface(true);
-
-////        }
-
-////    if(tutorEscolhidoE(("chaveDigiAna"))){
-////        proximaInterface(true);
-////    }
-
-////    if(tutorEscolhidoE(("chaveAna"))){
-////
-////    }
-
-
-
-
-
-
-
+    }
 
 }
 
 void EthoWatcherInpi::configuraLinhas()
 {
 
-    estruturaInicio.tutor.append(tutorInicio);
-    estruturaInicio.passoAtual =0;
-    estruturaInicio.nomeCaminhotutor = "chaveInicio";
+    //sequencia inicial
+    seqInicial.append("ethoInicio");
+    seqInicial.append("ethoCadastroPessoa");
+    seqInicial.append("ethoEscolhaEthoTraking");
+
+//    seqInicial.append("default");
+
+    //sequencia por traking
+    seqTrakin.append("ethoregistroTraking");
+    seqTrakin.append("ethoTrakingVideo");
+
+    //sequencia por catalogo
+    seqEtho.append("ethoCatalogo");
+    seqEtho.append("ethoRegistroVideo");
+    seqEtho.append("ethoEtho");
 
 
-    //arrumando o tutor da seleçãod digital video based ethografi
-    estruturaTutorDigi.tutor.append(tutorCatalogo);
-    estruturaTutorDigi.tutor.append(tutorRegistroVideo);
-    estruturaTutorDigi.tutor.append(tutorVideoTraking);
-    estruturaTutorDigi.passoAtual =0;
-    estruturaTutorDigi.nomeCaminhotutor = "chaveDigi";
-
-
-    estruturaTutorTraking.tutor.append(tutorRegistroVideo);
-    estruturaTutorTraking.tutor.append(tutorVideoTraking);
-    estruturaTutorTraking.passoAtual =0;
-    estruturaTutorTraking.nomeCaminhotutor = "chaveTrakin";
-
-
-    estruturaTutorAnalys.tutor.append(tutorSegTempo);
-    estruturaTutorAnalys.tutor.append(tutorSegComp);
-    estruturaTutorAnalys.tutor.append(tutorAnaSeq);
-    estruturaTutorAnalys.tutor.append(tutorAnaConcordancia);
-    estruturaTutorAnalys.passoAtual =0;
-    estruturaTutorAnalys.nomeCaminhotutor = "chaveAna";
-
-
-
-
-    estruturaTutorDigiAnalys.tutor.append(tutorRegistroVideo);
-    estruturaTutorDigiAnalys.tutor.append(tutorVideoTraking);
-    estruturaTutorDigiAnalys.tutor.append(tutorSegTempo);
-    estruturaTutorDigiAnalys.tutor.append(tutorSegComp);
-    estruturaTutorDigiAnalys.tutor.append(tutorAnaSeq);
-    estruturaTutorDigiAnalys.tutor.append(tutorAnaConcordancia);
-    estruturaTutorDigiAnalys.passoAtual =0;
-    estruturaTutorDigiAnalys.nomeCaminhotutor = "chaveDigiAna";
+    //sequencia de analise
+    seqAnalise.append("tutorSegTempo");
+    seqAnalise.append("tutorSegComp");
+    seqAnalise.append("tutorAnaSeq");
+    seqAnalise.append("tutorConcordancia");
 
 
 
@@ -377,16 +282,17 @@ bool EthoWatcherInpi::tutorEscolhidoE(QString nomeTutor){
 /**
  * @brief EthoWatcherInpi::proximaInterface
  * @param chNext
+ * retirar
  */
 void EthoWatcherInpi::proximaInterface(bool chNext){
-    if(chNext){
-        if(estruturaTutorEscolhido.tutor.size() >estruturaTutorEscolhido.passoAtual){
-         estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->show();
-            estruturaTutorEscolhido.passoAtual++;
-        }
-    }else{
-        estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->show();
-    }
+//    if(chNext){
+//        if(estruturaTutorEscolhido.tutor.size() >estruturaTutorEscolhido.passoAtual){
+//         estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->show();
+//            estruturaTutorEscolhido.passoAtual++;
+//        }
+//    }else{
+//        estruturaTutorEscolhido.tutor[estruturaTutorEscolhido.passoAtual]->show();
+//    }
 
 }
 
@@ -404,10 +310,14 @@ void EthoWatcherInpi::on_pushButtonAvancar_clicked()
     //selecionado só etografia
     //porem é o emsmo caminho quando seleciona a etografia e o trakin
     if(ui->cbEthoDigi->isChecked()){
+        controlWarnig->setLista(seqEtho);
+        controlWarnig->nextList(true);
         configurandoEtografia();
 
     // foi selecionado só o trakin
     }else if(ui->cbEthoDigiTraking->isChecked()){
+        controlWarnig->setLista(seqTrakin);
+        controlWarnig->nextList(true);
         configurandoTrackin();
 
     }
@@ -446,8 +356,8 @@ void EthoWatcherInpi::configurandoEtografia(){
     ui->pbRegisterVideo->setVisible(true);
     ui->pbVideoEtho->setVisible(true);
 
-    //configurando o tutor escolhido
-    estruturaTutorEscolhido = estruturaTutorDigi ;
+//    //configurando o tutor escolhido
+//    estruturaTutorEscolhido = estruturaTutorDigi ;
 //    botaoClicado(false);
     qDebug() << "o selecionado foi a etografia";
 
@@ -509,6 +419,9 @@ void EthoWatcherInpi::on_pushButtonVoltar_clicked()
 
 void EthoWatcherInpi::on_pbConfigAnalyses_clicked()
 {
+
+    controlWarnig->setLista(seqAnalise);
+    controlWarnig->nextList(true);
     setNextInterface();
     configurandoAnalise();
 

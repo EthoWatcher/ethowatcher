@@ -5,9 +5,6 @@
 #include <QMainWindow>
 #include "tutoretho.h"
 #include "warningtutor.h"
-//#include "novocatalogo.h"
-//#include "calibracao.h"
-//#include "etografia.h"
 #include "opencv2/opencv.hpp"
 #include "opencv2/core/core.hpp"
 #include "opencv2/highgui/highgui.hpp"
@@ -17,9 +14,6 @@
 
 #include "telacadastropessoa.h"
 #include "telacadastrocatalago.h"
-
-const   QString      mensagemErro05_TFNC     =       "Error: Select a type of ethography. ";
-const   QString      mensagemErro06_TFNC     =       "Error: Perform all the steps.";
 
 
 namespace Ui {
@@ -71,18 +65,17 @@ private slots:
 
 private:
     Ui::EthoWatcherInpi *ui;
-    TutorEtho tutor;
     int janelaAtual;
     int qtdJanelas;
     QPalette palette;
 
     ControladoWarningTutor *controlWarnig;
-//    TControleTutorFerramenta *objControleTutorFerramenta;
-//    QString fileCatalogo="";
-//    QString fileVideo="";
-//    NovoCatalogo *catalogo;
-//    calibracao *novaCalibracao;
-//    Etografia *novaEtografia;
+
+    QList<QString> seqInicial;
+    QList<QString> seqTrakin;
+    QList<QString> seqEtho;
+    QList<QString> seqAnalise;
+
 
     struct EstruturaDeTutor{
         QList<WarningTutor*> tutor;

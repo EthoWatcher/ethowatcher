@@ -57,14 +57,20 @@ class ControladoWarningTutor: public QObject{
 
     WarningTutor *tutorAbs;
 
-    ControladoWarningTutor(QString XML);
+
+
+
 
     QList<QString> sequenciaTutores;
     void setLista(QList<QString> sequencia);
 
     WarningTutor *getListaTutores();
 
+    ControladoWarningTutor(QString XML);
     void nextList(bool chNext);
+    void nextById(QString id);
+    void setTutor(bool chLigaTutor);
+
 
 public slots:
     void wrapper(bool chBotao, QString id);
@@ -72,6 +78,10 @@ public slots:
 signals:
     void clicou(bool,QString);
 private:
+
+    bool chHabilitaTutor;
+    void criandoInterfaces();
+    void desconectandoListaTutores();
     int contador;
 
 };

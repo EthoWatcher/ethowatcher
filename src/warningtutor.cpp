@@ -9,11 +9,11 @@ WarningTutor::WarningTutor(QWidget *parent) :
     this->setNoOn(false);
     this->setYesOn(false);
     setWindowFlags(Qt::CustomizeWindowHint);
-//    connect(this,SIGNAL())
+    //    connect(this,SIGNAL())
 
     //chute 1 para adicionar imagem
-//    QImage img(":/icons/cabecalho.jpg"); // todo: generate image in memory
-//    ui->textoTutor->document()->addResource(QTextDocument::ImageResource, QUrl("qrc:/icons/cabecalho.jpg" ), img);
+    //    QImage img(":/icons/cabecalho.jpg"); // todo: generate image in memory
+    //    ui->textoTutor->document()->addResource(QTextDocument::ImageResource, QUrl("qrc:/icons/cabecalho.jpg" ), img);
 
     new QShortcut( Qt::Key_Y, this, SLOT(on_pbYes_clicked()));
     new QShortcut( Qt::Key_N, this, SLOT(on_pbNo_clicked()));
@@ -41,7 +41,7 @@ void WarningTutor::setTextTutor(QString Text)
 {
 
     ui->textoTutor->setText(Text);
-//    ui->webView->load(QUrl("http://qt-project.org"));
+    //    ui->webView->load(QUrl("http://qt-project.org"));
     //webView->setUrl(QUrl(QStringLiteral("about:blank")));
 
 }
@@ -55,7 +55,12 @@ void WarningTutor::setTextTutor(QString Text)
 void WarningTutor::setTextYes(QString Text)
 {
     ui->pbYes->setText(Text);
-    this->setYesOn(true);
+
+    if(Text== ""){
+        this->setYesOn(false);
+    }else{
+        this->setYesOn(true);
+    }
 
 }
 
@@ -63,7 +68,12 @@ void WarningTutor::setTextNo(QString Text)
 {
 
     ui->pbNo->setText(Text);
-    this->setNoOn(true);
+    if(Text == ""){
+        this->setNoOn(false);
+    }else{
+        this->setNoOn(true);
+    }
+
 }
 
 void WarningTutor::setYesOn(bool chave)
@@ -121,24 +131,34 @@ ControladoWarningTutor::ControladoWarningTutor(QString XML)
     tutor.lerXml(XML);
     tutor.debugID();
     contador=0;
-    //":/tutor/tutores/ethowatcherInpi.xml");
-//    qDebug() << "Arrumando tutor";
 
-//    for(int i=0; i< tutor.getSize();i++){
+    chHabilitaTutor=true;
 
-//    qDebug() << tutor.getTextoByNumero(0)+" o numero";
-//    }
-    // aqui le todos os tutores;
+}
+/**
+ * @brief ControladoWarningTutor::setLista metodo para criar uma lista de interface de tutores
+ * @param sequencia de tutores que quer
+ */
+void ControladoWarningTutor::setLista(QList<QString> sequencia)
+{
+
+    desconectandoListaTutores();
+    contador=0;
+    qDebug() << "================= 123123 12==========";
+    this->sequenciaTutores = sequencia;
+
+
+    criandoInterfaces();
+
+
 
 
 
 }
+void ControladoWarningTutor::criandoInterfaces(){
 
-void ControladoWarningTutor::setLista(QList<QString> sequencia)
-{
+    //    QList<WarningTutor *> lista;
 
-    qDebug() << "================= 123123 12==========";
-    this->sequenciaTutores = sequencia;
 
     for(int i=0; i< this->sequenciaTutores.size(); i++){
         qDebug() << this->sequenciaTutores[i];
@@ -160,6 +180,21 @@ void ControladoWarningTutor::setLista(QList<QString> sequencia)
 
 }
 
+
+void ControladoWarningTutor::desconectandoListaTutores(){
+
+    qDebug() << "desconectando 1";
+    for(int i=0; i<listaTutores.size();i++){
+        disconnect(listaTutores[i],SIGNAL(clicou(bool,QString)),this,SLOT(wrapper(bool,QString)));
+        listaTutores.pop_back();
+    }
+    qDebug() << "desconectando 2";
+
+
+}
+
+
+
 /**
  * @brief ControladoWarningTutor::wrapper para enviar se foi clicado o botao yes ou no
  * @param chBotao
@@ -171,24 +206,44 @@ void ControladoWarningTutor::wrapper(bool chBotao, QString id){
 }
 
 
-void ControladoWarningTutor::nextList(bool chNext)
-{
-    for(int i=0; i< listaTutores.size(); i++){
+void ControladoWarningTutor::nextById(QString id){
 
-        if(contador<listaTutores.size()){
+    for(int i=0; i<listaTutores.size();i++){
+        if(listaTutores[i]->getId(id) ){
 
-            if(listaTutores[i]->getId(this->sequenciaTutores[contador])){
-                listaTutores[i]->show();
-
-                if((chNext)){
-                    contador++;
-                }
-                 break;
+            if(chHabilitaTutor){
+               listaTutores[i]->show();
+               qDebug()<<"foi ligada a interface " << id;
             }
 
+            break;
+        }
+    }
+}
+
+void ControladoWarningTutor::setTutor(bool chLigaTutor)
+{
+    this->chHabilitaTutor = chLigaTutor;
+}
+
+/**
+ * @brief ControladoWarningTutor::nextList método para ir para o próximo da lista
+ * @param chNext
+ */
+void ControladoWarningTutor::nextList(bool chNext)
+{
+
+
+    if(contador<listaTutores.size()){
+
+        this->nextById(this->sequenciaTutores[contador]);
+
+        if((chNext)){
+            contador++;
         }
 
     }
 
-    qDebug() << "nao encontrado o tutor";
+
 }
+
