@@ -38,7 +38,7 @@ class telaCego : public QWidget
 public:
     explicit telaCego(QWidget *parent = 0);
     ~telaCego();
-    TutorEtho tutor;
+//    TutorEtho tutor;
 
 //    struct dadosExperimentador{
 //        QString nome;

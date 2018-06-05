@@ -9,9 +9,9 @@ telaCego::telaCego(QWidget *parent) :
     //ui->stackedWidget->setCurrentIndex(0);
     ui->staWidPrin->setCurrentIndex(0);
 
-    tutor.lerXml(":/icons/tutores/tutoresTelaCego.xml");
-    qDebug ()<< tutor.getTextoById("j");
-    ui->textEdit_3->setText(tutor.getTextoById("macarao"));
+//    tutor.lerXml(":/icons/tutores/tutoresTelaCego.xml");
+//    qDebug ()<< tutor.getTextoById("j");
+//    ui->textEdit_3->setText(tutor.getTextoById("macarao"));
 }
 
 telaCego::~telaCego()
