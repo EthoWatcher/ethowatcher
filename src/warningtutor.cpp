@@ -9,11 +9,11 @@ WarningTutor::WarningTutor(QWidget *parent) :
     this->setNoOn(false);
     this->setYesOn(false);
     setWindowFlags(Qt::CustomizeWindowHint);
-//    connect(this,SIGNAL())
+    //    connect(this,SIGNAL())
 
     //chute 1 para adicionar imagem
-//    QImage img(":/icons/cabecalho.jpg"); // todo: generate image in memory
-//    ui->textoTutor->document()->addResource(QTextDocument::ImageResource, QUrl("qrc:/icons/cabecalho.jpg" ), img);
+    //    QImage img(":/icons/cabecalho.jpg"); // todo: generate image in memory
+    //    ui->textoTutor->document()->addResource(QTextDocument::ImageResource, QUrl("qrc:/icons/cabecalho.jpg" ), img);
 
     new QShortcut( Qt::Key_Y, this, SLOT(on_pbYes_clicked()));
     new QShortcut( Qt::Key_N, this, SLOT(on_pbNo_clicked()));
@@ -41,7 +41,7 @@ void WarningTutor::setTextTutor(QString Text)
 {
 
     ui->textoTutor->setText(Text);
-//    ui->webView->load(QUrl("http://qt-project.org"));
+    //    ui->webView->load(QUrl("http://qt-project.org"));
     //webView->setUrl(QUrl(QStringLiteral("about:blank")));
 
 }
@@ -122,6 +122,8 @@ ControladoWarningTutor::ControladoWarningTutor(QString XML)
     tutor.debugID();
     contador=0;
 
+    chHabilitaTutor=true;
+
 }
 /**
  * @brief ControladoWarningTutor::setLista metodo para criar uma lista de interface de tutores
@@ -145,7 +147,7 @@ void ControladoWarningTutor::setLista(QList<QString> sequencia)
 }
 void ControladoWarningTutor::criandoInterfaces(){
 
-//    QList<WarningTutor *> lista;
+    //    QList<WarningTutor *> lista;
 
 
     for(int i=0; i< this->sequenciaTutores.size(); i++){
@@ -197,10 +199,18 @@ void ControladoWarningTutor::wrapper(bool chBotao, QString id){
 void ControladoWarningTutor::nextById(QString id){
     for(int i=0; i<listaTutores.size();i++){
         if(listaTutores[i]->getId(id) ){
-            listaTutores[i]->show();
+            if(chHabilitaTutor){
+               listaTutores[i]->show();
+            }
+
             break;
         }
     }
+}
+
+void ControladoWarningTutor::setTutor(bool chLigaTutor)
+{
+    this->chHabilitaTutor = chLigaTutor;
 }
 
 /**
@@ -215,13 +225,13 @@ void ControladoWarningTutor::nextList(bool chNext)
 
             this->nextById(this->sequenciaTutores[contador]);
 
-                if((chNext)){
-                    contador++;
-                }
-
+            if((chNext)){
+                contador++;
             }
 
         }
 
     }
+
+}
 
