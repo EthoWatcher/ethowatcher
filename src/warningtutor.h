@@ -70,6 +70,7 @@ class ControladoWarningTutor: public QObject{
     void nextList(bool chNext);
     void nextById(QString id);
     void setTutor(bool chLigaTutor);
+    void fechandoJanelas();
 
 
 public slots:

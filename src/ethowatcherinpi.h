@@ -34,6 +34,9 @@ public:
     void configurandoEtografia();
     void configurandoTrackin();
     void configurandoAnalise();
+    void closeEvent(QCloseEvent *event);
+
+
 private slots:
 
     void on_pushButtonAvancar_clicked();
