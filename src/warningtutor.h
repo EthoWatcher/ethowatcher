@@ -44,6 +44,11 @@ private:
     QString tutorId;
 };
 
+
+
+
+
+
 class ControladoWarningTutor: public QObject{
 
     Q_OBJECT
@@ -66,14 +71,19 @@ signals:
     void clicou(bool,QString);
 private:
 
-    QList<WarningTutor *> listaTutores;
     TutorEtho tutor;
-    WarningTutor *tutorAbs;
     QList<QString> sequenciaTutores;
-    bool chHabilitaTutor;
+
+
+    QList<WarningTutor *> listaTutores;
+    WarningTutor *tutorAbs;
+
+
+    //funcoes para o funcionamento interno
     void criandoInterfaces();
     void desconectandoListaTutores();
     int contador;
+    bool chHabilitaTutor;
 
 };
 

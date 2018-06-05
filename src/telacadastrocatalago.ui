@@ -6,276 +6,240 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>562</width>
-    <height>538</height>
+    <width>573</width>
+    <height>587</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Register behavioral catalog</string>
   </property>
-  <widget class="QGroupBox" name="groupBox">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>70</y>
-     <width>241</width>
-     <height>331</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Insert behavioral category</string>
-   </property>
-   <widget class="QLineEdit" name="leCategoria">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>151</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>171</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Name</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="leAtalho">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>100</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>80</y>
-      <width>171</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Code</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>140</y>
-      <width>131</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Description</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textDscElem">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>180</y>
-      <width>221</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="html">
-     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QLabel" name="label_4">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>100</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="resourcefile.qrc">:/icons/ethoOS.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>541</width>
+       <height>361</height>
+      </size>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="title">
+         <string>Insert behavioral category</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="leCategoria">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Code</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="leAtalho">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Description</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="textDscElem">
+           <property name="html">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pbAddCategoria">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>280</y>
-      <width>111</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Add to catalog</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_2">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>70</y>
-     <width>241</width>
-     <height>271</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Behavioral catalog units</string>
-   </property>
-   <widget class="QTableWidget" name="tabDadCat">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>30</y>
-      <width>161</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="editTriggers">
-     <set>QAbstractItemView::NoEditTriggers</set>
-    </property>
-    <property name="selectionMode">
-     <enum>QAbstractItemView::SingleSelection</enum>
-    </property>
-    <property name="selectionBehavior">
-     <enum>QAbstractItemView::SelectRows</enum>
-    </property>
-    <property name="gridStyle">
-     <enum>Qt::SolidLine</enum>
-    </property>
-    <property name="rowCount">
-     <number>0</number>
-    </property>
-    <property name="columnCount">
-     <number>2</number>
-    </property>
-    <attribute name="horizontalHeaderDefaultSectionSize">
-     <number>79</number>
-    </attribute>
-    <attribute name="horizontalHeaderMinimumSectionSize">
-     <number>79</number>
-    </attribute>
-    <attribute name="verticalHeaderVisible">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="verticalHeaderDefaultSectionSize">
-     <number>20</number>
-    </attribute>
-    <attribute name="verticalHeaderMinimumSectionSize">
-     <number>19</number>
-    </attribute>
-    <column>
-     <property name="text">
-      <string>Category</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pbAddCategoria">
+           <property name="text">
+            <string>Add to catalog</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+        <zorder>leCategoria</zorder>
+        <zorder>label</zorder>
+        <zorder>leAtalho</zorder>
+        <zorder>label_2</zorder>
+        <zorder>label_3</zorder>
+        <zorder>textDscElem</zorder>
+        <zorder>pbAddCategoria</zorder>
+        <zorder>widget</zorder>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_2" native="true">
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QGroupBox" name="groupBox_2">
+           <property name="title">
+            <string>Behavioral catalog units</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QTableWidget" name="tabDadCat">
+              <property name="font">
+               <font>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::NoEditTriggers</set>
+              </property>
+              <property name="selectionMode">
+               <enum>QAbstractItemView::SingleSelection</enum>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectRows</enum>
+              </property>
+              <property name="gridStyle">
+               <enum>Qt::SolidLine</enum>
+              </property>
+              <property name="rowCount">
+               <number>0</number>
+              </property>
+              <property name="columnCount">
+               <number>2</number>
+              </property>
+              <attribute name="horizontalHeaderDefaultSectionSize">
+               <number>79</number>
+              </attribute>
+              <attribute name="horizontalHeaderMinimumSectionSize">
+               <number>79</number>
+              </attribute>
+              <attribute name="verticalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="verticalHeaderDefaultSectionSize">
+               <number>20</number>
+              </attribute>
+              <attribute name="verticalHeaderMinimumSectionSize">
+               <number>19</number>
+              </attribute>
+              <column>
+               <property name="text">
+                <string>Category</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Code</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pbClearItem">
+              <property name="text">
+               <string>Delete selected item</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+           <zorder>tabDadCat</zorder>
+           <zorder>pbClearItem</zorder>
+           <zorder>widget</zorder>
+           <zorder>groupBox</zorder>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_4">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>65</height>
+            </size>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QPushButton" name="pbCadastroCatalago">
+              <property name="text">
+               <string>Save / Register catalog</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string>Tutor</string>
      </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Code</string>
-     </property>
-    </column>
-   </widget>
-   <widget class="QPushButton" name="pbClearItem">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>220</y>
-      <width>123</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Delete selected item</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_3">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>420</y>
-     <width>531</width>
-     <height>101</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Tutor</string>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QTextEdit" name="textEdit">
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QTextEdit" name="textEdit">
+        <property name="html">
+         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Insert here ONLY the behavioral categories/units you will use in your experiments. When you finish inputting the units, press &lt;span style=&quot; font-weight:600;&quot;&gt;Save / Register catalog &lt;/span&gt;button the identification will be required in other steps os this session of analysis&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_4">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>340</y>
-     <width>241</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string/>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
-    <item>
-     <widget class="QPushButton" name="pbCadastroCatalago">
-      <property name="text">
-       <string>Save / Register catalog</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>501</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="recursos.qrc">:/recursos/cabecalho4.jpg</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources>
-  <include location="recursos.qrc"/>
+  <include location="resourcefile.qrc"/>
  </resources>
  <connections/>
 </ui>
