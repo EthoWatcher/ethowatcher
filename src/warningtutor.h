@@ -44,32 +44,24 @@ private:
     QString tutorId;
 };
 
+
+
+
+
+
 class ControladoWarningTutor: public QObject{
 
     Q_OBJECT
 
     public:
 
-
-    QList<WarningTutor *> listaTutores;
-
-    TutorEtho tutor;
-
-    WarningTutor *tutorAbs;
-
-
-
-
-
-    QList<QString> sequenciaTutores;
-    void setLista(QList<QString> sequencia);
-
-    WarningTutor *getListaTutores();
-
+    //api
     ControladoWarningTutor(QString XML);
+    void setLista(QList<QString> sequencia);
     void nextList(bool chNext);
     void nextById(QString id);
     void setTutor(bool chLigaTutor);
+    void fechandoJanelas();
 
 
 public slots:
@@ -79,10 +71,19 @@ signals:
     void clicou(bool,QString);
 private:
 
-    bool chHabilitaTutor;
+    TutorEtho tutor;
+    QList<QString> sequenciaTutores;
+
+
+    QList<WarningTutor *> listaTutores;
+    WarningTutor *tutorAbs;
+
+
+    //funcoes para o funcionamento interno
     void criandoInterfaces();
     void desconectandoListaTutores();
     int contador;
+    bool chHabilitaTutor;
 
 };
 

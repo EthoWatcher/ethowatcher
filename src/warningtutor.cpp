@@ -226,6 +226,13 @@ void ControladoWarningTutor::setTutor(bool chLigaTutor)
     this->chHabilitaTutor = chLigaTutor;
 }
 
+void ControladoWarningTutor::fechandoJanelas()
+{
+ for(int i=0; i< listaTutores.size(); i++){
+        listaTutores[i]->close();
+ }
+}
+
 /**
  * @brief ControladoWarningTutor::nextList método para ir para o próximo da lista
  * @param chNext

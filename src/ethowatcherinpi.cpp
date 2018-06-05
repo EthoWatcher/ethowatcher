@@ -67,6 +67,11 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 
 }
 
+void EthoWatcherInpi::closeEvent (QCloseEvent *event)
+{
+    qDebug() << "fechou janela ";
+    controlWarnig->fechandoJanelas();
+}
 EthoWatcherInpi::~EthoWatcherInpi()
 {
 

@@ -3,7 +3,7 @@
 
 
 #include <QMainWindow>
-#include "tutoretho.h"
+//#include "tutoretho.h"
 #include "warningtutor.h"
 #include "opencv2/opencv.hpp"
 #include "opencv2/core/core.hpp"
@@ -34,6 +34,9 @@ public:
     void configurandoEtografia();
     void configurandoTrackin();
     void configurandoAnalise();
+    void closeEvent(QCloseEvent *event);
+
+
 private slots:
 
     void on_pushButtonAvancar_clicked();
