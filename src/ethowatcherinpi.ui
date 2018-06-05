@@ -101,11 +101,17 @@
         <height>100</height>
        </size>
       </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>200</height>
+       </size>
+      </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resourcefile.qrc">:/icons/cabecalho - Copy.jpg</pixmap>
+       <pixmap resource="resourcefile.qrc">:/icons/ethoOS.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>

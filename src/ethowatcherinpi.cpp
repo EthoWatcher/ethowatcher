@@ -75,9 +75,11 @@ EthoWatcherInpi::~EthoWatcherInpi()
 //        telaPessoa->gravandoUserXML();
 
 //    }
-    if(telaPessoa != NULL ){
-      delete telaPessoa;
-    }
+//    if(telaPessoa != NULL ){
+//      delete telaPessoa;
+//    }
+
+
 
 
     delete ui;
@@ -219,7 +221,7 @@ bool EthoWatcherInpi::botaoClicado(bool clicado, QString id)
     qDebug() << " o id chegou " + id;
     controlWarnig->nextList(true);
 
-    if(id == "ethoInicio"){
+    if(id == "ethoCadastroPessoa"){
         qDebug() <<"oi mundo ";
 
         if(clicado){
