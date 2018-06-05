@@ -197,10 +197,13 @@ void ControladoWarningTutor::wrapper(bool chBotao, QString id){
 
 
 void ControladoWarningTutor::nextById(QString id){
+
     for(int i=0; i<listaTutores.size();i++){
         if(listaTutores[i]->getId(id) ){
+
             if(chHabilitaTutor){
                listaTutores[i]->show();
+               qDebug()<<"foi ligada a interface " << id;
             }
 
             break;
@@ -219,19 +222,18 @@ void ControladoWarningTutor::setTutor(bool chLigaTutor)
  */
 void ControladoWarningTutor::nextList(bool chNext)
 {
-    for(int i=0; i< listaTutores.size(); i++){
 
-        if(contador<listaTutores.size()){
 
-            this->nextById(this->sequenciaTutores[contador]);
+    if(contador<listaTutores.size()){
 
-            if((chNext)){
-                contador++;
-            }
+        this->nextById(this->sequenciaTutores[contador]);
 
+        if((chNext)){
+            contador++;
         }
 
     }
+
 
 }
 

@@ -12,17 +12,28 @@ Hello world indio
 </body></html></tutor>
 
 
-<tutor id="ethoInicio" titulo="Você já tem um cadastro ?" pbS="yes" pbN="no"><html><body>
+
+
+
+
+
+<tutor id="ethoInicio" titulo="Bem vindo ao EthoWatcherOS" pbS="ok!" pbN=""><html><body>
 Ola! 
-Bem vindo ao ethowatcher open source. Cadastre-se para utilizar as funcionalidade do programa.
+Bem vindo ao ethowatcher open source. Eu serei seu tutor nessa jornada.
 
 </body></html>
 </tutor>
 
-<tutor id="ethoInicioTitulo" titulo="oi mundo" pbS="yes" pbN="no"><html><body>
-Você já tem um cadastro ?
-</body></html>
-</tutor>
+
+<tutor id="ethoCadastroPessoa" titulo="Você já tem um cadastro ?" pbS="yes" pbN="no">
+<html><body>
+Para começar o uso do ethoWatcherOS você precisa de um cadastro de usuario.
+
+Você já tem um cadastro de usuário ?
+
+
+</body></html></tutor>
+
 
 
 <tutor id="ethoCatalogo" titulo="oi mundo" pbS="yes" pbN="no">

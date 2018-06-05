@@ -36,6 +36,8 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 
 
 
+
+
     QString html;
 
     //deixando todos os boteos invisiveisi
@@ -234,7 +236,11 @@ void EthoWatcherInpi::configuraLinhas()
 {
 
     seqInicial.append("ethoInicio");
-    seqInicial.append("ethoCatalogo");
+    seqInicial.append("ethoCadastroPessoa");
+    seqInicial.append("default");
+
+
+    seqTrakin.append("ethoInicio");
 //    estruturaInicio.tutor.append(tutorInicio);
 //    estruturaInicio.passoAtual =0;
 //    estruturaInicio.nomeCaminhotutor = "chaveInicio";
