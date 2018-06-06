@@ -168,6 +168,7 @@ void ControladoWarningTutor::criandoInterfaces(){
         qDebug() << this->sequenciaTutores[i];
 
         tutorAbs = new WarningTutor();
+//        tutorAbs->move(675,0);
         tutorAbs->setTextDestaque(tutor.getTitulo(this->sequenciaTutores[i]));
         tutorAbs->setId(this->sequenciaTutores[i]);
         tutorAbs->setTextTutor( tutor.getTextoById(this->sequenciaTutores[i]));
