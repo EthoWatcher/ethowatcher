@@ -56,6 +56,7 @@ public:
     bool createdUser();
 
 
+    int transformaEm1(QString snumero);
 signals:
 
     void fechouJanela();

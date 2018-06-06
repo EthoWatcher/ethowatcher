@@ -168,6 +168,7 @@ private:
 
     telaCadastroPessoa *telaPessoa;
     telaCadastroCatalago *telaCatalogo;
+    void configuraHabiTutores();
 };
 
 

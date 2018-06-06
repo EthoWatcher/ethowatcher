@@ -202,20 +202,26 @@ void telaCadastroPessoa::lendoXML(){
 
         //lendo os tutores;
         if(xmlReader.name() == "tutorCadastroCatalogo"){
-            qDebug() << "tutorCadastroCatalogo" << xmlReader.readElementText();
-            tutores.tutorCadastroCatalogo = xmlReader.readElementText().toInt();
+            QString b=xmlReader.readElementText();
+            qDebug() << "tutorCadastroCatalogo" << b;
+            int a= transformaEm1(b);
+            tutores.tutorCadastroCatalogo = a;
             //adsa=true;
         }
 
         if(xmlReader.name() == "tutorCadastroUsuario"){
-            qDebug() << "tutorCadastroUsuario" <<xmlReader.readElementText();
-            tutores.tutorCadastroUsuario = xmlReader.readElementText().toInt();
+            QString b=xmlReader.readElementText();
+            qDebug() << "tutorCadastroCatalogo" << b;
+            int a= transformaEm1(b);
+            tutores.tutorCadastroUsuario = a;
             //adsa=true;
         }
 
         if(xmlReader.name() == "tutorEthoWatcherPrincipal"){
-            qDebug() <<"tutorEthoWatcherPrincipal"<< xmlReader.readElementText();
-            tutores.tutorEthoWatcherPrincipal = xmlReader.readElementText().toInt();
+            QString b=xmlReader.readElementText();
+            qDebug() << "tutorCadastroCatalogo" << b;
+            int a= transformaEm1(b);
+            tutores.tutorEthoWatcherPrincipal = a;
             //adsa=true;
         }
 
@@ -225,6 +231,17 @@ void telaCadastroPessoa::lendoXML(){
 
     }
 
+
+}
+
+int telaCadastroPessoa::transformaEm1(QString snumero){
+
+    if(snumero=="1"){
+
+        return 1;
+    }else{
+        return 0;
+    }
 
 }
 
