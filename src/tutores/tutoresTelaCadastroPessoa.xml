@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tutores>
+
+    <tutor id="tutorInicio" titulo="Bem vindo ao modulo de cadastro de usuário" pbS="yes(y)" pbN="">
+    <html><body>
+        <p>
+            O módulo de cadastro de usuário permite ao usuário cadastrar seu nome, seu laboratório e inserir uma senha. As informações sobre o nome do experimentador e seu laboratório, são gravadas em todos os arquivos XML que o EthoWatcher OS gera: arquivos de cadastro de vídeo, arquivos de catálogo de comportamentos, análise etográfica dos vídeos e nas análises de concordâncias.
+        </p>
+
+    </body></html></tutor>
+
+    <tutor id="tutorPrenchaCampos" titulo="Preencha os campos" pbS="yes(y)" pbN="">
+    <html><body>
+
+    <p>
+
+        <ul>
+          <li><font color="red">User ID:</font>Informe o seu nome, e pode conter qualquer alfanumérico de qualquer tamanho. Esse campo é obrigatório ser preenchido </li>
+          <li><font color="red">Lab info:</font>Informe o nome de seu laboratório que pode conter qualquer alfanumérico de qualquer tamanho. Esse campo é obrigatório ser preenchido</li>
+          <li><font color="red">Password:</font>Infrome uma palavra-chave que pode conter qualquer alfanumérico de qualquer tamanho. Esse campo é obrigatório ser preenchido.</li>
+        </ul>
+    </p>
+
+    </body></html></tutor>
+
+    <tutor id="tutorSaida" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <html><body>
+        Seu usuario foi cadastro com sucesso!
+
+    </body></html></tutor>
+
+
+
+
+</tutores>

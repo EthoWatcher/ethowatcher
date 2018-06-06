@@ -10,7 +10,7 @@
 #include <QDebug>
 #include <QFileDialog>
 
-
+#include "warningtutor.h"
 
 namespace Ui {
 class telaCadastroPessoa;
@@ -41,6 +41,8 @@ public:
 
     void setTutor(bool chTutor);
     bool getTutor();
+
+    void showInterface();
 signals:
 
     void fechouJanela();
@@ -51,10 +53,13 @@ private slots:
 
 public slots:
     void mudaLetra();
+    void botaoClicado(bool,QString);
 
 private:
     Ui::telaCadastroPessoa *ui;
 
+    ControladoWarningTutor *controlWarnig;
+    QList<QString> seqInicial;
 };
 
 #endif // TELACADASTROPESSOA_H

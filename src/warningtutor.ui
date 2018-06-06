@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>708</width>
+    <width>736</width>
     <height>544</height>
    </rect>
   </property>
@@ -14,6 +14,9 @@
    <string>Tutor</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetDefaultConstraint</enum>
+   </property>
    <item>
     <widget class="QLabel" name="imgCabecalho">
      <property name="minimumSize">

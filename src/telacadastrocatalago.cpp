@@ -13,6 +13,11 @@ telaCadastroCatalago::~telaCadastroCatalago()
     delete ui;
 }
 
+void telaCadastroCatalago::closeEvent(QCloseEvent *event){
+
+    qDebug()<< " a janela de cadastro de usuario foi fechada ";
+}
+
 void telaCadastroCatalago::on_pbAddCategoria_clicked()
 {
     ui->tabDadCat->setColumnCount(2);

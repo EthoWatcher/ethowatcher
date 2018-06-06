@@ -12,6 +12,10 @@
 #include <QListWidget>
 #include <QMessageBox>
 
+#include <QCloseEvent>
+
+#include "warningtutor.h"
+
 namespace Ui {
 class telaCadastroCatalago;
 }
@@ -24,6 +28,7 @@ public:
     explicit telaCadastroCatalago(QWidget *parent = 0);
     ~telaCadastroCatalago();
 
+    void closeEvent(QCloseEvent *event);
 private slots:
     void on_pbAddCategoria_clicked();
 
