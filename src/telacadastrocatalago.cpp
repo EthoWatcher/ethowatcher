@@ -6,6 +6,27 @@ telaCadastroCatalago::telaCadastroCatalago(QWidget *parent) :
     ui(new Ui::telaCadastroCatalago)
 {
     ui->setupUi(this);
+
+    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastroCatalogo.xml");
+    connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
+
+    seqInicial.append("tutorInicio");
+    seqInicial.append("tutorPrenchaCamposNameCodeDescription");
+    seqInicial.append("tutoCatalogUnits");
+    seqInicial.append("tutorDele");
+    seqInicial.append("tutorSalva");
+
+    controlWarnig->setLista(seqInicial);
+
+    this->show();
+
+    controlWarnig->nextList(true);
+
+    ui->groupBox_3->setVisible(false);
+
+
+
+
 }
 
 telaCadastroCatalago::~telaCadastroCatalago()
@@ -75,6 +96,9 @@ void telaCadastroCatalago::on_pbAddCategoria_clicked()
     ui->textDscElem->setText("");
     ui->leAtalho->setText("");
     ui->leCategoria->setText("");
+
+
+    controlWarnig->nextList("tutoCatalogUnits");
 }
 
 void telaCadastroCatalago::on_pbClearItem_clicked()
@@ -167,5 +191,21 @@ void telaCadastroCatalago::on_pbCadastroCatalago_clicked()
 //    ui->pbEtografia->setEnabled(true);
 //    }
 
+
+}
+
+void telaCadastroCatalago::botaoClicado(bool clicado, QString id)
+{
+
+    if(id == "tutorInicio"){
+        qDebug() <<"oi mundo ";
+        if(clicado){
+            controlWarnig->nextList(true);
+
+        }else{
+
+        }
+
+    }
 
 }

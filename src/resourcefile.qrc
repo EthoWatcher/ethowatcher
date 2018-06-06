@@ -47,5 +47,6 @@
         <file>tutores/tutoresTelaCego.xml</file>
         <file>tutores/ethowatcherInpi.xml</file>
         <file>tutores/tutoresTelaCadastroPessoa.xml</file>
+        <file>tutores/tutoresTelaCadastroCatalogo.xml</file>
     </qresource>
 </RCC>
