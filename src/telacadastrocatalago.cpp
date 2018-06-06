@@ -22,6 +22,8 @@ telaCadastroCatalago::telaCadastroCatalago(QWidget *parent) :
 
     controlWarnig->nextList(true);
 
+    ui->groupBox_3->setVisible(false);
+
 
 
 
