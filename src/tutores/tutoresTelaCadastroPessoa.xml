@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tutores>
 
-    <tutor id="tutorInicio" titulo="Registre seu usuario" pbS="yes(y)" pbN="">
+    <tutor id="tutorInicio" titulo="Registre seu usuario joa" pbS="yes(y)" pbN="">
     <html><body>
         <p>
-            Bem vindo a tela de cadastro de usuário. Esse registro serve para você informar algumas informações sobre voe.
+            O módulo de cadastro de usuário permite ao usuário cadastrar seu nome, seu laboratório e inserir uma senha. As informações sobre o nome do experimentador e seu laboratório, são gravadas em todos os arquivos XML que o EthoWatcher OS gera: arquivos de cadastro de vídeo, arquivos de catálogo de comportamentos, análise etográfica dos vídeos e nas análises de concordâncias.
         </p>
 
     <p>
     Preencha os campos
         <ul>
-          <li><font color="red">User ID:</font>Nome do usuario </li>
-          <li><font color="red">Lab info:</font>Nome do laboratório</li>
-          <li><font color="red">Password:</font>Password</li>
+          <li><font color="red">User ID:</font>Informe o seu nome, e pode conter qualquer alfanumérico de qualquer tamanho. Esse campo é obrigatório ser preenchido </li>
+          <li><font color="red">Lab info:</font>Informe o nome de seu laboratório que pode conter qualquer alfanumérico de qualquer tamanho. Esse campo é obrigatório ser preenchido</li>
+          <li><font color="red">Password:</font>Infrome uma palavra-chave que pode conter qualquer alfanumérico de qualquer tamanho. Esse campo é obrigatório ser preenchido.</li>
         </ul>
     </p>
 

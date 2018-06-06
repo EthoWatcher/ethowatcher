@@ -63,7 +63,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 
      controlWarnig->setLista(seqInicial);
      controlWarnig->nextList(true);
-
+        telaPessoa = new telaCadastroPessoa();
 
 }
 
@@ -85,6 +85,7 @@ EthoWatcherInpi::~EthoWatcherInpi()
 //    }
 
 
+    delete telaPessoa;
 
 
     delete ui;
