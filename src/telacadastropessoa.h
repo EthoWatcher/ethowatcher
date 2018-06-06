@@ -32,6 +32,16 @@ public:
     void lendoXML();
 
     QString nome,nomeArquivo,extensao,nomeExtensao,lab,idObservador,sexo,arquivo;
+
+    struct OutroNome{
+       int tutorEthoWatcherPrincipal;
+       int tutorCadastroUsuario;
+       int tutorCadastroCatalogo;
+
+    };
+
+    OutroNome tutores;
+
     int vezes,tutor;
 
     bool loadUser();
@@ -39,10 +49,14 @@ public:
     void gravandoUserXML();
 
 
-    void setTutor(bool chTutor);
-    bool getTutor();
+    void setTutor(QString nomeTutor, bool chTutor);
+    bool getTutor(QString nomeTutor);
 
     void showInterface();
+    bool createdUser();
+
+
+    int transformaEm1(QString snumero);
 signals:
 
     void fechouJanela();
@@ -56,6 +70,7 @@ public slots:
     void botaoClicado(bool,QString);
 
 private:
+    bool chCarregado;
     Ui::telaCadastroPessoa *ui;
 
     ControladoWarningTutor *controlWarnig;
