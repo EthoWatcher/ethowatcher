@@ -69,7 +69,14 @@ private slots:
 
     void on_pbLoadUser_clicked();
 
-    void on_cbTutor_clicked(bool checked);
+//    void on_cbTutor_clicked(bool checked);
+
+    void on_cbTutorEthoPrincipal_clicked(bool checked);
+
+    void on_cbTutorCadastroCatalogo_clicked(bool checked);
+
+
+    void on_cbTutorCadastroUsuario_clicked(bool checked);
 
 private:
     Ui::EthoWatcherInpi *ui;

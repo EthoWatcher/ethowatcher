@@ -30,11 +30,26 @@ telaCadastroPessoa::telaCadastroPessoa(QWidget *parent) :
 }
 
 
-void telaCadastroPessoa::setTutor(bool chTutor){
+void telaCadastroPessoa::setTutor(QString nomeTutor,bool chTutor){
+
+    int chTu=1;
     if(chTutor){
-        tutor=1;
+        chTu=1;
+
     }else{
-        tutor=0;
+        chTu=0;
+    }
+    if(nomeTutor=="tutorCadastroCatalogo"){
+        tutores.tutorCadastroCatalogo = chTu;
+
+    }else if(nomeTutor=="tutorCadastroUsuario"){
+
+        tutores.tutorCadastroUsuario = chTu;
+
+
+    }else if(nomeTutor=="tutorEthoWatcherPrincipal"){
+        tutores.tutorEthoWatcherPrincipal = chTu;
+
     }
 
 }
@@ -113,7 +128,7 @@ void telaCadastroPessoa::gravandoUserXML(){
 
     stream.writeStartElement("tutores");
     stream.writeTextElement("tutorCadastroCatalogo",  QString::number(tutores.tutorCadastroCatalogo));
-    stream.writeTextElement("tutorCadastroUsuario",  QString::number(tutores.tutorCadastroUsuario));
+    stream.writeTextElement("tutorCadastroUsuario",   QString::number(tutores.tutorCadastroUsuario));
     stream.writeTextElement("tutorEthoWatcherPrincipal",  QString::number(tutores.tutorEthoWatcherPrincipal));
 
     stream.writeEndElement(); // fecha o experimentado
@@ -187,19 +202,19 @@ void telaCadastroPessoa::lendoXML(){
 
         //lendo os tutores;
         if(xmlReader.name() == "tutorCadastroCatalogo"){
-            qDebug() << xmlReader.readElementText();
+            qDebug() << "tutorCadastroCatalogo" << xmlReader.readElementText();
             tutores.tutorCadastroCatalogo = xmlReader.readElementText().toInt();
             //adsa=true;
         }
 
         if(xmlReader.name() == "tutorCadastroUsuario"){
-            qDebug() << xmlReader.readElementText();
+            qDebug() << "tutorCadastroUsuario" <<xmlReader.readElementText();
             tutores.tutorCadastroUsuario = xmlReader.readElementText().toInt();
             //adsa=true;
         }
 
         if(xmlReader.name() == "tutorEthoWatcherPrincipal"){
-            qDebug() << xmlReader.readElementText();
+            qDebug() <<"tutorEthoWatcherPrincipal"<< xmlReader.readElementText();
             tutores.tutorEthoWatcherPrincipal = xmlReader.readElementText().toInt();
             //adsa=true;
         }

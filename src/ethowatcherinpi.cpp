@@ -404,7 +404,11 @@ void EthoWatcherInpi::on_pbLoadUser_clicked()
 
 void EthoWatcherInpi::configurandoOsTutores(){
 
+    qDebug() << "o tutor esta " << telaPessoa->getTutor("tutorEthoWatcherPrincipal");
     ui->cbTutorEthoPrincipal->setCheckable(telaPessoa->getTutor("tutorEthoWatcherPrincipal"));
+    ui->cbTutorCadastroCatalogo->setCheckable(telaPessoa->getTutor("tutorCadastroCatalogo"));
+    ui->cbTutorCadastroUsuario->setCheckable(telaPessoa->getTutor("tutorCadastroUsuario"));
+
     controlWarnig->setTutor(telaPessoa->getTutor("tutorEthoWatcherPrincipal"));
 
 
@@ -432,7 +436,24 @@ void EthoWatcherInpi::clicouTelaLicensa(bool tela)
     ui->stackedPassos->setCurrentIndex(3);
 }
 
-void EthoWatcherInpi::on_cbTutor_clicked(bool checked)
+//void EthoWatcherInpi::on_cbTutor_clicked(bool checked)
+//{
+////    telaPessoa->setTutor(checked);
+//}
+
+void EthoWatcherInpi::on_cbTutorEthoPrincipal_clicked(bool checked)
 {
-    telaPessoa->setTutor(checked);
+    telaPessoa->setTutor("tutorEthoWatcherPrincipal",checked);
+}
+
+void EthoWatcherInpi::on_cbTutorCadastroCatalogo_clicked(bool checked)
+{
+    telaPessoa->setTutor("tutorCadastroUsuario",checked);
+}
+
+
+void EthoWatcherInpi::on_cbTutorCadastroUsuario_clicked(bool checked)
+{
+    telaPessoa->setTutor("tutorCadastroUsuario",checked);
+
 }

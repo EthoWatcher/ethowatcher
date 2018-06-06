@@ -313,6 +313,20 @@
              </property>
             </widget>
            </item>
+           <item>
+            <widget class="QCheckBox" name="cbTutorCadastroCatalogo">
+             <property name="text">
+              <string>Tutor Cadastro de Catalogo</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="cbTutorCadastroUsuario">
+             <property name="text">
+              <string>Tutor Cadastro Usuario</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </widget>

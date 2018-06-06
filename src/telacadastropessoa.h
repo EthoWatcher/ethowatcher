@@ -33,14 +33,14 @@ public:
 
     QString nome,nomeArquivo,extensao,nomeExtensao,lab,idObservador,sexo,arquivo;
 
-    struct TutoresInterfaces{
+    struct OutroNome{
        int tutorEthoWatcherPrincipal;
        int tutorCadastroUsuario;
        int tutorCadastroCatalogo;
 
     };
 
-    TutoresInterfaces tutores;
+    OutroNome tutores;
 
     int vezes,tutor;
 
@@ -49,7 +49,7 @@ public:
     void gravandoUserXML();
 
 
-    void setTutor(bool chTutor);
+    void setTutor(QString nomeTutor, bool chTutor);
     bool getTutor(QString nomeTutor);
 
     void showInterface();
