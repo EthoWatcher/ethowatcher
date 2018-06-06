@@ -79,16 +79,6 @@
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="cbTutor">
-         <property name="text">
-          <string>Tutor</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="lblUser">
          <property name="minimumSize">
           <size>
@@ -134,7 +124,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedPassos">
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="pageIdentificacao">
           <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -307,6 +297,20 @@
                </widget>
               </item>
              </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page">
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QCheckBox" name="cbTutorEthoPrincipal">
+             <property name="text">
+              <string>Tutor EthoWatcjer Principal</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
           </layout>

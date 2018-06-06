@@ -12,7 +12,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 {
    ui->setupUi(this);
 
-
+   connect(ui->actionControl_Tutor, SIGNAL(triggered(bool)),this,SLOT(clicouTelaLicensa(bool)));
 //   qDebug ()<< tutor.getTextoById("j");
 
 //   controlInicio = new  ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
@@ -25,6 +25,8 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
    //novos
    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
    connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
+
+
 
    configuraLinhas();
 
@@ -52,7 +54,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     controleOpcoesEtografia=false;
 
     ui->cbEthoAna->setVisible(false);
-    ui->cbTutor->setVisible(false);
+//    ui->cbTutorEthoPrincipal->setVisible(false);
      ui->stackedPassos->setEnabled(false);
      ui->grpTutor->setVisible(false);
 
@@ -375,18 +377,11 @@ void EthoWatcherInpi::on_pbCreateUser_clicked()
     connect(telaPessoa, SIGNAL(fechouJanela()),this, SLOT(telaFechou()));
 
 
-    if(telaPessoa->tutor == 1){
-        ui->cbTutor->setChecked(true);
-    }else{
-        ui->cbTutor->setChecked(false);
-    }
 
-    ui->lblNomeUsuario->setText(telaPessoa->nome);
-
-    ui->stackedPassos->setEnabled(true);
-    ui->pbLoadUser->setEnabled(false);
-    ui->pbCreateUser->setEnabled(false);
 }
+
+
+
 
 
 void EthoWatcherInpi::on_pbLoadUser_clicked()
@@ -397,16 +392,7 @@ void EthoWatcherInpi::on_pbLoadUser_clicked()
     if(telaPessoa->loadUser()){
         qDebug() << telaPessoa->nomeArquivo;
 
-        if(telaPessoa->getTutor()){
-            ui->cbTutor->setCheckable(true);
-        }else{
-            ui->cbTutor->setCheckable(false);
-        }
-
-        ui->lblNomeUsuario->setText(telaPessoa->nome);
-         ui->stackedPassos->setEnabled(true);
-         ui->pbLoadUser->setEnabled(false);
-         ui->pbCreateUser->setEnabled(false);
+        configurandoOsTutores();
 
     }else{
 
@@ -416,8 +402,34 @@ void EthoWatcherInpi::on_pbLoadUser_clicked()
 
 }
 
+void EthoWatcherInpi::configurandoOsTutores(){
+
+    ui->cbTutorEthoPrincipal->setCheckable(telaPessoa->getTutor("tutorEthoWatcherPrincipal"));
+    controlWarnig->setTutor(telaPessoa->getTutor("tutorEthoWatcherPrincipal"));
+
+
+    ui->lblNomeUsuario->setText(telaPessoa->nome);
+     ui->stackedPassos->setEnabled(true);
+     ui->pbLoadUser->setEnabled(false);
+     ui->pbCreateUser->setEnabled(false);
+
+
+}
+
 void EthoWatcherInpi::telaFechou(){
+    if(telaPessoa->createdUser()){
+        configurandoOsTutores();
+    }else{
+        qDebug()<< "não configurado os tutores";
+    }
     controlWarnig->nextList(true);
+}
+
+void EthoWatcherInpi::clicouTelaLicensa(bool tela)
+{
+
+    qDebug() << " o valor clicado " << tela;
+    ui->stackedPassos->setCurrentIndex(3);
 }
 
 void EthoWatcherInpi::on_cbTutor_clicked(bool checked)

@@ -228,6 +228,7 @@ void ControladoWarningTutor::nextById(QString id){
 void ControladoWarningTutor::setTutor(bool chLigaTutor)
 {
     this->chHabilitaTutor = chLigaTutor;
+    qDebug() << "configurado tutor para" << chLigaTutor;
 }
 
 void ControladoWarningTutor::fechandoJanelas()

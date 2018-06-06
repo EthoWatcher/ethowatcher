@@ -27,6 +27,7 @@ class EthoWatcherInpi : public QMainWindow
 public:
     explicit EthoWatcherInpi(QWidget *parent = 0);
     ~EthoWatcherInpi();
+
     void carregaImagens( const char * imagem = 0);
     QPushButton getButon();
     //void setResultadoCalibracao(QString *);
@@ -34,11 +35,13 @@ public:
     void configurandoEtografia();
     void configurandoTrackin();
     void configurandoAnalise();
+    void configurandoOsTutores();
     void closeEvent(QCloseEvent *event);
 
 
 public slots:
     void telaFechou();
+    void clicouTelaLicensa(bool tela);
 private slots:
 
     void on_pushButtonAvancar_clicked();
