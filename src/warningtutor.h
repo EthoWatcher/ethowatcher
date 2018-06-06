@@ -29,6 +29,7 @@ public:
 //    void setButtonYes(QPushButton botao);
 
     void setId(QString text);
+//    void closeEvent(QCloseEvent *);
 signals:
     void clickYes();
     void clickNo();

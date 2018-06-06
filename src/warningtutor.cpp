@@ -8,7 +8,7 @@ WarningTutor::WarningTutor(QWidget *parent) :
     ui->setupUi(this);
     this->setNoOn(false);
     this->setYesOn(false);
-    setWindowFlags(Qt::CustomizeWindowHint);
+//    setWindowFlags(Qt::CustomizeWindowHint);
     //    connect(this,SIGNAL())
 
     //chute 1 para adicionar imagem
@@ -25,6 +25,10 @@ WarningTutor::~WarningTutor()
 {
     delete ui;
 }
+
+//void WarningTutor::closeEvent(QCloseEvent *){
+////    emit clicou(true,tutorId);
+//}
 
 void WarningTutor::setTextDestaque(QString Text)
 {

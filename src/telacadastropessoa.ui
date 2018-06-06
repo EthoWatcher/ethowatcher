@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Register new user</string>
+   <string>Register new user v1.0</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -98,7 +98,6 @@
       <zorder>label</zorder>
       <zorder>leLab</zorder>
       <zorder>label_3</zorder>
-      <zorder>widget_2</zorder>
       <zorder>pushButton_2</zorder>
       <zorder>lePass</zorder>
       <zorder>label_2</zorder>

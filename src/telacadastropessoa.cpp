@@ -17,11 +17,12 @@ telaCadastroPessoa::telaCadastroPessoa(QWidget *parent) :
 
    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastroPessoa.xml");
    seqInicial.append("tutorInicio");
-   seqInicial.append("tutorSaida");
+   seqInicial.append("tutorPrenchaCampos");
 
    connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
 
 }
+
 
 void telaCadastroPessoa::setTutor(bool chTutor){
     if(chTutor){
@@ -234,4 +235,5 @@ void telaCadastroPessoa::mudaLetra(){
 void telaCadastroPessoa::botaoClicado(bool, QString)
 {
 
+    controlWarnig->nextList(true);
 }

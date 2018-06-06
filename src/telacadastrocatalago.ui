@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>573</width>
-    <height>587</height>
+    <height>595</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Register behavioral catalog</string>
+   <string>Register behavioral catalog v1.0</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -109,7 +109,6 @@ p, li { white-space: pre-wrap; }
         <zorder>label_3</zorder>
         <zorder>textDscElem</zorder>
         <zorder>pbAddCategoria</zorder>
-        <zorder>widget</zorder>
        </widget>
       </item>
       <item>
@@ -182,10 +181,6 @@ p, li { white-space: pre-wrap; }
              </widget>
             </item>
            </layout>
-           <zorder>tabDadCat</zorder>
-           <zorder>pbClearItem</zorder>
-           <zorder>widget</zorder>
-           <zorder>groupBox</zorder>
           </widget>
          </item>
          <item>
