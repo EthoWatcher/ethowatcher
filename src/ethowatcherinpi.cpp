@@ -173,6 +173,18 @@ bool EthoWatcherInpi::botaoClicado(bool clicado, QString id)
 
     }
 
+    if(id == "ethoCatalogo"){
+        if(clicado){
+            ui->pbBehavioralCatalog->click();
+
+        }else{
+
+            controlWarnig->nextList(true);
+
+        }
+
+    }
+
 
 
 }

@@ -36,6 +36,8 @@ private slots:
 
     void on_pbCadastroCatalago_clicked();
 
+    void botaoClicado(bool clicado, QString id);
+
 private:
     Ui::telaCadastroCatalago *ui;
 
@@ -50,6 +52,10 @@ private:
         int quantidadeDeDados=0;
 
     };
+
+    ControladoWarningTutor *controlWarnig;
+
+    QList<QString> seqInicial;
 
     dadosEtografia dadosEto;
     QString nomeGravarCatalago;

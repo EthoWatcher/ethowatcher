@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tutores>
+
+    <tutor id="tutorInicio" titulo="Bem vindo ao modulo de cadastro de catalogo" pbS="yes(y)" pbN="">
+    <html><body>
+        <p>
+            O módulo de cadastro de catálogos serve para que o usuário possa registrar catálogos comportamentais categóricos, esses podem ser utilizados posteriormente na transcrição comportamental categórica. Esse módulo permite ainda, cadastrar para cada comportamento um nome, uma descrição e um atalho alfanumérico.
+        </p>
+
+    </body></html></tutor>
+
+    <tutor id="tutorPrenchaCamposNameCodeDescription" titulo="Adicione uma categoria comportamental e aperte add to catalog" pbS="yes(y)" pbN="">
+    <html><body>
+
+    <p>
+        Adicione uma categoria comportamental
+        <ul>
+          <li><font color="red"> Name </font>Informe o nome da categoria comportamental e pode conter qualquer alfanumérico e qualquer quantidade de caracteres. Esse campo é obrigatório ser preenchido.</li>
+          <li><font color="red"> Code</font> Insira o código correspondente ao comportamento que será criado. Para esse código ser usado como atalho do teclado ele deve conter no máximo um carácter alfabético. O preenchimento desse campo também é obrigatório para a criação de um novo elemento do catálogo. </li>
+          <li><font color="red"> Description </font>Infrome uma palavra-chave que pode conter qualquer alfanumérico de qualquer tamanho. Esse campo é obrigatório ser preenchido.</li>
+        </ul>
+    </p>
+
+    </body></html></tutor>
+
+    <tutor id="tutoCatalogUnits" titulo="behavior catalog units" pbS="yes(y)" pbN="">
+    <html><body>
+
+        Nessa tabela, são apresentadas as categorias criadas para o novo catálogo. Cada linha corresponde a uma categoria, sendo a primeira coluna referente ao nome dessa categoria e a segunda referente ao seu código.
+
+    </body></html></tutor>
+
+
+    <tutor id="tutorDele" titulo="Voce pode deletar as categorias criadas" pbS="yes(y)" pbN="">
+    <html><body>
+
+        Ao clicar nesse botão é apagada a categoria selecionado na tabela. Logo, o elemento correspondente a esse item é excluído do catálogo. Para selecionar um item, deve-se clicar sobre uma das linhas contendo o comportamento desejado.
+
+    </body></html></tutor>
+
+
+    <tutor id="tutorSalva" titulo="save the catalog" pbS="yes(y)" pbN="">
+    <html><body>
+
+    ao clicar nesse botão é aberto uma caixa de diálogo com acesso ao disco local do computador para que o usuário possa escolher onde será criado o novo arquivo de catálogo comportamental.
+
+    </body></html></tutor>
+
+
+
+
+
+</tutores>
