@@ -113,7 +113,8 @@ EthoWatcherInpi::~EthoWatcherInpi()
 void EthoWatcherInpi::on_pbBehavioralCatalog_clicked()
 {
     telaCatalogo = new telaCadastroCatalago();
-    telaCatalogo->show();
+//    telaCatalogo->move(100,100);
+//    telaCatalogo->show();
 }
 
 /**

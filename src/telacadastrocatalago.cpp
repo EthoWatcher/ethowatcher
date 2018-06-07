@@ -7,6 +7,11 @@ telaCadastroCatalago::telaCadastroCatalago(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    this->move(100,100);
+
+
+    this->show();
+
     controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastroCatalogo.xml",this);
     connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
 
@@ -17,8 +22,6 @@ telaCadastroCatalago::telaCadastroCatalago(QWidget *parent) :
     seqInicial.append("tutorSalva");
 
     controlWarnig->setLista(seqInicial);
-
-    this->show();
 
     controlWarnig->nextList(true);
 

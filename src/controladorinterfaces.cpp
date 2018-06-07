@@ -10,6 +10,8 @@ ControladorInterfaces::ControladorInterfaces(QObject *parent) : QObject(parent)
 void ControladorInterfaces::addInterface(QWidget *widget)
 {
     listaQWidget.append(widget);
+//    rect =  listaQWidget[0]->rect();
+    point= listaQWidget[0]->pos();
 }
 
 void ControladorInterfaces::fechaInterface(QWidget *widget){
@@ -54,6 +56,8 @@ void ControladorInterfaces::moveInterface(QWidget *widget){
 
         if(widget==listaQWidget[0]){
             widget->show();
+            rect =  listaQWidget[0]->rect();
+            point= listaQWidget[0]->pos();
         }else{
 
             rect =  listaQWidget[0]->rect();
