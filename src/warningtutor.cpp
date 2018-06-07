@@ -34,6 +34,7 @@ void WarningTutor::setTextDestaque(QString Text)
 {
     ui->lblDestaque->setText(Text);
 
+
 }
 
 void WarningTutor::setId(QString text){
