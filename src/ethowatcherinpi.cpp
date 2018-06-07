@@ -13,6 +13,8 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
    ui->setupUi(this);
 
    connect(ui->actionControl_Tutor, SIGNAL(triggered(bool)),this,SLOT(clicouTelaLicensa(bool)));
+
+   this->move(100,100);
 //   qDebug ()<< tutor.getTextoById("j");
 
 //   controlInicio = new  ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
@@ -22,8 +24,9 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
 
 
 
+
    //novos
-   controlWarnig = new ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml");
+   controlWarnig = new ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml",this);
    connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
 
 
@@ -67,6 +70,11 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
      controlWarnig->nextList(true);
         telaPessoa = new telaCadastroPessoa();
 
+        controInterface = new ControladorInterfaces();
+
+        controInterface->addInterface(this);
+
+
 }
 
 void EthoWatcherInpi::closeEvent (QCloseEvent *event)
@@ -105,7 +113,8 @@ EthoWatcherInpi::~EthoWatcherInpi()
 void EthoWatcherInpi::on_pbBehavioralCatalog_clicked()
 {
     telaCatalogo = new telaCadastroCatalago();
-    telaCatalogo->show();
+//    telaCatalogo->move(100,100);
+//    telaCatalogo->show();
 }
 
 /**
@@ -390,9 +399,24 @@ void EthoWatcherInpi::on_pbConfigAnalyses_clicked()
 void EthoWatcherInpi::on_pbCreateUser_clicked()
 {
     telaPessoa = new telaCadastroPessoa();
+    telaPessoa->move(QPoint(this->pos().x()+20,this->pos().y()+20));
     telaPessoa->showInterface();
+
+
+//    controInterface->addInterface(telaPessoa);
+
+//    controInterface->mostraInterfaceAtiva(telaPessoa);
+
+//    controInterface.deleteInterface(telaPessoa);
+
+//    telaPessoa->showInterface();
+
     //        controlWarnig->nextList(true);
     connect(telaPessoa, SIGNAL(fechouJanela()),this, SLOT(telaFechou()));
+
+
+
+
 
 
 

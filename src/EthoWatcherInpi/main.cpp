@@ -8,7 +8,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    EthoWatcherInpi w;
+    EthoWatcherInpi *w;
+
+    w = new EthoWatcherInpi();
 //existe uma possibilidade de mover o lugar que a tela abre
 //    QPoint d;
 //    d= w.pos();

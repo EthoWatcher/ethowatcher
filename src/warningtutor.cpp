@@ -15,8 +15,8 @@ WarningTutor::WarningTutor(QWidget *parent) :
     //    QImage img(":/icons/cabecalho.jpg"); // todo: generate image in memory
     //    ui->textoTutor->document()->addResource(QTextDocument::ImageResource, QUrl("qrc:/icons/cabecalho.jpg" ), img);
 
-    new QShortcut( Qt::Key_Y, this, SLOT(on_pbYes_clicked()));
-    new QShortcut( Qt::Key_N, this, SLOT(on_pbNo_clicked()));
+    new QShortcut( Qt::Key_F1, this, SLOT(on_pbYes_clicked()));
+    new QShortcut( Qt::Key_F2, this, SLOT(on_pbNo_clicked()));
 
     tutorId="";
 }
@@ -33,6 +33,7 @@ WarningTutor::~WarningTutor()
 void WarningTutor::setTextDestaque(QString Text)
 {
     ui->lblDestaque->setText(Text);
+
 
 }
 
@@ -128,8 +129,11 @@ void QWidget::closeEvent(QCloseEvent *){
 
 }
 
-ControladoWarningTutor::ControladoWarningTutor(QString XML)
+ControladoWarningTutor::ControladoWarningTutor(QString XML, QWidget *widget)
 {
+
+    controladorInterface = new ControladorInterfacesTutor();
+    controladorInterface->addInterface(widget);
 
     //ja pega todos os tutores xml
     tutor.lerXml(XML);
@@ -175,7 +179,10 @@ void ControladoWarningTutor::criandoInterfaces(){
         tutorAbs->setTextYes(tutor.getPbS(this->sequenciaTutores[i]));
         tutorAbs->setTextNo(tutor.getPbN(this->sequenciaTutores[i]));
 
+
         listaTutores.append(tutorAbs);
+
+        controladorInterface->addInterface(listaTutores[i]);
 
 
         connect(listaTutores[i],SIGNAL(clicou(bool,QString)),this,SLOT(wrapper(bool,QString)));
@@ -191,6 +198,8 @@ void ControladoWarningTutor::desconectandoListaTutores(){
     qDebug() << "desconectando 1";
     for(int i=0; i<listaTutores.size();i++){
         disconnect(listaTutores[i],SIGNAL(clicou(bool,QString)),this,SLOT(wrapper(bool,QString)));
+//        controladorInterface->deleteInterface(listaTutores[i]);
+
         listaTutores.pop_back();
     }
     qDebug() << "desconectando 2";
@@ -217,7 +226,8 @@ void ControladoWarningTutor::nextById(QString id){
         if(listaTutores[i]->getId(id) ){
 
             if(chHabilitaTutor){
-               listaTutores[i]->show();
+                controladorInterface->mostraInterfaceAtiva(listaTutores[i]);
+//               listaTutores[i]->show();
                qDebug()<<"foi ligada a interface " << id;
             }
 
@@ -235,7 +245,8 @@ void ControladoWarningTutor::setTutor(bool chLigaTutor)
 void ControladoWarningTutor::fechandoJanelas()
 {
  for(int i=0; i< listaTutores.size(); i++){
-        listaTutores[i]->close();
+     controladorInterface->fechaInterface(listaTutores[i]);
+//        listaTutores[i]->close();
  }
 }
 

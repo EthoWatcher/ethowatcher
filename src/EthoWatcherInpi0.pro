@@ -37,13 +37,15 @@ SOURCES += EthoWatcherInpi/main.cpp\
         warningtutor.cpp\
         tutoretho.cpp\
         telacadastropessoa.cpp\
-        telacadastrocatalago.cpp
+        telacadastrocatalago.cpp \
+    controladorinterfaces.cpp
 
 HEADERS  += ethowatcherinpi.h\
     warningtutor.h\
     tutoretho.h\
     telacadastropessoa.h\
-    telacadastrocatalago.h
+    telacadastrocatalago.h \
+    controladorinterfaces.h
 
 
 FORMS    += ethowatcherinpi.ui\
