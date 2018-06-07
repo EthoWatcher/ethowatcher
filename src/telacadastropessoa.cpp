@@ -19,7 +19,7 @@ telaCadastroPessoa::telaCadastroPessoa(QWidget *parent) :
 
 
 
-    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastroPessoa.xml");
+    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastroPessoa.xml",this);
     seqInicial.append("tutorInicio");
     seqInicial.append("tutorPrenchaCampos");
 

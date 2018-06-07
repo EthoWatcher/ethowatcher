@@ -15,6 +15,8 @@
 #include "telacadastropessoa.h"
 #include "telacadastrocatalago.h"
 
+#include "controladorinterfaces.h"
+
 
 namespace Ui {
 class EthoWatcherInpi;
@@ -169,6 +171,10 @@ private:
     telaCadastroPessoa *telaPessoa;
     telaCadastroCatalago *telaCatalogo;
     void configuraHabiTutores();
+
+
+
+    ControladorInterfaces * controInterface;
 };
 
 

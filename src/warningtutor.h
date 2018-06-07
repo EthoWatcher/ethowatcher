@@ -8,6 +8,8 @@
 
 #include <tutoretho.h>
 
+#include <controladorinterfaces.h>
+
 namespace Ui {
 class WarningTutor;
 }
@@ -57,7 +59,7 @@ class ControladoWarningTutor: public QObject{
     public:
 
     //api
-    ControladoWarningTutor(QString XML);
+    ControladoWarningTutor(QString XML, QWidget *widget);
     void setLista(QList<QString> sequencia);
     void nextList(bool chNext);
     void nextById(QString id);
@@ -85,6 +87,8 @@ private:
     void desconectandoListaTutores();
     int contador;
     bool chHabilitaTutor;
+
+    ControladorInterfacesTutor *controladorInterface;
 
 };
 
