@@ -15,8 +15,8 @@ WarningTutor::WarningTutor(QWidget *parent) :
     //    QImage img(":/icons/cabecalho.jpg"); // todo: generate image in memory
     //    ui->textoTutor->document()->addResource(QTextDocument::ImageResource, QUrl("qrc:/icons/cabecalho.jpg" ), img);
 
-    new QShortcut( Qt::Key_Y, this, SLOT(on_pbYes_clicked()));
-    new QShortcut( Qt::Key_N, this, SLOT(on_pbNo_clicked()));
+    new QShortcut( Qt::Key_F1, this, SLOT(on_pbYes_clicked()));
+    new QShortcut( Qt::Key_F2, this, SLOT(on_pbNo_clicked()));
 
     tutorId="";
 }

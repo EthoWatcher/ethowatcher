@@ -399,10 +399,13 @@ void EthoWatcherInpi::on_pbConfigAnalyses_clicked()
 void EthoWatcherInpi::on_pbCreateUser_clicked()
 {
     telaPessoa = new telaCadastroPessoa();
+    telaPessoa->move(QPoint(this->pos().x()+20,this->pos().y()+20));
+    telaPessoa->showInterface();
 
-    controInterface->addInterface(telaPessoa);
 
-    controInterface->mostraInterfaceAtiva(telaPessoa);
+//    controInterface->addInterface(telaPessoa);
+
+//    controInterface->mostraInterfaceAtiva(telaPessoa);
 
 //    controInterface.deleteInterface(telaPessoa);
 

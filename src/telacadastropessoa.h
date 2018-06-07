@@ -57,6 +57,7 @@ public:
 
 
     int transformaEm1(QString snumero);
+//    void show();
 signals:
 
     void fechouJanela();

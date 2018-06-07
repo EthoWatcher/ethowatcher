@@ -84,12 +84,19 @@ bool telaCadastroPessoa::getTutor(QString nomeTutor){
 
 void telaCadastroPessoa::showInterface()
 {
+//    this->move(100,100);
     this->show();
 
     controlWarnig->setLista(seqInicial);
     controlWarnig->nextList(true);
 
 }
+//void telaCadastroPessoa::show(){
+//    controlWarnig->setLista(seqInicial);
+//    controlWarnig->nextList(true);
+
+//   qDebug() << "asduhausdhu";
+//}
 
 telaCadastroPessoa::~telaCadastroPessoa()
 {
