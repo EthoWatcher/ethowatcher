@@ -20,16 +20,18 @@ Bem vindo ao <font color="red">ethowatcher open source (EthoWatcherOS)</font>. E
 </tutor>
 
 
-<tutor id="ethoCadastroPessoa" titulo="Faça seu cadastro pessoal" pbS="Create User" pbN="Load User">
+<tutor id="ethoCadastroPessoa" titulo="Faça seu cadastro pessoal" pbS="ok" pbN="">
 <html><body>
     <p>
-Para começar o uso do <font color="red">ethoWatcherOS</font> você precisa de um cadastro de usuario. Nesse cadastro você podera informar uma série
-de informações sobre você (e.g. nome). Clique em "Create User"
+Para começar o uso do <font color="red">ethoWatcherOS</font> você precisa de um cadastro de usuario. Nesse cadastro você podera informar uma sériede informações sobre você (e.g. nome).
 </p>
 <p>
-    Casp vpcê já tenha se registrado clique em load User
+    Escolha:
+    <ul>
+      <li><font color="red">Aperte no botão load user </font> para carregar um usuário já existente É uma etografia baseada em um vídeo</li>
+      <li><font color="red">Aperte no botão Create user</font>para criar um usuário</li>
+    </ul>
 </p>
-
 
 </body></html></tutor>
 

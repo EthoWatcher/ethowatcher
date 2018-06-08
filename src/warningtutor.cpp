@@ -230,6 +230,7 @@ void ControladoWarningTutor::nextById(QString id){
 //               listaTutores[i]->show();
                qDebug()<<"foi ligada a interface " << id;
             }
+            contador=i+1;
 
             break;
         }
