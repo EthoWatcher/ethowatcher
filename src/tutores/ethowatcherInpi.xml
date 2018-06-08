@@ -12,36 +12,67 @@ Hello world indio
 </body></html></tutor>
 
 
-<tutor id="ethoInicio" titulo="Bem vindo ao EthoWatcherOS" pbS="ok!" pbN=""><html><body>
-Ola!
-Bem vindo ao <font color="red">ethowatcher open source (EthoWatcherOS)</font>. Eu serei seu tutor nessa jornada.
+<tutor id="ethoInicio" titulo="Bem vindo ao EthoWatcherOS" pbS="Start the adventure" pbN=""><html><body>
+    <p>
+        Bem vindo ao <font color="red">Ethowatcher Open Source (EthW-OS)</font>.
+    </p>
 
+    <h2> Introduction</h2>
+    <p>
+        O  EthW-OS é um software que permite transcrever os comportamentos categóricos de um animal gravado em vídeo -etografia , e transcrever o comportamento do aniaml em váriaveis cinemáticas e morfológicas -Traking. Após essas transcrições é possivel fazer :
+
+        <ul>
+            <li><font color="red">Segmentação do relatório de Ethografia e Traking por tempo </font></li>
+            <li><font color="red">Segmentação do relatório de Traking por área de interesse </font></li>
+            <li><font color="red">Segmentação do relatório de Ethografia por comportamento </font></li>
+            <li><font color="red">Análise sequencial do relatório de Ethografia</font> </li>
+            <li><font color="red">Análise de concordancia de dois ou mais relatório de Ethografia de um mesmo registro de vídeo</font> </li>
+        </ul>
+    </p>
+
+    <h2> See more about the program</h2>
+    <p>
+        Veja a licença de uso em <font color="red"> System Information > License Agreement </font> e as informações sobre o programa em <font color="red"> System Information > About</font>.
+    </p>
+
+    <h2> Next</h2>
+    <p>
+        Clique em <font color="red">"Start the adventure!"</font> para começar a utilizar o programa.
+    </p>
 </body></html>
 </tutor>
 
 
-<tutor id="ethoCadastroPessoa" titulo="Faça seu cadastro pessoal" pbS="Create User" pbN="Load User">
+<tutor id="ethoCadastroPessoa" titulo="Faça seu cadastro pessoal" pbS="ok" pbN="">
 <html><body>
     <p>
-Para começar o uso do <font color="red">ethoWatcherOS</font> você precisa de um cadastro de usuario. Nesse cadastro você podera informar uma série
-de informações sobre você (e.g. nome). Clique em "Create User"
+Para começar o uso do <font color="red">EthW-OS</font> você precisa de um cadastro de usuario. Nesse cadastro você podera informar uma série de informações sobre você (e.g. nome), que serão usadas para identificar os relatórios que saem do EthW-OS. Esse registro também servirá para guardar suas configurações do programa (e.g. configuração do tutor de Ethografia Baseada em vídeo ).
 </p>
 <p>
-    Casp vpcê já tenha se registrado clique em load User
-</p>
+    Para começar o uso :
+    <ul>
+        <li><font color="red">Aperte no botão "Create user" </font>para criar um novo usuário</li>
 
+        <li><font color="red">Aperte no botão "Load user" </font> para carregar um usuário já existente.</li>
+    </ul>
+</p>
 
 </body></html></tutor>
 
 
-<tutor id="ethoEscolhaEthoTraking" titulo="Escolha as opções pertinentes e aperte next" pbS="OK!" pbN=""><html><body>
-Escolha entre :
+<tutor id="ethoEscolhaEthoTraking" titulo="Marque a opção e aperte next" pbS="OK!(f1)" pbN=""><html><body>
+Marque a opção:
 
     <ul>
-      <li><font color="red">Digital Video-Based Ethography an Active Analysis!:</font>É uma etografia baseada em um vídeo</li>
-      <li><font color="red">Trakin:</font>Tecnuica para rastrear o animal na areana</li>
-      <li><font color="red">both:</font>Oção para fazer tanto etografia quanto trakin</li>
+      <li><font color="red">Digital Video-Based Ethography an Active Analysis!:</font> para realizar os passos da etografias baseadas em vídeos de um animal.</li>
+      <li><font color="red">Traking </font>para realizar o Traking de um animal.</li>
+      <li><font color="red">Digital Video-Based Ethography an Active Analysis and Traking </font> para realizar tanto Ethografia baseada em vídeo quanto Traking </li>
     </ul>
+
+    <h2> NEXT </h2>
+    <p>
+        Após selecionar a opção de configuração da interface <font color="red">  clique em -> </font>
+    </p>
 
 
 </body></html></tutor>

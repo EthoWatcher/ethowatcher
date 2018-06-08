@@ -8,6 +8,10 @@ telaCadastroPessoa::telaCadastroPessoa(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->label_2->setVisible(false);
+    ui->lePass->setVisible(false);
+
+
     QObject::connect(this,SIGNAL(fechouJanela()),this,SLOT(mudaLetra()));
     vezes=0;
     tutor=1;
@@ -22,11 +26,17 @@ telaCadastroPessoa::telaCadastroPessoa(QWidget *parent) :
     controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastroPessoa.xml",this);
     seqInicial.append("tutorInicio");
     seqInicial.append("tutorPrenchaCampos");
+    seqInicial.append("tutorSaida");
 
     connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
 
     chCarregado=false;
 
+}
+
+void telaCadastroPessoa::closeEvent(QCloseEvent *){
+
+    controlWarnig->fechandoJanelas();
 }
 
 
@@ -321,6 +331,7 @@ void telaCadastroPessoa::on_pushButton_2_clicked()
 
         QMessageBox::information(this,tr("Message"),tr("Saved successfully"));
 
+        controlWarnig->fechandoJanelas();
 
         emit this->fechouJanela();
 
@@ -345,5 +356,5 @@ void telaCadastroPessoa::mudaLetra(){
 void telaCadastroPessoa::botaoClicado(bool, QString)
 {
 
-    controlWarnig->nextList(true);
+    controlWarnig->nextById("tutorPrenchaCampos");
 }

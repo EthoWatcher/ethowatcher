@@ -34,15 +34,6 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
    configuraLinhas();
 
 
-//   controlWarnig->setLista(seqInicial);
-
-
-
-
-
-
-
-
     QString html;
 
     //deixando todos os boteos invisiveisi
@@ -56,7 +47,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     controleCatalogo=true;
     controleOpcoesEtografia=false;
 
-    ui->cbEthoAna->setVisible(false);
+    ui->cbEthoAna->setVisible(true);
 //    ui->cbTutorEthoPrincipal->setVisible(false);
      ui->stackedPassos->setEnabled(false);
      ui->grpTutor->setVisible(false);
@@ -67,7 +58,8 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
      this->show();
 
      controlWarnig->setLista(seqInicial);
-     controlWarnig->nextList(true);
+     controlWarnig->nextById("ethoInicio");
+//     controlWarnig->nextList(true);
         telaPessoa = new telaCadastroPessoa();
 
         controInterface = new ControladorInterfaces();
@@ -170,15 +162,14 @@ bool EthoWatcherInpi::botaoClicado(bool clicado, QString id)
     }
 
     if(id == "ethoCadastroPessoa"){
-        qDebug() <<"oi mundo ";
-        if(clicado){
-            ui->pbCreateUser->click();
+//        if(clicado){
+//            ui->pbCreateUser->click();
 
-        }else{
+//        }else{
 
-            ui->pbLoadUser->click();
+//            ui->pbLoadUser->click();
 
-        }
+//        }
 
     }
 
@@ -416,10 +407,6 @@ void EthoWatcherInpi::on_pbCreateUser_clicked()
 
 
 
-
-
-
-
 }
 
 
@@ -440,6 +427,8 @@ void EthoWatcherInpi::on_pbLoadUser_clicked()
 
         qDebug() << "voce não carregou nenhum usuario";
     }
+
+
 
 
 }
@@ -467,12 +456,15 @@ void EthoWatcherInpi::configurandoOsTutores(){
 }
 
 void EthoWatcherInpi::telaFechou(){
+    controlWarnig->nextById("ethoEscolhaEthoTraking");
+
     if(telaPessoa->createdUser()){
         configurandoOsTutores();
     }else{
         qDebug()<< "não configurado os tutores";
     }
-    controlWarnig->nextList(true);
+
+//    controlWarnig->nextList(true);
 }
 
 void EthoWatcherInpi::clicouTelaLicensa(bool tela)

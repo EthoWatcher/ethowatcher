@@ -230,6 +230,7 @@ void ControladoWarningTutor::nextById(QString id){
 //               listaTutores[i]->show();
                qDebug()<<"foi ligada a interface " << id;
             }
+            contador=i+1;
 
             break;
         }
@@ -242,6 +243,9 @@ void ControladoWarningTutor::setTutor(bool chLigaTutor)
     qDebug() << "configurado tutor para" << chLigaTutor;
 }
 
+/**
+ * @brief ControladoWarningTutor::fechandoJanelas fecha todas as janelas abertas
+ */
 void ControladoWarningTutor::fechandoJanelas()
 {
  for(int i=0; i< listaTutores.size(); i++){
