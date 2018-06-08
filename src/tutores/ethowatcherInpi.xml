@@ -27,8 +27,15 @@ Hello world indio
             <li><font color="red">Análise de concordancia de dois ou mais relatório de Ethografia de um mesmo registro de vídeo</font> </li>
         </ul>
     </p>
+
     <p>
-        Clique em <font color="red">"Start the adventure!"</font>
+        Veja a licença de uso em <font color="red"> System Information > License Agreement </font> e as informações sobre o programa em <font color="red"> System Information > About</font>.
+    </p>
+
+
+
+    <p>
+        Clique em <font color="red">"Start the adventure!"</font> para começar a utilizar o programa.
     </p>
 </body></html>
 </tutor>
@@ -56,8 +63,8 @@ Escolha entre :
 
     <ul>
       <li><font color="red">Digital Video-Based Ethography an Active Analysis!:</font>É a opção para realizar etografias baseadas em vídeos de um animal.</li>
-      <li><font color="red">Trakin:</font>É a opção para realizar o Traking de um animal.</li>
-      <li><font color="red">both:</font>É a opção para realizar tanto Ethografia baseada em vídeo quanto Traking </li>
+      <li><font color="red">Traking </font>É a opção para realizar o Traking de um animal.</li>
+      <li><font color="red">Digital Video-Based Ethography an Active Analysis and Traking </font>É a opção para realizar tanto Ethografia baseada em vídeo quanto Traking </li>
     </ul>
 
 
