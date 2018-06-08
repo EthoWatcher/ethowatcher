@@ -1,29 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tutores>
 
-    <tutor id="tutorInicio" titulo="Bem vindo ao modulo de cadastro de catalogo" pbS="yes(y)" pbN="">
+    <tutor id="tutorInicio" titulo="Bem vindo ao modulo de cadastro de catalogo" pbS="yes(y)" pbN="" sizeHeight ="500">
     <html><body>
         <p>
-            O módulo de cadastro de catálogos serve para que o usuário possa registrar catálogos comportamentais categóricos, esses podem ser utilizados posteriormente na transcrição comportamental categórica. Esse módulo permite ainda, cadastrar para cada comportamento um nome, uma descrição e um atalho alfanumérico.
+            O módulo de cadastro de catálogos comportamentias serve para registrar catálogos de comportamentos.
+            Os catalogos podem ser utilizados posteriormente na transcrição comportamental categórica.
+
+        </p>
+
+        <h2>NEXT</h2>
+        <p>
+            Aperte no botão yes para iniciar o cadastro das suas categorias.
         </p>
 
     </body></html></tutor>
 
-    <tutor id="tutorPrenchaCamposNameCodeDescription" titulo="Adicione uma categoria comportamental e aperte add to catalog" pbS="yes(y)" pbN="">
+    <tutor id="tutorPrenchaCamposNameCodeDescription" titulo="Adicione uma categoria comportamental" pbS="yes(y)" pbN="" sizeHeight ="600">
     <html><body>
-
+        <p>
+            Preencha o campo obrigatório:
+        </p>
     <p>
-        Adicione uma categoria comportamental
         <ul>
-          <li><font color="red"> Name </font>Informe o nome da categoria comportamental e pode conter qualquer alfanumérico e qualquer quantidade de caracteres. Esse campo é obrigatório ser preenchido.</li>
-          <li><font color="red"> Code</font> Insira o código correspondente ao comportamento que será criado. Para esse código ser usado como atalho do teclado ele deve conter no máximo um carácter alfabético. O preenchimento desse campo também é obrigatório para a criação de um novo elemento do catálogo. </li>
-          <li><font color="red"> Description </font>Infrome uma palavra-chave que pode conter qualquer alfanumérico de qualquer tamanho. Esse campo é obrigatório ser preenchido.</li>
+          <li><font color="red"> Name </font> com o nome da categoria comportamental.</li>
+          <li><font color="red"> Shortcut</font> com  um tecla de A-Z para ser usado de atalho no registro etográfico baseado em vídeo. </li>
+          <li><font color="red"> Description </font> com  a descrição operacional da categoria </li>
         </ul>
     </p>
 
+    <h2> <font color="red">WARNING! </font></h2>
+    <p>
+        Todos os campo,a não ser o campo shortcut, podem ser preenchidos por quantidades de caractes maior do que 1 desde que sejem da codificação UTF-8 e não contenha caracteres espciais (e.g., ãçéó)
+    </p>
+
+    <h2> NEXT</h2>
+    <p>
+         Clique no botão <font color="red"> add to catalog </font> para adicionar a categoria.
+    </p>
+
+
     </body></html></tutor>
 
-    <tutor id="tutoCatalogUnits" titulo="behavior catalog units" pbS="yes(y)" pbN="">
+    <tutor id="tutoCatalogUnits" titulo="Behavior catalog units table" pbS="ok(f1)" pbN="" sizeHeight ="400">
     <html><body>
 
         Nessa tabela, são apresentadas as categorias criadas para o novo catálogo. Cada linha corresponde a uma categoria, sendo a primeira coluna referente ao nome dessa categoria e a segunda referente ao seu código.
@@ -31,18 +50,34 @@
     </body></html></tutor>
 
 
-    <tutor id="tutorDele" titulo="Voce pode deletar as categorias criadas" pbS="yes(y)" pbN="">
+    <tutor id="tutorDele" titulo="Delete itens" pbS="ok(f1)" pbN="" sizeHeight ="400">
     <html><body>
 
-        Ao clicar nesse botão é apagada a categoria selecionado na tabela. Logo, o elemento correspondente a esse item é excluído do catálogo. Para selecionar um item, deve-se clicar sobre uma das linhas contendo o comportamento desejado.
+        <p>
+            Siga os passos:
+        </p>
+        <p>
+
+            <ul>
+              <li><font color="red"> Passo 1 </font> Selecione a categoria que você deseja deletar clicando na linha correspondente na tabela behavior catalog units</li>
+              <li><font color="red"> Passo 2 </font> Clique no botão Delete selected item </li>
+            </ul>
+        </p>
+
+        <p>
+            Ao seguir esses passos você irá excluir o item selecionado do catálogo.
+        </p>
+
+
 
     </body></html></tutor>
 
 
-    <tutor id="tutorSalva" titulo="save the catalog" pbS="yes(y)" pbN="">
+    <tutor id="tutorSalva" titulo="save the catalog" pbS="yes(y)" pbN="" sizeHeight ="300">
     <html><body>
-
-    ao clicar nesse botão é aberto uma caixa de diálogo com acesso ao disco local do computador para que o usuário possa escolher onde será criado o novo arquivo de catálogo comportamental.
+        <p>
+             Clique no botão <font color="red"> save the catalog </font> para salvar e fechar a janela.
+        </p>
 
     </body></html></tutor>
 

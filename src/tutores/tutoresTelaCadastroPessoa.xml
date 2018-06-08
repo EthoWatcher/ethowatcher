@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tutores>
 
-    <tutor id="tutorInicio" titulo="Bem vindo ao modulo de cadastro de usuário" pbS="yes(f1)" pbN="" sizeHeight ="500">
+    <tutor id="tutorInicio" titulo="Bem vindo ao modulo de cadastro de usuário" pbS="yes(f1)" pbN="" sizeHeight ="400">
     <html><body>
         <h2> Introduction</h2>
         <p>
@@ -19,7 +19,7 @@
     <html><body>
 
 <p>
-    Preencha os campos é obrigatórios:
+    Preencha os campos obrigatórios:
 </p>
     <p>
         <ul>

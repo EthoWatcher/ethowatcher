@@ -38,6 +38,8 @@ private slots:
 
     void botaoClicado(bool clicado, QString id);
 
+    void on_tabDadCat_clicked(const QModelIndex &index);
+
 private:
     Ui::telaCadastroCatalago *ui;
 
@@ -60,6 +62,7 @@ private:
     dadosEtografia dadosEto;
     QString nomeGravarCatalago;
     QFile Output;
+    int cont;
 
 
 };
