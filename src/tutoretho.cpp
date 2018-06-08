@@ -53,7 +53,8 @@ void TutorEtho::lerXml(QString arquivo)
                                     aContent,
                                     itemEle.attribute("titulo"),
                                     itemEle.attribute("pbS"),
-                                    itemEle.attribute("pbN")
+                                    itemEle.attribute("pbN"),
+                                    itemEle.attribute("sizeHeight")
                                     );
 //            tutorLido.id = itemEle.attribute("id");
 //            tutorLido.titulo = itemEle.attribute("titulo");
@@ -150,6 +151,18 @@ QString TutorEtho::getPbN(QString id)
     return "erro nao encontrou";
 }
 
+QString TutorEtho::getSizeHeight(QString id)
+{
+    for(int i=0; i<tutores.size();i++){
+        if(tutores[i].getId() == id){
+            return tutores[i].getSizeHeight();
+        }
+
+    }
+    return "erro nao encontrou";
+
+}
+
 QString TutorEtho::getTextoByNumero(int numero)
 {
     for(int i=0; i<tutores.size();i++){
@@ -176,7 +189,7 @@ Tutores::Tutores()
     qDebug() << "feito o primeiro leitor de tutor;";
 }
 
-void Tutores::addParamatros(QString id, QString texto, QString Titulo, QString pbS, QString pbN)
+void Tutores::addParamatros(QString id, QString texto, QString Titulo, QString pbS, QString pbN, QString sizeHeight)
 {
 
     this->id=id;
@@ -184,6 +197,7 @@ void Tutores::addParamatros(QString id, QString texto, QString Titulo, QString p
     this->titulo = Titulo;
     this->pbN = pbN;
     this->pbS = pbS;
+    this->sizeHeight = sizeHeight;
 
 
     if(this->pbN == ""){
@@ -229,4 +243,9 @@ QString Tutores::getPbN()
 QString Tutores::getTitulo()
 {
     return this->titulo;
+}
+
+QString Tutores::getSizeHeight()
+{
+    return this->sizeHeight;
 }

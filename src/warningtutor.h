@@ -25,6 +25,7 @@ public:
     void setTextTutor(QString Text);
     void setTextYes(QString Text);
     void setTextNo(QString Text);
+    void setSizeWeight(QString Text);
     void setYesOn(bool chave);
     void setNoOn(bool chave);
     bool getId(QString textId);
