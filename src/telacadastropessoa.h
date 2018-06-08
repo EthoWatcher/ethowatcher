@@ -76,6 +76,7 @@ private:
 
     ControladoWarningTutor *controlWarnig;
     QList<QString> seqInicial;
+    void closeEvent(QCloseEvent *);
 };
 
 #endif // TELACADASTROPESSOA_H

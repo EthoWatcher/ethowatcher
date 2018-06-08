@@ -243,6 +243,9 @@ void ControladoWarningTutor::setTutor(bool chLigaTutor)
     qDebug() << "configurado tutor para" << chLigaTutor;
 }
 
+/**
+ * @brief ControladoWarningTutor::fechandoJanelas fecha todas as janelas abertas
+ */
 void ControladoWarningTutor::fechandoJanelas()
 {
  for(int i=0; i< listaTutores.size(); i++){

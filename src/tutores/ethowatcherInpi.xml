@@ -16,6 +16,8 @@ Hello world indio
     <p>
         Bem vindo ao <font color="red">Ethowatcher Open Source (EthW-OS)</font>.
     </p>
+
+    <h2> Introduction</h2>
     <p>
         O  EthW-OS é um software que permite transcrever os comportamentos categóricos de um animal gravado em vídeo -etografia , e transcrever o comportamento do aniaml em váriaveis cinemáticas e morfológicas -Traking. Após essas transcrições é possivel fazer :
 
@@ -28,12 +30,12 @@ Hello world indio
         </ul>
     </p>
 
+    <h2> See more about the program</h2>
     <p>
         Veja a licença de uso em <font color="red"> System Information > License Agreement </font> e as informações sobre o programa em <font color="red"> System Information > About</font>.
     </p>
 
-
-
+    <h2> Next</h2>
     <p>
         Clique em <font color="red">"Start the adventure!"</font> para começar a utilizar o programa.
     </p>
@@ -58,14 +60,19 @@ Para começar o uso do <font color="red">EthW-OS</font> você precisa de um cada
 </body></html></tutor>
 
 
-<tutor id="ethoEscolhaEthoTraking" titulo="Escolha as opções pertinentes e aperte next" pbS="OK!" pbN=""><html><body>
-Escolha entre :
+<tutor id="ethoEscolhaEthoTraking" titulo="Marque a opção e aperte next" pbS="OK!(f1)" pbN=""><html><body>
+Marque a opção:
 
     <ul>
-      <li><font color="red">Digital Video-Based Ethography an Active Analysis!:</font>É a opção para realizar etografias baseadas em vídeos de um animal.</li>
-      <li><font color="red">Traking </font>É a opção para realizar o Traking de um animal.</li>
-      <li><font color="red">Digital Video-Based Ethography an Active Analysis and Traking </font>É a opção para realizar tanto Ethografia baseada em vídeo quanto Traking </li>
+      <li><font color="red">Digital Video-Based Ethography an Active Analysis!:</font> para realizar os passos da etografias baseadas em vídeos de um animal.</li>
+      <li><font color="red">Traking </font>para realizar o Traking de um animal.</li>
+      <li><font color="red">Digital Video-Based Ethography an Active Analysis and Traking </font> para realizar tanto Ethografia baseada em vídeo quanto Traking </li>
     </ul>
+
+    <h2> NEXT </h2>
+    <p>
+        Após selecionar a opção de configuração da interface <font color="red">  clique em -> </font>
+    </p>
 
 
 </body></html></tutor>
