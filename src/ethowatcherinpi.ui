@@ -124,7 +124,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedPassos">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="pageIdentificacao">
           <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -157,6 +157,9 @@
                <property name="checked">
                 <bool>false</bool>
                </property>
+               <property name="autoExclusive">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item>
@@ -179,6 +182,9 @@
                <property name="checked">
                 <bool>false</bool>
                </property>
+               <property name="autoExclusive">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item>
@@ -193,7 +199,10 @@
                 </font>
                </property>
                <property name="text">
-                <string>Ethography Analysis</string>
+                <string> Tracking and Digital Video-Based Ethography</string>
+               </property>
+               <property name="autoExclusive">
+                <bool>true</bool>
                </property>
               </widget>
              </item>

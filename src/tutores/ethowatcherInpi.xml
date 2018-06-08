@@ -12,10 +12,24 @@ Hello world indio
 </body></html></tutor>
 
 
-<tutor id="ethoInicio" titulo="Bem vindo ao EthoWatcherOS" pbS="ok!" pbN=""><html><body>
-Ola!
-Bem vindo ao <font color="red">ethowatcher open source (EthoWatcherOS)</font>. Eu serei seu tutor nessa jornada.
+<tutor id="ethoInicio" titulo="Bem vindo ao EthoWatcherOS" pbS="Start the adventure" pbN=""><html><body>
+    <p>
+        Bem vindo ao <font color="red">Ethowatcher Open Source (EthW-OS)</font>.
+    </p>
+    <p>
+        O  EthW-OS é um software que permite transcrever os comportamentos categóricos de um animal gravado em vídeo -etografia , e transcrever o comportamento do aniaml em váriaveis cinemáticas e morfológicas -Traking. Após essas transcrições é possivel fazer :
 
+        <ul>
+            <li><font color="red">Segmentação do relatório de Ethografia e Traking por tempo </font></li>
+            <li><font color="red">Segmentação do relatório de Traking por área de interesse </font></li>
+            <li><font color="red">Segmentação do relatório de Ethografia por comportamento </font></li>
+            <li><font color="red">Análise sequencial do relatório de Ethografia</font> </li>
+            <li><font color="red">Análise de concordancia de dois ou mais relatório de Ethografia de um mesmo registro de vídeo</font> </li>
+        </ul>
+    </p>
+    <p>
+        Clique em <font color="red">"Start the adventure!"</font>
+    </p>
 </body></html>
 </tutor>
 
@@ -23,13 +37,14 @@ Bem vindo ao <font color="red">ethowatcher open source (EthoWatcherOS)</font>. E
 <tutor id="ethoCadastroPessoa" titulo="Faça seu cadastro pessoal" pbS="ok" pbN="">
 <html><body>
     <p>
-Para começar o uso do <font color="red">ethoWatcherOS</font> você precisa de um cadastro de usuario. Nesse cadastro você podera informar uma sériede informações sobre você (e.g. nome).
+Para começar o uso do <font color="red">EthW-OS</font> você precisa de um cadastro de usuario. Nesse cadastro você podera informar uma série de informações sobre você (e.g. nome), que serão usadas para identificar os relatórios que saem do EthW-OS. Esse registro também servirá para guardar suas configurações do programa (e.g. configuração do tutor de Ethografia Baseada em vídeo ).
 </p>
 <p>
-    Escolha:
+    Para começar o uso :
     <ul>
-      <li><font color="red">Aperte no botão load user </font> para carregar um usuário já existente É uma etografia baseada em um vídeo</li>
-      <li><font color="red">Aperte no botão Create user</font>para criar um usuário</li>
+        <li><font color="red">Aperte no botão "Create user" </font>para criar um novo usuário</li>
+
+        <li><font color="red">Aperte no botão "Load user" </font> para carregar um usuário já existente.</li>
     </ul>
 </p>
 
@@ -40,9 +55,9 @@ Para começar o uso do <font color="red">ethoWatcherOS</font> você precisa de u
 Escolha entre :
 
     <ul>
-      <li><font color="red">Digital Video-Based Ethography an Active Analysis!:</font>É uma etografia baseada em um vídeo</li>
-      <li><font color="red">Trakin:</font>Tecnuica para rastrear o animal na areana</li>
-      <li><font color="red">both:</font>Oção para fazer tanto etografia quanto trakin</li>
+      <li><font color="red">Digital Video-Based Ethography an Active Analysis!:</font>É a opção para realizar etografias baseadas em vídeos de um animal.</li>
+      <li><font color="red">Trakin:</font>É a opção para realizar o Traking de um animal.</li>
+      <li><font color="red">both:</font>É a opção para realizar tanto Ethografia baseada em vídeo quanto Traking </li>
     </ul>
 
 

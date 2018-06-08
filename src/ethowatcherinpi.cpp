@@ -47,7 +47,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     controleCatalogo=true;
     controleOpcoesEtografia=false;
 
-    ui->cbEthoAna->setVisible(false);
+    ui->cbEthoAna->setVisible(true);
 //    ui->cbTutorEthoPrincipal->setVisible(false);
      ui->stackedPassos->setEnabled(false);
      ui->grpTutor->setVisible(false);
