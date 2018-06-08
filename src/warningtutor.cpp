@@ -81,6 +81,21 @@ void WarningTutor::setTextNo(QString Text)
 
 }
 
+void WarningTutor::setSizeWeight(QString Text)
+{
+    if(Text == ""){
+        // nao meche no tamanho
+    }else{
+        int tamanho = Text.toInt();
+        qDebug() << "novo tamanho" << tamanho ;
+
+        QRect ret;
+        ret = this->rect();
+       this->setGeometry(0,0,ret.width(),tamanho);
+    }
+
+}
+
 void WarningTutor::setYesOn(bool chave)
 {
     ui->pbYes->setEnabled(chave);
@@ -178,6 +193,7 @@ void ControladoWarningTutor::criandoInterfaces(){
         tutorAbs->setTextTutor( tutor.getTextoById(this->sequenciaTutores[i]));
         tutorAbs->setTextYes(tutor.getPbS(this->sequenciaTutores[i]));
         tutorAbs->setTextNo(tutor.getPbN(this->sequenciaTutores[i]));
+        tutorAbs->setSizeWeight(tutor.getSizeHeight(this->sequenciaTutores[i]));
 
 
         listaTutores.append(tutorAbs);

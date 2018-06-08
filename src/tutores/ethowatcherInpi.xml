@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tutores>
-<tutor id="default" titulo="oi mundo" pbS="yes(y)" pbN="no(n)">
+<tutor id="default" titulo="oi mundo" pbS="yes(y)" pbN="no(n)" sizeHeight ="500">
 
 <html><header><title>j</title></header><body>Hello world j</body></html></tutor>
 
@@ -12,7 +12,7 @@ Hello world indio
 </body></html></tutor>
 
 
-<tutor id="ethoInicio" titulo="Bem vindo ao EthoWatcherOS" pbS="Start the adventure" pbN=""><html><body>
+<tutor id="ethoInicio" titulo="Bem vindo ao EthoWatcherOS" pbS="Start the adventure" pbN="" sizeHeight ="750"><html><body>
     <p>
         Bem vindo ao <font color="red">Ethowatcher Open Source (EthW-OS)</font>.
     </p>
@@ -43,7 +43,7 @@ Hello world indio
 </tutor>
 
 
-<tutor id="ethoCadastroPessoa" titulo="Faça seu cadastro pessoal" pbS="ok" pbN="">
+<tutor id="ethoCadastroPessoa" titulo="Faça seu cadastro pessoal" pbS="ok" pbN="" sizeHeight ="500">
 <html><body>
     <p>
 Para começar o uso do <font color="red">EthW-OS</font> você precisa de um cadastro de usuario. Nesse cadastro você podera informar uma série de informações sobre você (e.g. nome), que serão usadas para identificar os relatórios que saem do EthW-OS. Esse registro também servirá para guardar suas configurações do programa (e.g. configuração do tutor de Ethografia Baseada em vídeo ).
@@ -60,7 +60,7 @@ Para começar o uso do <font color="red">EthW-OS</font> você precisa de um cada
 </body></html></tutor>
 
 
-<tutor id="ethoEscolhaEthoTraking" titulo="Marque a opção e aperte next" pbS="OK!(f1)" pbN=""><html><body>
+<tutor id="ethoEscolhaEthoTraking" titulo="Marque a opção e aperte next" pbS="OK!(f1)" pbN="" sizeHeight ="500"><html><body>
 Marque a opção:
 
     <ul>

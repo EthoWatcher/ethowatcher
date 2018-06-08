@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tutores>
 
-    <tutor id="tutorInicio" titulo="Bem vindo ao modulo de cadastro de usuário" pbS="yes(f1)" pbN="">
+    <tutor id="tutorInicio" titulo="Bem vindo ao modulo de cadastro de usuário" pbS="yes(f1)" pbN="" sizeHeight ="400">
     <html><body>
         <h2> Introduction</h2>
         <p>
@@ -15,11 +15,11 @@
 
     </body></html></tutor>
 
-    <tutor id="tutorPrenchaCampos" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="">
+    <tutor id="tutorPrenchaCampos" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
 
 <p>
-    Preencha os campos é obrigatórios:
+    Preencha os campos obrigatórios:
 </p>
     <p>
         <ul>
@@ -31,7 +31,7 @@
     <h2> <font color="red">WARNING! </font></h2>
 
     <p>
-        Os campos podem ser preenchidos por quantidades de caractes maior do que 1 desde que sejem da codificação UTF-8 menos caracteres espciais (e.g., ãçéó)
+        Os campos podem ser preenchidos por quantidades de caractes maior do que 1 desde que sejem da codificação UTF-8 e não contenha caracteres espciais (e.g., ãçéó)
     </p>
 
     <h2> Next</h2>

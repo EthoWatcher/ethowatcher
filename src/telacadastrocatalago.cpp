@@ -28,6 +28,7 @@ telaCadastroCatalago::telaCadastroCatalago(QWidget *parent) :
     ui->groupBox_3->setVisible(false);
 
 
+    cont=0;
 
 
 }
@@ -101,7 +102,17 @@ void telaCadastroCatalago::on_pbAddCategoria_clicked()
     ui->leCategoria->setText("");
 
 
-    controlWarnig->nextList("tutoCatalogUnits");
+    if(cont ==0 ){
+
+        controlWarnig->nextList("tutoCatalogUnits");
+        cont++;
+
+    }else if(cont == 1){
+        controlWarnig->nextList("tutorSalva");
+    }
+
+    QMessageBox::information(this,tr("Message"),tr("Created new Behavioral unit successfully"));
+
 }
 
 void telaCadastroCatalago::on_pbClearItem_clicked()
@@ -125,6 +136,8 @@ void telaCadastroCatalago::on_pbClearItem_clicked()
    if(itemSelecionado==0)
    {
         QMessageBox::information(this,"Atention!", "Não existe itens");
+   }else{
+       QMessageBox::information(this,tr("Message"),tr("Deleted behavioral unit successfully"));
    }
 
 }
@@ -179,6 +192,8 @@ void telaCadastroCatalago::on_pbCadastroCatalago_clicked()
 
     Output.close();
 
+    QMessageBox::information(this,tr("Message"),tr("Created new Behavioral Catalog successfully"));
+
     this->close();
     //deleta a janela (chama o destrutor);
     delete this;
@@ -203,7 +218,7 @@ void telaCadastroCatalago::botaoClicado(bool clicado, QString id)
     if(id == "tutorInicio"){
         qDebug() <<"oi mundo ";
         if(clicado){
-            controlWarnig->nextList(true);
+            controlWarnig->nextById("tutorPrenchaCamposNameCodeDescription");
 
         }else{
 
@@ -211,4 +226,9 @@ void telaCadastroCatalago::botaoClicado(bool clicado, QString id)
 
     }
 
+}
+
+void telaCadastroCatalago::on_tabDadCat_clicked(const QModelIndex &index)
+{
+    controlWarnig->nextById("tutorDele");
 }

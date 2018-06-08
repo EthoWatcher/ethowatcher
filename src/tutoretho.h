@@ -8,12 +8,15 @@
 #include <QDomElement>
 
 
+/**
+ * @brief The Tutores class é a classe que contem os dados
+ */
 class Tutores{
 
 public:
     Tutores();
-    void addParamatros(QString id,QString texto , QString Titulo,
-                       QString pbS, QString pbN);
+    void addParamatros(QString id, QString texto , QString Titulo,
+                       QString pbS, QString pbN, QString sizeHeight);
 
 
     QString getTexto();
@@ -21,6 +24,7 @@ public:
     QString getPbS();
     QString getPbN();
     QString getTitulo();
+    QString getSizeHeight();
 
 
 private:
@@ -31,6 +35,7 @@ private:
     bool    chPbS;
     QString pbN;
     bool    chPbN;
+    QString sizeHeight;
 
 };
 /**
@@ -51,6 +56,7 @@ public:
     QString getTitulo(QString id);
     QString getPbS(QString id);
     QString getPbN(QString id);
+    QString getSizeHeight(QString id);
 
     QString getTextoByNumero(int numero);
     int getSize();
