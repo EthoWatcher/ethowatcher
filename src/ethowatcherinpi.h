@@ -14,6 +14,7 @@
 
 #include "telacadastropessoa.h"
 #include "telacadastrocatalago.h"
+#include "telacadastrofilme.h"
 
 #include "controladorinterfaces.h"
 
@@ -170,6 +171,7 @@ private:
 
     telaCadastroPessoa *telaPessoa;
     telaCadastroCatalago *telaCatalogo;
+    telaCadastroFilme *etografaRegistro;
     void configuraHabiTutores();
 
 
