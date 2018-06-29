@@ -50,7 +50,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
     ui->cbEthoAna->setVisible(true);
 //    ui->cbTutorEthoPrincipal->setVisible(false);
      ui->stackedPassos->setEnabled(false);
-     ui->grpTutor->setVisible(false);
+//     ui->grpTutor->setVisible(false);
 
 
 
@@ -66,6 +66,8 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
         controInterface = new ControladorInterfaces();
 
         controInterface->addInterface(this);
+
+        ui->pushButtonAvancar->setEnabled(false);
 
 
 }
@@ -454,6 +456,8 @@ void EthoWatcherInpi::configurandoOsTutores(){
      ui->stackedPassos->setEnabled(true);
      ui->pbLoadUser->setEnabled(false);
      ui->pbCreateUser->setEnabled(false);
+
+     ui->pushButtonAvancar->setEnabled(true);
 
 
      configuraHabiTutores();

@@ -12,52 +12,43 @@ Hello world indio
 </body></html></tutor>
 
 
-<tutor id="ethoInicio" titulo="Bem vindo ao EthoWatcherOS" pbS="Start the adventure" pbN="" sizeHeight ="750"><html><body>
+<tutor id="ethoInicio" titulo="Welcome to EthoWatcherOS" pbS="ok(f1)" pbN="" sizeHeight ="600"><html><body>
     <p>
-        Bem vindo ao <font color="red">Ethowatcher Open Source (EthW-OS)</font>.
+        Welcome to the <font color="red">Ethowatcher Open Source (EthW-OS)</font>.
     </p>
-
     <h2> Introduction</h2>
     <p>
-        O  EthW-OS é um software que permite transcrever os comportamentos categóricos de um animal gravado em vídeo -etografia , e transcrever o comportamento do aniaml em váriaveis cinemáticas e morfológicas -Traking. Após essas transcrições é possivel fazer :
-
+        The EthoWatcher-OS is a computational tool to support detailed ethography (behavioral catalog- or ethogram-based recording of behavior)  , tracking and the extraction of kinematic variables from digital video files of laboratory animals.
         <ul>
-            <li><font color="red">Segmentação do relatório de Ethografia e Traking por tempo </font></li>
-            <li><font color="red">Segmentação do relatório de Traking por área de interesse </font></li>
-            <li><font color="red">Segmentação do relatório de Ethografia por comportamento </font></li>
-            <li><font color="red">Análise sequencial do relatório de Ethografia</font> </li>
-            <li><font color="red">Análise de concordancia de dois ou mais relatório de Ethografia de um mesmo registro de vídeo</font> </li>
+            <li><font color="red">Ethographic and tracking reports segmented in time </font></li>
+            <li><font color="red">Tracking reports segmented by interest areas </font></li>
+            <li><font color="red">Ethographic reports segmented by behavior </font></li>
+            <li><font color="red">Sequence analysis of the ethnographic data</font> </li>
+            <li><font color="red">Reliability Intra- and inter rater (or observer) performances</font> </li>
         </ul>
     </p>
-
     <h2> See more about the program</h2>
     <p>
-        Veja a licença de uso em <font color="red"> System Information > License Agreement </font> e as informações sobre o programa em <font color="red"> System Information > About</font>.
+        Read the license on <font color="red"> System Information > License Agreement </font> and system about on <font color="red"> System Information > About</font>. 
     </p>
-
-    <h2> Next</h2>
-    <p>
-        Clique em <font color="red">"Start the adventure!"</font> para começar a utilizar o programa.
-    </p>
-</body></html>
-</tutor>
-
-
-<tutor id="ethoCadastroPessoa" titulo="Faça seu cadastro pessoal" pbS="ok" pbN="" sizeHeight ="500">
-<html><body>
-    <p>
-Para começar o uso do <font color="red">EthW-OS</font> você precisa de um cadastro de usuario. Nesse cadastro você podera informar uma série de informações sobre você (e.g. nome), que serão usadas para identificar os relatórios que saem do EthW-OS. Esse registro também servirá para guardar suas configurações do programa (e.g. configuração do tutor de Ethografia Baseada em vídeo ).
-</p>
-<p>
-    Para começar o uso :
-    <ul>
-        <li><font color="red">Aperte no botão "Create user" </font>para criar um novo usuário</li>
-
-        <li><font color="red">Aperte no botão "Load user" </font> para carregar um usuário já existente.</li>
-    </ul>
-</p>
 
 </body></html></tutor>
+
+
+
+<tutor id="ethoCadastroPessoa" titulo="Register yourself as an observer" pbS="ok(f1)" pbN="" sizeHeight ="500">
+<html><body>
+    <p>
+To start using the <font color="red">EthW-OS</font> you need a user registration. In this register you will enter information that is used to identify the reports produced by the EthW-OS. This registers will also serve to save your program settings. </p>
+<p>
+To start using :
+    <ul>
+        <li><font color="red">Press "Create user" </font>if you are not a registered user</li>
+        <li><font color="red">Press "Load user" </font> to load you user registration. </li>
+    </ul>
+</p>
+</body></html></tutor>
+
 
 
 <tutor id="ethoEscolhaEthoTraking" titulo="Marque a opção e aperte next" pbS="OK!(f1)" pbN="" sizeHeight ="500"><html><body>
@@ -78,20 +69,13 @@ Marque a opção:
 </body></html></tutor>
 
 
-<tutor id="ethoCatalogo" titulo="Faça um catalogo comportamental" pbS="yes(y)" pbN="no(n)">
+<tutor id="ethoCatalogo" titulo="Build a behavioral catalog or ethogram" pbS="yes(y)" pbN="no(n)">
 <html><body>
 <p>
-Crie um catalogo comportamental.
+Press “No” if you already have registered a catalog.
 </p>
-<p>
-Para realizar uma etografia baseado em vídeo é necessário ter um cadastro de comportamentos.
-</p>
-<p>
-Caso você já tenha um catalogo comportamental registrado aperte em não.
-</p>
+</body></html></tutor>
 
-</body></html>
-</tutor>
 
 
 <tutor id="ethoRegistroVideo" titulo="Faça o registro dos vídeos experimentais" pbS="yes(y)" pbN="no(n)">

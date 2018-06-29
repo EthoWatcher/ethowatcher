@@ -1,46 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tutores>
 
-    <tutor id="tutorInicio" titulo="Bem vindo ao modulo de cadastro de catalogo" pbS="yes(y)" pbN="" sizeHeight ="500">
-    <html><body>
-        <p>
-            O módulo de cadastro de catálogos comportamentias serve para registrar catálogos de comportamentos.
-            Os catalogos podem ser utilizados posteriormente na transcrição comportamental categórica.
+      <tutor id="tutorInicio" titulo="Register a catalog" pbS="yes(y)" pbN="" sizeHeight ="500">
+	<html><body>
+    	<p>
+        	The behavioral catalog module is used to register persistent catalogs of behaviors, that can be recalled and used later in categorical behavioral transcription.
+    	</p>
 
-        </p>
+    	<h2>NEXT</h2>
+    	<p>
+        	Pres “yes” to start entering your behavioral categories or items.
+    	</p>
 
-        <h2>NEXT</h2>
-        <p>
-            Aperte no botão yes para iniciar o cadastro das suas categorias.
-        </p>
-
-    </body></html></tutor>
-
-    <tutor id="tutorPrenchaCamposNameCodeDescription" titulo="Adicione uma categoria comportamental" pbS="yes(y)" pbN="" sizeHeight ="600">
-    <html><body>
-        <p>
-            Preencha o campo obrigatório:
-        </p>
-    <p>
-        <ul>
-          <li><font color="red"> Name </font> com o nome da categoria comportamental.</li>
-          <li><font color="red"> Shortcut</font> com  um tecla de A-Z para ser usado de atalho no registro etográfico baseado em vídeo. </li>
-          <li><font color="red"> Description </font> com  a descrição operacional da categoria </li>
-        </ul>
-    </p>
-
-    <h2> <font color="red">WARNING! </font></h2>
-    <p>
-        Todos os campo,a não ser o campo shortcut, podem ser preenchidos por quantidades de caractes maior do que 1 desde que sejem da codificação UTF-8 e não contenha caracteres espciais (e.g., ãçéó)
-    </p>
-
-    <h2> NEXT</h2>
-    <p>
-         Clique no botão <font color="red"> add to catalog </font> para adicionar a categoria.
-    </p>
+	</body></html></tutor>
 
 
-    </body></html></tutor>
+   <tutor id="tutorPrenchaCampos" titulo="Fill all the fields and press" pbS="yes(y)" pbN="" sizeHeight ="530">
+	<html><body>
+
+<p>
+	Preencha os campos obrigatórios:
+</p>
+	<p>
+    	<ul>
+      	<li><font color="red">User ID: </font>your name  </li>
+      	<li><font color="red">Lab info: </font>the name of your lab or unit o</li>
+    	</ul>
+	</p>
+
+	<h2> <font color="red">IMPORTANT! </font></h2>
+	<p>
+    	Use at least 8 characters including letters and numbers, but no special characters 	</p>
+	<h2> Next</h2>
+	<p>
+    	Press <font color="red"> save</font>.
+	</p>
+	</body></html></tutor>
+	
+	
+	<tutor id="tutorPrenchaCamposNameCodeDescription" titulo="Add a behavior" pbS="yes(y)" pbN="" sizeHeight ="600">
+	<html><body>
+    	<p>
+        	Fill the fields :
+    	</p>
+	<p>
+    	<ul>
+      	<li><font color="red"> Name </font> With the name of the behavior (any number of characters, letters and numbers, without special characters).</li>
+      	<li><font color="red"> Shortcut</font> With an alphanumeric code (maximum of 3 letters and/or numbers, UTF-coded) . </li>
+      	<li><font color="red"> Description </font> With a textual, operational description of this behavior (any number of characters, letters and numbers, without special characters) </li>
+    	</ul>
+	</p>
+
+	<h2> <font color="red">WARNING! </font></h2>
+	<p>
+    	Todos os campos a não ser o campo shortcut, podem ser preenchidos por quantidades de caracteres maior do que 1 desde que sejam da codificação UTF-8 e não contenha caracteres especiais (e.g., ãçéó)
+	</p>
+	
+	<h2> NEXT</h2>
+	<p>
+     	Press <font color="red"> add to catalog </font> to add a behavior.
+	</p>
+	</body></html></tutor>
+
+
+
 
     <tutor id="tutoCatalogUnits" titulo="Behavior catalog units table" pbS="ok(f1)" pbN="" sizeHeight ="400">
     <html><body>
@@ -50,36 +73,42 @@
     </body></html></tutor>
 
 
-    <tutor id="tutorDele" titulo="Delete itens" pbS="ok(f1)" pbN="" sizeHeight ="400">
-    <html><body>
+   <tutor id="tutoCatalogUnits" titulo="Behaviors in the catalog" pbS="ok(f1)" pbN="" sizeHeight ="400">
+	<html><body>
 
-        <p>
-            Siga os passos:
-        </p>
-        <p>
+    	This table shows all the behaviors inserted in the catalog. 
 
-            <ul>
-              <li><font color="red"> Passo 1 </font> Selecione a categoria que você deseja deletar clicando na linha correspondente na tabela behavior catalog units</li>
-              <li><font color="red"> Passo 2 </font> Clique no botão Delete selected item </li>
-            </ul>
-        </p>
-
-        <p>
-            Ao seguir esses passos você irá excluir o item selecionado do catálogo.
-        </p>
+	</body></html></tutor>
 
 
 
-    </body></html></tutor>
+    <tutor id="tutorSalva" titulo="Save the catalog" pbS="yes(y)" pbN="" sizeHeight ="300">
+	<html><body>
+    	<p>
+         	Press <font color="red"> Save the catalog </font> to save and close the window.
+    	</p>
+	</body></html></tutor>
+	
+	<tutor id="tutorDele" titulo="Delete behaviors" pbS="ok(f1)" pbN="" sizeHeight ="400">
+	<html><body>
+
+    	<p>
+        	Siga os passos:
+    	</p>
+    	<p>
+
+        	<ul>
+          	<li><font color="red"> Passo 1 </font> Select a behavior to be deleted by pressing in the corresponding line in the table of behaviors</li>
+          	<li><font color="red"> Passo 2 </font> Press Delete selected behavior </li>
+        	</ul>
+    	</p>
+
+    	<p>
+        	Ao seguir esses passos você irá excluir o item selecionado do catálogo.
+    	</p>
+	</body></html></tutor>
 
 
-    <tutor id="tutorSalva" titulo="save the catalog" pbS="yes(y)" pbN="" sizeHeight ="300">
-    <html><body>
-        <p>
-             Clique no botão <font color="red"> save the catalog </font> para salvar e fechar a janela.
-        </p>
-
-    </body></html></tutor>
 
 
 
