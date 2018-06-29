@@ -118,29 +118,16 @@
        </font>
       </property>
       <property name="title">
-       <string>EthoWatcher</string>
+       <string/>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
         <widget class="QStackedWidget" name="stackedPassos">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="pageIdentificacao">
           <layout class="QVBoxLayout" name="verticalLayout_8">
-           <item>
-            <widget class="QLabel" name="label_15">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>Choose what you are going to do</string>
-             </property>
-            </widget>
-           </item>
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_4">
              <item>
@@ -242,28 +229,28 @@
               <item>
                <widget class="QPushButton" name="pbBehavioralCatalog">
                 <property name="text">
-                 <string>S1- Behavioral Catalog</string>
+                 <string>Step 1: Create a behavioral catalog</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbRegisterVideo">
                 <property name="text">
-                 <string>S2 -Register experiment video</string>
+                 <string>Step 2: Register and format a video file</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbVideoEtho">
                 <property name="text">
-                 <string>S3 -vídeo-based ethograpy</string>
+                 <string>Step 3: Start a video-based ethography and/ro tracking</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbConfigAnalyses">
                 <property name="text">
-                 <string>S4- Analyses</string>
+                 <string>Step 4: Data analysis</string>
                 </property>
                </widget>
               </item>
@@ -280,28 +267,28 @@
               <item>
                <widget class="QPushButton" name="pbTimeSegmentation">
                 <property name="text">
-                 <string>S4 -Time segmentation</string>
+                 <string>Segmentation of the data report by time periods</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbSegCompor">
                 <property name="text">
-                 <string>S5 - Segmentação por comportamento</string>
+                 <string>Segmentation of the data report by behavioral category</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbAnaliseSeque">
                 <property name="text">
-                 <string>S6 - Analise Sequencial</string>
+                 <string>Sequence analysis</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbAnliseConcor">
                 <property name="text">
-                 <string>S7 - Análise de concordancia</string>
+                 <string>Intra- &amp; Inter- observer reliability assessment</string>
                 </property>
                </widget>
               </item>

@@ -49,77 +49,80 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QGroupBox" name="groupBox">
+       <widget class="QGroupBox" name="groupBox_5">
         <property name="title">
-         <string>Insert behavioral category</string>
+         <string>Step 1. Create a behavioral catalog</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_5">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Name</string>
+          <widget class="QGroupBox" name="groupBox">
+           <property name="title">
+            <string>Insert behavioral category</string>
            </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="leCategoria">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string>Code</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="leAtalho">
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>Description</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QTextEdit" name="textDscElem">
-           <property name="html">
-            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>Name</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="leCategoria">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>Code</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="leAtalho">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Description</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTextEdit" name="textDscElem">
+              <property name="html">
+               <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pbAddCategoria">
+              <property name="text">
+               <string>Add to catalog</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+           <zorder>leCategoria</zorder>
+           <zorder>label</zorder>
+           <zorder>leAtalho</zorder>
+           <zorder>label_2</zorder>
+           <zorder>label_3</zorder>
+           <zorder>textDscElem</zorder>
+           <zorder>pbAddCategoria</zorder>
           </widget>
          </item>
-         <item>
-          <widget class="QPushButton" name="pbAddCategoria">
-           <property name="text">
-            <string>Add to catalog</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-        <zorder>leCategoria</zorder>
-        <zorder>label</zorder>
-        <zorder>leAtalho</zorder>
-        <zorder>label_2</zorder>
-        <zorder>label_3</zorder>
-        <zorder>textDscElem</zorder>
-        <zorder>pbAddCategoria</zorder>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="widget_2" native="true">
-        <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
           <widget class="QGroupBox" name="groupBox_2">
            <property name="title">
@@ -186,26 +189,26 @@ p, li { white-space: pre-wrap; }
               </property>
              </widget>
             </item>
-           </layout>
-          </widget>
-         </item>
-         <item>
-          <widget class="QGroupBox" name="groupBox_4">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>65</height>
-            </size>
-           </property>
-           <property name="title">
-            <string/>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <widget class="QPushButton" name="pbCadastroCatalago">
-              <property name="text">
-               <string>Save / Register catalog</string>
+             <widget class="QGroupBox" name="groupBox_4">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>65</height>
+               </size>
               </property>
+              <property name="title">
+               <string/>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_2">
+               <item>
+                <widget class="QPushButton" name="pbCadastroCatalago">
+                 <property name="text">
+                  <string>Save / Register catalog</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
