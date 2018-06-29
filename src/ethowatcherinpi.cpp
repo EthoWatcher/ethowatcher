@@ -61,6 +61,7 @@ EthoWatcherInpi::EthoWatcherInpi(QWidget *parent) :
      controlWarnig->nextById("ethoInicio");
 //     controlWarnig->nextList(true);
         telaPessoa = new telaCadastroPessoa();
+        etografaRegistro= new telaCadastroFilme();
 
         controInterface = new ControladorInterfaces();
 
@@ -114,6 +115,11 @@ void EthoWatcherInpi::on_pbBehavioralCatalog_clicked()
  */
 void EthoWatcherInpi::on_pbRegisterVideo_clicked()
 {
+    etografaRegistro= new telaCadastroFilme();
+//     if(chLoadUser){
+//        etografaProce->setExperimentador(telaPessoa->nome,telaPessoa->lab);
+//     }
+    etografaRegistro->show();
 
 }
 /**

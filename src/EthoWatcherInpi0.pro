@@ -38,19 +38,28 @@ SOURCES += EthoWatcherInpi/main.cpp\
         tutoretho.cpp\
         telacadastropessoa.cpp\
         telacadastrocatalago.cpp \
-    controladorinterfaces.cpp
+    controladorinterfaces.cpp\
+    telacadastrofilme.cpp\
+    areatraingulo.cpp\
+    itemareainte.cpp\
+    modulocaptador.cpp
 
 HEADERS  += ethowatcherinpi.h\
     warningtutor.h\
     tutoretho.h\
     telacadastropessoa.h\
     telacadastrocatalago.h \
-    controladorinterfaces.h
+    controladorinterfaces.h \
+    telacadastrofilme.h\
+    areatraingulo.h\
+    itemareainte.h\
+    modulocaptador.h
 
 
 FORMS    += ethowatcherinpi.ui\
     warningtutor.ui\
     telacadastropessoa.ui\
-    telacadastrocatalago.ui
+    telacadastrocatalago.ui\
+    telacadastrofilme.ui
 
 RESOURCES += resourcefile.qrc
