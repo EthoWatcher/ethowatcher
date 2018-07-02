@@ -56,6 +56,19 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     chCirculoOn=false;
     chAddArea=false;
     chRoi=true;
+
+    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastroPessoa.xml",this);
+    seqInicial.append("tutorInicio");
+    seqInicial.append("tutorPrenchaCampos");
+    seqInicial.append("tutorSaida");
+    controlWarnig->setLista(seqInicial);
+
+
+
+    connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
+    this->show();
+
+    controlWarnig->nextList("tutorInicio");
 }
 
 telaCadastroFilme::~telaCadastroFilme()
@@ -1756,4 +1769,14 @@ void telaCadastroFilme::on_pbNexStep3_clicked()
 {
     ui->tabWPrincipal->setCurrentIndex(2);
     ui->tabWPrincipal->setTabEnabled(2,true);
+}
+
+/**
+ * @brief telaCadastroFilme::botaoClicado
+ * @param clicado
+ * @param id
+ */
+void telaCadastroFilme::botaoClicado(bool clicado, QString id)
+{
+
 }
