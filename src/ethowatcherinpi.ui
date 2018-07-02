@@ -118,7 +118,7 @@
        </font>
       </property>
       <property name="title">
-       <string>EthoWatcher</string>
+       <string/>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
@@ -129,95 +129,67 @@
          <widget class="QWidget" name="pageIdentificacao">
           <layout class="QVBoxLayout" name="verticalLayout_8">
            <item>
-            <widget class="QLabel" name="label_15">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>30</height>
-              </size>
+            <widget class="QCheckBox" name="cbEthoDigi">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
              </property>
              <property name="text">
-              <string>Choose what you are going to do</string>
+              <string>Digital video-based ethography</string>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
            <item>
-            <layout class="QVBoxLayout" name="verticalLayout_4">
-             <item>
-              <widget class="QCheckBox" name="cbEthoDigi">
-               <property name="font">
-                <font>
-                 <weight>50</weight>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Digital Video-Based Ethographyand  Activity Analysis</string>
-               </property>
-               <property name="checked">
-                <bool>false</bool>
-               </property>
-               <property name="autoExclusive">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="cbEthoDigiTraking">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="font">
-                <font>
-                 <weight>50</weight>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string> Tracking</string>
-               </property>
-               <property name="checked">
-                <bool>false</bool>
-               </property>
-               <property name="autoExclusive">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="cbEthoAna">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="font">
-                <font>
-                 <weight>50</weight>
-                 <bold>false</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string> Tracking and Digital Video-Based Ethography</string>
-               </property>
-               <property name="autoExclusive">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushButtonAvancar">
-               <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset resource="resourcefile.qrc">
-                 <normaloff>:/icons/old_go_next.ico</normaloff>:/icons/old_go_next.ico</iconset>
-               </property>
-              </widget>
-             </item>
-            </layout>
+            <widget class="QCheckBox" name="cbEthoDigiTraking">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string> Tracking</string>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <property name="autoExclusive">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="cbEthoAna">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string> Tracking and digital video-based ethography</string>
+             </property>
+             <property name="autoExclusive">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -242,28 +214,28 @@
               <item>
                <widget class="QPushButton" name="pbBehavioralCatalog">
                 <property name="text">
-                 <string>S1- Behavioral Catalog</string>
+                 <string>Step 1: Create a behavioral catalog</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbRegisterVideo">
                 <property name="text">
-                 <string>S2 -Register experiment video</string>
+                 <string>Step 2: Register and format a video file</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbVideoEtho">
                 <property name="text">
-                 <string>S3 -vídeo-based ethograpy</string>
+                 <string>Step 3: Start a video-based ethography and/or tracking</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbConfigAnalyses">
                 <property name="text">
-                 <string>S4- Analyses</string>
+                 <string>Step 4: Data analysis</string>
                 </property>
                </widget>
               </item>
@@ -280,28 +252,28 @@
               <item>
                <widget class="QPushButton" name="pbTimeSegmentation">
                 <property name="text">
-                 <string>S4 -Time segmentation</string>
+                 <string>Segmentation of the data report by time periods</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbSegCompor">
                 <property name="text">
-                 <string>S5 - Segmentação por comportamento</string>
+                 <string>Segmentation of the data report by behavioral category</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbAnaliseSeque">
                 <property name="text">
-                 <string>S6 - Analise Sequencial</string>
+                 <string>Sequence analysis</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbAnliseConcor">
                 <property name="text">
-                 <string>S7 - Análise de concordancia</string>
+                 <string>Intra- &amp; Inter- observer reliability assessment</string>
                 </property>
                </widget>
               </item>
@@ -341,50 +313,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="grpTutor">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
+        <widget class="QPushButton" name="pushButtonAvancar">
+         <property name="text">
+          <string/>
          </property>
-         <property name="title">
-          <string>Tutor</string>
+         <property name="icon">
+          <iconset resource="resourcefile.qrc">
+           <normaloff>:/icons/old_go_next.ico</normaloff>:/icons/old_go_next.ico</iconset>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QTextEdit" name="textoTutor">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-            <property name="html">
-             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8.25pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="placeholderText">
-             <string/>
-            </property>
-           </widget>
-          </item>
-         </layout>
         </widget>
        </item>
        <item>
