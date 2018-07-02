@@ -438,7 +438,7 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
 
        // ui->tabWPrincipal->setTabEnabled(3,false);
 
-        ui->gbControle->setEnabled(true);
+//        ui->gbControle->setEnabled(true);
 
         //resetaCorConfi();
        // ui->swiTutorConfig->setCurrentIndex(0);
