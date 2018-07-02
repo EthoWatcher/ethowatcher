@@ -62,8 +62,10 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     seqInicial.append("tutorPrenchaCampos");
     seqInicial.append("tutorSaida");
     controlWarnig->setLista(seqInicial);
-    MovimentaInterfaceCentro *base = new MovimentaInterfaceCentro();
-    controlWarnig->setFormaMocimento(base);
+
+//    MovimentaInterfaceCentro *base = new MovimentaInterfaceCentro();
+//    controlWarnig->setFormaMocimento(base);
+//    controlWarnig->setNovoWidgetReferencia(this);
 
 
 
@@ -83,6 +85,7 @@ telaCadastroFilme::~telaCadastroFilme()
 void telaCadastroFilme::closeEvent(QCloseEvent *event)
 {
     qDebug() << "fechou a tela ";
+    controlWarnig->fechandoJanelas();
     delete this;
 }
 
@@ -1780,5 +1783,6 @@ void telaCadastroFilme::on_pbNexStep3_clicked()
  */
 void telaCadastroFilme::botaoClicado(bool clicado, QString id)
 {
+   controlWarnig->nextList("tutorPrenchaCampos");
 
 }

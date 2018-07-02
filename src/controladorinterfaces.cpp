@@ -12,6 +12,11 @@ void ControladorInterfaces::setContInterfaces(MovimentaInterface *base){
         _pbase = base;
 }
 
+void ControladorInterfaces::setReferencia(QWidget *widPai){
+
+    _pbase->setRef(widPai);
+}
+
 void ControladorInterfaces::addInterface(QWidget *widget)
 {
     listaQWidget.append(widget);
@@ -59,7 +64,7 @@ void ControladorInterfaces::mostraInterfaceAtiva(QWidget *widget)
 
 void ControladorInterfaces::moveInterface(QWidget *widget){
 
-    _pbase->setRef(listaQWidget[0]);
+//    _pbase->setRef(listaQWidget[0]);
 
         if(widget==listaQWidget[0]){
             widget->show();
@@ -173,6 +178,7 @@ void MovimentaInterfaceCentro::movimenta(QWidget *widget)
     qDebug()<<"Poi pó1";
     qDebug() << point.x() << point.y();
     qDebug() << rect.x() << rect.width() << rect.y() << rect.height();
-    widget->move(point.x()+rect.width()/4, point.y()+ rect.height()/4 );
+    QRect re = widget->rect();
+    widget->move(point.x()+rect.width() -re.width(), point.y());
     widget->show();
 }
