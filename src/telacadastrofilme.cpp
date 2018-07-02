@@ -62,6 +62,8 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     seqInicial.append("tutorPrenchaCampos");
     seqInicial.append("tutorSaida");
     controlWarnig->setLista(seqInicial);
+    MovimentaInterfaceCentro *base = new MovimentaInterfaceCentro();
+    controlWarnig->setFormaMocimento(base);
 
 
 

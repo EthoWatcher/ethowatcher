@@ -25,9 +25,18 @@ public:
     void setRef(QWidget *widgetPai);
 
     void movimenta(QWidget *widget);
-private:
+protected:
     QWidget *widgetPai;
      void getPos();
+
+};
+
+
+class MovimentaInterfaceCentro: public MovimentaInterfaceLadoDireito {
+public:
+    MovimentaInterfaceCentro();
+    void movimenta(QWidget *widget);
+
 
 };
 

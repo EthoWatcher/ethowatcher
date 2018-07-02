@@ -159,3 +159,20 @@ void MovimentaInterfaceLadoDireito::getPos()
     }
 
 }
+
+MovimentaInterfaceCentro::MovimentaInterfaceCentro()
+{
+    this->widgetPai= NULL;
+}
+
+
+void MovimentaInterfaceCentro::movimenta(QWidget *widget)
+{
+    qDebug()<<"oi pó";
+    this->getPos();
+    qDebug()<<"Poi pó1";
+    qDebug() << point.x() << point.y();
+    qDebug() << rect.x() << rect.width() << rect.y() << rect.height();
+    widget->move(point.x()+rect.width()/4, point.y()+ rect.height()/4 );
+    widget->show();
+}
