@@ -1,40 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tutores>
 
-    <tutor id="tutorInicio" titulo="Cadastro video" pbS="yes(f1)" pbN="" sizeHeight ="400">
+    <tutor id="tutorInicioVideo" titulo="Cadastro video" pbS="yes(f1)" pbN="" sizeHeight ="400">
     <html><body>
-    ha
+        1 - Click on the “load video” button to open an .AVI video file and check the data for this file (path, name, FPS, width/height).
+
+    2 - Select  the module(s) (one or more)  that will be used to process this video file.
+    Warning:: If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures.
+    If you want to use this video only for tracking, select the appropriate checkbox. For both tracking and ethography, select both checkboxes.
+    If you also want to use the “video blinding” procedures (hiding the clacket and changing the file ID from the user who will transcript the recording session), then select also this checkbox.
+
+    3 - Click on “Next” button
     </body></html></tutor>
 
-    <tutor id="tutorPrenchaCampos" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <tutor id="tutorPCalibrationSession" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
+        Step 2.01: Navigate in the video file to a a frame after any aspect that can identify your experiment (e.g., a clackette appearing before the start of the experiment) , and THEN click in the “blind precedent frame” button
 
-<p>
-    Preencha os campos obrigatórios:
-</p>
-    <p>
-        <ul>
-          <li><font color="red">User ID: </font>Informe o seu nome  </li>
-          <li><font color="red">Lab info: </font>Informe o nome de seu laboratório o</li>
-        </ul>
-    </p>
+Step 2.02 Navigate in the video file to a frame  containing only the background of the maze (without the animal, and after the frame you’ve choose in the step 2.01), and THEN press the “Background frame” button.
 
-    <h2> <font color="red">WARNING! </font></h2>
+THEN, Navigate in the video file to a frame  containing the animal. Select preview process box, and slide the “subtraction threshold”  cursor  (and/or set the level of erosion of the animal), to exclude  spots, shadow or other undesired aspects of the animal  and background.
 
-    <p>
-        Os campos podem ser preenchidos por quantidades de caractes maior do que 1 desde que sejem da codificação UTF-8 e não contenha caracteres espciais (e.g., ãçéó)
-    </p>
+Step 2.03: Navigate in the video file to a frame  where you want to start the analysis, and click on the “Frame to Start the analysis” button
+Step 2.04: Navigate in the video file to a frame  where you want to finish  the analysis, and click on the “Frame to Finish the analysis” button
 
-    <h2> Next</h2>
-    <p>
-        Após preencher os campos <font color="red">clique no botão save</font>.
-    </p>
+    </body></html></tutor>
+
+    <tutor id="tutorPCalibrationScale" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <html><body>
+        Scale: In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  THEN click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). THEN press the “save scale” button
+
+Mark “Noise reduction tools “  checkbox to set the configurations  of two algorithms  that  help to control for tracking artifacts
+
+Mark “Design multiple areas for analysis” to  set multiple sub-areas  (squares, circles) of the maze from which you want to get specific reports and analysis.
+
+THEN press the “configure” button
+
+    </body></html></tutor>
+
+    <tutor id="tutorPCalibrationNoise" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <html><body>
+        Posicione os triangulos nos em alguma distancia conhecida
 
     </body></html></tutor>
 
     <tutor id="tutorSaida" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
-        Seu usuario foi cadastro com sucesso!
+        Scale: In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  THEN click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). THEN press the “save scale” button
+
+Mark “Noise reduction tools “  checkbox to set the configurations  of two algorithms  that  help to control for tracking artifacts
+
+Mark “Design multiple areas for analysis” to  set multiple sub-areas  (squares, circles) of the maze from which you want to get specific reports and analysis.
+
+THEN press the “configure” button
+
+    </body></html></tutor>
+
+    <tutor id="tutorSaida" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <html><body>
+        Scale: In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  THEN click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). THEN press the “save scale” button
+
+Mark “Noise reduction tools “  checkbox to set the configurations  of two algorithms  that  help to control for tracking artifacts
+
+Mark “Design multiple areas for analysis” to  set multiple sub-areas  (squares, circles) of the maze from which you want to get specific reports and analysis.
+
+THEN press the “configure” button
 
     </body></html></tutor>
 
