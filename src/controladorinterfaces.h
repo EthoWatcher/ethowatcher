@@ -47,6 +47,8 @@ public:
 
 
     void fechaInterface(QWidget *widget);
+//    ControladorInterfaces(QObject *parent, MovimentaInterface *base);
+    void setContInterfaces(MovimentaInterface *base);
 private:
     MovimentaInterface *_pbase;
     MovimentaInterfaceLadoDireito *mInterface;

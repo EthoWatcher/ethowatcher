@@ -270,6 +270,13 @@ void ControladoWarningTutor::fechandoJanelas()
  }
 }
 
+void ControladoWarningTutor::setFormaMocimento(MovimentaInterface *base)
+{
+
+    controladorInterface->setContInterfaces(base);
+
+}
+
 /**
  * @brief ControladoWarningTutor::nextList método para ir para o próximo da lista
  * @param chNext

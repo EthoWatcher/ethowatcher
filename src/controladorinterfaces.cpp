@@ -5,9 +5,11 @@ ControladorInterfaces::ControladorInterfaces(QObject *parent) : QObject(parent)
 
     mInterface = new MovimentaInterfaceLadoDireito();
     _pbase = mInterface;
+}
 
+void ControladorInterfaces::setContInterfaces(MovimentaInterface *base){
 
-
+        _pbase = base;
 }
 
 void ControladorInterfaces::addInterface(QWidget *widget)
@@ -57,7 +59,7 @@ void ControladorInterfaces::mostraInterfaceAtiva(QWidget *widget)
 
 void ControladorInterfaces::moveInterface(QWidget *widget){
 
-    mInterface->setRef(listaQWidget[0]);
+    _pbase->setRef(listaQWidget[0]);
 
         if(widget==listaQWidget[0]){
             widget->show();
@@ -66,7 +68,7 @@ void ControladorInterfaces::moveInterface(QWidget *widget){
 //            mInterface->setRef(listaQWidget[0]);
 //            qDebug() <<"mocimnta1";
         }else{
-            mInterface->movimenta(widget);
+            _pbase->movimenta(widget);
 
         }
 //        else if(listaQWidget.size() !=0){
@@ -99,6 +101,7 @@ ControladorInterfacesTutor::ControladorInterfacesTutor()
 {
 
 }
+
 
 void ControladorInterfacesTutor::mostraInterfaceAtiva(QWidget *widget)
 {
