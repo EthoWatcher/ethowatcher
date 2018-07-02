@@ -42,6 +42,8 @@ THEN press the “configure” button
     <html><body>
         Posicione os triangulos nos em alguma distancia conhecida
 
+        Bem vindo a tela de registro de video, Open a Video in (.avi) format and start video register.
+
     </body></html></tutor>
 
     <tutor id="tutorSaida" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
