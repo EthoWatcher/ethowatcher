@@ -7,6 +7,30 @@
 #include <QRect>
 #include <QPoint>
 
+class MovimentaInterface {
+public:
+    virtual void movimenta(QWidget *widget) =0;
+    virtual void setRef(QWidget *widgetPai)=0;
+protected:
+    QWidget *widget;
+    QRect rect;
+    QPoint point;
+
+
+};
+
+class MovimentaInterfaceLadoDireito: public MovimentaInterface {
+public:
+    MovimentaInterfaceLadoDireito();
+    void setRef(QWidget *widgetPai);
+
+    void movimenta(QWidget *widget);
+private:
+    QWidget *widgetPai;
+     void getPos();
+
+};
+
 
 
 class ControladorInterfaces : public QObject
@@ -24,6 +48,8 @@ public:
 
     void fechaInterface(QWidget *widget);
 private:
+    MovimentaInterface *_pbase;
+    MovimentaInterfaceLadoDireito *mInterface;
 
     QWidget *widgtReferencia;
     QRect rect;
@@ -51,27 +77,6 @@ public:
 };
 
 
-class MovimentaInterface {
-public:
-    virtual void movimenta(QWidget *widget) =0;
-protected:
-    QWidget *widget;
-    QRect rect;
-    QPoint point;
-
-
-};
-
-class MovimentaInterfaceLadoDireito: public MovimentaInterface {
-public:
-    MovimentaInterfaceLadoDireito(QWidget *widgetPai);
-
-    void movimenta(QWidget *widget);
-private:
-    QWidget *widgetPai;
-     void getPos();
-
-};
 
 
 

@@ -3,6 +3,9 @@
 ControladorInterfaces::ControladorInterfaces(QObject *parent) : QObject(parent)
 {
 
+    mInterface = new MovimentaInterfaceLadoDireito();
+    _pbase = mInterface;
+
 
 
 }
@@ -58,14 +61,28 @@ void ControladorInterfaces::moveInterface(QWidget *widget){
             widget->show();
             rect =  listaQWidget[0]->rect();
             point= listaQWidget[0]->pos();
-        }else{
+//            _pbase->setRef(listaQWidget[0]);
+//            qDebug() <<"mocimnta1";
+        }else if(listaQWidget.size() !=1){
 
+//            qDebug() <<"mocimnta2";
+//            _pbase->movimenta(widget);
             rect =  listaQWidget[0]->rect();
             point= listaQWidget[0]->pos();
             qDebug() << point.x() << point.y();
             qDebug() << rect.x() << rect.width() << rect.y() << rect.height();
             widget->move(point.x()+rect.width(), point.y() );
             widget->show();
+
+        }else{
+
+
+//            rect =  listaQWidget[0]->rect();
+//            point= listaQWidget[0]->pos();
+//            qDebug() << point.x() << point.y();
+//            qDebug() << rect.x() << rect.width() << rect.y() << rect.height();
+//            widget->move(point.x()+rect.width(), point.y() );
+//            widget->show();
         }
 
 
@@ -99,11 +116,18 @@ void ControladorInterfacesTutor::fechaTodas()
 
 }
 
-MovimentaInterfaceLadoDireito::MovimentaInterfaceLadoDireito(QWidget *widgetPai)
+MovimentaInterfaceLadoDireito::MovimentaInterfaceLadoDireito()
 {
 
-    this->getPos();
 }
+
+void MovimentaInterfaceLadoDireito::setRef(QWidget *widgetPai)
+{
+    this->widgetPai = widgetPai;
+    this->getPos();
+    qDebug() << "setado a tela de referencia ";
+}
+
 
 void MovimentaInterfaceLadoDireito::movimenta(QWidget *widget)
 {
