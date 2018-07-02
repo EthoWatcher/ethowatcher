@@ -43,8 +43,8 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     ui->gbOpcoes->setEnabled(false);
     ui->leTreshold->setText(QString::number(ui->SliderThreshold->value()));
 
-    //deixando a jenal com tamanho fixo
-   this->setFixedSize(this->width(),this->height());
+//    //deixando a jenal com tamanho fixo
+//   this->setFixedSize(this->width(),this->height());
 
     ui->widMobileConfim->setVisible(false);
 
