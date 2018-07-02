@@ -57,10 +57,10 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     chAddArea=false;
     chRoi=true;
 
-    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastroPessoa.xml",this);
-    seqInicial.append("tutorInicio");
-    seqInicial.append("tutorPrenchaCampos");
-    seqInicial.append("tutorSaida");
+    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastrofilme.xml",this);
+    seqInicial.append("tutorInicioVideo");
+//    seqInicial.append("tutorPrenchaCampos");
+//    seqInicial.append("tutorSaida");
     controlWarnig->setLista(seqInicial);
 
 //    MovimentaInterfaceCentro *base = new MovimentaInterfaceCentro();

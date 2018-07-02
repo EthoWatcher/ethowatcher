@@ -48,5 +48,6 @@
         <file>tutores/ethowatcherInpi.xml</file>
         <file>tutores/tutoresTelaCadastroPessoa.xml</file>
         <file>tutores/tutoresTelaCadastroCatalogo.xml</file>
+        <file>tutores/tutoresTelaCadastrofilme.xml</file>
     </qresource>
 </RCC>
