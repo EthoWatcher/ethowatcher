@@ -98,3 +98,24 @@ void ControladorInterfacesTutor::fechaTodas()
     }
 
 }
+
+MovimentaInterfaceLadoDireito::MovimentaInterfaceLadoDireito(QWidget *widgetPai)
+{
+
+    this->getPos();
+}
+
+void MovimentaInterfaceLadoDireito::movimenta(QWidget *widget)
+{
+    this->getPos();
+    qDebug() << point.x() << point.y();
+    qDebug() << rect.x() << rect.width() << rect.y() << rect.height();
+    widget->move(point.x()+rect.width(), point.y() );
+        widget->show();
+}
+
+void MovimentaInterfaceLadoDireito::getPos()
+{
+    rect =  widgetPai->rect();
+    point= widgetPai->pos();
+}

@@ -50,4 +50,30 @@ public:
 
 };
 
+
+class MovimentaInterface {
+public:
+    virtual void movimenta(QWidget *widget) =0;
+protected:
+    QWidget *widget;
+    QRect rect;
+    QPoint point;
+
+
+};
+
+class MovimentaInterfaceLadoDireito: public MovimentaInterface {
+public:
+    MovimentaInterfaceLadoDireito(QWidget *widgetPai);
+
+    void movimenta(QWidget *widget);
+private:
+    QWidget *widgetPai;
+     void getPos();
+
+};
+
+
+
+
 #endif // CONTROLADORINTERFACES_H
