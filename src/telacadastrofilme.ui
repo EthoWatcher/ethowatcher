@@ -59,7 +59,7 @@
          </font>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_9">
          <attribute name="title">
@@ -285,7 +285,7 @@
           <item>
            <widget class="QGroupBox" name="groupBox_14">
             <property name="title">
-             <string>Step 3: Calibration session</string>
+             <string>Step 3: Next session</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_20">
              <item>
@@ -308,7 +308,7 @@
           <item>
            <widget class="QTabWidget" name="tabWCalib">
             <property name="currentIndex">
-             <number>3</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">

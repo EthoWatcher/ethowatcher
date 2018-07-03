@@ -26,6 +26,61 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
 
     </body></html></tutor>
 
+
+    <tutor id="tutorVideoOpen" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <html><body>
+        ao clicar nesse botão uma caixa de diálogo com acesso ao disco local do computador do usuário é aberto, para que ele possa encontrar um arquivo de vídeo no formato AVI em seu computador. As informações sobre o vídeo original são extraídas pela OpenCV e os campos “video file path”, “video file name” , “frames per second”, “width”, “height” são preenchidos automaticamente.
+    Campo “video file path”- Nesse campo, o programa insere o caminho do disco local no qual o vídeo aberto está gravado.
+    Campo “video file name”- Nesse campo, o programa insere o nome do arquivo aberto.
+    Campo “frames per second”- Nesse campo, o programa insere a taxa de atualização que o vídeo possui.
+    Campo “width”- Nesse campo, o programa insere a largura em pixeis dos quadros do vídeo aberto.
+    Campo “height”- Nesse campo, o programa insere a altura em pixeis dos quadros do vídeo aberto.
+
+
+    </body></html></tutor>
+
+    <tutor id="tutorVideoPlay" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <html><body>
+        O botão “pause” - Ao clicar nesse botão, o vídeo aberto é pausado, sendo que o painel do vídeo original é carregado com o quadro em que o vídeo foi parado. Esse botão é habilitado após o usuário clicar no botão “load vídeo”.
+
+
+    </body></html></tutor>
+
+    <tutor id="tutorVideoPause" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <html><body>
+        O botão “pause” - Ao clicar nesse botão, o vídeo aberto é pausado, sendo que o painel do vídeo original é carregado com o quadro em que o vídeo foi parado. Esse botão é habilitado após o usuário clicar no botão “load vídeo”.
+
+
+    </body></html></tutor>
+
+
+
+<tutor id="tutorVideoSlider" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
+<html><body>
+
+    O botão de deslisar “velocity of reproduction” - Ao arrastar esse controle, o usuário muda a velocidade de execução do vídeo. Se o botão for arrastado para a direita acelera proporcionalmente o vídeo e se arrastado para a esquerda desacelera proporcionalmente o vídeo.
+    O botão avançar do painel “navigation” – Ao clicar nesse botão, o vídeo é avançado, segundo o valor apresentado na caixa de seleção de quadros e apresentado de forma estática no painel do vídeo.
+    O botão voltar do painel “navigation” - Ao clicar nesse botão, o vídeo retrocede, segundo o valor apresentado na caixa de seleção de quadros e é carregado de forma estática no painel do vídeo original.
+    O painel “progress”- Nesse painel, é possível observar qual é o quadro atual sendo exibido pela interface gráfica.
+</body></html></tutor>
+
+<tutor id="tutorSelectionRegister" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
+<html><body>
+
+    A caixa de seleção “vídeo or real time etography” - Ao selecionar essa caixa o usuário cadastra o vídeo para ser usado na TCC baseada em vídeo ou por fonte externa. Essa opção sempre está selecionada.
+A caixa de seleção “tracking morphological/cinematic analysis” - ao selecionar essa caixa o usuário cadastra o vídeo para ser usado na TCCM baseada em vídeo ou em tempo real.
+A caixa de seleção “blind video file” - Ao selecionar essa caixa o usuário cadastra o vídeo para ser usado no módulo de embaralhamento, que cega as informações do vídeo para o usuário.
+</body></html></tutor>
+
+<tutor id="tutorNextVideo" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
+<html><body>
+
+    Botão “next step” - Ao pressionar o botão a interface gráfica se reorganiza para conter apenas os passos necessários para funcionar os métodos escolhidos. A outra função do botão é habilitar a aba “Calibration session”.A foto dessa aba pode ser vista na figura  57 (a função de cada componente na interface gráfica da figura 57 está apresentado a seguir).
+</body></html></tutor>
+
+
+
+<!-- primeira aba da interface  -->
     <tutor id="tutorPCalibrationScale" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
         Scale: In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  THEN click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). THEN press the “save scale” button
@@ -38,6 +93,48 @@ THEN press the “configure” button
 
     </body></html></tutor>
 
+    <tutor id="tutorFrameImportantes" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <html><body>
+        O botão “blind precedente frames”- Ao clicar nesse botão, o quadro do vídeo mais ressente é capturado e armazenado como o último quadro que aparece a claquete no vídeo.
+        O botão “background frame”- Ao clicar nesse botão, o quadro apresentado no painel do vídeo é capturado e armazenado como quadro de fundo e o programa marca automaticamente a caixa “preview process”.
+        A caixa de seleção “preview process”- caso essa caixa esteja marcada a interface gráfica mostra o resultado da segmentação da imagem. Inclusive, mostra de forma colorida qual é o objeto de interesse. Um exemplo da imagem que vai ser apresentada na interface gráfica quando a caixa está selecionada é mostrado na figura  58 a) e quando não está marcada na figura 58 b
+
+    </body></html></tutor>
+
+    <tutor id="tutorFrameImportantes1" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <html><body>
+
+O botão de deslisar “subtraction threshold”- Ao arrastar esse controle, o usuário seleciona o valor que será usado de limiar no processo de binarização da imagem. O resultado pode ser visto continuamente e por toda extensão do vídeo caso a caixa “preview process” esteja habilitada.
+O campo “erosion”- Nesse campo, o usuário seleciona o nível de erosão utilizado no filtro morfológico de erosão binária da imagem. O resultado pode ser visto continuamente e por toda extensão do vídeo caso a caixa “preview process” esteja habilitada.
+O botão “frame to start analysis” - Ao clicar nesse botão, o quadro atual apresentado no painel do vídeo original é capturado e armazenado como o quadro inicial da TCC e da TCCM.
+O botão “frame to finish analysis”- Ao clicar nesse botão, o quadro apresentado no painel do vídeo original é capturado e armazenado como o quadro final da TCC, da TCCM, e do algorítimo de edição do vídeo do módulo de embaralhamento. Ao ser pressionado ele leva o usuário para a aba “scale”. A foto dessa aba está mostrada na figura  59. (a função de cada componente na interface gráfica da figura 59 está apresentado a seguir).
+    </body></html></tutor>
+
+
+    <tutor id="tutorSetScale" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <html><body>
+
+        O triângulo vermelho e o azul na imagem – Ao entrar nessa aba o programa desenha um triângulo vermelho e um azul em cima da imagem de fundo. Os triângulos devem ser posicionados em cima de uma distância conhecida pelo usuário. Para isso o usuário deve clicar e arrastar o triângulo pela imagem. Ao clicar e arrastar, o triângulo selecionado fica na cor amarela.
+        O campo de edição “centimeters” - Nesse campo, o usuário seleciona o valor em centímetros, correspondente a distância entre os triângulos.
+        O campo “Scale” - O resultado da escala introduzida pelo usuário é mostrado nesse campo.
+        O botão “salve scale” - Ao clicar nesse botão o usuário salva a escala e não pode mais trocar enquanto a interface estiver aberta.
+    </body></html></tutor>
+
+
+
+
+
+    <tutor id="tutorsetNoiseReduction" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <html><body>
+
+        A caixa de seleção “noise reduction tools”- Ao marcar essa caixa o usuário vai ser direcionado para as configurações do algoritmo de câmera virtual móvel e do algoritmo de minimização do ruído intrínseco.
+        A caixa de seleção “design multiples areas for analysis”- Ao marcar essa caixa o usuário vai ser habilitado para configurar as várias sub-áreas (quadrados, círculos) que pretende obter relatórios específicos da TCCM.
+        O botão “configure” - Ao clicar nesse botão o programa salva a opção da caixa “noise reduction tools” e “design multiples areas for analysis”. Se o usuário marcou a caixa “noise reduction tool” o programa habilita a aba “treatment noise”. A foto dessa aba está mostrada na figura  60. Caso o usuário tenha marcado o “design multiples areas for analysis” é habilitado a aba “areas of interest”. A foto dessa aba está mostrada na  64. Caso o usuário não tenha marcado nenhuma das opções ele é levado para a aba “identification session”. A foto dessa aba está mostrada na figura  65.
+    </body></html></tutor>
+
+
+<!-- aba de noise reduction -->
+
     <tutor id="tutorPCalibrationNoise" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
         Posicione os triangulos nos em alguma distancia conhecida
@@ -46,6 +143,63 @@ THEN press the “configure” button
 
     </body></html></tutor>
 
+    <tutor id="tutorCalibrationNext" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <html><body>
+        A caixa de seleção “Mobile virtual camera”- Ao marcar essa caixa o usuário vai ser permitido configurar os parâmetros do algoritmo de janela móvel.
+A caixa de seleção “Intrinsic noise”- Ao marcar essa caixa o usuário vai ser permitido configurar os parâmetros do algoritmo de ruido intrínseco.
+O botão “configure”- Ao clicar nesse botão o programa salva a opção da caixa “Mobile virtual noise” e “Intrinsic noise”. Se o usuário marcou a caixa “Mobile virtual camera” o programa habilita a aba “Mobile virtual camera” mostrado na figura  61. Caso o usuário tenha marcado o “Intrinsic noise” é habilitado a aba “Intinsic noise” mostrado na figura 63
+
+ O botão “configure” - Ao clicar nesse botão o programa salva a opção da caixa “noise reduction tools” e “design multiples areas for analysis”. Se o usuário marcou a caixa “noise reduction tool” o programa habilita a aba “treatment noise”. A foto dessa aba está mostrada na figura  60. Caso o usuário tenha marcado o “design multiples areas for analysis” é habilitado a aba “areas of interest”. A foto dessa aba está mostrada na  64. Caso o usuário não tenha marcado nenhuma das opções ele é levado para a aba “identification session”. A foto dessa aba está mostrada na figura  65.
+
+    </body></html></tutor>
+
+
+    <tutor id="tutorVirtualMovel" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <html><body>
+        O triângulo azul e vermelho da aba “Mobile virtual câmera”- Ao entrar nessa aba o programa desenha um triângulo vermelho e um azul em cima da imagem  (figura 62 a). Esses triângulos servem para que o usuário informe o tamanho da câmera móvel. O processo recomendado é navegar pelo vídeo para encontrar a maior extensão que o animal exibe. Nesse quadro os triângulos, azul e vermelho, devem ser posicionados em cima de extremidades do animal exibido na cena(figura 62 b).
+O botão “configure” -Ao clicar nesse botão a interface salva o valor do tamanho da “Mobile virtual camera”. Em seguida o programa desenha e exibe um retângulo verde em cima do quadro inicial da TCCM  (figura 62 c). Isso acontece para que o usuário possa informar a primeira posição da “Mobile virtual câmera”. O usuário deve posicionar esse retângulo de forma que o objeto de interesse fique contido dentro  (figura 62 d).
+O campo “Animal maximum lenght”- O campo é preenchido automaticamente e contem a informação de distância entre os dois triângulos desenhados na imagem. Ao clicar e arrastar o triângulo selecionado fica de cor amarela.
+
+
+    </body></html></tutor>
+
+    <tutor id="tutorIntrinsicValue" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <html><body>
+            Campo de edição “Intrinsic value” - Nesse campo o usuário deve informar o menor valor de movimento que vai ser considerado como um valor válido de movimento.
+        O botão configure – O botão grava o valor do campo “Intrinsic value”.
+
+
+    </body></html></tutor>
+
+
+    <!-- calibração de areas de interese -->
+
+
+<tutor id="tutorAreaDeInteresse" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+<html><body>
+    O botão “add Area”- Ao clicar nesse botão o programa vai criar uma forma de acordo com as caixas “circle” ou “Rectangle”. Caso a caixa selecionada seja a “circle” a forma criada será a de  um círculo. Caso a caixa selecionada seja a “Rectangle” a forma criada será a de um retângulo. A forma será desenhada no quadro de fundo selecionado pelo usuário e adicionada na tabela “Areas”.
+    A tabela “Areas”- A tabela contem todas as formas que o usuário criou. Ao clicar duas vezes em cima da linha da figura desejada o usuário consegue renomear as formas criadas. Ao clicar uma vez na célula a forma é selecionada e ela fica de cor verde. Dessa forma o usuário consegue editar seu tamanho no painel “size” da interface gráfica. Caso a figura selecionada seja um circulo ele consegue editar o parâmetro de raio no campo “Radio”. Caso a forma seja um retângulo o usuário consegue editar a altura e largura no campo “Height” e no campo “Width” respectivamente. O usuário também pode editar a posição clicando e arrastando a forma selecionada para a posição desejada. Ao clicar e arrastar a imagem fica na cor amarela.
+    O botão “delete Area”- Ao clicar nesse botão a área que está selecionada na tabela de áreas será excluída.
+</body></html></tutor>
+
+
+<!-- aba de identificação -->
+
+
+<tutor id="tutorIdentificacao" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+<html><body>
+    Campo de edição “Experiment” - Nesse campo o usuário deve informar o menor valor de movimento que vai ser considerado como um valor válido de movimento.
+    Campo de edição “Date” - Nesse campo o usuário deve relatar o dia do experimento
+    Campo de edição “Other Info” - Nesse campo o usuário deve escrever outras informações relevantes do experimento.
+    Campo de edição “Animal ID” - Nesse campo o usuário algum identificador único do animal.
+    Campo de edição “Weight” - Nesse campo o usuário deve escrever o peso do animal.
+    Campo de edição “Sex” - Nesse campo o usuário deve escrever o sexo do animal do vídeo.
+    Campo de edição “Treatment/Condition” - Nesse campo o usuário deve escrever informações quanto ao tratamento que o animal do vídeo recebeu.
+    O botão “Save” - Ao clicar nesse botão é aberto uma caixa de diálogo com acesso ao disco local do computador para que o usuário possa escolher aonde será criada o novo arquivo de cadastro de vídeo.
+</body></html></tutor>
+
+
+
     <tutor id="tutorSaida" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
         Scale: In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  THEN click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). THEN press the “save scale” button
@@ -58,17 +212,7 @@ THEN press the “configure” button
 
     </body></html></tutor>
 
-    <tutor id="tutorSaida" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
-    <html><body>
-        Scale: In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  THEN click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). THEN press the “save scale” button
 
-Mark “Noise reduction tools “  checkbox to set the configurations  of two algorithms  that  help to control for tracking artifacts
-
-Mark “Design multiple areas for analysis” to  set multiple sub-areas  (squares, circles) of the maze from which you want to get specific reports and analysis.
-
-THEN press the “configure” button
-
-    </body></html></tutor>
 
 
 
