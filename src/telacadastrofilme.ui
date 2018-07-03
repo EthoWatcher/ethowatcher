@@ -59,7 +59,7 @@
          </font>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab_9">
          <attribute name="title">
@@ -246,7 +246,7 @@
                 <bool>false</bool>
                </property>
                <property name="text">
-                <string>Vídeo- or real-time ethography</string>
+                <string>Vídeo ethography</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -268,6 +268,9 @@
              </item>
              <item row="2" column="0">
               <widget class="QCheckBox" name="cbBlinding">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <property name="text">
                 <string>Blinding video file</string>
                </property>
@@ -275,7 +278,7 @@
                 <bool>true</bool>
                </property>
                <property name="checked">
-                <bool>true</bool>
+                <bool>false</bool>
                </property>
               </widget>
              </item>
@@ -601,7 +604,6 @@
                         </widget>
                        </item>
                       </layout>
-                      <zorder>groupBox_SubtractionThreshold</zorder>
                       <zorder>groupBox_Erosion</zorder>
                       <zorder>groupBox_SubtractionThreshold</zorder>
                      </widget>
@@ -794,9 +796,6 @@
                            </widget>
                           </item>
                          </layout>
-                         <zorder>label_61</zorder>
-                         <zorder>label_5</zorder>
-                         <zorder>spinBoxScaleCm</zorder>
                          <zorder>label_61</zorder>
                          <zorder>label_5</zorder>
                          <zorder>spinBoxScaleCm</zorder>
@@ -1085,9 +1084,6 @@
                         </widget>
                        </item>
                       </layout>
-                      <zorder>widget_6</zorder>
-                      <zorder>widget_9</zorder>
-                      <zorder>widget_10</zorder>
                      </widget>
                     </item>
                    </layout>

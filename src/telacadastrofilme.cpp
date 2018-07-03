@@ -6,6 +6,8 @@
 //    using std::vector;
 //} adequacão para a opencv 3.2
 
+
+
 telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::telaCadastroFilme)
@@ -58,14 +60,23 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     chRoi=true;
 
     controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastrofilme.xml",this);
+    seqInicial.append("tutorInicio");
     seqInicial.append("tutorInicioVideo");
+    seqInicial.append("tutorPCalibrationSession");
+    seqInicial.append("tutorVideoOpen");
+    seqInicial.append("tutorVideoPlay");
+    seqInicial.append("tutorVideoPause");
+    seqInicial.append("tutorVideoSlider");
+    seqInicial.append("tutorSelectionRegister");
+    seqInicial.append("tutorNextVideo");
+
 //    seqInicial.append("tutorPrenchaCampos");
 //    seqInicial.append("tutorSaida");
     controlWarnig->setLista(seqInicial);
 
-//    MovimentaInterfaceCentro *base = new MovimentaInterfaceCentro();
-//    controlWarnig->setFormaMocimento(base);
-//    controlWarnig->setNovoWidgetReferencia(this);
+    MovimentaInterfaceCentro *base = new MovimentaInterfaceCentro();
+    controlWarnig->setFormaMocimento(base);
+    controlWarnig->setNovoWidgetReferencia(this);
 
 
 
@@ -73,6 +84,43 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     this->show();
 
     controlWarnig->nextList("tutorInicio");
+
+    ui->cbBlinding->setVisible(false);
+}
+
+/**
+ * @brief telaCadastroFilme::botaoClicado
+ * @param clicado
+ * @param id
+ */
+void telaCadastroFilme::botaoClicado(bool clicado, QString id)
+{
+    qDebug() << "botao clcialado " << id;
+    if(id == "tutorInicio"){
+        controlWarnig->nextList("tutorVideoOpen");
+    }
+
+    if(id == "cliclouBotaoOpenVideo"){
+        controlWarnig->nextList("tutorVideoPlay");
+    }
+
+    if(id == "cliclouBotaoPlay"){
+        if(clicado){
+          controlWarnig->nextList("tutorVideoSlider");
+        }
+
+    }
+
+    if(id == "botaoClicadoSlider"){
+        if(clicado){
+          controlWarnig->nextList("tutorVideoStop");
+        }
+
+    }
+
+
+
+
 }
 
 telaCadastroFilme::~telaCadastroFilme()
@@ -506,9 +554,7 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
         triBlueMax->setVisible(false);
         triBlueScala->setVisible(false);
         triRedScala->setVisible(false);
-
-
-
+        this->botaoClicado(true,"cliclouBotaoOpenVideo");
 
 
 
@@ -528,6 +574,8 @@ void telaCadastroFilme::on_btPlay_clicked()
     ui->btStop->setEnabled(true);
     ui->hsTimer->setEnabled(false);
     ui->SliderVelocidade->setEnabled(true);
+
+    this->botaoClicado(true,"cliclouBotaoPlay");
 
 }
 
@@ -597,6 +645,10 @@ void telaCadastroFilme::on_SliderVelocidade_sliderReleased()
     //Calcula o tempo de disparo igual ao tempo de reprodução de 1 frame (1000ms/fps) multiplicado
     //pelo novo fator de velocidade(aceleração/desaceleração) do video
     captador->iniciandoTimer(fatorVeloc);
+
+    this->botaoClicado(true,"botaoClicadoSlider");
+
+
 }
 
 void telaCadastroFilme::on_pbAdquiriFrame_clicked()
@@ -1776,13 +1828,4 @@ void telaCadastroFilme::on_pbNexStep3_clicked()
     ui->tabWPrincipal->setTabEnabled(2,true);
 }
 
-/**
- * @brief telaCadastroFilme::botaoClicado
- * @param clicado
- * @param id
- */
-void telaCadastroFilme::botaoClicado(bool clicado, QString id)
-{
-   controlWarnig->nextList("tutorPrenchaCampos");
 
-}

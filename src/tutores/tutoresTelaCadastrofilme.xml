@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tutores>
+    <tutor id="tutorInicio" titulo="Welcome to the Register Video interface" pbS="yes(f1)" pbN="" sizeHeight ="400">
+    <html><body>
+        No módulo de cadastro de vídeo o usuário consegue registrar todos os parâmetros necessários para os métodos de TCC, TCCM e embaralhamento de vídeo para experimentação cegada.
+    </body></html></tutor>
+
+
 
     <tutor id="tutorInicioVideo" titulo="Cadastro video" pbS="yes(f1)" pbN="" sizeHeight ="400">
     <html><body>
@@ -27,7 +33,7 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
     </body></html></tutor>
 
 
-    <tutor id="tutorVideoOpen" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <tutor id="tutorVideoOpen" titulo="Clique on the button Open video" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
         ao clicar nesse botão uma caixa de diálogo com acesso ao disco local do computador do usuário é aberto, para que ele possa encontrar um arquivo de vídeo no formato AVI em seu computador. As informações sobre o vídeo original são extraídas pela OpenCV e os campos “video file path”, “video file name” , “frames per second”, “width”, “height” são preenchidos automaticamente.
     Campo “video file path”- Nesse campo, o programa insere o caminho do disco local no qual o vídeo aberto está gravado.
