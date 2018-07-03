@@ -601,6 +601,7 @@ void telaCadastroFilme::on_btPlay_clicked()
     ui->hsTimer->setEnabled(false);
     ui->SliderVelocidade->setEnabled(true);
 
+    ui->gpNavigation->setEnabled(false);
     this->botaoClicado(true,"cliclouBotaoPlay");
 
 }
@@ -612,6 +613,7 @@ void telaCadastroFilme::on_btStop_clicked()
     ui->btStop->setEnabled(false);
     ui->hsTimer->setEnabled(true);
     ui->SliderVelocidade->setEnabled(false);
+    ui->gpNavigation->setEnabled(true);
 
     this->botaoClicado(true,"botaoClicadoPause");
 

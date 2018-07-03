@@ -84,151 +84,144 @@
                <property name="title">
                 <string>Video Open Info</string>
                </property>
-               <widget class="QLabel" name="lblNomeVideo">
-                <property name="geometry">
-                 <rect>
-                  <x>310</x>
-                  <y>40</y>
-                  <width>171</width>
-                  <height>16</height>
-                 </rect>
-                </property>
-                <property name="autoFillBackground">
-                 <bool>true</bool>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-               <widget class="QLabel" name="label_12">
-                <property name="geometry">
-                 <rect>
-                  <x>310</x>
-                  <y>20</y>
-                  <width>101</width>
-                  <height>16</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Video file Name</string>
-                </property>
-               </widget>
-               <widget class="QLabel" name="lblCaminho">
-                <property name="geometry">
-                 <rect>
-                  <x>20</x>
-                  <y>40</y>
-                  <width>261</width>
-                  <height>16</height>
-                 </rect>
-                </property>
-                <property name="autoFillBackground">
-                 <bool>true</bool>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-               <widget class="QLabel" name="label_13">
-                <property name="geometry">
-                 <rect>
-                  <x>20</x>
-                  <y>20</y>
-                  <width>101</width>
-                  <height>16</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Video file path</string>
-                </property>
-               </widget>
-               <widget class="QLabel" name="label_14">
-                <property name="geometry">
-                 <rect>
-                  <x>20</x>
-                  <y>60</y>
-                  <width>131</width>
-                  <height>16</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Frames per second (FPS)</string>
-                </property>
-               </widget>
-               <widget class="QLabel" name="lblFps">
-                <property name="geometry">
-                 <rect>
-                  <x>20</x>
-                  <y>80</y>
-                  <width>91</width>
-                  <height>16</height>
-                 </rect>
-                </property>
-                <property name="autoFillBackground">
-                 <bool>true</bool>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-               <widget class="QLabel" name="lblWidth">
-                <property name="geometry">
-                 <rect>
-                  <x>170</x>
-                  <y>80</y>
-                  <width>91</width>
-                  <height>16</height>
-                 </rect>
-                </property>
-                <property name="autoFillBackground">
-                 <bool>true</bool>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-               <widget class="QLabel" name="label_15">
-                <property name="geometry">
-                 <rect>
-                  <x>170</x>
-                  <y>60</y>
-                  <width>101</width>
-                  <height>16</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Width (px)</string>
-                </property>
-               </widget>
-               <widget class="QLabel" name="lblHeight">
-                <property name="geometry">
-                 <rect>
-                  <x>290</x>
-                  <y>80</y>
-                  <width>91</width>
-                  <height>16</height>
-                 </rect>
-                </property>
-                <property name="autoFillBackground">
-                 <bool>true</bool>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-               <widget class="QLabel" name="label_16">
-                <property name="geometry">
-                 <rect>
-                  <x>290</x>
-                  <y>60</y>
-                  <width>101</width>
-                  <height>16</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Height (px)</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_37">
+                <item>
+                 <widget class="QWidget" name="widget_24" native="true">
+                  <layout class="QVBoxLayout" name="verticalLayout_33">
+                   <item>
+                    <widget class="QLabel" name="label_13">
+                     <property name="text">
+                      <string>Video file path</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="lblCaminho">
+                     <property name="autoFillBackground">
+                      <bool>true</bool>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QWidget" name="widget_28" native="true">
+                  <layout class="QHBoxLayout" name="horizontalLayout_37">
+                   <item>
+                    <widget class="QWidget" name="widget_26" native="true">
+                     <layout class="QVBoxLayout" name="verticalLayout_35">
+                      <item>
+                       <widget class="QWidget" name="widget_25" native="true">
+                        <layout class="QVBoxLayout" name="verticalLayout_34">
+                         <item>
+                          <widget class="QLabel" name="label_12">
+                           <property name="text">
+                            <string>Video file Name</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="lblNomeVideo">
+                           <property name="autoFillBackground">
+                            <bool>true</bool>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QWidget" name="widget_21" native="true">
+                        <layout class="QVBoxLayout" name="verticalLayout_30">
+                         <item>
+                          <widget class="QLabel" name="label_14">
+                           <property name="text">
+                            <string>Frames per second (FPS)</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="lblFps">
+                           <property name="autoFillBackground">
+                            <bool>true</bool>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QWidget" name="widget_27" native="true">
+                     <layout class="QVBoxLayout" name="verticalLayout_36">
+                      <item>
+                       <widget class="QWidget" name="widget_22" native="true">
+                        <layout class="QVBoxLayout" name="verticalLayout_31">
+                         <item>
+                          <widget class="QLabel" name="label_15">
+                           <property name="text">
+                            <string>Width (px)</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="lblWidth">
+                           <property name="autoFillBackground">
+                            <bool>true</bool>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QWidget" name="widget_23" native="true">
+                        <layout class="QVBoxLayout" name="verticalLayout_32">
+                         <item>
+                          <widget class="QLabel" name="label_16">
+                           <property name="text">
+                            <string>Height (px)</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="lblHeight">
+                           <property name="autoFillBackground">
+                            <bool>true</bool>
+                           </property>
+                           <property name="text">
+                            <string/>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                     </layout>
+                     <zorder>widget_23</zorder>
+                     <zorder>widget_22</zorder>
+                     <zorder>widget_22</zorder>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </item>
             </layout>
@@ -3397,7 +3390,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QGroupBox" name="groupBox_6">
+             <widget class="QGroupBox" name="gpNavigation">
               <property name="maximumSize">
                <size>
                 <width>20000</width>
