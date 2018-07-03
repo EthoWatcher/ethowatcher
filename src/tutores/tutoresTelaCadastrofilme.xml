@@ -7,19 +7,21 @@
 
 
 
-    <tutor id="tutorInicioVideo" titulo="Click on the Load video button " pbS="yes(f1)" pbN="" sizeHeight ="400">
+    <tutor id="tutorNextStep" titulo="Selecione o módulo" pbS="yes(f1)" pbN="" sizeHeight ="400">
     <html><body>
-        <p>
-             Click on the “load video” button to open an .AVI video file and check the data for this file (path, name, FPS, width/height).
-        </p>
-        1 -
 
-    2 - Select  the module(s) (one or more)  that will be used to process this video file.
-    Warning:: If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures.
+<p>
+    2 - Select  the module(s) (one or more)  that will be used to process this video file.If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures.
     If you want to use this video only for tracking, select the appropriate checkbox. For both tracking and ethography, select both checkboxes.
-    If you also want to use the “video blinding” procedures (hiding the clacket and changing the file ID from the user who will transcript the recording session), then select also this checkbox.
+</p>
 
-    3 - Click on “Next” button
+
+    <h2> NEXT </h2>
+    <p>
+        3 - Click on “Next step” button
+    </p>
+
+
     </body></html></tutor>
 
     <tutor id="tutorPCalibrationSession" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
@@ -36,42 +38,74 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
     </body></html></tutor>
 
 
-    <tutor id="tutorVideoOpen" titulo="Clique on the button Open video" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <tutor id="tutorVideoOpen" titulo="Clique on the button Load video" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
-        ao clicar nesse botão uma caixa de diálogo com acesso ao disco local do computador do usuário é aberto, para que ele possa encontrar um arquivo de vídeo no formato AVI em seu computador. As informações sobre o vídeo original são extraídas pela OpenCV e os campos “video file path”, “video file name” , “frames per second”, “width”, “height” são preenchidos automaticamente.
-    Campo “video file path”- Nesse campo, o programa insere o caminho do disco local no qual o vídeo aberto está gravado.
-    Campo “video file name”- Nesse campo, o programa insere o nome do arquivo aberto.
-    Campo “frames per second”- Nesse campo, o programa insere a taxa de atualização que o vídeo possui.
-    Campo “width”- Nesse campo, o programa insere a largura em pixeis dos quadros do vídeo aberto.
-    Campo “height”- Nesse campo, o programa insere a altura em pixeis dos quadros do vídeo aberto.
+        <p>
+        Para abrir uma caixa de diálogo com acesso ao disco local do computador do usuário é aberto, para que ele possa encontrar um arquivo de vídeo no formato AVI em seu computador.
+        </p>
 
-
-    </body></html></tutor>
-
-    <tutor id="tutorVideoPlay" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
-    <html><body>
-        O botão “pause” - Ao clicar nesse botão, o vídeo aberto é pausado, sendo que o painel do vídeo original é carregado com o quadro em que o vídeo foi parado. Esse botão é habilitado após o usuário clicar no botão “load vídeo”.
-
-
-    </body></html></tutor>
-
-    <tutor id="tutorVideoPause" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
-    <html><body>
-        O botão “pause” - Ao clicar nesse botão, o vídeo aberto é pausado, sendo que o painel do vídeo original é carregado com o quadro em que o vídeo foi parado. Esse botão é habilitado após o usuário clicar no botão “load vídeo”.
+        <h2> <font color="red">Warning! </font></h2>
+        <p>
+            O video, e o caminho dele, devem ser da codificação UTF-8 (e.g.,) e não conter caracteres especiais -- ã,ç,é.
+        </p>
 
 
     </body></html></tutor>
 
 
+    <tutor id="tutorVideoOpenConfira" titulo="Confira as informações do vídeo" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <html><body>
+        <ul>
+        <li><font color="red">video file path” </font> se é o caminho do disco local no qual o vídeo aberto está gravado. </li>
+        <li><font color="red">video file name  </font> se é o nome do arquivo aberto</li>
+        <li><font color="red">frames per second </font> se é a taxa de atualização que o vídeo possui </li>
+        <li><font color="red">width </font> se é a largura dos quados, em pixeis, do vídeo aberto </li>
+        <li><font color="red">height </font> se é a altura dos quados, em pixeis, do vídeo aberto </li>
+        </ul>
 
-<tutor id="tutorVideoSlider" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
+    </body></html></tutor>
+
+    <tutor id="tutorVideoPlay" titulo="Clique no botão Play!" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <html><body>
+    <p> Clique no botão play para que os quadros do vídeo comessem a serem carregados, de forma constante, no painel do vídeo original.</p>
+    <p> Observe no painel “progress” o numero do quadro, o tempo em segundos, atual , do vídeo, sendo exibido na interface gráfica. </p>
+
+
+    </body></html></tutor>
+
+    <tutor id="tutorVideoPause" titulo="Clique no botão Pause!" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <html><body>
+        Para que os quadros do vídeo parem de ser carregados, de forma constante, no painel do vídeo.
+
+    </body></html></tutor>
+
+
+
+<tutor id="tutorVideoSlider" titulo="Clique a arraste o botão de velocidade de reprodução" pbS="yes(y)" pbN="" sizeHeight ="530">
 <html><body>
 
-    O botão de deslisar “velocity of reproduction” - Ao arrastar esse controle, o usuário muda a velocidade de execução do vídeo. Se o botão for arrastado para a direita acelera proporcionalmente o vídeo e se arrastado para a esquerda desacelera proporcionalmente o vídeo.
-    O botão avançar do painel “navigation” – Ao clicar nesse botão, o vídeo é avançado, segundo o valor apresentado na caixa de seleção de quadros e apresentado de forma estática no painel do vídeo.
-    O botão voltar do painel “navigation” - Ao clicar nesse botão, o vídeo retrocede, segundo o valor apresentado na caixa de seleção de quadros e é carregado de forma estática no painel do vídeo original.
-    O painel “progress”- Nesse painel, é possível observar qual é o quadro atual sendo exibido pela interface gráfica.
+    Para alterar a constante de atualização dos quadros no painel -arraste para a direita para aumentar ou para esquerda para diminuir a taxa de atualização do vídeo.
+
 </body></html></tutor>
+
+<tutor id="tutorVideoNavigation" titulo="Navegue pelos quadros do vídeo de forma descontinua" pbS="yes(y)" pbN="" sizeHeight ="530">
+<html><body>
+
+    Clique no:
+    <ul>
+    <li><font color="red">avançar </font> para avançar, de forma descontinua, o vídeo segundo o valor na caixa de texto  </li>
+    <li><font color="red">voltar  </font> para retroceder, de forma descontinua, o vídeo segundo o valor configurado na caixa de texto</li>
+    <li><font color="red">progress slider </font> e arraste para se deslocar, de forma descontinua, pelos quadros do vídeo</li>
+    </ul>
+
+    <p>
+
+    </p>
+</body></html></tutor>
+
+
+
+
 
 <tutor id="tutorSelectionRegister" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
 <html><body>

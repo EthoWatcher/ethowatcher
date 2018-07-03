@@ -252,6 +252,7 @@ void ControladoWarningTutor::nextById(QString id){
             break;
         }
     }
+    qDebug() << "NAO ENCONTRADO " << id;
 }
 
 void ControladoWarningTutor::setTutor(bool chLigaTutor)

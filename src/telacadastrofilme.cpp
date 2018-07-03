@@ -63,12 +63,16 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     seqInicial.append("tutorInicio");
     seqInicial.append("tutorInicioVideo");
     seqInicial.append("tutorPCalibrationSession");
+    seqInicial.append("tutorVideoOpenConfira");
+    seqInicial.append("tutorVideoSlider");
     seqInicial.append("tutorVideoOpen");
     seqInicial.append("tutorVideoPlay");
     seqInicial.append("tutorVideoPause");
     seqInicial.append("tutorVideoSlider");
     seqInicial.append("tutorSelectionRegister");
+    seqInicial.append("tutorNextStep");
     seqInicial.append("tutorNextVideo");
+     seqInicial.append("tutorVideoNavigation");
 
 //    seqInicial.append("tutorPrenchaCampos");
 //    seqInicial.append("tutorSaida");
@@ -97,26 +101,48 @@ void telaCadastroFilme::botaoClicado(bool clicado, QString id)
 {
     qDebug() << "botao clcialado " << id;
     if(id == "tutorInicio"){
-        controlWarnig->nextList("tutorVideoOpen");
+        controlWarnig->nextById("tutorVideoOpen");
     }
 
     if(id == "cliclouBotaoOpenVideo"){
-        controlWarnig->nextList("tutorVideoPlay");
+        controlWarnig->nextById("tutorVideoOpenConfira");
+    }
+
+    if(id == "tutorVideoOpenConfira"){
+        controlWarnig->nextById("tutorVideoPlay");
     }
 
     if(id == "cliclouBotaoPlay"){
         if(clicado){
-          controlWarnig->nextList("tutorVideoSlider");
+          controlWarnig->nextById("tutorVideoSlider");
         }
 
     }
 
     if(id == "botaoClicadoSlider"){
         if(clicado){
-          controlWarnig->nextList("tutorVideoStop");
+          controlWarnig->nextById("tutorVideoPause");
         }
 
     }
+
+    if(id == "botaoClicadoPause"){
+        if(clicado){
+          controlWarnig->nextById("tutorVideoNavigation");
+        }
+
+    }
+
+    if(id == "tutorVideoNavigation" || id == "fimInicioRegistroVideo"){
+        if(clicado){
+          controlWarnig->nextById("tutorNextStep");
+        }
+
+    }
+
+
+
+
 
 
 
@@ -587,6 +613,8 @@ void telaCadastroFilme::on_btStop_clicked()
     ui->hsTimer->setEnabled(true);
     ui->SliderVelocidade->setEnabled(false);
 
+    this->botaoClicado(true,"botaoClicadoPause");
+
 }
 
 void telaCadastroFilme::on_btAvancar_clicked()
@@ -600,6 +628,7 @@ void telaCadastroFilme::on_btAvancar_clicked()
         ui->hsTimer->setValue(ui->labelFrames->text().toInt());
         captador->captando();
         ui->hsTimer->setEnabled(true);
+        this->botaoClicado(true,"fimInicioRegistroVideo");
 
 
 //        captador->setFrame(frame_atual+ui->edtFatordesloc->text().toInt());
@@ -622,6 +651,7 @@ void telaCadastroFilme::on_btVoltar_clicked()
      ui->hsTimer->setValue(ui->labelFrames->text().toInt());
      captador->captando();
      ui->hsTimer->setEnabled(true);
+     this->botaoClicado(true,"fimInicioRegistroVideo");
     }
 
 //    if((frame_atual-ui->edtFatordesloc->text().toInt()) >=0){
