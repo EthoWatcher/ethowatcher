@@ -29,7 +29,7 @@ Hello world indio
     </p>
     <h2> See more about the program</h2>
     <p>
-        Read the license on <font color="red"> System Information > License Agreement </font> and system about on <font color="red"> System Information > About</font>. 
+        Read the license on <font color="red"> System Information > License Agreement </font> and system about on <font color="red"> System Information > About</font>.
     </p>
 
 </body></html></tutor>
@@ -51,22 +51,20 @@ To start using :
 
 
 
-<tutor id="ethoEscolhaEthoTraking" titulo="Marque a opção e aperte next" pbS="OK!(f1)" pbN="" sizeHeight ="500"><html><body>
-Marque a opção:
-
+<tutor id="ethoEscolhaEthoTraking" titulo="Choose an option and press Next" pbS="OK!(f1)" pbN="" sizeHeight ="500"><html><body>
+Choose an option:
     <ul>
-      <li><font color="red">Digital Video-Based Ethography an Active Analysis!:</font> para realizar os passos da etografias baseadas em vídeos de um animal.</li>
-      <li><font color="red">Traking </font>para realizar o Traking de um animal.</li>
-      <li><font color="red">Digital Video-Based Ethography an Active Analysis and Traking </font> para realizar tanto Ethografia baseada em vídeo quanto Traking </li>
+      <li><font color="red">Digital Video-based ethography !:</font> to start an ethogram-based  transcription of a video file l.</li>
+      <li><font color="red">Tracking </font>to start tracking a single animal and to extract kinematic and morphologic data.</li>
+      <li><font color="red"> Both ethography and tracking of a single animal in a video file </font> para realizar tanto Ethografia baseada em vídeo quanto Traking </li>
     </ul>
 
     <h2> NEXT </h2>
     <p>
-        Após selecionar a opção de configuração da interface <font color="red">  clique em -> </font>
+        Then <font color="red">  clique em -> </font>
     </p>
-
-
 </body></html></tutor>
+
 
 
 <tutor id="ethoCatalogo" titulo="Build a behavioral catalog or ethogram" pbS="yes(y)" pbN="no(n)">
@@ -75,6 +73,8 @@ Marque a opção:
 Press “No” if you already have registered a catalog.
 </p>
 </body></html></tutor>
+
+<!-- ate aqui corrigido pelo marino -->
 
 
 

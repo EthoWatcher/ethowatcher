@@ -7,9 +7,12 @@
 
 
 
-    <tutor id="tutorInicioVideo" titulo="Cadastro video" pbS="yes(f1)" pbN="" sizeHeight ="400">
+    <tutor id="tutorInicioVideo" titulo="Click on the Load video button " pbS="yes(f1)" pbN="" sizeHeight ="400">
     <html><body>
-        1 - Click on the “load video” button to open an .AVI video file and check the data for this file (path, name, FPS, width/height).
+        <p>
+             Click on the “load video” button to open an .AVI video file and check the data for this file (path, name, FPS, width/height).
+        </p>
+        1 -
 
     2 - Select  the module(s) (one or more)  that will be used to process this video file.
     Warning:: If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures.
