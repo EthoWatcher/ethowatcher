@@ -64,6 +64,7 @@ class ControladoWarningTutor: public QObject{
     void setLista(QList<QString> sequencia);
     void nextList(bool chNext);
     void nextById(QString id);
+    void setEnableById(QString id, bool enable);
     void setTutor(bool chLigaTutor);
     void fechandoJanelas();
     void setFormaMocimento(MovimentaInterface *base);
@@ -76,7 +77,13 @@ public slots:
 signals:
     void clicou(bool,QString);
 private:
+    // modificação para poder desligar interface por id
+    struct EstadoTutores{
+        QString nome;
+        bool liga;
+    };
 
+    QList<EstadoTutores> todosTutores;
     TutorEtho tutor;
     QList<QString> sequenciaTutores;
 

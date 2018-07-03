@@ -172,11 +172,14 @@ void ControladoWarningTutor::setLista(QList<QString> sequencia)
     this->sequenciaTutores = sequencia;
 
 
+    for(int i=0; i< this->sequenciaTutores.size(); i++){
+        EstadoTutores tutor;
+        tutor.liga =true ;
+        tutor.nome = this->sequenciaTutores[i];
+        todosTutores.append(tutor);
+    }
+
     criandoInterfaces();
-
-
-
-
 
 }
 void ControladoWarningTutor::criandoInterfaces(){
@@ -243,9 +246,15 @@ void ControladoWarningTutor::nextById(QString id){
         if(listaTutores[i]->getId(id) ){
 
             if(chHabilitaTutor){
-                controladorInterface->mostraInterfaceAtiva(listaTutores[i]);
+                if(todosTutores[i].liga){
+                    controladorInterface->mostraInterfaceAtiva(listaTutores[i]);
+                    qDebug()<<"foi ligada a interface " << id;
+                }else{
+                    qDebug()<<"nao pode ser ligada a " << id;
+                }
+
 //               listaTutores[i]->show();
-               qDebug()<<"foi ligada a interface " << id;
+
             }
             contador=i+1;
 
@@ -253,6 +262,17 @@ void ControladoWarningTutor::nextById(QString id){
         }
     }
     qDebug() << "NAO ENCONTRADO " << id;
+}
+
+void ControladoWarningTutor::setEnableById(QString id, bool enable)
+{
+    for(int i = 0; i <todosTutores.size(); i++ ){
+        if(todosTutores[i].nome == id ){
+            todosTutores[i].liga = enable;
+            qDebug() << "o id " << id << " foi " <<enable;
+        }
+    }
+
 }
 
 void ControladoWarningTutor::setTutor(bool chLigaTutor)
