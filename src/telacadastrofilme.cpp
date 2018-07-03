@@ -102,19 +102,24 @@ void telaCadastroFilme::botaoClicado(bool clicado, QString id)
     qDebug() << "botao clcialado " << id;
     if(id == "tutorInicio"){
         controlWarnig->nextById("tutorVideoOpen");
+        controlWarnig->setEnableById("tutorVideoOpen",false);
     }
 
     if(id == "cliclouBotaoOpenVideo"){
         controlWarnig->nextById("tutorVideoOpenConfira");
+        controlWarnig->setEnableById("tutorVideoOpenConfira",false);
     }
 
     if(id == "tutorVideoOpenConfira"){
         controlWarnig->nextById("tutorVideoPlay");
+        controlWarnig->setEnableById("tutorVideoPlay",false);
+
     }
 
     if(id == "cliclouBotaoPlay"){
         if(clicado){
           controlWarnig->nextById("tutorVideoSlider");
+          controlWarnig->setEnableById("tutorVideoSlider",false);
         }
 
     }
@@ -122,6 +127,7 @@ void telaCadastroFilme::botaoClicado(bool clicado, QString id)
     if(id == "botaoClicadoSlider"){
         if(clicado){
           controlWarnig->nextById("tutorVideoPause");
+          controlWarnig->setEnableById("tutorVideoPause",false);
         }
 
     }
@@ -129,6 +135,7 @@ void telaCadastroFilme::botaoClicado(bool clicado, QString id)
     if(id == "botaoClicadoPause"){
         if(clicado){
           controlWarnig->nextById("tutorVideoNavigation");
+          controlWarnig->setEnableById("tutorVideoNavigation",false);
         }
 
     }
@@ -136,6 +143,7 @@ void telaCadastroFilme::botaoClicado(bool clicado, QString id)
     if(id == "tutorVideoNavigation" || id == "fimInicioRegistroVideo"){
         if(clicado){
           controlWarnig->nextById("tutorNextStep");
+          controlWarnig->setEnableById("tutorNextStep",false);
         }
 
     }

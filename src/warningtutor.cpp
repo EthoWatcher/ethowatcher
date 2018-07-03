@@ -181,10 +181,6 @@ void ControladoWarningTutor::setLista(QList<QString> sequencia)
 
     criandoInterfaces();
 
-
-
-
-
 }
 void ControladoWarningTutor::criandoInterfaces(){
 
@@ -272,7 +268,8 @@ void ControladoWarningTutor::setEnableById(QString id, bool enable)
 {
     for(int i = 0; i <todosTutores.size(); i++ ){
         if(todosTutores[i].nome == id ){
-            todosTutores[i].liga =enable;
+            todosTutores[i].liga = enable;
+            qDebug() << "o id " << id << " foi " <<enable;
         }
     }
 
