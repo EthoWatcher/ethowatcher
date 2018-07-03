@@ -41,6 +41,7 @@ telaCadastroCatalago::~telaCadastroCatalago()
 void telaCadastroCatalago::closeEvent(QCloseEvent *event){
 
     qDebug()<< " a janela de cadastro de usuario foi fechada ";
+    controlWarnig->fechandoJanelas();
 }
 
 void telaCadastroCatalago::on_pbAddCategoria_clicked()

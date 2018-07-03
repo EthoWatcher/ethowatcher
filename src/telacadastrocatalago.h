@@ -59,6 +59,8 @@ private:
 
     QList<QString> seqInicial;
 
+
+
     dadosEtografia dadosEto;
     QString nomeGravarCatalago;
     QFile Output;

@@ -149,6 +149,7 @@ ControladoWarningTutor::ControladoWarningTutor(QString XML, QWidget *widget)
 
     controladorInterface = new ControladorInterfacesTutor();
     controladorInterface->addInterface(widget);
+    controladorInterface->setReferencia(widget);
 
     //ja pega todos os tutores xml
     tutor.lerXml(XML);
@@ -251,6 +252,7 @@ void ControladoWarningTutor::nextById(QString id){
             break;
         }
     }
+    qDebug() << "NAO ENCONTRADO " << id;
 }
 
 void ControladoWarningTutor::setTutor(bool chLigaTutor)
@@ -268,6 +270,18 @@ void ControladoWarningTutor::fechandoJanelas()
      controladorInterface->fechaInterface(listaTutores[i]);
 //        listaTutores[i]->close();
  }
+}
+
+void ControladoWarningTutor::setFormaMocimento(MovimentaInterface *base)
+{
+
+    controladorInterface->setContInterfaces(base);
+
+}
+
+void ControladoWarningTutor::setNovoWidgetReferencia(QWidget *wigetPat){
+
+controladorInterface->setReferencia(wigetPat);
 }
 
 /**

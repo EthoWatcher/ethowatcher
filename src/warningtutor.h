@@ -66,8 +66,10 @@ class ControladoWarningTutor: public QObject{
     void nextById(QString id);
     void setTutor(bool chLigaTutor);
     void fechandoJanelas();
+    void setFormaMocimento(MovimentaInterface *base);
 
 
+    void setNovoWidgetReferencia(QWidget *wigetPat);
 public slots:
     void wrapper(bool chBotao, QString id);
 

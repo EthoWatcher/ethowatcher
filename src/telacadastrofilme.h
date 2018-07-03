@@ -34,6 +34,7 @@
 #include "itemareainte.h"
 #include "areatraingulo.h"
 #include <QMessageBox>
+#include "warningtutor.h"
 
 namespace Ui {
 class telaCadastroFilme;
@@ -292,6 +293,7 @@ private slots:
     void on_pbConfRuidoInt_2_clicked();
 
     void on_pbNexStep3_clicked();
+    void botaoClicado(bool clicado, QString id);
 
 private:
     Ui::telaCadastroFilme *ui;
@@ -401,6 +403,8 @@ private:
 
     bool chRoi;
 
+    ControladoWarningTutor *controlWarnig;
+    QList<QString> seqInicial;
 
 
 

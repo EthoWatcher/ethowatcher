@@ -7,6 +7,39 @@
 #include <QRect>
 #include <QPoint>
 
+class MovimentaInterface {
+public:
+    virtual void movimenta(QWidget *widget) =0;
+    virtual void setRef(QWidget *widgetPai)=0;
+protected:
+    QWidget *widget;
+    QRect rect;
+    QPoint point;
+
+
+};
+
+class MovimentaInterfaceLadoDireito: public MovimentaInterface {
+public:
+    MovimentaInterfaceLadoDireito();
+    void setRef(QWidget *widgetPai);
+
+    void movimenta(QWidget *widget);
+protected:
+    QWidget *widgetPai;
+     void getPos();
+
+};
+
+
+class MovimentaInterfaceCentro: public MovimentaInterfaceLadoDireito {
+public:
+    MovimentaInterfaceCentro();
+    void movimenta(QWidget *widget);
+
+
+};
+
 
 
 class ControladorInterfaces : public QObject
@@ -23,7 +56,12 @@ public:
 
 
     void fechaInterface(QWidget *widget);
+//    ControladorInterfaces(QObject *parent, MovimentaInterface *base);
+    void setContInterfaces(MovimentaInterface *base);
+    void setReferencia(QWidget *widPai);
 private:
+    MovimentaInterface *_pbase;
+    MovimentaInterfaceLadoDireito *mInterface;
 
     QWidget *widgtReferencia;
     QRect rect;
@@ -49,5 +87,10 @@ public:
     void fechaTodas();
 
 };
+
+
+
+
+
 
 #endif // CONTROLADORINTERFACES_H
