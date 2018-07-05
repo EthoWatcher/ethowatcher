@@ -379,14 +379,28 @@ O botão “configure”- Ao clicar nesse botão o programa salva a opção da c
 
 <tutor id="tutorIdentificacao" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
 <html><body>
-    Campo de edição “Experiment” - Nesse campo o usuário deve informar o menor valor de movimento que vai ser considerado como um valor válido de movimento.
-    Campo de edição “Date” - Nesse campo o usuário deve relatar o dia do experimento
-    Campo de edição “Other Info” - Nesse campo o usuário deve escrever outras informações relevantes do experimento.
-    Campo de edição “Animal ID” - Nesse campo o usuário algum identificador único do animal.
-    Campo de edição “Weight” - Nesse campo o usuário deve escrever o peso do animal.
-    Campo de edição “Sex” - Nesse campo o usuário deve escrever o sexo do animal do vídeo.
-    Campo de edição “Treatment/Condition” - Nesse campo o usuário deve escrever informações quanto ao tratamento que o animal do vídeo recebeu.
-    O botão “Save” - Ao clicar nesse botão é aberto uma caixa de diálogo com acesso ao disco local do computador para que o usuário possa escolher aonde será criada o novo arquivo de cadastro de vídeo.
+    <p>
+    Informe:
+    </p>
+    <p>
+        <ul>
+        <li>no campo de edição <font color="red"> “Experiment”</font> o nome do experimento</li>
+        <li>no campo de edição <font color="red"> “Date”</font>o dia do experimento</li>
+        <li>no campo de edição <font color="red"> “Other Info”</font> outras informações relevantes do experimento</li>
+        <li>no campo de edição <font color="red"> “Animal ID” </font> o identificador único do animal</li>
+        <li>no campo de edição <font color="red"> “Weight” </font> escrever o peso do animal</li>
+
+        <li>no campo de edição <font color="red"> “Sex”</font>  o sexo do animal do vídeo</li>
+        <li>no campo de edição <font color="red"> “Animal ID” </font> o identificador único do animal</li>
+        <li>no campo de edição <font color="red"> "Treatment/Condition" </font> as informações quanto ao tratamento que o animal do vídeo recebeu.</li>
+
+    </p>
+    <h2> Next!!! </h2>
+    <p>
+        Clique nobotão “Save” para abrir uma caixa de diálogo, com acesso ao disco local do computador, para que se possa gravar o novo arquivo de cadastro de vídeo.
+    </p>
+
+
 </body></html></tutor>
 
 
