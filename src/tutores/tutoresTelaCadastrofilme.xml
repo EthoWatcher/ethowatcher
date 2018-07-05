@@ -2,7 +2,8 @@
 <tutores>
     <tutor id="tutorInicio" titulo="Welcome to the Register Video interface" pbS="yes(f1)" pbN="" sizeHeight ="400">
     <html><body>
-        No módulo de cadastro de vídeo o usuário consegue registrar todos os parâmetros necessários para os métodos de TCC, TCCM e embaralhamento de vídeo para experimentação cegada.
+        <p>
+        No módulo de cadastro de vídeo o usuário consegue registrar todos os parâmetros necessários para os métodos de TCC, TCCM e embaralhamento de vídeo para experimentação cegada.</p>
     </body></html></tutor>
 
 
@@ -10,10 +11,11 @@
     <tutor id="tutorNextStep" titulo="Selecione o módulo" pbS="yes(f1)" pbN="" sizeHeight ="400">
     <html><body>
 
-<p>
+    <p>
     2 - Select  the module(s) (one or more)  that will be used to process this video file.If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures.
     If you want to use this video only for tracking, select the appropriate checkbox. For both tracking and ethography, select both checkboxes.
-</p>
+    </p>
+
 
 
     <h2> NEXT </h2>
@@ -62,8 +64,7 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
         <li><font color="red">width </font> se é a largura dos quados, em pixeis, do vídeo aberto </li>
         <li><font color="red">height </font> se é a altura dos quados, em pixeis, do vídeo aberto </li>
         </ul>
-
-    </body></html></tutor>
+    </body></html></tutor>W
 
     <tutor id="tutorVideoPlay" titulo="Clique no botão Play!" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
@@ -75,7 +76,8 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
 
     <tutor id="tutorVideoPause" titulo="Clique no botão Pause!" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
-        Para que os quadros do vídeo parem de ser carregados, de forma constante, no painel do vídeo.
+        <p>
+        Para que os quadros do vídeo parem de ser carregados, de forma constante, no painel do vídeo.</p>
 
     </body></html></tutor>
 
@@ -83,23 +85,23 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
 
 <tutor id="tutorVideoSlider" titulo="Clique a arraste o botão de velocidade de reprodução" pbS="yes(y)" pbN="" sizeHeight ="530">
 <html><body>
-
+    <p>
     Para alterar a constante de atualização dos quadros no painel -arraste para a direita para aumentar ou para esquerda para diminuir a taxa de atualização do vídeo.
+    </p>
 
 </body></html></tutor>
 
 <tutor id="tutorVideoNavigation" titulo="Navegue pelos quadros do vídeo de forma descontinua" pbS="yes(y)" pbN="" sizeHeight ="530">
 <html><body>
-
+    <p>
     Clique no:
+    </p>
+    <p>
     <ul>
     <li><font color="red">avançar </font> para avançar, de forma descontinua, o vídeo segundo o valor na caixa de texto  </li>
     <li><font color="red">voltar  </font> para retroceder, de forma descontinua, o vídeo segundo o valor configurado na caixa de texto</li>
     <li><font color="red">progress slider </font> e arraste para se deslocar, de forma descontinua, pelos quadros do vídeo</li>
     </ul>
-
-    <p>
-
     </p>
 </body></html></tutor>
 
@@ -109,26 +111,32 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
 
 <tutor id="tutorSelectionRegister" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
 <html><body>
-
+<p>
     A caixa de seleção “vídeo or real time etography” - Ao selecionar essa caixa o usuário cadastra o vídeo para ser usado na TCC baseada em vídeo ou por fonte externa. Essa opção sempre está selecionada.
 A caixa de seleção “tracking morphological/cinematic analysis” - ao selecionar essa caixa o usuário cadastra o vídeo para ser usado na TCCM baseada em vídeo ou em tempo real.
 A caixa de seleção “blind video file” - Ao selecionar essa caixa o usuário cadastra o vídeo para ser usado no módulo de embaralhamento, que cega as informações do vídeo para o usuário.
+</p>
 </body></html></tutor>
 
 <tutor id="tutorNextVideo" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
 <html><body>
-
+<p>
     Botão “next step” - Ao pressionar o botão a interface gráfica se reorganiza para conter apenas os passos necessários para funcionar os métodos escolhidos. A outra função do botão é habilitar a aba “Calibration session”.A foto dessa aba pode ser vista na figura  57 (a função de cada componente na interface gráfica da figura 57 está apresentado a seguir).
+    </p>
 </body></html></tutor>
 
-
-
 <!-- primeira aba da interface  -->
+
+
     <tutor id="tutorPCalibrationScale" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
-        Scale: In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  THEN click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). THEN press the “save scale” button
 
+        <p>
+        Scale: In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  THEN click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). THEN press the “save scale” button
+    </p>
+    <p>
 Mark “Noise reduction tools “  checkbox to set the configurations  of two algorithms  that  help to control for tracking artifacts
+</p>
 
 Mark “Design multiple areas for analysis” to  set multiple sub-areas  (squares, circles) of the maze from which you want to get specific reports and analysis.
 
@@ -136,14 +144,75 @@ THEN press the “configure” button
 
     </body></html></tutor>
 
-    <tutor id="tutorFrameImportantes" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <!-- quadros importantes -->
+
+
+    <tutor id="tutorInicioFramesImportantes" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
-        O botão “blind precedente frames”- Ao clicar nesse botão, o quadro do vídeo mais ressente é capturado e armazenado como o último quadro que aparece a claquete no vídeo.
-        O botão “background frame”- Ao clicar nesse botão, o quadro apresentado no painel do vídeo é capturado e armazenado como quadro de fundo e o programa marca automaticamente a caixa “preview process”.
-        A caixa de seleção “preview process”- caso essa caixa esteja marcada a interface gráfica mostra o resultado da segmentação da imagem. Inclusive, mostra de forma colorida qual é o objeto de interesse. Um exemplo da imagem que vai ser apresentada na interface gráfica quando a caixa está selecionada é mostrado na figura  58 a) e quando não está marcada na figura 58 b
+        <p>
+        Essa secção serve para cadastrar os quadros importantes -- primeiro e ultimo quadro; da análise de comprotamento animal e, caso tenha selecionado o rastreamento automatico do animal, o quadro de fundo e o valor de erosão e de limiarização.
+        </p>
+        <h2> NEXT</h2>
+        <p>
+            Clique no botão yes para começar a seleção dos quadros importantes.
+        </p>
 
     </body></html></tutor>
 
+    <tutor id="tutorFrameStart" titulo="Clique no botão Frame start analise!" pbS="yes(y)" pbN="" sizeHeight ="200">
+    <html><body>
+        <p>Desloque os quadros do filme, utilizando os controladores, e encontre o primerio quadro da análise.</p>
+
+            <p>
+         Em seguida, clique no botão "start ananise" para  definir o quadro atual, mostrado no painel "progress", como o primeiro quadro da análise de comportamento animal e do rastreamento automático.
+        </p>
+    </body></html></tutor>
+
+    <tutor id="tutorFrameFim" titulo="Clique no botão frame finish analise" pbS="yes(y)" pbN="" sizeHeight ="200">
+    <html><body>
+        <p>Desloque os quadros do filme, utilizando os controladores, e encontre o utlimo quadro da análise.</p>
+        <p>
+         Em seguida, clique no botão "finish analsie" para definir o quadro atual, mostrado no painel "progress", como o ultimo quadro da análise de comportamento animal e do rastreamento automático.
+        </p>
+
+    </body></html></tutor>
+
+
+    <tutor id="tutorBackground" titulo="Se desloque pelo filme" pbS="yes(y)" pbN="" sizeHeight ="200">
+    <html><body>
+        <p>Desloque os quadros do filme, utilizando os controladores, e encontre um quadro no qual só apareça a imagem de fundo, da arena. </p>
+        <p>
+         Em seguida, clique no botão "background analise" Para definir o quadro atual, mostrado no painel "progress", como o quadro de fundo para o rastreamento automático.
+        </p>
+
+
+    </body></html></tutor>
+
+    <tutor id="tutorErosaoLimiar" titulo="Defina os parametros do rastreamento" pbS="yes(y)" pbN="" sizeHeight ="200">
+    <html><body>
+
+        <p>Para definir o valor de trheshold e erosão, primeiro desloque os quadros do filme, utilizando os controladores, entre os quadros de inicio e fim da análise, e verifique, visualmente, se o animal de interesse possui a maior area, na maioria dos quadros, na análise. O programa indicará em amarelo com bordas vermelhas, caso esteja selecionado o backgroundo como white, ou em azul com bordas vermelhas, caso esteja selecionado o background como black, o objeto que possue, na cena, a maior área de interesse.
+        </p>
+
+        <h2>Modifique o valor de trheshold </h2>
+
+        <p>
+            Em seguida, modifique o valor de trheshold, utilizando o slider, para encontrar um valor que defina o animal, que será rastreado, como o objeto em cena com maior área. Faça isso de tal forma, que se possa minimizar principalmente a intensidade, o tamanho, das áreas ruidosas da análise. Cada uma das áreas ruidosas são mostradas na imagem no painel em azul com bordas em azul, caso esteja selecionado o brackground como white, ou em vermelho com bordas vermelhas, caso esteja selecionado o background como black.
+        </p>
+
+        <h2>Modifique o valor de erosao</h2>
+
+        <p>
+            E por fim, modifique o valor de erosão , no box "erosion level", na análise de tal forma que se consiga minizar principalmente a quantidade de aparição das fontes ruidosas nos diversos quadros do rastreamento.
+        </p>
+        <p>
+            Caso ainda enfrente problemas (e.g., o animal de interesse ainda é considerado como fonte ruidosa) repita o processo com um novo quadro de fundo.
+        </p>
+    </body></html></tutor>
+
+
+    <!-- scale  -->
+<!--
     <tutor id="tutorFrameImportantes1" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
 
@@ -151,42 +220,108 @@ O botão de deslisar “subtraction threshold”- Ao arrastar esse controle, o u
 O campo “erosion”- Nesse campo, o usuário seleciona o nível de erosão utilizado no filtro morfológico de erosão binária da imagem. O resultado pode ser visto continuamente e por toda extensão do vídeo caso a caixa “preview process” esteja habilitada.
 O botão “frame to start analysis” - Ao clicar nesse botão, o quadro atual apresentado no painel do vídeo original é capturado e armazenado como o quadro inicial da TCC e da TCCM.
 O botão “frame to finish analysis”- Ao clicar nesse botão, o quadro apresentado no painel do vídeo original é capturado e armazenado como o quadro final da TCC, da TCCM, e do algorítimo de edição do vídeo do módulo de embaralhamento. Ao ser pressionado ele leva o usuário para a aba “scale”. A foto dessa aba está mostrada na figura  59. (a função de cada componente na interface gráfica da figura 59 está apresentado a seguir).
-    </body></html></tutor>
+    </body></html></tutor> -->
 
-
-    <tutor id="tutorSetScale" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <tutor id="tutorSetScale" titulo="Posicione o triangulo azul e vermelho" pbS="yes(y)" pbN="">
     <html><body>
+    <p>
+     Clique em cima do triangulo vermelho e segure, em seguida, araste-o para um ponto ,que seja, de uma distancia conhecida. Repita o processo com o triangulo azul e o posicione no outro ponto conhecido. </p>
+     <h2>Informe em cm a posição</h2>
+     <p>
+         Escreva na caixa centimeters o tamanho, em cm, da distancia entre os dois triangulos. No campo "Scale" será mostrado a escala em px/cm configurado.
+     </p>
 
-        O triângulo vermelho e o azul na imagem – Ao entrar nessa aba o programa desenha um triângulo vermelho e um azul em cima da imagem de fundo. Os triângulos devem ser posicionados em cima de uma distância conhecida pelo usuário. Para isso o usuário deve clicar e arrastar o triângulo pela imagem. Ao clicar e arrastar, o triângulo selecionado fica na cor amarela.
-        O campo de edição “centimeters” - Nesse campo, o usuário seleciona o valor em centímetros, correspondente a distância entre os triângulos.
-        O campo “Scale” - O resultado da escala introduzida pelo usuário é mostrado nesse campo.
-        O botão “salve scale” - Ao clicar nesse botão o usuário salva a escala e não pode mais trocar enquanto a interface estiver aberta.
+     <h2> Warning!!</h2>
+     <p>É de imprencendivel importancia que a distancia conhecida e configurada, pelos triangulos, seja, o mais próxima, do nível , da profundidade, que o objeto de interesse esteja durante a análise. Veja, a imagem é um representação de um mundo tridimensional em um figura de duas dimensões. Por ser uma representação, a diferença de profundidade entre distancia conhecida e objeto de interesse gerará um erro proporcional.</p>
+
+     <p> Por fim, clique no botão "salve scale" para configurar a escala. Não se poderá mais trocar essa escala enquanto a interface estiver aberta.
+     </p>
+
     </body></html></tutor>
 
 
 
-
-
-    <tutor id="tutorsetNoiseReduction" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <tutor id="tutorsetNoiseReduction" titulo="Selecione" pbS="yes(y)" pbN="">
     <html><body>
+        <p>
+        Marque a :
+        </p>
+        <p>
+            <ul>
+            <li><font color="red">noise reduction tools :</font> para habilitar a configuração dos algoritmos que tem objetivo de reduzir o ruido -- camera virtual móvel, e minimização do ruído intrínseco. </li>
+            <li><font color="red">design multiples areas for analysis :</font> para configurar as várias sub-áreas , que podem apresentar geometrias retangulares ou circulaes, que segmentarão o resultado do rastreamento em  relatórios específicos</li>
 
-        A caixa de seleção “noise reduction tools”- Ao marcar essa caixa o usuário vai ser direcionado para as configurações do algoritmo de câmera virtual móvel e do algoritmo de minimização do ruído intrínseco.
-        A caixa de seleção “design multiples areas for analysis”- Ao marcar essa caixa o usuário vai ser habilitado para configurar as várias sub-áreas (quadrados, círculos) que pretende obter relatórios específicos da TCCM.
-        O botão “configure” - Ao clicar nesse botão o programa salva a opção da caixa “noise reduction tools” e “design multiples areas for analysis”. Se o usuário marcou a caixa “noise reduction tool” o programa habilita a aba “treatment noise”. A foto dessa aba está mostrada na figura  60. Caso o usuário tenha marcado o “design multiples areas for analysis” é habilitado a aba “areas of interest”. A foto dessa aba está mostrada na  64. Caso o usuário não tenha marcado nenhuma das opções ele é levado para a aba “identification session”. A foto dessa aba está mostrada na figura  65.
+            </ul>
+        </p>
+
+        <h2> Next!!! </h2>
+        <p>
+            Clique no botão "next step" para realizar os próximos passos do registo de vídeo, conforme a caixa de seleção.
+        </p>
     </body></html></tutor>
+<!--
+    “noise reduction tools” , que configurará as ferrasmentas de redução de ruído, e a “areas of interest”, que configurará a caixa de
 
+
+    e “design multiples areas for analysis”. Se o usuário marcou a caixa “noise reduction tool” o programa habilita a aba “treatment noise”. A foto dessa aba está mostrada na figura  60. Caso o usuário tenha marcado o “design multiples areas for analysis” é habilitado a aba “areas of interest”. A foto dessa aba está mostrada na  64. Caso o usuário não tenha marcado nenhuma das opções ele é levado para a aba “identification session”. A foto dessa aba está mostrada na figura  65. -->
+    <!-- fim da aba de scale -->
 
 <!-- aba de noise reduction -->
 
-    <tutor id="tutorPCalibrationNoise" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
-    <html><body>
-        Posicione os triangulos nos em alguma distancia conhecida
+<tutor id="tutorConfigureMobileCamera" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+<html><body>
+    <p>
+    Marque a caixa "Mobile virtual camera" para habilitar que seja aplicado o algoritmo de redução de ruído: camera virtual móvel. Marque a caixa "" para habilitar o algoritmo de redução do ruído intrinseco.
 
-        Bem vindo a tela de registro de video, Open a Video in (.avi) format and start video register.
+    </p>
+    <h2>Mobile virtual camera </h2>
+    <p>
+    Esse algoritmo serve para reduzir o problema das variações de centroide do objeto de interesse causado por um objeto ruídososo, de área maior que objeto de interesse, que possuem uma aparição momentanea em cena. Tal erro pode superestimar o deslocamento real do animal. Para evitar o problema descrito o algoritmo, cria uma camera virtual de tamanho fixo, que foca em apenas uma fração da imagem. Com a habilitação desse algoritmo apenas essa fração de imagem é processada e rastreada. A cada quadro processado o foco da camera muda de acordo com a posição do objeto de interesse. Essa estratégia faz com que: caso apareça um ruido em cena aonde não esteja o foco da camera ele não seja processado; caso apareça uma ruido em cima do objeto de interesse o problema de deslocamento seja reduzido.
+    </p>
+
+    <h2> Intrinsic noise</h2>
+    <p>
+        Por vários problemas desconhecidos na litetura que envolvem a aquisição de imagem e rastreamento de objeto em cena a centroido do objeto, mesmo morto ou completamente "parado", possuí deslocamento registrado por esses algoritmos. Para atenuar esse problema que pode sobrestimar o deslocamento total do animal foi desenvolvido o algoritmo de redução de ruído intrseco. Esse algoritmo marca no relatório quais variações foram menor dado limiar.
+    </p>
+
+</body></html></tutor>
+
+
+    <tutor id="tutoMobileTriangulo" titulo="Posicione os triangulos" pbS="yes(y)" pbN="">
+    <html><body>
+        <p>
+            Navegue pelo vídeo e encontre a maior extensão que o animal exibe. Nesse quadro os triângulos, azul e vermelho, devem ser posicionados em cima de extremidades do animal exibido na cena.
+        </p>
+        <h2> Next!!! </h2>
+        <p>
+            Clique no botão "next step" para que o campo “Animal maximum lenght” seja preenchido.
+        </p>
+
 
     </body></html></tutor>
 
-    <tutor id="tutorCalibrationNext" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <tutor id="tutoMobileRetangulo" titulo="Posicione os triangulos" pbS="yes(y)" pbN="">
+    <html><body>
+        <p>
+            Clique em cima do retangulo verde , que mudará para a cor azul enquanto estiver sendo prescionado, na imagem e araste-o para posiciona-lo de tal forma que o objeto de interesse seja circuncrito por ele (e.g., o objeto de interesse fica dentro do retangulo verde.).
+        </p>
+        <h2> Next!!! </h2>
+        <p>
+            Clique no botão "confirm" para confirmar sua seleção.
+        </p>
+
+
+    </body></html></tutor>
+
+    <tutor id="tutoIntrinsicNoise" titulo="Posicione os triangulos" pbS="yes(y)" pbN="">
+    <html><body>
+        <p>
+            Crie um filme, utilizando o mesmo equipamento dos filmes analisados, de um objeto conhecido (e.g., bola de isopor) de tamanho conhecido de uns 5 minutos. Realize o rastreamento do EtW-os nesse filme com as configurações semelhantes ao vídeo usado. Da tabela de rastreamento gerada faça uma análise estátistica (e.g., média, medina, desvio padrão) nos descritor de váriação de deslocmanto. Configure esse descritor estátistico-- que sera o limiar de movimento considerado válido -- no campo intrinsic noise e click confirm.
+        </p>
+
+    </body></html></tutor>
+
+    <!-- <tutor id="tutorCalibrationNext" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
         A caixa de seleção “Mobile virtual camera”- Ao marcar essa caixa o usuário vai ser permitido configurar os parâmetros do algoritmo de janela móvel.
 A caixa de seleção “Intrinsic noise”- Ao marcar essa caixa o usuário vai ser permitido configurar os parâmetros do algoritmo de ruido intrínseco.
@@ -195,16 +330,9 @@ O botão “configure”- Ao clicar nesse botão o programa salva a opção da c
  O botão “configure” - Ao clicar nesse botão o programa salva a opção da caixa “noise reduction tools” e “design multiples areas for analysis”. Se o usuário marcou a caixa “noise reduction tool” o programa habilita a aba “treatment noise”. A foto dessa aba está mostrada na figura  60. Caso o usuário tenha marcado o “design multiples areas for analysis” é habilitado a aba “areas of interest”. A foto dessa aba está mostrada na  64. Caso o usuário não tenha marcado nenhuma das opções ele é levado para a aba “identification session”. A foto dessa aba está mostrada na figura  65.
 
     </body></html></tutor>
+ -->
 
-
-    <tutor id="tutorVirtualMovel" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
-    <html><body>
-        O triângulo azul e vermelho da aba “Mobile virtual câmera”- Ao entrar nessa aba o programa desenha um triângulo vermelho e um azul em cima da imagem  (figura 62 a). Esses triângulos servem para que o usuário informe o tamanho da câmera móvel. O processo recomendado é navegar pelo vídeo para encontrar a maior extensão que o animal exibe. Nesse quadro os triângulos, azul e vermelho, devem ser posicionados em cima de extremidades do animal exibido na cena(figura 62 b).
-O botão “configure” -Ao clicar nesse botão a interface salva o valor do tamanho da “Mobile virtual camera”. Em seguida o programa desenha e exibe um retângulo verde em cima do quadro inicial da TCCM  (figura 62 c). Isso acontece para que o usuário possa informar a primeira posição da “Mobile virtual câmera”. O usuário deve posicionar esse retângulo de forma que o objeto de interesse fique contido dentro  (figura 62 d).
-O campo “Animal maximum lenght”- O campo é preenchido automaticamente e contem a informação de distância entre os dois triângulos desenhados na imagem. Ao clicar e arrastar o triângulo selecionado fica de cor amarela.
-
-
-    </body></html></tutor>
+<!--
 
     <tutor id="tutorIntrinsicValue" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
@@ -212,48 +340,68 @@ O campo “Animal maximum lenght”- O campo é preenchido automaticamente e con
         O botão configure – O botão grava o valor do campo “Intrinsic value”.
 
 
-    </body></html></tutor>
+    </body></html></tutor> -->
 
 
     <!-- calibração de areas de interese -->
 
 
-<tutor id="tutorAreaDeInteresse" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+<tutor id="tutorAreaDeInteresse" titulo="Clique no botão add Area" pbS="yes(y)" pbN="">
 <html><body>
-    O botão “add Area”- Ao clicar nesse botão o programa vai criar uma forma de acordo com as caixas “circle” ou “Rectangle”. Caso a caixa selecionada seja a “circle” a forma criada será a de  um círculo. Caso a caixa selecionada seja a “Rectangle” a forma criada será a de um retângulo. A forma será desenhada no quadro de fundo selecionado pelo usuário e adicionada na tabela “Areas”.
-    A tabela “Areas”- A tabela contem todas as formas que o usuário criou. Ao clicar duas vezes em cima da linha da figura desejada o usuário consegue renomear as formas criadas. Ao clicar uma vez na célula a forma é selecionada e ela fica de cor verde. Dessa forma o usuário consegue editar seu tamanho no painel “size” da interface gráfica. Caso a figura selecionada seja um circulo ele consegue editar o parâmetro de raio no campo “Radio”. Caso a forma seja um retângulo o usuário consegue editar a altura e largura no campo “Height” e no campo “Width” respectivamente. O usuário também pode editar a posição clicando e arrastando a forma selecionada para a posição desejada. Ao clicar e arrastar a imagem fica na cor amarela.
-    O botão “delete Area”- Ao clicar nesse botão a área que está selecionada na tabela de áreas será excluída.
+    <p>
+    Clique:
+    </p>
+    <p>
+        <ul>
+        <li>em uma das caixa de seleção, <font color="red"> “circle” ou “Rectangle”, do painel "shape"</font> para selecionar a forma geométrica da nova figura;</li>
+        <li> no botão <font color="red">"add Area" :</font> para criar uma forma geométrica. </li>
+        <li>duas vezes rapidamente<font color="red">no item criado na tabela "areas" :</font> para renomear a figura geométrica;</li>
+        <li>uma vez <font color="red">no item criado na tabela "areas"</font> para selecionar a figura geométrica em foco. Ela mudará a colaração para verde;</li>
+        <li>segure <font color="red">a figura geométrica em foco, de coloração verde, que mudará para a cor azul </font> e arraste para o posição desejada;</li>
+        <li>nos<font color="red">modificadores de tamanho </font> no painel size modifique o tamanho da área em foco.  seu tamanho no painel “size” da interface gráfica.Caso a figura selecionada seja um circulo ele consegue editar o parâmetro de raio no campo “Radio”. Caso a forma seja um retângulo o usuário consegue editar a altura e largura no campo “Height” e no campo “Width”;</li>
+        </ul>
+    </p>
 </body></html></tutor>
 
+<!-- A tabela “Areas”- A tabela contem todas as formas que o usuário criou. Ao clicar duas vezes em cima da linha da figura desejada o usuário consegue renomear as formas criadas. Ao clicar uma vez na célula a forma é selecionada e ela fica de cor verde. Dessa forma o usuário consegue editar seu tamanho no painel “size” da interface gráfica. Caso a figura selecionada seja um circulo ele consegue editar o parâmetro de raio no campo “Radio”. Caso a forma seja um retângulo o usuário consegue editar a altura e largura no campo “Height” e no campo “Width” respectivamente. O usuário também pode editar a posição clicando e arrastando a forma selecionada para a posição desejada. Ao clicar e arrastar a imagem fica na cor amarela. -->
+
+
+<tutor id="tutoIntrinsicNoise" titulo="Deletar as areas de interesse" pbS="yes(y)" pbN="">
+<html><body>
+    <p>
+        Selecione a área em foco, clicando uma vez em cima do nome dela na tabela "areas", e clique no botão “delete Area” para excluir essa área da tabela e análise.
+    </p>
+
+</body></html></tutor>
 
 <!-- aba de identificação -->
 
 
 <tutor id="tutorIdentificacao" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
 <html><body>
-    Campo de edição “Experiment” - Nesse campo o usuário deve informar o menor valor de movimento que vai ser considerado como um valor válido de movimento.
-    Campo de edição “Date” - Nesse campo o usuário deve relatar o dia do experimento
-    Campo de edição “Other Info” - Nesse campo o usuário deve escrever outras informações relevantes do experimento.
-    Campo de edição “Animal ID” - Nesse campo o usuário algum identificador único do animal.
-    Campo de edição “Weight” - Nesse campo o usuário deve escrever o peso do animal.
-    Campo de edição “Sex” - Nesse campo o usuário deve escrever o sexo do animal do vídeo.
-    Campo de edição “Treatment/Condition” - Nesse campo o usuário deve escrever informações quanto ao tratamento que o animal do vídeo recebeu.
-    O botão “Save” - Ao clicar nesse botão é aberto uma caixa de diálogo com acesso ao disco local do computador para que o usuário possa escolher aonde será criada o novo arquivo de cadastro de vídeo.
+    <p>
+    Informe:
+    </p>
+    <p>
+        <ul>
+        <li>no campo de edição <font color="red"> “Experiment”</font> o nome do experimento</li>
+        <li>no campo de edição <font color="red"> “Date”</font>o dia do experimento</li>
+        <li>no campo de edição <font color="red"> “Other Info”</font> outras informações relevantes do experimento</li>
+        <li>no campo de edição <font color="red"> “Animal ID” </font> o identificador único do animal</li>
+        <li>no campo de edição <font color="red"> “Weight” </font> escrever o peso do animal</li>
+
+        <li>no campo de edição <font color="red"> “Sex”</font>  o sexo do animal do vídeo</li>
+        <li>no campo de edição <font color="red"> “Animal ID” </font> o identificador único do animal</li>
+        <li>no campo de edição <font color="red"> "Treatment/Condition" </font> as informações quanto ao tratamento que o animal do vídeo recebeu.</li>
+
+    </p>
+    <h2> Next!!! </h2>
+    <p>
+        Clique nobotão “Save” para abrir uma caixa de diálogo, com acesso ao disco local do computador, para que se possa gravar o novo arquivo de cadastro de vídeo.
+    </p>
+
+
 </body></html></tutor>
-
-
-
-    <tutor id="tutorSaida" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
-    <html><body>
-        Scale: In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  THEN click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). THEN press the “save scale” button
-
-Mark “Noise reduction tools “  checkbox to set the configurations  of two algorithms  that  help to control for tracking artifacts
-
-Mark “Design multiple areas for analysis” to  set multiple sub-areas  (squares, circles) of the maze from which you want to get specific reports and analysis.
-
-THEN press the “configure” button
-
-    </body></html></tutor>
 
 
 
