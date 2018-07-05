@@ -62,8 +62,7 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
         <li><font color="red">width </font> se é a largura dos quados, em pixeis, do vídeo aberto </li>
         <li><font color="red">height </font> se é a altura dos quados, em pixeis, do vídeo aberto </li>
         </ul>
-
-    </body></html></tutor>
+    </body></html></tutor>W
 
     <tutor id="tutorVideoPlay" titulo="Clique no botão Play!" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
@@ -121,9 +120,9 @@ A caixa de seleção “blind video file” - Ao selecionar essa caixa o usuári
     Botão “next step” - Ao pressionar o botão a interface gráfica se reorganiza para conter apenas os passos necessários para funcionar os métodos escolhidos. A outra função do botão é habilitar a aba “Calibration session”.A foto dessa aba pode ser vista na figura  57 (a função de cada componente na interface gráfica da figura 57 está apresentado a seguir).
 </body></html></tutor>
 
-
-
 <!-- primeira aba da interface  -->
+
+
     <tutor id="tutorPCalibrationScale" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
         Scale: In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  THEN click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). THEN press the “save scale” button
@@ -136,13 +135,73 @@ THEN press the “configure” button
 
     </body></html></tutor>
 
-    <tutor id="tutorFrameImportantes" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <!-- quadros importantes -->
+
+
+    <tutor id="tutorInicioFramesImportantes" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
-        O botão “blind precedente frames”- Ao clicar nesse botão, o quadro do vídeo mais ressente é capturado e armazenado como o último quadro que aparece a claquete no vídeo.
-        O botão “background frame”- Ao clicar nesse botão, o quadro apresentado no painel do vídeo é capturado e armazenado como quadro de fundo e o programa marca automaticamente a caixa “preview process”.
-        A caixa de seleção “preview process”- caso essa caixa esteja marcada a interface gráfica mostra o resultado da segmentação da imagem. Inclusive, mostra de forma colorida qual é o objeto de interesse. Um exemplo da imagem que vai ser apresentada na interface gráfica quando a caixa está selecionada é mostrado na figura  58 a) e quando não está marcada na figura 58 b
+        Essa secção serve para cadastrar os quadros importantes -- primeiro e ultimo quadro; da análise de comprotamento animal e, caso tenha selecionado o rastreamento automatico do animal, o quadro de fundo e o valor de erosão e de limiarização.
+
+        <h2> NEXT</h2>
+        <p>
+            Clique no botão yes para começar a seleção dos quadros importantes.
+        </p>
 
     </body></html></tutor>
+
+    <tutor id="tutorFrameStart" titulo="Clique no botão Frame start analise!" pbS="yes(y)" pbN="" sizeHeight ="200">
+    <html><body>
+        <p>Desloque os quadros do filme, utilizando os controladores, e encontre o primerio quadro da análise.</p>
+
+            <p>
+         Em seguida, clique no botão "start ananise" para  definir o quadro atual, mostrado no painel "progress", como o primeiro quadro da análise de comportamento animal e do rastreamento automático.
+        </p>
+    </body></html></tutor>
+
+    <tutor id="tutorFrameFim" titulo="Clique no botão frame finish analise" pbS="yes(y)" pbN="" sizeHeight ="200">
+    <html><body>
+        <p>Desloque os quadros do filme, utilizando os controladores, e encontre o utlimo quadro da análise.</p>
+        <p>
+         Em seguida, clique no botão "finish analsie" para definir o quadro atual, mostrado no painel "progress", como o ultimo quadro da análise de comportamento animal e do rastreamento automático.
+        </p>
+
+    </body></html></tutor>
+
+
+    <tutor id="tutorBackground" titulo="Se desloque pelo filme" pbS="yes(y)" pbN="" sizeHeight ="200">
+    <html><body>
+        <p>Desloque os quadros do filme, utilizando os controladores, e encontre um quadro no qual só apareça a imagem de fundo, da arena. </p>
+        <p>
+         Em seguida, clique no botão "background analise" Para definir o quadro atual, mostrado no painel "progress", como o quadro de fundo para o rastreamento automático.
+        </p>
+
+
+    </body></html></tutor>
+
+    <tutor id="tutorErosaoLimiar" titulo="Defina os parametros do rastreamento" pbS="yes(y)" pbN="" sizeHeight ="200">
+    <html><body>
+
+        <p>Para definir o valor de trheshold e erosão, primeiro desloque os quadros do filme, utilizando os controladores, entre os quadros de inicio e fim da análise, e verifique, visualmente, se o animal de interesse possui a maior area, na maioria dos quadros, na análise. O programa indicará em amarelo com bordas vermelhas, caso esteja selecionado o backgroundo como white, ou em azul com bordas vermelhas, caso esteja selecionado o background como black, o objeto que possue, na cena, a maior área de interesse.
+        </p>
+
+        <h2>Modifique o valor de trheshold </h2>
+
+        <p>
+            Em seguida, modifique o valor de trheshold, utilizando o slider, para encontrar um valor que defina o animal, que será rastreado, como o objeto em cena com maior área. Faça isso de tal forma, que se possa minimizar principalmente a intensidade, o tamanho, das áreas ruidosas da análise. Cada uma das áreas ruidosas são mostradas na imagem no painel em azul com bordas em azul, caso esteja selecionado o brackground como white, ou em vermelho com bordas vermelhas, caso esteja selecionado o background como black.
+        </p>
+
+        <h2>Modifique o valor de erosao</h2>
+
+        <p>
+            E por fim, modifique o valor de erosão , no box "erosion level", na análise de tal forma que se consiga minizar principalmente a quantidade de aparição das fontes ruidosas nos diversos quadros do rastreamento.
+        </p>
+        <p>
+            Caso ainda enfrente problemas (e.g., o animal de interesse ainda é considerado como fonte ruidosa) repita o processo com um novo quadro de fundo.
+        </p>
+    </body></html></tutor>
+
+
+    <!-- scale  -->
 
     <tutor id="tutorFrameImportantes1" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>

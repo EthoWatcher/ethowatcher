@@ -74,6 +74,16 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     seqInicial.append("tutorNextVideo");
      seqInicial.append("tutorVideoNavigation");
 
+//     tutores para a seção de frames importantes
+
+     seqInicial.append("tutorInicioFramesImportantes");
+     seqInicial.append("tutorFrameStart");
+     seqInicial.append("tutorVideoPause");
+     seqInicial.append("tutorFrameFim");
+     seqInicial.append("tutorBackground");
+     seqInicial.append("tutorErosaoLimiar");
+
+
 //    seqInicial.append("tutorPrenchaCampos");
 //    seqInicial.append("tutorSaida");
     controlWarnig->setLista(seqInicial);
@@ -147,6 +157,55 @@ void telaCadastroFilme::botaoClicado(bool clicado, QString id)
         }
 
     }
+
+
+    // secção dos quadros importantes
+
+    if(id == "clicadoNextVideoInfo"){
+        if(clicado){
+          controlWarnig->nextById("tutorInicioFramesImportantes");
+          controlWarnig->setEnableById("tutorInicioFramesImportantes",false);
+        }
+
+    }
+
+    if(id == "tutorInicioFramesImportantes"){
+        if(clicado){
+          controlWarnig->nextById("tutorFrameStart");
+          controlWarnig->setEnableById("tutorFrameStart",false);
+        }
+
+    }
+    if(id == "clicadoFrameStartAnalise"){
+        if(clicado){
+          controlWarnig->nextById("tutorFrameFim");
+          controlWarnig->setEnableById("tutorFrameFim",false);
+        }
+
+    }
+
+    if(id == "clicadoFrameFishAnalise"){
+        if(clicado){
+          controlWarnig->nextById("tutorBackground");
+          controlWarnig->setEnableById("tutorBackground",false);
+        }
+
+    }
+
+    if(id == "clicadoBotaoBackground"){
+        if(clicado){
+          controlWarnig->nextById("tutorErosaoLimiar");
+          controlWarnig->setEnableById("tutorErosaoLimiar",false);
+        }
+
+    }
+
+
+
+
+
+
+
 
 
 
@@ -1219,6 +1278,7 @@ void telaCadastroFilme::on_pushButtonCapture_clicked()
     frameBackground = conQim2Mat(qiRecebida);
     ui->lblFrameBack->setText(QString::number(resultado.frameFundo));
    // ui->imgResultado->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+    this->botaoClicado(true,"clicadoBotaoBackground");
 
    // ui->btPlay->setEnabled(true);
    // ui->btStop->setEnabled(false);
@@ -1235,6 +1295,7 @@ void telaCadastroFilme::on_pbFrameProce_clicked()
 //        frameProce = conQim2Mat(qiRecebida);
     ui->leFramePro->setText(QString::number(resultado.frameProces));
     //ui->imgResultado->setPixmap(QPixmap::fromImage(resultado.qiFrameProce));
+    this->botaoClicado(true,"clicadoFrameStartAnalise");
 
    // ui->btPlay->setEnabled(true);
   //  ui->btStop->setEnabled(false);
@@ -1249,6 +1310,8 @@ void telaCadastroFilme::on_pbFrameFinal_clicked()
 
         resultado.frameFinal=frame_atual;
         ui->leFrameFinal->setText(QString::number(resultado.frameFinal));
+
+        this->botaoClicado(true,"clicadoFrameFishAnalise");
 
    // }
 
@@ -1671,6 +1734,8 @@ void telaCadastroFilme::on_pbConfigure1_clicked()
     //ui->btPlay->click();
 
     ui->tabWPrincipal->setCurrentIndex(1);
+
+    this->botaoClicado(true,"clicadoNextVideoInfo");
 
 
 

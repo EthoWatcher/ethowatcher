@@ -59,7 +59,7 @@
          </font>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab_9">
          <attribute name="title">
@@ -214,7 +214,6 @@
                       </item>
                      </layout>
                      <zorder>widget_23</zorder>
-                     <zorder>widget_22</zorder>
                      <zorder>widget_22</zorder>
                     </widget>
                    </item>
