@@ -295,6 +295,8 @@ private slots:
     void on_pbNexStep3_clicked();
     void botaoClicado(bool clicado, QString id);
 
+    void on_cbVariaca_clicked();
+
 private:
     Ui::telaCadastroFilme *ui;
 

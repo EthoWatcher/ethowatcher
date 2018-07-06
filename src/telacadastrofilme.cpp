@@ -83,6 +83,26 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
      seqInicial.append("tutorBackground");
      seqInicial.append("tutorErosaoLimiar");
 
+     //scale
+
+     seqInicial.append("tutorSetScale");
+     //noise reduction
+     seqInicial.append("tutorsetNoiseReduction");
+     seqInicial.append("tutorConfigureMobileCamera");
+     seqInicial.append("tutoMobileTriangulo");
+     seqInicial.append("tutoMobileRetangulo");
+     seqInicial.append("tutoIntrinsicNoise");
+
+     //areas de interesse tutorAreaDeInteresse
+
+     seqInicial.append("tutorAreaDeInteresse");
+     seqInicial.append("tutorDeleteArea");
+
+     //identificação
+     seqInicial.append("tutorIdentificacao");
+
+
+
 
 //    seqInicial.append("tutorPrenchaCampos");
 //    seqInicial.append("tutorSaida");
@@ -199,6 +219,102 @@ void telaCadastroFilme::botaoClicado(bool clicado, QString id)
         }
 
     }
+//    setscale
+
+    if(id == "clicadoNextParaScale"){
+        if(clicado){
+          controlWarnig->nextById("tutorSetScale");
+          controlWarnig->setEnableById("tutorSetScale",false);
+        }
+
+    }
+
+    if(id == "clicadoSaveScale"){
+        if(clicado){
+          controlWarnig->nextById("tutorsetNoiseReduction");
+          controlWarnig->setEnableById("tutorsetNoiseReduction",false);
+        }
+
+    }
+
+    if(id == "botaoConfigueNoiseAreaDeInteresse"){
+
+        if(ui->cbNoise->isChecked()){
+            //se esta habilitado  a ocnfiguração da atenuação de ruído
+            controlWarnig->nextById("tutorConfigureMobileCamera");
+
+        }else if (ui->cbArea->isChecked()){
+            //se está habilitada a area de itneresse
+            controlWarnig->nextById("tutorAreaDeInteresse");
+
+        }else{
+            controlWarnig->nextById("tutorIdentificacao");
+        }
+
+    }
+
+    if(id == "cliadoParaAdicionarJanelaMovel"){
+        if(clicado){
+          controlWarnig->nextById("tutoMobileTriangulo");
+        }
+
+    }
+
+    if(id == "clicadoNextJanelaInteresse"){
+        if(clicado){
+          controlWarnig->nextById("tutoMobileRetangulo");
+        }
+
+    }
+
+    if(id == "clicadoCheckIntrinsicNoise"){
+        if(clicado){
+          controlWarnig->nextById("tutoIntrinsicNoise");
+        }
+
+    }
+
+
+
+    if(id == "clicadoNextNoiseTratmen"){
+
+        if (ui->cbArea->isChecked()){
+            //se está habilitada a area de itneresse
+            controlWarnig->nextById("tutorAreaDeInteresse");
+
+        }else{
+            controlWarnig->nextById("tutorIdentificacao");
+        }
+
+    }
+
+    if(id == "clicadoParaDeleteArea"){
+        qDebug() << "pó";
+        if(clicado){
+          controlWarnig->nextById("tutorDeleteArea");
+          controlWarnig->setEnableById("tutorDeleteArea",false);
+        }
+
+    }
+
+
+
+    if(id == "clicadoNextAreaDeInteresse"){
+        if(clicado){
+          controlWarnig->nextById("tutorIdentificacao");
+          controlWarnig->setEnableById("tutorIdentificacao",false);
+        }
+
+    }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -778,6 +894,7 @@ void telaCadastroFilme::on_pbConfEscala_clicked()
     videoCadastrado.resultado.escala=scala;
 
     ui->gbOpcoes->setEnabled(true);
+    this->botaoClicado(true,"clicadoSaveScale");
 }
 
 void telaCadastroFilme::on_tabWPrincipal_currentChanged(int index)
@@ -1204,6 +1321,7 @@ void telaCadastroFilme::on_sbAreaWid_valueChanged(double arg1)
 {
 
     listaAreaProce[itemSelecionado]->setWid(arg1*scala);  //setWidHei( (qreal) ui->sbAreaHei->value(), (qreal) arg1) ;
+    this->botaoClicado(true,"clicadoParaDeleteArea");
 //    scene->update(scene->sceneRect());
 //    ui->graphicsView->setUpdatesEnabled(true);
 //    ui->graphicsView->update();
@@ -1217,6 +1335,7 @@ void telaCadastroFilme::on_sbAreaHei_valueChanged(double arg1)
     scene->update(scene->sceneRect());
     ui->graphicsView->setUpdatesEnabled(true);
     ui->graphicsView->update();
+    this->botaoClicado(true,"clicadoParaDeleteArea");
 //    listaAreaProce[itemSelecionado]->hei = arg1;
 }
 
@@ -1226,6 +1345,7 @@ void telaCadastroFilme::on_sbAreaRaio_valueChanged(double arg1)
 //                                                (qreal) ui->sbAreaRaio->value()*scala);
 
     listaAreaProce[itemSelecionado]->setRaio((qreal)ui->sbAreaRaio->value()*scala*2);
+    this->botaoClicado(true,"clicadoParaDeleteArea");
     //vc sempre seta o diametro da figura
     //sendo assim o diametro é duas vezes o raio
   //  scene->update(scene->sceneRect());
@@ -1789,6 +1909,8 @@ void telaCadastroFilme::on_pbConfigureNioseArea_clicked()
         ui->cbNoise->setEnabled(false);
         ui->cbArea->setEnabled(false);
 
+        this->botaoClicado(true,"botaoConfigueNoiseAreaDeInteresse");
+
     }
 }
 
@@ -1842,6 +1964,7 @@ void telaCadastroFilme::on_pbNextRoi_clicked()
     ui->checkBox->setEnabled(false);
     ui->widMobileConfim->setVisible(true);
     ui->pbNextRoi->setEnabled(false);
+    this->botaoClicado(true,"clicadoNextJanelaInteresse");
 
 
 }
@@ -1857,6 +1980,7 @@ void telaCadastroFilme::on_pbConfigureTreatment_clicked()
 void telaCadastroFilme::on_pbConfRuidoInt_clicked()
 {
     minVaria = ui->leMin->text().toDouble();
+    ui->widIntrinsic->setEnabled(false);
 }
 
 void telaCadastroFilme::on_SliderThreshold_sliderMoved(int position)
@@ -1887,6 +2011,8 @@ void telaCadastroFilme::on_pbConfigure1_2_clicked()
         ui->tabWPrincipal->setTabEnabled(2,true);
     }
 
+    this->botaoClicado(true,"clicadoNextParaScale");
+
 }
 
 void telaCadastroFilme::on_checkBox_clicked(bool checked)
@@ -1898,7 +2024,7 @@ void telaCadastroFilme::on_checkBox_clicked(bool checked)
 
 void telaCadastroFilme::on_checkBox_clicked()
 {
-
+this->botaoClicado(true,"cliadoParaAdicionarJanelaMovel");
 }
 
 void telaCadastroFilme::on_pbNextRoi_2_clicked()
@@ -1907,6 +2033,7 @@ void telaCadastroFilme::on_pbNextRoi_2_clicked()
     triRedMax->setVisible(false);
     triBlueMax->setVisible(false);
     ui->gpMobileVirtualCamera->setEnabled(false);
+    //this->botaoClicado(true,"cliadoParaAdicionarJanelaMovel");
 }
 
 void telaCadastroFilme::on_cbVariaca_clicked(bool checked)
@@ -1925,12 +2052,20 @@ void telaCadastroFilme::on_pbConfRuidoInt_2_clicked()
        ui->tabWPrincipal->setTabEnabled(2,true);
    }
 
+   this->botaoClicado(true,"clicadoNextNoiseTratmen");
+
 }
 
 void telaCadastroFilme::on_pbNexStep3_clicked()
 {
     ui->tabWPrincipal->setCurrentIndex(2);
     ui->tabWPrincipal->setTabEnabled(2,true);
+    this->botaoClicado(true,"clicadoNextAreaDeInteresse");
 }
 
 
+
+void telaCadastroFilme::on_cbVariaca_clicked()
+{
+    this->botaoClicado(true,"clicadoCheckIntrinsicNoise");
+}
