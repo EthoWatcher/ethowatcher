@@ -366,7 +366,7 @@ O botão “configure”- Ao clicar nesse botão o programa salva a opção da c
 <!-- A tabela “Areas”- A tabela contem todas as formas que o usuário criou. Ao clicar duas vezes em cima da linha da figura desejada o usuário consegue renomear as formas criadas. Ao clicar uma vez na célula a forma é selecionada e ela fica de cor verde. Dessa forma o usuário consegue editar seu tamanho no painel “size” da interface gráfica. Caso a figura selecionada seja um circulo ele consegue editar o parâmetro de raio no campo “Radio”. Caso a forma seja um retângulo o usuário consegue editar a altura e largura no campo “Height” e no campo “Width” respectivamente. O usuário também pode editar a posição clicando e arrastando a forma selecionada para a posição desejada. Ao clicar e arrastar a imagem fica na cor amarela. -->
 
 
-<tutor id="tutoIntrinsicNoise" titulo="Deletar as areas de interesse" pbS="yes(y)" pbN="">
+<tutor id="tutorDeleteArea" titulo="Deletar as areas de interesse" pbS="yes(y)" pbN="">
 <html><body>
     <p>
         Selecione a área em foco, clicando uma vez em cima do nome dela na tabela "areas", e clique no botão “delete Area” para excluir essa área da tabela e análise.
