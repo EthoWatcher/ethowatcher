@@ -63,8 +63,8 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     mysplash.cpp\
     parserxml.cpp\
     warningtutor.cpp\
-    controladorinterfaces.cpp
-    #tutoretho.cpp
+    controladorinterfaces.cpp\
+    tutoretho.cpp
 
 
 
@@ -98,7 +98,8 @@ HEADERS  += ethowatcher.h \
     mysplash.h\
     parserxml.h\
     warningtutor.h\
-    controladorinterfaces.h
+    controladorinterfaces.h\
+    tutoretho.h
     #tutoretho.h
 
 
