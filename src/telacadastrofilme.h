@@ -408,6 +408,9 @@ private:
     ControladoWarningTutor *controlWarnig;
     QList<QString> seqInicial;
 
+    bool chFrameProce;
+    bool chFrameFinal;
+    bool chFrameBack;
 
 
 signals:

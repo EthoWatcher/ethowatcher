@@ -120,6 +120,10 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     controlWarnig->nextList("tutorInicio");
 
     ui->cbBlinding->setVisible(false);
+
+    chFrameProce = false;
+    chFrameFinal =false;
+    chFrameBack =false;
 }
 
 /**
@@ -1398,6 +1402,7 @@ void telaCadastroFilme::on_pushButtonCapture_clicked()
     frameBackground = conQim2Mat(qiRecebida);
     ui->lblFrameBack->setText(QString::number(resultado.frameFundo));
    // ui->imgResultado->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+    chFrameBack =true;
     this->botaoClicado(true,"clicadoBotaoBackground");
 
    // ui->btPlay->setEnabled(true);
@@ -1414,11 +1419,13 @@ void telaCadastroFilme::on_pbFrameProce_clicked()
 
 //        frameProce = conQim2Mat(qiRecebida);
     ui->leFramePro->setText(QString::number(resultado.frameProces));
+    chFrameProce = true;
     //ui->imgResultado->setPixmap(QPixmap::fromImage(resultado.qiFrameProce));
     this->botaoClicado(true,"clicadoFrameStartAnalise");
 
    // ui->btPlay->setEnabled(true);
   //  ui->btStop->setEnabled(false);
+
 }
 
 void telaCadastroFilme::on_pbFrameFinal_clicked()
@@ -1430,6 +1437,8 @@ void telaCadastroFilme::on_pbFrameFinal_clicked()
 
         resultado.frameFinal=frame_atual;
         ui->leFrameFinal->setText(QString::number(resultado.frameFinal));
+
+        chFrameFinal =true;
 
         this->botaoClicado(true,"clicadoFrameFishAnalise");
 
@@ -1995,23 +2004,46 @@ void telaCadastroFilme::on_cbNoise_clicked()
 
 void telaCadastroFilme::on_pbConfigure1_2_clicked()
 {
-
-    ui->gbBlinding->setEnabled(false);
-    ui->gbBack->setEnabled(false);
-    ui->gbStartAnaly->setEnabled(false);
-    ui->gpFrameFinis->setEnabled(false);
-    ui->groupBox_15->setEnabled(false);
-
-    if(ui->cbPro->isChecked() || ui->cbBlinding->isChecked()){
-        ui->tabWCalib->setCurrentIndex(1);
-        ui->tabWCalib->setTabEnabled(1,true);
+    bool chOk=false;
+    ui->cbPro->isChecked(){
+        if(chFrameBack && chFrameFinal && chFrameProce){
+            chOk = true;
+        }else{
+            chOk = false;
+        }
 
     }else{
-        ui->tabWPrincipal->setCurrentIndex(2);
-        ui->tabWPrincipal->setTabEnabled(2,true);
+        if(chFrameFinal && chFrameProce){
+            chOk = true;
+
+        }else{
+            chOk = false;
+        }
+
     }
 
-    this->botaoClicado(true,"clicadoNextParaScale");
+
+    if(chOk){
+        ui->gbBlinding->setEnabled(false);
+        ui->gbBack->setEnabled(false);
+        ui->gbStartAnaly->setEnabled(false);
+        ui->gpFrameFinis->setEnabled(false);
+        ui->groupBox_15->setEnabled(false);
+
+        if(ui->cbPro->isChecked() || ui->cbBlinding->isChecked()){
+            ui->tabWCalib->setCurrentIndex(1);
+            ui->tabWCalib->setTabEnabled(1,true);
+
+        }else{
+            ui->tabWPrincipal->setCurrentIndex(2);
+            ui->tabWPrincipal->setTabEnabled(2,true);
+        }
+
+        this->botaoClicado(true,"clicadoNextParaScale");
+    }else{
+       QMessageBox::information(this,tr("Message"),tr("Not selected all important frames"));
+    }
+
 
 }
 
