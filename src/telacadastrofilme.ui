@@ -75,7 +75,7 @@
              <item>
               <widget class="QPushButton" name="pbAbreVideo">
                <property name="text">
-                <string>Load Video</string>
+                <string>Load video</string>
                </property>
               </widget>
              </item>
@@ -286,7 +286,7 @@
              <item>
               <widget class="QPushButton" name="pbConfigure1">
                <property name="text">
-                <string>Next Step</string>
+                <string>Next step</string>
                </property>
               </widget>
              </item>
@@ -366,7 +366,7 @@
                  </size>
                 </property>
                 <property name="title">
-                 <string>Step 4 - Selecte the frame tha analise will start</string>
+                 <string>Step 4: Select the frame tha analise will start</string>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_21">
                  <item>
@@ -375,7 +375,7 @@
                     <bool>true</bool>
                    </property>
                    <property name="text">
-                    <string>Frame to Start the analysis</string>
+                    <string>Frame to start the analysis</string>
                    </property>
                   </widget>
                  </item>
@@ -410,7 +410,7 @@
                  </size>
                 </property>
                 <property name="title">
-                 <string>Step 5- Selecthe the frame of the analise will and</string>
+                 <string>Step 5: Select the the frame of the analise will end</string>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_5">
                  <item>
@@ -454,7 +454,7 @@
                  </size>
                 </property>
                 <property name="title">
-                 <string>Step 6 Select the background frame</string>
+                 <string>Step 6: Select the background frame</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_24">
                  <item>
@@ -466,7 +466,7 @@
                     </size>
                    </property>
                    <property name="title">
-                    <string>Step 6.1 Selecte the frame</string>
+                    <string>Step 6.1: Select the frame</string>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_31">
                     <item>
@@ -507,7 +507,7 @@
                     </size>
                    </property>
                    <property name="title">
-                    <string>Step 6.1 Ajuste the values of subtraction and erosion</string>
+                    <string>Step 6.2: Ajust the values of subtraction and erosion</string>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_25">
                     <item>
@@ -531,7 +531,7 @@
                           </size>
                          </property>
                          <property name="title">
-                          <string>Subtraction Treshold</string>
+                          <string>Subtraction treshold</string>
                          </property>
                          <layout class="QHBoxLayout" name="horizontalLayout_27">
                           <item>
@@ -612,7 +612,7 @@
                        <item>
                         <widget class="QCheckBox" name="chbPrevi">
                          <property name="text">
-                          <string>Preview Process</string>
+                          <string>Preview process</string>
                          </property>
                         </widget>
                        </item>
@@ -628,7 +628,7 @@
                           </size>
                          </property>
                          <property name="title">
-                          <string>Background Color</string>
+                          <string>Background color</string>
                          </property>
                          <layout class="QHBoxLayout" name="horizontalLayout_15">
                           <item>
@@ -704,13 +704,13 @@
                  </size>
                 </property>
                 <property name="title">
-                 <string>Step 7</string>
+                 <string>Step 7: Next session</string>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_28">
                  <item>
                   <widget class="QPushButton" name="pbConfigure1_2">
                    <property name="text">
-                    <string>Next Step</string>
+                    <string>Next step</string>
                    </property>
                   </widget>
                  </item>
@@ -739,7 +739,7 @@
                     </size>
                    </property>
                    <property name="title">
-                    <string>Step 8.1:Inform the distance between the triangles</string>
+                    <string>Step 8.1: Inform the distance between the triangles</string>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_19">
                     <item>
@@ -895,7 +895,7 @@
                        </size>
                       </property>
                       <property name="title">
-                       <string>Red Dot</string>
+                       <string>Red Dot at</string>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_14">
                        <item>
@@ -988,7 +988,7 @@
                     <item>
                      <widget class="QGroupBox" name="groupBox_23">
                       <property name="title">
-                       <string>Blue Dot</string>
+                       <string>Blue Dot at</string>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_15">
                        <item>
@@ -1109,7 +1109,7 @@
               <item>
                <widget class="QGroupBox" name="gbOpcoes">
                 <property name="title">
-                 <string>Step 9Marque as Opcoes de interesse</string>
+                 <string>Step 9: Choose the options</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout">
                  <item>
