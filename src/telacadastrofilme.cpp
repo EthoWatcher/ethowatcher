@@ -62,7 +62,7 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastrofilme.xml",this);
     seqInicial.append("tutorInicio");
     seqInicial.append("tutorInicioVideo");
-    seqInicial.append("tutorPCalibrationSession");
+//    seqInicial.append("tutorPCalibrationSession");
     seqInicial.append("tutorVideoOpenConfira");
     seqInicial.append("tutorVideoSlider");
     seqInicial.append("tutorVideoOpen");
@@ -71,7 +71,7 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     seqInicial.append("tutorVideoSlider");
     seqInicial.append("tutorSelectionRegister");
     seqInicial.append("tutorNextStep");
-    seqInicial.append("tutorNextVideo");
+//    seqInicial.append("tutorNextVideo");
      seqInicial.append("tutorVideoNavigation");
 
 //     tutores para a seção de frames importantes
@@ -2005,7 +2005,7 @@ void telaCadastroFilme::on_cbNoise_clicked()
 void telaCadastroFilme::on_pbConfigure1_2_clicked()
 {
     bool chOk=false;
-    ui->cbPro->isChecked(){
+    if(ui->cbPro->isChecked()){
         if(chFrameBack && chFrameFinal && chFrameProce){
             chOk = true;
         }else{
