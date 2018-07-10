@@ -71,7 +71,7 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     seqInicial.append("tutorVideoSlider");
     seqInicial.append("tutorSelectionRegister");
     seqInicial.append("tutorNextStep");
-    seqInicial.append("tutorNextVideo");
+//    seqInicial.append("tutorNextVideo");
      seqInicial.append("tutorVideoNavigation");
 
 //     tutores para a seção de frames importantes

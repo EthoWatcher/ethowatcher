@@ -57,14 +57,19 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
 
     <tutor id="tutorVideoOpenConfira" titulo="Confira as informações do vídeo" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
+        <p>
+            Confira se:
+        </p>
+        <p>
         <ul>
-        <li><font color="red">video file path” </font> se é o caminho do disco local no qual o vídeo aberto está gravado. </li>
-        <li><font color="red">video file name  </font> se é o nome do arquivo aberto</li>
-        <li><font color="red">frames per second </font> se é a taxa de atualização que o vídeo possui </li>
-        <li><font color="red">width </font> se é a largura dos quados, em pixeis, do vídeo aberto </li>
-        <li><font color="red">height </font> se é a altura dos quados, em pixeis, do vídeo aberto </li>
+        <li> o <font color="red">video file path </font> é o caminho do disco local no qual o vídeo aberto está gravado. </li>
+        <li> o <font color="red">video file name  </font> é o nome do arquivo aberto</li>
+        <li> o <font color="red">frames per second </font> é a taxa de atualização que o vídeo possui </li>
+        <li> o <font color="red">width </font>  é a largura dos quados, em pixeis, do vídeo aberto </li>
+        <li> o <font color="red">height </font> é a altura dos quados, em pixeis, do vídeo aberto </li>
         </ul>
-    </body></html></tutor>W
+        </p>
+    </body></html></tutor>
 
     <tutor id="tutorVideoPlay" titulo="Clique no botão Play!" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
@@ -98,9 +103,9 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
     </p>
     <p>
     <ul>
-    <li><font color="red">avançar </font> para avançar, de forma descontinua, o vídeo segundo o valor na caixa de texto  </li>
-    <li><font color="red">voltar  </font> para retroceder, de forma descontinua, o vídeo segundo o valor configurado na caixa de texto</li>
-    <li><font color="red">progress slider </font> e arraste para se deslocar, de forma descontinua, pelos quadros do vídeo</li>
+    <li>botão <font color="red">avançar </font> para avançar, de forma descontinua, o vídeo segundo o valor na caixa de texto  </li>
+    <li>botão <font color="red">voltar  </font> para retroceder, de forma descontinua, o vídeo segundo o valor configurado na caixa de texto</li>
+    <li>botão <font color="red">progress slider </font> e arraste para deslocar, de forma descontinua, pelos quadros do vídeo</li>
     </ul>
     </p>
 </body></html></tutor>
@@ -109,21 +114,27 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
 
 
 
-<tutor id="tutorSelectionRegister" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
+<tutor id="tutorSelectionRegister" titulo="Selecione as caixas" pbS="yes(y)" pbN="" sizeHeight ="530">
 <html><body>
-<p>
-    A caixa de seleção “vídeo or real time etography” - Ao selecionar essa caixa o usuário cadastra o vídeo para ser usado na TCC baseada em vídeo ou por fonte externa. Essa opção sempre está selecionada.
-A caixa de seleção “tracking morphological/cinematic analysis” - ao selecionar essa caixa o usuário cadastra o vídeo para ser usado na TCCM baseada em vídeo ou em tempo real.
-A caixa de seleção “blind video file” - Ao selecionar essa caixa o usuário cadastra o vídeo para ser usado no módulo de embaralhamento, que cega as informações do vídeo para o usuário.
-</p>
-</body></html></tutor>
 
+    <p>
+        Selecione a :
+    </p>
+
+    <p>
+    <ul>
+    <li>caixa <font color="red">vídeo or real time etography </font> para que esse vídeo possa ser utilizado no módulo de Etografia baseada em vídeo </li>
+    <li>caixa <font color="red">tracking morphological/cinematic analysis  </font> para que esse vídeo possa ser utilizado no módulo de tracking</li>
+    </ul>
+    </p>
+</body></html></tutor>
+<!--
 <tutor id="tutorNextVideo" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
 <html><body>
 <p>
     Botão “next step” - Ao pressionar o botão a interface gráfica se reorganiza para conter apenas os passos necessários para funcionar os métodos escolhidos. A outra função do botão é habilitar a aba “Calibration session”.A foto dessa aba pode ser vista na figura  57 (a função de cada componente na interface gráfica da figura 57 está apresentado a seguir).
     </p>
-</body></html></tutor>
+</body></html></tutor> -->
 
 <!-- primeira aba da interface  -->
 
@@ -150,7 +161,7 @@ THEN press the “configure” button
     <tutor id="tutorInicioFramesImportantes" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
         <p>
-        Essa secção serve para cadastrar os quadros importantes -- primeiro e ultimo quadro; da análise de comprotamento animal e, caso tenha selecionado o rastreamento automatico do animal, o quadro de fundo e o valor de erosão e de limiarização.
+        Essa secção serve para cadastrar os quadros importantes da análise de comportamento animal e, caso tenha selecionado o rastreamento automatico do animal, o quadro de fundo e o valor de erosão e de limiarização.
         </p>
         <h2> NEXT</h2>
         <p>
