@@ -15,40 +15,22 @@
     2 - Select  the module(s) (one or more)  that will be used to process this video file. If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures.
     If you want to use this video only for tracking, select the appropriate checkbox. For both tracking and ethography, select both checkboxes.
     </p>
-
-
-
     <h2> NEXT </h2>
     <p>
         3 - Click on “Next step” button
     </p>
-
-
     </body></html></tutor>
-
-    <!-- <tutor id="tutorPCalibrationSession" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
-    <html><body>
-        Step 2.01: Navigate in the video file to a a frame after any aspect that can identify your experiment (e.g., a clackette appearing before the start of the experiment) , and THEN click in the “blind precedent frame” button
-
-Step 2.02 Navigate in the video file to a frame  containing only the background of the maze (without the animal, and after the frame you’ve choose in the step 2.01), and THEN press the “Background frame” button.
-
-THEN, Navigate in the video file to a frame  containing the animal. Select preview process box, and slide the “subtraction threshold”  cursor  (and/or set the level of erosion of the animal), to exclude  spots, shadow or other undesired aspects of the animal  and background.
-
-Step 2.03: Navigate in the video file to a frame  where you want to start the analysis, and click on the “Frame to Start the analysis” button
-Step 2.04: Navigate in the video file to a frame  where you want to finish  the analysis, and click on the “Frame to Finish the analysis” button
-
-    </body></html></tutor> -->
 
 
     <tutor id="tutorVideoOpen" titulo="Clique on the button Load video" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
         <p>
-        Para abrir uma caixa de diálogo com acesso ao disco local do computador do usuário é aberto, para que ele possa encontrar um arquivo de vídeo no formato AVI em seu computador.
+        Clique no botão Load video para abrir uma caixa de diálogo com acesso ao disco local do seu computador do usuário e encontre o arquivo de vídeo no formato AVI em seu computador que você deseja utilizar no EthW-OS.
         </p>
 
         <h2> <font color="red">Warning! </font></h2>
         <p>
-            O video, e o caminho dele, devem ser da codificação UTF-8 (e.g.,) e não conter caracteres especiais -- ã,ç,é.
+            O video, e o caminho dele, devem ser da codificação UTF-8 (e.g.,) e não conter caracteres especiais: ã,ç,é.
         </p>
 
 
@@ -73,7 +55,7 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
 
     <tutor id="tutorVideoPlay" titulo="Clique no botão Play!" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
-    <p> Clique no botão play para que os quadros do vídeo comessem a serem carregados, de forma constante, no painel do vídeo original.</p>
+    <p> Clique no botão play para que os quadros do vídeo comessem a ser carregados, de forma constante, no painel do vídeo original.</p>
     <p> Observe no painel “progress” o numero do quadro, o tempo em segundos, atual , do vídeo, sendo exibido na interface gráfica. </p>
 
 
@@ -128,16 +110,6 @@ Step 2.04: Navigate in the video file to a frame  where you want to finish  the 
     </ul>
     </p>
 </body></html></tutor>
-<!--
-<tutor id="tutorNextVideo" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
-<html><body>
-<p>
-    Botão “next step” - Ao pressionar o botão a interface gráfica se reorganiza para conter apenas os passos necessários para funcionar os métodos escolhidos. A outra função do botão é habilitar a aba “Calibration session”.A foto dessa aba pode ser vista na figura  57 (a função de cada componente na interface gráfica da figura 57 está apresentado a seguir).
-    </p>
-</body></html></tutor> -->
-
-<!-- primeira aba da interface  -->
-
 
     <tutor id="tutorPCalibrationScale" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
     <html><body>
