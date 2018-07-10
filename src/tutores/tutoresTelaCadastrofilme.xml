@@ -3,17 +3,17 @@
     <tutor id="tutorInicio" titulo="Welcome to the Register Video interface" pbS="yes(f1)" pbN="" sizeHeight ="400">
     <html><body>
         <p>
-        The Register Video Interface the user is able to register all of the parameter to use the
-        No módulo de cadastro de vídeo o usuário consegue registrar todos os parâmetros necessários para utilizar os módulos de Etografia e rastreamento</p>
+        The Register Video Interface the user is able to register all of the parameter to use the Digital video-based ethography and the Tracking modules
+        </p>
     </body></html></tutor>
 
 
 
-    <tutor id="tutorNextStep" titulo="Selecione o módulo" pbS="yes(f1)" pbN="" sizeHeight ="400">
+    <tutor id="tutorNextStep" titulo="Select the module" pbS="yes(f1)" pbN="" sizeHeight ="400">
     <html><body>
 
     <p>
-    2 - Select  the module(s) (one or more)  that will be used to process this video file. If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures.
+    2 - Select  the module(s) (one or more)  that will be used to process this video file. If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis.
     If you want to use this video only for tracking, select the appropriate checkbox. For both tracking and ethography, select both checkboxes.
     </p>
     <h2> NEXT </h2>
@@ -23,72 +23,72 @@
     </body></html></tutor>
 
 
-    <tutor id="tutorVideoOpen" titulo="Clique on the button Load video" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <tutor id="tutorVideoOpen" titulo="Click on the button Load video" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
         <p>
-        Clique no botão Load video para abrir uma caixa de diálogo com acesso ao disco local do seu computador do usuário e encontre o arquivo de vídeo no formato AVI em seu computador que você deseja utilizar no EthW-OS.
+        Click in Load video to open the video file in your computer. Attention! The EthoWatcher-OS just open videos of AVI format.
         </p>
 
         <h2> <font color="red">Warning! </font></h2>
         <p>
-            O video, e o caminho dele, devem ser da codificação UTF-8 (e.g.,) e não conter caracteres especiais: ã,ç,é.
+            The path of video (e.g C:\Users\video) MUST NOT CONTAIN SPECIAL CHARACTERS (e.g -, /, %, *, _, á, ã, â).
         </p>
 
 
     </body></html></tutor>
 
 
-    <tutor id="tutorVideoOpenConfira" titulo="Confira as informações do vídeo" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <tutor id="tutorVideoOpenConfira" titulo="Confirm the video file information" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
         <p>
-            Confira se:
+            Confirm:
         </p>
         <p>
         <ul>
-        <li> o <font color="red">video file path </font> é o caminho do disco local no qual o vídeo aberto está gravado. </li>
-        <li> o <font color="red">video file name  </font> é o nome do arquivo aberto</li>
-        <li> o <font color="red">frames per second </font> é a taxa de atualização que o vídeo possui </li>
-        <li> o <font color="red">width </font>  é a largura dos quados, em pixeis, do vídeo aberto </li>
-        <li> o <font color="red">height </font> é a altura dos quados, em pixeis, do vídeo aberto </li>
+        <li> The <font color="red">video file path </font> is the video file path in the Local Disk </li>
+        <li> The <font color="red">video file name  </font> is the name of video file</li>
+        <li> The <font color="red">frames per second </font> is the frame rate of video file in seconds</li>
+        <li> The <font color="red">width </font>  is the video frame width (in pixels) </li>
+        <li> The <font color="red">height </font> is the video frame height (in pixels) </li>
         </ul>
         </p>
     </body></html></tutor>
 
-    <tutor id="tutorVideoPlay" titulo="Clique no botão Play!" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <tutor id="tutorVideoPlay" titulo="Click on the Play button!" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
-    <p> Clique no botão play para que os quadros do vídeo comessem a ser carregados, de forma constante, no painel do vídeo original.</p>
-    <p> Observe no painel “progress” o numero do quadro, o tempo em segundos, atual , do vídeo, sendo exibido na interface gráfica. </p>
+    <p> Click on the play button to run the video file.</p>
+    <p> The “progress” painel show the frame number, the time (in seconds), of the video showed in the grafic interface. </p>
 
 
     </body></html></tutor>
 
-    <tutor id="tutorVideoPause" titulo="Clique no botão Pause!" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <tutor id="tutorVideoPause" titulo="Click on the Stop Button!" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
         <p>
-        Para que os quadros do vídeo parem de ser carregados, de forma constante, no painel do vídeo.</p>
+        To Stop the video just click on Stop Button.</p>
 
     </body></html></tutor>
 
 
 
-<tutor id="tutorVideoSlider" titulo="Clique a arraste o botão de velocidade de reprodução" pbS="yes(y)" pbN="" sizeHeight ="530">
+<tutor id="tutorVideoSlider" titulo="Click and drag the slider to change the reprodution velocity" pbS="yes(y)" pbN="" sizeHeight ="530">
 <html><body>
     <p>
-    Para alterar a constante de atualização dos quadros no painel -arraste para a direita para aumentar ou para esquerda para diminuir a taxa de atualização do vídeo.
+    To change the velocity of reprodution just drag the slider. For slow reprodution drag to the left. For fast reprodution drag the slider to the right.
     </p>
 
 </body></html></tutor>
 
-<tutor id="tutorVideoNavigation" titulo="Navegue pelos quadros do vídeo de forma descontinua" pbS="yes(y)" pbN="" sizeHeight ="530">
+<tutor id="tutorVideoNavigation" titulo="To browse to any frame in the video file" pbS="yes(y)" pbN="" sizeHeight ="530">
 <html><body>
     <p>
-    Clique no:
+    Click on:
     </p>
     <p>
     <ul>
-    <li>botão <font color="red">avançar </font> para avançar, de forma descontinua, o vídeo segundo o valor na caixa de texto  </li>
-    <li>botão <font color="red">voltar  </font> para retroceder, de forma descontinua, o vídeo segundo o valor configurado na caixa de texto</li>
-    <li>botão <font color="red">progress slider </font> e arraste para deslocar, de forma descontinua, pelos quadros do vídeo</li>
+    <li>Button <font color="red">advance </font> to advance in steps on the video file </li>
+    <li>Button <font color="red">back  </font> to advance in steps on the video file </li>
+    <li>Button <font color="red">progress slider </font> and drag to go to any frame of the video file</li>
     </ul>
     </p>
 </body></html></tutor>
@@ -97,22 +97,22 @@
 
 
 
-<tutor id="tutorSelectionRegister" titulo="Selecione as caixas" pbS="yes(y)" pbN="" sizeHeight ="530">
+<tutor id="tutorSelectionRegister" titulo="Select the checkbox" pbS="yes(y)" pbN="" sizeHeight ="530">
 <html><body>
 
     <p>
-        Selecione a :
+        Select the:
     </p>
 
     <p>
     <ul>
-    <li>caixa <font color="red">vídeo or real time etography </font> para que esse vídeo possa ser utilizado no módulo de Etografia baseada em vídeo </li>
-    <li>caixa <font color="red">tracking morphological/cinematic analysis  </font> para que esse vídeo possa ser utilizado no módulo de tracking</li>
+    <li>checkbox <font color="red">vídeo  etography </font> all of the registred videos are allowed to Video Ethography analyses. </li>
+    <li>checkbox <font color="red">tracking morphological/cinematic analysis  </font>to use the tracking and morphological/kinematic modules</li>
     </ul>
     </p>
 </body></html></tutor>
 
-    <tutor id="tutorPCalibrationScale" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <tutor id="tutorPCalibrationScale" titulo="The video was uploaded successfully!" pbS="yes(y)" pbN="">
     <html><body>
 
         <p>
@@ -131,42 +131,40 @@ THEN press the “configure” button
     <!-- quadros importantes -->
 
 
-    <tutor id="tutorInicioFramesImportantes" titulo="Seu usuario foi cadastro com sucesso!" pbS="yes(y)" pbN="">
+    <tutor id="tutorInicioFramesImportantes" titulo="Selection the relevant frames!" pbS="yes(y)" pbN="">
     <html><body>
         <p>
-        Essa secção serve para cadastrar os quadros importantes da análise de comportamento animal e, caso tenha selecionado o rastreamento automatico do animal, o quadro de fundo e o valor de erosão e de limiarização.
+        This sessions select the relevant frames to process the video for the previously selected analyzes.
         </p>
         <h2> NEXT</h2>
         <p>
-            Clique no botão yes para começar a seleção dos quadros importantes.
+            Click on the Yes button to select the relevant frames.
         </p>
 
     </body></html></tutor>
 
-    <tutor id="tutorFrameStart" titulo="Clique no botão Frame start analise!" pbS="yes(y)" pbN="" sizeHeight ="200">
+    <tutor id="tutorFrameStart" titulo="Click on the button Frame start the analysis!" pbS="yes(y)" pbN="" sizeHeight ="200">
     <html><body>
-        <p>Desloque os quadros do filme, utilizando os controladores, e encontre o primerio quadro da análise.</p>
-
-            <p>
-         Em seguida, clique no botão "start ananise" para  definir o quadro atual, mostrado no painel "progress", como o primeiro quadro da análise de comportamento animal e do rastreamento automático.
-        </p>
-    </body></html></tutor>
-
-    <tutor id="tutorFrameFim" titulo="Clique no botão frame finish analise" pbS="yes(y)" pbN="" sizeHeight ="200">
-    <html><body>
-        <p>Desloque os quadros do filme, utilizando os controladores, e encontre o utlimo quadro da análise.</p>
+        <p>Find the start frame of the analyses with the control buttons (play, advance and slider).</p>
         <p>
-         Em seguida, clique no botão "finish analsie" para definir o quadro atual, mostrado no painel "progress", como o ultimo quadro da análise de comportamento animal e do rastreamento automático.
+        After, click on "Frame to start the analyses" to set the frame first frame.
         </p>
+    </body></html></tutor>
 
+    <tutor id="tutorFrameFim" titulo="Click on the button Frame finish analise" pbS="yes(y)" pbN="" sizeHeight ="200">
+    <html><body>
+        <p>With the control buttons (play, advance and slider) go to the last frame of analyses.</p>
+        <p>
+        After, click on "Frame to finish the analyses" to set the last frame for analyses.
+        </p>
     </body></html></tutor>
 
 
-    <tutor id="tutorBackground" titulo="Se desloque pelo filme" pbS="yes(y)" pbN="" sizeHeight ="200">
+    <tutor id="tutorBackground" titulo="Background frame" pbS="yes(y)" pbN="" sizeHeight ="200">
     <html><body>
-        <p>Desloque os quadros do filme, utilizando os controladores, e encontre um quadro no qual só apareça a imagem de fundo, da arena. </p>
+        <p>Find the backgroud frame with the control buttons (play, advance and slider), in other words, the frame that there is only the cage or a arena, without the animal. </p>
         <p>
-         Em seguida, clique no botão "background analise" Para definir o quadro atual, mostrado no painel "progress", como o quadro de fundo para o rastreamento automático.
+         After, click on "Background frame" to set the frame.
         </p>
 
 
