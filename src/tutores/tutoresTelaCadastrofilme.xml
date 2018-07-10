@@ -3,7 +3,7 @@
     <tutor id="tutorInicio" titulo="Welcome to the Register Video interface" pbS="yes(f1)" pbN="" sizeHeight ="400">
     <html><body>
         <p>
-        No módulo de cadastro de vídeo o usuário consegue registrar todos os parâmetros necessários para os métodos de TCC, TCCM e embaralhamento de vídeo para experimentação cegada.</p>
+        No módulo de cadastro de vídeo o usuário consegue registrar todos os parâmetros necessários para utilizar os módulos de Etografia e rastreamento</p>
     </body></html></tutor>
 
 
@@ -12,7 +12,7 @@
     <html><body>
 
     <p>
-    2 - Select  the module(s) (one or more)  that will be used to process this video file.If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures.
+    2 - Select  the module(s) (one or more)  that will be used to process this video file. If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures.
     If you want to use this video only for tracking, select the appropriate checkbox. For both tracking and ethography, select both checkboxes.
     </p>
 
@@ -26,7 +26,7 @@
 
     </body></html></tutor>
 
-    <tutor id="tutorPCalibrationSession" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
+    <!-- <tutor id="tutorPCalibrationSession" titulo="Preencha os campos e clique em save" pbS="yes(y)" pbN="" sizeHeight ="530">
     <html><body>
         Step 2.01: Navigate in the video file to a a frame after any aspect that can identify your experiment (e.g., a clackette appearing before the start of the experiment) , and THEN click in the “blind precedent frame” button
 
@@ -37,7 +37,7 @@ THEN, Navigate in the video file to a frame  containing the animal. Select previ
 Step 2.03: Navigate in the video file to a frame  where you want to start the analysis, and click on the “Frame to Start the analysis” button
 Step 2.04: Navigate in the video file to a frame  where you want to finish  the analysis, and click on the “Frame to Finish the analysis” button
 
-    </body></html></tutor>
+    </body></html></tutor> -->
 
 
     <tutor id="tutorVideoOpen" titulo="Clique on the button Load video" pbS="yes(y)" pbN="" sizeHeight ="530">
