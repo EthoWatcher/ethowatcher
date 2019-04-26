@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ethoWatcher</string>
+   <string>EthoWatcher OS</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -27,7 +27,7 @@
        <number>0</number>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <widget class="QTextBrowser" name="textBrowser">
@@ -255,7 +255,7 @@ p, li { white-space: pre-wrap; }
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="resourcefile.qrc">:/icons/cabecalho6.jpg</pixmap>
+              <pixmap>:/icons/cabecalho6.jpg</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -516,7 +516,7 @@ p, li { white-space: pre-wrap; }
                 <item>
                  <widget class="QPushButton" name="pbDuploCego">
                   <property name="text">
-                   <string>&quot;Blind&quot; video files</string>
+                   <string>&quot;Blinding&quot; video files</string>
                   </property>
                  </widget>
                 </item>
@@ -1223,7 +1223,7 @@ p, li { white-space: pre-wrap; }
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resourcefile.qrc">:/icons/IEBUFSC.jpg</pixmap>
+         <pixmap>:/icons/IEBUFSC.jpg</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1242,7 +1242,7 @@ p, li { white-space: pre-wrap; }
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resourcefile.qrc">:/icons/LCNeurophysiology.jpg</pixmap>
+         <pixmap>:/icons/LCNeurophysiology.jpg</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1261,7 +1261,7 @@ p, li { white-space: pre-wrap; }
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resourcefile.qrc">:/icons/ufsc-logo-3.png</pixmap>
+         <pixmap>:/icons/ufsc-logo-3.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1296,7 +1296,7 @@ p, li { white-space: pre-wrap; }
    </property>
    <widget class="QMenu" name="menuEthoWatcher">
     <property name="title">
-     <string>EthoWatcher</string>
+     <string>EthoWatcher OS</string>
     </property>
     <addaction name="actionAbout"/>
     <addaction name="actionLicense_agreement"/>
@@ -1324,8 +1324,6 @@ p, li { white-space: pre-wrap; }
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="resourcefile.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

@@ -40,8 +40,8 @@ int main(int argc, char *argv[])
 
     ethoWatcher w;
 
-    QTimer::singleShot(5000, &splash, SLOT(close()));
-    QTimer::singleShot(5000, &w, SLOT(show()));
+    QTimer::singleShot(1000, &splash, SLOT(close()));
+    QTimer::singleShot(1000, &w, SLOT(show()));
 
     //w.carregaImagens(":/icons/cabecalho.jpg");
 

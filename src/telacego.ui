@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>&quot;Blinding&quot; video files</string>
   </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
@@ -69,7 +69,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>460</y>
+     <y>440</y>
      <width>701</width>
      <height>131</height>
     </rect>
@@ -354,8 +354,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
+     <x>30</x>
+     <y>40</y>
      <width>701</width>
      <height>101</height>
     </rect>
@@ -364,13 +364,15 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>:/icons/cabecalho4.jpg</pixmap>
+    <pixmap resource="recursos.qrc">:/recursos/cabecalho4.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>

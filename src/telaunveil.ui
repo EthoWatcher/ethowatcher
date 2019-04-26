@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Unveil</string>
+   <string>Unveil &quot;blinded&quot; video files</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
