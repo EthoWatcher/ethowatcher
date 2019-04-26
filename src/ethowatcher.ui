@@ -255,7 +255,7 @@ p, li { white-space: pre-wrap; }
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>:/icons/cabecalho6.jpg</pixmap>
+              <pixmap resource="resourcefile.qrc">:/icons/cabecalho6.jpg</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -271,7 +271,7 @@ p, li { white-space: pre-wrap; }
               </size>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>2</number>
              </property>
              <widget class="QWidget" name="tab">
               <attribute name="title">
@@ -636,7 +636,7 @@ p, li { white-space: pre-wrap; }
                 </rect>
                </property>
                <property name="title">
-                <string>GroupBox</string>
+                <string>Ethographic tools</string>
                </property>
                <widget class="QPushButton" name="pbAnaliseEtograma">
                 <property name="geometry">
@@ -895,7 +895,7 @@ p, li { white-space: pre-wrap; }
                 </rect>
                </property>
                <property name="title">
-                <string>Group Box 1</string>
+                <string>Analysis tools</string>
                </property>
                <widget class="QPushButton" name="pbEstatistica">
                 <property name="geometry">
@@ -936,25 +936,15 @@ p, li { white-space: pre-wrap; }
                  <string>Reliability calculation</string>
                 </property>
                </widget>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_7">
-               <property name="geometry">
-                <rect>
-                 <x>280</x>
-                 <y>40</y>
-                 <width>211</width>
-                 <height>141</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>GroupBox 2</string>
-               </property>
                <widget class="QPushButton" name="pbRNA">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="geometry">
                  <rect>
-                  <x>10</x>
-                  <y>30</y>
-                  <width>131</width>
+                  <x>30</x>
+                  <y>110</y>
+                  <width>141</width>
                   <height>23</height>
                  </rect>
                 </property>
@@ -1223,7 +1213,7 @@ p, li { white-space: pre-wrap; }
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/icons/IEBUFSC.jpg</pixmap>
+         <pixmap resource="resourcefile.qrc">:/icons/IEBUFSC.jpg</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1242,7 +1232,7 @@ p, li { white-space: pre-wrap; }
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/icons/LCNeurophysiology.jpg</pixmap>
+         <pixmap resource="resourcefile.qrc">:/icons/LCNeurophysiology.jpg</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1261,7 +1251,7 @@ p, li { white-space: pre-wrap; }
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>:/icons/ufsc-logo-3.png</pixmap>
+         <pixmap resource="resourcefile.qrc">:/icons/ufsc-logo-3.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1324,6 +1314,8 @@ p, li { white-space: pre-wrap; }
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>
