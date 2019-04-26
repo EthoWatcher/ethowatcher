@@ -1,2 +1,7 @@
 /telaCadastroCatalago.pro.user.G25144
+*.user
+*.autosave
+/*.o
+/*.exe
+/build-*
 /*.Z25144

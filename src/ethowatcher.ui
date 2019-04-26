@@ -27,7 +27,7 @@
        <number>0</number>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <widget class="QTextBrowser" name="textBrowser">
@@ -271,7 +271,7 @@ p, li { white-space: pre-wrap; }
               </size>
              </property>
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab">
               <attribute name="title">
@@ -1201,9 +1201,9 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;EthoWatcher OpenSource Personal DataBase&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;EthoWatcher OS&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;The Ethowatcher is a software developed in the Laboratory of  Bioengineering of the Institute of Biomedical Engineering (IEB, Depto de Engenharia Elétrica da Universidade Federal de Santa Catarina-UFSC) and in the Laboratory of Comparative Neurophysiology (Depto de Ciências Fisiológicas-CCB, UFSC), under the supervision of Dr. José Marino-Neto.First software version, it is a by-product of the MSc and Ph.D works of  Ricardo Bose, Cesar Pederiva and Carlos Crispim Jr., who contributed with different modules of the software. This software registered at the INPI - Instituto Nacional da Propriedade Industrial &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;The Ethowatcher OS is a software developed in the Laboratory of  Bioengineering of the Institute of Biomedical Engineering (IEB, Depto de Engenharia Elétrica da Universidade Federal de Santa Catarina-UFSC) and in the Laboratory of Comparative Neurophysiology (Depto de Ciências Fisiológicas-CCB, UFSC), under the supervision of Dr. José Marino-Neto.First software version, it is a by-product of  Ph.D works of  João Antônio Marcolan who developed the different modules of the software. This software registered at the INPI - Instituto Nacional da Propriedade Industrial &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;&amp;lt;http://www6.inpi.gov.br/&amp;gt; Proc. Nº: 09285-3, since 30/12/2008). &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;The Universidade Federal de Santa Catarina and the authors have all the rights reserved. For further information, contact with the developers and download of the software, please visit us at &amp;lt;http://www.ethowatcher.ufsc.br/&amp;gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
