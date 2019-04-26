@@ -1,7 +1,7 @@
 
 
 # Introduction
-
+The Ethowatcher OS allow the classical behavioral analysis also to extract kinematic and morphological descriptors (ie. tracking). The way the program organizes the data resulting from the study makes it possible to perform a series of analyzes that are already discussed in the state of the art but are not found in practice by other programs of the same genre (eg, concordance analysis, sequential analysis). In addition, the organization of the data will allow the use of artificial intelligence algorithms.
 
 # Tools developed
 The Ethowatcher OS modules were divided into the preparation tools for behavioral transcription, kinematic and morphological behavioral transcription (TCCM) and categorical behavioral transcription (TCC) and Transcript Analysis tools
@@ -31,12 +31,12 @@ Sequential analysis that allows to count the succession of behaviors
 
 # How to run
 
-You will need to install K-Lite Mega Codec Pack to correct open your videos.
+You will need to install [K-Lite Mega Codec Pack](https://k-lite-mega-codec-pack.br.uptodown.com/windows/download) to correct open your videos.
 
 
-# Examples
+<!-- # Examples
+ -->
 
 
 
-
-# How to contribute.
+<!-- # How to contribute. -->
