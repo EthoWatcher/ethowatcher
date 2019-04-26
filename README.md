@@ -1,6 +1,9 @@
 
 
 # Introduction
+
+
+# Tools developed
 The Ethowatcher OS modules were divided into the preparation tools for behavioral transcription, kinematic and morphological behavioral transcription (TCCM) and categorical behavioral transcription (TCC) and Transcript Analysis tools
 
 # The preparation tools
@@ -19,13 +22,20 @@ The kinematic, morphological and categorical transcription tools (etography) all
 # Kinematic and Morphological Transcription Analysis
 
 The tools of Kinematic and Morphological Transcription Analysis and of etography allow to perform analyzes that are important for the field of study that the program operates, but are rarely found. You can do this by:
-Time segmentation of the tracking and spelling report. This module divides the TCC report and the TCCM report by a fixed period of time. For the CBT report, the result of segmentation is given in frequency, latency and duration of each behavior for each time interval. For the TCCM report, the report segments frames that are within the time range.
-Segmentation of the CBT and CBTM report by behavior. The behavioral targeting can partition the TCC and TCCM report from a catalog category. At the end of segmentation this algorithm generates a video with the frames found in the analysis and a report
-Segmentation of the TCCM report by area. The area-segmentation algorithm separates the TCCM result into different areas of interest previously recorded in the preparation tools.
-Agreement analysis between interobserver and intraobserver. The program calculates agreement between two auto-exclusive CBTs using the Cohen-Kappa method and between two self-exclusive CBTs using the Fleiss-Kappa method.
+- Time segmentation of the tracking and spelling report. This module divides the TCC report and the TCCM report by a fixed period of time. For the CBT report, the result of segmentation is given in frequency, latency and duration of each behavior for each time interval. For the TCCM report, the report segments frames that are within the time range.
+- Segmentation of the CBT and CBTM report by behavior. The behavioral targeting can partition the TCC and TCCM report from a catalog category. At the end of segmentation this algorithm generates a video with the frames found in the analysis and a report
+- Segmentation of the TCCM report by area. The area-segmentation algorithm separates the TCCM result into different areas of interest previously recorded in the preparation tools.
+
+- Agreement analysis between interobserver and intraobserver. The program calculates agreement between two auto-exclusive CBTs using the Cohen-Kappa method and between two self-exclusive CBTs using the Fleiss-Kappa method.
 Sequential analysis that allows to count the succession of behaviors
 
 # How to run
+
+You will need to install K-Lite Mega Codec Pack to correct open your videos.
+
+
+# Examples
+
 
 
 
