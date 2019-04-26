@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = EtoWatcher
+TARGET = EthoWatcher
 TEMPLATE = app
 
 INCLUDEPATH += C:\opencv\RELEASE\install\include
@@ -40,6 +40,7 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     telacadastrolistafilme.cpp \
     modulocaptador.cpp\
     telacego.cpp\
+    telablind.cpp\
     #telaetografia.cpp\
     #etografia.cpp\
     modulorsa.cpp\
@@ -72,6 +73,7 @@ HEADERS  += ethowatcher.h \
     telacadastrolistafilme.h\
     modulocaptador.h\
     telacego.h\
+    telablind.h\
     #telaetografia.h\
     #etografia.h\
     modulorsa.h\
@@ -101,6 +103,7 @@ FORMS    += ethowatcher.ui \
     telacadastrofilme.ui \
     telacadastrolistafilme.ui \
     telacego.ui\
+    telablind.ui\
     #telaetografia.ui\
     #etografia.ui\
     #telaconversorxmlcsv.ui\

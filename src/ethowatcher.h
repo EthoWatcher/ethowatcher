@@ -22,6 +22,7 @@
 #include "telaunveil.h"
 #include "telatemporeal.h"
 #include "telafluxocomportamental.h"
+#include "telablind.h"
 
 namespace Ui {
 class ethoWatcher;
@@ -91,7 +92,7 @@ private:
     telaCadastroFilme *cadastroFilme;
     telaCadastroListaFilme *cadastroListaFilme;
     //telaCadastroEtograma *cadastroEtograma;
-    telaCego *cego;
+    telablind *cego;
     telaEtografia *etografia;
     //telaEstatistica *estatistica;
     telaSegementacao *segment;

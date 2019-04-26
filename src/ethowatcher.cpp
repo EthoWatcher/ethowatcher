@@ -12,7 +12,7 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
     ui->tabWiEthowatcher->setEnabled(true);
     chLoadUser= false;
     cadastroFilme = new telaCadastroFilme();
-    cego = new telaCego();
+    cego = new telablind();
     segment = new telaSegementacao();
     transi= new telaMatrizTransicao();
     concordancia= new teaConcordancia();
@@ -200,7 +200,7 @@ void ethoWatcher::on_pbAnaliseEtograma_clicked()
 
 void ethoWatcher::on_pbDuploCego_clicked()
 {
-    cego = new telaCego();
+    cego = new telablind();
     cego->show();
 }
 
