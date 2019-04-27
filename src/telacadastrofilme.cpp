@@ -1168,10 +1168,12 @@ void telaCadastroFilme::on_sbP1XJanela_valueChanged(double arg1)
 
 void telaCadastroFilme::on_pbCadastrar1_clicked()
 {
+    QString saveFile = fonteVideo.left(fonteVideo.length()-4);;
+
     nomeArquivo = QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
-                fonteVideo,
+                saveFile,
                "Videos Cadastrados (*.vxml)"
                );
 
