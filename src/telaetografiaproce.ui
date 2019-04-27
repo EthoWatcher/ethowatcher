@@ -1520,7 +1520,7 @@ p, li { white-space: pre-wrap; }
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
@@ -1540,8 +1540,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>63</width>
-                   <height>70</height>
+                   <width>322</width>
+                   <height>320</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1882,7 +1882,7 @@ p, li { white-space: pre-wrap; }
                    </row>
                    <row>
                     <property name="text">
-                     <string>New Row</string>
+                     <string>Intrinsic noise</string>
                     </property>
                    </row>
                    <column>
