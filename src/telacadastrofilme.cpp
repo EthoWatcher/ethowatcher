@@ -669,7 +669,7 @@ void telaCadastroFilme::on_tabWCalib_currentChanged(int index)
         qDebug()<<"tab treatment noise";
 
         chVideo=true;
-        ui->tabWNoise->setCurrentIndex(0);
+        //ui->tabWNoise->setCurrentIndex(0);
         areaInt->setVisible(false);
 
 
@@ -837,7 +837,7 @@ void telaCadastroFilme::on_tabWCalib_tabBarClicked(int index)
 {
     if(index==2){
 
-        ui->tabWNoise->setCurrentIndex(0);
+        //ui->tabWNoise->setCurrentIndex(0);
         areaInt->setVisible(true);
     }
 }
@@ -1747,4 +1747,9 @@ void telaCadastroFilme::on_pbNexStep3_clicked()
 {
     ui->tabWPrincipal->setCurrentIndex(2);
     ui->tabWPrincipal->setTabEnabled(2,true);
+}
+
+void telaCadastroFilme::on_cbVariaca_clicked()
+{
+
 }

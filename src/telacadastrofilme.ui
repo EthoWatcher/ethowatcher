@@ -1314,232 +1314,11 @@ p, li { white-space: pre-wrap; }
            <attribute name="title">
             <string>Noise treatment</string>
            </attribute>
-           <widget class="QTabWidget" name="tabWNoise">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>10</y>
-              <width>461</width>
-              <height>411</height>
-             </rect>
-            </property>
-            <property name="currentIndex">
-             <number>0</number>
-            </property>
-            <widget class="QWidget" name="tab2">
-             <attribute name="title">
-              <string>Select treatment noise</string>
-             </attribute>
-             <widget class="QGroupBox" name="gpMobileVirtualCamera">
-              <property name="geometry">
-               <rect>
-                <x>10</x>
-                <y>10</y>
-                <width>411</width>
-                <height>151</height>
-               </rect>
-              </property>
-              <property name="title">
-               <string>Step 3.01 Configure Mobilie virtual camera</string>
-              </property>
-              <widget class="QCheckBox" name="checkBox">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>20</y>
-                 <width>211</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Mobile virtual camera</string>
-               </property>
-              </widget>
-              <widget class="QWidget" name="widget" native="true">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>50</y>
-                 <width>375</width>
-                 <height>41</height>
-                </rect>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
-                <item>
-                 <widget class="QLabel" name="label_76">
-                  <property name="text">
-                   <string>Animal’s maximum lenght</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="leVarMax">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="label_75">
-                  <property name="text">
-                   <string>cm</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pbNextRoi">
-                  <property name="text">
-                   <string>Next step</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="widMobileConfim" native="true">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>90</y>
-                 <width>381</width>
-                 <height>51</height>
-                </rect>
-               </property>
-               <widget class="QLabel" name="label_77">
-                <property name="geometry">
-                 <rect>
-                  <x>10</x>
-                  <y>10</y>
-                  <width>271</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Posicione o quadrado em cima do animal e aperte okay</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="pbNextRoi_2">
-                <property name="geometry">
-                 <rect>
-                  <x>290</x>
-                  <y>10</y>
-                  <width>75</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Confirm</string>
-                </property>
-               </widget>
-              </widget>
-             </widget>
-             <widget class="QGroupBox" name="groupBox_16">
-              <property name="geometry">
-               <rect>
-                <x>10</x>
-                <y>180</y>
-                <width>421</width>
-                <height>121</height>
-               </rect>
-              </property>
-              <property name="title">
-               <string>Step 3.02 Configure Intrinsic noise</string>
-              </property>
-              <widget class="QCheckBox" name="cbVariaca">
-               <property name="geometry">
-                <rect>
-                 <x>0</x>
-                 <y>30</y>
-                 <width>171</width>
-                 <height>17</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Intrinsic noise</string>
-               </property>
-              </widget>
-              <widget class="QWidget" name="widIntrinsic" native="true">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>60</y>
-                 <width>323</width>
-                 <height>41</height>
-                </rect>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_12">
-                <item>
-                 <widget class="QLabel" name="label_11">
-                  <property name="text">
-                   <string>Intrinsic noise</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="leMin">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="label_99">
-                  <property name="text">
-                   <string>cm</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pbConfRuidoInt">
-                  <property name="text">
-                   <string>Next Step</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </widget>
-             <widget class="QGroupBox" name="groupBox_17">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>320</y>
-                <width>381</width>
-                <height>56</height>
-               </rect>
-              </property>
-              <property name="title">
-               <string>GroupBox</string>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_17">
-               <item>
-                <widget class="QPushButton" name="pbConfRuidoInt_2">
-                 <property name="text">
-                  <string>Next Step</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </widget>
-            <widget class="QWidget" name="tab_2">
-             <attribute name="title">
-              <string>Mobile virtual camera</string>
-             </attribute>
-            </widget>
-            <widget class="QWidget" name="tab_7">
-             <attribute name="title">
-              <string>Intrinsic noise</string>
-             </attribute>
-            </widget>
-           </widget>
            <widget class="QGroupBox" name="groupBox_27">
             <property name="geometry">
              <rect>
               <x>0</x>
-              <y>430</y>
+              <y>400</y>
               <width>471</width>
               <height>151</height>
              </rect>
@@ -2322,6 +2101,210 @@ p, li { white-space: pre-wrap; }
              </item>
             </layout>
            </widget>
+           <widget class="QGroupBox" name="gpMobileVirtualCamera">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>10</y>
+              <width>411</width>
+              <height>151</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Step 3.01 Configure Mobilie virtual camera</string>
+            </property>
+            <widget class="QCheckBox" name="checkBox">
+             <property name="geometry">
+              <rect>
+               <x>20</x>
+               <y>20</y>
+               <width>211</width>
+               <height>17</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>Mobile virtual camera</string>
+             </property>
+            </widget>
+            <widget class="QWidget" name="widget" native="true">
+             <property name="geometry">
+              <rect>
+               <x>20</x>
+               <y>50</y>
+               <width>375</width>
+               <height>41</height>
+              </rect>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QLabel" name="label_76">
+                <property name="text">
+                 <string>Animal’s maximum lenght</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="leVarMax">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_75">
+                <property name="text">
+                 <string>cm</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbNextRoi">
+                <property name="text">
+                 <string>Next step</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="widMobileConfim" native="true">
+             <property name="geometry">
+              <rect>
+               <x>20</x>
+               <y>90</y>
+               <width>381</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <widget class="QLabel" name="label_77">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>10</y>
+                <width>271</width>
+                <height>23</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Posicione o quadrado em cima do animal e aperte okay</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="pbNextRoi_2">
+              <property name="geometry">
+               <rect>
+                <x>290</x>
+                <y>10</y>
+                <width>75</width>
+                <height>23</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Confirm</string>
+              </property>
+             </widget>
+            </widget>
+            <zorder>checkBox</zorder>
+            <zorder>widget</zorder>
+            <zorder>widMobileConfim</zorder>
+            <zorder>tabWNoise</zorder>
+            <zorder>groupBox_17</zorder>
+           </widget>
+           <widget class="QGroupBox" name="groupBox_16">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>170</y>
+              <width>421</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Step 3.02 Configure Intrinsic noise</string>
+            </property>
+            <widget class="QCheckBox" name="cbVariaca">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>30</y>
+               <width>171</width>
+               <height>17</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string>Intrinsic noise</string>
+             </property>
+            </widget>
+            <widget class="QWidget" name="widIntrinsic" native="true">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="geometry">
+              <rect>
+               <x>20</x>
+               <y>60</y>
+               <width>323</width>
+               <height>41</height>
+              </rect>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_12">
+              <item>
+               <widget class="QLabel" name="label_11">
+                <property name="text">
+                 <string>Intrinsic noise</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="leMin">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_99">
+                <property name="text">
+                 <string>cm</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbConfRuidoInt">
+                <property name="text">
+                 <string>Next Step</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+           <widget class="QGroupBox" name="groupBox_17">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>310</y>
+              <width>411</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>3.03</string>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_17">
+             <item>
+              <widget class="QPushButton" name="pbConfRuidoInt_2">
+               <property name="text">
+                <string>Next Step</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <zorder>groupBox_27</zorder>
+           <zorder>gpMobileVirtualCamera</zorder>
+           <zorder>groupBox_16</zorder>
+           <zorder>groupBox_16</zorder>
+           <zorder>groupBox_16</zorder>
+           <zorder>groupBox_17</zorder>
           </widget>
           <widget class="QWidget" name="tab_5">
            <attribute name="title">
