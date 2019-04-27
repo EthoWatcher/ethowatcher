@@ -47,6 +47,7 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
    this->setFixedSize(this->width(),this->height());
 
     ui->widMobileConfim->setVisible(false);
+    ui->widIntrinsic->setEnabled(false);
 }
 
 telaCadastroFilme::~telaCadastroFilme()
@@ -1675,6 +1676,7 @@ void telaCadastroFilme::on_pbConfigureTreatment_clicked()
 void telaCadastroFilme::on_pbConfRuidoInt_clicked()
 {
     minVaria = ui->leMin->text().toDouble();
+    ui->groupBox_16->setEnabled(false);
 }
 
 void telaCadastroFilme::on_SliderThreshold_sliderMoved(int position)

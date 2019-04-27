@@ -60,7 +60,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_9">
        <attribute name="title">
@@ -2178,14 +2178,14 @@ p, li { white-space: pre-wrap; }
              <widget class="QLabel" name="label_77">
               <property name="geometry">
                <rect>
-                <x>10</x>
+                <x>0</x>
                 <y>10</y>
-                <width>271</width>
+                <width>281</width>
                 <height>23</height>
                </rect>
               </property>
               <property name="text">
-               <string>Posicione o quadrado em cima do animal e aperte okay</string>
+               <string>Position the board on top of the animal and press confirm.</string>
               </property>
              </widget>
              <widget class="QPushButton" name="pbNextRoi_2">
@@ -2235,13 +2235,13 @@ p, li { white-space: pre-wrap; }
             </widget>
             <widget class="QWidget" name="widIntrinsic" native="true">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="geometry">
               <rect>
                <x>20</x>
                <y>60</y>
-               <width>323</width>
+               <width>371</width>
                <height>41</height>
               </rect>
              </property>
@@ -2256,21 +2256,21 @@ p, li { white-space: pre-wrap; }
               <item>
                <widget class="QLineEdit" name="leMin">
                 <property name="enabled">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QLabel" name="label_99">
                 <property name="text">
-                 <string>cm</string>
+                 <string>cm/frame</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pbConfRuidoInt">
                 <property name="text">
-                 <string>Next Step</string>
+                 <string>Confirm</string>
                 </property>
                </widget>
               </item>
