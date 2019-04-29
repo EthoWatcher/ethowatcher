@@ -1543,10 +1543,10 @@ void parserXMLtoCSV::escreverTimeCsv()
 
       if(tot==0){
 
-          csvGravador << "category"<< ";" << "Duration(s)" << ";" <<"Freq."  << ";" << "Latency(s)" << "\n";
+          csvGravador << "Category"<< ";" << "Duration(s)" << ";" <<"Freq."  << ";" << "Latency(s)" << "\n";
       }else{
 
-          csvGravador << "category"<< ";" << "Duration(s)" << ";" <<"Freq." << "\n";
+          csvGravador << "Category"<< ";" << "Duration(s)" << ";" <<"Freq." << "\n";
       }
 
       for(int fr=0; fr< totalizacaoTot[tot].freq.size(); fr++){
@@ -1689,25 +1689,25 @@ void parserXMLtoCSV::escreverKohoCsv()
     QTextStream csvGravador(&outGravador);
 
     csvGravador <<"sep=; \n";
-    csvGravador << "Informacoes do usuario\n";
-    csvGravador <<"pesquisador ; laboratorio" << "\n";
+    csvGravador << "Informacion about the user\n";
+    csvGravador <<"Researcher ; Laboratory" << "\n";
     csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
     csvGravador <<"\n";
-    csvGravador <<"informacoes do video analisado: \n";
-    csvGravador << "nome; fps; frame analisado inicial; frame analisado final \n";
+    csvGravador <<"The information of analysed videos: \n";
+    csvGravador << "Name; Frames per second (fps); Frame started the analysis; Frame finished the analysis \n";
     csvGravador << videoLido->nome<< ";" << videoLido->fps << ";"
          << videoLido->frameInicial << ";" << videoLido->frameFinal<< "\n";
     csvGravador <<"\n";
-    csvGravador <<"informacoes do catalogo analisado: \n";
-    csvGravador <<"O catalogo utilizado foi o " <<";" << catalagoLido->caminhoArquivo << "\n";
-    csvGravador <<"categorias\n";
+    csvGravador <<"The information of catalogue: \n";
+    csvGravador <<"The catalogue used in etography are: " <<";" << catalagoLido->caminhoArquivo << "\n";
+    csvGravador <<"Categories\n";
     for(int i=0; i< catalagoLido->nome.size(); i++ ){
        csvGravador << catalagoLido->nome[i]<< "\n";
 
     }
     csvGravador <<"\n";
-    csvGravador <<"As analises etograficas utilizadas \n";
-    csvGravador <<"id; caminho; tipo \n";
+    csvGravador <<"The etographys used in the Cohen's Kappa analyses are \n";
+    csvGravador <<"Id; Path; Type \n";
     for(int i=0; i< etografiasLidas.size();i++){
 
       csvGravador << i << ";" << etografiasLidas[i]->caminho << ";" << etografiasLidas[i]->tipoDeAnalise;
@@ -1716,7 +1716,7 @@ void parserXMLtoCSV::escreverKohoCsv()
     csvGravador <<"\n";
 
     //apartir daqui é diferente das outras analises
-    csvGravador <<"A matriz de concordancia kohone kappa\n";
+    csvGravador <<"The agreement matriz of Cohen's Kappa are\n";
     csvGravador << "" <<";";
 
 
@@ -1740,7 +1740,7 @@ void parserXMLtoCSV::escreverKohoCsv()
 
     }
 
-    csvGravador <<"A matriz de porcentagem do kohone kappa\n";
+    csvGravador <<"The agreement porcentage matriz of Cohen's Kappa are: \n";
     csvGravador << "" <<";";
 
 
@@ -1765,11 +1765,11 @@ void parserXMLtoCSV::escreverKohoCsv()
     }
      csvGravador << "\n";
       csvGravador << "\n";
-       csvGravador << "O resultado final ficou\n";
+       csvGravador << "The final result are\n";
 
-    csvGravador <<"A porcentagem de concordancia (k1); " << conPontoVirgula(   KohoKappa.k1 *100) <<"\n" ;
-    csvGravador <<"A porcentagem de concordancai por acaso (k2); " << conPontoVirgula(KohoKappa.k2 *100) <<"\n" ;
-    csvGravador <<"O Cohen Kappa; " <<conPontoVirgula(KohoKappa.kappa *100) <<"\n" ;
+    csvGravador <<"The agreement porcentage (k1) are ; " << conPontoVirgula(  KohoKappa.k1 *100) <<" (%)\n" ; // A porcentagem de concordancia
+    csvGravador <<"The agreement porcentage by chance (k2) are ; " << conPontoVirgula(KohoKappa.k2 *100) <<"(%)\n" ;//A porcentagem de concordancai por acaso
+    csvGravador <<"The Cohen's Kappa; " <<conPontoVirgula(KohoKappa.kappa *100) <<"\n" ;
 
 //    outGravador.write("O pesquisador foi o:, ");
 //    outGravador.write(experimentador.nome.toLatin1()+"\n");
@@ -1791,25 +1791,25 @@ void parserXMLtoCSV::escreverFleisCsv()
     QTextStream csvGravador(&outGravador);
 
     csvGravador <<"sep=; \n";
-    csvGravador << "Informacoes do usuario\n";
-    csvGravador <<"pesquisador ; laboratorio" << "\n";
+    csvGravador << "The user information\n";
+    csvGravador <<"Researcher ; Laboratory" << "\n";
     csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
     csvGravador <<"\n";
-    csvGravador <<"informacoes do video analisado: \n";
-    csvGravador << "nome; fps; frame analisado inicial; frame analisado final \n";
+    csvGravador <<"Information about the analysed video: \n";
+    csvGravador << "Name; Frames per second (fps); Frame started the analysis; Frame finished the analysis \n";
     csvGravador << videoLido->nome<< ";" << videoLido->fps << ";"
          << videoLido->frameInicial << ";" << videoLido->frameFinal<< "\n";
     csvGravador <<"\n";
-    csvGravador <<"informacoes do catalogo analisado: \n";
-    csvGravador <<"O catalogo utilizado foi o " <<";" << catalagoLido->caminhoArquivo << "\n";
-    csvGravador <<"categorias\n";
+    csvGravador <<"Information of the catalog: \n";
+    csvGravador <<"Path of the used catalog are in: " <<";" << catalagoLido->caminhoArquivo << "\n";
+    csvGravador <<"Categories\n";
     for(int i=0; i< catalagoLido->nome.size(); i++ ){
        csvGravador << catalagoLido->nome[i]<< "\n";
 
     }
     csvGravador <<"\n";
-    csvGravador <<"As analises etograficas utilizadas \n";
-    csvGravador <<"id; caminho; tipo \n";
+    csvGravador <<"The ethographys analised\n";
+    csvGravador <<"Id; Path; Type \n";
     for(int i=0; i< etografiasLidas.size();i++){
 
       csvGravador << i << ";" << etografiasLidas[i]->caminho << ";" << etografiasLidas[i]->tipoDeAnalise;
@@ -1818,12 +1818,12 @@ void parserXMLtoCSV::escreverFleisCsv()
     csvGravador <<"\n";
 
     //apartir daqui é diferente das outras analises
-    csvGravador <<"As totalizacoes da analise sequencial\n";
+    csvGravador <<"The total of the Fleiss Kappa analysis\n";
     csvGravador << "" <<";";
     for(int grt=0; grt< catalagoLido->nome.size(); grt++){
        csvGravador << catalagoLido->nome[grt] <<";";
     }
-    csvGravador << "undefinido"<<";";
+    csvGravador << "Undefined (frames that are not marked)"<<";";
     csvGravador << "\n";
 
     for(int tot=0; tot< flKaDa.matrizConcordancia.size(); tot++){
@@ -1860,11 +1860,11 @@ void parserXMLtoCSV::escreverFleisCsv()
 
      csvGravador << "\n";
       csvGravador << "\n";
-       csvGravador << "O resultado final ficou\n";
+       csvGravador << "The final result are\n";
 
-    csvGravador <<"A porcentagem de concordancia por acaso p; " <<flKaDa.p <<"\n" ;
-    csvGravador <<"A porcentagem de concordância média pe; " <<flKaDa.pe <<"\n" ;
-    csvGravador <<"O Fleiss Kappa; " <<flKaDa.indiceFleissKappa <<"\n" ;
+    csvGravador <<"The agreement porcentage by change (p) are: ; " <<flKaDa.p <<"\n" ; //A porcentagem de concordancia por acaso (p)
+    csvGravador <<"The mean agreement pocentage (pe) aer: ; " <<flKaDa.pe <<"\n" ; //A porcentagem de concordância média
+    csvGravador <<"The Fleiss Kappa :; " <<flKaDa.indiceFleissKappa <<"\n" ;
 
 
 
@@ -1916,13 +1916,13 @@ void parserXMLtoCSV::escreverEtografiaCsv()
 
     csvGravador << "ETHOGRAPHY REPORT" << "\n";
 ////    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
-    csvGravador << "video file is " << videoLido->nome<< "\n";
+    csvGravador << "Registred video file are locate in " << videoLido->nome<< "\n";
 
     csvGravador << "Analysis initiated at " << conPontoVirgula( videoLido->frameProce /videoLido->fps)  << " (seconds) of the video file \n ";
     csvGravador << "Analysis terminated at " << conPontoVirgula(videoLido->frameFinal / videoLido->fps) << " (seconds) of the video file \n";
     csvGravador <<"\n";
 //    csvGravador <<"informacoes do catalogo analisado: \n";
-    csvGravador <<"O catalogo utilizado foi o " <<";" << catalagoLido->caminhoArquivo << "\n";
+    csvGravador <<"The selected catalog are : " <<";" << catalagoLido->caminhoArquivo << "\n";
 //    csvGravador <<"categorias\n";
 //    for(int i=0; i< catalagoLido->nome.size(); i++ ){
 //       csvGravador << catalagoLido->nome[i]<< "\n";
@@ -1949,7 +1949,7 @@ void parserXMLtoCSV::escreverEtografiaCsv()
     csvGravador << "\n";
 
     double duracao=0;
-    csvGravador << "time" << ";" << "Categories"<< ";" << "Duration(s)" << "\n";
+    csvGravador << "Time (s)" << ";" << "Categories"<< ";" << "Duration(s)" << "\n";
 
     for(int ka1=0; ka1< etografiaLida->frameInicial.size(); ka1++){
 
@@ -1968,7 +1968,7 @@ void parserXMLtoCSV::escreverEtografiaCsv()
 
     csvGravador <<  "RESULTS FOR THE ENTIRE PERIOD of ANALYSIS \n\n";
 
-    csvGravador << "category"<< ";" << "Duration(s)" << ";" <<"Freq."  << ";" << "Latency(s)" << "\n";
+    csvGravador << "Category"<< ";" << "Duration(s)" << ";" <<"Freq."  << ";" << "Latency(s)" << "\n";
 
     for(int ka2=0; ka2< catalagoLido->nome.size(); ka2++){
         csvGravador << catalagoLido->nome[ka2] << ";"
@@ -2023,7 +2023,7 @@ void parserXMLtoCSV::escreverTrakinCsv()
 
     csvGravador << "TRACKING - ACTIVITY REPORT" << "\n";
 ////    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
-    csvGravador << "video file is " << videoLido->nome<< "\n";
+    csvGravador << "Registred video file are locate in " << videoLido->nome<< "\n";
     csvGravador << "Start in ;" << conPontoVirgula( videoLido->frameProce / videoLido->fps) << ";" << "seconds ;" << videoLido->frameProce << "; frames "  "\n";
     csvGravador << "End in ;" << conPontoVirgula( videoLido->frameFinal / videoLido->fps )<< ";" << "seconds ;" << videoLido->frameFinal << "; frames "  "\n";
 //    csvGravador << "Analysis initiated at " << conPontoVirgula( videoLido->frameProce /videoLido->fps)  << " (seconds) of the video file \n ";
@@ -2081,7 +2081,7 @@ void parserXMLtoCSV::escreverTrakinCsv()
     csvGravador << "\n";
 
     double duracao=0;
-    //csvGravador << "time" << ";" << "Categories"<< ";" << "Duration(s)" << "\n";
+    //csvGravador << "Time (s)" << ";" << "Categories"<< ";" << "Duration(s)" << "\n";
 
    //asdasd  for(int ki=0; ki< matrizReMorfo.size() ; ki++){
         csvGravador << "\n";
@@ -2092,13 +2092,13 @@ void parserXMLtoCSV::escreverTrakinCsv()
 
         csvGravador <<  ";"      <<    ";"    << "Number of pixels;"     << "Area (in cm2);";
         csvGravador <<  "Horizontal coordinate of the centroid;"      <<    "Vertical coordinate of the centroid;";
-        csvGravador <<  "AA(in degrees);" <<"Height of the animal;" <<"width of the animal;" <<"Object Detected;" ;
+        csvGravador <<  "AA(in degrees);" <<"Height of the animal;" <<"Width of the animal;" <<"Object Detected;" ;
         csvGravador << "Distance travelled by the centroid;" << "Distance travelled by the centroid;";
         csvGravador << "Variation of Area (from the former frame);";
         csvGravador << "Variation of Height of animal (from the former frame);";
         csvGravador << "Variation of width of animal (from the former frame);";
         csvGravador << "Variation of Angule of animal;";
-        csvGravador << "Maximum variation distance travel by the centroid;" << "\n";
+        csvGravador << "Intrinsic noise (minimum variation distance traveled by the centroid)" << "\n";
 
 
         //a area de intesse 0 é sempre a altura e largura da imagem original;
