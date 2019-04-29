@@ -35,7 +35,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resourcefile.qrc">:/icons/cabecalho3.jpg</pixmap>
+      <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -2202,11 +2202,6 @@ p, li { white-space: pre-wrap; }
               </property>
              </widget>
             </widget>
-            <zorder>checkBox</zorder>
-            <zorder>widget</zorder>
-            <zorder>widMobileConfim</zorder>
-            <zorder>tabWNoise</zorder>
-            <zorder>groupBox_17</zorder>
            </widget>
            <widget class="QGroupBox" name="groupBox_16">
             <property name="geometry">
@@ -2299,12 +2294,6 @@ p, li { white-space: pre-wrap; }
              </item>
             </layout>
            </widget>
-           <zorder>groupBox_27</zorder>
-           <zorder>gpMobileVirtualCamera</zorder>
-           <zorder>groupBox_16</zorder>
-           <zorder>groupBox_16</zorder>
-           <zorder>groupBox_16</zorder>
-           <zorder>groupBox_17</zorder>
           </widget>
           <widget class="QWidget" name="tab_5">
            <attribute name="title">

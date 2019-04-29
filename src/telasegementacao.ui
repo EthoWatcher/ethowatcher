@@ -68,8 +68,8 @@
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>411</width>
-                  <height>424</height>
+                  <width>388</width>
+                  <height>101</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -277,8 +277,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>89</width>
-                 <height>89</height>
+                 <width>96</width>
+                 <height>79</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -292,8 +292,8 @@
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>69</width>
-                     <height>69</height>
+                     <width>96</width>
+                     <height>28</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -579,7 +579,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resourcefile.qrc">:/icons/cabecalho4.jpg</pixmap>
+      <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
