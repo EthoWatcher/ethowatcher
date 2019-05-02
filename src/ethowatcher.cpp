@@ -1,3 +1,20 @@
+/*
+EthoWatcher OS is a software to assist study of animal behavior.
+Copyright (C) 2018  Universidade Federal de Santa Catarina.
+
+EthoWatcher OS is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
 #include "ethowatcher.h"
 #include "ui_ethowatcher.h"
 
@@ -12,7 +29,7 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
     ui->tabWiEthowatcher->setEnabled(true);
     chLoadUser= false;
     cadastroFilme = new telaCadastroFilme();
-    cego = new telaCego();
+    cego = new telablind();
     segment = new telaSegementacao();
     transi= new telaMatrizTransicao();
     concordancia= new teaConcordancia();
@@ -200,7 +217,7 @@ void ethoWatcher::on_pbAnaliseEtograma_clicked()
 
 void ethoWatcher::on_pbDuploCego_clicked()
 {
-    cego = new telaCego();
+    cego = new telablind();
     cego->show();
 }
 

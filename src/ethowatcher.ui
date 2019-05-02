@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>989</width>
-    <height>709</height>
+    <width>997</width>
+    <height>740</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ethoWatcher</string>
+   <string>EthoWatcher OS</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -27,7 +27,7 @@
        <number>0</number>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <widget class="QTextBrowser" name="textBrowser">
@@ -251,11 +251,17 @@ p, li { white-space: pre-wrap; }
                <height>101</height>
               </size>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>250</height>
+              </size>
+             </property>
              <property name="text">
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="resourcefile.qrc">:/icons/cabecalho6.jpg</pixmap>
+              <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -277,30 +283,223 @@ p, li { white-space: pre-wrap; }
               <attribute name="title">
                <string>Database managements tools</string>
               </attribute>
-              <widget class="QGroupBox" name="groupBox">
-               <property name="geometry">
-                <rect>
-                 <x>10</x>
-                 <y>250</y>
-                 <width>601</width>
-                 <height>181</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Tutor</string>
-               </property>
-               <layout class="QVBoxLayout" name="verticalLayout">
-                <item>
-                 <widget class="QStackedWidget" name="swidTutorBancoDados">
-                  <property name="currentIndex">
-                   <number>5</number>
-                  </property>
-                  <widget class="QWidget" name="Inicio">
-                   <layout class="QVBoxLayout" name="verticalLayout_9">
-                    <item>
-                     <widget class="QTextEdit" name="textBancoDeDados">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+              <layout class="QVBoxLayout" name="verticalLayout">
+               <item>
+                <widget class="QWidget" name="widget_5" native="true">
+                 <layout class="QVBoxLayout" name="verticalLayout_2">
+                  <item>
+                   <widget class="QWidget" name="widget_4" native="true">
+                    <layout class="QHBoxLayout" name="horizontalLayout_6">
+                     <item>
+                      <widget class="QWidget" name="widget_3" native="true">
+                       <layout class="QHBoxLayout" name="horizontalLayout_5">
+                        <item>
+                         <widget class="QGroupBox" name="groupBox_2">
+                          <property name="title">
+                           <string>Registration Box</string>
+                          </property>
+                          <layout class="QGridLayout" name="gridLayout">
+                           <item row="0" column="0">
+                            <widget class="QWidget" name="widget" native="true">
+                             <property name="minimumSize">
+                              <size>
+                               <width>50</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <layout class="QGridLayout" name="gridLayout_2">
+                              <item row="0" column="0">
+                               <widget class="QPushButton" name="pbTela1No">
+                                <property name="text">
+                                 <string>Register new user</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="2" column="0">
+                               <widget class="QPushButton" name="pbRegisterCatalog">
+                                <property name="text">
+                                 <string>Register behavioral catalog</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="5" column="0">
+                               <widget class="QPushButton" name="pbTela2ListaVideo">
+                                <property name="text">
+                                 <string>Register video files</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="1" column="0">
+                               <widget class="QPushButton" name="pbTela1Yes">
+                                <property name="text">
+                                 <string>Load user</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="1" column="1">
+                               <widget class="QWidget" name="widget_2" native="true">
+                                <layout class="QVBoxLayout" name="verticalLayout_7">
+                                 <item>
+                                  <widget class="QPushButton" name="pbConversorXMLCSV">
+                                   <property name="text">
+                                    <string>.xml-to-.csv file converter</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QGroupBox" name="groupBox_3">
+                          <property name="title">
+                           <string>Video management tools</string>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_8">
+                           <item>
+                            <widget class="QPushButton" name="pbCadastrarListaVideo">
+                             <property name="text">
+                              <string>Build video file list</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QPushButton" name="pbDuploCego">
+                             <property name="text">
+                              <string>&quot;Blinding&quot; video files</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QPushButton" name="pbUnveil">
+                             <property name="text">
+                              <string>Unveil &quot;blinded&quot; video files</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QPushButton" name="pbBehaviorSample">
+                             <property name="text">
+                              <string>Build a behavioral-sample video</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QGroupBox" name="groupBox_10">
+                       <property name="maximumSize">
+                        <size>
+                         <width>333</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="title">
+                        <string>Help</string>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout">
+                        <item>
+                         <widget class="QTreeWidget" name="treeWidget">
+                          <property name="font">
+                           <font>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <column>
+                           <property name="text">
+                            <string>Double Click for HELP!</string>
+                           </property>
+                          </column>
+                          <item>
+                           <property name="text">
+                            <string>Registration Box</string>
+                           </property>
+                           <item>
+                            <property name="text">
+                             <string>Register Behavioral Catalog</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>Register Videos Files</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>Register User</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>Load User</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>.xml-to-.csv file converter</string>
+                            </property>
+                           </item>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>Video management tools</string>
+                           </property>
+                           <item>
+                            <property name="text">
+                             <string>Build a video file list</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>&quot;Blind&quot; video files</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>Unveil &quot;blinded&quot; video files</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>Build a single category vídeo</string>
+                            </property>
+                           </item>
+                          </item>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QGroupBox" name="groupBox">
+                    <property name="title">
+                     <string>Tutor</string>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_7">
+                     <item>
+                      <widget class="QStackedWidget" name="swidTutorBancoDados">
+                       <property name="currentIndex">
+                        <number>5</number>
+                       </property>
+                       <widget class="QWidget" name="Inicio">
+                        <layout class="QVBoxLayout" name="verticalLayout_9">
+                         <item>
+                          <widget class="QTextEdit" name="textBancoDeDados">
+                           <property name="html">
+                            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -312,17 +511,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;GroupBox  1&lt;/span&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;you can acesse &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600;&quot;&gt;GroupBox 2&lt;/span&gt; &lt;span style=&quot; color:#000000;&quot;&gt;you can acess&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_7">
-                   <layout class="QVBoxLayout" name="verticalLayout_17">
-                    <item>
-                     <widget class="QTextEdit" name="textLoadUSer">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                       <widget class="QWidget" name="page_7">
+                        <layout class="QVBoxLayout" name="verticalLayout_17">
+                         <item>
+                          <widget class="QTextEdit" name="textLoadUSer">
+                           <property name="html">
+                            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -334,17 +533,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_4">
-                   <layout class="QVBoxLayout" name="verticalLayout_16">
-                    <item>
-                     <widget class="QTextEdit" name="textLoadUSer_2">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                       <widget class="QWidget" name="page_4">
+                        <layout class="QVBoxLayout" name="verticalLayout_16">
+                         <item>
+                          <widget class="QTextEdit" name="textLoadUSer_2">
+                           <property name="html">
+                            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -354,17 +553,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_5">
-                   <layout class="QVBoxLayout" name="verticalLayout_15">
-                    <item>
-                     <widget class="QTextEdit" name="textLoadUSer_3">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                       <widget class="QWidget" name="page_5">
+                        <layout class="QVBoxLayout" name="verticalLayout_15">
+                         <item>
+                          <widget class="QTextEdit" name="textLoadUSer_3">
+                           <property name="html">
+                            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -375,17 +574,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_6">
-                   <layout class="QVBoxLayout" name="verticalLayout_14">
-                    <item>
-                     <widget class="QTextEdit" name="textLoadUSer_5">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                       <widget class="QWidget" name="page_6">
+                        <layout class="QVBoxLayout" name="verticalLayout_14">
+                         <item>
+                          <widget class="QTextEdit" name="textLoadUSer_5">
+                           <property name="html">
+                            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -398,17 +597,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_8">
-                   <layout class="QVBoxLayout" name="verticalLayout_13">
-                    <item>
-                     <widget class="QTextEdit" name="textLoadUSer_6">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                       <widget class="QWidget" name="page_8">
+                        <layout class="QVBoxLayout" name="verticalLayout_13">
+                         <item>
+                          <widget class="QTextEdit" name="textLoadUSer_6">
+                           <property name="html">
+                            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -416,211 +615,20 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Para isso você &lt;span style=&quot; font-weight:600;&quot;&gt;precisará&lt;/span&gt; de um arquivo&lt;span style=&quot; color:#ff1007;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;.lvxml&lt;/span&gt;&lt;span style=&quot; color:#ff1007;&quot;&gt; &lt;/span&gt;gerado pelo&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt; módulo de cadastro de lista de video &lt;/span&gt;e um arquivo de usuário&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;.uxml&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;gerado pelo &lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;módulo de cadastro de Usuário. &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_2">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>0</y>
-                 <width>334</width>
-                 <height>241</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Registration Box</string>
-               </property>
-               <layout class="QGridLayout" name="gridLayout">
-                <item row="0" column="0">
-                 <widget class="QWidget" name="widget" native="true">
-                  <property name="minimumSize">
-                   <size>
-                    <width>50</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_2">
-                   <item row="0" column="0">
-                    <widget class="QPushButton" name="pbTela1No">
-                     <property name="text">
-                      <string>Register new user</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="0">
-                    <widget class="QPushButton" name="pbRegisterCatalog">
-                     <property name="text">
-                      <string>Register behavioral catalog</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="0">
-                    <widget class="QPushButton" name="pbTela2ListaVideo">
-                     <property name="text">
-                      <string>Register video files</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QPushButton" name="pbTela1Yes">
-                     <property name="text">
-                      <string>Load user</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="QWidget" name="widget_2" native="true">
-                     <layout class="QVBoxLayout" name="verticalLayout_7">
-                      <item>
-                       <widget class="QPushButton" name="pbConversorXMLCSV">
-                        <property name="text">
-                         <string>.xml-to-.csv file converter</string>
-                        </property>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
                        </widget>
-                      </item>
-                     </layout>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_3">
-               <property name="geometry">
-                <rect>
-                 <x>380</x>
-                 <y>20</y>
-                 <width>231</width>
-                 <height>221</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Video management tools</string>
-               </property>
-               <layout class="QVBoxLayout" name="verticalLayout_8">
-                <item>
-                 <widget class="QPushButton" name="pbCadastrarListaVideo">
-                  <property name="text">
-                   <string>Build video file list</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pbDuploCego">
-                  <property name="text">
-                   <string>&quot;Blind&quot; video files</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pbUnveil">
-                  <property name="text">
-                   <string>Unveil &quot;blinded&quot; video files</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pbBehaviorSample">
-                  <property name="text">
-                   <string>Build a behavioral-sample video</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_10">
-               <property name="geometry">
-                <rect>
-                 <x>630</x>
-                 <y>20</y>
-                 <width>271</width>
-                 <height>291</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Help</string>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout">
-                <item>
-                 <widget class="QTreeWidget" name="treeWidget">
-                  <property name="font">
-                   <font>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <column>
-                   <property name="text">
-                    <string>Double Click for HELP!</string>
-                   </property>
-                  </column>
-                  <item>
-                   <property name="text">
-                    <string>Registration Box</string>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Register Behavioral Catalog</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Register Videos Files</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Register User</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Load User</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>.xml-to-.csv file converter</string>
-                    </property>
-                   </item>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
                   </item>
-                  <item>
-                   <property name="text">
-                    <string>Video management tools</string>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Build a video file list</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>&quot;Blind&quot; video files</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Unveil &quot;blinded&quot; video files</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Build a single category vídeo</string>
-                    </property>
-                   </item>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
              <widget class="QWidget" name="tab_2">
               <attribute name="title">
@@ -636,7 +644,7 @@ p, li { white-space: pre-wrap; }
                 </rect>
                </property>
                <property name="title">
-                <string>GroupBox</string>
+                <string>Ethographic tools</string>
                </property>
                <widget class="QPushButton" name="pbAnaliseEtograma">
                 <property name="geometry">
@@ -895,7 +903,7 @@ p, li { white-space: pre-wrap; }
                 </rect>
                </property>
                <property name="title">
-                <string>Group Box 1</string>
+                <string>Analysis tools</string>
                </property>
                <widget class="QPushButton" name="pbEstatistica">
                 <property name="geometry">
@@ -936,25 +944,15 @@ p, li { white-space: pre-wrap; }
                  <string>Reliability calculation</string>
                 </property>
                </widget>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_7">
-               <property name="geometry">
-                <rect>
-                 <x>280</x>
-                 <y>40</y>
-                 <width>211</width>
-                 <height>141</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>GroupBox 2</string>
-               </property>
                <widget class="QPushButton" name="pbRNA">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="geometry">
                  <rect>
-                  <x>10</x>
-                  <y>30</y>
-                  <width>131</width>
+                  <x>30</x>
+                  <y>110</y>
+                  <width>141</width>
                   <height>23</height>
                  </rect>
                 </property>
@@ -1290,13 +1288,13 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>989</width>
-     <height>21</height>
+     <width>997</width>
+     <height>18</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuEthoWatcher">
     <property name="title">
-     <string>EthoWatcher</string>
+     <string>EthoWatcher OS</string>
     </property>
     <addaction name="actionAbout"/>
     <addaction name="actionLicense_agreement"/>

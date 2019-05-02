@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>telaCego</class>
- <widget class="QWidget" name="telaCego">
+ <class>telablind</class>
+ <widget class="QWidget" name="telablind">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -355,7 +355,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
+     <y>40</y>
      <width>701</width>
      <height>101</height>
     </rect>

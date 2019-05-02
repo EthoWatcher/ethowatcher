@@ -47,6 +47,7 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
    this->setFixedSize(this->width(),this->height());
 
     ui->widMobileConfim->setVisible(false);
+    ui->widIntrinsic->setEnabled(false);
 }
 
 telaCadastroFilme::~telaCadastroFilme()
@@ -669,7 +670,7 @@ void telaCadastroFilme::on_tabWCalib_currentChanged(int index)
         qDebug()<<"tab treatment noise";
 
         chVideo=true;
-        ui->tabWNoise->setCurrentIndex(0);
+        //ui->tabWNoise->setCurrentIndex(0);
         areaInt->setVisible(false);
 
 
@@ -837,7 +838,7 @@ void telaCadastroFilme::on_tabWCalib_tabBarClicked(int index)
 {
     if(index==2){
 
-        ui->tabWNoise->setCurrentIndex(0);
+        //ui->tabWNoise->setCurrentIndex(0);
         areaInt->setVisible(true);
     }
 }
@@ -1168,10 +1169,12 @@ void telaCadastroFilme::on_sbP1XJanela_valueChanged(double arg1)
 
 void telaCadastroFilme::on_pbCadastrar1_clicked()
 {
+    QString saveFile = fonteVideo.left(fonteVideo.length()-4);;
+
     nomeArquivo = QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
-                fonteVideo,
+                saveFile,
                "Videos Cadastrados (*.vxml)"
                );
 
@@ -1673,6 +1676,7 @@ void telaCadastroFilme::on_pbConfigureTreatment_clicked()
 void telaCadastroFilme::on_pbConfRuidoInt_clicked()
 {
     minVaria = ui->leMin->text().toDouble();
+    ui->groupBox_16->setEnabled(false);
 }
 
 void telaCadastroFilme::on_SliderThreshold_sliderMoved(int position)
@@ -1680,7 +1684,24 @@ void telaCadastroFilme::on_SliderThreshold_sliderMoved(int position)
     ui->leTreshold->setText(QString::number( position));
 }
 
-void telaCadastroFilme::on_cbNoise_clicked()
+void telaCadastroFilme::on_cbNoise_clicked()/*
+EthoWatcher OS is a software to assist study of animal behavior.
+Copyright (C) 2018  Universidade Federal de Santa Catarina.
+
+EthoWatcher OS is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
 {
 
 }
@@ -1747,4 +1768,9 @@ void telaCadastroFilme::on_pbNexStep3_clicked()
 {
     ui->tabWPrincipal->setCurrentIndex(2);
     ui->tabWPrincipal->setTabEnabled(2,true);
+}
+
+void telaCadastroFilme::on_cbVariaca_clicked()
+{
+
 }

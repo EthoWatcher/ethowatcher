@@ -17,7 +17,7 @@
    <item>
     <widget class="QStackedWidget" name="swPrincipal">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <widget class="QLabel" name="label_2">
@@ -33,7 +33,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="resourcefile.qrc">:/icons/cabecalho6.jpg</pixmap>
+        <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -1540,8 +1540,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>63</width>
-                   <height>70</height>
+                   <width>319</width>
+                   <height>319</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1783,8 +1783,8 @@ p, li { white-space: pre-wrap; }
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>269</width>
-                    <height>139</height>
+                    <width>267</width>
+                    <height>137</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1882,7 +1882,7 @@ p, li { white-space: pre-wrap; }
                    </row>
                    <row>
                     <property name="text">
-                     <string>New Row</string>
+                     <string>Intrinsic noise</string>
                     </property>
                    </row>
                    <column>

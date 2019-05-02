@@ -183,7 +183,7 @@ p, li { white-space: pre-wrap; }
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="resourcefile.qrc">:/icons/cabecalho4.jpg</pixmap>
+    <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

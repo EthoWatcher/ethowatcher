@@ -15,8 +15,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-#ifndef TELACEGO_H
-#define TELACEGO_H
+#ifndef TELABLIND_H
+#define TELABLIND_H
 
 #include <QWidget>
 #include <QFileDialog>
@@ -44,16 +44,16 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
 namespace Ui {
-class telaCego;
+class telablind;
 }
 
-class telaCego : public QWidget
+class telablind : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit telaCego(QWidget *parent = 0);
-    ~telaCego();
+    explicit telablind(QWidget *parent = 0);
+    ~telablind();
 
 //    struct dadosExperimentador{
 //        QString nome;
@@ -273,7 +273,7 @@ private slots:
     void on_pbSetUserKey_clicked();
 
 private:
-    Ui::telaCego *ui;
+    Ui::telablind *ui;
     QString caminhoArquivo;
     QString listaVideo;
     std::vector<QString> nomeDosVideos;
@@ -338,4 +338,6 @@ private:
 
 };
 
-#endif // TELACEGO_H
+
+
+#endif // TELABLIND_H

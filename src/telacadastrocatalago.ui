@@ -259,15 +259,15 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>20</x>
      <y>10</y>
-     <width>501</width>
-     <height>51</height>
+     <width>491</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="recursos.qrc">:/recursos/cabecalho4.jpg</pixmap>
+    <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -275,7 +275,7 @@ p, li { white-space: pre-wrap; }
   </widget>
  </widget>
  <resources>
-  <include location="recursos.qrc"/>
+  <include location="resourcefile.qrc"/>
  </resources>
  <connections/>
 </ui>

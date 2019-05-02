@@ -6,18 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>604</width>
-    <height>457</height>
+    <width>601</width>
+    <height>547</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Build video file list</string>
   </property>
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>40</y>
+     <x>10</x>
+     <y>150</y>
      <width>571</width>
      <height>371</height>
     </rect>
@@ -30,7 +30,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>10</y>
+       <y>20</y>
        <width>521</width>
        <height>351</height>
       </rect>
@@ -231,7 +231,28 @@
     </widget>
    </widget>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>571</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -15,19 +15,19 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-#include "telacego.h"
-#include "ui_telacego.h"
+#include "telablind.h"
+#include "ui_telablind.h"
 
-telaCego::telaCego(QWidget *parent) :
+telablind::telablind(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::telaCego)
+    ui(new Ui::telablind)
 {
     ui->setupUi(this);
     //ui->stackedWidget->setCurrentIndex(0);
     ui->staWidPrin->setCurrentIndex(0);
 }
 
-telaCego::~telaCego()
+telablind::~telablind()
 {
     qDebug() << "tela cego desligando 0";
     for(int kaa=0; kaa< listaEditaVideo.size(); kaa++){
@@ -38,7 +38,7 @@ telaCego::~telaCego()
     delete ui;
 }
 
-void telaCego::on_pbAddListaVideo_clicked()
+void telablind::on_pbAddListaVideo_clicked()
 {
 
 
@@ -116,7 +116,7 @@ void telaCego::on_pbAddListaVideo_clicked()
 
 }
 
-void telaCego::on_pbAbrirPasta_clicked()
+void telablind::on_pbAbrirPasta_clicked()
 {
     //forma que abre um caminho
     caminhoArquivo = QFileDialog::getExistingDirectory();
@@ -157,7 +157,7 @@ void telaCego::on_pbAbrirPasta_clicked()
 
 
 
-QString telaCego::nomeParaOpenCV(QString nomeArq){
+QString telablind::nomeParaOpenCV(QString nomeArq){
 
     QByteArray fonteVideoBit,fonteVideoBitOpenCV;
     QString fonteVideoOpenCV;
@@ -200,7 +200,7 @@ QString telaCego::nomeParaOpenCV(QString nomeArq){
 }
 
 
-void telaCego::lendoVideoXml(int qualLer){
+void telablind::lendoVideoXml(int qualLer){
 //    QXmlStreamReader xmlReader(&output);
 //    //output.open(QIODevice::ReadOnly | QIODevice::Text);
 //    output.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -390,7 +390,7 @@ void telaCego::lendoVideoXml(int qualLer){
 }
 
 
-void telaCego::gravandovideo(int i){
+void telablind::gravandovideo(int i){
 
 
 
@@ -469,7 +469,7 @@ void telaCego::gravandovideo(int i){
 //parte aleatorio
 
 
-void telaCego::inicializaNumeroAleatorio()
+void telablind::inicializaNumeroAleatorio()
 {
     //cria a semente unica
     unsigned int thread;
@@ -486,7 +486,7 @@ void telaCego::inicializaNumeroAleatorio()
 
 }
 
-int telaCego::getNumeroAleatorio(){
+int telablind::getNumeroAleatorio(){
 
     int numeroSaida;
     numeroSaida=rand() % 1000 + 1;
@@ -497,7 +497,7 @@ int telaCego::getNumeroAleatorio(){
 
 
 
-void telaCego::on_pbNumeroAleatorio_clicked()
+void telablind::on_pbNumeroAleatorio_clicked()
 {
     inicializaNumeroAleatorio();
 
@@ -519,7 +519,7 @@ void telaCego::on_pbNumeroAleatorio_clicked()
 
 }
 
-void telaCego::aleatorizaAOrdem(){
+void telablind::aleatorizaAOrdem(){
 
 
     int posicao=0;
@@ -560,7 +560,7 @@ void telaCego::aleatorizaAOrdem(){
 }
 
 
-void telaCego::gravandoXMLVideoEditado(QString nomeArquivoEditado){
+void telablind::gravandoXMLVideoEditado(QString nomeArquivoEditado){
 
 //    outputVideoEditado.setFileName(nomeArquivoEditado);
 //    outputVideoEditado.open(QIODevice::WriteOnly);
@@ -612,7 +612,7 @@ void telaCego::gravandoXMLVideoEditado(QString nomeArquivoEditado){
 
 }
 
-void telaCego::lerVXML(QString nomeArquivoLer)
+void telablind::lerVXML(QString nomeArquivoLer)
 {
     OutVideo.setFileName(nomeArquivoLer);
     OutVideo.open(QIODevice::ReadOnly);
@@ -919,7 +919,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
 
 
-//void telaCego::on_pbTeste_clicked()
+//void telablind::on_pbTeste_clicked()
 //{
 //    qDebug () <<"inicio" << QThread::currentThreadId();
 //    listaVideo = QFileDialog::getOpenFileName();
@@ -945,12 +945,12 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
 //}
 
-//void telaCego::on_pushButton_clicked()
+//void telablind::on_pushButton_clicked()
 //{
 
 //}
 
-void telaCego::on_pbBliding_clicked()
+void telablind::on_pbBliding_clicked()
 {
     qDebug () <<"inicio" << QThread::currentThreadId();
     ui->staWidPrin->setCurrentIndex(1);
@@ -1020,7 +1020,7 @@ void telaCego::on_pbBliding_clicked()
     //nomeDosVideosAleatorizado[i]
 }
 
-void telaCego::on_pbSetUserKey_clicked()
+void telablind::on_pbSetUserKey_clicked()
 {
     QString fonteVideo;
     fonteVideo = QFileDialog::getOpenFileName(
