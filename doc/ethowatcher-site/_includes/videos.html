@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="series-index">
+        <div class="series">
+            <h3>tutorial #8: HTML / CSS / DOM</h3>
+            <div class="subtitle">P5.JS Tutorial</div>
+            <div class="description-excerpt">
+                <p>In this Tutorial you will learn the basics of HTML in combination with CSS and the DOM using p5.JS.
+                </p>
+            </div>
+            <div class="video-list">
+                <div class="videos">
+                    <ul>
+                        {% for author in include.sec %}
+                        <div class="video-card">
+                            <a href="{{ author.url }}"
+                                aria-label="To the challenge: Calculating Digits of Pi with Mandelbrot Set">
+                                <div class="video-header">
+                                    <div class="thumb-container">
+                                        <span class="video-badge">1</span>
+                                        <div class="video-thumbnail" style="background-image: url(/assets/cat.jpg)">
+                                        </div>
+                                        <h3>Calculating Digits of Pi with Mandelbrot Set</h3>
+                                        <span class="video-date">21 Mar 2019</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="video-description"> Esse é a descrição do video</div>
+                            <h2><a href="{{ author.url }}">{{ author.title }}</a></h2>
+                            <p> conteudo </p>
+
+                        </div>{% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

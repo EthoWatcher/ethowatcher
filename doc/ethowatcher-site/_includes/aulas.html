@@ -1,0 +1,63 @@
+<!-- https://www.codeply.com/go/AP1MpYKY2H/bootstrap-4-card-deck-columns-per-row -->
+<!-- https://shopify.github.io/liquid/basics/introduction/ -->
+
+<div class="serie">
+    <!-- <div class="descricao-serie col-md-2 col-md-offset-5">
+        <h2>Python</h2>
+        Python isso aqui quero qeu seja uma descrição
+    </div> -->
+    <div class="container">
+        <div class="row">
+
+            {% if include.todas%}
+
+            {% for author in include.sec %}
+            <div class="col-sm-4">
+                <div class="card">
+                        {% if author.image-intro.ligado == true %}
+                        <img class="card-img-top img-fluid" src="{{author.image-intro.url}}" alt="Card image cap">
+                        {% else %}
+    
+                        <img class="card-img-top img-fluid" src="//placehold.it/350x350" alt="Card image cap" class="img-fluid">
+    
+                        {% endif %}
+                    <div class="card-block">
+                        <h4 class="card-title"> <a href="{{ author.url }}">{{ author.title }}</a></h4>
+                        <p class="card-text">{{author.image-intro.text}}</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% else %}
+
+            {% for author in include.sec limit:3 %}
+            <div class="col-sm-4">
+                <div class="card">
+                    {% if author.image-intro.ligado == true %}
+                    <img class="card-img-top img-fluid" src="{{author.image-intro.url}}" alt="Card image cap">
+                    {% else %}
+
+                    <img class="card-img-top img-fluid" src="//placehold.it/350x350" alt="Card image cap" class="img-fluid">
+
+                    {% endif %}
+                    
+                    <div class="card-block">
+                        <h4 class="card-title"> <a href="{{ author.url }}">{{ author.title }}</a></h4>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+
+        </div>
+    </div>
+    
+</div>
+<div class="break"></div>

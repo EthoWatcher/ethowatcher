@@ -1,0 +1,43 @@
+
+
+<div class = "menu">
+    {% for author in include.menu  %}
+
+    {% if author.title != 'index' %}
+    <div class ="menu-itens {% if author.url == page.url %} select-item {% endif %}" >
+      <a href="{{ author.url }}" >{{ author.title }}</a>
+    </div>
+    {% endif %}
+
+
+    {% endfor %}
+
+ 
+</div>
+
+
+<div class="menu">
+  <div class="menu-itens">
+    <a href="/">
+      <img class="card-img-top img-fluid" src="/assets/coruja-cabeca.png"
+        style=" background: #c8c8c8fd; padding: 10px 10px 10px 10px;" alt="Card image cap">
+    </a>
+
+  </div>
+
+
+</div>
+
+<div class="menu">
+
+  <div class="menu-itens">
+    <img src="https://professormarcolan.com.br/wp-content/uploads/2019/01/logo_youutube_inscrevase.png"
+      alt="Logo_do_canal_youtube">
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+
+    <div class="g-ytsubscribe" data-channelid="UC9eGq_4v1Uu14Uznsey-hOg" data-layout="default" data-count="default">
+    </div>
+  </div>
+
+</div>
