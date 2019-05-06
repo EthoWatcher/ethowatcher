@@ -33,16 +33,24 @@ plugins:
   - jekyll-feed
 
 collections:
-  tutores:         
+  tutores:
     output: true
-    
+  interfaces:
+    output: true
+
+
 defaults:
   - scope:
       path: ""
       type: "tutores"
     values:
       nome: "ethowatcher"
- 
+  - scope:
+      path: ""
+      type: "interfaces"
+    values:
+      nome: "ethowatcher1"
+
 
 
 # Exclude from processing.

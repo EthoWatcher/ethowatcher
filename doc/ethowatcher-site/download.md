@@ -7,9 +7,9 @@ layout: pagina
 
 # Download
 
-The EthoWatcher are a free software and DOES NOT need to be installed. Just [download here the last version](/download/EthoWatcherOS_beta_48_5.rar) and place EthoWacher® in any folder you want. We recommend that you save EthoWatcher in a folder inside Documents or in the Desktop, and double-click on the .EXE file to run. We sugested to avoid some know problems to create a folder named ethowatcher in root of computer folder (e.g., C:/EthoWatcher) and put all video files, etographics files, analysis files in that folder.
+The EthoWatcher [was developed](/about) was a free software and DOES NOT need to be installed. Just [download here the last version](/download/EthoWatcherOS_beta_48_5.rar) and place EthoWacher® in any folder you want. We recommend that you save EthoWatcher in a folder inside Documents or in the Desktop, and double-click on the .EXE file to run. We sugested to avoid [some know problems](/discussion) to create a folder named ethowatcher in root of computer folder (e.g., C:/EthoWatcher) and put all video files, etographics files, analysis files in that folder.
 
-If you used this software, and found it useful to your research, we ask you to kindly cite the related paper, which describes in  further details the validation and calibration procedures of the EthoWatcher®
+If you used this software, and found it useful to your research, we ask you to kindly cite the related paper, which describes in further details the validation and calibration procedures of the EthoWatcher®
 
 PAPER
 
