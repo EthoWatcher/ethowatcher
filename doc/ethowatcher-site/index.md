@@ -2,8 +2,9 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: home
+layout: pagina
 ---
+
 
 # Introduction
 The Ethowatcher OS allow the classical behavioral analysis also to extract kinematic and morphological descriptors (ie. tracking). The way the program organizes the data resulting from the study makes it possible to perform a series of analyzes that are already discussed in the state of the art but are not found in practice by other programs of the same genre (eg, concordance analysis, sequential analysis). In addition, the organization of the data will allow the use of artificial intelligence algorithms.
@@ -34,6 +35,10 @@ The tools of Kinematic and Morphological Transcription Analysis and of etography
 - Agreement analysis between interobserver and intraobserver. The program calculates agreement between two auto-exclusive CBTs using the Cohen-Kappa method and between two self-exclusive CBTs using the Fleiss-Kappa method.
 Sequential analysis that allows to count the succession of behaviors
 
-# How to run
+# How to donwload
 
-You will need to install [K-Lite Mega Codec Pack](https://k-lite-mega-codec-pack.br.uptodown.com/windows/download) to correct open your videos.
+Go to [donwload section](/download) to more info.
+
+# How to contribute
+
+
