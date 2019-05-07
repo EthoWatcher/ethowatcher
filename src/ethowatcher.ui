@@ -656,7 +656,7 @@ p, li { white-space: pre-wrap; }
                  </rect>
                 </property>
                 <property name="text">
-                 <string>vídeo-based ethograpy</string>
+                 <string>vídeo-based ethography</string>
                 </property>
                </widget>
                <widget class="QPushButton" name="pbRealTime">
@@ -672,7 +672,7 @@ p, li { white-space: pre-wrap; }
                  </rect>
                 </property>
                 <property name="text">
-                 <string>real-time ethograpy</string>
+                 <string>real-time ethography</string>
                 </property>
                </widget>
               </widget>

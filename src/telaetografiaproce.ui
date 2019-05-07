@@ -1524,7 +1524,7 @@ p, li { white-space: pre-wrap; }
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
-              <string>ethography</string>
+              <string>Ethography</string>
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_8">
               <item>
@@ -1540,8 +1540,8 @@ p, li { white-space: pre-wrap; }
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>319</width>
-                   <height>319</height>
+                   <width>322</width>
+                   <height>320</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1579,7 +1579,7 @@ p, li { white-space: pre-wrap; }
                         <bool>false</bool>
                        </property>
                        <property name="text">
-                        <string>Etographia FALSE</string>
+                        <string>Ethography FALSE</string>
                        </property>
                       </widget>
                      </item>
@@ -1783,8 +1783,8 @@ p, li { white-space: pre-wrap; }
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>267</width>
-                    <height>137</height>
+                    <width>269</width>
+                    <height>139</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_13">
