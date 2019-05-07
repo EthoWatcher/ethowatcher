@@ -7,15 +7,15 @@ author: "Joao"
 <script src="/assets/prism.js"></script>
 
 <div class="fundo">
-  
+
   <div class="container ">
 
     <div id= "set-stick" class="">
     <div class="header">
       <div class="row">
         <div class="col">
-          <h1 class=""> {{ page.title }}</h1>
-          <p>Os tópicos desse post são :</p>
+          <!-- <h1 class=""> {{ page.title }}</h1>
+          <p>Os tópicos desse post são :</p> -->
             <p>
               <ul id="todos-titulos" onload="pegar_titulos()"></ul>
             </p>
@@ -25,12 +25,7 @@ author: "Joao"
         <div class="col">
           <div  class ="video-pop">
               <iframe width="560" height="315" src="{{page.video.url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <!-- <iframe allow="autoplay; encrypted-media" 
-          allowfullscreen="" class="__youtube_prefs__" 
-          data-no-lazy="1" data-skipgform_ajax_framebjll="" 
-          height="360" id="_ytid_70346" 
-          src="https://www.youtube.com/embed/8AEfxb_PVa0?enablejsapi=1&amp;autoplay=0&amp;cc_load_policy=0&amp;iv_load_policy=1&amp;loop=0&amp;modestbranding=0&amp;rel=1&amp;showinfo=1&amp;fs=1&amp;playsinline=0&amp;autohide=2&amp;theme=dark&amp;color=red&amp;controls=2&amp;" title="YouTube player" width="640">
-          </iframe> -->
+
           <button type="button" class="btn btn-primary" onclick="deixar_botao()">Deixar o video acompanhando post</button>
         </div>
 
@@ -47,13 +42,6 @@ author: "Joao"
 
   </div>
 
-  <!-- </div> -->
-
-<!-- </div>
-
-
-
-<div class="container" > -->
 
 
 
@@ -74,7 +62,7 @@ author: "Joao"
 
         {% include navegador.html menu = site.tutores %}
 
-    
+
       </div>
     </div>
 
@@ -84,7 +72,3 @@ author: "Joao"
 
   </div>
 </div>
-
-
-
-
