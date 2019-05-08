@@ -19,6 +19,11 @@ PAPER
 
 To correctly play video files acquired from different cameras, even if already in AVI file format, you will probably need to install a pack of video codecs (e.g.: XVID MPEG codec), because most of the codecs used in webcams and camcorders are not present in Windows® default configuration. To play them in Windows Media Player® and in EthoWatcher®, we used (and recommend) to install  [K-Lite Mega Codec Pack](https://k-lite-mega-codec-pack.br.uptodown.com/windows/download) to correct open your videos. It installs the most common video codecs.
 
+
+# Software recommended to open the CSV files
+
+The EthoWatcher OS generate some reports formated in CSV (e.g., etography reports). We sugest to use [open office](https://www.openoffice.org/) program to open CSV files generated for the programme. All CSV files area separeted for semi-collon (";") and decimals are separeted by comma (",").
+
 # Get a sample to get starting to work
 
 To work with  EthoWatcher® OS you will need behavioral videos. We have some tutorials to instruct how to film a proprety film. But for starting learning how to use EthoWatcher® OS you can get a free:
