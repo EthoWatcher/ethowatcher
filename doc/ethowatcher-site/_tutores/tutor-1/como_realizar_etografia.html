@@ -12,51 +12,59 @@ permalink: como_realizar_uma_etografia
 
 
 <p>
-    Em um software etografico uma das primeiras funcionalidades a ser explorada no EthoWatcher OS é a de realização de uma etografia. Nesse tutorial iremos demonstrar como é possivel cadastrar um catalogo comportamental, registrar um vídeo de comportamento animal e realizar uma etografia. Para acompanhar esse tutorial voce já deve ter baixado o programa e o vídeo sobre o relógio. figura 1. Caso você ainda não tenha baixado algum desses componentes vá para a pagina <a href="/download"> de download</a>
+    Nesse tutorial iremos demonstrar os passos necessários para começar a utilizar o EthoWatcher OS. A primeira funcionalidade que iremos explorar é como realizar uma Etografia baseada em vídeo. Pare realizar uma etografia realizar o processo de cadastrar um catalogo comportamental, registrar um vídeo de comportamento animal e finalmente transcrever uma etografia. Para acompanhar esse tutorial voce já deve ter baixado o programa e o vídeo sobre o relógio. figura 1. Caso você ainda não tenha baixado algum desses componentes vá para a pagina <a href="/download"> de download.</a>
 </p>
 
 <figure>
 <img src="/tutores/tutor-1/relogio_segundos_exemplo.png" class="img-fluid" alt="">
-<center> <figcaption>Figura 1- Vídeo exemplo aberto no Move media player.</figcaption></center>
+<center> <figcaption>Figura 1- Vídeo exemplo sobre o relógio aberto no Media Player Classic - Home Cinema.</figcaption></center>
 </figure>
 
 
 <p>
-    O vídeo exemplo, figura 1, é composto por um relógio preto posicionado em um fundo preto. Esse relógio possue uma espuma retangular branca acoplada no seu ponteiro de tal forma que a maior largura dessee retagunlo esteja parela a orientação do ponteiro. Isso é feito para possuir um grande contraste entre o objeto de interesse e o fundo. O relógio está cofinado dentro de uma arena de nado forçado. O vídeo possue uma visão de cima para baixo e foi gravado 30 amostras por segundo. Nesse tutorial iremos analisar o comportamento desse relógio. Para começar nossa análise comportamentla do relógio o primeiro passo é definir nosso catalogo comportamental.  Para isso abra o EthoWatcher OS, figura 2, e clique no botão "Register Behavioral Catalog" para abrir o módulo de cadastro de catalogo comportamental Ao clicar nesse botão será aberto a interface gráfica de cadastro de catalogo comportamental.
+    O vídeo exemplo, figura 1, é composto por um relógio preto posicionado em um fundo preto. Esse relógio possue uma espuma retangular branca acoplada no seu ponteiro de tal forma que a maior largura dessee retagunlo esteja parela a orientação do ponteiro. Isso é feito para possuir um grande contraste entre o objeto de interesse e o fundo. O relógio está cofinado dentro de uma arena de campo aberto. O vídeo possue uma visão de cima para baixo e foi gravado a uma taxa de aquisição de quadros de 29.97 amostras por segundo. Nesse tutorial iremos analisar o comportamento desse relógio. </p>
+
+    <p>
+    Para começar nossa análise comportamental do relógio o primeiro passo é definir nosso catalogo comportamental.  Para isso abra o EthoWatcher OS, figura 2, e clique no botão "Register Behavioral Catalog" para abrir o módulo de cadastro de catalogo comportamental. Ao clicar nesse botão será aberto a interface gráfica de cadastro de catalogo comportamental.
 </p>
 
-<figure>
-<img src="/tutores/tutor-1/tela_inicial.png" class="img-fluid" alt="">
-<figcaption>Figura 2- Tela inical do EthoWatcher</figcaption>
-</figure>
+
+    <figure>
+    <img src="/tutores/tutor-1/tela_inicial.png" class="img-fluid" alt="">
+    <figcaption>Figura 2- Tela inical do EthoWatchers</figcaption>
+    </figure>
+
+
 
 
 <h2>
     Passo 1- Cadastrar uma catalogo comportamental
 </h2>
-<p>Após observar o comportamento do relógio pelo Media Player, vem junto com o pacote k-lite-code pack, determinaos que o relógio possue 4 grandes categorias comportamentais. Essas categorias dependem da orientação do ponteiro do relógio. Para melhor descrever essas categorias imaginamos que o relógio em cena possue as suas numerações, assim determinamos que :
+<p>Após observar o comportamento do relógio pelo Media Player Classic - Home Cinema (MPC-HC), que vem junto com o pacote K-Lite Mega Codec Pack, determinamos que o relógio possue 4 grandes categorias comportamentais. Essas categorias dependem da orientação do deslocamento do ponteiro do relógio. Para melhor descrever essas categorias imaginamos que o relógio em cena possue as suas numerações, assim determinamos que :
 <ul>
-    <li> a categoria denominada "Deslocamento123" acontece quando o ponteiro do relógio está se deslocando entre os numero 12 e o 3.</li>
-    <li> a categoria denominada "Deslocamento36" acontece quando o ponteiro do relógio está se deslocando entre os numero 3 e o 6.</li>
-    <li> a categoria denominada "Deslocamento69" acontece quando o ponteiro do relógio está se deslocando entre os numero 6 e o 9.</li>
-    <li> a categoria denominada "Deslocamento912" acontece quando o ponteiro do relógio está se deslocando entre os numero 9 e o 12.</li>
+    <li> a categoria denominada "Deslocamento123" acontece quando o ponteiro do relógio está se deslocando entre o numero 12 e o 3. </li>
+    <li> a categoria denominada "Deslocamento36" acontece quando o ponteiro do relógio está se deslocando entre o numero 3 e o 6.</li>
+    <li> a categoria denominada "Deslocamento69" acontece quando o ponteiro do relógio está se deslocando entre o numero 6 e o 9.</li>
+    <li> a categoria denominada "Deslocamento912" acontece quando o ponteiro do relógio está se deslocando entre o numero 9 e o 12.</li>
 </ul>
+
+<p> Toda as categorias começão e terminão quando a metade da menor largura da espuma branca passa pelas posições limites.
 </p>
 
 
-    <h3> Cadastrando uma categoria</h3>
+    <h3> Cadastrando as categorias comportamentais</h3>
     <p>
-        Para cadastrar essas categorias comportamentais vá para a interface gráfica de cadastro de catalogos, figura 3, e repita para cada categoria comportamental de :
+        Para cadastrar as categorias comportamentais propostas no EthoWatcher OS vá para a interface gráfica de cadastro de catalogos, figura 3, e para cada categoria :
         <ul>
-            <li>preencher o nome da categoria no campo "Name" (e.g. Deslocamento36) </li>
-            <li>Adicionar uma tecla única do teclado no campo "shortcut" para ser um atalho (e.g. "d"). Esse shortcut não se deve repetir entre as categorias e ele só pode possuir uma tecla</li>
-            <li> Adiconar a descrição desse comportamento (e.g., "deslocando entre os numero 3 e o 6.")</li>
-            <li> Apertar no botão "add new categoria"</li>
+            <li>preencha o nome da categoria no campo "Name" (e.g. Deslocamento36) </li>
+            <li>adicione uma tecla única do teclado no campo "shortcut" para ser um atalho (e.g. "d"). Esse shortcut não se deve repetir entre as categorias e ele só pode possuir uma tecla</li>
+            <li> adiocione a descrição desse comportamento (e.g., "deslocando entre os numero 3 e o 6.")</li>
+            <li> aperte no botão "add to catalog"</li>
         </ul>
     </p>
     <figure>
     <img src="/tutores/tutor-1/catalog_register.png" class="img-fluid" alt="">
-    <figcaption>Figura 3- Tela de cadastro categorico comportamental</figcaption>
+    <figcaption>Figura 3- Tela do EthoWatcher OS responsavél por registrar catalogos comportamentais.</figcaption>
     </figure>
 
 
@@ -67,8 +75,8 @@ permalink: como_realizar_uma_etografia
         <li> Clique no botão delete selected item </li>
     </p>
 
-    <h3>Salvando o catalogo comportamnel</h3>
-    <p>Após concluir o cadastro de todas as categorias clique no botão "Save/Register catalog" para salvar o catalogo comportamental. Irá abrir uma janela que permitirá nomear o catalogo comportamental construido. Sugerimos que você grave isso dentro da pasta do caminho "C:/EthoWatcher/catalogo".
+    <h3>Salvando o catalogo comportamental</h3>
+    <p>Após concluir o cadastro de todas as categorias clique no botão "Save/Register catalog" para salvar o catalogo comportamental. Esse evento irá abrir uma janela que permitirá nomear o catalogo comportamental construido. Sugerimos que você mantenha os arquivos que você usa no ethowatcher gravados de forma organizada no computador. Para os catalogos comportamentais use a pasta que está no caminho "C:/EthoWatcher/catalogo".
 </p>
 
 
@@ -76,27 +84,35 @@ permalink: como_realizar_uma_etografia
     Passo 2- Cadastrar um vídeo de comportamento animal para a etografia.
 </h2>
 <p>
-    Após realizarmos a construção do nosso catalogo comportamental é necessário cadastrar algumas informações importantes a respeito do vídeo experimental. Com o EthoWatcher OS é possivel registrar o vídeo comportamental para ser usado no modulo de tracking, modulo de cegamento e para realizar etografias. Você pode conferir as outras formas nos outros tutoriais. Nesse tutorial, como é o primeiro, iremos cadastrar o vídeo apenas para realizar a etografia. Abra a interface de cadastro de vídeo, para isso vá para a tela inicial do EthoWatcher OS, figura 4, e clique no botão register vídeo files.
+    O passo posterior ao de realizar a construção do nosso catalogo comportamental é a de cadastrar algumas informações importantes a respeito do vídeo experimental. Com o EthoWatcher OS é possivel registrar o vídeo comportamental para ser usado no modulo de rastreamento, de cegamento e para realizar etografias. Nesse tutorial, como é o primeiro, iremos cadastrar o vídeo apenas para realizar a etografia. Você pode conferir as outras formas nos outros tutoriais. Abra a interface de cadastro de vídeo, para isso vá para a tela inicial do EthoWatcher OS, figura 4, e clique no botão "Register vídeo files".
 </p>
 
 
 <figure>
 <img src="/tutores/tutor-1/registro_video_passo1.png" class="img-fluid" alt="">
-<figcaption>Figura 4- Tela inical do registro de vídeo</figcaption>
+<figcaption>Figura 4- Tela inicial do registro de vídeo do EthoWatcher OS</figcaption>
 </figure>
 
 <h3> Abrindo vídeo</h3>
 
-Para abrir o vídeo clique no botão "load vídeo". Isso fará com que abra uma interface gráfica para você navegar pelas pastas do seus computador. Encontre o vídeo de interesse. Caso você tenha seguido as nossas sujestões esse vídeo estara em "c:/ethowatcher/videos/". Após encontrar clique em open.
+Para abrir o vídeo clique no botão "Load vídeo". Isso fará com que abra uma interface gráfica que permite navegar pelas pastas do seu computador. Com isso encontre o vídeo de interesse. Caso você tenha seguido as nossas sujestões de organização esse vídeo estara em "c:/ethowatcher/videos/". Após encontrar clique no botão "Open".
 
-<h2> IMPORTANTE</h2>
+
 <div class="imp">
 
-    <p> É importante que o caminho e o nome do vídeo possuam apenas caracters da tabela ASCII. Isso significa que não pode ter caracteres especiais como "éãç"</p>
+    <h3> IMPORTANTE</h3>
+    <p> É importante que o caminho e o nome do vídeo possuam apenas caracteres da tabela ASCII.</p>
+
+
+    <figure>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/ASCII-Table.svg" class="img-fluid" alt="">
+    <figcaption>Figura 4- Tabela ASCII. Fonte: wikipedia some rights reserved </figcaption>
+    </figure>
+
 </div>
 
 <p>
-    Caso os codificadores do vídeo estejam corretamente instalado o vídeo será aberto e os campos do "Step 1.02 Video Open Info" estarão preenchidos corretamente. O campo :
+    Caso os codificadores do vídeo estejam corretamente instalados o vídeo será aberto e os campos do "Step 1.02 Video Open Info" estarão preenchidos corretamente. O campo :
     <ul>
         <li>Video file path, informa o caminho que se encontrar o vídeo no sistema operacional</li>
         <li>Video file name, informa o nome do vídeo</li>
@@ -106,13 +122,14 @@ Para abrir o vídeo clique no botão "load vídeo". Isso fará com que abra uma 
     </ul>
 
     <h3> Configurando o regristro de vídeo </h3>
-    Como mencionado anteriormente é possivel registrar o víodeo para ser usado em uma série de módulos. Para cada módulo é necessário fazer uma série a mais de passos. Nesse tutorial registraremos o vídeo apenas para análise etografica. Para isso deixe desmarcado as opções:
+    Como mencionado anteriormente é possivel registrar o video comportamental para ser usado em uma série de módulos do EthoWatcher OS. Conforme aumenta a quantidade de módulos que o vídeo será usado aumenta a quantidade necessária de calibrações. Para evitar que o usuário tenha que realizar passos desnecessários a seus propositos a janela de registro de vídeo possue as caixas:
     <ul>
-        <li> tracking and Morphological/kinematica analysis, permite cadastrar o vídeo para realizar o rastreamento</li>
-        <li> Blinding video files, permite realizar o cegamento do vídeo.</li>
+        <li>Video-or-real time ethography, habilita que o vídeo  possa ser usado na etografia baseada em vídeo. Essa opção sempre estara marcada.</li>
+        <li> tracking and Morphological/kinematica analysis, que habilita o fluxo de calibração do vídeo para ser usado no módulo de rastreamento</li>
+        <li> Blinding video files, que habilita a calibração dos parametros necessários para realizar o cegamento do vídeo.</li>
     </ul>
 
-    Clique no botão "Next Step."
+     Nesse tutorial registraremos o vídeo apenas para análise etografica. Para isso deixe desmarcado as opções de rastreamento e de blinding. Clique no botão "Next Step."
 </p>
 
 
@@ -121,42 +138,26 @@ Para abrir o vídeo clique no botão "load vídeo". Isso fará com que abra uma 
 <h3> Selecione os quadros importantes </h3>
 
 
-<p> Toda análise etografica possuí um momento que se inicia e um momento que ela é finalisada e muitas vezes, inclusive é recomendado, que esses quadros não sejam o primeiro ou o ultimo. Para isso é importante cadastrar esses quadros.
+<p> Toda análise etografica possuí um momento que se inicia e um momento que ela é finalisada e muitas vezes esses quadros não são os primeiro ou o ultimo quadros gravados no vídeo. É comum e recomendado que se começe a gravação do vídeo, se tenha alguns quadros identificando o experimento, um tempo gravando o fundo do experimento e por fim a inserção do animal no experimento. Porém, é importante identificar esses quadros importantes no vídeo. Na janela de registro de vídeo da aba "select relevant frames", figura 5 é possivel realizar isso.
+</p>
+<figure>
+<img src="/tutores/tutor-1/registro_video_passo2.png" class="img-fluid" alt="">
+<figcaption>Figura 5- Cadastrando os quadros importantes para a análise na janela de registro de vídeo na aba de quadros relevantes.</figcaption>
+</figure>
 
-    No nosso exemplo iremos realizar o registro de dois minutos (120 segundos) de comportamento do relógio. Ela começara em 2430 (81.081) e terminará no quadro em 6026 (201.068 seconds). Para cadastrar esses quadros utilizando o EthoWatcher OS você ira precisar navegar pelo vídeo. Para isso o EthoWatcher possui 3 formas de navegação pelos quadros do vídeo:
+<p>
+    No nosso exemplo iremos realizar o registro comportamenal de dois minutos (120 segundos) de comportamento do relógio. Ela começara em 2430 (81.081) e terminará no quadro em 6026 (201.068 seconds). Para cadastrar esses quadros importantes a análise utilizando o EthoWatcher OS você ira precisar navegar pelo vídeo. Para isso o EthoWatcher possui 3 formas de navegação pelos quadros do vídeo, que são na sessão:
     <ul>
-        <li>navigation, esse é a navegação por passos, você pode retroceder e avancar uma quantidade fixa de quadros. Esses quadros podem ser ajustados</li>
+        <li>navigation, esse é a navegação por passos, você pode retroceder e avancar uma quantidade fixa de quadros do vídeo. A quantidade de passos pode ser ajustados</li>
         <li>controls, essa navegação é frame a frame e é continua, a velocidade pode ser alterada</li>
         <li>scrol bar, voce pode navegar clicando e segundo o scroll do vídeo</li>
     </ul>
 
-    Para o nosse exemplo, então, utilizando os navegadores do vídeo vá até o quadro 2430 e clique no botão "Frame to Start the Analyses" para cadastrar esse quadro como o primeiro quadro da análise. Após navegue pelo vídeo e vá para o quadro 6026 e clique no botão "Frame to finish the anlysis".
-
-    <figure>
-    <img src="/tutores/tutor-1/registro_video_passo2.png" class="img-fluid" alt="">
-    <figcaption>Figura 6- Cadastrando os quadros importantes para a análise</figcaption>
-    </figure>
-
-
-    Após, cadastrar os quadros importantes para análise clique em "Next Step".
-<!--
-    Como o vídeo possue uma taxa de amostragem de 29.97 quadros por segundo isso significa que iremos fazer a etografia de 29.97 * 60 *2.É importante selecionar quadros importantes para a análisePAra isso iremos registrar os quadros de inicio como o de 640 (21.35 segundos) e o de fim (4200).</p> -->
-
-
-
-
-<!-- <p>Para navegar pelos quadros é possivel utilizar os controle. Naveue pelos quadros e:
-    <ul>
-        <li>Encontre o quadro de inicio da análise e clique no botão</li>
-        <li>Econtre o quadro final da análise e clique no botão Frame to finish the analysis</li>
-        <li>Ao encontrar esses quadros clique no botão Next Step</li>
-    </ul>
-</p> -->
-
+    Para o nosse exemplo, então, utilizando os navegadores do vídeo vá até o quadro 2430 e clique no botão "Frame to Start the Analyses" para cadastrar esse quadro como o primeiro quadro da análise. Após navegue pelo vídeo e vá para o quadro 6026 e clique no botão "Frame to finish the anlysis". Após, cadastrar os quadros importantes para análise clique em "Next Step".
 
 <h3>Identifique a sessão</h3>
 
-<p> Após cadastrar os quadros importante o EthoWatcher OS permite, como passo adicional, adicionar informações a respseito do experimento. No campo:
+<p> Após cadastrar os quadros importante o EthoWatcher OS permite, como passo adicional, adicionar informações a respeito do experimento. No campo:
 <ul>
     <li>Experiment, você pode descrever o experimento</li>
     <li>Date, a data que foi realizado o experimento</li>
@@ -169,7 +170,7 @@ Para abrir o vídeo clique no botão "load vídeo". Isso fará com que abra uma 
 
 <figure>
 <img src="/tutores/tutor-1/registro_video_passo3.png" class="img-fluid" alt="">
-<figcaption>Figura 6- Identificando a sessão do EthoWatcher OS</figcaption>
+<figcaption>Figura 6- Identificando informações releventes referentes ao conteudo do vídeo</figcaption>
 </figure>
 
 
@@ -180,99 +181,67 @@ No nosso exemplo, preencha o campo "Experiment" com o valor clock, coloque no ca
 
 
 <div class="imp">
-<p> Uma vez que o vídeo for cadastrado evite de ficar modificando ele de caminho.</p>
+<p> Uma vez que o vídeo for cadastrado evite ficar modificando eles de caminho. Muitos dos algoritmos do EthoWatcher OS assumem a identidade unica unica do vídeo atravéz de seu nome e caminho. Mover os arquivos de lugares pode trazer problemas quanto a integridade das informações. Por isso, mantenha todos os arquivos organizados e após realizar o seu registro, cadastro, não os mova de lugar.</p>
 </div>
 
 
 
 <h2>
-    Passo 3- Realizar a etografia.
+    Passo 3- Realizar a etografia, transcrição comportamntal categórica (TCC).
 </h2>
 
-Agora que já cadastramos o vídeo e possuímos o catalogo o próximo passo é realizar etografia do vídeo. Para abrir a janela de etografia baseada em vídeo vá para a tela inicial do EthoWatcher OS, clique na aba Ethographic and tracking tools e clique no botão video-based etography. Com isso, irá abrir a janela de Etografia baseada em vídeo, figura 7.
-
-<h3> Configurando a etografia baseada em vídeo</h3>
-Com a janela de etografia basea em vídeo aberto clique no botão "Open video". Esse botão irá abrir uma janela que permite localizar os vídeos etograficos que foram registrados. Encontr o registro de vídeo que foi realizado no passo anterior. Em seguida, vai aparecer 3 botões: video-based ethography, Trackin, Video based ethography and tracking; porém somento o botão "video-based ethography" estará liberado para ser clicado. Isso acontece porque no registro de vídeo sómente configuramos para realizar etografias. Clique no botão habilitado. Ao clicar no botão "Video based ethography" irá aparecer para abrir um catalogo comportamental. Clique no botão "Open Behavioral catalog" para encontrar o catalogo comportamental previamente cadastrado. Esse botão também abre uma janela gráfica que permite se locomover pelas pastas do computador. Encontre o catalago cadastrado no passo 1. Após selecionar o catalogo só falta informar se a sintax do record comportamental possuí evento auto-exclusivos, ou eventos sobrepostos. Os eventos auto-exclusivos só permitira voce registrar uma categoria por vez. Já os eventos sobrepostos permitem registrar mais de uma categoria por vez. No nosso exemplo selecione "auto-exclusive events". E eclique no botão "Start."
-
+Agora que já cadastramos o vídeo e possuímos o catalogo comportamental o próximo passo é realizar a etografia do vídeo. Para abrir a janela de etografia baseada em vídeo vá para a tela inicial do EthoWatcher OS, clique na aba Ethographic and tracking tools e clique no botão video-based etography. Com isso, irá abrir a janela de Etografia baseada em vídeo, figura 7.
 
 <figure>
 <img src="/tutores/tutor-1/etografia_passo1.png" class="img-fluid" alt="">
-<figcaption>Figura 1- Tela inical do EthoWatcher</figcaption>
+<figcaption>Figura 7- Tela inical da Etografia baseada en vídeo do EthoWatcher OS</figcaption>
 </figure>
 
+
+<h3> Configurando a etografia baseada em vídeo</h3>
+Com a janela de etografia baseada em vídeo aberto clique no botão "Open video". Esse botão irá abrir uma janela que permite localizar os vídeos etograficos que foram registrados. Encontre o registro de vídeo que foi realizado no passo anterior. Em seguida, vai aparecer 3 botões: video-based ethography, Trackin, Video based ethography and tracking; porém somento o botão "video-based ethography" estará liberado para ser clicado. Isso acontece porque no registro de vídeo sómente configuramos para realizar etografias. Clique no botão habilitado. Ao clicar no botão "Video based ethography" irá aparecer para abrir um catalogo comportamental. Clique no botão "Open Behavioral catalog" para encontrar o catalogo comportamental previamente cadastrado. Esse botão também abre uma janela gráfica que permite se locomover pelas pastas do computador. Encontre o catalago cadastrado no passo 1. Após selecionar o catalogo só falta informar se a sintax do record comportamental possuí eventos auto-exclusivos, ou eventos sobrepostos. Caso selecione os eventos auto-exclusivos só será permitido registrar uma categoria por vez. Já os eventos sobrepostos permitem registrar mais de uma categoria por vez. No nosso exemplo selecione "auto-exclusive events". E eclique no botão "Start."
+
+
+
+
 <div class="imp">
-<p> Limitação : Todas as análises posteriores da etografia envolvem que a sintax seja de eventos auto-exclusivos</p>
+<p> Limitação importante : Todas as análises da etografia posteriores envolvem a sintax seja de eventos auto-exclusivos</p>
 </div>
 
-<!--
-<p>Para configurar a etografia que foi feita é necessário:
-    <li>Clicar no botão open video, para informar o registro de vídeo </li>
-    <li> Informar que tipo de transcirção comportamental será feita </li>
-</p>
-<p>
-    O módulo de cadastro de catálogos serve para que o usuário
-    possa registrar catálogos comportamentais categóricos, esses podem ser
-    utilizados posteriormente na transcrição comportamental categórica.
-    Esse módulo permite ainda, cadastrar para cada comportamento um
-    nome, uma descrição e um atalho alfanumérico. A interface gráfica pode
-    ser vista na figura
-</p>
-
-
-<p>
-Para testar o algoritmo de TCC foi realizado uma transcrição
-auto exclusiva utilizando o catálogo proposto, nesta análise, foram
-anotados os quadros marcados em uma tabela utilizando o Libre Office.
-O resultado da tabela foi comparado aos valores de relatório do TCC e
-da interface gráfica. O intuito dessa análise foi verificar se a tabela
-comportamental gerada no relatório corresponde aos eventos registrados
-durante a análise etográfica na nova versão do software. </p>
- -->
 
 
 <h3> Realizando a etografia</h3>
 
-Finalmente, chegamos na janela para realizar a etografia. Como no registro de vídeo é possivel realizar a etografia utilizando os navegadores de vídeo. Para registrar uma categoria basta clicar no botão descriminado pelo seu nome na aba "etography" e essa categoria marcara todos os quadros no qual o botão estiver ativado. Também, é possivel selecionar a categoria a ser marcada usando os atalhos registrados no catalogo. Esses atalhos também são informados nos botões das categorias entre parenteses. Como nosso análise é auto-exclusiva só será permitido registrar uma cateogira por vez. A categoria que estiver ativada estará colorida com em vermelho. Realize a análise conforme o catalogo construído.
+Finalmente, chegamos na janela para realizar a etografia, figura 8. Como no registro de vídeo é possivel realizar a etografia utilizando os navegadores de vídeo. Para registrar uma categoria basta clicar no botão descriminado pelo seu nome na aba "etography" e essa categoria marcara todos os quadros no qual o botão estiver ativado. Também, é possivel selecionar a categoria a ser marcada usando os atalhos registrados no catalogo. Esses atalhos também são informados nos botões das categorias entre parenteses. Como nosso análise é auto-exclusiva só será permitido registrar uma categoria por vez. A categoria que estiver ativada estará colorida com em vermelho. Para o nosso exemplo realize a análise conforme o catalogo construído.
 
 <figure>
-<img src="/tutores/tutor-1/etografia_passo2.png" class="img-fluid" alt="">
-<figcaption>Figura 1- Tela inical do EthoWatcher</figcaption>
+<img src="/tutores/tutor-1/etografia_passo3.png" class="img-fluid" alt="">
+<figcaption>Figura 8- Tela de registro comportamental do EthoWatcher OS</figcaption>
 </figure>
 
 <h3> Gravando a analise e gerando o relatório</h3>
 
-<p>Após realizar a transcrição do vídeo em categorias vá para a aba Exit and Save e clique no botão "Save Video-based ethography" nesse botão te permitira selecionar uma pasta e um nome para essa análise etografica. Clique então em save. O EthoWatcher irá gravar dois arquivos em seu computador um com formatação XML, que será usado em futuruas análises e um em CSV que pode ser abrido por qualquer probrama de planilhas. </p>
-
-<p>O relatório é gravado no formato XML que pode ser usado nos módulos de análise.
-Ou o relatório pode ser fácilmente inspecionado e usado abrindo oarquivo CSV.</p>
-
-<figure>
-<img src="/tutores/tutor-1/etografia_passo3.png" class="img-fluid" alt="">
-<figcaption>Figura 1- Tela inical do EthoWatcher</figcaption>
-</figure>
+<p>Após realizar a transcrição do vídeo em categorias vá para a aba "Exit and Save" e clique no botão "Save Video-based ethography" nesse botão te permitira selecionar uma pasta e um nome para essa análise etografica. Clique então em "save". O EthoWatcher irá gravar dois arquivos em seu computador um com formatação XML, que será usado em futuruas análises e um em CSV que pode ser abrido por qualquer programa de planilhas. </p>
 
 
-<h3>Abrindo o relatório</h3>
+<h3>Abrindo o relatório CSV</h3>
 
-Para abrir o relatório recomendamos o uso do <a href="">open office</a>. A separação de celulas é por ";", figura 7;
+Para abrir o relatório recomendamos o uso do <a href="https://www.openoffice.org">open office</a>. A separação de celulas é por ";", figura 9;
 
 
 <figure>
 <img src="/tutores/tutor-1/etografia_passo42.png" class="img-fluid" alt="">
-<figcaption>Figura 1- Tela inical do EthoWatcher</figcaption>
+<figcaption>Figura 9- Configuração da abertura do relatório CSV da etografia usando o programa Open Office</figcaption>
 </figure>
 
-Dentro do relatório CSV é possivel ver o log de quando se iniciou cada categoria. e por quanto tempo ela durou. Também se encontra uma tabela descriminando a duração, frequencia e latencia de cada categoria. É possivel segmentar esse relatório por tempo.
+Dentro do relatório CSV, figura 10, é possivel ver o log de quando se iniciou cada categoria. e por quanto tempo ela durou. Também se encontra uma tabela descriminando a duração, frequencia e latencia de cada categoria. É possivel segmentar esse relatório por tempo.
 
 
 <figure>
 <img src="/tutores/tutor-1/etografia_passo5.png" class="img-fluid" alt="">
-<figcaption>Figura 1- Tela inical do EthoWatcher</figcaption>
+<figcaption>Figura 10- Relatório etografico gerado pelo módulo de etografia baseada em vídeo.</figcaption>
 </figure>
 
 
 <h2> NEXT</h2>
-<p> No próximo tutorial sera explicado como segmentar esse relatório de etographia por tempo.</p>
-
-
-<h2> IMPORTANTE </h2>
+<p> No próximo tutorial será explicado como segmentar esse relatório de etographia por tempo.</p>
