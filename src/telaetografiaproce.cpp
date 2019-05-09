@@ -2563,7 +2563,7 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
                 this,
                 tr("Save File"),
                 "C://",
-               "etography files (*.etoxml)"
+               "ethography files (*.etoxml)"
                );
 
 

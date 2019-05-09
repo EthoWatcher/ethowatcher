@@ -1,0 +1,32 @@
+body{
+    text-align: justify;
+}
+.imp{
+    background: red;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 30px 10px 30px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+h2{
+    padding: 10px;
+    text-align: center;
+    border-top: solid;
+}
+
+h3{
+    border-top: dashed;
+}
+
+figure{
+    padding: 10px 10px 10px 10px;
+    background: rgb(247, 163, 75);
+    border: solid;
+}
+
+footer{
+    margin: 20px;
+    padding: 40px;
+    background: rgb(247, 163, 75);
+}
