@@ -300,56 +300,56 @@ void ethoWatcher::on_treeWidget_doubleClicked(const QModelIndex &index)
 {
 
 
-    QTreeWidgetItem *novo;
-    novo = new QTreeWidgetItem();
+//    QTreeWidgetItem *novo;
+//    novo = new QTreeWidgetItem();
 
-    novo = ui->treeWidget->currentItem();
+//    novo = ui->treeWidget->currentItem();
 
    resetaCorBotoes();
 
 
-   // qDebug() <<" A coluna foi a " <<index.column() << " A linha foi " << index.row();
-    qDebug() <<  ui->treeWidget->currentItem()->text(index.column());
+//   // qDebug() <<" A coluna foi a " <<index.column() << " A linha foi " << index.row();
+////    qDebug() <<  ui->treeWidget->currentItem()->text(index.column());
 
-    QString nome= ui->treeWidget->currentItem()->text(index.column());
-    if(nome == "Cadastro Usuario"){
-        qDebug() << "clicou no usuario Cadastrado";
-        ui->pbTela1No->setStyleSheet("background-color: yellow");
-       // ui->groupBox_2->setStyleSheet("background-color: yellow");
+////    QString nome= ui->treeWidget->currentItem()->text(index.column());
+//    if(nome == "Cadastro Usuario"){
+//        qDebug() << "clicou no usuario Cadastrado";
+//        ui->pbTela1No->setStyleSheet("background-color: yellow");
+//       // ui->groupBox_2->setStyleSheet("background-color: yellow");
 
-        //amarelo o que necessita para
-        //verde o objeto na tela
+//        //amarelo o que necessita para
+//        //verde o objeto na tela
 
-    }
-    if(nome == "Cadastro Video"){
-    qDebug() << "clicou no Video Cadastrado";
-        ui->pbTela2ListaVideo->setStyleSheet("font: bold;""background-color: #00ac00;"); //verde
-        ui->pbTela1Yes->setStyleSheet("font: bold;""background-color: #076aff;");//azul
-        ui->swidTutorBancoDados->setCurrentIndex(3);
-    }
+//    }
+//    if(nome == "Cadastro Video"){
+//    qDebug() << "clicou no Video Cadastrado";
+//        ui->pbTela2ListaVideo->setStyleSheet("font: bold;""background-color: #00ac00;"); //verde
+//        ui->pbTela1Yes->setStyleSheet("font: bold;""background-color: #076aff;");//azul
+////        ui->swidTutorBancoDados->setCurrentIndex(3);
+//    }
 
-    if(nome == "Load User"){
-    qDebug() << "clicou no Load User";
-    ui->pbTela1Yes->setStyleSheet("font: bold;""background-color: #00ac00;"); //verde
-    ui->pbTela1No->setStyleSheet("font: bold;" "background-color: red");
-    ui->swidTutorBancoDados->setCurrentIndex(1);
-    }
+//    if(nome == "Load User"){
+//    qDebug() << "clicou no Load User";
+//    ui->pbTela1Yes->setStyleSheet("font: bold;""background-color: #00ac00;"); //verde
+//    ui->pbTela1No->setStyleSheet("font: bold;" "background-color: red");
+////    ui->swidTutorBancoDados->setCurrentIndex(1);
+//    }
 
-    //aqui mostra o que é necessario para pode usar a tela;
-    //verde é o botão
-    //amarelo os que precisa;
-    //verde o botão
-    //amarelo os opcionais
-    //vermelho são os que precisam
-    if(nome == "Cegar os Videos"){
-    qDebug() << "clicou no Video Cadastrado";
-    //        ui->pbTela2ListaVideo->setStyleSheet("background-color: red;");
-        //ui->pbTela2ListaVideo->setStyleSheet("background-color: green");
-        ui->pbDuploCego->setStyleSheet("font: bold;""background-color: #00ac00;"); //verde
-        ui->pbCadastrarListaVideo->setStyleSheet("font: bold;""background-color: red;");
-        ui->pbTela1No->setStyleSheet("font: bold;""background-color: red;");
-        ui->swidTutorBancoDados->setCurrentIndex(5);
-    }
+//    //aqui mostra o que é necessario para pode usar a tela;
+//    //verde é o botão
+//    //amarelo os que precisa;
+//    //verde o botão
+//    //amarelo os opcionais
+//    //vermelho são os que precisam
+//    if(nome == "Cegar os Videos"){
+//    qDebug() << "clicou no Video Cadastrado";
+//    //        ui->pbTela2ListaVideo->setStyleSheet("background-color: red;");
+//        //ui->pbTela2ListaVideo->setStyleSheet("background-color: green");
+//        ui->pbDuploCego->setStyleSheet("font: bold;""background-color: #00ac00;"); //verde
+//        ui->pbCadastrarListaVideo->setStyleSheet("font: bold;""background-color: red;");
+//        ui->pbTela1No->setStyleSheet("font: bold;""background-color: red;");
+////        ui->swidTutorBancoDados->setCurrentIndex(5);
+//    }
 
 
 }
