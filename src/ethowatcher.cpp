@@ -40,6 +40,15 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
 
     ui->pbConversorXMLCSV->setVisible(false);
 
+    tutor_interface.lerXml("C:\\Users\\marcolan\\Desktop\\ENTREGAR\\ethowatcher\\src\\tutores\\ethowatcherInpi.xml");
+
+    qDebug() << tutor_interface.getTextoById("ethoInicio");
+
+
+
+
+
+
     //ui->treeWidget->
 
     //cadastroPessoa = new telaCadastroPessoa(); //eh necessario para a alocacao da memoria

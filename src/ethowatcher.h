@@ -41,6 +41,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "telafluxocomportamental.h"
 #include "telablind.h"
 
+#include "tutoretho.h"
+
 namespace Ui {
 class ethoWatcher;
 }
@@ -129,6 +131,8 @@ private:
     telaFluxoComportamental *fluxoComportamental;
 
     void resetaCorBotoes();
+
+    TutorEtho tutor_interface;
 
 
 };

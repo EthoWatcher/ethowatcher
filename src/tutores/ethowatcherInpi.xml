@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tutores>
+<tutor id="default" titulo="oi mundo" pbS="yes(y)" pbN="no(n)" sizeHeight ="500">
+
+<html><header><title>j</title></header><body>Hello world j</body></html></tutor>
+
+
+<tutor id="defautl1" titulo="oi mundo" pbS="yes(y)" pbN="no(n)">
+<html><body>
+Hello world indio
+
+</body></html></tutor>
+
+
+<tutor id="ethoInicio" titulo="Welcome to EthoWatcherOS" pbS="ok(f1)" pbN="" sizeHeight ="600"><html><body>
+    <p>
+        Welcome to the <font color="red">Ethowatcher Open Source (EthW-OS)</font>.
+    </p>
+    <h2> Introduction</h2>
+    <p>
+        The EthoWatcher-OS is a computational tool to support detailed ethography (behavioral catalog- or ethogram-based recording of behavior)  , tracking and the extraction of kinematic variables from digital video files of laboratory animals.
+        <ul>
+            <li><font color="red">Ethographic and tracking reports segmented in time </font></li>
+            <li><font color="red">Tracking reports segmented by interest areas </font></li>
+            <li><font color="red">Ethographic reports segmented by behavior </font></li>
+            <li><font color="red">Sequence analysis of the ethnographic data</font> </li>
+            <li><font color="red">Reliability Intra- and inter rater (or observer) performances</font> </li>
+        </ul>
+    </p>
+    <h2> See more about the program</h2>
+    <p>
+        Read the license on <font color="red"> System Information > License Agreement </font> and system about on <font color="red"> System Information > About</font>.
+    </p>
+
+</body></html></tutor>
+
+
+
+<tutor id="ethoCadastroPessoa" titulo="Register yourself as an observer" pbS="ok(f1)" pbN="" sizeHeight ="500">
+<html><body>
+    <p>
+To start using the <font color="red">EthW-OS</font> you need a user registration. In this register you will enter information that is used to identify the reports produced by the EthW-OS. This registers will also serve to save your program settings. </p>
+<p>
+To start using :
+    <ul>
+        <li><font color="red">Press "Create user" </font>if you are not a registered user</li>
+        <li><font color="red">Press "Load user" </font> to load you user registration. </li>
+    </ul>
+</p>
+</body></html></tutor>
+
+
+
+<tutor id="ethoEscolhaEthoTraking" titulo="Choose an option and press Next" pbS="OK!(f1)" pbN="" sizeHeight ="500"><html><body>
+Choose an option:
+    <ul>
+      <li><font color="red">Digital Video-based ethography !:</font> to start an ethogram-based  transcription of a video file l.</li>
+      <li><font color="red">Tracking </font>to start tracking a single animal and to extract kinematic and morphologic data.</li>
+      <li><font color="red"> Both ethography and tracking of a single animal in a video file </font> para realizar tanto Ethografia baseada em vídeo quanto Traking </li>
+    </ul>
+
+    <h2> NEXT </h2>
+    <p>
+        Then <font color="red">  clique em -> </font>
+    </p>
+</body></html></tutor>
+
+
+
+<tutor id="ethoCatalogo" titulo="Build a behavioral catalog or ethogram" pbS="yes(y)" pbN="no(n)">
+<html><body>
+<p>
+Press “No” if you already have registered a catalog.
+</p>
+</body></html></tutor>
+
+<!-- ate aqui corrigido pelo marino -->
+
+
+
+<tutor id="ethoRegistroVideo" titulo="Faça o registro dos vídeos experimentais" pbS="yes(y)" pbN="no(n)">
+<html><body>
+
+Para realizar uma etografia baseado em vídeo é necessário cadastrar um vídeo .avi do experimento. Nesse
+cadastro você vai configurar uma série de parametros improtantes.
+
+</body></html>
+</tutor>
+
+
+<tutor id="ethoregistroVideoTraking" titulo="Você já tem um vídeo de experimento cadastrado?" pbS="yes(y)" pbN="no(n)"><html><body>
+Para realizar uma etografia baseado em vídeo é necessário cadastrar um vídeo .avi do experimento. Nesse
+cadastro você vai configurar uma série de parametros improtantes.
+falar mais sobre o traking
+
+</body></html>
+</tutor>
+
+
+
+<tutor id="ethoregistroTraking" titulo="oi mundo" pbS="yes(y)" pbN="no(n)"><html><body>
+Para realizar um rastreamento em vídeo é necessário cadastrar um vídeo .avi do experimento. Nesse
+cadastro você vai configurar uma série de parametros improtantes.
+</body></html>
+</tutor>
+
+
+<tutor id="ethoEtho" titulo="Você quer realizar uma etografia baseada em vídeo?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar uma etografia baseada em v´dio ?
+
+</body></html>
+</tutor>
+
+
+<tutor id="ethoTraking" titulo="Você quer realizar uma etografia baseada em vídeo?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+
+<tutor id="ethoTrakingVideo" titulo="Você quer realizar uma etografia baseada em vídeo e um traking??" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+
+
+<tutor id="tutorSegTempo" titulo="Você quer realizar uma seguementação por tempo da etografia?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+<tutor id="tutorSegComp" titulo="Você quer realizar uma segmentação por comportamento??" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+
+<tutor id="tutorAnaSeq" titulo="Você quer realizar uma analise sequencial?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+<tutor id="tutorConcordancia" titulo="Você quer realizar a analise de concordancia?" pbS="yes(y)" pbN="no(n)"><html><body>
+Você quer realizar um rastreamento ?
+
+</body></html>
+</tutor>
+
+
+</tutores>
