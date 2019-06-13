@@ -45,6 +45,18 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
     qDebug() << tutor_interface.getTextoById("ethoInicio");
 
 
+    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/ethowatcherInpi.xml",this); //":/tutor/tutores/ethowatcherInpi.xml"
+    connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
+
+    QList<QString> seqInicial;
+    seqInicial.append("ethoInicio");
+    seqInicial.append("ethoCadastroPessoa");
+    seqInicial.append("ethoEscolhaEthoTraking");
+
+    controlWarnig->setLista(seqInicial);
+    controlWarnig->nextById("ethoInicio");
+
+
 
 
 
@@ -61,6 +73,16 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
 
 }
 
+bool ethoWatcher::botaoClicado(bool clicado, QString id)
+{
+    if(clicado && id == "ethoInicio" )
+    {
+    //controlWarnig->nextList(true);
+    controlWarnig->nextById("ethoCadastroPessoa");
+    }
+    qDebug() << clicado;
+}
+
 ethoWatcher::~ethoWatcher()
 {
     //deletar tudo
@@ -73,6 +95,7 @@ ethoWatcher::~ethoWatcher()
     //telaCadastroEtograma *cadastroEtograma;
    // delete cego;
   //  delete etografia;
+
     delete tempoReal;
     delete unveil;
     delete cego;
@@ -345,6 +368,11 @@ void ethoWatcher::resetaCorBotoes()
 //    ui->pbTela2ListaVideo->setStyleSheet("background-color: ");
 
 
+}
+
+void ethoWatcher::closeEvent(QCloseEvent *event)
+{
+    controlWarnig->fechandoJanelas();
 }
 
 void ethoWatcher::on_pbRegisterCatalog_clicked()

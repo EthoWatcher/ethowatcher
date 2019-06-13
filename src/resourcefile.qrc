@@ -41,4 +41,12 @@
         <file>icons/image3710.png</file>
         <file>icons/ethowatcher_logo_os.png</file>
     </qresource>
+    <qresource prefix="/tutor">
+        <file>tutores/ethowatcherInpi.xml</file>
+        <file>tutores/etografiaVideo.xml</file>
+        <file>tutores/tutoresTelaCadastroCatalogo.xml</file>
+        <file>tutores/tutoresTelaCadastrofilme.xml</file>
+        <file>tutores/tutoresTelaCadastroPessoa.xml</file>
+        <file>tutores/tutoresTelaCego.xml</file>
+    </qresource>
 </RCC>

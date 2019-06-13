@@ -79,7 +79,9 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     parserxmltocsv.cpp\
     mysplash.cpp\
     parserxml.cpp\
-    tutoretho.cpp
+    tutoretho.cpp\
+    warningtutor.cpp\
+    controladorinterfaces.cpp
 
 
 
@@ -113,7 +115,9 @@ HEADERS  += ethowatcher.h \
     parserxmltocsv.h\
     mysplash.h\
     parserxml.h\
-    tutoretho.h
+    tutoretho.h\
+    warningtutor.h\
+    controladorinterfaces.h
 
 
 
@@ -134,7 +138,9 @@ FORMS    += ethowatcher.ui \
     telaetografiaproce.ui\
     telaunveil.ui\
     telatemporeal.ui\
-    telafluxocomportamental.ui
+    telafluxocomportamental.ui\
+    warningtutor.ui
+
 
 
 RESOURCES += \

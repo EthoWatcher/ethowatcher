@@ -42,6 +42,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "telablind.h"
 
 #include "tutoretho.h"
+#include "warningtutor.h"
 
 namespace Ui {
 class ethoWatcher;
@@ -55,11 +56,13 @@ public:
     explicit ethoWatcher(QWidget *parent = 0);
     ~ethoWatcher();
 
+
 public slots:
     void mudaTela();
 
 
 private slots:
+    bool botaoClicado(bool clicado, QString id);
     void on_pbTela1No_clicked();
 
     void on_pbTela1Yes_clicked();
@@ -134,6 +137,10 @@ private:
 
     TutorEtho tutor_interface;
 
+    ControladoWarningTutor *controlWarnig;
+
+protected:
+    void closeEvent(QCloseEvent *event);
 
 };
 

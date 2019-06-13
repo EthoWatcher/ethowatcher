@@ -261,7 +261,7 @@ p, li { white-space: pre-wrap; }
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
+              <pixmap>:/icons/ethowatcher_logo_os.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -1222,7 +1222,7 @@ p, li { white-space: pre-wrap; }
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resourcefile.qrc">:/icons/IEBUFSC.jpg</pixmap>
+         <pixmap resource="../../New folder (2)/ethowatcher/src/resourcefile.qrc">:/icons/IEBUFSC.jpg</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1241,7 +1241,7 @@ p, li { white-space: pre-wrap; }
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resourcefile.qrc">:/icons/LCNeurophysiology.jpg</pixmap>
+         <pixmap resource="../../New folder (2)/ethowatcher/src/resourcefile.qrc">:/icons/LCNeurophysiology.jpg</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1260,7 +1260,7 @@ p, li { white-space: pre-wrap; }
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resourcefile.qrc">:/icons/ufsc-logo-3.png</pixmap>
+         <pixmap resource="../../New folder (2)/ethowatcher/src/resourcefile.qrc">:/icons/ufsc-logo-3.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1323,8 +1323,6 @@ p, li { white-space: pre-wrap; }
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="resourcefile.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
