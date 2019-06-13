@@ -413,545 +413,81 @@ p, li { white-space: pre-wrap; }
               <attribute name="title">
                <string>Ethographic and tracking tools</string>
               </attribute>
-              <widget class="QGroupBox" name="groupBox_9">
-               <property name="geometry">
-                <rect>
-                 <x>40</x>
-                 <y>40</y>
-                 <width>211</width>
-                 <height>101</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Ethographic tools</string>
-               </property>
-               <widget class="QPushButton" name="pbAnaliseEtograma">
-                <property name="geometry">
-                 <rect>
-                  <x>20</x>
-                  <y>30</y>
-                  <width>151</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>vídeo-based ethography</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="pbRealTime">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="geometry">
-                 <rect>
-                  <x>20</x>
-                  <y>60</y>
-                  <width>151</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>real-time ethography</string>
-                </property>
-               </widget>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_11">
-               <property name="geometry">
-                <rect>
-                 <x>10</x>
-                 <y>200</y>
-                 <width>561</width>
-                 <height>241</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Tutor</string>
-               </property>
-               <layout class="QVBoxLayout" name="verticalLayout_3">
-                <item>
-                 <widget class="QStackedWidget" name="swidTutorBancoDados_2">
-                  <property name="currentIndex">
-                   <number>0</number>
-                  </property>
-                  <widget class="QWidget" name="Inicio_2">
-                   <layout class="QVBoxLayout" name="verticalLayout_10">
-                    <item>
-                     <widget class="QTextEdit" name="textBancoDeDados_2">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Bem vindo Área de Etografia do Ethowatcher nessa seção você podera fazer tanto  análise de Etografia dos videos préviamentes cadastrados quanto a análise cinemática e morfológica.&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600;&quot;&gt;GroupBox 0&lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff0000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;you can acesse &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;              &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;GroupBox  1&lt;/span&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;you can acesse &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600;&quot;&gt;GroupBox 2&lt;/span&gt; &lt;span style=&quot; color:#000000;&quot;&gt;you can acess&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_9">
-                   <widget class="QTextEdit" name="textLoadUSer_8">
-                    <property name="geometry">
-                     <rect>
-                      <x>0</x>
-                      <y>9</y>
-                      <width>523</width>
-                      <height>181</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;On click&lt;/span&gt; in &lt;span style=&quot; font-weight:600; color:#00ac00;&quot;&gt;Load User button&lt;/span&gt; you wiil load a user in the EthoWatcher open source. &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The&lt;span style=&quot; color:#000000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;requisites&lt;/span&gt; for this function works is a file&lt;span style=&quot; font-weight:600;&quot;&gt; .uxml&lt;/span&gt; generate in &lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;Cadastro Usuario module&lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#8a6700;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;These data will appear in relatorios de registro comportamental, processamento de imagem, cadastro de video, lista de video, analises de totalizações e concordancia &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_10">
-                   <widget class="QTextEdit" name="textLoadUSer_9">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;On click&lt;/span&gt; in &lt;span style=&quot; font-weight:600; color:#00ac00;&quot;&gt;New User button&lt;/span&gt; you will can &lt;span style=&quot; font-weight:600;&quot;&gt;create a new user file (.uxml) &lt;/span&gt; for use in EthoWatcher Open Soruce Data Base. &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;These file you will can load in EthoWatcher and these data will appear in relatorios de registro comportamental, processamento de imagem, cadastro de video, lista de video, analises de totalizações, concordancia e ser a chave para o módulo duplo cego . &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_11">
-                   <widget class="QTextEdit" name="textLoadUSer_10">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;On click&lt;/span&gt; in &lt;span style=&quot; font-weight:600; color:#00ac00;&quot;&gt;New Video button&lt;/span&gt; you will can &lt;span style=&quot; font-weight:600;&quot;&gt;registre a new video file (.vxml) &lt;/span&gt; for use in EthoWatcher Open Soruce Data Base. &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;These file &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;you will can load&lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt; in EthoWatcher for using in &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_12">
-                   <widget class="QTextEdit" name="textLoadUSer_11">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;On click&lt;/span&gt; in &lt;span style=&quot; font-weight:600; color:#00ac00;&quot;&gt;Cadastrar Lista Video&lt;/span&gt; you will can &lt;span style=&quot; font-weight:600;&quot;&gt;registre a new  list video file (.lxml) &lt;/span&gt; for use in EthoWatcher Open Soruce Data Base. &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The requisites for functions in this module work is a .vxml  &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;These file &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;you will can load&lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt; in EthoWatcher for using in &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_13">
-                   <widget class="QTextEdit" name="textLoadUSer_12">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;On click&lt;/span&gt; in &lt;span style=&quot; font-weight:600; color:#00ac00;&quot;&gt;Cegar os Videos button&lt;/span&gt; you will can acess o módulo de &lt;span style=&quot; font-weight:600;&quot;&gt;duplo cego&lt;/span&gt; responsável por editar e embaralhar os videos de forma que as informações sobre o conteudo do vídeo sejam escondidas.&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Para isso você &lt;span style=&quot; font-weight:600;&quot;&gt;precisará&lt;/span&gt; de um arquivo&lt;span style=&quot; color:#ff1007;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;.lvxml&lt;/span&gt;&lt;span style=&quot; color:#ff1007;&quot;&gt; &lt;/span&gt;gerado pelo&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt; módulo de cadastro de lista de video &lt;/span&gt;e um arquivo de usuário&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;.uxml&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;gerado pelo &lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;módulo de cadastro de Usuário. &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_12">
-               <property name="geometry">
-                <rect>
-                 <x>600</x>
-                 <y>10</y>
-                 <width>301</width>
-                 <height>291</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Help</string>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
-                <item>
-                 <widget class="QTreeWidget" name="treeWidget_2">
-                  <property name="font">
-                   <font>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <column>
-                   <property name="text">
-                    <string>Double Click for HELP!</string>
-                   </property>
-                  </column>
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <item>
+                <widget class="QGroupBox" name="groupBox_9">
+                 <property name="title">
+                  <string>Ethographic tools</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_3">
                   <item>
-                   <property name="text">
-                    <string>GroupBox 0</string>
-                   </property>
-                   <item>
+                   <widget class="QPushButton" name="pbAnaliseEtograma">
                     <property name="text">
-                     <string>Etografia Video Based</string>
+                     <string>vídeo-based ethography</string>
                     </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Etografia Real Time</string>
-                    </property>
-                   </item>
+                   </widget>
                   </item>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
+                  <item>
+                   <widget class="QPushButton" name="pbRealTime">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>real-time ethography</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
              <widget class="QWidget" name="tab_3">
               <attribute name="title">
                <string>Data analysis tools</string>
               </attribute>
-              <widget class="QGroupBox" name="groupBox_8">
-               <property name="geometry">
-                <rect>
-                 <x>30</x>
-                 <y>30</y>
-                 <width>221</width>
-                 <height>151</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Analysis tools</string>
-               </property>
-               <widget class="QPushButton" name="pbEstatistica">
-                <property name="geometry">
-                 <rect>
-                  <x>30</x>
-                  <y>20</y>
-                  <width>141</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Time segmentation</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="pbTransicao">
-                <property name="geometry">
-                 <rect>
-                  <x>30</x>
-                  <y>50</y>
-                  <width>141</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Sequential analysis</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="pbConcordancia">
-                <property name="geometry">
-                 <rect>
-                  <x>30</x>
-                  <y>80</y>
-                  <width>141</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Reliability calculation</string>
-                </property>
-               </widget>
-               <widget class="QPushButton" name="pbRNA">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="geometry">
-                 <rect>
-                  <x>30</x>
-                  <y>110</y>
-                  <width>141</width>
-                  <height>23</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>Artificial neural network</string>
-                </property>
-               </widget>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_13">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>180</y>
-                 <width>561</width>
-                 <height>241</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Tutor</string>
-               </property>
-               <layout class="QVBoxLayout" name="verticalLayout_11">
-                <item>
-                 <widget class="QStackedWidget" name="swidTutorBancoDados_3">
-                  <property name="currentIndex">
-                   <number>5</number>
-                  </property>
-                  <widget class="QWidget" name="Inicio_3">
-                   <layout class="QVBoxLayout" name="verticalLayout_12">
-                    <item>
-                     <widget class="QTextEdit" name="textBancoDeDados_3">
-                      <property name="html">
-                       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Bem vindo a área de análise de dados. Nessa sessão você poderá fazer a analise dos dados que você gerou. Tanto analise dos dados etograficos quando dos dados cinemáticos&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600;&quot;&gt;GroupBox 0&lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff0000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;you can acesse &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;              &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;GroupBox  1&lt;/span&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;you can acesse &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In &lt;span style=&quot; font-weight:600;&quot;&gt;GroupBox 2&lt;/span&gt; &lt;span style=&quot; color:#000000;&quot;&gt;you can acess&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="page_14">
-                   <widget class="QTextEdit" name="textLoadUSer_13">
-                    <property name="geometry">
-                     <rect>
-                      <x>0</x>
-                      <y>9</y>
-                      <width>523</width>
-                      <height>181</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;On click&lt;/span&gt; in &lt;span style=&quot; font-weight:600; color:#00ac00;&quot;&gt;Load User button&lt;/span&gt; you wiil load a user in the EthoWatcher open source. &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The&lt;span style=&quot; color:#000000;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;requisites&lt;/span&gt; for this function works is a file&lt;span style=&quot; font-weight:600;&quot;&gt; .uxml&lt;/span&gt; generate in &lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;Cadastro Usuario module&lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#8a6700;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;These data will appear in relatorios de registro comportamental, processamento de imagem, cadastro de video, lista de video, analises de totalizações e concordancia &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_15">
-                   <widget class="QTextEdit" name="textLoadUSer_14">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;On click&lt;/span&gt; in &lt;span style=&quot; font-weight:600; color:#00ac00;&quot;&gt;New User button&lt;/span&gt; you will can &lt;span style=&quot; font-weight:600;&quot;&gt;create a new user file (.uxml) &lt;/span&gt; for use in EthoWatcher Open Soruce Data Base. &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;These file you will can load in EthoWatcher and these data will appear in relatorios de registro comportamental, processamento de imagem, cadastro de video, lista de video, analises de totalizações, concordancia e ser a chave para o módulo duplo cego . &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_16">
-                   <widget class="QTextEdit" name="textLoadUSer_15">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;On click&lt;/span&gt; in &lt;span style=&quot; font-weight:600; color:#00ac00;&quot;&gt;New Video button&lt;/span&gt; you will can &lt;span style=&quot; font-weight:600;&quot;&gt;registre a new video file (.vxml) &lt;/span&gt; for use in EthoWatcher Open Soruce Data Base. &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;These file &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;you will can load&lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt; in EthoWatcher for using in &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_17">
-                   <widget class="QTextEdit" name="textLoadUSer_16">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;On click&lt;/span&gt; in &lt;span style=&quot; font-weight:600; color:#00ac00;&quot;&gt;Cadastrar Lista Video&lt;/span&gt; you will can &lt;span style=&quot; font-weight:600;&quot;&gt;registre a new  list video file (.lxml) &lt;/span&gt; for use in EthoWatcher Open Soruce Data Base. &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The requisites for functions in this module work is a .vxml  &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;These file &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#000000;&quot;&gt;you will can load&lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt; in EthoWatcher for using in &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#8a6700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                  <widget class="QWidget" name="page_18">
-                   <widget class="QTextEdit" name="textLoadUSer_17">
-                    <property name="geometry">
-                     <rect>
-                      <x>10</x>
-                      <y>20</y>
-                      <width>523</width>
-                      <height>170</height>
-                     </rect>
-                    </property>
-                    <property name="html">
-                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;On click&lt;/span&gt; in &lt;span style=&quot; font-weight:600; color:#00ac00;&quot;&gt;Cegar os Videos button&lt;/span&gt; you will can acess o módulo de &lt;span style=&quot; font-weight:600;&quot;&gt;duplo cego&lt;/span&gt; responsável por editar e embaralhar os videos de forma que as informações sobre o conteudo do vídeo sejam escondidas.&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Para isso você &lt;span style=&quot; font-weight:600;&quot;&gt;precisará&lt;/span&gt; de um arquivo&lt;span style=&quot; color:#ff1007;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;.lvxml&lt;/span&gt;&lt;span style=&quot; color:#ff1007;&quot;&gt; &lt;/span&gt;gerado pelo&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt; módulo de cadastro de lista de video &lt;/span&gt;e um arquivo de usuário&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;.uxml&lt;/span&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; &lt;/span&gt;gerado pelo &lt;span style=&quot; font-weight:600; color:#ff1007;&quot;&gt;módulo de cadastro de Usuário. &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </widget>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QGroupBox" name="groupBox_15">
-               <property name="geometry">
-                <rect>
-                 <x>610</x>
-                 <y>10</y>
-                 <width>301</width>
-                 <height>291</height>
-                </rect>
-               </property>
-               <property name="title">
-                <string>Help</string>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_3">
-                <item>
-                 <widget class="QTreeWidget" name="treeWidget_3">
-                  <property name="font">
-                   <font>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <column>
-                   <property name="text">
-                    <string>Double Click for HELP!</string>
-                   </property>
-                  </column>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <widget class="QGroupBox" name="groupBox_8">
+                 <property name="title">
+                  <string>Analysis tools</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_9">
                   <item>
-                   <property name="text">
-                    <string>GroupBox 0</string>
-                   </property>
-                   <item>
+                   <widget class="QPushButton" name="pbEstatistica">
                     <property name="text">
-                     <string>Etografia Video Based</string>
+                     <string>Time segmentation</string>
                     </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Etografia Real Time</string>
-                    </property>
-                   </item>
+                   </widget>
                   </item>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
+                  <item>
+                   <widget class="QPushButton" name="pbTransicao">
+                    <property name="text">
+                     <string>Sequential analysis</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbConcordancia">
+                    <property name="text">
+                     <string>Reliability calculation</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbRNA">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>Artificial neural network</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </widget>
            </item>
