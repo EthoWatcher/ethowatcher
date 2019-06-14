@@ -26,7 +26,53 @@ telaCadastroPessoa::telaCadastroPessoa(QWidget *parent) :
     ui->setupUi(this);
 
    QObject::connect(this,SIGNAL(fechouJanela()),this,SLOT(mudaLetra()));
+
+
+   controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastroPessoa.xml",this);
+   seqInicial.append("tutorInicio");
+   seqInicial.append("tutorPrenchaCampos");
+   seqInicial.append("tutorSaida");
+
+   connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
+
+   controlWarnig->nextList(true);
 }
+
+
+
+void telaCadastroPessoa::setTutorPrincipal(ControladoWarningTutor *etoTutor){
+
+    controlWarnigPrincial = etoTutor;
+
+
+}
+
+
+
+void telaCadastroPessoa::closeEvent(QCloseEvent *event){
+
+    controlWarnig->fechandoJanelas();
+
+    controlWarnigPrincial->nextById("ethoEscolhaEthoTraking");
+}
+
+void telaCadastroPessoa::showInterface()
+{
+//    this->move(100,100);
+    this->show();
+
+    controlWarnig->setLista(seqInicial);
+    controlWarnig->nextList(true);
+
+}
+
+void telaCadastroPessoa::botaoClicado(bool, QString)
+{
+
+    controlWarnig->nextById("tutorPrenchaCampos");
+}
+
+
 
 telaCadastroPessoa::~telaCadastroPessoa()
 {

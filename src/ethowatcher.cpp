@@ -118,7 +118,9 @@ void ethoWatcher::on_pbTela1No_clicked()
 
     cadastroPessoa = new telaCadastroPessoa(); //eh necessario para a alocacao da memoria
     connect(cadastroPessoa,SIGNAL(fechouJanela()),this,SLOT(mudaTela()));
-    cadastroPessoa->show();
+    cadastroPessoa->showInterface();
+
+    cadastroPessoa->setTutorPrincipal(controlWarnig);
 
     //ui->lb1->setText("oij");
 }

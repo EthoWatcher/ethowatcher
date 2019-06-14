@@ -27,6 +27,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <QDebug>
 #include <QFileDialog>
 
+#include "warningtutor.h"
+
 
 
 namespace Ui {
@@ -50,6 +52,10 @@ public:
 
     QString nome,nomeArquivo,extensao,nomeExtensao,lab,idObservador,sexo,arquivo;
 
+    void showInterface();
+
+
+    void setTutorPrincipal(ControladoWarningTutor *etoTutor);
 signals:
 
     void fechouJanela();
@@ -57,12 +63,23 @@ signals:
 
 private slots:
     void on_pushButton_2_clicked();
+     void botaoClicado(bool, QString);
 
 public slots:
     void mudaLetra();
 
 private:
     Ui::telaCadastroPessoa *ui;
+
+    ControladoWarningTutor *controlWarnig;
+
+    ControladoWarningTutor *controlWarnigPrincial;
+
+    QList<QString> seqInicial;
+
+
+protected:
+    void closeEvent(QCloseEvent *);
 
 };
 
