@@ -59,6 +59,7 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
 
     ui->pbRNA->setVisible(false);
     ui->tabWiEthowatcher->setTabEnabled(3,false);
+//    ui->tabWiEthowatcher->setTabVisible(3,false);
 
 
 
