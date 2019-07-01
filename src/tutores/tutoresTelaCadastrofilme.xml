@@ -3,7 +3,7 @@
     <tutor id="tutorInicio" titulo="Welcome to the Register Video interface" pbS="yes(f1)" pbN="" sizeHeight ="400">
     <html><body>
         <p>
-        The Register Video Interface the user is able to register all of the parameter to use the Digital video-based ethography and the Tracking modules
+        The Register Video Interface will register all parameter (e.g., start frame) of the video to make then able to use in the Digital video-based ethography and the Tracking modules
         </p>
     </body></html></tutor>
 
@@ -106,8 +106,9 @@
 
     <p>
     <ul>
-    <li>checkbox <font color="red">vídeo  etography </font> all of the registred videos are allowed to Video Ethography analyses. </li>
+    <li>checkbox <font color="red">video etography </font> all of the registred videos are allowed to Video Ethography analyses. </li>
     <li>checkbox <font color="red">tracking morphological/cinematic analysis  </font>to use the tracking and morphological/kinematic modules</li>
+    <!-- <li>checkbox <font color="red">tracking morphological/cinematic analysis  </font>to use the tracking and morphological/kinematic modules</li>  -->
     </ul>
     </p>
 </body></html></tutor>

@@ -1,20 +1,3 @@
-/*
-EthoWatcher OS is a software to assist study of animal behavior.
-Copyright (C) 2018  Universidade Federal de Santa Catarina.
-
-EthoWatcher OS is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
 #ifndef TELACADASTROCATALAGO_H
 #define TELACADASTROCATALAGO_H
 
@@ -29,6 +12,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <QListWidget>
 #include <QMessageBox>
 
+#include <QCloseEvent>
+
+#include "warningtutor.h"
+
 namespace Ui {
 class telaCadastroCatalago;
 }
@@ -41,12 +28,17 @@ public:
     explicit telaCadastroCatalago(QWidget *parent = 0);
     ~telaCadastroCatalago();
 
+    void closeEvent(QCloseEvent *event);
 private slots:
     void on_pbAddCategoria_clicked();
 
     void on_pbClearItem_clicked();
 
     void on_pbCadastroCatalago_clicked();
+
+    void botaoClicado(bool clicado, QString id);
+
+    void on_tabDadCat_clicked(const QModelIndex &index);
 
 private:
     Ui::telaCadastroCatalago *ui;
@@ -63,9 +55,16 @@ private:
 
     };
 
+    ControladoWarningTutor *controlWarnig;
+
+    QList<QString> seqInicial;
+
+
+
     dadosEtografia dadosEto;
     QString nomeGravarCatalago;
     QFile Output;
+    int cont;
 
 
 };

@@ -6,6 +6,8 @@
 //    using std::vector;
 //} adequacão para a opencv 3.2
 
+
+
 telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::telaCadastroFilme)
@@ -43,11 +45,293 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     ui->gbOpcoes->setEnabled(false);
     ui->leTreshold->setText(QString::number(ui->SliderThreshold->value()));
 
-    //deixando a jenal com tamanho fixo
-   this->setFixedSize(this->width(),this->height());
+//    //deixando a jenal com tamanho fixo
+//   this->setFixedSize(this->width(),this->height());
 
     ui->widMobileConfim->setVisible(false);
-    ui->widIntrinsic->setEnabled(false);
+
+    primeiraCalibracao=true;
+    clik=false;
+    chVideo=false;
+    conQtArea=0;
+    countArea=0;
+    chCirculoOn=false;
+    chAddArea=false;
+    chRoi=true;
+
+    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastrofilme.xml",this);
+    seqInicial.append("tutorInicio");
+    seqInicial.append("tutorInicioVideo");
+//    seqInicial.append("tutorPCalibrationSession");
+    seqInicial.append("tutorVideoOpenConfira");
+    seqInicial.append("tutorVideoSlider");
+    seqInicial.append("tutorVideoOpen");
+    seqInicial.append("tutorVideoPlay");
+    seqInicial.append("tutorVideoPause");
+    seqInicial.append("tutorVideoSlider");
+    seqInicial.append("tutorSelectionRegister");
+    seqInicial.append("tutorNextStep");
+//    seqInicial.append("tutorNextVideo");
+     seqInicial.append("tutorVideoNavigation");
+
+//     tutores para a seção de frames importantes
+
+     seqInicial.append("tutorInicioFramesImportantes");
+     seqInicial.append("tutorFrameStart");
+     seqInicial.append("tutorVideoPause");
+     seqInicial.append("tutorFrameFim");
+     seqInicial.append("tutorBackground");
+     seqInicial.append("tutorErosaoLimiar");
+
+     //scale
+
+     seqInicial.append("tutorSetScale");
+     //noise reduction
+     seqInicial.append("tutorsetNoiseReduction");
+     seqInicial.append("tutorConfigureMobileCamera");
+     seqInicial.append("tutoMobileTriangulo");
+     seqInicial.append("tutoMobileRetangulo");
+     seqInicial.append("tutoIntrinsicNoise");
+
+     //areas de interesse tutorAreaDeInteresse
+
+     seqInicial.append("tutorAreaDeInteresse");
+     seqInicial.append("tutorDeleteArea");
+
+     //identificação
+     seqInicial.append("tutorIdentificacao");
+
+
+
+
+//    seqInicial.append("tutorPrenchaCampos");
+//    seqInicial.append("tutorSaida");
+    controlWarnig->setLista(seqInicial);
+
+    MovimentaInterfaceCentro *base = new MovimentaInterfaceCentro();
+    controlWarnig->setFormaMocimento(base);
+    controlWarnig->setNovoWidgetReferencia(this);
+
+
+
+    connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
+
+
+    ui->cbBlinding->setVisible(false);
+
+    chFrameProce = false;
+    chFrameFinal =false;
+    chFrameBack =false;
+}
+
+/**
+ * @brief telaCadastroFilme::botaoClicado
+ * @param clicado
+ * @param id
+ */
+void telaCadastroFilme::botaoClicado(bool clicado, QString id)
+{
+    qDebug() << "botao clcialado " << id;
+    if(id == "tutorInicio"){
+        controlWarnig->nextById("tutorVideoOpen");
+        controlWarnig->setEnableById("tutorVideoOpen",false);
+    }
+
+    if(id == "cliclouBotaoOpenVideo"){
+        controlWarnig->nextById("tutorVideoOpenConfira");
+        controlWarnig->setEnableById("tutorVideoOpenConfira",false);
+    }
+
+    if(id == "tutorVideoOpenConfira"){
+        controlWarnig->nextById("tutorVideoPlay");
+        controlWarnig->setEnableById("tutorVideoPlay",false);
+
+    }
+
+    if(id == "cliclouBotaoPlay"){
+        if(clicado){
+          controlWarnig->nextById("tutorVideoSlider");
+          controlWarnig->setEnableById("tutorVideoSlider",false);
+        }
+
+    }
+
+    if(id == "botaoClicadoSlider"){
+        if(clicado){
+          controlWarnig->nextById("tutorVideoPause");
+          controlWarnig->setEnableById("tutorVideoPause",false);
+        }
+
+    }
+
+    if(id == "botaoClicadoPause"){
+        if(clicado){
+          controlWarnig->nextById("tutorVideoNavigation");
+          controlWarnig->setEnableById("tutorVideoNavigation",false);
+        }
+
+    }
+
+    if(id == "tutorVideoNavigation" || id == "fimInicioRegistroVideo"){
+        if(clicado){
+          controlWarnig->nextById("tutorNextStep");
+          controlWarnig->setEnableById("tutorNextStep",false);
+        }
+
+    }
+
+
+    // secção dos quadros importantes
+
+    if(id == "clicadoNextVideoInfo"){
+        if(clicado){
+          controlWarnig->nextById("tutorInicioFramesImportantes");
+          controlWarnig->setEnableById("tutorInicioFramesImportantes",false);
+        }
+
+    }
+
+    if(id == "tutorInicioFramesImportantes"){
+        if(clicado){
+          controlWarnig->nextById("tutorFrameStart");
+          controlWarnig->setEnableById("tutorFrameStart",false);
+        }
+
+    }
+    if(id == "clicadoFrameStartAnalise"){
+        if(clicado){
+          controlWarnig->nextById("tutorFrameFim");
+          controlWarnig->setEnableById("tutorFrameFim",false);
+        }
+
+    }
+
+    if(id == "clicadoFrameFishAnalise"){
+        if(clicado){
+          controlWarnig->nextById("tutorBackground");
+          controlWarnig->setEnableById("tutorBackground",false);
+        }
+
+    }
+
+    if(id == "clicadoBotaoBackground"){
+        if(clicado){
+          controlWarnig->nextById("tutorErosaoLimiar");
+          controlWarnig->setEnableById("tutorErosaoLimiar",false);
+        }
+
+    }
+//    setscale
+
+    if(id == "clicadoNextParaScale"){
+        if(clicado){
+          controlWarnig->nextById("tutorSetScale");
+          controlWarnig->setEnableById("tutorSetScale",false);
+        }
+
+    }
+
+    if(id == "clicadoSaveScale"){
+        if(clicado){
+          controlWarnig->nextById("tutorsetNoiseReduction");
+          controlWarnig->setEnableById("tutorsetNoiseReduction",false);
+        }
+
+    }
+
+    if(id == "botaoConfigueNoiseAreaDeInteresse"){
+
+        if(ui->cbNoise->isChecked()){
+            //se esta habilitado  a ocnfiguração da atenuação de ruído
+            controlWarnig->nextById("tutorConfigureMobileCamera");
+
+        }else if (ui->cbArea->isChecked()){
+            //se está habilitada a area de itneresse
+            controlWarnig->nextById("tutorAreaDeInteresse");
+
+        }else{
+            controlWarnig->nextById("tutorIdentificacao");
+        }
+
+    }
+
+    if(id == "cliadoParaAdicionarJanelaMovel"){
+        if(clicado){
+          controlWarnig->nextById("tutoMobileTriangulo");
+        }
+
+    }
+
+    if(id == "clicadoNextJanelaInteresse"){
+        if(clicado){
+          controlWarnig->nextById("tutoMobileRetangulo");
+        }
+
+    }
+
+    if(id == "clicadoCheckIntrinsicNoise"){
+        if(clicado){
+          controlWarnig->nextById("tutoIntrinsicNoise");
+        }
+
+    }
+
+
+
+    if(id == "clicadoNextNoiseTratmen"){
+
+        if (ui->cbArea->isChecked()){
+            //se está habilitada a area de itneresse
+            controlWarnig->nextById("tutorAreaDeInteresse");
+
+        }else{
+            controlWarnig->nextById("tutorIdentificacao");
+        }
+
+    }
+
+    if(id == "clicadoParaDeleteArea"){
+        qDebug() << "pó";
+        if(clicado){
+          controlWarnig->nextById("tutorDeleteArea");
+          controlWarnig->setEnableById("tutorDeleteArea",false);
+        }
+
+    }
+
+
+
+    if(id == "clicadoNextAreaDeInteresse"){
+        if(clicado){
+          controlWarnig->nextById("tutorIdentificacao");
+          controlWarnig->setEnableById("tutorIdentificacao",false);
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 telaCadastroFilme::~telaCadastroFilme()
@@ -60,7 +344,15 @@ telaCadastroFilme::~telaCadastroFilme()
 void telaCadastroFilme::closeEvent(QCloseEvent *event)
 {
     qDebug() << "fechou a tela ";
+    controlWarnig->fechandoJanelas();
     delete this;
+}
+
+void telaCadastroFilme::showInterface()
+{
+    this->show();
+
+    controlWarnig->nextList("tutorInicio");
 }
 
 /**
@@ -412,7 +704,7 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
 
        // ui->tabWPrincipal->setTabEnabled(3,false);
 
-        ui->gbControle->setEnabled(true);
+//        ui->gbControle->setEnabled(true);
 
         //resetaCorConfi();
        // ui->swiTutorConfig->setCurrentIndex(0);
@@ -480,9 +772,7 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
         triBlueMax->setVisible(false);
         triBlueScala->setVisible(false);
         triRedScala->setVisible(false);
-
-
-
+        this->botaoClicado(true,"cliclouBotaoOpenVideo");
 
 
 
@@ -503,6 +793,9 @@ void telaCadastroFilme::on_btPlay_clicked()
     ui->hsTimer->setEnabled(false);
     ui->SliderVelocidade->setEnabled(true);
 
+    ui->gpNavigation->setEnabled(false);
+    this->botaoClicado(true,"cliclouBotaoPlay");
+
 }
 
 void telaCadastroFilme::on_btStop_clicked()
@@ -512,6 +805,9 @@ void telaCadastroFilme::on_btStop_clicked()
     ui->btStop->setEnabled(false);
     ui->hsTimer->setEnabled(true);
     ui->SliderVelocidade->setEnabled(false);
+    ui->gpNavigation->setEnabled(true);
+
+    this->botaoClicado(true,"botaoClicadoPause");
 
 }
 
@@ -526,6 +822,7 @@ void telaCadastroFilme::on_btAvancar_clicked()
         ui->hsTimer->setValue(ui->labelFrames->text().toInt());
         captador->captando();
         ui->hsTimer->setEnabled(true);
+        this->botaoClicado(true,"fimInicioRegistroVideo");
 
 
 //        captador->setFrame(frame_atual+ui->edtFatordesloc->text().toInt());
@@ -548,6 +845,7 @@ void telaCadastroFilme::on_btVoltar_clicked()
      ui->hsTimer->setValue(ui->labelFrames->text().toInt());
      captador->captando();
      ui->hsTimer->setEnabled(true);
+     this->botaoClicado(true,"fimInicioRegistroVideo");
     }
 
 //    if((frame_atual-ui->edtFatordesloc->text().toInt()) >=0){
@@ -571,6 +869,10 @@ void telaCadastroFilme::on_SliderVelocidade_sliderReleased()
     //Calcula o tempo de disparo igual ao tempo de reprodução de 1 frame (1000ms/fps) multiplicado
     //pelo novo fator de velocidade(aceleração/desaceleração) do video
     captador->iniciandoTimer(fatorVeloc);
+
+    this->botaoClicado(true,"botaoClicadoSlider");
+
+
 }
 
 void telaCadastroFilme::on_pbAdquiriFrame_clicked()
@@ -601,6 +903,7 @@ void telaCadastroFilme::on_pbConfEscala_clicked()
     videoCadastrado.resultado.escala=scala;
 
     ui->gbOpcoes->setEnabled(true);
+    this->botaoClicado(true,"clicadoSaveScale");
 }
 
 void telaCadastroFilme::on_tabWPrincipal_currentChanged(int index)
@@ -670,7 +973,7 @@ void telaCadastroFilme::on_tabWCalib_currentChanged(int index)
         qDebug()<<"tab treatment noise";
 
         chVideo=true;
-        //ui->tabWNoise->setCurrentIndex(0);
+//        ui->tabWNoise->setCurrentIndex(0);
         areaInt->setVisible(false);
 
 
@@ -739,13 +1042,13 @@ void telaCadastroFilme::on_sbScalP2Y_editingFinished()
 void telaCadastroFilme::on_sbP1XJanela_editingFinished()
 {
     janelaP1.x= areaInt->pos().x()/scala;
-    ui->sbP1XJanela->setValue(janelaP1.x);
+//    ui->sbP1XJanela->setValue(janelaP1.x);
 }
 
 void telaCadastroFilme::on_sbP1YJanela_editingFinished()
 {
     janelaP1.y = areaInt->pos().y() /scala;
-    ui->sbP1YJanela->setValue(janelaP1.y);
+//    ui->sbP1YJanela->setValue(janelaP1.y);
 }
 
 void telaCadastroFilme::on_sbWidthJanela_valueChanged(double arg1)
@@ -803,7 +1106,7 @@ void telaCadastroFilme::on_tabWNoise_currentChanged(int index)
 void telaCadastroFilme::on_sbJanelaP1X_editingFinished()
 {
     janelaMaxP1.x= triRedMax->pos().x()/scala;
-    ui->sbJanelaP1X->setValue(janelaMaxP1.x);
+//    ui->sbJanelaP1X->setValue(janelaMaxP1.x);
     maxVaria= qSqrt(qPow(janelaMaxP2.x-janelaMaxP1.x,2)+qPow(janelaMaxP2.y-janelaMaxP1.y,2));
     ui->leVarMax->setText(QString::number(maxVaria));
 }
@@ -811,7 +1114,7 @@ void telaCadastroFilme::on_sbJanelaP1X_editingFinished()
 void telaCadastroFilme::on_sbJanelaP2X_editingFinished()
 {
     janelaMaxP2.x= triBlueMax->pos().x()/scala;
-    ui->sbJanelaP2X->setValue(janelaMaxP2.x);
+//    ui->sbJanelaP2X->setValue(janelaMaxP2.x);
     maxVaria= qSqrt(qPow(janelaMaxP2.x-janelaMaxP1.x,2)+qPow(janelaMaxP2.y-janelaMaxP1.y,2));
     ui->leVarMax->setText(QString::number(maxVaria));
 }
@@ -820,7 +1123,7 @@ void telaCadastroFilme::on_sbJanelaP1Y_editingFinished()
 {
 
     janelaMaxP1.y= triRedMax->pos().y()/scala;
-     ui->sbJanelaP1Y->setValue(janelaMaxP1.y);
+//     ui->sbJanelaP1Y->setValue(janelaMaxP1.y);
      maxVaria= qSqrt(qPow(janelaMaxP2.x-janelaMaxP1.x,2)+qPow(janelaMaxP2.y-janelaMaxP1.y,2));
      ui->leVarMax->setText(QString::number(maxVaria));
 
@@ -829,7 +1132,7 @@ void telaCadastroFilme::on_sbJanelaP1Y_editingFinished()
 void telaCadastroFilme::on_sbJanelaP2Y_editingFinished()
 {
     janelaMaxP2.y= triBlueMax->pos().y()/scala;
-    ui->sbJanelaP2Y->setValue(janelaMaxP2.y);
+//    ui->sbJanelaP2Y->setValue(janelaMaxP2.y);
     maxVaria= qSqrt(qPow(janelaMaxP2.x-janelaMaxP1.x,2)+qPow(janelaMaxP2.y-janelaMaxP1.y,2));
     ui->leVarMax->setText(QString::number(maxVaria));
 }
@@ -838,7 +1141,7 @@ void telaCadastroFilme::on_tabWCalib_tabBarClicked(int index)
 {
     if(index==2){
 
-        //ui->tabWNoise->setCurrentIndex(0);
+//        ui->tabWNoise->setCurrentIndex(0);
         areaInt->setVisible(true);
     }
 }
@@ -1027,6 +1330,7 @@ void telaCadastroFilme::on_sbAreaWid_valueChanged(double arg1)
 {
 
     listaAreaProce[itemSelecionado]->setWid(arg1*scala);  //setWidHei( (qreal) ui->sbAreaHei->value(), (qreal) arg1) ;
+    this->botaoClicado(true,"clicadoParaDeleteArea");
 //    scene->update(scene->sceneRect());
 //    ui->graphicsView->setUpdatesEnabled(true);
 //    ui->graphicsView->update();
@@ -1040,6 +1344,7 @@ void telaCadastroFilme::on_sbAreaHei_valueChanged(double arg1)
     scene->update(scene->sceneRect());
     ui->graphicsView->setUpdatesEnabled(true);
     ui->graphicsView->update();
+    this->botaoClicado(true,"clicadoParaDeleteArea");
 //    listaAreaProce[itemSelecionado]->hei = arg1;
 }
 
@@ -1049,6 +1354,7 @@ void telaCadastroFilme::on_sbAreaRaio_valueChanged(double arg1)
 //                                                (qreal) ui->sbAreaRaio->value()*scala);
 
     listaAreaProce[itemSelecionado]->setRaio((qreal)ui->sbAreaRaio->value()*scala*2);
+    this->botaoClicado(true,"clicadoParaDeleteArea");
     //vc sempre seta o diametro da figura
     //sendo assim o diametro é duas vezes o raio
   //  scene->update(scene->sceneRect());
@@ -1101,6 +1407,8 @@ void telaCadastroFilme::on_pushButtonCapture_clicked()
     frameBackground = conQim2Mat(qiRecebida);
     ui->lblFrameBack->setText(QString::number(resultado.frameFundo));
    // ui->imgResultado->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+    chFrameBack =true;
+    this->botaoClicado(true,"clicadoBotaoBackground");
 
    // ui->btPlay->setEnabled(true);
    // ui->btStop->setEnabled(false);
@@ -1116,10 +1424,13 @@ void telaCadastroFilme::on_pbFrameProce_clicked()
 
 //        frameProce = conQim2Mat(qiRecebida);
     ui->leFramePro->setText(QString::number(resultado.frameProces));
+    chFrameProce = true;
     //ui->imgResultado->setPixmap(QPixmap::fromImage(resultado.qiFrameProce));
+    this->botaoClicado(true,"clicadoFrameStartAnalise");
 
    // ui->btPlay->setEnabled(true);
   //  ui->btStop->setEnabled(false);
+
 }
 
 void telaCadastroFilme::on_pbFrameFinal_clicked()
@@ -1131,6 +1442,10 @@ void telaCadastroFilme::on_pbFrameFinal_clicked()
 
         resultado.frameFinal=frame_atual;
         ui->leFrameFinal->setText(QString::number(resultado.frameFinal));
+
+        chFrameFinal =true;
+
+        this->botaoClicado(true,"clicadoFrameFishAnalise");
 
    // }
 
@@ -1169,12 +1484,10 @@ void telaCadastroFilme::on_sbP1XJanela_valueChanged(double arg1)
 
 void telaCadastroFilme::on_pbCadastrar1_clicked()
 {
-    QString saveFile = fonteVideo.left(fonteVideo.length()-4);;
-
     nomeArquivo = QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
-                saveFile,
+                fonteVideo,
                "Videos Cadastrados (*.vxml)"
                );
 
@@ -1556,6 +1869,8 @@ void telaCadastroFilme::on_pbConfigure1_clicked()
 
     ui->tabWPrincipal->setCurrentIndex(1);
 
+    this->botaoClicado(true,"clicadoNextVideoInfo");
+
 
 
 
@@ -1607,6 +1922,8 @@ void telaCadastroFilme::on_pbConfigureNioseArea_clicked()
         ui->pbConfigureNioseArea->setEnabled(false);
         ui->cbNoise->setEnabled(false);
         ui->cbArea->setEnabled(false);
+
+        this->botaoClicado(true,"botaoConfigueNoiseAreaDeInteresse");
 
     }
 }
@@ -1661,6 +1978,7 @@ void telaCadastroFilme::on_pbNextRoi_clicked()
     ui->checkBox->setEnabled(false);
     ui->widMobileConfim->setVisible(true);
     ui->pbNextRoi->setEnabled(false);
+    this->botaoClicado(true,"clicadoNextJanelaInteresse");
 
 
 }
@@ -1676,7 +1994,7 @@ void telaCadastroFilme::on_pbConfigureTreatment_clicked()
 void telaCadastroFilme::on_pbConfRuidoInt_clicked()
 {
     minVaria = ui->leMin->text().toDouble();
-    ui->groupBox_16->setEnabled(false);
+    ui->widIntrinsic->setEnabled(false);
 }
 
 void telaCadastroFilme::on_SliderThreshold_sliderMoved(int position)
@@ -1684,45 +2002,53 @@ void telaCadastroFilme::on_SliderThreshold_sliderMoved(int position)
     ui->leTreshold->setText(QString::number( position));
 }
 
-void telaCadastroFilme::on_cbNoise_clicked()/*
-EthoWatcher OS is a software to assist study of animal behavior.
-Copyright (C) 2018  Universidade Federal de Santa Catarina.
-
-EthoWatcher OS is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
-
+void telaCadastroFilme::on_cbNoise_clicked()
 {
 
 }
 
 void telaCadastroFilme::on_pbConfigure1_2_clicked()
 {
-
-    ui->gbBlinding->setEnabled(false);
-    ui->gbBack->setEnabled(false);
-    ui->gbStartAnaly->setEnabled(false);
-    ui->gpFrameFinis->setEnabled(false);
-    ui->groupBox_15->setEnabled(false);
-
-    if(ui->cbPro->isChecked() || ui->cbBlinding->isChecked()){
-        ui->tabWCalib->setCurrentIndex(1);
-        ui->tabWCalib->setTabEnabled(1,true);
+    bool chOk=false;
+    if(ui->cbPro->isChecked()){
+        if(chFrameBack && chFrameFinal && chFrameProce){
+            chOk = true;
+        }else{
+            chOk = false;
+        }
 
     }else{
-        ui->tabWPrincipal->setCurrentIndex(2);
-        ui->tabWPrincipal->setTabEnabled(2,true);
+        if(chFrameFinal && chFrameProce){
+            chOk = true;
+
+        }else{
+            chOk = false;
+        }
+
     }
+
+
+    if(chOk){
+        ui->gbBlinding->setEnabled(false);
+        ui->gbBack->setEnabled(false);
+        ui->gbStartAnaly->setEnabled(false);
+        ui->gpFrameFinis->setEnabled(false);
+        ui->groupBox_15->setEnabled(false);
+
+        if(ui->cbPro->isChecked() || ui->cbBlinding->isChecked()){
+            ui->tabWCalib->setCurrentIndex(1);
+            ui->tabWCalib->setTabEnabled(1,true);
+
+        }else{
+            ui->tabWPrincipal->setCurrentIndex(2);
+            ui->tabWPrincipal->setTabEnabled(2,true);
+        }
+
+        this->botaoClicado(true,"clicadoNextParaScale");
+    }else{
+       QMessageBox::information(this,tr("Message"),tr("Not selected all important frames"));
+    }
+
 
 }
 
@@ -1735,7 +2061,7 @@ void telaCadastroFilme::on_checkBox_clicked(bool checked)
 
 void telaCadastroFilme::on_checkBox_clicked()
 {
-
+this->botaoClicado(true,"cliadoParaAdicionarJanelaMovel");
 }
 
 void telaCadastroFilme::on_pbNextRoi_2_clicked()
@@ -1744,6 +2070,7 @@ void telaCadastroFilme::on_pbNextRoi_2_clicked()
     triRedMax->setVisible(false);
     triBlueMax->setVisible(false);
     ui->gpMobileVirtualCamera->setEnabled(false);
+    //this->botaoClicado(true,"cliadoParaAdicionarJanelaMovel");
 }
 
 void telaCadastroFilme::on_cbVariaca_clicked(bool checked)
@@ -1762,15 +2089,20 @@ void telaCadastroFilme::on_pbConfRuidoInt_2_clicked()
        ui->tabWPrincipal->setTabEnabled(2,true);
    }
 
+   this->botaoClicado(true,"clicadoNextNoiseTratmen");
+
 }
 
 void telaCadastroFilme::on_pbNexStep3_clicked()
 {
     ui->tabWPrincipal->setCurrentIndex(2);
     ui->tabWPrincipal->setTabEnabled(2,true);
+    this->botaoClicado(true,"clicadoNextAreaDeInteresse");
 }
+
+
 
 void telaCadastroFilme::on_cbVariaca_clicked()
 {
-
+    this->botaoClicado(true,"clicadoCheckIntrinsicNoise");
 }

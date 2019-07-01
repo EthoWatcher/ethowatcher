@@ -57,6 +57,12 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
     controlWarnig->nextById("ethoInicio");
 
 
+    ui->pbRNA->setVisible(false);
+    ui->tabWiEthowatcher->setTabEnabled(3,false);
+
+
+
+
 
 
 
@@ -215,7 +221,7 @@ void ethoWatcher::on_pbTela2ListaVideo_clicked()
             cadastroFilme->setExperimentador(cadastroPessoa->nome,cadastroPessoa->lab);
     }
 
-    cadastroFilme->show();
+    cadastroFilme->showInterface();
 
 
 }

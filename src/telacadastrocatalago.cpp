@@ -1,20 +1,3 @@
-/*
-EthoWatcher OS is a software to assist study of animal behavior.
-Copyright (C) 2018  Universidade Federal de Santa Catarina.
-
-EthoWatcher OS is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
 #include "telacadastrocatalago.h"
 #include "ui_telacadastrocatalago.h"
 
@@ -23,11 +6,42 @@ telaCadastroCatalago::telaCadastroCatalago(QWidget *parent) :
     ui(new Ui::telaCadastroCatalago)
 {
     ui->setupUi(this);
+
+    this->move(100,100);
+
+
+    this->show();
+
+    controlWarnig = new ControladoWarningTutor(":/tutor/tutores/tutoresTelaCadastroCatalogo.xml",this);
+    connect(controlWarnig,SIGNAL(clicou(bool,QString)),this,SLOT(botaoClicado(bool,QString)));
+
+    seqInicial.append("tutorInicio");
+    seqInicial.append("tutorPrenchaCamposNameCodeDescription");
+    seqInicial.append("tutoCatalogUnits");
+    seqInicial.append("tutorDele");
+    seqInicial.append("tutorSalva");
+
+    controlWarnig->setLista(seqInicial);
+
+    controlWarnig->nextList(true);
+
+    ui->groupBox_3->setVisible(false);
+
+
+    cont=0;
+
+
 }
 
 telaCadastroCatalago::~telaCadastroCatalago()
 {
     delete ui;
+}
+
+void telaCadastroCatalago::closeEvent(QCloseEvent *event){
+
+    qDebug()<< " a janela de cadastro de usuario foi fechada ";
+    controlWarnig->fechandoJanelas();
 }
 
 void telaCadastroCatalago::on_pbAddCategoria_clicked()
@@ -87,6 +101,19 @@ void telaCadastroCatalago::on_pbAddCategoria_clicked()
     ui->textDscElem->setText("");
     ui->leAtalho->setText("");
     ui->leCategoria->setText("");
+
+
+    if(cont ==0 ){
+
+        controlWarnig->nextList("tutoCatalogUnits");
+        cont++;
+
+    }else if(cont == 1){
+        controlWarnig->nextList("tutorSalva");
+    }
+
+    QMessageBox::information(this,tr("Message"),tr("Created new Behavioral unit successfully"));
+
 }
 
 void telaCadastroCatalago::on_pbClearItem_clicked()
@@ -110,6 +137,8 @@ void telaCadastroCatalago::on_pbClearItem_clicked()
    if(itemSelecionado==0)
    {
         QMessageBox::information(this,"Atention!", "Não existe itens");
+   }else{
+       QMessageBox::information(this,tr("Message"),tr("Deleted behavioral unit successfully"));
    }
 
 }
@@ -164,6 +193,8 @@ void telaCadastroCatalago::on_pbCadastroCatalago_clicked()
 
     Output.close();
 
+    QMessageBox::information(this,tr("Message"),tr("Created new Behavioral Catalog successfully"));
+
     this->close();
     //deleta a janela (chama o destrutor);
     delete this;
@@ -180,4 +211,25 @@ void telaCadastroCatalago::on_pbCadastroCatalago_clicked()
 //    }
 
 
+}
+
+void telaCadastroCatalago::botaoClicado(bool clicado, QString id)
+{
+
+    if(id == "tutorInicio"){
+        qDebug() <<"oi mundo ";
+        if(clicado){
+            controlWarnig->nextById("tutorPrenchaCamposNameCodeDescription");
+
+        }else{
+
+        }
+
+    }
+
+}
+
+void telaCadastroCatalago::on_tabDadCat_clicked(const QModelIndex &index)
+{
+    controlWarnig->nextById("tutorDele");
 }
