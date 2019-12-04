@@ -23,7 +23,7 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
     ui(new Ui::ethoWatcher)
 {
     ui->setupUi(this);
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(2);
     ui->tabWiEthowatcher->setCurrentIndex(0);
 
     ui->tabWiEthowatcher->setEnabled(true);
