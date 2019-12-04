@@ -362,7 +362,7 @@ p, li { white-space: pre-wrap; }
                <item>
                 <widget class="QLabel" name="label_3">
                  <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Find help, the Standard Operating Procedures and discussion about the program in : &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;https://ethowatcher-os.paginas.ufsc.br/&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Find help and the Standard Operating Procedures and discussions about the program in : &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;https://ethowatcher-os.paginas.ufsc.br/&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
@@ -399,6 +399,11 @@ p, li { white-space: pre-wrap; }
                              <layout class="QGridLayout" name="gridLayout_2">
                               <item row="3" column="0">
                                <widget class="QPushButton" name="pbTela2ListaVideo">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>10</pointsize>
+                                 </font>
+                                </property>
                                 <property name="text">
                                  <string>Register video files</string>
                                 </property>
@@ -419,6 +424,11 @@ p, li { white-space: pre-wrap; }
                               </item>
                               <item row="1" column="0">
                                <widget class="QPushButton" name="pbTela1Yes">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>10</pointsize>
+                                 </font>
+                                </property>
                                 <property name="text">
                                  <string>Load user</string>
                                 </property>
@@ -426,6 +436,11 @@ p, li { white-space: pre-wrap; }
                               </item>
                               <item row="0" column="0">
                                <widget class="QPushButton" name="pbTela1No">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>10</pointsize>
+                                 </font>
+                                </property>
                                 <property name="text">
                                  <string>Register new user</string>
                                 </property>
@@ -433,6 +448,11 @@ p, li { white-space: pre-wrap; }
                               </item>
                               <item row="2" column="0">
                                <widget class="QPushButton" name="pbRegisterCatalog">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>10</pointsize>
+                                 </font>
+                                </property>
                                 <property name="text">
                                  <string>Register behavioral catalog</string>
                                 </property>
@@ -452,6 +472,11 @@ p, li { white-space: pre-wrap; }
                           <layout class="QVBoxLayout" name="verticalLayout_8">
                            <item>
                             <widget class="QPushButton" name="pbCadastrarListaVideo">
+                             <property name="font">
+                              <font>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
                              <property name="text">
                               <string>Build video file list</string>
                              </property>
@@ -459,6 +484,11 @@ p, li { white-space: pre-wrap; }
                            </item>
                            <item>
                             <widget class="QPushButton" name="pbDuploCego">
+                             <property name="font">
+                              <font>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
                              <property name="text">
                               <string>&quot;Blinding&quot; video files</string>
                              </property>
@@ -466,6 +496,11 @@ p, li { white-space: pre-wrap; }
                            </item>
                            <item>
                             <widget class="QPushButton" name="pbUnveil">
+                             <property name="font">
+                              <font>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
                              <property name="text">
                               <string>Unveil &quot;blinded&quot; video files</string>
                              </property>
@@ -473,6 +508,11 @@ p, li { white-space: pre-wrap; }
                            </item>
                            <item>
                             <widget class="QPushButton" name="pbBehaviorSample">
+                             <property name="font">
+                              <font>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
                              <property name="text">
                               <string>Build a behavioral-sample video</string>
                              </property>
@@ -505,6 +545,11 @@ p, li { white-space: pre-wrap; }
                  <layout class="QVBoxLayout" name="verticalLayout_14">
                   <item>
                    <widget class="QPushButton" name="pbAnaliseEtograma">
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>vídeo-based ethography</string>
                     </property>
@@ -514,6 +559,11 @@ p, li { white-space: pre-wrap; }
                    <widget class="QPushButton" name="pbRealTime">
                     <property name="enabled">
                      <bool>false</bool>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                     </font>
                     </property>
                     <property name="text">
                      <string>real-time ethography</string>
@@ -538,6 +588,11 @@ p, li { white-space: pre-wrap; }
                  <layout class="QVBoxLayout" name="verticalLayout_16">
                   <item>
                    <widget class="QPushButton" name="pbEstatistica">
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Time segmentation</string>
                     </property>
@@ -545,6 +600,11 @@ p, li { white-space: pre-wrap; }
                   </item>
                   <item>
                    <widget class="QPushButton" name="pbTransicao">
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Sequential analysis</string>
                     </property>
@@ -552,6 +612,11 @@ p, li { white-space: pre-wrap; }
                   </item>
                   <item>
                    <widget class="QPushButton" name="pbConcordancia">
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Reliability calculation</string>
                     </property>
@@ -561,6 +626,11 @@ p, li { white-space: pre-wrap; }
                    <widget class="QPushButton" name="pbRNA">
                     <property name="enabled">
                      <bool>false</bool>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                     </font>
                     </property>
                     <property name="text">
                      <string>Artificial neural network</string>
