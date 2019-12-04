@@ -377,3 +377,36 @@ void ethoWatcher::on_pbBehaviorSample_clicked()
     fluxoComportamental = new telaFluxoComportamental();
     fluxoComportamental->show();
 }
+
+void ethoWatcher::on_pbTela2ListaVideo_2_clicked()
+{
+    cadastroFilme = new telaCadastroFilme();
+    if(chLoadUser){
+            cadastroFilme->setExperimentador(cadastroPessoa->nome,cadastroPessoa->lab);
+    }
+
+    cadastroFilme->show();
+}
+
+void ethoWatcher::on_pbRegisterCatalog_2_clicked()
+{
+    cadastroCatalogo = new telaCadastroCatalago();
+
+    cadastroCatalogo->show();
+
+}
+
+void ethoWatcher::on_pbAnaliseEtograma_2_clicked()
+{
+    etografaProce= new telaEtografiaProce();
+     if(chLoadUser){
+        etografaProce->setExperimentador(cadastroPessoa->nome,cadastroPessoa->lab);
+     }
+    etografaProce->show();
+}
+
+void ethoWatcher::on_pbConcordancia_2_clicked()
+{
+    concordancia= new teaConcordancia();
+    concordancia->show();
+}
