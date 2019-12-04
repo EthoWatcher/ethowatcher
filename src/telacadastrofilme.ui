@@ -66,42 +66,6 @@
        <attribute name="title">
         <string>Video File Info</string>
        </attribute>
-       <widget class="QGroupBox" name="groupBox_3">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>360</y>
-          <width>501</width>
-          <height>241</height>
-         </rect>
-        </property>
-        <property name="title">
-         <string>Tutor</string>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <item>
-          <widget class="QTextEdit" name="teTutor_2">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-           <property name="html">
-            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:9pt; color:#000000;&quot;&gt;1 - Click on the “load video” button to open an .AVI video file and check the data for this file (path, name, FPS, width/height). &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Calibri'; font-size:9pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;2 - Select  the module(s) (one or more)  that will be used to process this video file. &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;Warning:: If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures. &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;If you want to use this video only for tracking, select the appropriate checkbox. For both tracking and ethography, select both checkboxes. &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;If you also want to use the “video blinding” procedures (hiding the &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#ff0000;&quot;&gt;clacket&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt; and changing the file ID from the user who will transcript the recording session), then select also this checkbox. &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:8pt; color:#000000;&quot;&gt;3 - Click on “Next” button &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
        <widget class="QGroupBox" name="groVideoInfo">
         <property name="geometry">
          <rect>
@@ -768,36 +732,6 @@ p, li { white-space: pre-wrap; }
               </layout>
              </widget>
             </item>
-            <item>
-             <widget class="QGroupBox" name="groupBox_20">
-              <property name="title">
-               <string>Tutor</string>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_6">
-               <item>
-                <widget class="QTextEdit" name="teTutor_4">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="html">
-                  <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Step 2.01: Navigate in the video file to a a frame after any aspect that can identify your experiment (e.g., a clackette appearing before the start of the experiment) , and THEN click in the “blind precedent frame” button&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Step 2.02 Navigate in the video file to a frame  containing only the background of the maze (without the animal, and after the frame you’ve choose in the step 2.01), and THEN press the “Background frame” button.&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;THEN, Navigate in the video file to a frame  containing the animal. Select preview process box, and slide the “subtraction threshold”  cursor  (and/or set the level of erosion of the animal), to exclude  spots, shadow or other undesired aspects of the animal  and background. &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Step 2.03: Navigate in the video file to a frame  where you want to start the analysis, and click on the “Frame to Start the analysis” button&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Step 2.04: Navigate in the video file to a frame  where you want to finish  the analysis, and click on the “Frame to Finish the analysis” button&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
            </layout>
           </widget>
           <widget class="QWidget" name="tab_4">
@@ -1231,41 +1165,6 @@ p, li { white-space: pre-wrap; }
               </property>
              </widget>
             </widget>
-           </widget>
-           <widget class="QGroupBox" name="groupBox_25">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>360</y>
-              <width>461</width>
-              <height>201</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Tutor</string>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_9">
-             <item>
-              <widget class="QTextEdit" name="teTutor_6">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="html">
-                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;Scale: &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;THEN&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt; click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;THEN&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt; press the “save scale” button&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Mark “&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;Noise reduction tools &lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;“  checkbox to set the configurations  of two algorithms  that  help to control for tracking artifacts&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;Mark “&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;Design multiple areas for analysis&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;” to  set multiple sub-areas  (squares, circles) of the maze from which you want to get specific reports and analysis.&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; color:#000000;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;THEN&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt; press the “&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; font-weight:600; color:#000000;&quot;&gt;configure&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:10.5pt; color:#000000;&quot;&gt;” button&lt;/span&gt;&lt;span style=&quot; font-size:8pt; color:#000000;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
            </widget>
            <widget class="QGroupBox" name="gbOpcoes">
             <property name="geometry">
@@ -2504,64 +2403,6 @@ p, li { white-space: pre-wrap; }
                     </size>
                    </property>
                   </spacer>
-                 </item>
-                </layout>
-               </widget>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QGroupBox" name="groupBox_29">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>420</y>
-              <width>441</width>
-              <height>151</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Tutor</string>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_18">
-             <item>
-              <widget class="QStackedWidget" name="swiTutorConfig_5">
-               <property name="currentIndex">
-                <number>1</number>
-               </property>
-               <widget class="QWidget" name="page_12">
-                <layout class="QHBoxLayout" name="horizontalLayout_19">
-                 <item>
-                  <widget class="QTextEdit" name="teTutor_9">
-                   <property name="enabled">
-                    <bool>true</bool>
-                   </property>
-                   <property name="html">
-                    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Bem vindo a tela de registro de video, &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#00ac00;&quot;&gt;Open a Video&lt;/span&gt;&lt;span style=&quot; color:#00ac00;&quot;&gt; &lt;/span&gt;&lt;span style=&quot; color:#000000;&quot;&gt;in (.avi) format and start video register.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-               <widget class="QWidget" name="page_14">
-                <layout class="QVBoxLayout" name="verticalLayout_10">
-                 <item>
-                  <widget class="QTextEdit" name="teTutor_10">
-                   <property name="enabled">
-                    <bool>true</bool>
-                   </property>
-                   <property name="html">
-                    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#00ca00;&quot;&gt;Posicione os triangulos nos em alguma distancia conhecida&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
                  </item>
                 </layout>
                </widget>

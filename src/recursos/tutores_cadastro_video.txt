@@ -1,0 +1,36 @@
+1 - Click on the “load video” button to open an .AVI video file and check the data for this file (path, name, FPS, width/height). 
+
+2 - Select  the module(s) (one or more)  that will be used to process this video file. 
+Warning:: If you select only  “Video- or Real-time ethography”, this register will allow only for this “behavioral catalog-based” kind of analysis , and not for tracking or blinding procedures. 
+If you want to use this video only for tracking, select the appropriate checkbox. For both tracking and ethography, select both checkboxes. 
+If you also want to use the “video blinding” procedures (hiding the clacket and changing the file ID from the user who will transcript the recording session), then select also this checkbox. 
+  
+3 - Click on “Next” button 
+
+
+
+-----
+
+
+Step 2.01: Navigate in the video file to a a frame after any aspect that can identify your experiment (e.g., a clackette appearing before the start of the experiment) , and THEN click in the “blind precedent frame” button
+ 
+Step 2.02 Navigate in the video file to a frame  containing only the background of the maze (without the animal, and after the frame you’ve choose in the step 2.01), and THEN press the “Background frame” button. 
+
+THEN, Navigate in the video file to a frame  containing the animal. Select preview process box, and slide the “subtraction threshold”  cursor  (and/or set the level of erosion of the animal), to exclude  spots, shadow or other undesired aspects of the animal  and background. 
+
+Step 2.03: Navigate in the video file to a frame  where you want to start the analysis, and click on the “Frame to Start the analysis” button 
+Step 2.04: Navigate in the video file to a frame  where you want to finish  the analysis, and click on the “Frame to Finish the analysis” button 
+
+
+
+
+-----]
+
+
+Scale: In the first frame for the analysis, click and drag the blue triangle to a reference point (e.g. a border of the maze).  THEN click and drag the red triangle to another reference point (e.g. the opposite border of the maze). Inform the distance (in centimeters)  between these two points (take this measure from your maze). THEN press the “save scale” button 
+
+Mark “Noise reduction tools “  checkbox to set the configurations  of two algorithms  that  help to control for tracking artifacts 
+
+Mark “Design multiple areas for analysis” to  set multiple sub-areas  (squares, circles) of the maze from which you want to get specific reports and analysis. 
+
+THEN press the “configure” button 
