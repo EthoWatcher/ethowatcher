@@ -739,13 +739,13 @@ void telaCadastroFilme::on_sbScalP2Y_editingFinished()
 void telaCadastroFilme::on_sbP1XJanela_editingFinished()
 {
     janelaP1.x= areaInt->pos().x()/scala;
-    ui->sbP1XJanela->setValue(janelaP1.x);
+//    ui->sbP1XJanela->setValue(janelaP1.x);
 }
 
 void telaCadastroFilme::on_sbP1YJanela_editingFinished()
 {
     janelaP1.y = areaInt->pos().y() /scala;
-    ui->sbP1YJanela->setValue(janelaP1.y);
+//    ui->sbP1YJanela->setValue(janelaP1.y);
 }
 
 void telaCadastroFilme::on_sbWidthJanela_valueChanged(double arg1)
@@ -803,15 +803,15 @@ void telaCadastroFilme::on_tabWNoise_currentChanged(int index)
 void telaCadastroFilme::on_sbJanelaP1X_editingFinished()
 {
     janelaMaxP1.x= triRedMax->pos().x()/scala;
-    ui->sbJanelaP1X->setValue(janelaMaxP1.x);
+//    ui->sbJanelaP1X->setValue(janelaMaxP1.x);
     maxVaria= qSqrt(qPow(janelaMaxP2.x-janelaMaxP1.x,2)+qPow(janelaMaxP2.y-janelaMaxP1.y,2));
-    ui->leVarMax->setText(QString::number(maxVaria));
+//    ui->leVarMax->setText(QString::number(maxVaria));
 }
 
 void telaCadastroFilme::on_sbJanelaP2X_editingFinished()
 {
     janelaMaxP2.x= triBlueMax->pos().x()/scala;
-    ui->sbJanelaP2X->setValue(janelaMaxP2.x);
+//    ui->sbJanelaP2X->setValue(janelaMaxP2.x);
     maxVaria= qSqrt(qPow(janelaMaxP2.x-janelaMaxP1.x,2)+qPow(janelaMaxP2.y-janelaMaxP1.y,2));
     ui->leVarMax->setText(QString::number(maxVaria));
 }
@@ -820,7 +820,7 @@ void telaCadastroFilme::on_sbJanelaP1Y_editingFinished()
 {
 
     janelaMaxP1.y= triRedMax->pos().y()/scala;
-     ui->sbJanelaP1Y->setValue(janelaMaxP1.y);
+//     ui->sbJanelaP1Y->setValue(janelaMaxP1.y);
      maxVaria= qSqrt(qPow(janelaMaxP2.x-janelaMaxP1.x,2)+qPow(janelaMaxP2.y-janelaMaxP1.y,2));
      ui->leVarMax->setText(QString::number(maxVaria));
 
@@ -829,7 +829,7 @@ void telaCadastroFilme::on_sbJanelaP1Y_editingFinished()
 void telaCadastroFilme::on_sbJanelaP2Y_editingFinished()
 {
     janelaMaxP2.y= triBlueMax->pos().y()/scala;
-    ui->sbJanelaP2Y->setValue(janelaMaxP2.y);
+//    ui->sbJanelaP2Y->setValue(janelaMaxP2.y);
     maxVaria= qSqrt(qPow(janelaMaxP2.x-janelaMaxP1.x,2)+qPow(janelaMaxP2.y-janelaMaxP1.y,2));
     ui->leVarMax->setText(QString::number(maxVaria));
 }
