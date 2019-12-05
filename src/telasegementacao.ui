@@ -11,523 +11,499 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Time segmentation</string>
   </property>
-  <widget class="QStackedWidget" name="stackedWidget">
-   <property name="geometry">
-    <rect>
-     <x>9</x>
-     <y>9</y>
-     <width>651</width>
-     <height>661</height>
-    </rect>
-   </property>
-   <property name="currentIndex">
-    <number>1</number>
-   </property>
-   <widget class="QWidget" name="page">
-    <layout class="QVBoxLayout" name="verticalLayout_19">
-     <item>
-      <widget class="QGroupBox" name="groupBox_4">
-       <property name="title">
-        <string>GroupBox</string>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_22">
-        <item>
-         <widget class="QStackedWidget" name="swToTotal">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="autoFillBackground">
-           <bool>true</bool>
-          </property>
-          <property name="currentIndex">
-           <number>1</number>
-          </property>
-          <widget class="QWidget" name="page_3">
-           <widget class="QWidget" name="widHetero" native="true">
+  <layout class="QVBoxLayout" name="verticalLayout_26">
+   <item>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="page">
+      <layout class="QVBoxLayout" name="verticalLayout_19">
+       <item>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>GroupBox</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_22">
+          <item>
+           <widget class="QStackedWidget" name="swToTotal">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>10</y>
-              <width>431</width>
-              <height>491</height>
-             </rect>
+            <property name="autoFillBackground">
+             <bool>true</bool>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_12">
-             <item>
-              <widget class="QScrollArea" name="scrollArea">
-               <property name="widgetResizable">
-                <bool>true</bool>
-               </property>
-               <widget class="QWidget" name="scrollAreaWidgetContents">
-                <property name="geometry">
-                 <rect>
-                  <x>0</x>
-                  <y>0</y>
-                  <width>388</width>
-                  <height>101</height>
-                 </rect>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_8">
-                 <item>
-                  <widget class="QWidget" name="widget_2" native="true">
-                   <layout class="QVBoxLayout" name="verticalLayout_11">
-                    <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <property name="currentIndex">
+             <number>1</number>
+            </property>
+            <widget class="QWidget" name="page_3">
+             <widget class="QWidget" name="widHetero" native="true">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>10</y>
+                <width>431</width>
+                <height>491</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_12">
+               <item>
+                <widget class="QScrollArea" name="scrollArea">
+                 <property name="widgetResizable">
+                  <bool>true</bool>
+                 </property>
+                 <widget class="QWidget" name="scrollAreaWidgetContents">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>411</width>
+                    <height>424</height>
+                   </rect>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_8">
+                   <item>
+                    <widget class="QWidget" name="widget_2" native="true">
+                     <layout class="QVBoxLayout" name="verticalLayout_11">
                       <item>
-                       <widget class="QWidget" name="wTotal" native="true">
-                        <layout class="QVBoxLayout" name="verticalLayout_9">
-                         <item>
-                          <layout class="QVBoxLayout" name="verticalLayout_5">
+                       <layout class="QHBoxLayout" name="horizontalLayout_2">
+                        <item>
+                         <widget class="QWidget" name="wTotal" native="true">
+                          <layout class="QVBoxLayout" name="verticalLayout_9">
                            <item>
-                            <widget class="QWidget" name="widget_3" native="true">
-                             <layout class="QVBoxLayout" name="verticalLayout_4">
-                              <item>
-                               <widget class="QLabel" name="label_2">
-                                <property name="text">
-                                 <string>Segmentation number</string>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QWidget" name="wLblSeg" native="true"/>
-                           </item>
-                           <item>
-                            <spacer name="verticalSpacer">
-                             <property name="orientation">
-                              <enum>Qt::Vertical</enum>
-                             </property>
-                             <property name="sizeHint" stdset="0">
-                              <size>
-                               <width>20</width>
-                               <height>40</height>
-                              </size>
-                             </property>
-                            </spacer>
+                            <layout class="QVBoxLayout" name="verticalLayout_5">
+                             <item>
+                              <widget class="QWidget" name="widget_3" native="true">
+                               <layout class="QVBoxLayout" name="verticalLayout_4">
+                                <item>
+                                 <widget class="QLabel" name="label_2">
+                                  <property name="text">
+                                   <string>Segmentation number</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QWidget" name="wLblSeg" native="true"/>
+                             </item>
+                             <item>
+                              <spacer name="verticalSpacer">
+                               <property name="orientation">
+                                <enum>Qt::Vertical</enum>
+                               </property>
+                               <property name="sizeHint" stdset="0">
+                                <size>
+                                 <width>20</width>
+                                 <height>40</height>
+                                </size>
+                               </property>
+                              </spacer>
+                             </item>
+                            </layout>
                            </item>
                           </layout>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QWidget" name="wLE" native="true">
-                        <layout class="QVBoxLayout" name="verticalLayout_2">
-                         <item>
-                          <layout class="QVBoxLayout" name="verticalLayout_6">
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="wLE" native="true">
+                          <layout class="QVBoxLayout" name="verticalLayout_2">
                            <item>
-                            <widget class="QWidget" name="widget_4" native="true">
-                             <layout class="QVBoxLayout" name="verticalLayout">
-                              <item>
-                               <widget class="QLabel" name="label_3">
-                                <property name="text">
-                                 <string>Begin (frame)</string>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QWidget" name="wLeInicio" native="true"/>
-                           </item>
-                           <item>
-                            <spacer name="verticalSpacer_2">
-                             <property name="orientation">
-                              <enum>Qt::Vertical</enum>
-                             </property>
-                             <property name="sizeHint" stdset="0">
-                              <size>
-                               <width>20</width>
-                               <height>40</height>
-                              </size>
-                             </property>
-                            </spacer>
-                           </item>
-                          </layout>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QWidget" name="widget" native="true">
-                        <layout class="QVBoxLayout" name="verticalLayout_10">
-                         <item>
-                          <layout class="QVBoxLayout" name="verticalLayout_7">
-                           <item>
-                            <widget class="QWidget" name="widget_5" native="true">
-                             <layout class="QVBoxLayout" name="verticalLayout_3">
-                              <item>
-                               <widget class="QLabel" name="label_4">
-                                <property name="text">
-                                 <string>End(frame)</string>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QWidget" name="wLeFim" native="true"/>
-                           </item>
-                           <item>
-                            <spacer name="verticalSpacer_3">
-                             <property name="orientation">
-                              <enum>Qt::Vertical</enum>
-                             </property>
-                             <property name="sizeHint" stdset="0">
-                              <size>
-                               <width>20</width>
-                               <height>40</height>
-                              </size>
-                             </property>
-                            </spacer>
+                            <layout class="QVBoxLayout" name="verticalLayout_6">
+                             <item>
+                              <widget class="QWidget" name="widget_4" native="true">
+                               <layout class="QVBoxLayout" name="verticalLayout">
+                                <item>
+                                 <widget class="QLabel" name="label_3">
+                                  <property name="text">
+                                   <string>Begin (frame)</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QWidget" name="wLeInicio" native="true"/>
+                             </item>
+                             <item>
+                              <spacer name="verticalSpacer_2">
+                               <property name="orientation">
+                                <enum>Qt::Vertical</enum>
+                               </property>
+                               <property name="sizeHint" stdset="0">
+                                <size>
+                                 <width>20</width>
+                                 <height>40</height>
+                                </size>
+                               </property>
+                              </spacer>
+                             </item>
+                            </layout>
                            </item>
                           </layout>
-                         </item>
-                        </layout>
-                       </widget>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="widget" native="true">
+                          <layout class="QVBoxLayout" name="verticalLayout_10">
+                           <item>
+                            <layout class="QVBoxLayout" name="verticalLayout_7">
+                             <item>
+                              <widget class="QWidget" name="widget_5" native="true">
+                               <layout class="QVBoxLayout" name="verticalLayout_3">
+                                <item>
+                                 <widget class="QLabel" name="label_4">
+                                  <property name="text">
+                                   <string>End(frame)</string>
+                                  </property>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QWidget" name="wLeFim" native="true"/>
+                             </item>
+                             <item>
+                              <spacer name="verticalSpacer_3">
+                               <property name="orientation">
+                                <enum>Qt::Vertical</enum>
+                               </property>
+                               <property name="sizeHint" stdset="0">
+                                <size>
+                                 <width>20</width>
+                                 <height>40</height>
+                                </size>
+                               </property>
+                              </spacer>
+                             </item>
+                            </layout>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                       </layout>
                       </item>
                      </layout>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                </layout>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="widget_7" native="true">
+                 <layout class="QHBoxLayout" name="horizontalLayout">
+                  <item>
+                   <widget class="QPushButton" name="pbTotaAdd">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>Adicionar Segmentação</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QCheckBox" name="chbHomo">
+              <property name="geometry">
+               <rect>
+                <x>280</x>
+                <y>510</y>
+                <width>191</width>
+                <height>17</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>homogeneus time sementation</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QCheckBox" name="chbHetero">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>510</y>
+                <width>191</width>
+                <height>17</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>heterogeneous time segmentation</string>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_4">
+             <layout class="QVBoxLayout" name="verticalLayout_21">
+              <item>
+               <widget class="QScrollArea" name="scrollArea_2">
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>89</width>
+                   <height>89</height>
+                  </rect>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_13">
+                  <item>
+                   <widget class="QScrollArea" name="scrollArea_3">
+                    <property name="widgetResizable">
+                     <bool>true</bool>
+                    </property>
+                    <widget class="QWidget" name="scrollAreaWidgetContents_3">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>0</y>
+                       <width>69</width>
+                       <height>69</height>
+                      </rect>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_14">
+                      <item>
+                       <widget class="QWidget" name="wTabTotal" native="true"/>
+                      </item>
+                     </layout>
+                    </widget>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
-              </widget>
-             </item>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_2">
+      <layout class="QVBoxLayout" name="verticalLayout_25">
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>Step 1</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_23">
+          <item>
+           <widget class="QPushButton" name="pbCaTotalSe">
+            <property name="text">
+             <string>Open ethography file</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pbTCCMfile">
+            <property name="text">
+             <string>Open tracking File</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>Step 2</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_27">
+          <item>
+           <widget class="QWidget" name="widget_8" native="true">
+            <layout class="QVBoxLayout" name="verticalLayout_18">
              <item>
-              <widget class="QWidget" name="widget_7" native="true">
-               <layout class="QHBoxLayout" name="horizontalLayout">
+              <widget class="QWidget" name="widget_9" native="true">
+               <layout class="QVBoxLayout" name="verticalLayout_15">
                 <item>
-                 <widget class="QPushButton" name="pbTotaAdd">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
+                 <widget class="QLabel" name="lblFrameNome_2">
                   <property name="text">
-                   <string>Adicionar Segmentação</string>
+                   <string>File  :</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <spacer name="horizontalSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                 <widget class="QLabel" name="lblFrameNome">
+                  <property name="text">
+                   <string/>
                   </property>
-                  <property name="sizeHint" stdset="0">
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QWidget" name="widget_10" native="true">
+               <layout class="QVBoxLayout" name="verticalLayout_16">
+                <item>
+                 <widget class="QLabel" name="lblFrameNome_3">
+                  <property name="minimumSize">
                    <size>
-                    <width>40</width>
-                    <height>20</height>
+                    <width>200</width>
+                    <height>15</height>
                    </size>
                   </property>
-                 </spacer>
+                  <property name="text">
+                   <string>begin time</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblFrameInicial">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QWidget" name="widget_11" native="true">
+               <layout class="QVBoxLayout" name="verticalLayout_17">
+                <item>
+                 <widget class="QLabel" name="lblFrameNome_5">
+                  <property name="text">
+                   <string>end time</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="lblFrameFinal">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
              </item>
             </layout>
            </widget>
-           <widget class="QCheckBox" name="chbHomo">
-            <property name="geometry">
-             <rect>
-              <x>280</x>
-              <y>510</y>
-              <width>191</width>
-              <height>17</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>homogeneus time sementation</string>
-            </property>
-            <property name="checked">
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>Step 3</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_20">
+          <item>
+           <widget class="QWidget" name="widHomo" native="true">
+            <property name="enabled">
              <bool>true</bool>
             </property>
-           </widget>
-           <widget class="QCheckBox" name="chbHetero">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>510</y>
-              <width>191</width>
-              <height>17</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>heterogeneous time segmentation</string>
-            </property>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="page_4">
-           <layout class="QVBoxLayout" name="verticalLayout_21">
-            <item>
-             <widget class="QScrollArea" name="scrollArea_2">
-              <property name="widgetResizable">
-               <bool>true</bool>
-              </property>
-              <widget class="QWidget" name="scrollAreaWidgetContents_2">
-               <property name="geometry">
-                <rect>
-                 <x>0</x>
-                 <y>0</y>
-                 <width>96</width>
-                 <height>79</height>
-                </rect>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>Time Interval(s)</string>
                </property>
-               <layout class="QVBoxLayout" name="verticalLayout_13">
-                <item>
-                 <widget class="QScrollArea" name="scrollArea_3">
-                  <property name="widgetResizable">
-                   <bool>true</bool>
-                  </property>
-                  <widget class="QWidget" name="scrollAreaWidgetContents_3">
-                   <property name="geometry">
-                    <rect>
-                     <x>0</x>
-                     <y>0</y>
-                     <width>96</width>
-                     <height>28</height>
-                    </rect>
-                   </property>
-                   <layout class="QVBoxLayout" name="verticalLayout_14">
-                    <item>
-                     <widget class="QWidget" name="wTabTotal" native="true"/>
-                    </item>
-                   </layout>
-                  </widget>
-                 </widget>
-                </item>
-               </layout>
               </widget>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="page_2">
-    <widget class="QGroupBox" name="groupBox">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>440</y>
-       <width>621</width>
-       <height>191</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Tutor</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_20">
-      <item>
-       <widget class="QTextBrowser" name="textBrowser"/>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_6">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>240</y>
-       <width>301</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Step 4</string>
-     </property>
-     <widget class="QPushButton" name="pbTotalRes">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>20</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Analyse</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbGravarTCCM">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>20</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Save analisys</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pbTotGravar">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>60</y>
-        <width>81</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Save analisys</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_5">
-     <property name="geometry">
-      <rect>
-       <x>320</x>
-       <y>150</y>
-       <width>301</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Step 3</string>
-     </property>
-     <widget class="QWidget" name="widHomo" native="true">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>231</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <widget class="QLineEdit" name="lieTime">
-       <property name="geometry">
-        <rect>
-         <x>110</x>
-         <y>10</y>
-         <width>113</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>15</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>81</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Time Interval(s)</string>
-       </property>
-      </widget>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_3">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>210</y>
-       <width>301</width>
-       <height>201</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Step 2</string>
-     </property>
-     <widget class="QWidget" name="widget_8" native="true">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>281</width>
-        <height>171</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_18">
-       <item>
-        <widget class="QWidget" name="widget_9" native="true">
-         <layout class="QVBoxLayout" name="verticalLayout_15">
-          <item>
-           <widget class="QLabel" name="lblFrameNome_2">
-            <property name="text">
-             <string>File  :</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lblFrameNome">
-            <property name="text">
-             <string/>
-            </property>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lieTime">
+               <property name="text">
+                <string>15</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="widget_10" native="true">
-         <layout class="QVBoxLayout" name="verticalLayout_16">
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string>Step 4</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_24">
           <item>
-           <widget class="QLabel" name="lblFrameNome_3">
-            <property name="minimumSize">
-             <size>
-              <width>200</width>
-              <height>15</height>
-             </size>
+           <widget class="QPushButton" name="pbTotalRes">
+            <property name="enabled">
+             <bool>false</bool>
             </property>
             <property name="text">
-             <string>begin time</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lblFrameInicial">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QWidget" name="widget_11" native="true">
-         <layout class="QVBoxLayout" name="verticalLayout_17">
-          <item>
-           <widget class="QLabel" name="lblFrameNome_5">
-            <property name="text">
-             <string>end time</string>
+             <string>Analyse</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="lblFrameFinal">
+           <widget class="QPushButton" name="pbGravarTCCM">
             <property name="text">
-             <string/>
+             <string>Save analisys</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pbTotGravar">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Save analisys</string>
             </property>
            </widget>
           </item>
@@ -537,56 +513,8 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>120</y>
-       <width>281</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Step 1</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_23">
-      <item>
-       <widget class="QPushButton" name="pbCaTotalSe">
-        <property name="text">
-         <string>Open ethography file</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pbTCCMfile">
-        <property name="text">
-         <string>Open tracking File</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QLabel" name="label_5">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>611</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </widget>
-  </widget>
+   </item>
+  </layout>
  </widget>
  <resources>
   <include location="resourcefile.qrc"/>
