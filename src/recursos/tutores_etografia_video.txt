@@ -1,0 +1,4 @@
+Step 1: Before you use the tools (video-based ethography and/or tracking) you must open a registered video, for that you click on "Open video". After open a video you have to choose what kind of tool you want Step 2.
+If your choice is just video-based ethography you have to open a behavioral catalog on "Open behavioral catalog" and choose Behavioral record syntax.  Lastly click on "Start" to start your video-based ethography.
+If your choice is just tracking you have to wait for Status tracking image complete and click on "Start" to view morphological variables.
+If your choice is both (video-based ethography and Tracking) you have to open a behavioral catalog on "Open behavioral catalog" and choose Behavioral record syntax and wait for Status tracking image. After these instructions click on "Start" to view morphological variables and start your video-based ethography
