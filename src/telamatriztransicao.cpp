@@ -48,8 +48,8 @@ void telaMatrizTransicao::on_pbSeqCarregar_clicked()
     lerETOXML(fonteVideoETOXML);
 
     ui->pbAnaliseSeq->setEnabled(true);
-    ui->teTutor->setText(" Passo 2: Clique em `Analisar` para fazer a análise de transição e "
-                         "gerar seu gráfico");
+//    ui->teTutor->setText(" Passo 2: Clique em `Analisar` para fazer a análise de transição e "
+//                         "gerar seu gráfico");
 }
 
 void telaMatrizTransicao::on_pbAnaliseSeq_clicked()
@@ -168,9 +168,9 @@ void telaMatrizTransicao::on_pbAnaliseSeq_clicked()
 
     ui->pbMakeGraph->setEnabled(true);
     ui->pbGeraRelaSeq->setEnabled(true);
-    ui->teTutor->setText("<p> Passo 3: Clique no botão 'Make graph' para editar e gerar um gráfico referente a matriz "
-                         "de transição analisada</p>"
-                         "<p> Passo 4: Clique no botão 'Gerar relatório' para gerar relatório em '.csv' e '.aseq'</p>");
+//    ui->teTutor->setText("<p> Passo 3: Clique no botão 'Make graph' para editar e gerar um gráfico referente a matriz "
+//                         "de transição analisada</p>"
+//                         "<p> Passo 4: Clique no botão 'Gerar relatório' para gerar relatório em '.csv' e '.aseq'</p>");
 
 
 

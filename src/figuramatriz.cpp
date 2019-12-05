@@ -277,8 +277,8 @@ void figuraMatriz::on_pbAtualiza_clicked()
 
 
    ui->pbSave->setEnabled(true);
-   ui->teTutor->setText("<p>Passo 2: Clique no botão 'Salvar' oara salvar o fluxograma da matriz"
-                        "de transição em uma imagem no formato .png <p/>");
+//   ui->teTutor->setText("<p>Passo 2: Clique no botão 'Salvar' oara salvar o fluxograma da matriz"
+//                        "de transição em uma imagem no formato .png <p/>");
 
 }
 
