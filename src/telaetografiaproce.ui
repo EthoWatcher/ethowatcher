@@ -1417,8 +1417,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>355</width>
-                   <height>258</height>
+                   <width>334</width>
+                   <height>353</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1530,12 +1530,6 @@
                </widget>
               </item>
              </layout>
-            </widget>
-            <widget class="QWidget" name="tab_4">
-             <attribute name="title">
-              <string>Tutor</string>
-             </attribute>
-             <layout class="QVBoxLayout" name="verticalLayout_7"/>
             </widget>
             <widget class="QWidget" name="tab_7">
              <attribute name="title">
