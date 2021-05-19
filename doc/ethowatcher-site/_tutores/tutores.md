@@ -1,0 +1,2 @@
+- como realizar segmentação por tempo
+- como_realizar_analise_concordancia

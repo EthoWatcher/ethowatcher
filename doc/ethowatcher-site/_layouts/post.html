@@ -48,10 +48,30 @@ author: "Joao"
     <div class="col-lg-9">
       <div class="corpo-texto">
         {{ content }}
+        
+
+        <div>
+          <h2>Autores desse tutorial</h2>
+          As pessoas que desenvolveram esse tutorial foram :
+            <ul>
+                {% for autor in page.authors %}
+                <li> {{autor.nome}} </li>
+                {% endfor %}
+            </ul>
+            
+
+        </div>
 
       </div>
 
+      
+
     </div>
+
+
+
+
+
 
 
 

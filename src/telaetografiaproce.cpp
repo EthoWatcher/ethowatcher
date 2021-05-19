@@ -2060,6 +2060,7 @@ void telaEtografiaProce::on_pbEtoVideo_clicked()
     ui->gbStep4->setVisible(true);
     ui->gbStep2->setEnabled(false);
 
+    ui->tabButtons->setTabEnabled(1,false);
     //captadorThread->start();
 
 }
@@ -2525,7 +2526,7 @@ void telaEtografiaProce::slotMapeado(int a)
 
 //    }
 
-    ui->tabButtons->setTabEnabled(1,chEditaOn);
+    ui->tabButtons->setTabEnabled(2,chEditaOn);
 
 
 
@@ -3418,9 +3419,9 @@ void telaEtografiaProce::on_pbTraking_clicked()
 
     ui->gbStep6->setVisible(true);
     ui->gbStep5->setVisible(true);
-    ui->tabButtons->setCurrentIndex(2);
+    ui->tabButtons->setCurrentIndex(1);
     ui->tabButtons->setTabEnabled(0,false);
-    ui->tabButtons->setTabEnabled(1,false);
+//    ui->tabButtons->setTabEnabled(1,false);
 
 
 

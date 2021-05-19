@@ -28,8 +28,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 int main(int argc, char *argv[])
 {
-//    QApplication a(argc, argv);
-//    ethoWatcher w;
+    QApplication a(argc, argv);
+    ethoWatcher w;
 //    QDialog teste;
 
 
@@ -41,28 +41,29 @@ int main(int argc, char *argv[])
 //    qDebug() << "fim";
 
 
-//    w.show();
-
-//    return a.exec();
-
-    QApplication a (argc, argv);
-    QPixmap pixmap(":/icons/image3710.png");
-    mySplash splash ;
-    splash.setPixmap(pixmap);
-
-    splash.show();
-    splash.showMessage(QObject::trUtf8("Initiating your program now..."), Qt::AlignLeft | Qt::AlignBottom, Qt::red);
-
-    a.processEvents();
-
-    ethoWatcher w;
-
-    QTimer::singleShot(1000, &splash, SLOT(close()));
-    QTimer::singleShot(1000, &w, SLOT(show()));
-
-    //w.carregaImagens(":/icons/cabecalho.jpg");
+    w.show();
 
     return a.exec();
+
+//    QApplication a (argc, argv);
+//    QPixmap pixmap(":/icons/image3710.png");
+//    mySplash splash ;
+//    splash.setPixmap(pixmap);
+
+//    splash.show();
+//    splash.showMessage(QObject::trUtf8("Initiating your program now..."), Qt::AlignLeft | Qt::AlignBottom, Qt::red);
+
+//    a.processEvents();
+
+//    ethoWatcher w;
+
+//    w.show();
+////    QTimer::singleShot(1000, &splash, SLOT(close()));
+////    QTimer::singleShot(1000, &w, SLOT(show()));
+
+//    //w.carregaImagens(":/icons/cabecalho.jpg");
+
+//    return 0;
 
 
 }

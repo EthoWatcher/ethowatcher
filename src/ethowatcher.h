@@ -100,6 +100,14 @@ private slots:
 
     void on_pbBehaviorSample_clicked();
 
+    void on_pbTela2ListaVideo_2_clicked();
+
+    void on_pbRegisterCatalog_2_clicked();
+
+    void on_pbAnaliseEtograma_2_clicked();
+
+    void on_pbConcordancia_2_clicked();
+
 private:
     Ui::ethoWatcher *ui;
     bool chLoadUser;
