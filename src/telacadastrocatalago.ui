@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>1059</width>
-    <height>748</height>
+    <height>749</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Register behavioral catalog</string>
+   <string>Register a behavioral catalog</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_5">
    <item>
@@ -65,7 +65,7 @@
          <item>
           <widget class="QLabel" name="label_2">
            <property name="text">
-            <string>Shortcut</string>
+            <string>Code (max one letter or number, no special characters or symbols)</string>
            </property>
           </widget>
          </item>

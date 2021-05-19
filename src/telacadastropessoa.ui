@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>998</width>
+    <width>1002</width>
     <height>577</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Register new user</string>
+   <string>Register a new user</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
