@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1163</width>
-    <height>790</height>
+    <height>791</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,21 +21,21 @@
     <widget class="QLabel" name="label_98">
      <property name="minimumSize">
       <size>
-       <width>911</width>
-       <height>100</height>
+       <width>500</width>
+       <height>80</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
-       <height>130</height>
+       <width>500</width>
+       <height>80</height>
       </size>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
+      <pixmap resource="resourcefile.qrc">:/icons/logo_ethowatcher.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
