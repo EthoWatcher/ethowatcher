@@ -1,9 +1,12 @@
 ---
 title: 'Ethowatcher.OpenSource: improving quality control and blind procedures during categorical and morphologic/kinematic extraction of behavioral data in laboratory animals.'
 tags:
-  - Behaviour analyses
-  - Quality control
-  - Image processing
+  - video-tracking
+  - image segmentation
+  - behavioral recording
+  - intra-rater reliability
+  - blind-to-condition studies
+  - image processing
 
 authors:
   - name: João Antônio Marcolan
@@ -21,11 +24,17 @@ bibliography: paper.bib
 
 # Summary
 
-In 2012, we present a software (EthoWatcher) developed to support ethography, object tracking and extraction of kinematic variables from digital video files of lab animals. Most of the presently available systems focuses either on direct behavior recording or on automatic activity/tracking analysis [@spink2001ethovision] [@lind2005validation] and they had improved the prospects for a higher inter-experiment and inter-laboratory standardization, reliability and replicability of the data derived from these different approaches. However, electing one approach to the exclusion of the other may lead to incomplete descriptions of the behaviors. The simultaneous and combined use of ethological methods (using discrete behavioral categories) and automatic methods of behavioral recording (describing continuous, kinematically-derived variables) on the same data set can complement each other to provide additional insight on the structure of experimentally induced changes in animal behavior (20). 
+In 2012, we presented a freely available software (EthoWatcher ; Crispim-Junior et al, 2012 ) developed to support ethography, object tracking and extraction of kinematic variables from digital video files of lab animals. Proprietary? C++, limited video formats, Despite its limitations in tools and technology, this software has been increasingly used since then in studies of animal behaviors in disparate fields as behavioral pharmacology, physiology, psychology, and ecology.
+ 
+User´s suggestions and urges to collaborate, increasingly demands for tools to improve data reproducibility new collaborative technologies and machine vision algorithms. Here we present a new version of this software, the Ethowatcher-OS, that adds tools designed to:
 
-We herein present the EthoWatcher®, a digital video-based system that allow for automatic activity/tracking analysis and for catalogue-based behavioral recording functions, permitting a fine-grained (frame-by-frame resolution) integration of these data sets. We also present the procedures used to validate the measurements carried out by the software, as well as a case study using its tools to analyze a simple set of behavioral pharmacology data (the behavioral effects of systemic caffeine injections in the rat). The “EthoWatcher®” is registered in the Brazilian National Intellectual Property Institute (INPI) on the protocol number 09285-3, electronic journal No. 1982 and is freely available for non-commercial purposes (downloadable at the www.ethowatcher.ufsc.br).
-
-
+- 1) improve bulk video-file management, permitting the use of a large range of prerecorded video-file characteristics, origins, and codecs, 
+- 2)	allow for rapid and safe use of blind-to-condition categorical transcriptions, that are simultaneous with tracking and were facilitated by using buttons in the screen to enter categories
+- 3)	Categories associated frame-by-frame to tracking, morphological and kinematic attributes of animal’s image (extracted using machine vision algorithms), allowing to build databanks suitable for machine learning processing
+- 4)	controls and corrections for artifacts of tracking 
+- 5)	routines to examine intra- and inter-observer reliability throughout observers training and during valid data gatherings, using Cohen´s Kappa (K), Fleiss’s K statistics and some corollary measures (bias, prevalence, Kmax , etc.) of agreement  
+- 6)	provide extended capabilities of temporal and spatial segmentation of categorical, morphological and kinematic data extracted from video, as well as offer outputs for semi-markov chains-based sequential analysis, and
+- 7)	developed and made available through an open-source platform cooperative environment to allow for continuous collaborative improvements or addition of data extraction and data analysis algorithms. [@spink2001ethovision] [@lind2005validation]  
 
 
 
