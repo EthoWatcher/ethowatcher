@@ -1,58 +1,39 @@
 ---
-title: 'Gala: A Python package for galactic dynamics'
+title: 'Ethowatcher.OpenSource: improving quality control and blind procedures during categorical and morphologic/kinematic extraction of behavioral data in laboratory animals.'
 tags:
-  - Python
-  - astronomy
-  - dynamics
-  - galactic dynamics
-  - milky way
+  - Behaviour analyses
+  - Quality control
+  - Image processing
+
 authors:
-  - name: Adrian M. Price-Whelan
-    orcid: 0000-0003-0872-7098
+  - name: João Antônio Marcolan
+    orcid: 0000-0001-8368-0213
+    affiliation: 1
+  - name: José Marino Neto
+    orcid: 0000-0001-5090-8867
     affiliation: 1
 affiliations:
- - name: Lyman Spitzer, Jr. Fellow, Princeton University
+ - name: Institute of Biomedical Engineering, EEL-CTC, Federal University of Santa Catarina, 88040-900 Florianópolis SC, Brazil 
    index: 1
-date: 13 August 2017
+date: 26 June 2021
 bibliography: paper.bib
 ---
 
 # Summary
 
-The forces on stars, galaxies, and dark matter under external gravitational
-fields lead to the dynamical evolution of structures in the universe. The orbits
-of these bodies are therefore key to understanding the formation, history, and
-future state of galaxies. The field of "galactic dynamics," which aims to model
-the gravitating components of galaxies to study their structure and evolution,
-is now well-established, commonly taught, and frequently used in astronomy.
-Aside from toy problems and demonstrations, the majority of problems require
-efficient numerical tools, many of which require the same base code (e.g., for
-performing numerical orbit integration).
+In 2012, we present a software (EthoWatcher) developed to support ethography, object tracking and extraction of kinematic variables from digital video files of lab animals. Most of the presently available systems focuses either on direct behavior recording or on automatic activity/tracking analysis [@spink2001ethovision] [@lind2005validation] and they had improved the prospects for a higher inter-experiment and inter-laboratory standardization, reliability and replicability of the data derived from these different approaches. However, electing one approach to the exclusion of the other may lead to incomplete descriptions of the behaviors. The simultaneous and combined use of ethological methods (using discrete behavioral categories) and automatic methods of behavioral recording (describing continuous, kinematically-derived variables) on the same data set can complement each other to provide additional insight on the structure of experimentally induced changes in animal behavior (20). 
 
-``Gala`` is an Astropy-affiliated Python package for galactic dynamics. Python
-enables wrapping low-level languages (e.g., C) for speed without losing
-flexibility or ease-of-use in the user-interface. The API for ``Gala`` was
-designed to provide a class-based and user-friendly interface to fast (C or
-Cython-optimized) implementations of common operations such as gravitational
-potential and force evaluation, orbit integration, dynamical transformations,
-and chaos indicators for nonlinear dynamics. ``Gala`` also relies heavily on and
-interfaces well with the implementations of physical units and astronomical
-coordinate systems in the ``Astropy`` package [@astropy] (``astropy.units`` and
-``astropy.coordinates``).
+We herein present the EthoWatcher®, a digital video-based system that allow for automatic activity/tracking analysis and for catalogue-based behavioral recording functions, permitting a fine-grained (frame-by-frame resolution) integration of these data sets. We also present the procedures used to validate the measurements carried out by the software, as well as a case study using its tools to analyze a simple set of behavioral pharmacology data (the behavioral effects of systemic caffeine injections in the rat). The “EthoWatcher®” is registered in the Brazilian National Intellectual Property Institute (INPI) on the protocol number 09285-3, electronic journal No. 1982 and is freely available for non-commercial purposes (downloadable at the www.ethowatcher.ufsc.br).
 
-``Gala`` was designed to be used by both astronomical researchers and by
-students in courses on gravitational dynamics or astronomy. It has already been
-used in a number of scientific publications [@Pearson:2017] and has also been
-used in graduate courses on Galactic dynamics to, e.g., provide interactive
-visualizations of textbook material [@Binney:2008]. The combination of speed,
-design, and support for Astropy functionality in ``Gala`` will enable exciting
-scientific explorations of forthcoming data releases from the *Gaia* mission
-[@gaia] by students and experts alike. The source code for ``Gala`` has been
-archived to Zenodo with the linked DOI: [@zenodo]
+
+
+
 
 # Acknowledgements
 
-We acknowledge contributions from Brigitta Sipocz, Syrtis Major, and Semyeong
-Oh, and support from Kathryn Johnston during the genesis of this project.
+
+The present study was supported by ..... an JAM received CAPES MSc fellowships. 
+
+
 
 # References
