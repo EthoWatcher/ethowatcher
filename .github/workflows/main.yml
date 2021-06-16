@@ -1,7 +1,7 @@
-- name: Open Journals PDF Generator
+--- 
+- 
+  name: "Open Journals PDF Generator"
   uses: openjournals/openjournals-draft-action@v.1.0
-  with:
-    # Target journal, must be either "joss" or "jose"
-    journal: # optional, default is joss
-    # Path to the main paper Markdown file, relative to the project's root directory.
-    paper-path: # optional, default is paper.md
+  with: 
+    journal: ~
+    paper-path: ~
