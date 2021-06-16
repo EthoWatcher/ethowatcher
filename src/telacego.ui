@@ -118,8 +118,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>79</width>
-             <height>79</height>
+             <width>98</width>
+             <height>89</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -166,8 +166,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>337</width>
-             <height>204</height>
+             <width>341</width>
+             <height>208</height>
             </rect>
            </property>
           </widget>
@@ -356,15 +356,27 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>701</width>
-     <height>101</height>
+     <width>500</width>
+     <height>80</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>500</width>
+     <height>80</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>500</width>
+     <height>80</height>
+    </size>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
+    <pixmap resource="resourcefile.qrc">:/icons/logo_ethowatcher.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

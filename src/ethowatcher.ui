@@ -247,21 +247,21 @@ p, li { white-space: pre-wrap; }
             <widget class="QLabel" name="label_2">
              <property name="minimumSize">
               <size>
-               <width>0</width>
-               <height>101</height>
+               <width>500</width>
+               <height>80</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>16777215</width>
-               <height>250</height>
+               <width>500</width>
+               <height>80</height>
               </size>
              </property>
              <property name="text">
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
+              <pixmap resource="resourcefile.qrc">:/icons/logo_ethowatcher.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -359,13 +359,6 @@ p, li { white-space: pre-wrap; }
                  </layout>
                 </widget>
                </item>
-               <item>
-                <widget class="QLabel" name="label_3">
-                 <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Find help and the Standard Operating Procedures and discussions about the program in : &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;https://ethowatcher-os.paginas.ufsc.br/&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                </widget>
-               </item>
               </layout>
              </widget>
              <widget class="QWidget" name="tab">
@@ -385,7 +378,7 @@ p, li { white-space: pre-wrap; }
                         <item>
                          <widget class="QGroupBox" name="groupBox_2">
                           <property name="title">
-                           <string>Registration Box</string>
+                           <string>Registration</string>
                           </property>
                           <layout class="QGridLayout" name="gridLayout">
                            <item row="0" column="0">
@@ -405,7 +398,7 @@ p, li { white-space: pre-wrap; }
                                  </font>
                                 </property>
                                 <property name="text">
-                                 <string>Register video files</string>
+                                 <string>Register vídeo files</string>
                                 </property>
                                </widget>
                               </item>
@@ -430,7 +423,7 @@ p, li { white-space: pre-wrap; }
                                  </font>
                                 </property>
                                 <property name="text">
-                                 <string>Load user</string>
+                                 <string>Load a registered user</string>
                                 </property>
                                </widget>
                               </item>
@@ -442,7 +435,7 @@ p, li { white-space: pre-wrap; }
                                  </font>
                                 </property>
                                 <property name="text">
-                                 <string>Register new user</string>
+                                 <string>Register a new user</string>
                                 </property>
                                </widget>
                               </item>
@@ -454,7 +447,7 @@ p, li { white-space: pre-wrap; }
                                  </font>
                                 </property>
                                 <property name="text">
-                                 <string>Register behavioral catalog</string>
+                                 <string>Register a new behavioral catalog</string>
                                 </property>
                                </widget>
                               </item>
@@ -478,7 +471,7 @@ p, li { white-space: pre-wrap; }
                               </font>
                              </property>
                              <property name="text">
-                              <string>Build video file list</string>
+                              <string>Build a video file list to blinding</string>
                              </property>
                             </widget>
                            </item>
@@ -490,7 +483,7 @@ p, li { white-space: pre-wrap; }
                               </font>
                              </property>
                              <property name="text">
-                              <string>&quot;Blinding&quot; video files</string>
+                              <string>&quot;Blinding&quot; raters to video files</string>
                              </property>
                             </widget>
                            </item>
@@ -502,7 +495,7 @@ p, li { white-space: pre-wrap; }
                               </font>
                              </property>
                              <property name="text">
-                              <string>Unveil &quot;blinded&quot; video files</string>
+                              <string>Unveil the blinding codes</string>
                              </property>
                             </widget>
                            </item>
@@ -540,7 +533,7 @@ p, li { white-space: pre-wrap; }
                <item>
                 <widget class="QGroupBox" name="groupBox_9">
                  <property name="title">
-                  <string>Ethographic tools</string>
+                  <string>Tracking and ethographic tools</string>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_14">
                   <item>
@@ -551,7 +544,17 @@ p, li { white-space: pre-wrap; }
                      </font>
                     </property>
                     <property name="text">
-                     <string>vídeo-based ethography</string>
+                     <string>Video-based tracking and ethography</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>Video recording tools (coming soon)</string>
                     </property>
                    </widget>
                   </item>
@@ -618,7 +621,7 @@ p, li { white-space: pre-wrap; }
                      </font>
                     </property>
                     <property name="text">
-                     <string>Reliability calculation</string>
+                     <string>Intra- and Inter-observers reliability analysis</string>
                     </property>
                    </widget>
                   </item>
@@ -633,7 +636,7 @@ p, li { white-space: pre-wrap; }
                      </font>
                     </property>
                     <property name="text">
-                     <string>Artificial neural network</string>
+                     <string>ETHOWATCHER SMaRT: Statistic and Machine-learning resources for Reproducible and Transparent behavioral analysis</string>
                     </property>
                    </widget>
                   </item>
@@ -876,6 +879,13 @@ p, li { white-space: pre-wrap; }
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
+            <widget class="QPushButton" name="pbBackAbout">
+             <property name="text">
+              <string>Accept the license</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <spacer name="horizontalSpacer">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -888,18 +898,18 @@ p, li { white-space: pre-wrap; }
              </property>
             </spacer>
            </item>
-           <item>
-            <widget class="QPushButton" name="pbBackAbout">
-             <property name="text">
-              <string>Accept the license</string>
-             </property>
-            </widget>
-           </item>
           </layout>
          </widget>
         </item>
        </layout>
       </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:12pt; color:#000000;&quot;&gt;Find help, instructions and a standard operating procedure in&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;https://ethowatcher.com&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
      </widget>
     </item>
    </layout>
@@ -915,7 +925,7 @@ p, li { white-space: pre-wrap; }
    </property>
    <widget class="QMenu" name="menuEthoWatcher">
     <property name="title">
-     <string>EthoWatcher OS</string>
+     <string>About EthoWatcher OS</string>
     </property>
     <addaction name="actionAbout"/>
     <addaction name="actionLicense_agreement"/>
@@ -934,6 +944,11 @@ p, li { white-space: pre-wrap; }
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
    </property>
   </action>
   <action name="actionLicense_agreement">

@@ -17,23 +17,29 @@
    <item>
     <widget class="QStackedWidget" name="swPrincipal">
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout_8">
        <item>
         <widget class="QLabel" name="label">
+         <property name="minimumSize">
+          <size>
+           <width>500</width>
+           <height>80</height>
+          </size>
+         </property>
          <property name="maximumSize">
           <size>
-           <width>16777215</width>
-           <height>100</height>
+           <width>500</width>
+           <height>80</height>
           </size>
          </property>
          <property name="text">
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
+          <pixmap resource="resourcefile.qrc">:/icons/logo_ethowatcher.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -76,17 +82,23 @@
           <layout class="QVBoxLayout" name="verticalLayout_10">
            <item>
             <widget class="QLabel" name="label_2">
+             <property name="minimumSize">
+              <size>
+               <width>500</width>
+               <height>80</height>
+              </size>
+             </property>
              <property name="maximumSize">
               <size>
-               <width>16777215</width>
-               <height>200</height>
+               <width>500</width>
+               <height>80</height>
               </size>
              </property>
              <property name="text">
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
+              <pixmap resource="resourcefile.qrc">:/icons/logo_ethowatcher.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -382,16 +394,12 @@
            </item>
           </layout>
           <zorder>tabWidget_2</zorder>
-          <zorder>label_11</zorder>
           <zorder>groupBox_14</zorder>
           <zorder>widget_9</zorder>
          </widget>
         </widget>
        </item>
       </layout>
-      <zorder>groupBox_4</zorder>
-      <zorder>groupBox_4</zorder>
-      <zorder>swKohoneKappa</zorder>
      </widget>
      <widget class="QWidget" name="page_11">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -406,21 +414,21 @@
             <widget class="QLabel" name="label_4">
              <property name="minimumSize">
               <size>
-               <width>0</width>
+               <width>500</width>
                <height>80</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>16777215</width>
-               <height>200</height>
+               <width>500</width>
+               <height>80</height>
               </size>
              </property>
              <property name="text">
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
+              <pixmap resource="resourcefile.qrc">:/icons/logo_ethowatcher.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -585,11 +593,6 @@
                    </widget>
                   </item>
                  </layout>
-                 <zorder>tabFleKapp</zorder>
-                 <zorder>widget</zorder>
-                 <zorder>widget_2</zorder>
-                 <zorder>widget_3</zorder>
-                 <zorder>label_12</zorder>
                 </widget>
                </item>
                <item>
@@ -671,7 +674,7 @@
    <item>
     <widget class="QLabel" name="label_16">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Find help and the Standard Operating Procedures and discussions about the program in : &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;https://ethowatcher-os.paginas.ufsc.br/&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:12pt; color:#000000;&quot;&gt;Find help, instructions and a standard operating procedure in&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;https://ethowatcher.com&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>

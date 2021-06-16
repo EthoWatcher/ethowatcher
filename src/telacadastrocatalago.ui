@@ -7,26 +7,32 @@
     <x>0</x>
     <y>0</y>
     <width>1059</width>
-    <height>748</height>
+    <height>749</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Register behavioral catalog</string>
+   <string>Register a behavioral catalog</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_5">
    <item>
     <widget class="QLabel" name="label_4">
+     <property name="minimumSize">
+      <size>
+       <width>500</width>
+       <height>80</height>
+      </size>
+     </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
-       <height>300</height>
+       <width>500</width>
+       <height>80</height>
       </size>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
+      <pixmap resource="resourcefile.qrc">:/icons/logo_ethowatcher.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -65,7 +71,7 @@
          <item>
           <widget class="QLabel" name="label_2">
            <property name="text">
-            <string>Shortcut</string>
+            <string>Code (max one letter or number, no special characters or symbols)</string>
            </property>
           </widget>
          </item>
@@ -195,7 +201,7 @@ p, li { white-space: pre-wrap; }
    <item>
     <widget class="QLabel" name="label_5">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Find help and the Standard Operating Procedures and discussions about the program in : &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;https://ethowatcher-os.paginas.ufsc.br/&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:12pt; color:#000000;&quot;&gt;Find help, instructions and a standard operating procedure in&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;https://ethowatcher.com&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>

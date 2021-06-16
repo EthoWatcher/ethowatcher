@@ -40,5 +40,6 @@
         <file>icons/LCNeurophysiology.jpg</file>
         <file>icons/image3710.png</file>
         <file>icons/ethowatcher_logo_os.png</file>
+        <file>icons/logo_ethowatcher.png</file>
     </qresource>
 </RCC>

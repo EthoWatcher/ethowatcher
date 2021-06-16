@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>1163</width>
-    <height>790</height>
+    <height>791</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Register Video Files</string>
+   <string>Video-based tracking and ethography</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <property name="sizeConstraint">
@@ -21,21 +21,21 @@
     <widget class="QLabel" name="label_98">
      <property name="minimumSize">
       <size>
-       <width>911</width>
-       <height>100</height>
+       <width>500</width>
+       <height>80</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
-       <height>130</height>
+       <width>500</width>
+       <height>80</height>
       </size>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
+      <pixmap resource="resourcefile.qrc">:/icons/logo_ethowatcher.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -82,7 +82,7 @@
                    </size>
                   </property>
                   <property name="title">
-                   <string>Step 1.01</string>
+                   <string>Step 1 - Select a video</string>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_9">
                    <item>
@@ -98,7 +98,7 @@
                 <item>
                  <widget class="QGroupBox" name="groVideoInfo">
                   <property name="title">
-                   <string>Step 1.02 Video Open Info</string>
+                   <string>Step 2, Video Open Info</string>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_14">
                    <item>
@@ -214,7 +214,6 @@
                        </widget>
                       </item>
                      </layout>
-                     <zorder>label_14</zorder>
                      <zorder>lblFps</zorder>
                      <zorder>label_14</zorder>
                     </widget>
@@ -228,7 +227,7 @@
                    <item>
                     <widget class="QGroupBox" name="groupBox_5">
                      <property name="title">
-                      <string>Step 1.03 Select modules for video file processing</string>
+                      <string>Step 3 - Select modules for video file processing</string>
                      </property>
                      <layout class="QGridLayout" name="gridLayout">
                       <item row="0" column="0">
@@ -276,7 +275,7 @@
                    <item>
                     <widget class="QGroupBox" name="groupBox_14">
                      <property name="title">
-                      <string>Step 1.04</string>
+                      <string>Step 4</string>
                      </property>
                      <layout class="QHBoxLayout" name="horizontalLayout_6">
                       <item>
@@ -296,7 +295,7 @@
               </widget>
               <widget class="QWidget" name="tab_10">
                <attribute name="title">
-                <string>Calibration session</string>
+                <string>Calibration</string>
                </attribute>
                <layout class="QVBoxLayout" name="verticalLayout_4">
                 <item>
@@ -324,13 +323,14 @@
                        </size>
                       </property>
                       <property name="title">
-                       <string>Step 2.01</string>
+                       <string>Step 1</string>
                       </property>
                       <layout class="QHBoxLayout" name="horizontalLayout_26">
                        <item>
                         <widget class="QPushButton" name="pbAdquiriFrame">
                          <property name="text">
-                          <string>Blind precedent frames</string>
+                          <string>Blind the observer to the preceding frames
+</string>
                          </property>
                         </widget>
                        </item>
@@ -355,7 +355,7 @@
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
-                        <height>121</height>
+                        <height>150</height>
                        </size>
                       </property>
                       <property name="maximumSize">
@@ -365,224 +365,187 @@
                        </size>
                       </property>
                       <property name="title">
-                       <string>Step 2.02</string>
+                       <string>Step 2 - Object extraction from the background </string>
                       </property>
-                      <widget class="QPushButton" name="pushButtonCapture">
-                       <property name="geometry">
-                        <rect>
-                         <x>10</x>
-                         <y>20</y>
-                         <width>121</width>
-                         <height>24</height>
-                        </rect>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>60</width>
-                         <height>0</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>42456</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>Background frame</string>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="lblFrameBack">
-                       <property name="geometry">
-                        <rect>
-                         <x>140</x>
-                         <y>30</y>
-                         <width>51</width>
-                         <height>21</height>
-                        </rect>
-                       </property>
-                       <property name="text">
-                        <string>0</string>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="label_60">
-                       <property name="geometry">
-                        <rect>
-                         <x>140</x>
-                         <y>10</y>
-                         <width>61</width>
-                         <height>16</height>
-                        </rect>
-                       </property>
-                       <property name="text">
-                        <string>Frame Final</string>
-                       </property>
-                      </widget>
-                      <widget class="QGroupBox" name="groupBox_BackgroundColor">
-                       <property name="enabled">
-                        <bool>true</bool>
-                       </property>
-                       <property name="geometry">
-                        <rect>
-                         <x>360</x>
-                         <y>10</y>
-                         <width>103</width>
-                         <height>51</height>
-                        </rect>
-                       </property>
-                       <property name="title">
-                        <string>Background Color</string>
-                       </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_15">
-                        <item>
-                         <spacer name="horizontalSpacer_19">
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>40</width>
-                            <height>20</height>
-                           </size>
-                          </property>
-                         </spacer>
-                        </item>
-                        <item>
-                         <widget class="QComboBox" name="comboBoxBackground">
-                          <property name="minimumSize">
-                           <size>
-                            <width>75</width>
-                            <height>0</height>
-                           </size>
-                          </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_36">
+                       <item>
+                        <widget class="QWidget" name="widget_24" native="true">
+                         <layout class="QVBoxLayout" name="verticalLayout_32">
                           <item>
-                           <property name="text">
-                            <string>white</string>
-                           </property>
+                           <widget class="QWidget" name="widget_23" native="true">
+                            <property name="minimumSize">
+                             <size>
+                              <width>264</width>
+                              <height>41</height>
+                             </size>
+                            </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_35">
+                             <item>
+                              <widget class="QPushButton" name="pushButtonCapture">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>60</width>
+                                 <height>0</height>
+                                </size>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>42456</width>
+                                 <height>16777215</height>
+                                </size>
+                               </property>
+                               <property name="text">
+                                <string>Select background frame</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QLabel" name="lblFrameBack">
+                               <property name="text">
+                                <string>0</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QCheckBox" name="chbPrevi">
+                               <property name="text">
+                                <string>Preview Process</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
                           </item>
                           <item>
-                           <property name="text">
-                            <string>black</string>
-                           </property>
+                           <widget class="QGroupBox" name="groupBox_SubtractionThreshold">
+                            <property name="enabled">
+                             <bool>true</bool>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>264</width>
+                              <height>60</height>
+                             </size>
+                            </property>
+                            <property name="title">
+                             <string>Subtraction Treshold</string>
+                            </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_27">
+                             <item>
+                              <widget class="QSlider" name="SliderThreshold">
+                               <property name="maximum">
+                                <number>255</number>
+                               </property>
+                               <property name="pageStep">
+                                <number>10</number>
+                               </property>
+                               <property name="value">
+                                <number>125</number>
+                               </property>
+                               <property name="orientation">
+                                <enum>Qt::Horizontal</enum>
+                               </property>
+                               <property name="tickPosition">
+                                <enum>QSlider::TicksBelow</enum>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QLineEdit" name="leTreshold">
+                               <property name="enabled">
+                                <bool>true</bool>
+                               </property>
+                               <property name="maximumSize">
+                                <size>
+                                 <width>100</width>
+                                 <height>16777215</height>
+                                </size>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
                           </item>
-                         </widget>
-                        </item>
-                        <item>
-                         <spacer name="horizontalSpacer_17">
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>40</width>
-                            <height>20</height>
-                           </size>
-                          </property>
-                         </spacer>
-                        </item>
-                       </layout>
-                      </widget>
-                      <widget class="QGroupBox" name="groupBox_SubtractionThreshold">
-                       <property name="enabled">
-                        <bool>true</bool>
-                       </property>
-                       <property name="geometry">
-                        <rect>
-                         <x>10</x>
-                         <y>53</y>
-                         <width>341</width>
-                         <height>57</height>
-                        </rect>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>0</height>
-                        </size>
-                       </property>
-                       <property name="title">
-                        <string>Subtraction Treshold</string>
-                       </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_27">
-                        <item>
-                         <widget class="QSlider" name="SliderThreshold">
-                          <property name="maximum">
-                           <number>255</number>
-                          </property>
-                          <property name="pageStep">
-                           <number>10</number>
-                          </property>
-                          <property name="value">
-                           <number>125</number>
-                          </property>
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                          <property name="tickPosition">
-                           <enum>QSlider::TicksBelow</enum>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLineEdit" name="leTreshold">
-                          <property name="enabled">
-                           <bool>true</bool>
-                          </property>
-                          <property name="maximumSize">
-                           <size>
-                            <width>100</width>
-                            <height>16777215</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                      <widget class="QGroupBox" name="groupBox_Erosion">
-                       <property name="enabled">
-                        <bool>true</bool>
-                       </property>
-                       <property name="geometry">
-                        <rect>
-                         <x>360</x>
-                         <y>60</y>
-                         <width>111</width>
-                         <height>61</height>
-                        </rect>
-                       </property>
-                       <property name="title">
-                        <string>Erosion</string>
-                       </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_11">
-                        <item>
-                         <widget class="QLabel" name="label_19">
-                          <property name="text">
-                           <string>Level:</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QSpinBox" name="spinBoxErosao">
-                          <property name="maximum">
-                           <number>10</number>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                      <widget class="QCheckBox" name="chbPrevi">
-                       <property name="geometry">
-                        <rect>
-                         <x>170</x>
-                         <y>30</y>
-                         <width>151</width>
-                         <height>18</height>
-                        </rect>
-                       </property>
-                       <property name="text">
-                        <string>Preview Process</string>
-                       </property>
-                      </widget>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QWidget" name="widget_25" native="true">
+                         <layout class="QVBoxLayout" name="verticalLayout_33">
+                          <item>
+                           <widget class="QGroupBox" name="groupBox_BackgroundColor">
+                            <property name="enabled">
+                             <bool>true</bool>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>103</width>
+                              <height>51</height>
+                             </size>
+                            </property>
+                            <property name="title">
+                             <string>Background Color</string>
+                            </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_15">
+                             <item>
+                              <widget class="QComboBox" name="comboBoxBackground">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>75</width>
+                                 <height>0</height>
+                                </size>
+                               </property>
+                               <item>
+                                <property name="text">
+                                 <string>white</string>
+                                </property>
+                               </item>
+                               <item>
+                                <property name="text">
+                                 <string>black</string>
+                                </property>
+                               </item>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QGroupBox" name="groupBox_Erosion">
+                            <property name="enabled">
+                             <bool>true</bool>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>133</width>
+                              <height>60</height>
+                             </size>
+                            </property>
+                            <property name="title">
+                             <string>Erosion</string>
+                            </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_11">
+                             <item>
+                              <widget class="QLabel" name="label_19">
+                               <property name="text">
+                                <string>Level:</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QSpinBox" name="spinBoxErosao">
+                               <property name="maximum">
+                                <number>10</number>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
                      </widget>
                     </item>
                     <item>
@@ -600,7 +563,7 @@
                        </size>
                       </property>
                       <property name="title">
-                       <string>Step 2.03</string>
+                       <string>Step 3</string>
                       </property>
                       <layout class="QHBoxLayout" name="horizontalLayout_21">
                        <item>
@@ -609,7 +572,7 @@
                           <bool>true</bool>
                          </property>
                          <property name="text">
-                          <string>Frame to Start the analysis</string>
+                          <string>Select the first frame for the analysis</string>
                          </property>
                         </widget>
                        </item>
@@ -644,7 +607,7 @@
                        </size>
                       </property>
                       <property name="title">
-                       <string>Step 2.04</string>
+                       <string>Step 4</string>
                       </property>
                       <layout class="QHBoxLayout" name="horizontalLayout_5">
                        <item>
@@ -653,7 +616,7 @@
                           <bool>true</bool>
                          </property>
                          <property name="text">
-                          <string>Frame to finish the analysis</string>
+                          <string>Select the last frame for the analysis</string>
                          </property>
                         </widget>
                        </item>
@@ -688,7 +651,7 @@
                        </size>
                       </property>
                       <property name="title">
-                       <string>Step 2.05</string>
+                       <string>Step 5</string>
                       </property>
                       <layout class="QHBoxLayout" name="horizontalLayout_28">
                        <item>
@@ -726,7 +689,7 @@
                           <item>
                            <widget class="QGroupBox" name="groupBox_22">
                             <property name="title">
-                             <string>Red Dot</string>
+                             <string>Red triangle</string>
                             </property>
                             <widget class="QLabel" name="label_20">
                              <property name="geometry">
@@ -841,7 +804,7 @@
                           <item>
                            <widget class="QGroupBox" name="groupBox_23">
                             <property name="title">
-                             <string>Blue Dot</string>
+                             <string>Blue triangle</string>
                             </property>
                             <widget class="QLabel" name="label_6">
                              <property name="geometry">
@@ -951,13 +914,6 @@
                               <string>Y</string>
                              </property>
                             </widget>
-                            <zorder>label_6</zorder>
-                            <zorder>label_63</zorder>
-                            <zorder>sbScalP2X</zorder>
-                            <zorder>label_9</zorder>
-                            <zorder>sbScalP2Y</zorder>
-                            <zorder>label_62</zorder>
-                            <zorder>groupBox_2</zorder>
                            </widget>
                           </item>
                          </layout>
@@ -972,7 +928,7 @@
                           </size>
                          </property>
                          <property name="title">
-                          <string>Inform the distance between the triangles</string>
+                          <string>Steo 1- Inform the distance between the triangles</string>
                          </property>
                          <layout class="QVBoxLayout" name="verticalLayout_22">
                           <item>
@@ -1021,15 +977,15 @@
                               <widget class="QWidget" name="widget_17" native="true">
                                <layout class="QVBoxLayout" name="verticalLayout_20">
                                 <item>
-                                 <widget class="QLabel" name="label">
-                                  <property name="text">
-                                   <string>Distance between points</string>
-                                  </property>
-                                 </widget>
-                                </item>
-                                <item>
                                  <widget class="QWidget" name="widget_15" native="true">
                                   <layout class="QHBoxLayout" name="horizontalLayout_18">
+                                   <item>
+                                    <widget class="QLabel" name="label">
+                                     <property name="text">
+                                      <string>Distance between points</string>
+                                     </property>
+                                    </widget>
+                                   </item>
                                    <item>
                                     <widget class="QLineEdit" name="lineEditScalePx">
                                      <property name="enabled">
@@ -1104,7 +1060,7 @@
                              <item>
                               <widget class="QPushButton" name="pbConfEscala">
                                <property name="text">
-                                <string>Save scale</string>
+                                <string>Save the current  scale</string>
                                </property>
                               </widget>
                              </item>
@@ -1120,7 +1076,7 @@
                     <item>
                      <widget class="QGroupBox" name="gbOpcoes">
                       <property name="title">
-                       <string>Marque as Opcoes de interesse</string>
+                       <string>Step 2 - Include in the calibration</string>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout">
                        <item>
@@ -1163,7 +1119,7 @@
                     <item>
                      <widget class="QGroupBox" name="gpMobileVirtualCamera">
                       <property name="title">
-                       <string>Step 3.01 Configure Mobilie virtual camera</string>
+                       <string>Step 1 - Configure Mobilie virtual camera</string>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_24">
                        <item>
@@ -1209,32 +1165,22 @@
                        </item>
                        <item>
                         <widget class="QWidget" name="widMobileConfim" native="true">
-                         <widget class="QLabel" name="label_77">
-                          <property name="geometry">
-                           <rect>
-                            <x>0</x>
-                            <y>10</y>
-                            <width>281</width>
-                            <height>23</height>
-                           </rect>
-                          </property>
-                          <property name="text">
-                           <string>Position the board on top of the animal and press confirm.</string>
-                          </property>
-                         </widget>
-                         <widget class="QPushButton" name="pbNextRoi_2">
-                          <property name="geometry">
-                           <rect>
-                            <x>290</x>
-                            <y>10</y>
-                            <width>75</width>
-                            <height>23</height>
-                           </rect>
-                          </property>
-                          <property name="text">
-                           <string>Confirm</string>
-                          </property>
-                         </widget>
+                         <layout class="QHBoxLayout" name="horizontalLayout_37">
+                          <item>
+                           <widget class="QLabel" name="label_77">
+                            <property name="text">
+                             <string>Step 2 -Position the board on top of the animal and press confirm.</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="pbNextRoi_2">
+                            <property name="text">
+                             <string>Confirm</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
                         </widget>
                        </item>
                       </layout>
@@ -1243,7 +1189,7 @@
                     <item>
                      <widget class="QGroupBox" name="groupBox_16">
                       <property name="title">
-                       <string>Step 3.02 Configure Intrinsic noise</string>
+                       <string>Step 2 - Configure Intrinsic noise</string>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_25">
                        <item>
@@ -1296,7 +1242,7 @@
                     <item>
                      <widget class="QGroupBox" name="groupBox_17">
                       <property name="title">
-                       <string>3.03</string>
+                       <string>Step 3</string>
                       </property>
                       <layout class="QHBoxLayout" name="horizontalLayout_17">
                        <item>
@@ -1965,7 +1911,6 @@
                    </layout>
                    <zorder>groupBox_18</zorder>
                    <zorder>widget_21</zorder>
-                   <zorder>groupBox_10</zorder>
                   </widget>
                  </widget>
                 </item>
@@ -1979,7 +1924,7 @@
                 <item>
                  <widget class="QGroupBox" name="groupBox_35">
                   <property name="title">
-                   <string>Experiment Data</string>
+                   <string>Steo 1 - Experiment info</string>
                   </property>
                   <widget class="QLabel" name="label_21">
                    <property name="geometry">
@@ -2061,7 +2006,7 @@
                 <item>
                  <widget class="QGroupBox" name="groupBox_36">
                   <property name="title">
-                   <string>Animal Data</string>
+                   <string>Step 2 - Animal info</string>
                   </property>
                   <widget class="QLabel" name="label_22">
                    <property name="geometry">
@@ -2164,7 +2109,7 @@
                     </rect>
                    </property>
                    <property name="text">
-                    <string>Threatment/Condition</string>
+                    <string>Treatment</string>
                    </property>
                   </widget>
                  </widget>
@@ -2172,7 +2117,7 @@
                 <item>
                  <widget class="QGroupBox" name="groupBox_4">
                   <property name="title">
-                   <string>Final Step</string>
+                   <string>Step 3</string>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_28">
                    <item>
@@ -3386,9 +3331,6 @@
           </widget>
          </item>
         </layout>
-        <zorder>widget_12</zorder>
-        <zorder>widget_3</zorder>
-        <zorder>widget_3</zorder>
        </widget>
       </item>
      </layout>
@@ -3397,7 +3339,7 @@
    <item>
     <widget class="QLabel" name="label_17">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Find help and the Standard Operating Procedures and discussions about the program in : &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;https://ethowatcher-os.paginas.ufsc.br/&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:12pt; color:#000000;&quot;&gt;Find help, instructions and a standard operating procedure in&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;https://ethowatcher.com&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
