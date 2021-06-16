@@ -4,4 +4,4 @@
     # Target journal, must be either "joss" or "jose"
     journal: # optional, default is joss
     # Path to the main paper Markdown file, relative to the project's root directory.
-    paper-path: # optional, default is paper.md
+    paper-path: paper.md
