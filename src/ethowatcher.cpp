@@ -39,6 +39,7 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
     fluxoComportamental = new telaFluxoComportamental();
 
     ui->pbConversorXMLCSV->setVisible(false);
+    ui->pbRealTime->setVisible(false);
 
     //ui->treeWidget->
 

@@ -277,7 +277,7 @@ p, li { white-space: pre-wrap; }
               </size>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>2</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -928,7 +928,6 @@ p, li { white-space: pre-wrap; }
      <string>About EthoWatcher OS</string>
     </property>
     <addaction name="actionAbout"/>
-    <addaction name="actionLicense_agreement"/>
    </widget>
    <addaction name="menuEthoWatcher"/>
   </widget>
