@@ -3238,9 +3238,8 @@ void telaEtografiaProce::on_pbSaveImage_clicked()
                "Portable Network Graphics (*.png)"
                );
 
-    cv::Mat frameDisplay;
-    frameDisplay= captadorDeVideo->pegaPlanoFundo(videoLista.frameBack[0]);
 
+    nomeImagem.chop(4);
 
 //    QImage imageTotalSaidaCentroide;
 
@@ -3252,37 +3251,64 @@ void telaEtografiaProce::on_pbSaveImage_clicked()
 //    cv::imshow("oi",frameDisplay);
 //    cv::waitKey(10);
 
-    QImage imgLida((uchar*)frameDisplay.data, frameDisplay.cols, frameDisplay.rows, frameDisplay.step, QImage::Format_RGB888);
+    //  estruturaa
+    for(int ja=0; ja< videoLista.area[contadorDeVideo].tipo.size(); ja++ ){
+//        [=](std::vector<QString> *nome_figura, std::vector<double> *centroid_x, std::vector<double> *centroid_y){
+
+           QString nome_figura = videoLista.area[contadorDeVideo].nomeFig[ja];
+           moduloProcessamento *dados_processados = listaProcessamento[ja];
+           std::vector<double> centroid_x = dados_processados->reMorfo.centroidX;
+           std::vector<double> centroid_y = dados_processados->reMorfo.centroidY;
+
+//
+
+           cv::Mat frameDisplay;
+           frameDisplay= captadorDeVideo->pegaPlanoFundo(videoLista.frameBack[0]);
+
+           QImage imgLida((uchar*)frameDisplay.data, frameDisplay.cols, frameDisplay.rows, frameDisplay.step, QImage::Format_RGB888);
 
 
 
 
 
-    QPainter painter1(&imgLida);
-    QPen caneta1;
-    caneta1.setWidth(1);
-    caneta1.setColor(QColor(0,0,255));
+           QPainter painter1(&imgLida);
+           QPen caneta1;
+           caneta1.setWidth(1);
+           caneta1.setColor(QColor(0,0,255));
 
-    painter1.setPen(caneta1);
-    for(int i=1; i< dados->reMorfo.area.size();i++){
+           painter1.setPen(caneta1);
+           for(int i=1; i< centroid_x.size();i++){
 
-        painter1.drawLine(dados->reMorfo.centroidX[i-1],dados->reMorfo.centroidY[i-1],
-                          dados->reMorfo.centroidX[i],dados->reMorfo.centroidY[i]);
-                          //);
+               painter1.drawLine(centroid_x[i-1], centroid_y[i-1],
+                                 centroid_x[i],   centroid_y[i]);
 
-        //painter1.drawPoint(dados->reMorfo.centroidX[i],dados->reMorfo.centroidY[i]);
+   //            painter1.drawLine(dados->reMorfo.centroidX[i-1],dados->reMorfo.centroidY[i-1],
+   //                              dados->reMorfo.centroidX[i],dados->reMorfo.centroidY[i]);
+                                 //);
+
+               //painter1.drawPoint(dados->reMorfo.centroidX[i],dados->reMorfo.centroidY[i]);
+
+           }
+
+
+           QString  nome_imagem_area = nomeImagem + "_" +nome_figura +".png" ;
+
+           if(imgLida.save( nome_imagem_area , "PNG")){
+
+              qDebug() << "imagem Salvou";
+
+           }else{
+
+              qDebug() << "imagem não Salvou";
+           }
+//        }(videoLista.area[contadorDeVideo].nomeFig[ja],
+//                    videoLista.area[contadorDeVideo].oriX[ja],
+//                    videoLista.area[contadorDeVideo].oriY[ja]);
+
+
 
     }
 
-
-    if(imgLida.save(nomeImagem, "PNG")){
-
-       qDebug() << "imagem Salvou";
-
-    }else{
-
-       qDebug() << "imagem não Salvou";
-    }
 ////        stream.writeAttribute("ceX",QString::number());
 ////        stream.writeAttribute("ceY",QString::number(dados->reMorfo.centroidY[i]));
 
@@ -3380,7 +3406,7 @@ void telaEtografiaProce::on_pbTraking_clicked()
 
 
     //ui->probCaptador->setRange(videoLista.frameProces[0],videoLista.frameFinal[0]-1);
-    ui->progressBar->setRange(videoLista.frameProces[0],videoLista.frameFinal[0]);
+    ui->progressBar->setRange(videoLista.frameProces[0], videoLista.frameFinal[0]);
 
 
 //    captador->setCaptaVideoTodo(); //b
@@ -3388,7 +3414,7 @@ void telaEtografiaProce::on_pbTraking_clicked()
     captadorThread->start();//a
 
 //    reiniciaProcessamento();
-   emit reiniciaProce();
+    emit reiniciaProce();
 //    thrProce->start();//a
 
 
