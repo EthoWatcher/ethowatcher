@@ -279,88 +279,6 @@ p, li { white-space: pre-wrap; }
              <property name="currentIndex">
               <number>0</number>
              </property>
-             <widget class="QWidget" name="tab_4">
-              <attribute name="title">
-               <string>Most used tools</string>
-              </attribute>
-              <layout class="QVBoxLayout" name="verticalLayout_3">
-               <item>
-                <widget class="QGroupBox" name="groupBox">
-                 <property name="title">
-                  <string>Database managements tools</string>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_9">
-                  <item>
-                   <widget class="QPushButton" name="pbRegisterCatalog_2">
-                    <property name="font">
-                     <font>
-                      <pointsize>10</pointsize>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>1- Register behavioral catalog</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pbTela2ListaVideo_2">
-                    <property name="font">
-                     <font>
-                      <pointsize>10</pointsize>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>2- Register video files</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QGroupBox" name="groupBox_4">
-                 <property name="title">
-                  <string>Ethographic and tracking tools</string>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_10">
-                  <item>
-                   <widget class="QPushButton" name="pbAnaliseEtograma_2">
-                    <property name="font">
-                     <font>
-                      <pointsize>10</pointsize>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>3- vídeo-based ethography</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QGroupBox" name="groupBox_5">
-                 <property name="title">
-                  <string>Data analysis tools</string>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_11">
-                  <item>
-                   <widget class="QPushButton" name="pbConcordancia_2">
-                    <property name="font">
-                     <font>
-                      <pointsize>10</pointsize>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>4- Reliability calculation</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
              <widget class="QWidget" name="tab">
               <attribute name="title">
                <string>Database managements tools</string>
@@ -390,31 +308,6 @@ p, li { white-space: pre-wrap; }
                               </size>
                              </property>
                              <layout class="QGridLayout" name="gridLayout_2">
-                              <item row="3" column="0">
-                               <widget class="QPushButton" name="pbTela2ListaVideo">
-                                <property name="font">
-                                 <font>
-                                  <pointsize>10</pointsize>
-                                 </font>
-                                </property>
-                                <property name="text">
-                                 <string>Register vídeo files</string>
-                                </property>
-                               </widget>
-                              </item>
-                              <item row="1" column="1">
-                               <widget class="QWidget" name="widget_2" native="true">
-                                <layout class="QVBoxLayout" name="verticalLayout_7">
-                                 <item>
-                                  <widget class="QPushButton" name="pbConversorXMLCSV">
-                                   <property name="text">
-                                    <string>.xml-to-.csv file converter</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                               </widget>
-                              </item>
                               <item row="1" column="0">
                                <widget class="QPushButton" name="pbTela1Yes">
                                 <property name="font">
@@ -436,6 +329,18 @@ p, li { white-space: pre-wrap; }
                                 </property>
                                 <property name="text">
                                  <string>Register a new user</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item row="3" column="0">
+                               <widget class="QPushButton" name="pbTela2ListaVideo">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>10</pointsize>
+                                 </font>
+                                </property>
+                                <property name="text">
+                                 <string>Register vídeo files</string>
                                 </property>
                                </widget>
                               </item>
@@ -928,7 +833,6 @@ p, li { white-space: pre-wrap; }
      <string>About EthoWatcher OS</string>
     </property>
     <addaction name="actionAbout"/>
-    <addaction name="actionLicense_agreement"/>
    </widget>
    <addaction name="menuEthoWatcher"/>
   </widget>

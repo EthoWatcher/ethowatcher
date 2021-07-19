@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analiseEtografica>
+    <dadosExperimentador>
+        <experimentador></experimentador>
+        <laboratorio></laboratorio>
+    </dadosExperimentador>
+    <dadosVideoAnalisado>
+        <nomeVxml>C:/teste_ethowatcher/Lane maze w background femeas exemplo multiplas areas mosca 1 intrinsic noise camera virtual.vxml</nomeVxml>
+        <frameInicial>0</frameInicial>
+        <frameProces>675</frameProces>
+        <frameFinal>1708</frameFinal>
+        <fps>30</fps>
+    </dadosVideoAnalisado>
+    <dadosCatalago>
+        <nomeCaminhoExt>C:/teste_ethowatcher/Catalogo Moscas lane maze Fabi E.caxml</nomeCaminhoExt>
+        <Categorias>
+            <categoria id="0" nome="Locomoçao Capilar"/>
+            <categoria id="1" nome="Imobilidade Capilar"/>
+            <categoria id="2" nome="Grooming Capilar"/>
+            <categoria id="3" nome="Locomoção Raia"/>
+            <categoria id="4" nome="Imobilidade Raia"/>
+            <categoria id="5" nome="Grooming Raia"/>
+            <categoria id="6" nome="Locomoção Canto sc"/>
+            <categoria id="7" nome="Imobilidade Canto sc"/>
+            <categoria id="8" nome="Grooming Canto sc"/>
+        </Categorias>
+    </dadosCatalago>
+    <dadosAnalise>
+        <tipoAnalise>Autoesclusiva</tipoAnalise>
+        <analises>
+            <analise ponto="0" id="0" frameInicial="706" frameFinal="735"/>
+            <analise ponto="1" id="1" frameInicial="735" frameFinal="752"/>
+            <analise ponto="2" id="2" frameInicial="752" frameFinal="771"/>
+            <analise ponto="3" id="3" frameInicial="771" frameFinal="806"/>
+            <analise ponto="4" id="4" frameInicial="806" frameFinal="836"/>
+            <analise ponto="5" id="5" frameInicial="836" frameFinal="864"/>
+            <analise ponto="6" id="6" frameInicial="864" frameFinal="885"/>
+            <analise ponto="7" id="7" frameInicial="885" frameFinal="900"/>
+            <analise ponto="8" id="8" frameInicial="900" frameFinal="942"/>
+            <analise ponto="9" id="0" frameInicial="942" frameFinal="969"/>
+            <analise ponto="10" id="1" frameInicial="969" frameFinal="999"/>
+            <analise ponto="11" id="2" frameInicial="999" frameFinal="1037"/>
+            <analise ponto="12" id="3" frameInicial="1037" frameFinal="1055"/>
+            <analise ponto="13" id="4" frameInicial="1055" frameFinal="1081"/>
+            <analise ponto="14" id="5" frameInicial="1081" frameFinal="1136"/>
+            <analise ponto="15" id="6" frameInicial="1136" frameFinal="1335"/>
+            <analise ponto="16" id="7" frameInicial="1335" frameFinal="1368"/>
+            <analise ponto="17" id="8" frameInicial="1368" frameFinal="1708"/>
+        </analises>
+    </dadosAnalise>
+</analiseEtografica>

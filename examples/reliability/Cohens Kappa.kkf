@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analiseTotalSessao>
+    <dadosAnalisador>
+        <nomeAnalisador>joao antonio Marcolan</nomeAnalisador>
+        <laboratorio>iebUFSC</laboratorio>
+    </dadosAnalisador>
+    <dadosAnaliseEtografica>
+        <dadosCatalagoUsado>
+            <caminhoCatalago>C:/teste_ethowatcher/Catalogo Moscas lane maze Fabi E.caxml</caminhoCatalago>
+            <Categorias>
+                <categoria id="0" nome="Locomoçao Capilar"/>
+                <categoria id="1" nome="Imobilidade Capilar"/>
+                <categoria id="2" nome="Grooming Capilar"/>
+                <categoria id="3" nome="Locomoção Raia"/>
+                <categoria id="4" nome="Imobilidade Raia"/>
+                <categoria id="5" nome="Grooming Raia"/>
+                <categoria id="6" nome="Locomoção Canto sc"/>
+                <categoria id="7" nome="Imobilidade Canto sc"/>
+                <categoria id="8" nome="Grooming Canto sc"/>
+                <categoria id="9" nome="Não Categorisado"/>
+                <categoria id="10" nome="Somatório"/>
+            </Categorias>
+        </dadosCatalagoUsado>
+        <dadosVideosUsados>
+            <caminhoVideo>C:/teste_ethowatcher/Lane maze w background femeas exemplo multiplas areas mosca 1 intrinsic noise camera virtual.vxml</caminhoVideo>
+            <frameInicial>675</frameInicial>
+            <frameFinal>1708</frameFinal>
+            <fps>30</fps>
+        </dadosVideosUsados>
+        <analises>
+            <categoriaKK id="" tipo="Autoesclusiva">
+                <caminhoAnaliseEto>C:/teste_ethowatcher/teste_v_50/teste_1.etoxml</caminhoAnaliseEto>
+            </categoriaKK>
+            <categoriaKK id="" tipo="Autoesclusiva">
+                <caminhoAnaliseEto>C:/teste_ethowatcher/teste_v_50/teste_1.etoxml</caminhoAnaliseEto>
+            </categoriaKK>
+        </analises>
+    </dadosAnaliseEtografica>
+    <analiseKohoneKappa>
+        <tabelaConcordancia>
+            <categoriaKK idcat="0" nome="Locomoçao Capilar">
+                <caAnaSeg idcat="0" quant="56"/>
+                <caAnaSeg idcat="1" quant="0"/>
+                <caAnaSeg idcat="2" quant="0"/>
+                <caAnaSeg idcat="3" quant="0"/>
+                <caAnaSeg idcat="4" quant="0"/>
+                <caAnaSeg idcat="5" quant="0"/>
+                <caAnaSeg idcat="6" quant="0"/>
+                <caAnaSeg idcat="7" quant="0"/>
+                <caAnaSeg idcat="8" quant="0"/>
+                <caAnaSeg idcat="9" quant="0"/>
+                <caAnaSeg idcat="10" quant="56"/>
+            </categoriaKK>
+            <categoriaKK idcat="1" nome="Imobilidade Capilar">
+                <caAnaSeg idcat="0" quant="0"/>
+                <caAnaSeg idcat="1" quant="47"/>
+                <caAnaSeg idcat="2" quant="0"/>
+                <caAnaSeg idcat="3" quant="0"/>
+                <caAnaSeg idcat="4" quant="0"/>
+                <caAnaSeg idcat="5" quant="0"/>
+                <caAnaSeg idcat="6" quant="0"/>
+                <caAnaSeg idcat="7" quant="0"/>
+                <caAnaSeg idcat="8" quant="0"/>
+                <caAnaSeg idcat="9" quant="0"/>
+                <caAnaSeg idcat="10" quant="47"/>
+            </categoriaKK>
+            <categoriaKK idcat="2" nome="Grooming Capilar">
+                <caAnaSeg idcat="0" quant="0"/>
+                <caAnaSeg idcat="1" quant="0"/>
+                <caAnaSeg idcat="2" quant="57"/>
+                <caAnaSeg idcat="3" quant="0"/>
+                <caAnaSeg idcat="4" quant="0"/>
+                <caAnaSeg idcat="5" quant="0"/>
+                <caAnaSeg idcat="6" quant="0"/>
+                <caAnaSeg idcat="7" quant="0"/>
+                <caAnaSeg idcat="8" quant="0"/>
+                <caAnaSeg idcat="9" quant="0"/>
+                <caAnaSeg idcat="10" quant="57"/>
+            </categoriaKK>
+            <categoriaKK idcat="3" nome="Locomoção Raia">
+                <caAnaSeg idcat="0" quant="0"/>
+                <caAnaSeg idcat="1" quant="0"/>
+                <caAnaSeg idcat="2" quant="0"/>
+                <caAnaSeg idcat="3" quant="53"/>
+                <caAnaSeg idcat="4" quant="0"/>
+                <caAnaSeg idcat="5" quant="0"/>
+                <caAnaSeg idcat="6" quant="0"/>
+                <caAnaSeg idcat="7" quant="0"/>
+                <caAnaSeg idcat="8" quant="0"/>
+                <caAnaSeg idcat="9" quant="0"/>
+                <caAnaSeg idcat="10" quant="53"/>
+            </categoriaKK>
+            <categoriaKK idcat="4" nome="Imobilidade Raia">
+                <caAnaSeg idcat="0" quant="0"/>
+                <caAnaSeg idcat="1" quant="0"/>
+                <caAnaSeg idcat="2" quant="0"/>
+                <caAnaSeg idcat="3" quant="0"/>
+                <caAnaSeg idcat="4" quant="56"/>
+                <caAnaSeg idcat="5" quant="0"/>
+                <caAnaSeg idcat="6" quant="0"/>
+                <caAnaSeg idcat="7" quant="0"/>
+                <caAnaSeg idcat="8" quant="0"/>
+                <caAnaSeg idcat="9" quant="0"/>
+                <caAnaSeg idcat="10" quant="56"/>
+            </categoriaKK>
+            <categoriaKK idcat="5" nome="Grooming Raia">
+                <caAnaSeg idcat="0" quant="0"/>
+                <caAnaSeg idcat="1" quant="0"/>
+                <caAnaSeg idcat="2" quant="0"/>
+                <caAnaSeg idcat="3" quant="0"/>
+                <caAnaSeg idcat="4" quant="0"/>
+                <caAnaSeg idcat="5" quant="83"/>
+                <caAnaSeg idcat="6" quant="0"/>
+                <caAnaSeg idcat="7" quant="0"/>
+                <caAnaSeg idcat="8" quant="0"/>
+                <caAnaSeg idcat="9" quant="0"/>
+                <caAnaSeg idcat="10" quant="83"/>
+            </categoriaKK>
+            <categoriaKK idcat="6" nome="Locomoção Canto sc">
+                <caAnaSeg idcat="0" quant="0"/>
+                <caAnaSeg idcat="1" quant="0"/>
+                <caAnaSeg idcat="2" quant="0"/>
+                <caAnaSeg idcat="3" quant="0"/>
+                <caAnaSeg idcat="4" quant="0"/>
+                <caAnaSeg idcat="5" quant="0"/>
+                <caAnaSeg idcat="6" quant="220"/>
+                <caAnaSeg idcat="7" quant="0"/>
+                <caAnaSeg idcat="8" quant="0"/>
+                <caAnaSeg idcat="9" quant="0"/>
+                <caAnaSeg idcat="10" quant="220"/>
+            </categoriaKK>
+            <categoriaKK idcat="7" nome="Imobilidade Canto sc">
+                <caAnaSeg idcat="0" quant="0"/>
+                <caAnaSeg idcat="1" quant="0"/>
+                <caAnaSeg idcat="2" quant="0"/>
+                <caAnaSeg idcat="3" quant="0"/>
+                <caAnaSeg idcat="4" quant="0"/>
+                <caAnaSeg idcat="5" quant="0"/>
+                <caAnaSeg idcat="6" quant="0"/>
+                <caAnaSeg idcat="7" quant="48"/>
+                <caAnaSeg idcat="8" quant="0"/>
+                <caAnaSeg idcat="9" quant="0"/>
+                <caAnaSeg idcat="10" quant="48"/>
+            </categoriaKK>
+            <categoriaKK idcat="8" nome="Grooming Canto sc">
+                <caAnaSeg idcat="0" quant="0"/>
+                <caAnaSeg idcat="1" quant="0"/>
+                <caAnaSeg idcat="2" quant="0"/>
+                <caAnaSeg idcat="3" quant="0"/>
+                <caAnaSeg idcat="4" quant="0"/>
+                <caAnaSeg idcat="5" quant="0"/>
+                <caAnaSeg idcat="6" quant="0"/>
+                <caAnaSeg idcat="7" quant="0"/>
+                <caAnaSeg idcat="8" quant="382"/>
+                <caAnaSeg idcat="9" quant="0"/>
+                <caAnaSeg idcat="10" quant="382"/>
+            </categoriaKK>
+            <categoriaKK idcat="9" nome="Não Categorizado">
+                <caAnaSeg idcat="0" quant="0"/>
+                <caAnaSeg idcat="1" quant="0"/>
+                <caAnaSeg idcat="2" quant="0"/>
+                <caAnaSeg idcat="3" quant="0"/>
+                <caAnaSeg idcat="4" quant="0"/>
+                <caAnaSeg idcat="5" quant="0"/>
+                <caAnaSeg idcat="6" quant="0"/>
+                <caAnaSeg idcat="7" quant="0"/>
+                <caAnaSeg idcat="8" quant="0"/>
+                <caAnaSeg idcat="9" quant="31"/>
+                <caAnaSeg idcat="10" quant="31"/>
+            </categoriaKK>
+            <categoriaKK idcat="10" nome="Somatorio">
+                <caAnaSeg idcat="0" quant="56"/>
+                <caAnaSeg idcat="1" quant="47"/>
+                <caAnaSeg idcat="2" quant="57"/>
+                <caAnaSeg idcat="3" quant="53"/>
+                <caAnaSeg idcat="4" quant="56"/>
+                <caAnaSeg idcat="5" quant="83"/>
+                <caAnaSeg idcat="6" quant="220"/>
+                <caAnaSeg idcat="7" quant="48"/>
+                <caAnaSeg idcat="8" quant="382"/>
+                <caAnaSeg idcat="9" quant="31"/>
+                <caAnaSeg idcat="10" quant="1033"/>
+            </categoriaKK>
+        </tabelaConcordancia>
+        <tabelaPorcentagem>
+            <categoriaKK idcat="0" nome="Locomoçao Capilar">
+                <caAnaSeg idcat="0" porcent="0.054211"/>
+                <caAnaSeg idcat="1" porcent="0"/>
+                <caAnaSeg idcat="2" porcent="0"/>
+                <caAnaSeg idcat="3" porcent="0"/>
+                <caAnaSeg idcat="4" porcent="0"/>
+                <caAnaSeg idcat="5" porcent="0"/>
+                <caAnaSeg idcat="6" porcent="0"/>
+                <caAnaSeg idcat="7" porcent="0"/>
+                <caAnaSeg idcat="8" porcent="0"/>
+                <caAnaSeg idcat="9" porcent="0"/>
+                <caAnaSeg idcat="10" porcent="0.054211"/>
+            </categoriaKK>
+            <categoriaKK idcat="1" nome="Imobilidade Capilar">
+                <caAnaSeg idcat="0" porcent="0"/>
+                <caAnaSeg idcat="1" porcent="0.0454985"/>
+                <caAnaSeg idcat="2" porcent="0"/>
+                <caAnaSeg idcat="3" porcent="0"/>
+                <caAnaSeg idcat="4" porcent="0"/>
+                <caAnaSeg idcat="5" porcent="0"/>
+                <caAnaSeg idcat="6" porcent="0"/>
+                <caAnaSeg idcat="7" porcent="0"/>
+                <caAnaSeg idcat="8" porcent="0"/>
+                <caAnaSeg idcat="9" porcent="0"/>
+                <caAnaSeg idcat="10" porcent="0.0454985"/>
+            </categoriaKK>
+            <categoriaKK idcat="2" nome="Grooming Capilar">
+                <caAnaSeg idcat="0" porcent="0"/>
+                <caAnaSeg idcat="1" porcent="0"/>
+                <caAnaSeg idcat="2" porcent="0.0551791"/>
+                <caAnaSeg idcat="3" porcent="0"/>
+                <caAnaSeg idcat="4" porcent="0"/>
+                <caAnaSeg idcat="5" porcent="0"/>
+                <caAnaSeg idcat="6" porcent="0"/>
+                <caAnaSeg idcat="7" porcent="0"/>
+                <caAnaSeg idcat="8" porcent="0"/>
+                <caAnaSeg idcat="9" porcent="0"/>
+                <caAnaSeg idcat="10" porcent="0.0551791"/>
+            </categoriaKK>
+            <categoriaKK idcat="3" nome="Locomoção Raia">
+                <caAnaSeg idcat="0" porcent="0"/>
+                <caAnaSeg idcat="1" porcent="0"/>
+                <caAnaSeg idcat="2" porcent="0"/>
+                <caAnaSeg idcat="3" porcent="0.0513069"/>
+                <caAnaSeg idcat="4" porcent="0"/>
+                <caAnaSeg idcat="5" porcent="0"/>
+                <caAnaSeg idcat="6" porcent="0"/>
+                <caAnaSeg idcat="7" porcent="0"/>
+                <caAnaSeg idcat="8" porcent="0"/>
+                <caAnaSeg idcat="9" porcent="0"/>
+                <caAnaSeg idcat="10" porcent="0.0513069"/>
+            </categoriaKK>
+            <categoriaKK idcat="4" nome="Imobilidade Raia">
+                <caAnaSeg idcat="0" porcent="0"/>
+                <caAnaSeg idcat="1" porcent="0"/>
+                <caAnaSeg idcat="2" porcent="0"/>
+                <caAnaSeg idcat="3" porcent="0"/>
+                <caAnaSeg idcat="4" porcent="0.054211"/>
+                <caAnaSeg idcat="5" porcent="0"/>
+                <caAnaSeg idcat="6" porcent="0"/>
+                <caAnaSeg idcat="7" porcent="0"/>
+                <caAnaSeg idcat="8" porcent="0"/>
+                <caAnaSeg idcat="9" porcent="0"/>
+                <caAnaSeg idcat="10" porcent="0.054211"/>
+            </categoriaKK>
+            <categoriaKK idcat="5" nome="Grooming Raia">
+                <caAnaSeg idcat="0" porcent="0"/>
+                <caAnaSeg idcat="1" porcent="0"/>
+                <caAnaSeg idcat="2" porcent="0"/>
+                <caAnaSeg idcat="3" porcent="0"/>
+                <caAnaSeg idcat="4" porcent="0"/>
+                <caAnaSeg idcat="5" porcent="0.0803485"/>
+                <caAnaSeg idcat="6" porcent="0"/>
+                <caAnaSeg idcat="7" porcent="0"/>
+                <caAnaSeg idcat="8" porcent="0"/>
+                <caAnaSeg idcat="9" porcent="0"/>
+                <caAnaSeg idcat="10" porcent="0.0803485"/>
+            </categoriaKK>
+            <categoriaKK idcat="6" nome="Locomoção Canto sc">
+                <caAnaSeg idcat="0" porcent="0"/>
+                <caAnaSeg idcat="1" porcent="0"/>
+                <caAnaSeg idcat="2" porcent="0"/>
+                <caAnaSeg idcat="3" porcent="0"/>
+                <caAnaSeg idcat="4" porcent="0"/>
+                <caAnaSeg idcat="5" porcent="0"/>
+                <caAnaSeg idcat="6" porcent="0.212972"/>
+                <caAnaSeg idcat="7" porcent="0"/>
+                <caAnaSeg idcat="8" porcent="0"/>
+                <caAnaSeg idcat="9" porcent="0"/>
+                <caAnaSeg idcat="10" porcent="0.212972"/>
+            </categoriaKK>
+            <categoriaKK idcat="7" nome="Imobilidade Canto sc">
+                <caAnaSeg idcat="0" porcent="0"/>
+                <caAnaSeg idcat="1" porcent="0"/>
+                <caAnaSeg idcat="2" porcent="0"/>
+                <caAnaSeg idcat="3" porcent="0"/>
+                <caAnaSeg idcat="4" porcent="0"/>
+                <caAnaSeg idcat="5" porcent="0"/>
+                <caAnaSeg idcat="6" porcent="0"/>
+                <caAnaSeg idcat="7" porcent="0.0464666"/>
+                <caAnaSeg idcat="8" porcent="0"/>
+                <caAnaSeg idcat="9" porcent="0"/>
+                <caAnaSeg idcat="10" porcent="0.0464666"/>
+            </categoriaKK>
+            <categoriaKK idcat="8" nome="Grooming Canto sc">
+                <caAnaSeg idcat="0" porcent="0"/>
+                <caAnaSeg idcat="1" porcent="0"/>
+                <caAnaSeg idcat="2" porcent="0"/>
+                <caAnaSeg idcat="3" porcent="0"/>
+                <caAnaSeg idcat="4" porcent="0"/>
+                <caAnaSeg idcat="5" porcent="0"/>
+                <caAnaSeg idcat="6" porcent="0"/>
+                <caAnaSeg idcat="7" porcent="0"/>
+                <caAnaSeg idcat="8" porcent="0.369797"/>
+                <caAnaSeg idcat="9" porcent="0"/>
+                <caAnaSeg idcat="10" porcent="0.369797"/>
+            </categoriaKK>
+            <categoriaKK idcat="9" nome="Somatorio">
+                <caAnaSeg idcat="0" porcent="0"/>
+                <caAnaSeg idcat="1" porcent="0"/>
+                <caAnaSeg idcat="2" porcent="0"/>
+                <caAnaSeg idcat="3" porcent="0"/>
+                <caAnaSeg idcat="4" porcent="0"/>
+                <caAnaSeg idcat="5" porcent="0"/>
+                <caAnaSeg idcat="6" porcent="0"/>
+                <caAnaSeg idcat="7" porcent="0"/>
+                <caAnaSeg idcat="8" porcent="0"/>
+                <caAnaSeg idcat="9" porcent="0.0300097"/>
+                <caAnaSeg idcat="10" porcent="0.0300097"/>
+            </categoriaKK>
+            <categoriaKK idcat="10" nome="Não Categorizado">
+                <caAnaSeg idcat="0" porcent="0.054211"/>
+                <caAnaSeg idcat="1" porcent="0.0454985"/>
+                <caAnaSeg idcat="2" porcent="0.0551791"/>
+                <caAnaSeg idcat="3" porcent="0.0513069"/>
+                <caAnaSeg idcat="4" porcent="0.054211"/>
+                <caAnaSeg idcat="5" porcent="0.0803485"/>
+                <caAnaSeg idcat="6" porcent="0.212972"/>
+                <caAnaSeg idcat="7" porcent="0.0464666"/>
+                <caAnaSeg idcat="8" porcent="0.369797"/>
+                <caAnaSeg idcat="9" porcent="0.0300097"/>
+                <caAnaSeg idcat="10" porcent="1"/>
+            </categoriaKK>
+        </tabelaPorcentagem>
+        <resultadoFinal>
+            <k1>1</k1>
+            <k2>0.205247</k2>
+            <indiceKohoneKappa>1</indiceKohoneKappa>
+        </resultadoFinal>
+    </analiseKohoneKappa>
+</analiseTotalSessao>

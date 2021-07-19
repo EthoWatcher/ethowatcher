@@ -161,12 +161,13 @@ void telaEtografiaProce::recebeImagem(QImage qiCaptador, int numFrame)
 {
 
     atualizaRegistro();
+    QString red_color= "";
 
     if(numFrame>= videoLista.frameProces[0]){
 
         ui->widBotoes->setEnabled(true);
         ui->lblEtographiOn->setText("Etographia is Avaible");
-        ui->lblEtographiOn->setStyleSheet("background-color: green;""color: black; " "font: bold;");
+        ui->lblEtographiOn->setStyleSheet("background-color: rgb(212, 212, 212);""color: black; " "font: bold;");
         ui->widBotoes->setVisible(true);
 
 
@@ -176,7 +177,7 @@ void telaEtografiaProce::recebeImagem(QImage qiCaptador, int numFrame)
     }else{
         ui->widBotoes->setEnabled(false);
         ui->lblEtographiOn->setText("Etographia is not Avaible");
-        ui->lblEtographiOn->setStyleSheet("background-color: red;""color: black; " "font: bold;");
+        ui->lblEtographiOn->setStyleSheet(red_color + "color: black; " "font: bold;");
         ui->widBotoes->setVisible(false);
 
 
@@ -1944,7 +1945,7 @@ void telaEtografiaProce::on_pbStart_clicked()
 
 
         QSignalMapper *mapperCategorias = new QSignalMapper(this);
-
+        // construindo os botões da análise.
         for(int j=0; j<numeroDeBotoes;j++){
 
             //criar um novo botão
@@ -1953,11 +1954,11 @@ void telaEtografiaProce::on_pbStart_clicked()
 
             //buttonList[j]->setText(nomeCate[j]); //seta o nome
             buttonList[j]->setText(cAnaEto.nomeCategoria[j]+ "("+cAnaEto.atalho[j]+")"+"(ready)");
-            buttonList[j]->setFixedHeight(30);
+            buttonList[j]->setFixedHeight(40);
             //buttonList[j]->setFont();
             //buttonList[j]->setFont(QFont("MS Shell Dlg 2",12,-1,false, true));
-            buttonList[j]->setStyleSheet("background-color: green;""color: black;" "font: bold");// "font: bold");
-//                                         "font-size: 12px" "font-style: bold;");
+            buttonList[j]->setStyleSheet("background-color: rgb(123, 245, 39);"  "color: black;"  "font-size: 18px");// "font: bold");
+//                                         "font-style: bold;");
 
             clicado.push_back(false); //false funciona
             //fazendo o buffer
@@ -2154,6 +2155,9 @@ void telaEtografiaProce::slotMapeado(int a)
     chNovoValor=true;
     frame_atual = ui->labelFrames->text().toDouble();
     double finalframe1 = videoLista.frameFinal[0];
+    QString green = "background-color: rgb(123, 245, 39);";
+    QString red = "background-color: rgb(254,153, 0);";
+
 
     //escolheSelecao=false; //true é auto
     //false nested
@@ -2164,7 +2168,7 @@ void telaEtografiaProce::slotMapeado(int a)
                 if(!clicado[i]){
                     //se o botão nao estiver clicado
                     clicado[i]=true;
-                    buttonList[i]->setStyleSheet("background-color: yellow;""color: blue;" "font: bold;");
+                    buttonList[i]->setStyleSheet(green + "color: blue;" +  "font-size: 18px");
                     buttonList[i]->setText(nomeCate[i]+ "(" + cAnaEto.atalho[i] +")" + " (Marking)");
 
                     //criando novo ponto apos clique
@@ -2183,7 +2187,7 @@ void telaEtografiaProce::slotMapeado(int a)
                     //se o posição estiver clicado
                     clicado[i]=false;
                     // for(int k=0;k<numeroDeBotoes;k++){
-                    buttonList[i]->setStyleSheet("background-color: green;""color: black; " "font: bold;");
+                    buttonList[i]->setStyleSheet(green + "color: black; " + "font-size: 18px");
                     buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")" +" (Ready)");
                     //saida.frameComeco.push_back(frame_atual);
                     //    }
@@ -2213,7 +2217,7 @@ void telaEtografiaProce::slotMapeado(int a)
 
             for(int i=0; i<numeroDeBotoes; i++){
                 clicado[i]=false;
-                buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+                buttonList[i]->setStyleSheet(green + "color: black;"  "font-size: 18px"); //green
                 buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
                 buttonList[i]->setEnabled(true);
 
@@ -2226,7 +2230,7 @@ void telaEtografiaProce::slotMapeado(int a)
                     //diferencia se o botão esta clicado esta release
                     if(!clicado[i]){
                         clicado[i]=true;
-                        buttonList[i]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
+                        buttonList[i]->setStyleSheet(red + "color: black;" +  "font-size: 18px"); //red
                         buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
                         buttonList[i]->setEnabled(false);
 
@@ -2245,7 +2249,7 @@ void telaEtografiaProce::slotMapeado(int a)
                     }else {
                         clicado[i]=false;
                         // for(int k=0;k<numeroDeBotoes;k++){
-                        buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+                        buttonList[i]->setStyleSheet(green + "color: black;" +  "font-size: 18px");
                         buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")");
                         buttonList[i]->setEnabled(true);
 
@@ -2348,7 +2352,7 @@ void telaEtografiaProce::slotMapeado(int a)
 
                 if(clicado[i]){
 
-                    buttonList[i]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
+                    buttonList[i]->setStyleSheet(red + "color: black;" + "font-size: 18px");
                     buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
                     buttonList[i]->setEnabled(false);
 
@@ -2356,7 +2360,7 @@ void telaEtografiaProce::slotMapeado(int a)
 
                 }else{
 
-                    buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+                    buttonList[i]->setStyleSheet(green + "color: black;" +  "font-size: 18px");
                     buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
                     buttonList[i]->setEnabled(true);
                 }
@@ -3016,6 +3020,8 @@ void telaEtografiaProce::on_pbDeleteRegistros_clicked()
     int ultimoValor=-1;
     bool algumClicado=false;
 
+    QString red_color = "background-color: rgb(224,56,16);";
+    QString green_color = "background-color: rgb(39,245,108);";
 
 
     if(ui->cbNested->isChecked()){
@@ -3123,7 +3129,7 @@ void telaEtografiaProce::on_pbDeleteRegistros_clicked()
 
                         if(i==saida.id[ultimoValor-1]){
 
-                            buttonList[i]->setStyleSheet("background-color: red;""color: black;" "font: bold;");
+                            buttonList[i]->setStyleSheet(red_color + "color: black;" "font: bold;");
                             buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
                             buttonList[i]->setEnabled(false);
                             clicado[i]=true;
@@ -3132,7 +3138,7 @@ void telaEtografiaProce::on_pbDeleteRegistros_clicked()
 
                         }else{
 
-                            buttonList[i]->setStyleSheet("background-color: green;""color: black;" "font: bold;");
+                            buttonList[i]->setStyleSheet(green_color + "color: black;" "font: bold;");
                             buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
                             buttonList[i]->setEnabled(true);
                             clicado[i]=false;
@@ -3232,9 +3238,8 @@ void telaEtografiaProce::on_pbSaveImage_clicked()
                "Portable Network Graphics (*.png)"
                );
 
-    cv::Mat frameDisplay;
-    frameDisplay= captadorDeVideo->pegaPlanoFundo(videoLista.frameBack[0]);
 
+    nomeImagem.chop(4);
 
 //    QImage imageTotalSaidaCentroide;
 
@@ -3246,37 +3251,64 @@ void telaEtografiaProce::on_pbSaveImage_clicked()
 //    cv::imshow("oi",frameDisplay);
 //    cv::waitKey(10);
 
-    QImage imgLida((uchar*)frameDisplay.data, frameDisplay.cols, frameDisplay.rows, frameDisplay.step, QImage::Format_RGB888);
+    //  estruturaa
+    for(int ja=0; ja< videoLista.area[contadorDeVideo].tipo.size(); ja++ ){
+//        [=](std::vector<QString> *nome_figura, std::vector<double> *centroid_x, std::vector<double> *centroid_y){
+
+           QString nome_figura = videoLista.area[contadorDeVideo].nomeFig[ja];
+           moduloProcessamento *dados_processados = listaProcessamento[ja];
+           std::vector<double> centroid_x = dados_processados->reMorfo.centroidX;
+           std::vector<double> centroid_y = dados_processados->reMorfo.centroidY;
+
+//
+
+           cv::Mat frameDisplay;
+           frameDisplay= captadorDeVideo->pegaPlanoFundo(videoLista.frameBack[0]);
+
+           QImage imgLida((uchar*)frameDisplay.data, frameDisplay.cols, frameDisplay.rows, frameDisplay.step, QImage::Format_RGB888);
 
 
 
 
 
-    QPainter painter1(&imgLida);
-    QPen caneta1;
-    caneta1.setWidth(1);
-    caneta1.setColor(QColor(0,0,255));
+           QPainter painter1(&imgLida);
+           QPen caneta1;
+           caneta1.setWidth(1);
+           caneta1.setColor(QColor(0,0,255));
 
-    painter1.setPen(caneta1);
-    for(int i=1; i< dados->reMorfo.area.size();i++){
+           painter1.setPen(caneta1);
+           for(int i=1; i< centroid_x.size();i++){
 
-        painter1.drawLine(dados->reMorfo.centroidX[i-1],dados->reMorfo.centroidY[i-1],
-                          dados->reMorfo.centroidX[i],dados->reMorfo.centroidY[i]);
-                          //);
+               painter1.drawLine(centroid_x[i-1], centroid_y[i-1],
+                                 centroid_x[i],   centroid_y[i]);
 
-        //painter1.drawPoint(dados->reMorfo.centroidX[i],dados->reMorfo.centroidY[i]);
+   //            painter1.drawLine(dados->reMorfo.centroidX[i-1],dados->reMorfo.centroidY[i-1],
+   //                              dados->reMorfo.centroidX[i],dados->reMorfo.centroidY[i]);
+                                 //);
+
+               //painter1.drawPoint(dados->reMorfo.centroidX[i],dados->reMorfo.centroidY[i]);
+
+           }
+
+
+           QString  nome_imagem_area = nomeImagem + "_" +nome_figura +".png" ;
+
+           if(imgLida.save( nome_imagem_area , "PNG")){
+
+              qDebug() << "imagem Salvou";
+
+           }else{
+
+              qDebug() << "imagem não Salvou";
+           }
+//        }(videoLista.area[contadorDeVideo].nomeFig[ja],
+//                    videoLista.area[contadorDeVideo].oriX[ja],
+//                    videoLista.area[contadorDeVideo].oriY[ja]);
+
+
 
     }
 
-
-    if(imgLida.save(nomeImagem, "PNG")){
-
-       qDebug() << "imagem Salvou";
-
-    }else{
-
-       qDebug() << "imagem não Salvou";
-    }
 ////        stream.writeAttribute("ceX",QString::number());
 ////        stream.writeAttribute("ceY",QString::number(dados->reMorfo.centroidY[i]));
 
@@ -3374,7 +3406,7 @@ void telaEtografiaProce::on_pbTraking_clicked()
 
 
     //ui->probCaptador->setRange(videoLista.frameProces[0],videoLista.frameFinal[0]-1);
-    ui->progressBar->setRange(videoLista.frameProces[0],videoLista.frameFinal[0]);
+    ui->progressBar->setRange(videoLista.frameProces[0], videoLista.frameFinal[0]);
 
 
 //    captador->setCaptaVideoTodo(); //b
@@ -3382,7 +3414,7 @@ void telaEtografiaProce::on_pbTraking_clicked()
     captadorThread->start();//a
 
 //    reiniciaProcessamento();
-   emit reiniciaProce();
+    emit reiniciaProce();
 //    thrProce->start();//a
 
 

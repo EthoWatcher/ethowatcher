@@ -1,0 +1,60 @@
+sep=; 
+Informacion about the user
+Researcher ; Laboratory
+joao antonio Marcolan;iebUFSC
+
+The information of analysed videos: 
+Name; Frames per second (fps); Frame started the analysis; Frame finished the analysis 
+C:/teste_ethowatcher/Lane maze w background femeas exemplo multiplas areas mosca 1 intrinsic noise camera virtual.vxml;30;675;1708
+
+The information of catalogue: 
+The catalogue used in etography are: ;C:/teste_ethowatcher/Catalogo Moscas lane maze Fabi E.caxml
+Categories
+Locomoçao Capilar
+Imobilidade Capilar
+Grooming Capilar
+Locomoção Raia
+Imobilidade Raia
+Grooming Raia
+Locomoção Canto sc
+Imobilidade Canto sc
+Grooming Canto sc
+Não Categorisado
+Somatório
+
+The etographys used in the Cohen's Kappa analyses are 
+Id; Path; Type 
+
+
+The agreement matriz of Cohen's Kappa are
+;Locomoçao Capilar;Imobilidade Capilar;Grooming Capilar;Locomoção Raia;Imobilidade Raia;Grooming Raia;Locomoção Canto sc;Imobilidade Canto sc;Grooming Canto sc;Não Categorisado;Somatório;
+Locomoçao Capilar;56;0;0;0;0;0;0;0;0;0;56;
+Imobilidade Capilar;0;47;0;0;0;0;0;0;0;0;47;
+Grooming Capilar;0;0;57;0;0;0;0;0;0;0;57;
+Locomoção Raia;0;0;0;53;0;0;0;0;0;0;53;
+Imobilidade Raia;0;0;0;0;56;0;0;0;0;0;56;
+Grooming Raia;0;0;0;0;0;83;0;0;0;0;83;
+Locomoção Canto sc;0;0;0;0;0;0;220;0;0;0;220;
+Imobilidade Canto sc;0;0;0;0;0;0;0;48;0;0;48;
+Grooming Canto sc;0;0;0;0;0;0;0;0;382;0;382;
+Não Categorisado;0;0;0;0;0;0;0;0;0;31;31;
+Somatório;56;47;57;53;56;83;220;48;382;31;1033;
+The agreement porcentage matriz of Cohen's Kappa are: 
+;Locomoçao Capilar;Imobilidade Capilar;Grooming Capilar;Locomoção Raia;Imobilidade Raia;Grooming Raia;Locomoção Canto sc;Imobilidade Canto sc;Grooming Canto sc;Não Categorisado;Somatório;
+Locomoçao Capilar;0.054211;0;0;0;0;0;0;0;0;0;0.054211;
+Imobilidade Capilar;0;0.0454985;0;0;0;0;0;0;0;0;0.0454985;
+Grooming Capilar;0;0;0.0551791;0;0;0;0;0;0;0;0.0551791;
+Locomoção Raia;0;0;0;0.0513069;0;0;0;0;0;0;0.0513069;
+Imobilidade Raia;0;0;0;0;0.054211;0;0;0;0;0;0.054211;
+Grooming Raia;0;0;0;0;0;0.0803485;0;0;0;0;0.0803485;
+Locomoção Canto sc;0;0;0;0;0;0;0.212972;0;0;0;0.212972;
+Imobilidade Canto sc;0;0;0;0;0;0;0;0.0464666;0;0;0.0464666;
+Grooming Canto sc;0;0;0;0;0;0;0;0;0.369797;0;0.369797;
+Não Categorisado;0;0;0;0;0;0;0;0;0;0.0300097;0.0300097;
+Somatório;0.054211;0.0454985;0.0551791;0.0513069;0.054211;0.0803485;0.212972;0.0464666;0.369797;0.0300097;1;
+
+
+The final result are
+The agreement porcentage (k1) are ; 100 (%)
+The agreement porcentage by chance (k2) are ; 20.5247(%)
+The Cohen's Kappa; 100

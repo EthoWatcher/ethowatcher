@@ -1,0 +1,51 @@
+sep=; 
+EthoWatcher Open Source 
+Observer
+Lab
+Experiment
+Animal
+Weight
+sex
+Treatment/condition
+Other Info
+WARNING: in this version, decimals are separated by COMMA 
+ETHOGRAPHY REPORT
+Registred video file are locate in C:/teste_ethowatcher/Lane maze w background femeas exemplo multiplas areas mosca 1 intrinsic noise camera virtual.vxml
+Analysis initiated at 22.5 (seconds) of the video file 
+ Analysis terminated at 56.9333 (seconds) of the video file 
+
+The selected catalog are : ;C:/teste_ethowatcher/Catalogo Moscas lane maze Fabi E.caxml
+
+
+
+Time (s);Categories;Duration(s)
+23.5333;Locomoçao Capilar;0.966667
+24.5;Imobilidade Capilar;0.566667
+25.0667;Grooming Capilar;0.633333
+25.7;Locomoção Raia;1.16667
+26.8667;Imobilidade Raia;1
+27.8667;Grooming Raia;0.933333
+28.8;Locomoção Canto sc;0.7
+29.5;Imobilidade Canto sc;0.5
+30;Grooming Canto sc;1.4
+31.4;Locomoçao Capilar;0.9
+32.3;Imobilidade Capilar;1
+33.3;Grooming Capilar;1.26667
+34.5667;Locomoção Raia;0.6
+35.1667;Imobilidade Raia;0.866667
+36.0333;Grooming Raia;1.83333
+37.8667;Locomoção Canto sc;6.63333
+44.5;Imobilidade Canto sc;1.1
+45.6;Grooming Canto sc;11.3333
+RESULTS FOR THE ENTIRE PERIOD of ANALYSIS 
+
+Category;Duration(s);Freq.;Latency(s)
+Locomoçao Capilar;1.86667;2;1.03333;
+Imobilidade Capilar;1.56667;2;2;
+Grooming Capilar;1.9;2;2.56667;
+Locomoção Raia;1.76667;2;3.2;
+Imobilidade Raia;1.86667;2;4.36667;
+Grooming Raia;2.76667;2;5.36667;
+Locomoção Canto sc;7.33333;2;6.3;
+Imobilidade Canto sc;1.6;2;7;
+Grooming Canto sc;12.7333;2;7.5;

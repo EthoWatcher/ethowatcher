@@ -1469,15 +1469,15 @@ void parserXMLtoCSV::escreverTimeCsv()
     csvGravador <<"Treatment/condition" << "\n";
     csvGravador <<"Other Info" << "\n";
     //csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
-    csvGravador <<"WARNING: in this version, decimals are separated by COMMA \n";
+    csvGravador <<"WARNING: in this version, decimals are separated by DOT(.) \n";
 //    csvGravador <<"video file \n";
 
     csvGravador << "ETHOGRAPHY REPORT" << "\n";
 ////    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
     csvGravador << "video file is " << videoLido->nome<< "\n";
 
-    csvGravador << "Analysis initiated at " << conPontoVirgula( videoLido->frameProce /videoLido->fps)  << " (seconds) of the video file \n ";
-    csvGravador << "Analysis terminated at " << conPontoVirgula(videoLido->frameFinal / videoLido->fps) << " (seconds) of the video file \n";
+    csvGravador << "Analysis initiated at " << videoLido->frameProce /videoLido->fps << " (seconds) of the video file \n ";
+    csvGravador << "Analysis terminated at " << videoLido->frameFinal / videoLido->fps << " (seconds) of the video file \n";
     csvGravador <<"\n";
 //    csvGravador <<"informacoes do catalogo analisado: \n";
     csvGravador <<"O catalogo utilizado foi o " <<";" << catalagoLido->caminhoArquivo << "\n";
@@ -1511,7 +1511,7 @@ void parserXMLtoCSV::escreverTimeCsv()
 
     for(int ka1=0; ka1< etografiaLida->frameInicial.size(); ka1++){
 
-        csvGravador << conPontoVirgula(etografiaLida->frameInicial[ka1] / videoLido->fps);
+        csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
         //csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
 
         csvGravador << ";";
@@ -1519,7 +1519,7 @@ void parserXMLtoCSV::escreverTimeCsv()
         csvGravador << ";";
 
         duracao= etografiaLida->frameFinal[ka1]- etografiaLida->frameInicial[ka1];
-        csvGravador <<conPontoVirgula( duracao / videoLido->fps);
+        csvGravador << duracao / videoLido->fps;
         csvGravador << "\n";
 
     }
@@ -1536,8 +1536,8 @@ void parserXMLtoCSV::escreverTimeCsv()
 
 
 
-      csvGravador <<"\n RESULTS FOR \n Segmentation initiated at ;"<<  conPontoVirgula( totalizacaoTot[tot].inicioSessao/videoLido->fps) ;
-      csvGravador << ";  Segmentation terminated at ;" << conPontoVirgula( totalizacaoTot[tot].finalSessao/videoLido->fps) <<"\n\n";
+      csvGravador <<"\n RESULTS FOR \n Segmentation initiated at ;"<<  totalizacaoTot[tot].inicioSessao/videoLido->fps ;
+      csvGravador << ";  Segmentation terminated at ;" << totalizacaoTot[tot].finalSessao/videoLido->fps <<"\n\n";
      // csvGravador << "categoria;duracao;frequencia;latencia \n";
 
 
@@ -1552,10 +1552,10 @@ void parserXMLtoCSV::escreverTimeCsv()
       for(int fr=0; fr< totalizacaoTot[tot].freq.size(); fr++){
 
           csvGravador<< catalagoLido->nome[fr]<<";" <<
-                       conPontoVirgula( totalizacaoTot[tot].duracao[fr]/videoLido->fps) <<";"<<
-                        conPontoVirgula(totalizacaoTot[tot].freq[fr]) <<";" ;
+                        totalizacaoTot[tot].duracao[fr]/videoLido->fps <<";"<<
+                        totalizacaoTot[tot].freq[fr] <<";" ;
           if(tot==0){
-              csvGravador <<conPontoVirgula(totalizacaoTot[tot].latencia[fr]/videoLido->fps) <<";\n";
+              csvGravador <<totalizacaoTot[tot].latencia[fr]/videoLido->fps <<";\n";
           }else{
 
               csvGravador <<";\n";
@@ -1634,7 +1634,7 @@ void parserXMLtoCSV::escreverSeqCsv()
       for(int fr=0; fr< analiseSequencial.listaDados.size(); fr++){
 
 
-          csvGravador<< conPontoVirgula( analiseSequencial.listaDados[tot][fr]) <<";";
+          csvGravador<< analiseSequencial.listaDados[tot][fr] <<";";
       }
 
         csvGravador << "\n";
@@ -1659,7 +1659,7 @@ void parserXMLtoCSV::escreverSeqCsv()
       for(int fr=0; fr< analiseSequencial.listaDadosPorcentagem.size(); fr++){
 
 
-          csvGravador<< conPontoVirgula( analiseSequencial.listaDadosPorcentagem[tot][fr]) <<";";
+          csvGravador<<  analiseSequencial.listaDadosPorcentagem[tot][fr] <<";";
       }
 
         csvGravador << "\n";
@@ -1733,7 +1733,7 @@ void parserXMLtoCSV::escreverKohoCsv()
       for(int fr=0; fr< KohoKappa.cohoKappaMatrix.size(); fr++){
 
 
-          csvGravador<< conPontoVirgula(KohoKappa.cohoKappaMatrix[tot][fr]) <<";";
+          csvGravador<< KohoKappa.cohoKappaMatrix[tot][fr] <<";";
       }
 
         csvGravador << "\n";
@@ -1757,7 +1757,7 @@ void parserXMLtoCSV::escreverKohoCsv()
       for(int fr=0; fr< KohoKappa.cohoKappaPorMatrix.size(); fr++){
 
 
-          csvGravador<< conPontoVirgula(KohoKappa.cohoKappaPorMatrix[tot][fr]) <<";";
+          csvGravador<< KohoKappa.cohoKappaPorMatrix[tot][fr] <<";";
       }
 
         csvGravador << "\n";
@@ -1767,9 +1767,9 @@ void parserXMLtoCSV::escreverKohoCsv()
       csvGravador << "\n";
        csvGravador << "The final result are\n";
 
-    csvGravador <<"The agreement porcentage (k1) are ; " << conPontoVirgula(  KohoKappa.k1 *100) <<" (%)\n" ; // A porcentagem de concordancia
-    csvGravador <<"The agreement porcentage by chance (k2) are ; " << conPontoVirgula(KohoKappa.k2 *100) <<"(%)\n" ;//A porcentagem de concordancai por acaso
-    csvGravador <<"The Cohen's Kappa; " <<conPontoVirgula(KohoKappa.kappa *100) <<"\n" ;
+    csvGravador <<"The agreement porcentage (k1) are ; " <<  KohoKappa.k1 *100 <<" (%)\n" ; // A porcentagem de concordancia
+    csvGravador <<"The agreement porcentage by chance (k2) are ; " << KohoKappa.k2 *100 <<"(%)\n" ;//A porcentagem de concordancai por acaso
+    csvGravador <<"The Cohen's Kappa; " <<KohoKappa.kappa *100 <<"\n" ;
 
 //    outGravador.write("O pesquisador foi o:, ");
 //    outGravador.write(experimentador.nome.toLatin1()+"\n");
@@ -1834,7 +1834,7 @@ void parserXMLtoCSV::escreverFleisCsv()
       for(int fr=0; fr< flKaDa.matrizConcordancia[tot].size(); fr++){
 
 
-          csvGravador<< conPontoVirgula( flKaDa.matrizConcordancia[tot][fr]) <<";";
+          csvGravador<<  flKaDa.matrizConcordancia[tot][fr] <<";";
       }
 
         csvGravador << "\n";
@@ -1918,8 +1918,8 @@ void parserXMLtoCSV::escreverEtografiaCsv()
 ////    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
     csvGravador << "Registred video file are locate in " << videoLido->nome<< "\n";
 
-    csvGravador << "Analysis initiated at " << conPontoVirgula( videoLido->frameProce /videoLido->fps)  << " (seconds) of the video file \n ";
-    csvGravador << "Analysis terminated at " << conPontoVirgula(videoLido->frameFinal / videoLido->fps) << " (seconds) of the video file \n";
+    csvGravador << "Analysis initiated at " <<  videoLido->frameProce /videoLido->fps  << " (seconds) of the video file \n ";
+    csvGravador << "Analysis terminated at " << videoLido->frameFinal / videoLido->fps << " (seconds) of the video file \n";
     csvGravador <<"\n";
 //    csvGravador <<"informacoes do catalogo analisado: \n";
     csvGravador <<"The selected catalog are : " <<";" << catalagoLido->caminhoArquivo << "\n";
@@ -1953,7 +1953,7 @@ void parserXMLtoCSV::escreverEtografiaCsv()
 
     for(int ka1=0; ka1< etografiaLida->frameInicial.size(); ka1++){
 
-        csvGravador << conPontoVirgula(etografiaLida->frameInicial[ka1] / videoLido->fps);
+        csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
         //csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
 
         csvGravador << ";";
@@ -1961,7 +1961,7 @@ void parserXMLtoCSV::escreverEtografiaCsv()
         csvGravador << ";";
 
         duracao= etografiaLida->frameFinal[ka1]- etografiaLida->frameInicial[ka1];
-        csvGravador <<conPontoVirgula( duracao / videoLido->fps);
+        csvGravador << duracao / videoLido->fps;
         csvGravador << "\n";
 
     }
@@ -1972,9 +1972,9 @@ void parserXMLtoCSV::escreverEtografiaCsv()
 
     for(int ka2=0; ka2< catalagoLido->nome.size(); ka2++){
         csvGravador << catalagoLido->nome[ka2] << ";"
-                     << conPontoVirgula(vetorDuracao[ka2])<< ";"
-                     << conPontoVirgula(vetorFrequencia[ka2])<< ";"
-                     << conPontoVirgula(vetorLatencia[ka2]) << ";" ;
+                     << vetorDuracao[ka2]<< ";"
+                     << vetorFrequencia[ka2] << ";"
+                     << vetorLatencia[ka2] << ";" ;
         csvGravador << "\n";
     }
 
@@ -2018,23 +2018,23 @@ void parserXMLtoCSV::escreverTrakinCsv()
     csvGravador <<"Treatment/condition" << "\n";
     csvGravador <<"Other Info" << "\n";
     //csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
-    csvGravador <<"WARNING: in this version, decimals are separated by COMMA \n";
+    csvGravador <<"WARNING: in this version, DECIMALS are separated by DOT(.) \n";
 //    csvGravador <<"video file \n";
 
     csvGravador << "TRACKING - ACTIVITY REPORT" << "\n";
 ////    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
     csvGravador << "Registred video file are locate in " << videoLido->nome<< "\n";
-    csvGravador << "Start in ;" << conPontoVirgula( videoLido->frameProce / videoLido->fps) << ";" << "seconds ;" << videoLido->frameProce << "; frames "  "\n";
-    csvGravador << "End in ;" << conPontoVirgula( videoLido->frameFinal / videoLido->fps )<< ";" << "seconds ;" << videoLido->frameFinal << "; frames "  "\n";
+    csvGravador << "Start in ;" <<  videoLido->frameProce / videoLido->fps << ";" << "seconds ;" << videoLido->frameProce << "; frames "  "\n";
+    csvGravador << "End in ;" <<  videoLido->frameFinal / videoLido->fps<< ";" << "seconds ;" << videoLido->frameFinal << "; frames "  "\n";
 //    csvGravador << "Analysis initiated at " << conPontoVirgula( videoLido->frameProce /videoLido->fps)  << " (seconds) of the video file \n ";
 //    csvGravador << "Analysis terminated at " << conPontoVirgula(videoLido->frameFinal / videoLido->fps) << " (seconds) of the video file \n";
-    csvGravador << "1 cm = ;" << conPontoVirgula( videoLido->escala) << ";" << " pixeis\n";
-    csvGravador << "1 pixel= " << conPontoVirgula(1/(videoLido->escala * videoLido->escala)) << "cm2";
+    csvGravador << "1 cm = ;" <<  videoLido->escala << ";" << " pixeis\n";
+    csvGravador << "1 pixel= " << 1/(videoLido->escala * videoLido->escala) << "cm2";
     csvGravador <<"\n";
-    csvGravador << "Figure Name ;" << areasDeInteresse.figName[ki]<< "\n";
-    csvGravador << "Figure Tipe ;" << areasDeInteresse.tipoArea[ki] << "\n";
-    csvGravador << "Figure Beginning at Vertical pixel ;" << areasDeInteresse.centX[ki] << "\n";
-    csvGravador << "Figure Beginning at Horizontal pixel ;" << areasDeInteresse.centY[ki] << "\n";
+    csvGravador << "Area Name ;" << areasDeInteresse.figName[ki]<< "\n";
+//    csvGravador << "Figure Tipe ;" << areasDeInteresse.tipoArea[ki] << "\n";
+//    csvGravador << "Figure Beginning at Vertical pixel ;" << areasDeInteresse.centX[ki] << "\n";
+//    csvGravador << "Figure Beginning at Horizontal pixel ;" << areasDeInteresse.centY[ki] << "\n";
 
     if(areasDeInteresse.tipoArea[ki]=="Circle"){
 
@@ -2116,12 +2116,12 @@ void parserXMLtoCSV::escreverTrakinCsv()
 
         for(int kj=0; kj<   matrizReMorfo[ki].area.size(); kj++){
            // csvGravador << "aaaaa \n";
-            csvGravador <<  matrizReMorfo[ki].frame[kj] << ";"<< conPontoVirgula((matrizReMorfo[ki].frame[kj] ) / videoLido->fps) << ";" ;
-            csvGravador << conPontoVirgula(matrizReMorfo[ki].area[kj]) << ";" << conPontoVirgula(matrizReMorfo[ki].area[kj]/(videoLido->escala*videoLido->escala))<< ";";
-            csvGravador << conPontoVirgula(matrizReMorfo[ki].centroidX[kj]) << ";" << conPontoVirgula(matrizReMorfo[ki].centroidY[kj])<<";";
-            csvGravador << conPontoVirgula(matrizReMorfo[ki].anguloObj[kj]) << ";" ;
-            csvGravador << conPontoVirgula(matrizReMorfo[ki].altura[kj]/(videoLido->escala)) << ";" ;
-            csvGravador << conPontoVirgula(matrizReMorfo[ki].largura[kj]/(videoLido->escala)) << ";" ;
+            csvGravador <<  matrizReMorfo[ki].frame[kj] << ";"<< matrizReMorfo[ki].frame[kj]  / videoLido->fps << ";" ;
+            csvGravador << matrizReMorfo[ki].area[kj] << ";" << matrizReMorfo[ki].area[kj]/(videoLido->escala*videoLido->escala)<< ";";
+            csvGravador << matrizReMorfo[ki].centroidX[kj] << ";" << matrizReMorfo[ki].centroidY[kj]<<";";
+            csvGravador << matrizReMorfo[ki].anguloObj[kj] << ";" ;
+            csvGravador << matrizReMorfo[ki].altura[kj]/(videoLido->escala) << ";" ;
+            csvGravador << matrizReMorfo[ki].largura[kj]/(videoLido->escala) << ";" ;
 //            reMorfo.tamanhoObj
 
            if( matrizReMorfo[ki].objetoEncontrado[kj]){
@@ -2129,11 +2129,11 @@ void parserXMLtoCSV::escreverTrakinCsv()
            }else{
                csvGravador << "false;";
            }
-           csvGravador << conPontoVirgula(matrizReCinema[ki].varDistancia[kj]) << ";" << conPontoVirgula(matrizReCinema[ki].varDistancia[kj]/(videoLido->escala))<< ";";
-           csvGravador << conPontoVirgula(matrizReCinema[ki].varArea[kj]/(videoLido->escala*videoLido->escala) ) << ";" ;
-           csvGravador << conPontoVirgula(matrizReCinema[ki].varAltura[kj]/(videoLido->escala) ) << ";" ;
-           csvGravador << conPontoVirgula(matrizReCinema[ki].varLargura[kj]/(videoLido->escala) ) << ";" ;
-           csvGravador << conPontoVirgula(matrizReCinema[ki].varAngular[kj] ) << ";" ;
+           csvGravador << matrizReCinema[ki].varDistancia[kj] << ";" << matrizReCinema[ki].varDistancia[kj]/(videoLido->escala)<< ";";
+           csvGravador << matrizReCinema[ki].varArea[kj]/(videoLido->escala*videoLido->escala)  << ";" ;
+           csvGravador << matrizReCinema[ki].varAltura[kj]/(videoLido->escala) << ";" ;
+           csvGravador << matrizReCinema[ki].varLargura[kj]/(videoLido->escala) << ";" ;
+           csvGravador << matrizReCinema[ki].varAngular[kj] << ";" ;
 
 
            if( matrizReCinema[ki].ruidoMaxVaria[kj] ){
