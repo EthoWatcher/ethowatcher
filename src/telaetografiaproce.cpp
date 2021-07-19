@@ -2155,8 +2155,8 @@ void telaEtografiaProce::slotMapeado(int a)
     chNovoValor=true;
     frame_atual = ui->labelFrames->text().toDouble();
     double finalframe1 = videoLista.frameFinal[0];
-    QString green = "background-color: rgb(39, 245, 108);";
-    QString red = "background-color: rgb(224,56,16);";
+    QString green = "background-color: rgb(123, 245, 39);";
+    QString red = "background-color: rgb(254,153, 0);";
 
 
     //escolheSelecao=false; //true é auto
@@ -2168,7 +2168,7 @@ void telaEtografiaProce::slotMapeado(int a)
                 if(!clicado[i]){
                     //se o botão nao estiver clicado
                     clicado[i]=true;
-                    buttonList[i]->setStyleSheet(green + "color: blue;" + "font: bold;");
+                    buttonList[i]->setStyleSheet(green + "color: blue;" +  "font-size: 18px");
                     buttonList[i]->setText(nomeCate[i]+ "(" + cAnaEto.atalho[i] +")" + " (Marking)");
 
                     //criando novo ponto apos clique
@@ -2187,7 +2187,7 @@ void telaEtografiaProce::slotMapeado(int a)
                     //se o posição estiver clicado
                     clicado[i]=false;
                     // for(int k=0;k<numeroDeBotoes;k++){
-                    buttonList[i]->setStyleSheet(green + "color: black; " "font: bold;");
+                    buttonList[i]->setStyleSheet(green + "color: black; " + "font-size: 18px");
                     buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")" +" (Ready)");
                     //saida.frameComeco.push_back(frame_atual);
                     //    }
@@ -2217,7 +2217,7 @@ void telaEtografiaProce::slotMapeado(int a)
 
             for(int i=0; i<numeroDeBotoes; i++){
                 clicado[i]=false;
-                buttonList[i]->setStyleSheet(green + "color: black;" "font: bold;"); //green
+                buttonList[i]->setStyleSheet(green + "color: black;"  "font-size: 18px"); //green
                 buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
                 buttonList[i]->setEnabled(true);
 
@@ -2230,7 +2230,7 @@ void telaEtografiaProce::slotMapeado(int a)
                     //diferencia se o botão esta clicado esta release
                     if(!clicado[i]){
                         clicado[i]=true;
-                        buttonList[i]->setStyleSheet(red + "color: black;" + "font: bold;"); //red
+                        buttonList[i]->setStyleSheet(red + "color: black;" +  "font-size: 18px"); //red
                         buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
                         buttonList[i]->setEnabled(false);
 
@@ -2249,7 +2249,7 @@ void telaEtografiaProce::slotMapeado(int a)
                     }else {
                         clicado[i]=false;
                         // for(int k=0;k<numeroDeBotoes;k++){
-                        buttonList[i]->setStyleSheet(green + "color: black;" + "font: bold;");
+                        buttonList[i]->setStyleSheet(green + "color: black;" +  "font-size: 18px");
                         buttonList[i]->setText(nomeCate[i]+"(" + cAnaEto.atalho[i] +")");
                         buttonList[i]->setEnabled(true);
 
@@ -2352,7 +2352,7 @@ void telaEtografiaProce::slotMapeado(int a)
 
                 if(clicado[i]){
 
-                    buttonList[i]->setStyleSheet(red + "color: black;" "font: bold;");
+                    buttonList[i]->setStyleSheet(red + "color: black;" + "font-size: 18px");
                     buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
                     buttonList[i]->setEnabled(false);
 
@@ -2360,7 +2360,7 @@ void telaEtografiaProce::slotMapeado(int a)
 
                 }else{
 
-                    buttonList[i]->setStyleSheet(green + "color: black;" + "font: bold;");
+                    buttonList[i]->setStyleSheet(green + "color: black;" +  "font-size: 18px");
                     buttonList[i]->setText(nomeCate[i] +"(" + cAnaEto.atalho[i] +")");
                     buttonList[i]->setEnabled(true);
                 }
