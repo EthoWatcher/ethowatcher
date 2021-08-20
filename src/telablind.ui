@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1017</width>
-    <height>833</height>
+    <width>998</width>
+    <height>535</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -47,9 +47,21 @@
         <layout class="QVBoxLayout" name="verticalLayout_8">
          <item>
           <widget class="QWidget" name="widget" native="true">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>100</height>
+            </size>
+           </property>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
              <widget class="QGroupBox" name="groupBox">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>100</height>
+               </size>
+              </property>
               <property name="title">
                <string>Step 1.01</string>
               </property>
@@ -66,6 +78,12 @@
             </item>
             <item>
              <widget class="QGroupBox" name="groupBox_2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>100</height>
+               </size>
+              </property>
               <property name="title">
                <string>Step 1.02</string>
               </property>
@@ -85,6 +103,12 @@
          </item>
          <item>
           <widget class="QWidget" name="widget_2" native="true">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>100</height>
+            </size>
+           </property>
            <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
              <widget class="QGroupBox" name="groupBox_5">
@@ -94,12 +118,24 @@
                 <height>100</height>
                </size>
               </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>100</height>
+               </size>
+              </property>
               <property name="title">
                <string>Step 1.03</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_6">
                <item>
                 <widget class="QLabel" name="label_2">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>30</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>Blind name</string>
                  </property>
@@ -115,22 +151,6 @@
               </layout>
              </widget>
             </item>
-            <item>
-             <widget class="QGroupBox" name="groupBox_7">
-              <property name="title">
-               <string>Step 1.04</string>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout">
-               <item>
-                <widget class="QPushButton" name="pbSetUserKey">
-                 <property name="text">
-                  <string>Set User Key</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
            </layout>
           </widget>
          </item>
@@ -139,12 +159,24 @@
            <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
              <widget class="QGroupBox" name="groupBox_10">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>100</height>
+               </size>
+              </property>
               <property name="title">
                <string>Step 1.05</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_7">
                <item>
                 <widget class="QLabel" name="label_26">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>50</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>Codec</string>
                  </property>
@@ -250,8 +282,8 @@
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>429</width>
-                     <height>544</height>
+                     <width>420</width>
+                     <height>246</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -298,8 +330,8 @@
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>98</width>
-                     <height>28</height>
+                     <width>43</width>
+                     <height>16</height>
                     </rect>
                    </property>
                   </widget>
