@@ -32,6 +32,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include <QString>
 #include <vector>
+#include <QMessageBox>
 
 namespace Ui {
 class telaCadastroListaFilme;
