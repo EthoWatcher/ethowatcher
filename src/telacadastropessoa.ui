@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1002</width>
-    <height>577</height>
+    <height>545</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -65,20 +65,6 @@
        </item>
        <item>
         <widget class="QLineEdit" name="leLab"/>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Password</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lePass">
-         <property name="echoMode">
-          <enum>QLineEdit::Password</enum>
-         </property>
-        </widget>
        </item>
        <item>
         <widget class="QWidget" name="widget" native="true">
