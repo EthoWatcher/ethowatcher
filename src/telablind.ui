@@ -186,47 +186,12 @@
                 <widget class="QComboBox" name="comboBoX">
                  <item>
                   <property name="text">
-                   <string>Microsoft RLE</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Microsoft Video1</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Intel IYUV codec</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Cinepack Codec by radius</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Lagarith Lossles Codec</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
                    <string>H264</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
                    <string>XVid</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>ffdshow Video Codec</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>H264</string>
                   </property>
                  </item>
                 </widget>

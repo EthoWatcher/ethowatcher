@@ -1764,27 +1764,9 @@ int moduloEditaVideo::getCodec(int indexCaixa)
     switch (indexCaixa)
     {
     case 0:
-
-        return CV_FOURCC('M','R','L','E'); //Microsoft RLE
-        //break;
-    case 1:
-
-        return CV_FOURCC('C','R','A','M'); //Microsoft Video 1
-
-    case 2:
-
-        return CV_FOURCC('I','Y','U','V'); //Intel IYUV Codec
-
-    case 3:
-        return CV_FOURCC('C','V','I','D'); //Cinepack Codec by radius
-        //break;
-    case 4:
-        return CV_FOURCC('L','A','G','S'); //Lagarith Lossles Codec
-
-    case 5:
         return CV_FOURCC('X','2','6','4'); //H264
 
-    case 6:
+    case 1:
         return CV_FOURCC('X','V','I','D');; //XVid MPeg-4 Codec
         //break;
     case -1:
