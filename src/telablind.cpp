@@ -114,6 +114,7 @@ void telablind::on_pbAddListaVideo_clicked()
     //debug
     //ui->stackedWidget->setCurrentIndex(2);
 
+      ui->pbAddListaVideo->setEnabled(false);
 }
 
 void telablind::on_pbAbrirPasta_clicked()
@@ -150,6 +151,7 @@ void telablind::on_pbAbrirPasta_clicked()
 
 //    }
 
+    ui->pbAbrirPasta->setEnabled(false);
 
 
 
