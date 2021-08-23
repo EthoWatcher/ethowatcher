@@ -40,6 +40,7 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
 
 //    ui->pbConversorXMLCSV->setVisible(false);
     ui->pbRealTime->setVisible(false);
+    ui->pbUnveil->setVisible(false);
 
     //ui->treeWidget->
 
