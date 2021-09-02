@@ -90,6 +90,13 @@ telaEtografiaProce::~telaEtografiaProce()
     delete ui;
 }
 
+//void telaEtografiaProce::set_usuario(QString nome, QString laboratorio)
+//{
+//    this->nome_usuario = nome;
+//    this->nome_lab = laboratorio;
+
+//}
+
 /**
  *Função para setar o experimentador
  * @brief telaEtografiaProce::setExperimentador Função para setar o experimentador

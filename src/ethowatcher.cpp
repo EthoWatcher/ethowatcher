@@ -138,7 +138,7 @@ void ethoWatcher::on_pbTela1Yes_clicked()
             return true;
         }();
         // melhorar a leitura do arquivo xml
-        cadastroPessoa->nomeArquivo= fonteUsuario;
+        cadastroPessoa->nomeArquivo=  fonteUsuario;
         cadastroPessoa->lendoXML();
 
         qDebug() << cadastroPessoa->nome + " lab " + cadastroPessoa->lab;
@@ -250,11 +250,22 @@ void ethoWatcher::on_pbCadastrarListaVideo_clicked()
 void ethoWatcher::on_pbAnaliseEtograma_clicked()
 {
     //tela de etografia.
-    etografaProce= new telaEtografiaProce();
-     if(chLoadUser){
-        etografaProce->setExperimentador(cadastroPessoa->nome,cadastroPessoa->lab);
-     }
-    etografaProce->show();
+
+//    bool r_aberto_usuario = cadastroPessoa != null;
+
+    if(chLoadUser){
+
+         etografaProce= new telaEtografiaProce();
+
+//         etografaProce->set_usuario(cadastroPessoa->nome, cadastroPessoa->lab);
+         etografaProce->setExperimentador(cadastroPessoa->nome,cadastroPessoa->lab);
+
+         etografaProce->show();
+
+    }
+
+
+
     //etografia= new telaEtografia();
     //etografia->setExperimentador("Joao e ","UFSC BIOENGENHARIA");
    // etografia->show();

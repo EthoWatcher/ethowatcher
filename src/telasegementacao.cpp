@@ -39,6 +39,11 @@ telaSegementacao::~telaSegementacao()
     delete ui;
 }
 
+void telaSegementacao::liga_sementacao_etografia()
+{
+    //precisa ler
+}
+
 void telaSegementacao::on_pbCaTotalSe_clicked()
 {
     fonteVideoETOXML = QFileDialog::getOpenFileName(
@@ -139,134 +144,179 @@ void telaSegementacao::on_pbTotalRes_clicked()
         // esse é o contador que contem o tamanho cViSeg
         //vi1 = valor inicial primeiro
 
+         vetorPontos = [](int q_processamento, int q_final, analiseEtografica *etografia ){
+
+            std::vector<int> catego_por_quadro;
+
+            bool chUnde=true;
+            for(int rl= q_processamento; rl< q_final ; rl++){
+
+                //tem que testar pra todas os pontos
+
+                //para cada transcrição lida
+                for(int rj=0;rj<etografia->frameInicial.size();rj++){
+
+                    if((rl>=etografia->frameInicial[rj])&&(rl<etografia->frameFinal[rj])){
+
+                        qDebug() <<" frame" << rl << etografia->id[rj] << "e a transcrição é a " << rj;
+
+                        catego_por_quadro.push_back(etografia->id[rj]);
+//                        quadrosPontos.push_back(rl);
+                        chUnde=false;
+
+                    }
+
+
+                }
+
+
+
+                if(chUnde==true){
+                    //se não enocntrou nenhuma classificao é undefinido
+                    //é caracterizado como menos 1
+
+                    catego_por_quadro.push_back(-1);
+                }else{
+
+                    chUnde=true;
+                }
+
+
+
+            }
+
+            return catego_por_quadro;
+
+        }(videoLido->frameProce, videoLido->frameFinal, etografiaLida );
+
 
        // double framesTotaisAnalise = videoLido->frameFinal - videoLido->frameProce;
 
 
-        bool chUnde=true;
-        //para cada quadro do v´deio
+//        bool chUnde=true;
+//        //para cada quadro do v´deio
 
-        for(int rl=videoLido->frameProce; rl< videoLido->frameFinal ; rl++){
+//        for(int rl=videoLido->frameProce; rl< videoLido->frameFinal ; rl++){
 
-            //tem que testar pra todas os pontos
+//            //tem que testar pra todas os pontos
 
-            //para cada transcrição lida
-            for(int rj=0;rj<etografiaLida->frameInicial.size();rj++){
+//            //para cada transcrição lida
+//            for(int rj=0;rj<etografiaLida->frameInicial.size();rj++){
 
-               if((rl>=etografiaLida->frameInicial[rj])&&(rl<etografiaLida->frameFinal[rj])){
+//               if((rl>=etografiaLida->frameInicial[rj])&&(rl<etografiaLida->frameFinal[rj])){
 
-                   qDebug() <<" frame" << rl << etografiaLida->id[rj] << "e a transcrição é a " << rj;
+//                   qDebug() <<" frame" << rl << etografiaLida->id[rj] << "e a transcrição é a " << rj;
 
-                   vetorPontos.push_back(etografiaLida->id[rj]);
-                   quadrosPontos.push_back(rl);
-                   chUnde=false;
+//                   vetorPontos.push_back(etografiaLida->id[rj]);
+//                   quadrosPontos.push_back(rl);
+//                   chUnde=false;
 
-            }else{
-                   //não categorizado
+//            }else{
+//                   //não categorizado
+
+////                vetorPontos.push_back(-1);
+////                quadrosPontos.push_back(rl);
+
+
+
+//               }
+
+
+//            }
+
+
+
+//            if(chUnde==true){
+//                //se não enocntrou nenhuma classificao é undefinido
+//                //é caracterizado como menos 1
 
 //                vetorPontos.push_back(-1);
-//                quadrosPontos.push_back(rl);
+//            }else{
+
+//                chUnde=true;
+//            }
 
 
 
-               }
+//        }
+
+//        chUnde=true;
+
+//        for(int rj=0;rj<etografiaLida->frameInicial.size();rj++){
+
+//           if((videoLido->frameFinal==etografiaLida->frameFinal[rj])){
+
+//               qDebug() <<" frame" << videoLido->frameFinal << etografiaLida->id[rj] << "e a transcrição é a " << rj;
+
+//               vetorPontos.push_back(etografiaLida->id[rj]);
+//               quadrosPontos.push_back(videoLido->frameFinal);
+//               chUnde=false;
+
+//        }else{
+//               //não categorizado
+
+////            vetorPontos.push_back(-1);
+////            quadrosPontos.push_back(videoLido->frameFinal);
 
 
-            }
 
 
-
-            if(chUnde==true){
-                //se não enocntrou nenhuma classificao é undefinido
-                //é caracterizado como menos 1
-
-                vetorPontos.push_back(-1);
-            }else{
-
-                chUnde=true;
-            }
+//           }
 
 
+//        }
 
-        }
-
-        chUnde=true;
-
-        for(int rj=0;rj<etografiaLida->frameInicial.size();rj++){
-
-           if((videoLido->frameFinal==etografiaLida->frameFinal[rj])){
-
-               qDebug() <<" frame" << videoLido->frameFinal << etografiaLida->id[rj] << "e a transcrição é a " << rj;
-
-               vetorPontos.push_back(etografiaLida->id[rj]);
-               quadrosPontos.push_back(videoLido->frameFinal);
-               chUnde=false;
-
-        }else{
-               //não categorizado
+//        if(chUnde==true){
+//            //se não enocntrou nenhuma classificao é undefinido
+//            //é caracterizado como menos 1
 
 //            vetorPontos.push_back(-1);
-//            quadrosPontos.push_back(videoLido->frameFinal);
+//        }else{
+
+//            chUnde=true;
+//        }
+
+          auto gera_lista_segmentos = [](double tamanho, double fps, int q_inicial, int q_final, bool r_vetor_entrada){
+              std::vector<double> vetor_saida;
+
+              double varia = tamanho * fps; //frames
+              double frameInico = q_inicial;
+
+              do{
+                  if(r_vetor_entrada){
+                      vetor_saida.push_back(frameInico);
 
 
+                  }else{
+                      vetor_saida.push_back(frameInico+varia);
+                  }
 
+                  frameInico= frameInico+varia;
 
-           }
+              }while (frameInico<=q_final);
 
+              return vetor_saida;
+         };
 
-        }
+          double tamanho_janela =ui->lieTime->text().toDouble(); //frames
 
-        if(chUnde==true){
-            //se não enocntrou nenhuma classificao é undefinido
-            //é caracterizado como menos 1
-
-            vetorPontos.push_back(-1);
-        }else{
-
-            chUnde=true;
-        }
+          inicioPeriodo = gera_lista_segmentos(tamanho_janela, videoLido->fps,  videoLido->frameProce,videoLido->frameFinal , true);
+          fimPeriodo = gera_lista_segmentos(tamanho_janela, videoLido->fps,  videoLido->frameProce, videoLido->frameFinal , false);
 
 
         //fim de encontrar os pontos do vídeo
         //agora tem que segmentar pelo tempo
 
+//         double varia =ui->lieTime->text().toDouble() * videoLido->fps; //frames
+//         double frameInico = videoLido->frameProce;
+//         do{
 
+//             inicioPeriodo.push_back(frameInico);
+//             fimPeriodo.push_back(frameInico+varia);
 
+//             frameInico= frameInico+varia;
 
-
-
-//        double timeInicio=videoLido->frameProce/videoLido->fps;
-//        std::vector<double> framesSeg;
-
-         double varia =ui->lieTime->text().toDouble() * videoLido->fps; //frames
-         double frameInico = videoLido->frameProce;
-
-
-
-
-
-
-
-
-
-         do{
-
-             inicioPeriodo.push_back(frameInico);
-             fimPeriodo.push_back(frameInico+varia);
-
-             frameInico= frameInico+varia;
-
-
-
-         }while (frameInico<=videoLido->frameFinal);
-
-
-
-//         if(fimPeriodo[fimPeriodo.size()-1]>videoLido->frameFinal){
-
-
-//             fimPeriodo[fimPeriodo.size()-1]= videoLido->frameFinal;
-//         }
+//         }while (frameInico<=videoLido->frameFinal);
 
 
          //tenho todos os peridos agora tem que fazer os vetores de cada periodo

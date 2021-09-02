@@ -27,6 +27,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = EthoWatcher
 TEMPLATE = app
 
+
+CONFIG += c++11
+
 INCLUDEPATH += C:\opencv\RELEASE\install\include
 LIBS += C:\opencv\RELEASE\bin\libopencv_calib3d2411.dll
 LIBS += C:\opencv\RELEASE\bin\libopencv_contrib2411.dll

@@ -56,6 +56,8 @@ public:
     explicit telaSegementacao(QWidget *parent = 0);
     ~telaSegementacao();
 
+    void liga_sementacao_etografia();
+
 private slots:
     void on_pbCaTotalSe_clicked();
 

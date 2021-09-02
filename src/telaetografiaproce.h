@@ -78,6 +78,7 @@ public:
 
     ~telaEtografiaProce();
 
+
     struct dadosEtografia{
 
         std::vector<int> id;
@@ -304,6 +305,9 @@ private slots:
 
 private:
     Ui::telaEtografiaProce *ui;
+
+
+
 
     void readCatalago();
     void lerVXML(QString nomeArquivoLer);
