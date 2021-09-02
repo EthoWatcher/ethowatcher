@@ -112,6 +112,7 @@ void ethoWatcher::on_pbTela1Yes_clicked()
 {
     cadastroPessoa = new telaCadastroPessoa(); //eh necessario para a alocacao da memoria
     connect(cadastroPessoa,SIGNAL(fechouJanela()),this,SLOT(mudaTela()));
+
     //abre arquivo cadastrado de usuario
     fonteUsuario= QFileDialog::getOpenFileName(
                     this,
@@ -121,6 +122,8 @@ void ethoWatcher::on_pbTela1Yes_clicked()
                     );
 
     bool r_abriu_documento = fonteUsuario!="";
+
+
     if(r_abriu_documento){
 
         bool desbloqueia_interface = [&]() -> bool{
@@ -134,9 +137,11 @@ void ethoWatcher::on_pbTela1Yes_clicked()
             ui->pbTela2ListaVideo->setEnabled(true);
             return true;
         }();
+        // melhorar a leitura do arquivo xml
+        cadastroPessoa->nomeArquivo= fonteUsuario;
+        cadastroPessoa->lendoXML();
 
         qDebug() << cadastroPessoa->nome + " lab " + cadastroPessoa->lab;
-
         chLoadUser =true;
 
     }
