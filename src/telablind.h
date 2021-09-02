@@ -334,7 +334,7 @@ private:
    QList <QProgressBar*> listaPB;
     void lerVXML(QString nomeArquivoLer);
 
-
+    void grava_lista_chaves();
 
 };
 

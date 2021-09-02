@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1017</width>
-    <height>833</height>
+    <width>998</width>
+    <height>535</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,21 +18,21 @@
     <widget class="QLabel" name="label">
      <property name="minimumSize">
       <size>
-       <width>0</width>
-       <height>100</height>
+       <width>500</width>
+       <height>80</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>16777215</width>
-       <height>150</height>
+       <width>500</width>
+       <height>80</height>
       </size>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="resourcefile.qrc">:/icons/ethowatcher_logo_os.png</pixmap>
+      <pixmap resource="resourcefile.qrc">:/icons/logo_ethowatcher.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -47,9 +47,21 @@
         <layout class="QVBoxLayout" name="verticalLayout_8">
          <item>
           <widget class="QWidget" name="widget" native="true">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>100</height>
+            </size>
+           </property>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
              <widget class="QGroupBox" name="groupBox">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>100</height>
+               </size>
+              </property>
               <property name="title">
                <string>Step 1.01</string>
               </property>
@@ -57,7 +69,7 @@
                <item>
                 <widget class="QPushButton" name="pbAddListaVideo">
                  <property name="text">
-                  <string>Open List Video</string>
+                  <string>Open list video</string>
                  </property>
                 </widget>
                </item>
@@ -66,6 +78,12 @@
             </item>
             <item>
              <widget class="QGroupBox" name="groupBox_2">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>100</height>
+               </size>
+              </property>
               <property name="title">
                <string>Step 1.02</string>
               </property>
@@ -73,7 +91,7 @@
                <item>
                 <widget class="QPushButton" name="pbAbrirPasta">
                  <property name="text">
-                  <string>Set Destination Folder</string>
+                  <string>Set destination folder</string>
                  </property>
                 </widget>
                </item>
@@ -85,6 +103,12 @@
          </item>
          <item>
           <widget class="QWidget" name="widget_2" native="true">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>100</height>
+            </size>
+           </property>
            <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
              <widget class="QGroupBox" name="groupBox_5">
@@ -94,12 +118,24 @@
                 <height>100</height>
                </size>
               </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>100</height>
+               </size>
+              </property>
               <property name="title">
                <string>Step 1.03</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_6">
                <item>
                 <widget class="QLabel" name="label_2">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>30</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>Blind name</string>
                  </property>
@@ -115,22 +151,6 @@
               </layout>
              </widget>
             </item>
-            <item>
-             <widget class="QGroupBox" name="groupBox_7">
-              <property name="title">
-               <string>Step 1.04</string>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout">
-               <item>
-                <widget class="QPushButton" name="pbSetUserKey">
-                 <property name="text">
-                  <string>Set User Key</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
            </layout>
           </widget>
          </item>
@@ -139,12 +159,24 @@
            <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
              <widget class="QGroupBox" name="groupBox_10">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>100</height>
+               </size>
+              </property>
               <property name="title">
                <string>Step 1.05</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_7">
                <item>
                 <widget class="QLabel" name="label_26">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>50</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>Codec</string>
                  </property>
@@ -154,47 +186,12 @@
                 <widget class="QComboBox" name="comboBoX">
                  <item>
                   <property name="text">
-                   <string>Microsoft RLE</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Microsoft Video1</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Intel IYUV codec</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Cinepack Codec by radius</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Lagarith Lossles Codec</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
                    <string>H264</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
                    <string>XVid</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>ffdshow Video Codec</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>H264</string>
                   </property>
                  </item>
                 </widget>
@@ -250,8 +247,8 @@
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>429</width>
-                     <height>544</height>
+                     <width>420</width>
+                     <height>316</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_5">

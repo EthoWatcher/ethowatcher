@@ -114,6 +114,7 @@ void telablind::on_pbAddListaVideo_clicked()
     //debug
     //ui->stackedWidget->setCurrentIndex(2);
 
+      ui->pbAddListaVideo->setEnabled(false);
 }
 
 void telablind::on_pbAbrirPasta_clicked()
@@ -150,6 +151,7 @@ void telablind::on_pbAbrirPasta_clicked()
 
 //    }
 
+    ui->pbAbrirPasta->setEnabled(false);
 
 
 
@@ -526,6 +528,7 @@ void telablind::aleatorizaAOrdem(){
     //int posicaoDeEscrita=0;
     //encontra qual é o numero aleatorio maior e qual é sua posicao
     //alem disso esclui os arquivos que ja entraram
+    // count == quantidade de vídeos.
     for(int k=0; k<count; k++){
     int maiorValor=0;
     for(int i=0; i<count;i++){
@@ -542,7 +545,7 @@ void telablind::aleatorizaAOrdem(){
 
 
     }
-
+    //OU SEJA O 0 NESSE ARRAY VAI SER O VÍDEO BLIND 0
     nomeDosVideosAleatorizado.push_back(nomeDosVideos[posicao]);
     //frameInicialVideosAleatorizado.push_back();
 
@@ -998,7 +1001,7 @@ void telablind::on_pbBliding_clicked()
      textoEditado =ui->leNomePadr->text()+QString::number(jl);
 
      qDebug() << "arquivo vxml é o"<< nomeDosVideosAleatorizado[jl];
-     emit enviIncio(nomeDosVideosAleatorizado[jl],caminhoArquivo, textoEditado,ui->comboBoX->currentIndex());
+     emit enviIncio(nomeDosVideosAleatorizado[jl],caminhoArquivo, textoEditado, ui->comboBoX->currentIndex());
 
      disconnect(this,SIGNAL(enviIncio(QString,QString,QString,int)),listaEditaVideo[jl],SLOT(iniGraVidoCego(QString,QString,QString,int)));
 
@@ -1017,51 +1020,118 @@ void telablind::on_pbBliding_clicked()
     //editaVideo->iniGraVidoCego(listaVideo,caminhoArquivo,"patiRFID1Pati11l1");
 
     qDebug () <<"fim do TESTE" << QThread::currentThreadId();
+
+
+    this->grava_lista_chaves();
+
     //nomeDosVideosAleatorizado[i]
 }
 
-void telablind::on_pbSetUserKey_clicked()
-{
-    QString fonteVideo;
-    fonteVideo = QFileDialog::getOpenFileName(
-                this,
-                tr("Open File"),
-               "C:/ethowatcher/usuariosCadastrados",
-               "User Files (*.uxml)"
+
+void telablind::grava_lista_chaves(){
+
+    QString nomeArquivoGravarCsv;
+    nomeArquivoGravarCsv = QFileDialog::getSaveFileName(
+                 this,
+                 tr("Save File"),
+                 "C://",
+                "csv Files (*.csv)"
                 );
 
+    QFile outGravador;
+    outGravador.setFileName(nomeArquivoGravarCsv);
+    outGravador.open(QIODevice::WriteOnly | QIODevice::Text );
 
+    QTextStream csvGravador(&outGravador);
 
-    outputKey.setFileName(fonteVideo); //seta o nome do arquivo
+    csvGravador <<"sep=; \n";
+    csvGravador <<"EthoWatcher Open Source \n";
+    csvGravador <<"Observer" << experimentador.nome.toLatin1() << "\n";
+    csvGravador <<"Lab" << experimentador.lab.toLatin1() << "\n";
 
-    QXmlStreamReader xmlReader(&outputKey);
-    //output.open(QIODevice::ReadOnly | QIODevice::Text);
-    outputKey.open(QIODevice::ReadOnly | QIODevice::Text);
+    csvGravador <<" Blinded video register ;" <<"Original video register" << "\n"; //"Arquivo de cadastro do video original;" << "Arquivo de video original"<<
+    int ak=0;
+    int max=0;
+    int cont=0;
 
-    while(!xmlReader.atEnd() && !xmlReader.hasError()){
+    std::vector<QString> vxml;
 
+    for(int jl=0; jl<nomeDosVideosAleatorizado.size() ;jl++){
 
-        xmlReader.readNext();
-
-        //pega os nome dos arquivos que devem ser abertos
-        if(xmlReader.name()== "nome"){
-        expKey.nome = xmlReader.readElementText() ;
-
-        }
-
-        if(xmlReader.name() == "laboratorio"){
-
-            expKey.lab = xmlReader.readElementText() ;
-
-        }
-
-        if(xmlReader.name() == "password"){
-            expKey.senha = xmlReader.readElementText() ;
-        }
-
+      QString textoEditado;
+      textoEditado =ui->leNomePadr->text()+QString::number(jl);
+      csvGravador << caminhoArquivo +"/"+ textoEditado << ";" << nomeDosVideosAleatorizado[jl] <<"\n";
 
     }
-    output.close();
+
+
+    ////        vlay->addWidget(listaPB[jl]);
+
+    //    //colocando os botões no layute faz aparecer na tela
+    //    ui->saProgress->setLayout(vlay);
+
+
+    //    //comeca o blinding
+    //    listaEditaVideo[jl]->setKey(expKey.nome, expKey.lab, expKey.senha);
+    //     connect(this,SIGNAL(enviIncio(QString,QString,QString,int)),listaEditaVideo[jl],SLOT(iniGraVidoCego(QString,QString,QString,int)));
+    //     connect(listaEditaVideo[jl],SIGNAL(setProgres(int,int)),listaPB[jl],SLOT(setRange(int,int)));
+    //     connect(listaEditaVideo[jl],SIGNAL(frame(int)),listaPB[jl],SLOT(setValue(int)));
+    //     listaEditaVideo[jl]->moveToThread(listaDeThread[jl]);
+
+    //     listaDeThread[jl]->start();
+
+    //     QString textoEditado;
+    //     textoEditado =ui->leNomePadr->text()+QString::number(jl);
+
+    //     qDebug() << "arquivo vxml é o"<< nomeDosVideosAleatorizado[jl];
+
+    outGravador.close();
+}
+
+
+
+void telablind::on_pbSetUserKey_clicked()
+{
+//    QString fonteVideo;
+//    fonteVideo = QFileDialog::getOpenFileName(
+//                this,
+//                tr("Open File"),
+//               "C:/ethowatcher/usuariosCadastrados",
+//               "User Files (*.uxml)"
+//                );
+
+
+
+//    outputKey.setFileName(fonteVideo); //seta o nome do arquivo
+
+//    QXmlStreamReader xmlReader(&outputKey);
+//    //output.open(QIODevice::ReadOnly | QIODevice::Text);
+//    outputKey.open(QIODevice::ReadOnly | QIODevice::Text);
+
+//    while(!xmlReader.atEnd() && !xmlReader.hasError()){
+
+
+//        xmlReader.readNext();
+
+//        //pega os nome dos arquivos que devem ser abertos
+//        if(xmlReader.name()== "nome"){
+//        expKey.nome = xmlReader.readElementText() ;
+
+//        }
+
+//        if(xmlReader.name() == "laboratorio"){
+
+//            expKey.lab = xmlReader.readElementText() ;
+
+//        }
+
+//        if(xmlReader.name() == "password"){
+//            expKey.senha = xmlReader.readElementText() ;
+//        }
+
+
+//    }
+//    output.close();
 
 
 }

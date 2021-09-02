@@ -442,4 +442,10 @@ void telaCadastroListaFilme::on_pbGravarXML_clicked()
     stream.writeEndDocument(); //fecha o documento
     output.close(); //termina a gravacao
 
+
+    QMessageBox::information(this,tr("Message"),tr("Saved successfully"));
+
+    this->close();
+    delete this;
+
 }

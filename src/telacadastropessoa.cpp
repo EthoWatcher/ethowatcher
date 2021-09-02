@@ -50,7 +50,7 @@ void telaCadastroPessoa::gravandoXML(){
     //stream.writeStartElement(nome);
     stream.writeTextElement("nome", nome);
     stream.writeTextElement("laboratorio", lab);
-    stream.writeTextElement("password", ui->lePass->text());
+//    stream.writeTextElement("password", ui->lePass->text());
 
 
     //stream.writeTextElement("sexo", sexo);

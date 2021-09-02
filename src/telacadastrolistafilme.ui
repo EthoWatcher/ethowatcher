@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>998</width>
-    <height>547</height>
+    <width>1023</width>
+    <height>656</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,69 +57,118 @@
           </attribute>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="QWidget" name="widget" native="true">
-             <layout class="QHBoxLayout" name="horizontalLayout">
+            <widget class="QWidget" name="widget_6" native="true">
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
               <item>
-               <widget class="QLabel" name="label">
-                <property name="text">
-                 <string>Name</string>
+               <widget class="QWidget" name="widget_7" native="true">
+                <property name="minimumSize">
+                 <size>
+                  <width>400</width>
+                  <height>0</height>
+                 </size>
                 </property>
+                <layout class="QVBoxLayout" name="verticalLayout_4">
+                 <item>
+                  <widget class="QWidget" name="widget" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout">
+                    <item>
+                     <widget class="QLabel" name="label">
+                      <property name="text">
+                       <string>Name</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="lblNome">
+                      <property name="minimumSize">
+                       <size>
+                        <width>300</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="autoFillBackground">
+                       <bool>true</bool>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="widget_2" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout_2">
+                    <item>
+                     <widget class="QLabel" name="label_4">
+                      <property name="text">
+                       <string>Path</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="lblCaminho">
+                      <property name="minimumSize">
+                       <size>
+                        <width>300</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="autoFillBackground">
+                       <bool>true</bool>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="widget_3" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout_3">
+                    <item>
+                     <widget class="QLabel" name="label_6">
+                      <property name="text">
+                       <string>Extension</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="lblExtensao">
+                      <property name="minimumSize">
+                       <size>
+                        <width>300</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="autoFillBackground">
+                       <bool>true</bool>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+                <zorder>widget</zorder>
+                <zorder>widget</zorder>
+                <zorder>widget_2</zorder>
+                <zorder>widget_3</zorder>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="lblNome">
-                <property name="autoFillBackground">
-                 <bool>true</bool>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QWidget" name="widget_2" native="true">
-             <layout class="QHBoxLayout" name="horizontalLayout_2">
-              <item>
-               <widget class="QLabel" name="label_4">
-                <property name="text">
-                 <string>Path</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="lblCaminho">
-                <property name="autoFillBackground">
-                 <bool>true</bool>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QWidget" name="widget_3" native="true">
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
-              <item>
-               <widget class="QLabel" name="label_6">
-                <property name="text">
-                 <string>Extension</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="lblExtensao">
-                <property name="autoFillBackground">
-                 <bool>true</bool>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
+               <widget class="QWidget" name="widget_8" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_5">
+                 <item>
+                  <widget class="QListWidget" name="listWidget"/>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
@@ -136,46 +185,36 @@
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pbAddVideo">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="text">
-                 <string>Add Video to list</string>
-                </property>
+               <widget class="QWidget" name="widget_9" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_6">
+                 <item>
+                  <widget class="QPushButton" name="pbAddVideo">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="text">
+                    <string>Add Video to list</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pbDeletar">
+                   <property name="text">
+                    <string>Delete</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>
             </widget>
            </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="tab_2">
-          <attribute name="title">
-           <string>Video List Info</string>
-          </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout_2">
            <item>
-            <widget class="QListWidget" name="listWidget"/>
-           </item>
-           <item>
-            <widget class="QWidget" name="widget_5" native="true">
-             <layout class="QHBoxLayout" name="horizontalLayout_5">
-              <item>
-               <widget class="QPushButton" name="pbDeletar">
-                <property name="text">
-                 <string>Delete</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pbGravarXML">
-                <property name="text">
-                 <string>Save</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+            <widget class="QPushButton" name="pbGravarXML">
+             <property name="text">
+              <string>Save</string>
+             </property>
             </widget>
            </item>
           </layout>
