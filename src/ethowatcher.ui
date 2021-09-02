@@ -363,7 +363,7 @@ p, li { white-space: pre-wrap; }
                          </widget>
                         </item>
                         <item>
-                         <widget class="QGroupBox" name="groupBox_3">
+                         <widget class="QGroupBox" name="grup_video_manage">
                           <property name="title">
                            <string>Video management tools</string>
                           </property>
