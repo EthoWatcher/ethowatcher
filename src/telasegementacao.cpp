@@ -323,39 +323,52 @@ void telaSegementacao::on_pbTotalRes_clicked()
             //para depois contabilizar
 
          //para todos os segmentoss
-         for(int ka=0; ka<fimPeriodo.size(); ka++){
+         auto gera_lista_contendo_segmentos = [](int q_inicial, int q_final, std::vector<double> inicioPeriodo, std::vector<double> fimPeriodo,  std::vector<int> vetorPontos){
+             std::vector<int> s_vetorPontosSegmentados;
+             std::vector<std::vector<int> > s_vetorPontosSegmentadosMatriz;
 
-             //para todos os quadros
-             for(int kb=videoLido->frameProce; kb<videoLido->frameFinal;kb++){
+             for(int ka=0; ka<fimPeriodo.size(); ka++){
 
-                 //vou testar se esta dentro da segmentação
-                 //se estiver dentro da segmentação ele pega o valor de pontos
-                 if((kb>=inicioPeriodo[ka]) && (kb<fimPeriodo[ka])){
+                 //para todos os quadros
+                 for(int kb=q_inicial; kb<q_final;kb++){
 
-                    vetorPontosSegmentados.push_back(vetorPontos[kb-videoLido->frameProce]);
+                     //vou testar se esta dentro da segmentação
+                     //se estiver dentro da segmentação ele pega o valor de pontos
+                     if((kb>=inicioPeriodo[ka]) && (kb<fimPeriodo[ka])){
 
-                 }
+                        s_vetorPontosSegmentados.push_back(vetorPontos[kb-q_inicial]);
 
-                 //para quando ser o ultimo frma ele estar incluso dentro dos pontos segmentados
-                 if(kb==videoLido->frameFinal){
+                     }
 
-                     vetorPontosSegmentados.push_back(vetorPontos[kb-videoLido->frameProce]);
+                     //para quando ser o ultimo frma ele estar incluso dentro dos pontos segmentados
+                     if(kb==q_final){
 
-                     qDebug() << "ultimo frame colocado dentro do vetor de segmentação";
-                 }
+                         s_vetorPontosSegmentados.push_back(vetorPontos[kb-q_inicial]);
 
-
-
-
-
-
-             }//fim dos testes dos quadros
-
-             vetorPontosSegmentadosMatriz.push_back(vetorPontosSegmentados);
-             vetorPontosSegmentados.clear();
+                         qDebug() << "ultimo frame colocado dentro do vetor de segmentação";
+                     }
 
 
-         }
+
+
+
+
+                 }//fim dos testes dos quadros
+
+                 s_vetorPontosSegmentadosMatriz.push_back(s_vetorPontosSegmentados);
+                 s_vetorPontosSegmentados.clear();
+
+
+             }
+
+
+            return s_vetorPontosSegmentadosMatriz;
+         };
+
+        // parei por aqui.
+        vetorPontosSegmentadosMatriz = gera_lista_contendo_segmentos(videoLido->frameProce, videoLido->frameFinal,
+                                                                     inicioPeriodo, fimPeriodo, vetorPontos);
+
 
 
 
@@ -366,13 +379,8 @@ void telaSegementacao::on_pbTotalRes_clicked()
 //         std::vector<std::vector<double> > frequenciaTotalMatriz;
 
          latenciaTotal= latencia(vetorPontos);
-
-
-
          duracaoTotal = duracaoCategoria(vetorPontos);
          frequenciaTotal = frequenciaCategorias(vetorPontos);
-
-
          duracaoTotalMatriz.push_back(duracaoTotal);
          frequenciaTotalMatriz.push_back(frequenciaTotal);
          duracaoTotal.clear();
@@ -381,19 +389,14 @@ void telaSegementacao::on_pbTotalRes_clicked()
 
 
          //para todos os vetores de pontos
+         // SAIDA.
          for(int cVePon=0; cVePon <vetorPontosSegmentadosMatriz.size(); cVePon++){
-
-
-
              duracaoTotal = duracaoCategoria(vetorPontosSegmentadosMatriz[cVePon]);
              frequenciaTotal = frequenciaCategorias(vetorPontosSegmentadosMatriz[cVePon]);
-
-
              duracaoTotalMatriz.push_back(duracaoTotal);
              frequenciaTotalMatriz.push_back(frequenciaTotal);
              duracaoTotal.clear();
              frequenciaTotal.clear();
-
          }
 
 
