@@ -75,6 +75,8 @@ telaEtografiaProce::telaEtografiaProce(QWidget *parent) :
      contadorCirculo=0;
      contadorRetangulo=0;
 
+      ui->lieTime->setEnabled(ui->cb_temporal_segmentation->isChecked());
+
 }
 
 void telaEtografiaProce::closeEvent(QCloseEvent *event)
@@ -3556,4 +3558,11 @@ void telaEtografiaProce::atualizaProcess(int numFrame)
                  ui->tabWDesc->setItem(0,14,new QTableWidgetItem("false" ));
 
              }
+}
+
+void telaEtografiaProce::on_cb_temporal_segmentation_clicked()
+{
+
+    ui->lieTime->setEnabled(ui->cb_temporal_segmentation->isChecked());
+
 }

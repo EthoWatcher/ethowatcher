@@ -303,6 +303,8 @@ private slots:
 
     void atualizaProcess(int numFrame);
 
+    void on_cb_temporal_segmentation_clicked();
+
 private:
     Ui::telaEtografiaProce *ui;
 
