@@ -1787,7 +1787,7 @@
                    <widget class="QWidget" name="widget_11" native="true">
                     <layout class="QVBoxLayout" name="verticalLayout_23">
                      <item>
-                      <widget class="QCheckBox" name="checkBox">
+                      <widget class="QCheckBox" name="cb_temporal_segmentation">
                        <property name="text">
                         <string>Temporal segmentation</string>
                        </property>

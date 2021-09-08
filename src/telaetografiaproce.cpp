@@ -2587,24 +2587,25 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 
     if(!nomeGravarEtografia.isEmpty()){
         // ui->pbGravarAnalasiteEtografica->setEnabled(false);
+        if(ui->cb_temporal_segmentation->isChecked()){
+            telaSegementacao *segment;
+            segment = new telaSegementacao();
+            QString texto_seg = segment->gera_segmentacao_texto(
+                        ui->lieTime->text().toDouble(),
+                        videoLista.frameProces[contadorDeVideo],
+                        videoLista.frameFinal[contadorDeVideo],
+                        videoLista.fps[contadorDeVideo],
 
-        telaSegementacao *segment;
-        segment = new telaSegementacao();
-        QString texto_seg = segment->gera_segmentacao_texto(
-                    5,
-                    videoLista.frameProces[contadorDeVideo],
-                    videoLista.frameFinal[contadorDeVideo],
-                    videoLista.fps[contadorDeVideo],
-
-                    saida.frameComeco,
-                    saida.framFim,
-                    saida.id,
-                    cAnaEto.nomeCategoria,
-                    cAnaEto.quantidadeDeDados);
+                        saida.frameComeco,
+                        saida.framFim,
+                        saida.id,
+                        cAnaEto.nomeCategoria,
+                        cAnaEto.quantidadeDeDados);
 
 
 
-        qDebug() <<texto_seg;
+            qDebug() <<texto_seg;
+        }
 
 
         OutEtografia.setFileName(nomeGravarEtografia);
