@@ -17,6 +17,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "telaetografiaproce.h"
 #include "ui_telaetografiaproce.h"
+#include "telasegementacao.h"
+
 
 telaEtografiaProce::telaEtografiaProce(QWidget *parent) :
     QWidget(parent),
@@ -2568,6 +2570,9 @@ void telaEtografiaProce::on_cbNested_clicked(bool checked)
     }
 }
 
+
+
+// gravar etografia
 void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 {
 
@@ -2575,143 +2580,159 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
                 this,
                 tr("Save File"),
                 "C://",
-               "ethography files (*.etoxml)"
+                "ethography files (*.etoxml)"
                );
 
 
 
- if(!nomeGravarEtografia.isEmpty()){
-  // ui->pbGravarAnalasiteEtografica->setEnabled(false);
+    if(!nomeGravarEtografia.isEmpty()){
+        // ui->pbGravarAnalasiteEtografica->setEnabled(false);
+
+        telaSegementacao *segment;
+        segment = new telaSegementacao();
+        QString texto_seg = segment->gera_segmentacao_texto(
+                    5,
+                    videoLista.frameProces[contadorDeVideo],
+                    videoLista.frameFinal[contadorDeVideo],
+                    videoLista.fps[contadorDeVideo],
+
+                    saida.frameComeco,
+                    saida.framFim,
+                    saida.id,
+                    cAnaEto.nomeCategoria,
+                    cAnaEto.quantidadeDeDados);
 
 
 
-   OutEtografia.setFileName(nomeGravarEtografia);
+        qDebug() <<texto_seg;
 
 
-   OutEtografia.open(QIODevice::WriteOnly);
+        OutEtografia.setFileName(nomeGravarEtografia);
+        OutEtografia.open(QIODevice::WriteOnly);
 
-   QXmlStreamWriter stream(&OutEtografia); //passa o endereço
-   stream.setAutoFormatting(true);
+        QXmlStreamWriter stream(&OutEtografia); //passa o endereço
+        stream.setAutoFormatting(true);
 
-   stream.writeStartDocument();//começa o documento
-   stream.writeStartElement("analiseEtografica");
-   stream.writeStartElement("dadosExperimentador");
-            stream.writeTextElement("experimentador",experimentador.nome);
-            stream.writeTextElement("laboratorio",experimentador.lab);
-   stream.writeEndElement();//fecha analiseEtografica
+        stream.writeStartDocument();//começa o documento
+        stream.writeStartElement("analiseEtografica");
+        stream.writeStartElement("dadosExperimentador");
+        stream.writeTextElement("experimentador",experimentador.nome);
+        stream.writeTextElement("laboratorio",experimentador.lab);
+        stream.writeEndElement();//fecha analiseEtografica
 
-   stream.writeStartElement("dadosVideoAnalisado");
-            stream.writeTextElement("nomeVxml",videoLista.nomeVXML[contadorDeVideo]);
-            stream.writeTextElement("frameInicial",QString::number(videoLista.frameInicial[contadorDeVideo]));
-            stream.writeTextElement("frameProces",QString::number(videoLista.frameProces[contadorDeVideo]));
-            stream.writeTextElement("frameFinal",QString::number(videoLista.frameFinal[contadorDeVideo]));
-            stream.writeTextElement("fps",QString::number(videoLista.fps[contadorDeVideo]));
-   stream.writeEndElement();//fecha informacoes
+        stream.writeStartElement("dadosVideoAnalisado");
+        stream.writeTextElement("nomeVxml",videoLista.nomeVXML[contadorDeVideo]);
+        stream.writeTextElement("frameInicial",QString::number(videoLista.frameInicial[contadorDeVideo]));
+        stream.writeTextElement("frameProces",QString::number(videoLista.frameProces[contadorDeVideo]));
+        stream.writeTextElement("frameFinal",QString::number(videoLista.frameFinal[contadorDeVideo]));
+        stream.writeTextElement("fps",QString::number(videoLista.fps[contadorDeVideo]));
+        stream.writeEndElement();//fecha informacoes
 
-   stream.writeStartElement("dadosCatalago");
-   stream.writeTextElement("nomeCaminhoExt", nomeGravarCatalago);
-   //stream.writeStartElement("informacoes");
-
-
-
-   stream.writeStartElement("Categorias");
-   int contador=0;
-
-   for(int i=0;i<cAnaEto.quantidadeDeDados;i++){
-
-      stream.writeStartElement("categoria");
-      stream.writeAttribute("id", QString::number(i));
-      stream.writeAttribute("nome",cAnaEto.nomeCategoria[i]);
-      stream.writeEndElement();
-
-      }
-
-
-    stream.writeEndElement(); //fecha caminho Ext
-
-
-   stream.writeEndElement();//fecha Categorias
-  // stream.writeEndElement();//fecha dadosCatalago
-
-   stream.writeStartElement("dadosAnalise");
-
-   if(ui->cbAuto->isChecked()){
-    stream.writeTextElement("tipoAnalise","Autoesclusiva" );
-   }
-
-   if(ui->cbNested->isChecked()){
-    stream.writeTextElement("tipoAnalise","sobreposta" );
-   }
+        stream.writeStartElement("dadosCatalago");
+        stream.writeTextElement("nomeCaminhoExt", nomeGravarCatalago);
+        //stream.writeStartElement("informacoes");
 
 
 
-   stream.writeStartElement("analises");
+        stream.writeStartElement("Categorias");
+        int contador=0;
 
-   int contEx=0;
-   for(int i=0;i<saida.quantidadeDepontos;i++){
+        for(int i=0;i<cAnaEto.quantidadeDeDados;i++){
+
+            stream.writeStartElement("categoria");
+            stream.writeAttribute("id", QString::number(i));
+            stream.writeAttribute("nome",cAnaEto.nomeCategoria[i]);
+            stream.writeEndElement();
+
+        }
+
+
+        stream.writeEndElement(); //fecha caminho Ext
+
+
+        stream.writeEndElement();//fecha Categorias
+        // stream.writeEndElement();//fecha dadosCatalago
+
+        stream.writeStartElement("dadosAnalise");
+
+        if(ui->cbAuto->isChecked()){
+            stream.writeTextElement("tipoAnalise","Autoesclusiva" );
+        }
+
+        if(ui->cbNested->isChecked()){
+            stream.writeTextElement("tipoAnalise","sobreposta" );
+        }
 
 
 
-       if(saida.chPontoValido.size()!=0){ //erro por nao ter olhado os pontos
-           if(saida.chPontoValido[i]){
+        stream.writeStartElement("analises");
 
-               stream.writeStartElement("analise");
-               stream.writeAttribute("ponto", QString::number(contEx));
-               stream.writeAttribute("id", QString::number(saida.id[i]));
-               stream.writeAttribute("frameInicial", QString::number( saida.frameComeco[i]));
-               stream.writeAttribute("frameFinal", QString::number(saida.framFim[i]));
+        int contEx=0;
+        for(int i=0;i<saida.quantidadeDepontos;i++){
+
+
+
+            if(saida.chPontoValido.size()!=0){ //erro por nao ter olhado os pontos
+                if(saida.chPontoValido[i]){
+
+                    stream.writeStartElement("analise");
+                    stream.writeAttribute("ponto", QString::number(contEx));
+                    stream.writeAttribute("id", QString::number(saida.id[i]));
+                    stream.writeAttribute("frameInicial", QString::number( saida.frameComeco[i]));
+                    stream.writeAttribute("frameFinal", QString::number(saida.framFim[i]));
+
+                    stream.writeEndElement(); //fecha analise
+
+                    contEx++;
+
+                }
+
+            }else{
+                stream.writeStartElement("analise");
+                stream.writeAttribute("ponto", QString::number(contEx));
+                stream.writeAttribute("id", QString::number(saida.id[i]));
+                stream.writeAttribute("frameInicial", QString::number( saida.frameComeco[i]));
+                stream.writeAttribute("frameFinal", QString::number(saida.framFim[i]));
 
                 stream.writeEndElement(); //fecha analise
 
                 contEx++;
 
-           }
 
-       }else{
-           stream.writeStartElement("analise");
-           stream.writeAttribute("ponto", QString::number(contEx));
-           stream.writeAttribute("id", QString::number(saida.id[i]));
-           stream.writeAttribute("frameInicial", QString::number( saida.frameComeco[i]));
-           stream.writeAttribute("frameFinal", QString::number(saida.framFim[i]));
-
-            stream.writeEndElement(); //fecha analise
-
-            contEx++;
-
-
-       }
+            }
 
 
 
 
-   }
+        }
 
-    stream.writeEndElement();//fecha analises
+        stream.writeEndElement();//fecha analises
 
-   stream.writeEndElement();// fecha dadosAnalise
+        stream.writeEndElement();// fecha dadosAnalise
 
 
 
 
 
-   stream.writeEndElement();//fecha analiseEtografica
-   stream.writeEndDocument();
+        stream.writeEndElement();//fecha analiseEtografica
+        stream.writeEndDocument();
 
 
-   OutEtografia.close();
+        OutEtografia.close();
 
 
-   parser = new parserXMLtoCSV();
-   parser->converteArquivo(nomeGravarEtografia);
+        parser = new parserXMLtoCSV();
+        parser->converteArquivo(nomeGravarEtografia);
 
 
 
-//    totalizacoesEtografia();
+        //    totalizacoesEtografia();
 
-//    escreverEtografiaCsv();
+        //    escreverEtografiaCsv();
 
 
- }
+    }
+
 }
 
 void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
