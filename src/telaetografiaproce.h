@@ -308,7 +308,7 @@ private slots:
 private:
     Ui::telaEtografiaProce *ui;
 
-    void _gravar_csv(QString nomeGravarEtografia,
+    QString gera_csv_eto(QString nomeGravarEtografia,
                                 int frameProces, int frameFinal, double fps,
                                 QString nome_caminho_video,
 
@@ -320,6 +320,8 @@ private:
                                 std::vector<double> eto_framFim,
                                 std::vector<int> eto_id
                                 );
+
+    void _gravar_csv(QString path_eto, QString t_saida);
 
     void totalizacoesEtografia(int vl_frameFinal,
                                int frameProces,
