@@ -31,6 +31,120 @@ telaMatrizTransicao::~telaMatrizTransicao()
     delete ui;
 }
 
+QString telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categorias,
+                                                         std::vector<QString> ctl_nome,
+                                                         int etog_qnt_de_pontos,
+                                                         std::vector<int> etl_id)
+{
+    int valorMatriz=qPow(ctl_qnt_categorias,2);
+
+    for(int i=0; i<valorMatriz;i++){
+
+        analiseSequencial.dados.push_back(0);
+    }
+
+
+    double quantidadeDePontos=0;
+
+    int contador=0;
+    int testeFinal=0;
+    int valorAdd=0;
+    for(int k=0;k< ctl_qnt_categorias;k++){
+
+        for(int j=0; j< etog_qnt_de_pontos;j++){
+
+            testeFinal=j+1;
+            //para nao entrar no ultimo
+            if(testeFinal< etog_qnt_de_pontos){
+
+                if(etl_id[j]==k){
+                    //for(int m=0; m<catalagoLido.quantidadeDeCategorias;m++){
+                    valorAdd= etl_id[j+1];
+                    quantidadeDePontos= quantidadeDePontos+1;
+                    //if(k==m){
+                    analiseSequencial.dados[contador+valorAdd]= analiseSequencial.dados[contador+valorAdd]+1;
+                }
+                // }
+                // }
+
+            }
+
+
+
+        }
+
+        contador +=ctl_qnt_categorias;
+
+
+    }
+
+
+
+
+
+    //ui->tabDadSeq->insertColumn(3);
+    QStringList titulos;
+
+    ui->tabDadSeq->setColumnCount(ctl_qnt_categorias);
+
+    for(int k=0; k< ctl_qnt_categorias; k++){
+        titulos << ctl_nome[k];
+    }
+
+
+    ui->tabDadSeq->setHorizontalHeaderLabels(titulos);
+
+
+    int loopContador=0;
+
+    for(int k=0;k< ctl_qnt_categorias;k++){
+        ui->tabDadSeq->insertRow(ui->tabDadSeq->rowCount());
+        //categoria
+
+
+        for(int j=0; j<ctl_qnt_categorias; j++){
+
+            ui->tabDadSeq->setItem(ui->tabDadSeq->rowCount()-1
+                                   ,j,new QTableWidgetItem(
+                                       QString::number(analiseSequencial.dados[loopContador])));
+
+            loopContador++;
+        }
+
+    }
+
+    loopContador=0;
+
+
+
+
+
+
+    for(int m=0;m<ctl_qnt_categorias;m++){
+
+        //categoria
+
+
+        for(int l=0; l<ctl_qnt_categorias; l++){
+                porcentagemMatrix.push_back(analiseSequencial.dados[loopContador]/quantidadeDePontos);
+
+            loopContador++;
+        }
+
+    }
+
+
+    ui->tabDadSeq->setVerticalHeaderLabels(titulos);
+    //ui->swAnaSeq->setCurrentIndex(1);
+
+    ui->pbMakeGraph->setEnabled(true);
+    ui->pbGeraRelaSeq->setEnabled(true);
+
+
+    return "";
+
+}
+
 void telaMatrizTransicao::on_pbSeqCarregar_clicked()
 {
     fonteVideoETOXML = QFileDialog::getOpenFileName(
@@ -54,123 +168,125 @@ void telaMatrizTransicao::on_pbSeqCarregar_clicked()
 
 void telaMatrizTransicao::on_pbAnaliseSeq_clicked()
 {
-    int valorMatriz=qPow(catalagoLido->quantidadeDeCategorias,2);
 
-    for(int i=0; i<valorMatriz;i++){
+    QString texto = this->calcular_analise_sequencial(catalagoLido->quantidadeDeCategorias,
+                                      catalagoLido->nome,
+                                      etografiaLida->quantidadeDePontos,
+                                      etografiaLida->id);
 
-        analiseSequencial.dados.push_back(0);
+//    int valorMatriz=qPow(catalagoLido->quantidadeDeCategorias,2);
 
+//    for(int i=0; i<valorMatriz;i++){
 
-    }
-
-    double quantidadeDePontos=0;
-
-    int contador=0;
-    int testeFinal=0;
-    int valorAdd=0;
-    for(int k=0;k<catalagoLido->quantidadeDeCategorias;k++){
+//        analiseSequencial.dados.push_back(0);
 
 
+//    }
 
-        for(int j=0; j<etografiaLida->quantidadeDePontos;j++){
+//    double quantidadeDePontos=0;
 
-
-            testeFinal=j+1;
-            //para nao entrar no ultimo
-            if(testeFinal<etografiaLida->quantidadeDePontos){
-
-                if(etografiaLida->id[j]==k){
-                    //for(int m=0; m<catalagoLido.quantidadeDeCategorias;m++){
-                    valorAdd= etografiaLida->id[j+1];
-                    quantidadeDePontos= quantidadeDePontos+1;
-                    //if(k==m){
-                    analiseSequencial.dados[contador+valorAdd]= analiseSequencial.dados[contador+valorAdd]+1;
-                }
-                // }
-                // }
-
-            }
+//    int contador=0;
+//    int testeFinal=0;
+//    int valorAdd=0;
+//    for(int k=0;k<catalagoLido->quantidadeDeCategorias;k++){
 
 
 
-        }
-
-        contador +=catalagoLido->quantidadeDeCategorias;
+//        for(int j=0; j<etografiaLida->quantidadeDePontos;j++){
 
 
-    }
+//            testeFinal=j+1;
+//            //para nao entrar no ultimo
+//            if(testeFinal<etografiaLida->quantidadeDePontos){
+
+//                if(etografiaLida->id[j]==k){
+//                    //for(int m=0; m<catalagoLido.quantidadeDeCategorias;m++){
+//                    valorAdd= etografiaLida->id[j+1];
+//                    quantidadeDePontos= quantidadeDePontos+1;
+//                    //if(k==m){
+//                    analiseSequencial.dados[contador+valorAdd]= analiseSequencial.dados[contador+valorAdd]+1;
+//                }
+//                // }
+//                // }
+
+//            }
 
 
 
+//        }
+
+//        contador +=catalagoLido->quantidadeDeCategorias;
 
 
-    //ui->tabDadSeq->insertColumn(3);
-    QStringList titulos;
-
-    ui->tabDadSeq->setColumnCount(catalagoLido->quantidadeDeCategorias);
-
-    for(int k=0; k<catalagoLido->quantidadeDeCategorias; k++){
-
-
-        titulos << catalagoLido->nome[k];
-    }
-
-
-    ui->tabDadSeq->setHorizontalHeaderLabels(titulos);
-
-
-    int loopContador=0;
-
-    for(int k=0;k<catalagoLido->quantidadeDeCategorias;k++){
-        ui->tabDadSeq->insertRow(ui->tabDadSeq->rowCount());
-        //categoria
-
-
-        for(int j=0; j<catalagoLido->quantidadeDeCategorias; j++){
-
-            ui->tabDadSeq->setItem(ui->tabDadSeq->rowCount()-1
-                                   ,j,new QTableWidgetItem(
-                                       QString::number(analiseSequencial.dados[loopContador])));
-
-            loopContador++;
-        }
-
-    }
-
-    loopContador=0;
+//    }
 
 
 
 
 
+//    //ui->tabDadSeq->insertColumn(3);
+//    QStringList titulos;
 
-    for(int m=0;m<catalagoLido->quantidadeDeCategorias;m++){
+//    ui->tabDadSeq->setColumnCount(catalagoLido->quantidadeDeCategorias);
 
-        //categoria
+//    for(int k=0; k<catalagoLido->quantidadeDeCategorias; k++){
 
 
-        for(int l=0; l<catalagoLido->quantidadeDeCategorias; l++){
-                porcentagemMatrix.push_back(analiseSequencial.dados[loopContador]/quantidadeDePontos);
+//        titulos << catalagoLido->nome[k];
+//    }
 
-            loopContador++;
-        }
 
-    }
+//    ui->tabDadSeq->setHorizontalHeaderLabels(titulos);
+
+
+//    int loopContador=0;
+
+//    for(int k=0;k<catalagoLido->quantidadeDeCategorias;k++){
+//        ui->tabDadSeq->insertRow(ui->tabDadSeq->rowCount());
+//        //categoria
+
+
+//        for(int j=0; j<catalagoLido->quantidadeDeCategorias; j++){
+
+//            ui->tabDadSeq->setItem(ui->tabDadSeq->rowCount()-1
+//                                   ,j,new QTableWidgetItem(
+//                                       QString::number(analiseSequencial.dados[loopContador])));
+
+//            loopContador++;
+//        }
+
+//    }
+
+//    loopContador=0;
 
 
 
 
 
 
+//    for(int m=0;m<catalagoLido->quantidadeDeCategorias;m++){
 
-    ui->tabDadSeq->setVerticalHeaderLabels(titulos);
-    //ui->swAnaSeq->setCurrentIndex(1);
+//        //categoria
 
-    ui->pbMakeGraph->setEnabled(true);
-    ui->pbGeraRelaSeq->setEnabled(true);
-//    ui->teTutor->setText("<p> Passo 3: Clique no botão 'Make graph' para editar e gerar um gráfico referente a matriz "
-//                         "de transição analisada</p>"
-//                         "<p> Passo 4: Clique no botão 'Gerar relatório' para gerar relatório em '.csv' e '.aseq'</p>");
+
+//        for(int l=0; l<catalagoLido->quantidadeDeCategorias; l++){
+//                porcentagemMatrix.push_back(analiseSequencial.dados[loopContador]/quantidadeDePontos);
+
+//            loopContador++;
+//        }
+
+//    }
+
+
+
+
+
+
+
+
+////    ui->teTutor->setText("<p> Passo 3: Clique no botão 'Make graph' para editar e gerar um gráfico referente a matriz "
+////                         "de transição analisada</p>"
+////                         "<p> Passo 4: Clique no botão 'Gerar relatório' para gerar relatório em '.csv' e '.aseq'</p>");
 
 
 
