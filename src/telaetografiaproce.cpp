@@ -2601,6 +2601,7 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
                         saida.frameComeco,
                         saida.framFim,
                         saida.id,
+
                         cAnaEto.nomeCategoria,
                         cAnaEto.quantidadeDeDados);
 
@@ -2608,6 +2609,21 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 
             qDebug() <<texto_seg;
         }
+
+        this->_gravar_csv(nomeGravarEtografia,
+                          videoLista.frameProces[contadorDeVideo],
+                          videoLista.frameFinal[contadorDeVideo],
+                          videoLista.fps[contadorDeVideo],
+                          videoLista.nomeVXML[contadorDeVideo],
+
+                          nomeGravarCatalago,
+                          cAnaEto.nomeCategoria,
+                          cAnaEto.id,
+
+
+                          saida.frameComeco,
+                          saida.framFim,
+                          saida.id);
 
 
         OutEtografia.setFileName(nomeGravarEtografia);
@@ -2724,8 +2740,8 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
         OutEtografia.close();
 
 
-        parser = new parserXMLtoCSV();
-        parser->converteArquivo(nomeGravarEtografia);
+//        parser = new parserXMLtoCSV();
+//        parser->converteArquivo(nomeGravarEtografia);
 
 
 
@@ -3564,5 +3580,197 @@ void telaEtografiaProce::on_cb_temporal_segmentation_clicked()
 {
 
     ui->lieTime->setEnabled(ui->cb_temporal_segmentation->isChecked());
+
+}
+
+void telaEtografiaProce::_gravar_csv(QString nomeGravarEtografia,
+                                     int frameProces, int frameFinal, double fps,
+                                     QString nome_caminho_video,
+
+                                     QString nomeGravarCatalago,
+                                     std::vector<QString> nomeCategoria,
+                                     std::vector<int> catalogo_id,
+
+                                     std::vector<double> eto_frameComeco,
+                                     std::vector<double> eto_framFim,
+                                     std::vector<int> eto_id
+                                     )
+{
+    QFile outGravador_csv;
+
+
+    QStringList list1 = nomeGravarEtografia.split(".etoxml");
+    QString saida = list1[0] + "_csv.csv";
+
+    outGravador_csv.setFileName(saida);
+    outGravador_csv.open(QIODevice::WriteOnly | QIODevice::Text );
+
+    QTextStream csvGravador(&outGravador_csv);
+
+    csvGravador <<"sep=; \n";
+    csvGravador <<"EthoWatcher Open Source \n";
+    csvGravador <<"Observer" << experimentador.nome.toLatin1() << "\n";
+    csvGravador <<"Lab" << experimentador.lab.toLatin1() << "\n";
+//    csvGravador <<"Experiment" << "\n";
+//    csvGravador <<"Animal" << "\n";
+//    csvGravador <<"Weight" << "\n";
+//    csvGravador <<"sex" << "\n";
+//    csvGravador <<"Treatment/condition" << "\n";
+//    csvGravador <<"Other Info" << "\n";
+    //csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
+//    csvGravador <<"WARNING: in this version, decimals are separated by COMMA \n";
+//    csvGravador <<"video file \n";
+
+    csvGravador << "ETHOGRAPHY REPORT" << "\n";
+////    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
+    csvGravador << "Registred video file are locate in " << nome_caminho_video << "\n";
+
+    csvGravador << "Analysis initiated at " <<  frameProces / fps  << " (seconds) of the video file \n ";
+    csvGravador << "Analysis terminated at " << frameFinal / fps << " (seconds) of the video file \n";
+    csvGravador <<"\n";
+//    csvGravador <<"informacoes do catalogo analisado: \n";
+    csvGravador <<"The selected catalog are : " <<";" << nomeGravarCatalago << "\n";
+//    csvGravador <<"categorias\n";
+//    for(int i=0; i< catalagoLido->nome.size(); i++ ){
+//       csvGravador << catalagoLido->nome[i]<< "\n";
+
+//    }
+//    csvGravador <<"\n";
+//    csvGravador <<"A analise etografica utilizada \n";
+//    csvGravador <<"id, caminho, tipo \n";
+//    for(int i=0; i< etografiasLidas.size();i++){
+
+//      csvGravador << i << ";" << etografiasLidas[i]->caminho << ";" << etografiasLidas[i]->tipoDeAnalise;
+//    }
+//    csvGravador <<"\n";
+//    csvGravador <<"\n";
+
+    //apartir daqui é diferente das outras analises
+//    csvGravador <<"As totalizacoes da analise sequencial\n";
+//    csvGravador << "" <<";";
+//    for(int grt=0; grt< catalagoLido->nome.size(); grt++){
+//       csvGravador << catalagoLido->nome[grt] <<";";
+//    }
+    csvGravador << "\n";
+    csvGravador << "\n";
+    csvGravador << "\n";
+
+    double duracao=0;
+    csvGravador << "Time (s)" << ";" << "Categories"<< ";" << "Duration(s)" << "\n";
+
+    for(int ka1=0; ka1< eto_frameComeco.size(); ka1++){
+
+        csvGravador << eto_frameComeco[ka1] / fps;
+        //csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
+
+        csvGravador << ";";
+        csvGravador << nomeCategoria[eto_id[ka1]];
+        csvGravador << ";";
+
+        duracao= eto_framFim[ka1]- eto_frameComeco[ka1];
+        csvGravador << duracao / fps;
+        csvGravador << "\n";
+
+    }
+
+    this->totalizacoesEtografia(frameFinal, frameProces, fps,
+                                catalogo_id,
+                                eto_frameComeco, eto_framFim, eto_id);
+
+    csvGravador <<  "RESULTS FOR THE ENTIRE PERIOD of ANALYSIS \n\n";
+
+    csvGravador << "Category"<< ";" << "Duration(s)" << ";" <<"Freq."  << ";" << "Latency(s)" << "\n";
+
+    for(int ka2=0; ka2< nomeCategoria.size(); ka2++){
+        csvGravador <<nomeCategoria[ka2] << ";"
+                     << vetorDuracao[ka2]<< ";"
+                     << vetorFrequencia[ka2] << ";"
+                     << vetorLatencia[ka2] << ";" ;
+        csvGravador << "\n";
+    }
+
+    outGravador_csv.close();
+
+
+
+}
+
+void telaEtografiaProce::totalizacoesEtografia(int vl_frameFinal,
+                                               int frameProces,
+                                               double fps,
+                                               std::vector<int> catalogo_id,
+
+                                               std::vector<double> eto_frameComeco,
+                                               std::vector<double> eto_framFim,
+                                               std::vector<int> eto_id
+                                               )
+{
+//encontra frequencia
+    for(int ka=0; ka< catalogo_id.size(); ka++){
+        //cada categoria
+        frequencia=0;
+
+        for(int ja=0; ja<eto_id.size(); ja++){
+
+            if(eto_id[ja]==ka){
+
+               frequencia=frequencia+1;
+            }
+        }
+        vetorFrequencia.push_back(frequencia);
+    }
+
+    //encontra latencia
+    int primeiraOcorrencia=0;
+    bool chLate;
+
+
+    for(int ka=0; ka< catalogo_id.size(); ka++){
+        //cada categoria
+        //latencia
+        latencia= vl_frameFinal;
+        chLate=true;
+
+        //encontra a primeria vez que aconteceu
+        for(int ja=0; ja< eto_id.size(); ja++){
+
+            if( (eto_id[ja]==ka) &&(chLate)){
+
+               primeiraOcorrencia= ja;
+               chLate=false;
+
+            }
+
+        }
+
+        latencia= eto_frameComeco[primeiraOcorrencia] - frameProces;
+        vetorLatencia.push_back(latencia/fps);
+    }
+
+
+    //encontra duracao;
+
+    for(int ka=0; ka< catalogo_id.size(); ka++){
+        //cada categoria
+        duracao=0;
+
+        for(int ja=0; ja< eto_id.size(); ja++){
+
+            if(eto_id[ja]==ka){
+
+               duracao= eto_framFim[ja]- eto_frameComeco[ja] + duracao;
+
+            }
+        }
+        vetorDuracao.push_back(duracao/fps);
+    }
+
+
+
+    chLate=false;
+
+
+
+
 
 }

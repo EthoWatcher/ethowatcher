@@ -308,8 +308,28 @@ private slots:
 private:
     Ui::telaEtografiaProce *ui;
 
+    void _gravar_csv(QString nomeGravarEtografia,
+                                int frameProces, int frameFinal, double fps,
+                                QString nome_caminho_video,
 
+                                QString nomeGravarCatalago,
+                                std::vector<QString> nomeCategoria,
+                                std::vector<int> catalogo_id,
 
+                                std::vector<double> eto_frameComeco,
+                                std::vector<double> eto_framFim,
+                                std::vector<int> eto_id
+                                );
+
+    void totalizacoesEtografia(int vl_frameFinal,
+                               int frameProces,
+                               double fps,
+                               std::vector<int> catalogo_id,
+
+                               std::vector<double> eto_frameComeco,
+                               std::vector<double> eto_framFim,
+                               std::vector<int> eto_id
+                               );
 
     void readCatalago();
     void lerVXML(QString nomeArquivoLer);
