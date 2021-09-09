@@ -134,14 +134,43 @@ QString telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categorias,
     }
 
 
+    auto gera_csv = [&](){
+        QString str_csv_completo = "";
+        QString str_titulo = ";";
+
+        // gera os titulos
+        for(int i=0; i< titulos.size(); i++){
+            str_titulo = str_titulo + titulos[i]+";";
+        }
+        str_titulo = str_titulo+  "\n";
+        str_csv_completo = str_titulo;
+
+        // preenche os numeros;
+        int loopContador_array=0;
+        for(int i=0; i< ctl_qnt_categorias; i++){
+            QString linha = titulos[i] + ";";
+            for(int j=0; j<ctl_qnt_categorias; j++){
+                linha = linha + QString::number(analiseSequencial.dados[loopContador_array])+ ";";
+                loopContador_array++;
+            }
+            str_csv_completo = str_csv_completo + linha + "\n";
+
+        }
+
+        return str_csv_completo;
+
+
+    };
+
+
     ui->tabDadSeq->setVerticalHeaderLabels(titulos);
     //ui->swAnaSeq->setCurrentIndex(1);
-
     ui->pbMakeGraph->setEnabled(true);
     ui->pbGeraRelaSeq->setEnabled(true);
 
 
-    return "";
+    QString saida_txt_csv = gera_csv();
+    return saida_txt_csv;
 
 }
 
@@ -173,6 +202,9 @@ void telaMatrizTransicao::on_pbAnaliseSeq_clicked()
                                       catalagoLido->nome,
                                       etografiaLida->quantidadeDePontos,
                                       etografiaLida->id);
+
+
+    qDebug() << texto;
 
 //    int valorMatriz=qPow(catalagoLido->quantidadeDeCategorias,2);
 
