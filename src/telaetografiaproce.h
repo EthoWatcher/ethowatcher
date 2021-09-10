@@ -311,6 +311,8 @@ private slots:
 
     void on_cb_seq_analyses_clicked();
 
+    void on_pb_generate_grafic_clicked();
+
 private:
     Ui::telaEtografiaProce *ui;
 

@@ -2608,6 +2608,16 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 
             qDebug() <<texto_seg;
         }
+        QString text_sencia = "";
+        if(ui->cb_seq_analyses->isChecked()){
+            text_sencia = transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
+                                                cAnaEto.nomeCategoria,
+                                                saida.id.size(),
+                                                saida.id);
+
+            qDebug() << text_sencia;
+
+        }
 
         QString text_eto = this->gera_csv_eto(nomeGravarEtografia,
                           videoLista.frameProces[contadorDeVideo],
@@ -2623,7 +2633,7 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
                           saida.framFim,
                           saida.id);
 
-        QString texto = text_eto + texto_seg;
+        QString texto = text_eto + texto_seg + text_sencia;
 
 
 
@@ -3796,14 +3806,10 @@ void telaEtografiaProce::on_cb_seq_analyses_clicked()
 {
 
     transi= new telaMatrizTransicao();
-    QString text_sencia = transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
-                                        cAnaEto.nomeCategoria,
-                                        saida.id.size(),
-                                        saida.id);
 
-    qDebug() << text_sencia;
+    ui->pb_generate_grafic->setEnabled(ui->cb_seq_analyses->isChecked());
 
-    transi->mostra_gerar_grafico(cAnaEto.nomeCategoria);
+
 
 
 //    texto_seg = segment->gera_segmentacao_texto(
@@ -3820,4 +3826,9 @@ void telaEtografiaProce::on_cb_seq_analyses_clicked()
 //                cAnaEto.quantidadeDeDados);
 
 
+}
+
+void telaEtografiaProce::on_pb_generate_grafic_clicked()
+{
+    transi->mostra_gerar_grafico(cAnaEto.nomeCategoria);
 }
