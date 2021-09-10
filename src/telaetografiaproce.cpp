@@ -74,6 +74,7 @@ telaEtografiaProce::telaEtografiaProce(QWidget *parent) :
      contadorRetangulo=0;
 
       ui->lieTime->setEnabled(ui->cb_temporal_segmentation->isChecked());
+      ui->pb_generate_grafic->setEnabled(ui->cb_seq_analyses->isChecked());
 
 }
 
@@ -2620,9 +2621,11 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
         }
 
         QString text_eto = this->gera_csv_eto(nomeGravarEtografia,
+
                           videoLista.frameProces[contadorDeVideo],
                           videoLista.frameFinal[contadorDeVideo],
                           videoLista.fps[contadorDeVideo],
+
                           videoLista.nomeVXML[contadorDeVideo],
 
                           nomeGravarCatalago,
@@ -2633,7 +2636,76 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
                           saida.framFim,
                           saida.id);
 
-        QString texto = text_eto + texto_seg + text_sencia;
+
+        auto gera_cabecalho =[&](QString nome_caminho_video,
+                                int frameProces,
+                                int frameFinal,
+                                double fps){
+
+            QString t_saida ="";
+
+
+
+            t_saida = t_saida + "sep=; \n";
+            t_saida = t_saida + "EthoWatcher Open Source \n";
+            t_saida = t_saida + "Observer" + experimentador.nome.toLatin1() + "\n";
+            t_saida = t_saida + "Lab" + experimentador.lab.toLatin1() + "\n";
+
+
+            t_saida = t_saida + "Registred video file are locate in " + nome_caminho_video + "\n";
+
+            t_saida = t_saida + "Analysis initiated at " + QString::number( frameProces / fps) + " (seconds) of the video file \n ";
+            t_saida = t_saida + "Analysis terminated at " + QString::number( frameFinal / fps) + " (seconds) of the video file \n";
+            t_saida = t_saida + "\n";
+
+            t_saida = t_saida + "The selected catalog are : " + ";" + nomeGravarCatalago + "\n";
+            t_saida = t_saida + "\n";
+            t_saida = t_saida + "\n";
+            t_saida = t_saida + "\n";
+
+            return t_saida;
+        };
+
+        QString cabecalho = gera_cabecalho(nomeGravarEtografia,
+                                           videoLista.frameProces[contadorDeVideo],
+                                           videoLista.frameFinal[contadorDeVideo],
+                                           videoLista.fps[contadorDeVideo]);
+
+
+        auto alinha_tabela = [](QString texto_eto, QString texto_seg){
+            QString saida_texto ="";
+            QStringList ls_eto = texto_eto.split("\n");
+            QStringList ls_seg = texto_seg.split("\n");
+
+            bool r_continua = true;
+            int i_ls_eto = 0;
+            int i_ls_seg = 0;
+            while(r_continua){
+                bool r_d_eto = i_ls_eto < ls_eto.size();
+                bool r_d_seg = i_ls_seg < ls_seg.size();
+                if(r_d_eto){
+                    saida_texto  = saida_texto + ls_eto[i_ls_eto];
+
+
+                }
+
+                if(r_d_seg){
+                    saida_texto = saida_texto + ";;;;";
+                    saida_texto  = saida_texto + ls_seg[i_ls_seg];
+                }
+
+
+                saida_texto = saida_texto + "\n";
+                i_ls_eto++;
+                i_ls_seg++;
+                r_continua = r_d_eto || r_d_seg;
+            }
+
+            return saida_texto;
+        };
+
+
+        QString texto = cabecalho + alinha_tabela(text_eto , text_sencia) + texto_seg;
 
 
 
@@ -3598,7 +3670,9 @@ void telaEtografiaProce::on_cb_temporal_segmentation_clicked()
 }
 
 QString telaEtografiaProce::gera_csv_eto(QString nomeGravarEtografia,
-                                     int frameProces, int frameFinal, double fps,
+                                     int frameProces,
+                                     int frameFinal,
+                                     double fps,
                                      QString nome_caminho_video,
 
                                      QString nomeGravarCatalago,
@@ -3613,57 +3687,8 @@ QString telaEtografiaProce::gera_csv_eto(QString nomeGravarEtografia,
 
 
 
-    QString t_saida ="";
+    QString t_saida ="Sequence  and moment of occurrence of the categories recorded\n";
 
-
-
-    t_saida = t_saida + "sep=; \n";
-    t_saida = t_saida + "EthoWatcher Open Source \n";
-    t_saida = t_saida + "Observer" + experimentador.nome.toLatin1() + "\n";
-    t_saida = t_saida + "Lab" + experimentador.lab.toLatin1() + "\n";
-//    csvGravador <<"Experiment" << "\n";
-//    csvGravador <<"Animal" << "\n";
-//    csvGravador <<"Weight" << "\n";
-//    csvGravador <<"sex" << "\n";
-//    csvGravador <<"Treatment/condition" << "\n";
-//    csvGravador <<"Other Info" << "\n";
-    //csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
-//    csvGravador <<"WARNING: in this version, decimals are separated by COMMA \n";
-//    csvGravador <<"video file \n";
-
-    t_saida = t_saida + "ETHOGRAPHY REPORT" + "\n";
-////    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
-    t_saida = t_saida + "Registred video file are locate in " + nome_caminho_video + "\n";
-
-    t_saida = t_saida + "Analysis initiated at " + QString::number( frameProces / fps) + " (seconds) of the video file \n ";
-    t_saida = t_saida + "Analysis terminated at " + QString::number( frameFinal / fps) + " (seconds) of the video file \n";
-    t_saida = t_saida + "\n";
-//    csvGravador <<"informacoes do catalogo analisado: \n";
-    t_saida = t_saida + "The selected catalog are : " + ";" + nomeGravarCatalago + "\n";
-//    csvGravador <<"categorias\n";
-//    for(int i=0; i< catalagoLido->nome.size(); i++ ){
-//       csvGravador << catalagoLido->nome[i]<< "\n";
-
-//    }
-//    csvGravador <<"\n";
-//    csvGravador <<"A analise etografica utilizada \n";
-//    csvGravador <<"id, caminho, tipo \n";
-//    for(int i=0; i< etografiasLidas.size();i++){
-
-//      csvGravador << i << ";" << etografiasLidas[i]->caminho << ";" << etografiasLidas[i]->tipoDeAnalise;
-//    }
-//    csvGravador <<"\n";
-//    csvGravador <<"\n";
-
-    //apartir daqui é diferente das outras analises
-//    csvGravador <<"As totalizacoes da analise sequencial\n";
-//    csvGravador << "" <<";";
-//    for(int grt=0; grt< catalagoLido->nome.size(); grt++){
-//       csvGravador << catalagoLido->nome[grt] <<";";
-//    }
-    t_saida = t_saida + "\n";
-    t_saida = t_saida + "\n";
-    t_saida = t_saida + "\n";
 
     double duracao=0;
     t_saida = t_saida + " Time (s)" + ";" + "Categories" + ";" + "Duration(s)" + "\n";
@@ -3677,8 +3702,9 @@ QString telaEtografiaProce::gera_csv_eto(QString nomeGravarEtografia,
         t_saida = t_saida + nomeCategoria[eto_id[ka1]];
         t_saida = t_saida + ";";
 
-        t_saida = t_saida + QString::number( eto_framFim[ka1]- eto_frameComeco[ka1]);
-        t_saida = t_saida + QString::number( duracao / fps);
+
+        t_saida = t_saida + QString::number( (eto_framFim[ka1]- eto_frameComeco[ka1])/ fps);
+//        t_saida = t_saida + QString::number( duracao / fps);
         t_saida = t_saida + "\n";
 
     }

@@ -143,12 +143,26 @@ QString telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categorias,
             str_titulo = str_titulo + titulos[i]+";";
         }
         str_titulo = str_titulo+  "\n";
-        str_csv_completo = str_titulo;
+
+
+        str_csv_completo = ";;;;Transition frequencies matrix\n\n;Following Category" + str_titulo;
 
         // preenche os numeros;
         int loopContador_array=0;
         for(int i=0; i< ctl_qnt_categorias; i++){
-            QString linha = titulos[i] + ";";
+
+            QString linha ="";
+
+            if(i==0){
+                linha = "Preeding;";
+            }else if(i==1){
+                linha ="Category;";
+            }else{
+                linha =";";
+            }
+
+
+            linha = linha + titulos[i] + ";";
             for(int j=0; j<ctl_qnt_categorias; j++){
                 linha = linha + QString::number(analiseSequencial.dados[loopContador_array])+ ";";
                 loopContador_array++;

@@ -1829,7 +1829,7 @@
                      <item>
                       <widget class="QPushButton" name="pb_generate_grafic">
                        <property name="text">
-                        <string>Generate grafic</string>
+                        <string>Generate graph</string>
                        </property>
                       </widget>
                      </item>
