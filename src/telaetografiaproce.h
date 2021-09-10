@@ -62,6 +62,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "parserxmltocsv.h"
 
 
+#include "telasegementacao.h"
+#include "telamatriztransicao.h"
+
+
 #include "ethowatcheros.h"
 
 namespace Ui {
@@ -305,6 +309,8 @@ private slots:
 
     void on_cb_temporal_segmentation_clicked();
 
+    void on_cb_seq_analyses_clicked();
+
 private:
     Ui::telaEtografiaProce *ui;
 
@@ -429,6 +435,9 @@ private:
     int contPrcessamento=0;
 
     void reiniciaProcessamento();
+
+    telaMatrizTransicao *transi;
+
 signals:
     void reiniciaProce();
 

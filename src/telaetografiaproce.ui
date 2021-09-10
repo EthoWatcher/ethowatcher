@@ -1778,8 +1778,8 @@
                   <rect>
                    <x>10</x>
                    <y>30</y>
-                   <width>321</width>
-                   <height>221</height>
+                   <width>311</width>
+                   <height>201</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_25">
@@ -1818,11 +1818,18 @@
                   </item>
                   <item>
                    <widget class="QWidget" name="widget_13" native="true">
-                    <layout class="QVBoxLayout" name="verticalLayout_24">
+                    <layout class="QHBoxLayout" name="horizontalLayout_14">
                      <item>
-                      <widget class="QPushButton" name="pb_sequential_analysis">
+                      <widget class="QCheckBox" name="cb_seq_analyses">
                        <property name="text">
                         <string>Sequential analysis</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pb_generate_grafic">
+                       <property name="text">
+                        <string>Generate grafic</string>
                        </property>
                       </widget>
                      </item>

@@ -17,8 +17,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "telaetografiaproce.h"
 #include "ui_telaetografiaproce.h"
-#include "telasegementacao.h"
-
 
 telaEtografiaProce::telaEtografiaProce(QWidget *parent) :
     QWidget(parent),
@@ -3790,6 +3788,36 @@ void telaEtografiaProce::totalizacoesEtografia(int vl_frameFinal,
 
 
 
+
+
+}
+
+void telaEtografiaProce::on_cb_seq_analyses_clicked()
+{
+
+    transi= new telaMatrizTransicao();
+    QString text_sencia = transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
+                                        cAnaEto.nomeCategoria,
+                                        saida.id.size(),
+                                        saida.id);
+
+    qDebug() << text_sencia;
+
+    transi->mostra_gerar_grafico(cAnaEto.nomeCategoria);
+
+
+//    texto_seg = segment->gera_segmentacao_texto(
+//                ui->lieTime->text().toDouble(),
+//                videoLista.frameProces[contadorDeVideo],
+//                videoLista.frameFinal[contadorDeVideo],
+//                videoLista.fps[contadorDeVideo],
+
+//                saida.frameComeco,
+//                saida.framFim,
+//                saida.id,
+
+//                cAnaEto.nomeCategoria,
+//                cAnaEto.quantidadeDeDados);
 
 
 }

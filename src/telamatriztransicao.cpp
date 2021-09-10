@@ -174,6 +174,19 @@ QString telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categorias,
 
 }
 
+void telaMatrizTransicao::mostra_gerar_grafico(std::vector<QString> nomeCategoria)
+{
+    catalagoLido = new catalago();
+    catalagoLido->nome = nomeCategoria;
+    ui->pbSeqCarregar->setEnabled(false);
+
+
+
+    this->show();
+//    on_pbMakeGraph_clicked
+    emit ui->pbMakeGraph->click();
+}
+
 void telaMatrizTransicao::on_pbSeqCarregar_clicked()
 {
     fonteVideoETOXML = QFileDialog::getOpenFileName(

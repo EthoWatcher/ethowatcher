@@ -60,6 +60,9 @@ public:
                                         int etog_qnt_de_pontos,
                                         std::vector<int> etl_id);
 
+    void mostra_gerar_grafico(std::vector<QString> nomeCategoria);
+
+
 private slots:
     void on_pbSeqCarregar_clicked();
 
