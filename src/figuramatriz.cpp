@@ -219,7 +219,7 @@ void figuraMatriz::on_pbAtualiza_clicked()
                 //ele ta vendo se ja pos a seta em algum das categorias
                 if((auxBoolI)&&(auxBoolJ)){
                     seta= new itemNovaSeta(listaCirc[c1],listaCirc[c2],-10);
-                    seta->setTextPor(QString::number(aux));
+                    seta->setTextPor(QString::number(aux)+"%");
 
                     listaNovaSeta.push_back(seta);
 
@@ -230,7 +230,7 @@ void figuraMatriz::on_pbAtualiza_clicked()
 
 
                     seta= new itemNovaSeta(listaCirc[c1],listaCirc[c2],10);
-                    seta->setTextPor(QString::number(aux));
+                    seta->setTextPor(QString::number(aux)+ "%");
                     listaNovaSeta.push_back(seta);
 
                     scene->addItem(listaNovaSeta[conNovaSeta]);

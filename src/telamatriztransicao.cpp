@@ -126,7 +126,7 @@ QString telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categorias,
 
 
         for(int l=0; l<ctl_qnt_categorias; l++){
-                porcentagemMatrix.push_back(analiseSequencial.dados[loopContador]/quantidadeDePontos);
+                porcentagemMatrix.push_back(analiseSequencial.dados[loopContador]/quantidadeDePontos*100);
 
             loopContador++;
         }
