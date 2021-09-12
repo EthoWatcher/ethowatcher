@@ -2648,8 +2648,8 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 
             t_saida = t_saida + "sep=; \n";
             t_saida = t_saida + "EthoWatcher Open Source \n";
-            t_saida = t_saida + "Observer" + experimentador.nome.toLatin1() + "\n";
-            t_saida = t_saida + "Lab" + experimentador.lab.toLatin1() + "\n";
+            t_saida = t_saida + "Observer;" + experimentador.nome.toLatin1() + "\n";
+            t_saida = t_saida + "Lab;" + experimentador.lab.toLatin1() + "\n";
 
 
             t_saida = t_saida + "Registred video file are locate in " + nome_caminho_video + "\n";

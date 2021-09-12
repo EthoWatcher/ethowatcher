@@ -164,7 +164,7 @@ QString telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categorias,
 
             linha = linha + titulos[i] + ";";
             for(int j=0; j<ctl_qnt_categorias; j++){
-                linha = linha + QString::number(analiseSequencial.dados[loopContador_array])+ ";";
+                linha = linha + QString::number( porcentagemMatrix[loopContador_array]) + ";"; // analiseSequencial.dados[loopContador_array])+ ";";
                 loopContador_array++;
             }
             str_csv_completo = str_csv_completo + linha + "\n";
