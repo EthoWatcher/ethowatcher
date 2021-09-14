@@ -198,7 +198,28 @@ void telaMatrizTransicao::mostra_gerar_grafico(std::vector<QString> nomeCategori
 
     this->show();
 //    on_pbMakeGraph_clicked
-    emit ui->pbMakeGraph->click();
+
+    auto mostra_matrix = [&](){
+        matriz= new figuraMatriz();
+
+        for(int c1=0; c1< catalagoLido->nome.size(); c1++){
+
+
+            matriz->setNovoCirculo(catalagoLido->nome[c1]);
+
+        }
+
+        //analiseSequencial.dados
+
+        matriz->recebeDadosSeq(porcentagemMatrix);
+
+
+        matriz->show();
+        return true;
+    };
+
+    bool mostra = mostra_matrix();
+//    emit ui->pbMakeGraph->click();
 }
 
 void telaMatrizTransicao::on_pbSeqCarregar_clicked()

@@ -2611,10 +2611,10 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
         }
         QString text_sencia = "";
         if(ui->cb_seq_analyses->isChecked()){
-            text_sencia = transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
-                                                cAnaEto.nomeCategoria,
-                                                saida.id.size(),
-                                                saida.id);
+            text_sencia = text_transicao; //transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
+                                          //      cAnaEto.nomeCategoria,
+                                          //     saida.id.size(),
+                                          //     saida.id);
 
             qDebug() << text_sencia;
 
@@ -3835,6 +3835,10 @@ void telaEtografiaProce::on_cb_seq_analyses_clicked()
 
     ui->pb_generate_grafic->setEnabled(ui->cb_seq_analyses->isChecked());
 
+    text_transicao = transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
+                                                    cAnaEto.nomeCategoria,
+                                                    saida.id.size(),
+                                                    saida.id);
 
 
 
