@@ -91,18 +91,18 @@ QString telaSegementacao::gera_segmentacao_texto(double tamanho_janela_s, int q_
     // resultado
     QString texto_saida ="";
     int qnt_segmentos = inicioPeriodo.size();
-    for(int tot=0; tot< qnt_segmentos; tot++){
+    for(int tot=1; tot< qnt_segmentos+1; tot++){
 
 
-        texto_saida = texto_saida + "\n RESULTS FOR \n Segmentation initiated at ;" + QString::number( inicioPeriodo[tot]/videoLido->fps) ;
-        texto_saida = texto_saida + ";  Segmentation terminated at ;" + QString::number(fimPeriodo[tot]/videoLido->fps) + "\n\n";
+        texto_saida = texto_saida + "\n RESULTS FOR \n Segmentation initiated at ;" + QString::number( inicioPeriodo[tot-1]/videoLido->fps) ;
+        texto_saida = texto_saida + ";  Segmentation terminated at ;" + QString::number(fimPeriodo[tot-1]/videoLido->fps) + "\n\n";
 
         texto_saida = texto_saida + "Category" + ";" + "Duration(s)" + ";" + "Freq." + "\n";
         int qnt_categorias = catalagoLido->nome.size();
         for(int fr=0; fr< qnt_categorias ; fr++){
 
             texto_saida = texto_saida + catalagoLido->nome[fr] + ";" +
-                    QString::number(duracaoTotalMatriz[tot][fr]/videoLido->fps)  + ";" +
+                    QString::number(duracaoTotalMatriz[tot][fr])  + ";" +  ///videoLido->fps
                     QString::number(frequenciaTotalMatriz[tot][fr]) + ";" ;
 
                 texto_saida = texto_saida + ";\n";
