@@ -62,6 +62,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "parserxmltocsv.h"
 
 
+#include "telasegementacao.h"
+#include "telamatriztransicao.h"
+
+
 #include "ethowatcheros.h"
 
 namespace Ui {
@@ -77,6 +81,7 @@ public:
     void closeEvent(QCloseEvent * event);
 
     ~telaEtografiaProce();
+
 
     struct dadosEtografia{
 
@@ -302,8 +307,41 @@ private slots:
 
     void atualizaProcess(int numFrame);
 
+    void on_cb_temporal_segmentation_clicked();
+
+    void on_cb_seq_analyses_clicked();
+
+    void on_pb_generate_grafic_clicked();
+
 private:
     Ui::telaEtografiaProce *ui;
+    QString text_transicao;
+    QString gera_csv_eto(QString nomeGravarEtografia,
+                                int frameProces, int frameFinal, double fps,
+                                QString nome_caminho_video,
+
+                                QString nomeGravarCatalago,
+                                std::vector<QString> nomeCategoria,
+                                std::vector<int> catalogo_id,
+
+                                std::vector<double> eto_frameComeco,
+                                std::vector<double> eto_framFim,
+                                std::vector<int> eto_id
+                                );
+
+
+
+    void _gravar_csv(QString path_eto, QString t_saida);
+
+    void totalizacoesEtografia(int vl_frameFinal,
+                               int frameProces,
+                               double fps,
+                               std::vector<int> catalogo_id,
+
+                               std::vector<double> eto_frameComeco,
+                               std::vector<double> eto_framFim,
+                               std::vector<int> eto_id
+                               );
 
     void readCatalago();
     void lerVXML(QString nomeArquivoLer);
@@ -401,6 +439,9 @@ private:
     int contPrcessamento=0;
 
     void reiniciaProcessamento();
+
+    telaMatrizTransicao *transi;
+
 signals:
     void reiniciaProce();
 

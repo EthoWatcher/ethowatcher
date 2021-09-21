@@ -56,6 +56,17 @@ public:
     explicit telaSegementacao(QWidget *parent = 0);
     ~telaSegementacao();
 
+    void liga_sementacao_etografia();
+
+    QString gera_segmentacao_texto(double tamanho_janela_s, int q_proce, int q_final, double fps,
+                                        std::vector<double> frameInicial,
+                                        std::vector<double> frameFinal,
+                                        std::vector<int> id,
+
+                                        std::vector<QString> nome,
+                                        int qnt_categorias);
+    QString saida_texto_formada_csv;
+
 private slots:
     void on_pbCaTotalSe_clicked();
 
@@ -76,6 +87,7 @@ private slots:
 private:
     Ui::telaSegementacao *ui;
 
+    void _calcula();
     //Ui::telaEstatistica *ui;
     QString fonteVideoETOXML;
     QFile OutEtografia;
@@ -107,8 +119,8 @@ private:
 
     struct analiseEtografica{
 
-        int quantidadeDePontos=0;
-        QString tipoDeAnalise;
+       int quantidadeDePontos=0;
+       QString tipoDeAnalise;
        std::vector<int> ponto;
        std::vector<int> id;
        std::vector<double> frameInicial;

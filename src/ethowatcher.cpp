@@ -42,6 +42,21 @@ ethoWatcher::ethoWatcher(QWidget *parent) :
     ui->pbRealTime->setVisible(false);
     ui->pbUnveil->setVisible(false);
 
+
+    bool r_blo_interfce = [&]() -> bool{
+
+        ui->tabWiEthowatcher->setTabEnabled(1,false);
+        ui->tabWiEthowatcher->setTabEnabled(2,false);
+
+        ui->grup_video_manage->setEnabled(false);
+        ui->pbRegisterCatalog->setEnabled(false);
+        ui->pbTela2ListaVideo->setEnabled(false);
+        return true;
+    }();
+
+
+
+
     //ui->treeWidget->
 
     //cadastroPessoa = new telaCadastroPessoa(); //eh necessario para a alocacao da memoria
@@ -97,6 +112,7 @@ void ethoWatcher::on_pbTela1Yes_clicked()
 {
     cadastroPessoa = new telaCadastroPessoa(); //eh necessario para a alocacao da memoria
     connect(cadastroPessoa,SIGNAL(fechouJanela()),this,SLOT(mudaTela()));
+
     //abre arquivo cadastrado de usuario
     fonteUsuario= QFileDialog::getOpenFileName(
                     this,
@@ -105,37 +121,65 @@ void ethoWatcher::on_pbTela1Yes_clicked()
                    "Video Files (*.uxml)"
                     );
 
+    bool r_abriu_documento = fonteUsuario!="";
+
+
+    if(r_abriu_documento){
+
+        bool desbloqueia_interface = [&]() -> bool{
+            ui->pbTela1No->setEnabled(false);
+            ui->pbTela1Yes->setEnabled(false);
+            ui->tabWiEthowatcher->setTabEnabled(1,true);
+            ui->tabWiEthowatcher->setTabEnabled(2,true);
+
+            ui->grup_video_manage->setEnabled(true);
+            ui->pbRegisterCatalog->setEnabled(true);
+            ui->pbTela2ListaVideo->setEnabled(true);
+            return true;
+        }();
+        // melhorar a leitura do arquivo xml
+        cadastroPessoa->nomeArquivo=  fonteUsuario;
+        cadastroPessoa->lendoXML();
+
+        qDebug() << cadastroPessoa->nome + " lab " + cadastroPessoa->lab;
+        chLoadUser =true;
+
+    }
+
+
+
+
       //Se a string capturada for vazia (casos: fechar ou cancelar janela de diálogo), sai da função
      // abrir video e não executa os códicos a seguir
 
      //  fonteUsuarioBit = fonteUsuario.toLatin1();
-    if(fonteUsuario!=""){
+//    if(fonteUsuario!=""){
 
-                cadastroPessoa->nomeArquivo= fonteUsuario;
-                 cadastroPessoa->lendoXML();
+//                cadastroPessoa->nomeArquivo= fonteUsuario;
+//                cadastroPessoa->lendoXML();
 
 
-            // if(cadastroPessoa->nome !=""){
+//            // if(cadastroPessoa->nome !=""){
 
-                 QString fraseInicial;
-                 fraseInicial= "Hello " + cadastroPessoa->nome+
-                         " do laboratorio " +cadastroPessoa->lab+
-                         " escolha entre os botões a baixo o que você gostaria de fazer."+
-                         "O programa conta com as opções de: \n "+
-                         "1-Gravar um video apartir da webcam \n" +
-                         "2-Cadastrar um video de seu banco de dados de videos para utilizar no ethowatcher \n"+
-                         "3-Criar uma lista de videos cadastrados para ser utilizado na analise ethologica,cinematica,RNA\n"+
-                         "4-Fazer uma analise ethologica com a opção de duplo cego.\n"+
-                         "5-Fazer uma analise cinematica tanto de um video como de uma lista de videos \n"+
-                         "6-Utilizar uma RNA para analisar seus experimentos ";
+//                 QString fraseInicial;
+//                 fraseInicial= "Hello " + cadastroPessoa->nome+
+//                         " do laboratorio " +cadastroPessoa->lab+
+//                         " escolha entre os botões a baixo o que você gostaria de fazer."+
+//                         "O programa conta com as opções de: \n "+
+//                         "1-Gravar um video apartir da webcam \n" +
+//                         "2-Cadastrar um video de seu banco de dados de videos para utilizar no ethowatcher \n"+
+//                         "3-Criar uma lista de videos cadastrados para ser utilizado na analise ethologica,cinematica,RNA\n"+
+//                         "4-Fazer uma analise ethologica com a opção de duplo cego.\n"+
+//                         "5-Fazer uma analise cinematica tanto de um video como de uma lista de videos \n"+
+//                         "6-Utilizar uma RNA para analisar seus experimentos ";
 
-                 //ui->tePrimeiro->setText(fraseInicial);
-                 //ui->stackedWidget->setCurrentIndex(1);
-                 ui->tabWiEthowatcher->setEnabled(true);
-                 //ui->widBotoCadas->setEnabled(false);
-                 qDebug() << cadastroPessoa->nome + " lab " + cadastroPessoa->lab;
-                 chLoadUser =true;
-        }
+//                 //ui->tePrimeiro->setText(fraseInicial);
+//                 //ui->stackedWidget->setCurrentIndex(1);
+//                 ui->tabWiEthowatcher->setEnabled(true);
+//                 //ui->widBotoCadas->setEnabled(false);
+
+//                 chLoadUser =true;
+//        }
 
 
 }
@@ -206,11 +250,22 @@ void ethoWatcher::on_pbCadastrarListaVideo_clicked()
 void ethoWatcher::on_pbAnaliseEtograma_clicked()
 {
     //tela de etografia.
-    etografaProce= new telaEtografiaProce();
-     if(chLoadUser){
-        etografaProce->setExperimentador(cadastroPessoa->nome,cadastroPessoa->lab);
-     }
-    etografaProce->show();
+
+//    bool r_aberto_usuario = cadastroPessoa != null;
+
+    if(chLoadUser){
+
+         etografaProce= new telaEtografiaProce();
+
+//         etografaProce->set_usuario(cadastroPessoa->nome, cadastroPessoa->lab);
+         etografaProce->setExperimentador(cadastroPessoa->nome,cadastroPessoa->lab);
+
+         etografaProce->show();
+
+    }
+
+
+
     //etografia= new telaEtografia();
     //etografia->setExperimentador("Joao e ","UFSC BIOENGENHARIA");
    // etografia->show();

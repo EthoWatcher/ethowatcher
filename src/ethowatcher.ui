@@ -277,7 +277,7 @@ p, li { white-space: pre-wrap; }
               </size>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="tab">
               <attribute name="title">
@@ -363,7 +363,7 @@ p, li { white-space: pre-wrap; }
                          </widget>
                         </item>
                         <item>
-                         <widget class="QGroupBox" name="groupBox_3">
+                         <widget class="QGroupBox" name="grup_video_manage">
                           <property name="title">
                            <string>Video management tools</string>
                           </property>

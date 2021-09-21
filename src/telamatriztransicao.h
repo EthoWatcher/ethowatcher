@@ -55,6 +55,14 @@ public:
     explicit telaMatrizTransicao(QWidget *parent = 0);
     ~telaMatrizTransicao();
 
+    QString calcular_analise_sequencial(int ctl_qnt_categorias,
+                                        std::vector<QString> ctl_nome,
+                                        int etog_qnt_de_pontos,
+                                        std::vector<int> etl_id);
+
+    void mostra_gerar_grafico(std::vector<QString> nomeCategoria);
+
+
 private slots:
     void on_pbSeqCarregar_clicked();
 
@@ -73,6 +81,7 @@ private:
     QString fonteVideoETOXML;
     QFile OutEtografia;
     void lerETOXML(QString nomeArquivo);
+
 
 
     struct dadosVideo{
