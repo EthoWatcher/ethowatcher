@@ -277,7 +277,7 @@ p, li { white-space: pre-wrap; }
               </size>
              </property>
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab">
               <attribute name="title">
@@ -340,7 +340,7 @@ p, li { white-space: pre-wrap; }
                                  </font>
                                 </property>
                                 <property name="text">
-                                 <string>Register vídeo files</string>
+                                 <string>Register video files</string>
                                 </property>
                                </widget>
                               </item>
@@ -412,7 +412,7 @@ p, li { white-space: pre-wrap; }
                               </font>
                              </property>
                              <property name="text">
-                              <string>Build a behavioral-sample video</string>
+                              <string>Build a category-specific video file</string>
                              </property>
                             </widget>
                            </item>

@@ -107,7 +107,7 @@
             <item>
              <widget class="QPushButton" name="pbUserKey">
               <property name="text">
-               <string>Open User key</string>
+               <string>User registry</string>
               </property>
              </widget>
             </item>

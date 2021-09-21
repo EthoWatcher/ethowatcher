@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Build a behavioral-sample video</string>
+   <string>Build a category-specific video file</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -58,7 +58,7 @@
                 <item>
                  <widget class="QPushButton" name="pbAnaliseFile">
                   <property name="text">
-                   <string>Open ethography file</string>
+                   <string>Select a ethographic report file</string>
                   </property>
                  </widget>
                 </item>
@@ -139,7 +139,7 @@
                 <item>
                  <widget class="QPushButton" name="pbOpenTCCM">
                   <property name="text">
-                   <string>Open tracking file</string>
+                   <string>Select the corresponding tracking report file</string>
                   </property>
                  </widget>
                 </item>

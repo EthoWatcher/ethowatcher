@@ -1918,7 +1918,7 @@
               </widget>
               <widget class="QWidget" name="tab_11">
                <attribute name="title">
-                <string>Identification Session</string>
+                <string>Experimental Info</string>
                </attribute>
                <layout class="QVBoxLayout" name="verticalLayout_27">
                 <item>
