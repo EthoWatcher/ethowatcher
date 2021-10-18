@@ -961,6 +961,76 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
            }//fim chave das areas
 
 
+           if(streamReader.name() == "nomePesquisador"){
+               conversor = streamReader.readElementText();
+               dado_pesquisador.nomePesquisador = conversor;
+
+           }
+
+           if(streamReader.name() == "laboratorio"){
+               conversor = streamReader.readElementText();
+               dado_pesquisador.laboratorio = conversor;
+
+           }
+
+
+
+           if(streamReader.name() == "nomePesquisador"){
+               conversor = streamReader.readElementText();
+               dado_pesquisador.nomePesquisador = conversor;
+
+           }
+
+           if(streamReader.name() == "laboratorio"){
+               conversor = streamReader.readElementText();
+               dado_pesquisador.laboratorio = conversor;
+
+           }
+           if(streamReader.name() == "tituloExperimento"){
+               conversor = streamReader.readElementText();
+               dado_experimento.tituloExperimento = conversor;
+
+           }
+
+           if(streamReader.name() == "data"){
+               conversor = streamReader.readElementText();
+               dado_experimento.data = conversor;
+
+           }
+
+           if(streamReader.name() == "otherInfo"){
+               conversor = streamReader.readElementText();
+               dado_experimento.otherInfo = conversor;
+
+           }
+
+           if(streamReader.name() == "animalID"){
+               conversor = streamReader.readElementText();
+               dado_experimento.animalID = conversor;
+
+           }
+
+
+           if(streamReader.name() == "wight"){
+               conversor = streamReader.readElementText();
+               dado_experimento.wight = conversor;
+
+           }
+
+           if(streamReader.name() == "animalSex"){
+               conversor = streamReader.readElementText();
+               dado_experimento.animalSex = conversor;
+
+           }
+
+           if(streamReader.name() == "threatmen"){
+               conversor = streamReader.readElementText();
+               dado_experimento.threatmen = conversor;
+
+           }
+
+
+
 
 
 
@@ -2650,6 +2720,15 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
             t_saida = t_saida + "EthoWatcher Open Source \n";
             t_saida = t_saida + "Observer;" + experimentador.nome.toLatin1() + "\n";
             t_saida = t_saida + "Lab;" + experimentador.lab.toLatin1() + "\n";
+
+            t_saida = t_saida + "Experiment info\n";
+            t_saida = t_saida + "Experiment; Date; Other Info\n";
+            t_saida = t_saida + dado_experimento.tituloExperimento + ";"+
+                    dado_experimento.data + ";" + dado_experimento.otherInfo + "\n";
+
+            t_saida = t_saida + "Animal Info\n";
+            t_saida = t_saida + "Animal ID; Weight; Sex\n";
+            t_saida = t_saida + dado_experimento.animalID + ";" + dado_experimento.wight + ";"+ dado_experimento.animalSex +"\n";
 
 
             t_saida = t_saida + "Registred video file are locate in " + nome_caminho_video + "\n";

@@ -678,6 +678,13 @@
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_19">
                        <item>
+                        <widget class="QLabel" name="label_26">
+                         <property name="text">
+                          <string>Step 1: drag and position the triangles at a known distance in the scene</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
                         <widget class="QWidget" name="widget_14" native="true">
                          <property name="minimumSize">
                           <size>
@@ -928,7 +935,7 @@
                           </size>
                          </property>
                          <property name="title">
-                          <string>Steo 1- Inform the distance between the triangles</string>
+                          <string>Step 2: Inform in the box below the distance (in centimeters) between the triangles</string>
                          </property>
                          <layout class="QVBoxLayout" name="verticalLayout_22">
                           <item>
@@ -937,13 +944,6 @@
                              <item>
                               <widget class="QWidget" name="widget_16" native="true">
                                <layout class="QHBoxLayout" name="horizontalLayout_14">
-                                <item>
-                                 <widget class="QLabel" name="label_61">
-                                  <property name="text">
-                                   <string>Centimeters:</string>
-                                  </property>
-                                 </widget>
-                                </item>
                                 <item>
                                  <widget class="QDoubleSpinBox" name="spinBoxScaleCm">
                                   <property name="maximumSize">
@@ -1076,7 +1076,7 @@
                     <item>
                      <widget class="QGroupBox" name="gbOpcoes">
                       <property name="title">
-                       <string>Step 2 - Include in the calibration</string>
+                       <string>Step 3</string>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout">
                        <item>
@@ -1169,7 +1169,7 @@
                           <item>
                            <widget class="QLabel" name="label_77">
                             <property name="text">
-                             <string>Step 2 -Position the board on top of the animal and press confirm.</string>
+                             <string>Step 2 -Place the green square over the animal´s image, and then confirm</string>
                             </property>
                            </widget>
                           </item>

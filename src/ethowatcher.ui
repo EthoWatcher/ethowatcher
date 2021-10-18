@@ -376,7 +376,7 @@ p, li { white-space: pre-wrap; }
                               </font>
                              </property>
                              <property name="text">
-                              <string>Build a video file list to blinding</string>
+                              <string>Build a video file list for blinding procedures</string>
                              </property>
                             </widget>
                            </item>
@@ -388,7 +388,7 @@ p, li { white-space: pre-wrap; }
                               </font>
                              </property>
                              <property name="text">
-                              <string>&quot;Blinding&quot; raters to video files</string>
+                              <string>Blinding observers to video file names</string>
                              </property>
                             </widget>
                            </item>

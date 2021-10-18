@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>&quot;Blinding&quot; video files</string>
+   <string>Blinding observers to video file names</string>
   </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">

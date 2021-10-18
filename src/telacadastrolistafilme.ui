@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Build video file list</string>
+   <string>Build a video file list for blinding procedures</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -156,10 +156,6 @@
                   </widget>
                  </item>
                 </layout>
-                <zorder>widget</zorder>
-                <zorder>widget</zorder>
-                <zorder>widget_2</zorder>
-                <zorder>widget_3</zorder>
                </widget>
               </item>
               <item>

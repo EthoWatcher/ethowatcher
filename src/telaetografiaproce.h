@@ -95,6 +95,28 @@ public:
 
     };
 
+
+    struct dadoPesquisador{
+       QString nomePesquisador;
+       QString laboratorio;
+    };
+
+    dadoPesquisador dado_pesquisador;
+
+    struct dadoExperimento{
+       QString tituloExperimento;
+       QString data;
+       QString otherInfo;
+       QString animalID;
+       QString wight;
+
+       QString animalSex;
+       QString threatmen;
+
+    };
+
+    dadoExperimento dado_experimento;
+
     dadosEtografia dadosEto;
     dadosEtografia cAnaEto;
 

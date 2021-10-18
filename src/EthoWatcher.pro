@@ -56,7 +56,7 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     telacadastrofilme.cpp\
     areatraingulo.cpp\
     itemareainte.cpp\
-    telacadastrolistafilme.cpp \
+    telacadastrolistafilme.cpp\
     modulocaptador.cpp\
     telacego.cpp\
     telablind.cpp\
@@ -83,12 +83,11 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     parserxml.cpp
 
 
-
-HEADERS  += ethowatcher.h \
-    telacadastropessoa.h \
-    telacadastrofilme.h \
-    areatraingulo.h \
-    itemareainte.h \
+HEADERS  += ethowatcher.h\
+    telacadastropessoa.h\
+    telacadastrofilme.h\
+    areatraingulo.h\
+    itemareainte.h\
     telacadastrolistafilme.h\
     modulocaptador.h\
     telacego.h\
@@ -101,7 +100,7 @@ HEADERS  += ethowatcher.h \
     telacadastrocatalago.h\
     moduloeditavideo.h\
     telasegementacao.h\
-    telamatriztransicao.h \
+    telamatriztransicao.h\
     teaconcordancia.h\
     figuramatriz.h\
     itemnovaseta.h\
@@ -117,17 +116,17 @@ HEADERS  += ethowatcher.h \
 
 
 
-FORMS    += ethowatcher.ui \
-    telacadastropessoa.ui \
-    telacadastrofilme.ui \
-    telacadastrolistafilme.ui \
+FORMS    += ethowatcher.ui\
+    telacadastropessoa.ui\
+    telacadastrofilme.ui\
+    telacadastrolistafilme.ui\
     telacego.ui\
     telablind.ui\
     #telaetografia.ui\
     #etografia.ui\
     #telaconversorxmlcsv.ui\
-    telasegementacao.ui \
-    telamatriztransicao.ui \
+    telasegementacao.ui\
+    telamatriztransicao.ui\
     teaconcordancia.ui\
     figuramatriz.ui\
     telacadastrocatalago.ui\
