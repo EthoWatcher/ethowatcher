@@ -130,7 +130,7 @@
                       <item>
                        <widget class="QLabel" name="label_13">
                         <property name="text">
-                         <string>Video file path</string>
+                         <string>Video file location path</string>
                         </property>
                        </widget>
                       </item>
@@ -329,8 +329,7 @@
                        <item>
                         <widget class="QPushButton" name="pbAdquiriFrame">
                          <property name="text">
-                          <string>Blind the observer to the preceding frames
-</string>
+                          <string>Blind the observer to the preceding frames</string>
                          </property>
                         </widget>
                        </item>
@@ -946,6 +945,12 @@
                                <layout class="QHBoxLayout" name="horizontalLayout_14">
                                 <item>
                                  <widget class="QDoubleSpinBox" name="spinBoxScaleCm">
+                                  <property name="minimumSize">
+                                   <size>
+                                    <width>100</width>
+                                    <height>0</height>
+                                   </size>
+                                  </property>
                                   <property name="maximumSize">
                                    <size>
                                     <width>65</width>
@@ -966,7 +971,7 @@
                                 <item>
                                  <widget class="QLabel" name="label_5">
                                   <property name="text">
-                                   <string>cm</string>
+                                   <string>mm</string>
                                   </property>
                                  </widget>
                                 </item>
@@ -1050,7 +1055,7 @@
                                 <item>
                                  <widget class="QLabel" name="label_3">
                                   <property name="text">
-                                   <string>px/cm</string>
+                                   <string>px/mm</string>
                                   </property>
                                  </widget>
                                 </item>
@@ -1149,7 +1154,7 @@
                           <item>
                            <widget class="QLabel" name="label_75">
                             <property name="text">
-                             <string>cm</string>
+                             <string>mm</string>
                             </property>
                            </widget>
                           </item>
@@ -1222,7 +1227,7 @@
                           <item>
                            <widget class="QLabel" name="label_99">
                             <property name="text">
-                             <string>cm/frame</string>
+                             <string>mm/frame</string>
                             </property>
                            </widget>
                           </item>
@@ -1532,7 +1537,7 @@
                              <item row="0" column="2">
                               <widget class="QLabel" name="label_10">
                                <property name="text">
-                                <string>cm</string>
+                                <string>mm</string>
                                </property>
                               </widget>
                              </item>
@@ -1578,7 +1583,7 @@
                              <item row="2" column="2">
                               <widget class="QLabel" name="label_87">
                                <property name="text">
-                                <string>cm</string>
+                                <string>mm</string>
                                </property>
                               </widget>
                              </item>
@@ -1600,7 +1605,7 @@
                                 </size>
                                </property>
                                <property name="currentIndex">
-                                <number>0</number>
+                                <number>1</number>
                                </property>
                                <widget class="QWidget" name="pageCircle">
                                 <layout class="QGridLayout" name="gridLayout_6">
@@ -1678,7 +1683,7 @@
                                  <item row="0" column="4">
                                   <widget class="QLabel" name="label_80">
                                    <property name="text">
-                                    <string>cm</string>
+                                    <string>mm</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -1718,7 +1723,7 @@
                                  <item>
                                   <widget class="QLabel" name="label_85">
                                    <property name="text">
-                                    <string>cm</string>
+                                    <string>mm</string>
                                    </property>
                                   </widget>
                                  </item>
@@ -1876,7 +1881,7 @@
                                 <item>
                                  <widget class="QLabel" name="label_84">
                                   <property name="text">
-                                   <string>cm</string>
+                                   <string>mm</string>
                                   </property>
                                  </widget>
                                 </item>

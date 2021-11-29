@@ -57,6 +57,9 @@ telaEtografiaProce::telaEtografiaProce(QWidget *parent) :
     ui->gbStep4->setVisible(false);
     ui->gbStep5->setVisible(false);
     ui->gbStep6->setVisible(false);
+    ui->tabWDesc->setVisible(false);
+    ui->groupBox_10->setVisible(false);
+
     ui->tabButtons->setTabEnabled(2,false);
 
     new QShortcut( Qt::Key_Right, this, SLOT(on_btAvancar_clicked()));
@@ -2505,7 +2508,7 @@ void telaEtografiaProce::slotMapeado(int a)
 //faz os controlador ficare enabled
             //pq sao setados false quando é excluido algum ponto
         ui->widControes->setEnabled(true);
-        ui->widControle1->setEnabled(true);
+//        ui->widControle1->setEnabled(true);
 
 
 
@@ -2921,10 +2924,12 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 
 void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
 {
+
+    QStringList pieces = fonteVideoXML.split( ".vxml" );
     nomeGravarProcesImagem = QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
-                fonteVideoXML,
+                pieces[0],
                "Traking Files (*.tkin)"
                );
 
@@ -3153,8 +3158,26 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
     OutEtografia.close();
 
     //converte o xml para csv
+    QString t_saida ="";
+
+
+
+    t_saida = t_saida + "sep=; \n";
+    t_saida = t_saida + "EthoWatcher Open Source \n";
+    t_saida = t_saida + "Observer;" + experimentador.nome.toLatin1() + "\n";
+    t_saida = t_saida + "Lab;" + experimentador.lab.toLatin1() + "\n";
+
+    t_saida = t_saida + "Experiment info\n";
+    t_saida = t_saida + "Experiment; Date; Other Info\n";
+    t_saida = t_saida + dado_experimento.tituloExperimento + ";"+
+            dado_experimento.data + ";" + dado_experimento.otherInfo + "\n";
+
+    t_saida = t_saida + "Animal Info\n";
+    t_saida = t_saida + "Animal ID; Weight; Sex\n";
+    t_saida = t_saida + dado_experimento.animalID + ";" + dado_experimento.wight + ";"+ dado_experimento.animalSex +"\n";
+
     parser = new parserXMLtoCSV();
-    parser->converteArquivo(nomeGravarProcesImagem);
+    parser->converteArquivo(nomeGravarProcesImagem, t_saida);
 
     QMessageBox::information(this,tr("Message"),tr("Saved successfully"));
 
@@ -3315,7 +3338,7 @@ void telaEtografiaProce::on_pbDeleteRegistros_clicked()
 
 
                 ui->widControes->setEnabled(true); //libera a interface
-                ui->widControle1->setEnabled(true);//libera a interface
+//                ui->widControle1->setEnabled(true);//libera a interface
 
 
                 if(ui->btStop->isEnabled()){
@@ -3367,7 +3390,7 @@ void telaEtografiaProce::on_pbDeleteRegistros_clicked()
                 }
 
                 ui->widControes->setEnabled(false);
-                ui->widControle1->setEnabled(false);
+//                ui->widControle1->setEnabled(false);
 
 
 

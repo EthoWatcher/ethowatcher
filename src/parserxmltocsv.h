@@ -38,8 +38,8 @@ class parserXMLtoCSV
 {
 public:
 
-
-    void converteArquivo(QString nomePath);
+    QString cabecalho_str;
+    void converteArquivo(QString nomePath, QString cabecalho = "");
 
     parserXMLtoCSV();
     ~parserXMLtoCSV();

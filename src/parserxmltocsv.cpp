@@ -31,7 +31,7 @@ parserXMLtoCSV::~parserXMLtoCSV()
     delete this;
 }
 
-void parserXMLtoCSV::converteArquivo(QString nomePath)
+void parserXMLtoCSV::converteArquivo(QString nomePath, QString cabecalho)
 {
 
 //    fonteCaminhoArquivo = QFileDialog::getOpenFileName(
@@ -42,6 +42,7 @@ void parserXMLtoCSV::converteArquivo(QString nomePath)
 //                );
 
     fonteCaminhoArquivo = nomePath;
+    cabecalho_str = cabecalho;
 
     qDebug() << "entrou " << fonteCaminhoArquivo;
 
@@ -2007,29 +2008,19 @@ void parserXMLtoCSV::escreverTrakinCsv()
 
     QTextStream csvGravador(&outGravador);
 
-    csvGravador <<"sep=; \n";
-    csvGravador <<"EthoWatcher Open Source \n";
-    csvGravador <<"Observer" << experimentador.nome.toLatin1() << "\n";
-    csvGravador <<"Lab" << experimentador.lab.toLatin1() << "\n";
-    csvGravador <<"Experiment" << "\n";
-    csvGravador <<"Animal" << "\n";
-    csvGravador <<"Weight" << "\n";
-    csvGravador <<"sex" << "\n";
-    csvGravador <<"Treatment/condition" << "\n";
-    csvGravador <<"Other Info" << "\n";
-    //csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
-    csvGravador <<"WARNING: in this version, DECIMALS are separated by DOT(.) \n";
+    csvGravador <<cabecalho_str + "\n";
+
 //    csvGravador <<"video file \n";
 
     csvGravador << "TRACKING - ACTIVITY REPORT" << "\n";
 ////    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
-    csvGravador << "Registred video file are locate in " << videoLido->nome<< "\n";
-    csvGravador << "Start in ;" <<  videoLido->frameProce / videoLido->fps << ";" << "seconds ;" << videoLido->frameProce << "; frames "  "\n";
-    csvGravador << "End in ;" <<  videoLido->frameFinal / videoLido->fps<< ";" << "seconds ;" << videoLido->frameFinal << "; frames "  "\n";
+    csvGravador << "Registred video file are location path " << videoLido->nome<< "\n";
+    csvGravador << "Transcription start : ;" <<  videoLido->frameProce / videoLido->fps << ";" << "seconds ;" << videoLido->frameProce << "; frames of the video file"  "\n";
+    csvGravador << "Transcription temintated in ;" <<  videoLido->frameFinal / videoLido->fps<< ";" << "seconds ;" << videoLido->frameFinal << "; frames "  "\n";
 //    csvGravador << "Analysis initiated at " << conPontoVirgula( videoLido->frameProce /videoLido->fps)  << " (seconds) of the video file \n ";
 //    csvGravador << "Analysis terminated at " << conPontoVirgula(videoLido->frameFinal / videoLido->fps) << " (seconds) of the video file \n";
-    csvGravador << "1 cm = ;" <<  videoLido->escala << ";" << " pixeis\n";
-    csvGravador << "1 pixel= " << 1/(videoLido->escala * videoLido->escala) << "cm2";
+    csvGravador << "1 mm = ;" <<  videoLido->escala << ";" << " pixeis\n";
+    csvGravador << "1 pixel= ;" << 1/(videoLido->escala * videoLido->escala) << ";mm2";
     csvGravador <<"\n";
     csvGravador << "Area Name ;" << areasDeInteresse.figName[ki]<< "\n";
 //    csvGravador << "Figure Tipe ;" << areasDeInteresse.tipoArea[ki] << "\n";
@@ -2090,13 +2081,13 @@ void parserXMLtoCSV::escreverTrakinCsv()
 
 
 
-        csvGravador <<  ";"      <<    ";"    << "Number of pixels;"     << "Area (in cm2);";
+        csvGravador <<  ";"      <<    ";"    << "Number of pixels;"     << "Area (in mm2);";
         csvGravador <<  "Horizontal coordinate of the centroid;"      <<    "Vertical coordinate of the centroid;";
         csvGravador <<  "AA(in degrees);" <<"Height of the animal;" <<"Width of the animal;" <<"Object Detected;" ;
         csvGravador << "Distance travelled by the centroid;" << "Distance travelled by the centroid;";
         csvGravador << "Variation of Area (from the former frame);";
         csvGravador << "Variation of Height of animal (from the former frame);";
-        csvGravador << "Variation of width of animal (from the former frame);";
+        csvGravador << "Variation of Width of animal (from the former frame);";
         csvGravador << "Variation of Angule of animal;";
         csvGravador << "Intrinsic noise (minimum variation distance traveled by the centroid)" << "\n";
 
@@ -2105,11 +2096,11 @@ void parserXMLtoCSV::escreverTrakinCsv()
 
         csvGravador << "frames;" << "second;" << "of the animal's body;" << "of the animal's body;";
         csvGravador << "(in pixels, from" << "0 to "<< areasDeInteresse.width[0] <<  " );" << "(in pixels, from " <<  "0 to " << areasDeInteresse.heigth[0] << " );";
-        csvGravador <<  "Angle between animal and Horizontal coordinate ;" << "in cm;" << "in cm;" <<"true or false;" ;
-        csvGravador << "(in pixels);" << "(in cm);";
-        csvGravador << "in cm2;";
-        csvGravador << "in cm;";
-        csvGravador << "in cm;";
+        csvGravador <<  "Angle between animal and Horizontal coordinate ;" << "in mm;" << "in mm;" <<"true or false;" ;
+        csvGravador << "(in pixels);" << "(in mm);";
+        csvGravador << "in mm2;";
+        csvGravador << "in mm;";
+        csvGravador << "in mm;";
         csvGravador << "in degrees;" ;
         csvGravador << "true or false" << "\n";
 
