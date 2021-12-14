@@ -1401,7 +1401,7 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
@@ -1565,7 +1565,7 @@
                  <item>
                   <widget class="QCheckBox" name="chbAltLarg">
                    <property name="text">
-                    <string>Height and width of the object : rectangle</string>
+                    <string>Height and width of the object</string>
                    </property>
                    <property name="checked">
                     <bool>true</bool>
@@ -1585,7 +1585,7 @@
                  <item>
                   <widget class="QCheckBox" name="chbAngulo">
                    <property name="text">
-                    <string>Angle of object</string>
+                    <string>Angle of main object</string>
                    </property>
                    <property name="checked">
                     <bool>true</bool>

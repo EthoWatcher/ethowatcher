@@ -2644,6 +2644,11 @@ void telaEtografiaProce::on_cbNested_clicked(bool checked)
     }
 }
 
+//#include "xlsxdocument.h"
+//#include <QDir>
+//QXlsx::Document xlsx;
+//xlsx.write("A1", "Hello Qt!");
+//xlsx.saveAs(QDir::currentPath()+ "Test.xlsx");
 
 
 // gravar etografia

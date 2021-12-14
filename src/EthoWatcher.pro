@@ -19,7 +19,7 @@
 # Project created by QtCreator 2016-04-20T18:37:51
 #
 #-------------------------------------------------
-
+include(QtXlsx/src/xlsx/qtxlsx.pri)
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -27,6 +27,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = EthoWatcher
 TEMPLATE = app
 
+DEFINES += XLSX_NO_LIB
 
 CONFIG += c++11
 

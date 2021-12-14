@@ -147,6 +147,8 @@ void telaCadastroPessoa::on_pushButton_2_clicked()
 
     QMessageBox::information(this,tr("Message"),tr("Saved successfully"));
 
+
+
     emit this->fechouJanela();
     //emite um sinal para fechar a janela (fehca a janela)
     this->close();
