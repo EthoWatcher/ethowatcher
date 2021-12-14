@@ -34,6 +34,21 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //gravando csv
 #include <QTextStream>
 
+struct Cell {
+  bool r_number;
+  QString number;
+  QString content;
+} ;
+
+static void add_cell (QList<Cell> *array_add, QString cell_number, QString content, bool r_number = false){
+    Cell c;
+    c.r_number = r_number;
+    c.content = content;
+    c.number = cell_number;
+    array_add->append(c);
+
+};
+
 class parserXMLtoCSV
 {
 public:
