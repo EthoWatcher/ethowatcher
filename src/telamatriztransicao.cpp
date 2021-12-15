@@ -31,7 +31,7 @@ telaMatrizTransicao::~telaMatrizTransicao()
     delete ui;
 }
 
-QString telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categorias,
+QList<Cell> telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categorias,
                                                          std::vector<QString> ctl_nome,
                                                          int etog_qnt_de_pontos,
                                                          std::vector<int> etl_id)
@@ -42,6 +42,7 @@ QString telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categorias,
 
         analiseSequencial.dados.push_back(0);
     }
+
 
 
     double quantidadeDePontos=0;
@@ -134,44 +135,86 @@ QString telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categorias,
     }
 
 
+
+
     auto gera_csv = [&](){
-        QString str_csv_completo = "";
-        QString str_titulo = ";";
+//        QString str_csv_completo = "";
+//        QString str_titulo = ";";
+        QList<Cell> saida;
+        int linha_cont = 15;
+        QString letter= "M";
+
+
+
+
+        add_cell(&saida, letter+QString::number(linha_cont),"Transition frequencies matrix\n\n;Following Category");
+        linha_cont += 1;
+
 
         // gera os titulos
+        letter= "L";
+        add_cell(&saida, letter+QString::number(linha_cont),"Following Category");
         for(int i=0; i< titulos.size(); i++){
-            str_titulo = str_titulo + titulos[i]+";";
+//            str_titulo = str_titulo + titulos[i]+";";
+            letter = next_letter(letter);
+            add_cell(&saida, letter+QString::number(linha_cont),titulos[i]);
+
+
+
+
         }
-        str_titulo = str_titulo+  "\n";
+        linha_cont += 1;
+//        linha_cont += 1;
+
+//        str_titulo = str_titulo+  "\n";
 
 
-        str_csv_completo = ";;;;Transition frequencies matrix\n\n;Following Category" + str_titulo;
+//        str_csv_completo = ";;;;Transition frequencies matrix\n\n;Following Category" + str_titulo;
 
         // preenche os numeros;
         int loopContador_array=0;
         for(int i=0; i< ctl_qnt_categorias; i++){
 
-            QString linha ="";
+//            QString linha ="";
+
+
 
             if(i==0){
-                linha = "Preeding;";
+//                linha_cont += 1;
+                letter= "L";
+                add_cell(&saida, letter+QString::number(linha_cont),"Proceding");
+//                linha = "Proceding;";
+
             }else if(i==1){
-                linha ="Category;";
+//                linha_cont += 1;
+                letter= "L";
+                add_cell(&saida, letter+QString::number(linha_cont),"Category");
+//                linha ="Category;";
             }else{
-                linha =";";
+//                linha =";";
             }
 
+//            add_cell(&saida, "M"+QString::number(linha_cont),"Category");
 
-            linha = linha + titulos[i] + ";";
+//            linha = linha + titulos[i] + ";";
+
+            letter = "M";
+            add_cell(&saida, letter+QString::number(linha_cont),titulos[i]);
             for(int j=0; j<ctl_qnt_categorias; j++){
-                linha = linha + QString::number( porcentagemMatrix[loopContador_array]) + ";"; // analiseSequencial.dados[loopContador_array])+ ";";
+                letter = next_letter(letter);
+                add_cell(&saida, letter+QString::number(linha_cont),QString::number( porcentagemMatrix[loopContador_array]), true);
+//                letter = next_letter(letter);
+//                add_cell(&saida, letter+QString::number(linha_cont),QString::number( porcentagemMatrix[loopContador_array]));
+
+//                linha = linha + QString::number( porcentagemMatrix[loopContador_array]) + ";"; // analiseSequencial.dados[loopContador_array])+ ";";
                 loopContador_array++;
             }
-            str_csv_completo = str_csv_completo + linha + "\n";
 
+//            str_csv_completo = str_csv_completo + linha + "\n";
+                linha_cont += 1;
         }
 
-        return str_csv_completo;
+        return saida;
 
 
     };
@@ -183,7 +226,7 @@ QString telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categorias,
     ui->pbGeraRelaSeq->setEnabled(true);
 
 
-    QString saida_txt_csv = gera_csv();
+    QList<Cell> saida_txt_csv = gera_csv();
     return saida_txt_csv;
 
 }
@@ -246,13 +289,13 @@ void telaMatrizTransicao::on_pbSeqCarregar_clicked()
 void telaMatrizTransicao::on_pbAnaliseSeq_clicked()
 {
 
-    QString texto = this->calcular_analise_sequencial(catalagoLido->quantidadeDeCategorias,
+    QList<Cell> texto = this->calcular_analise_sequencial(catalagoLido->quantidadeDeCategorias,
                                       catalagoLido->nome,
                                       etografiaLida->quantidadeDePontos,
                                       etografiaLida->id);
 
 
-    qDebug() << texto;
+//    qDebug() << texto;
 
 //    int valorMatriz=qPow(catalagoLido->quantidadeDeCategorias,2);
 

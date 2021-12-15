@@ -49,6 +49,25 @@ static void add_cell (QList<Cell> *array_add, QString cell_number, QString conte
 
 };
 
+static QString next_letter (QString letter) {
+    // melhorar essa função
+          QString alfabeto = "ABCDEFGHIJKLMNOPQRSTUWVXYZ";
+          int start = alfabeto.indexOf(letter, 0, Qt::CaseInsensitive);
+          QString saida = alfabeto.at(start+1);
+          return saida;
+
+//          QStringList alga_list = alfabeto.split(";");
+//          int tamanho = alga_list.length();
+//          bool r_reseta = tamanho <= start + 1;
+
+//          if (r_reseta){
+//             return alga_list[0];
+//          }else{
+//             return alga_list[start+1];
+//          }
+
+    };
+
 class parserXMLtoCSV
 {
 public:

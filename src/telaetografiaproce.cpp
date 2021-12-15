@@ -2794,14 +2794,14 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 //           qDebug() <<texto_seg;
        }
 
-       QString text_sencia = "";
+//       QList<Cell> text_sencia = "";
        if(ui->cb_seq_analyses->isChecked()){
-           text_sencia = text_transicao; //transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
+//           text_sencia = text_transicao; //transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
                                          //      cAnaEto.nomeCategoria,
                                          //     saida.id.size(),
                                          //     saida.id);
 
-           qDebug() << text_sencia;
+//           qDebug() << text_sencia;
 
        }
 
@@ -2818,6 +2818,19 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
         excell_lista.append( comp_eto_saida);
 
         excell_lista.append( seg_temporal_saida);
+
+//        QList<Cell> text_sencia = "";
+        if(ui->cb_seq_analyses->isChecked()){
+//            text_sencia = text_transicao; //transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
+                                          //      cAnaEto.nomeCategoria,
+                                          //     saida.id.size(),
+                                          //     saida.id);
+
+ //           qDebug() << text_sencia;
+            excell_lista.append( text_transicao);
+
+        }
+
 
 
 

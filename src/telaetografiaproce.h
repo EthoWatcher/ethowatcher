@@ -338,7 +338,7 @@ private slots:
 
 private:
     Ui::telaEtografiaProce *ui;
-    QString text_transicao;
+    QList<Cell> text_transicao;
     std::tuple<QList<Cell>, int> gera_csv_eto(QString nomeGravarEtografia,
                                 int frameProces, int frameFinal, double fps,
                                 QString nome_caminho_video,
