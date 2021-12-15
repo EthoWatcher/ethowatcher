@@ -2771,11 +2771,12 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 
 
         // Falta resolver
-        QString texto_seg ="";
+//        QString texto_seg ="";
+        QList<Cell> seg_temporal_saida;
        if(ui->cb_temporal_segmentation->isChecked()){
            telaSegementacao *segment;
            segment = new telaSegementacao();
-           texto_seg = segment->gera_segmentacao_texto(
+           seg_temporal_saida = segment->gera_segmentacao_texto(
                        ui->lieTime->text().toDouble(),
                        videoLista.frameProces[contadorDeVideo],
                        videoLista.frameFinal[contadorDeVideo],
@@ -2786,11 +2787,11 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
                        saida.id,
 
                        cAnaEto.nomeCategoria,
-                       cAnaEto.quantidadeDeDados);
+                       cAnaEto.quantidadeDeDados, comp_eto_linha_final);
 
 
 
-           qDebug() <<texto_seg;
+//           qDebug() <<texto_seg;
        }
 
        QString text_sencia = "";
@@ -2815,6 +2816,9 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
                                            videoLista.fps[contadorDeVideo]));
 
         excell_lista.append( comp_eto_saida);
+
+        excell_lista.append( seg_temporal_saida);
+
 
 
 

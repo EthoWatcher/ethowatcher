@@ -58,13 +58,13 @@ public:
 
     void liga_sementacao_etografia();
 
-    QString gera_segmentacao_texto(double tamanho_janela_s, int q_proce, int q_final, double fps,
+    QList<Cell> gera_segmentacao_texto(double tamanho_janela_s, int q_proce, int q_final, double fps,
                                         std::vector<double> frameInicial,
                                         std::vector<double> frameFinal,
                                         std::vector<int> id,
 
                                         std::vector<QString> nome,
-                                        int qnt_categorias);
+                                        int qnt_categorias, int linha);
     QString saida_texto_formada_csv;
 
 private slots:
