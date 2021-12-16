@@ -2539,8 +2539,8 @@ void telaTempoReal::on_pbSaveTraking_clicked()
     OutEtografia.close();
 
     //converte o xml para csv
-    parser = new parserXMLtoCSV();
-    parser->converteArquivo(nomeGravarProcesImagem);
+//    parser = new parserXMLtoCSV();
+//    parser->converteArquivo(nomeGravarProcesImagem);
 
 
      }
@@ -3839,8 +3839,8 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 
 
          OutEtografia.close();
-         parser = new parserXMLtoCSV();
-         parser->converteArquivo(nomeGravarEtografia);
+//         parser = new parserXMLtoCSV();
+//         parser->converteArquivo(nomeGravarEtografia);
 
 
 
@@ -3973,8 +3973,8 @@ void telaTempoReal::on_pbGravarAnalasiteEtografica_clicked()
 
 
         OutEtografia.close();
-        parser = new parserXMLtoCSV();
-        parser->converteArquivo(nomeGravarEtografia);
+//        parser = new parserXMLtoCSV();
+//        parser->converteArquivo(nomeGravarEtografia);
 
 
 
@@ -4290,8 +4290,8 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 
 
           OutEtografia.close();
-          parser = new parserXMLtoCSV();
-          parser->converteArquivo(nomeGravarProcesImagem);
+//          parser = new parserXMLtoCSV();
+//          parser->converteArquivo(nomeGravarProcesImagem);
 
 
 
@@ -4578,8 +4578,8 @@ void telaTempoReal::on_pbGravarAnalasiProces_clicked()
 
 
           OutEtografia.close();
-          parser = new parserXMLtoCSV();
-          parser->converteArquivo(nomeGravarProcesImagem);
+//          parser = new parserXMLtoCSV();
+//          parser->converteArquivo(nomeGravarProcesImagem);
 
 
 

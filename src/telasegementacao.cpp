@@ -1083,8 +1083,10 @@ void telaSegementacao::on_pbTotGravar_clicked()
     Output.close();
 
     //parserxmltocsv
-    parser = new parserXMLtoCSV();
-    parser->converteArquivo(nomeGravarCatalago);
+//    parser = new parserXMLtoCSV();
+
+//    QList<Cell> saida;
+//    parser->converteArquivo(nomeGravarCatalago, saida);
 
 }
 

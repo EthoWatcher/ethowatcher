@@ -786,7 +786,10 @@ void teaConcordancia::on_pbCohenGravar_clicked()
 
     Output.close();
     parser = new parserXMLtoCSV();
-    parser->converteArquivo(nomeGravarCatalago);
+
+//    TA DANDO PROBLEMA
+//    QList<Cell> saida;
+//    parser->converteArquivo(nomeGravarCatalago, saida);
 }
 
 void teaConcordancia::on_pbCarregarFleis_clicked()
@@ -1496,7 +1499,8 @@ void teaConcordancia::on_pbGerarKappa_clicked()
 
     Output.close();
     parser = new parserXMLtoCSV();
-    parser->converteArquivo(nomeGravarCatalago);
+//   QList<Cell> saida;
+//    parser->converteArquivo(nomeGravarCatalago, saida);
 }
 
 void teaConcordancia::lerETOXML(QString nomeArquivo)

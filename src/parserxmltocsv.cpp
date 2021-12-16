@@ -31,200 +31,201 @@ parserXMLtoCSV::~parserXMLtoCSV()
     delete this;
 }
 
-void parserXMLtoCSV::converteArquivo(QString nomePath, QString cabecalho)
+void parserXMLtoCSV::converteArquivo(QString nomePath, QList<Cell>  entrada)
 {
 
-//    fonteCaminhoArquivo = QFileDialog::getOpenFileName(
-//                this,
-//                tr("Open File"),
-//               "C://ethowatcher",
-//               "Arquivos do Ethowatcher (*.aseq *.fkf *.kkf *.tbf *.etoxml *.tkin )"
-//                );
+    //    fonteCaminhoArquivo = QFileDialog::getOpenFileName(
+    //                this,
+    //                tr("Open File"),
+    //               "C://ethowatcher",
+    //               "Arquivos do Ethowatcher (*.aseq *.fkf *.kkf *.tbf *.etoxml *.tkin )"
+    //                );
 
     fonteCaminhoArquivo = nomePath;
-    cabecalho_str = cabecalho;
+//    //    cabecalho_str = cabecalho;
 
-    qDebug() << "entrou " << fonteCaminhoArquivo;
+      qDebug() << "entrou " << fonteCaminhoArquivo;
+//    QList<Cell> saida;
 
+    if(!fonteCaminhoArquivo.isEmpty()){
 
- if(!fonteCaminhoArquivo.isEmpty()){
+        output.setFileName( fonteCaminhoArquivo);
 
-     output.setFileName( fonteCaminhoArquivo);
+        fonteVideoBit = fonteCaminhoArquivo.toLatin1();
 
-     fonteVideoBit = fonteCaminhoArquivo.toLatin1();
-
-     int i= fonteVideoBit.length();
-     int inicio=0;
-     //aquirir a extensão do arquivo
-     while(fonteVideoBit[i] != 46){
-         i--;
-         fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
-         inicio++;
-     }
-
-
-     //desinverter a extensão do arquivo
-
-     int j=0;
-     while(fonteVideoBitExtInv[j] != 0){
-         fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
-         j++;
-
-     }
+        int i= fonteVideoBit.length();
+        int inicio=0;
+        //aquirir a extensão do arquivo
+        while(fonteVideoBit[i] != 46){
+            i--;
+            fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
+            inicio++;
+        }
 
 
+        //desinverter a extensão do arquivo
 
-     if(fonteVideoBitExt==".tbf"){
-         lerTimeXml(0); //le o experimentador
-         lerTimeXml(1); //le o catalago
-         lerTimeXml(2); //le os dados do video
-         lerTimeXml(3); //le os dados do video
-         lerTimeXml(4); //le o time budget do video
-         lerTimeXml(8); //le os comportmaneto
-//         escreverTimeCsv();
-         //ler xml timebudget;
-         //manda para a função de ler esse video
-     }
-     if(fonteVideoBitExt==".aseq"){
-         lerTimeXml(0); //le o experimentador
-         lerTimeXml(1); //le o catalago
-         lerTimeXml(2); //le os dados do video
-         lerTimeXml(3); //le os dados do video
-         lerTimeXml(5); //le o time budget do video
+        int j=0;
+        while(fonteVideoBitExtInv[j] != 0){
+            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
+            j++;
 
-          qDebug() <<"leu o xml";
-//         escreverSeqCsv();
-         //ler xml timebudget;
-         //manda para a função de ler esse video
-     }
-     if(fonteVideoBitExt==".kkf"){
-         lerTimeXml(0); //le o experimentador
-         lerTimeXml(1); //le o catalago
-         lerTimeXml(2); //le os dados do video
-         lerTimeXml(3); //le os dados do video
-         lerTimeXml(6); //le o kohone kappa
-//         lerKohoXml();
-//         escreverKohoCsv();
-         //ler xml timebudget;
-         //manda para a função de ler esse video
-     }
-
-     if(fonteVideoBitExt==".fkf"){
-         lerTimeXml(0); //le o experimentador
-         lerTimeXml(1); //le o catalago
-         lerTimeXml(2); //le os dados do video
-         lerTimeXml(3); //le os dados do video
-         lerTimeXml(7); //le o fleiss kappa
-//         escreverFleisCsv();
-         //manda para a função de ler esse video
-     }
-
-     if(fonteVideoBitExt==".etoxml"){
+        }
 
 
 
+        if(fonteVideoBitExt==".tbf"){
+            lerTimeXml(0); //le o experimentador
+            lerTimeXml(1); //le o catalago
+            lerTimeXml(2); //le os dados do video
+            lerTimeXml(3); //le os dados do video
+            lerTimeXml(4); //le o time budget do video
+            lerTimeXml(8); //le os comportmaneto
+            //         escreverTimeCsv();
+            //ler xml timebudget;
+            //manda para a função de ler esse video
+        }
+        if(fonteVideoBitExt==".aseq"){
+            lerTimeXml(0); //le o experimentador
+            lerTimeXml(1); //le o catalago
+            lerTimeXml(2); //le os dados do video
+            lerTimeXml(3); //le os dados do video
+            lerTimeXml(5); //le o time budget do video
 
-         lerETOXML(fonteCaminhoArquivo);
+            qDebug() <<"leu o xml";
+            //         escreverSeqCsv();
+            //ler xml timebudget;
+            //manda para a função de ler esse video
+        }
+        if(fonteVideoBitExt==".kkf"){
+            lerTimeXml(0); //le o experimentador
+            lerTimeXml(1); //le o catalago
+            lerTimeXml(2); //le os dados do video
+            lerTimeXml(3); //le os dados do video
+            lerTimeXml(6); //le o kohone kappa
+            //         lerKohoXml();
+            //         escreverKohoCsv();
+            //ler xml timebudget;
+            //manda para a função de ler esse video
+        }
 
-          totalizacoesEtografia();
+        if(fonteVideoBitExt==".fkf"){
+            lerTimeXml(0); //le o experimentador
+            lerTimeXml(1); //le o catalago
+            lerTimeXml(2); //le os dados do video
+            lerTimeXml(3); //le os dados do video
+            lerTimeXml(7); //le o fleiss kappa
+            //         escreverFleisCsv();
+            //manda para a função de ler esse video
+        }
 
-
-     }
-
-     if(fonteVideoBitExt==".tkin"){
-
-
-         lerTRKING(fonteCaminhoArquivo);
-
-
-     }
-
-  //  QMessageBox::information(this,"Fim","The arquivo was successfully opened.");
-//    QMessageBox::information(this,"Fim","Informe o nome do csv");
-     //</>encontrando a extensão do arquivo aberto
-
-
-//    nomeArquivoGravarCsv = QFileDialog::getSaveFileName(
-//                 this,
-//                 tr("Save File"),
-//                 "C://",
-//                "csv Files (*.csv)"
-//                );
-     // pega o nome do arquivo e usa para escrever o csv
-
-
-int lugar = fonteVideoBit.lastIndexOf("/");
-
-//encontra o nome do arquivo do user
-QByteArray nomeArquivoUser= fonteVideoBit.right(fonteVideoBit.size()-lugar);
-nomeArquivoUser.replace(QByteArray("."),QByteArray("_"));
-
-//encontra o cmainho
-QByteArray caminho = fonteVideoBit;
-caminho.truncate(lugar);
-
-
-
-//QByteArray nomeArquivo =
-
-qDebug() << fonteVideoBit ;
-qDebug() << fonteVideoBit.lastIndexOf("/");
-qDebug() << caminho;
-qDebug() << nomeArquivoUser;
-
-QByteArray finalCSV = caminho+nomeArquivoUser+"_"+".csv";
-qDebug() << finalCSV;
+        if(fonteVideoBitExt==".etoxml"){
 
 
-//qDebug() << novoArquivo;
 
 
-    nomeArquivoGravarCsv= QString::fromLatin1(finalCSV); //"C:/ethowatcher/lalal.csv";
+            lerETOXML(fonteCaminhoArquivo);
+
+            totalizacoesEtografia();
 
 
-    //gravando os files
-    if(fonteVideoBitExt==".tbf"){
+        }
 
-      escreverTimeCsv();
+        if(fonteVideoBitExt==".tkin"){
 
+
+            lerTRKING(fonteCaminhoArquivo);
+
+
+        }
+
+        //  QMessageBox::information(this,"Fim","The arquivo was successfully opened.");
+        //    QMessageBox::information(this,"Fim","Informe o nome do csv");
+        //</>encontrando a extensão do arquivo aberto
+
+
+        //    nomeArquivoGravarCsv = QFileDialog::getSaveFileName(
+        //                 this,
+        //                 tr("Save File"),
+        //                 "C://",
+        //                "csv Files (*.csv)"
+        //                );
+        // pega o nome do arquivo e usa para escrever o csv
+
+
+        int lugar = fonteVideoBit.lastIndexOf("/");
+
+        //encontra o nome do arquivo do user
+        QByteArray nomeArquivoUser= fonteVideoBit.right(fonteVideoBit.size()-lugar);
+        nomeArquivoUser.replace(QByteArray("."),QByteArray("_"));
+
+        //encontra o cmainho
+        QByteArray caminho = fonteVideoBit;
+        caminho.truncate(lugar);
+
+
+
+        //QByteArray nomeArquivo =
+
+        qDebug() << fonteVideoBit ;
+        qDebug() << fonteVideoBit.lastIndexOf("/");
+        qDebug() << caminho;
+        qDebug() << nomeArquivoUser;
+
+        QByteArray finalCSV = caminho+nomeArquivoUser+"_"+".csv";
+        qDebug() << finalCSV;
+
+
+        //qDebug() << novoArquivo;
+
+
+        nomeArquivoGravarCsv= QString::fromLatin1(finalCSV); //"C:/ethowatcher/lalal.csv";
+
+
+        //gravando os files
+        if(fonteVideoBitExt==".tbf"){
+
+            escreverTimeCsv();
+
+
+        }
+        if(fonteVideoBitExt==".aseq"){
+            escreverSeqCsv();
+        }
+
+        if(fonteVideoBitExt==".kkf"){
+            escreverKohoCsv();
+        }
+
+        if(fonteVideoBitExt==".fkf"){
+            escreverFleisCsv();
+        }
+
+
+        if(fonteVideoBitExt==".etoxml"){
+
+            //encontrando a f d l
+
+
+
+            escreverEtografiaCsv();
+
+
+        }
+
+
+        if(fonteVideoBitExt==".tkin"){
+
+            qDebug() <<" trakin sendo gravado";
+
+            escreverTrakinCsv(entrada);
+        }
+
+
+
+        // ui->stackedWidget->setCurrentIndex(1);
 
     }
-     if(fonteVideoBitExt==".aseq"){
-         escreverSeqCsv();
-     }
-
-     if(fonteVideoBitExt==".kkf"){
-          escreverKohoCsv();
-     }
-
-     if(fonteVideoBitExt==".fkf"){
-          escreverFleisCsv();
-     }
-
-
-     if(fonteVideoBitExt==".etoxml"){
-
-         //encontrando a f d l
-
-
-
-        escreverEtografiaCsv();
-
-
-     }
-
-
-     if(fonteVideoBitExt==".tkin"){
-
-         qDebug() <<" trakin sendo gravado";
-        escreverTrakinCsv();
-     }
-
-
-
-   // ui->stackedWidget->setCurrentIndex(1);
-
- }
 
 
 }
@@ -1985,58 +1986,99 @@ void parserXMLtoCSV::escreverEtografiaCsv()
 
 }
 
-void parserXMLtoCSV::escreverTrakinCsv()
+void parserXMLtoCSV::escreverTrakinCsv(QList<Cell> entrada)
 {
 
 
+
  for(int ki=0; ki< matrizReMorfo.size() ; ki++){
+     QList<QList<Cell> > ls_gravar;
+     ls_gravar.append(entrada);
+     QList<Cell> saida;
 
      QByteArray nomeArquivoByte;
      nomeArquivoByte= nomeArquivoGravarCsv.toLatin1();
      int numero = nomeArquivoByte.lastIndexOf(".");
      nomeArquivoByte.insert(numero,QString::number(ki)+ areasDeInteresse.figName[ki]);
-
+     nomeArquivoByte = nomeArquivoByte + "_xlsx.xlsx";
      //prepend(ki);
-     outGravador.setFileName(QString::fromLatin1(nomeArquivoByte));
+//     outGravador.setFileName(QString::fromLatin1(nomeArquivoByte));
 
-    //outGravador.setFileName(nomeArquivoGravarCsv);
-    outGravador.open(QIODevice::WriteOnly | QIODevice::Text );
+//    //outGravador.setFileName(nomeArquivoGravarCsv);
+//    outGravador.open(QIODevice::WriteOnly | QIODevice::Text );
 
-    if(outGravador.isOpen()){
-        qDebug() << "foi aberto o gravado csv para o traking";
-    }
+//    if(outGravador.isOpen()){
+//        qDebug() << "foi aberto o gravado csv para o traking";
+//    }
 
-    QTextStream csvGravador(&outGravador);
+//    QTextStream csvGravador(&outGravador);
 
-    csvGravador <<cabecalho_str + "\n";
+
+      int linha = 16;
+
+
+
+
+
+//      TRACKING - ACTIVITY REPORT
+//      add_cell(&saida, "A1","EthoWatcher Open Source");
+//    csvGravador <<cabecalho_str + "\n";
 
 //    csvGravador <<"video file \n";
 
-    csvGravador << "TRACKING - ACTIVITY REPORT" << "\n";
+//    csvGravador << "TRACKING - ACTIVITY REPORT" << "\n";
 ////    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
-    csvGravador << "Registred video file are location path " << videoLido->nome<< "\n";
-    csvGravador << "Transcription start : ;" <<  videoLido->frameProce / videoLido->fps << ";" << "seconds ;" << videoLido->frameProce << "; frames of the video file"  "\n";
-    csvGravador << "Transcription temintated in ;" <<  videoLido->frameFinal / videoLido->fps<< ";" << "seconds ;" << videoLido->frameFinal << "; frames "  "\n";
+//    csvGravador << "Registred video file are location path " << videoLido->nome<< "\n";
+//    csvGravador << "Transcription start : ;" <<  videoLido->frameProce / videoLido->fps << ";" << "seconds ;" << videoLido->frameProce << "; frames of the video file"  "\n";
+//    csvGravador << "Transcription temintated in ;" <<  videoLido->frameFinal / videoLido->fps<< ";" << "seconds ;" << videoLido->frameFinal << "; frames "  "\n";
 //    csvGravador << "Analysis initiated at " << conPontoVirgula( videoLido->frameProce /videoLido->fps)  << " (seconds) of the video file \n ";
 //    csvGravador << "Analysis terminated at " << conPontoVirgula(videoLido->frameFinal / videoLido->fps) << " (seconds) of the video file \n";
-    csvGravador << "1 mm = ;" <<  videoLido->escala << ";" << " pixeis\n";
-    csvGravador << "1 pixel= ;" << 1/(videoLido->escala * videoLido->escala) << ";mm2";
-    csvGravador <<"\n";
-    csvGravador << "Area Name ;" << areasDeInteresse.figName[ki]<< "\n";
+
+
+    add_cell(&saida, "A"+QString::number(linha),
+                        "1 mm =" +QString::number(videoLido->escala)+ " pixeis" );
+    linha += 1;
+    add_cell(&saida, "A"+QString::number(linha),
+                        "1 pixel=" +QString::number(1/(videoLido->escala * videoLido->escala))+ " mm2" );
+    linha += 1;
+    add_cell(&saida, "A"+QString::number(linha),
+                        "Area " +areasDeInteresse.figName[ki]);
+
+
+//    csvGravador << "1 mm = ;" <<  videoLido->escala << ";" << " pixeis\n";
+//    csvGravador << "1 pixel= ;" << 1/(videoLido->escala * videoLido->escala) << ";mm2";
+//    csvGravador <<"\n";
+//    csvGravador << "Area Name ;" << areasDeInteresse.figName[ki]<< "\n";
 //    csvGravador << "Figure Tipe ;" << areasDeInteresse.tipoArea[ki] << "\n";
 //    csvGravador << "Figure Beginning at Vertical pixel ;" << areasDeInteresse.centX[ki] << "\n";
 //    csvGravador << "Figure Beginning at Horizontal pixel ;" << areasDeInteresse.centY[ki] << "\n";
 
-    if(areasDeInteresse.tipoArea[ki]=="Circle"){
 
-        csvGravador << "Figure Raio; " << areasDeInteresse.width[ki]<< "\n";
+     add_cell(&saida, "A"+QString::number(linha),"TRACKING - ACTIVITY REPORT");
+    if(areasDeInteresse.tipoArea[ki]=="Circle"){
+        linha += 1;
+        add_cell(&saida, "A"+QString::number(linha),
+                            "Figure radius: " +QString::number(1/(videoLido->escala * videoLido->escala)) );
+
+//        csvGravador << "Figure Raio; " << areasDeInteresse.width[ki]<< "\n";
 
 
     }else{
-         csvGravador << "Figure Height; " << areasDeInteresse.heigth[ki]<< "\n";
-         csvGravador << "Figure Width; " << areasDeInteresse.width[ki]<< "\n";
+        linha += 1;
+        add_cell(&saida, "A"+QString::number(linha),
+                            "Figure Height: " +QString::number(1/(videoLido->escala * videoLido->escala)) );
+        linha += 1;
+        add_cell(&saida, "A"+QString::number(linha),
+                            "Figure Width: " +QString::number(areasDeInteresse.width[ki]) );
+
+//         csvGravador << "Figure Height; " << areasDeInteresse.heigth[ki]<< "\n";
+//         csvGravador << "Figure Width; " << areasDeInteresse.width[ki]<< "\n";
 
     }
+
+
+
+
 
 
 //    csvGravador << "Figure Tipe ;" << areasDeInteresse.tipoArea[ki] << "\n";
@@ -2067,73 +2109,143 @@ void parserXMLtoCSV::escreverTrakinCsv()
 //    for(int grt=0; grt< catalagoLido->nome.size(); grt++){
 //       csvGravador << catalagoLido->nome[grt] <<";";
 //    }
-    csvGravador << "\n";
-    csvGravador << "\n";
-    csvGravador << "\n";
+//    csvGravador << "\n";
+//    csvGravador << "\n";
+//    csvGravador << "\n";
 
     double duracao=0;
     //csvGravador << "Time (s)" << ";" << "Categories"<< ";" << "Duration(s)" << "\n";
 
    //asdasd  for(int ki=0; ki< matrizReMorfo.size() ; ki++){
-        csvGravador << "\n";
-        csvGravador << "\n";
-        csvGravador << "\n";
+//        csvGravador << "\n";
+//        csvGravador << "\n";
+//        csvGravador << "\n";
+
+        linha += 1;
+        add_cell(&saida, "A"+QString::number(linha),"frames");
+        add_cell(&saida, "B"+QString::number(linha),"second");
+        add_cell(&saida, "C"+QString::number(linha),"Number of pixels of the animal's body");
+        add_cell(&saida, "D"+QString::number(linha),"Area of the animal's body (in mm2)");
+
+        QString s = "Horizontal coordinate of the centroid of the animal's body (in pixels, from 0 to " + QString::number(areasDeInteresse.width[0])+ ")";
+        add_cell(&saida, "E"+ QString::number(linha), s);
+
+        add_cell(&saida, "F"+ QString::number(linha),"Vertical coordinate of the centroid of the animal's body (in pixels, from 0 to " + QString::number(areasDeInteresse.heigth[0])+ ")");
+
+        add_cell(&saida, "G"+QString::number(linha),"Angle between animal and Horizontal coordinate(in degrees)");
+
+        add_cell(&saida, "H"+QString::number(linha),"Height of the animal (in mm)");
+        add_cell(&saida, "I"+QString::number(linha),"Width of the animal (in mm)");
+        add_cell(&saida, "J"+QString::number(linha),"Object Detected (true or false)");
+        add_cell(&saida, "K"+QString::number(linha),"Distance travelled by the centroid (in pixels)");
+        add_cell(&saida, "L"+QString::number(linha),"Distance travelled by the centroid (in mm)");
+        add_cell(&saida, "M"+QString::number(linha),"Variation of Area (from the former frame) (in mm^2)");
+
+        add_cell(&saida, "N"+QString::number(linha),"Variation of Height of animal (from the former frame)(in mm)");
+        add_cell(&saida, "O"+QString::number(linha),"Variation of Width of animal (from the former frame) (in mm)");
+        add_cell(&saida, "P"+QString::number(linha),"Variation of Angule of animal (in degrees)");
+        add_cell(&saida, "Q"+QString::number(linha),"Intrinsic noise (minimum variation distance traveled by the centroid) (true or false)");
 
 
 
-        csvGravador <<  ";"      <<    ";"    << "Number of pixels;"     << "Area (in mm2);";
-        csvGravador <<  "Horizontal coordinate of the centroid;"      <<    "Vertical coordinate of the centroid;";
-        csvGravador <<  "AA(in degrees);" <<"Height of the animal;" <<"Width of the animal;" <<"Object Detected;" ;
-        csvGravador << "Distance travelled by the centroid;" << "Distance travelled by the centroid;";
-        csvGravador << "Variation of Area (from the former frame);";
-        csvGravador << "Variation of Height of animal (from the former frame);";
-        csvGravador << "Variation of Width of animal (from the former frame);";
-        csvGravador << "Variation of Angule of animal;";
-        csvGravador << "Intrinsic noise (minimum variation distance traveled by the centroid)" << "\n";
+//        csvGravador <<  ";"      <<    ";"    << "Number of pixels;"     << "Area (in mm2);";
+//        csvGravador <<  "Horizontal coordinate of the centroid;"      <<    "Vertical coordinate of the centroid;";
+//        csvGravador <<  "AA(in degrees);" <<"Height of the animal;" <<"Width of the animal;" <<"Object Detected;" ;
+//        csvGravador << "Distance travelled by the centroid;" << "Distance travelled by the centroid;";
+//        csvGravador << "Variation of Area (from the former frame);";
+//        csvGravador << "Variation of Height of animal (from the former frame);";
+//        csvGravador << "Variation of Width of animal (from the former frame);";
+//        csvGravador << "Variation of Angule of animal;";
+//        csvGravador << "Intrinsic noise (minimum variation distance traveled by the centroid)" << "\n";
 
 
         //a area de intesse 0 é sempre a altura e largura da imagem original;
 
-        csvGravador << "frames;" << "second;" << "of the animal's body;" << "of the animal's body;";
-        csvGravador << "(in pixels, from" << "0 to "<< areasDeInteresse.width[0] <<  " );" << "(in pixels, from " <<  "0 to " << areasDeInteresse.heigth[0] << " );";
-        csvGravador <<  "Angle between animal and Horizontal coordinate ;" << "in mm;" << "in mm;" <<"true or false;" ;
-        csvGravador << "(in pixels);" << "(in mm);";
-        csvGravador << "in mm2;";
-        csvGravador << "in mm;";
-        csvGravador << "in mm;";
-        csvGravador << "in degrees;" ;
-        csvGravador << "true or false" << "\n";
+//        csvGravador << "frames;" << "second;" << "of the animal's body;" << "of the animal's body;";
+//        csvGravador << "(in pixels, from" << "0 to "<< areasDeInteresse.width[0] <<  " );" << "(in pixels, from " <<  "0 to " << areasDeInteresse.heigth[0] << " );";
+//        csvGravador <<  "Angle between animal and Horizontal coordinate ;" << "in mm;" << "in mm;" <<"true or false;" ;
+//        csvGravador << "(in pixels);" << "(in mm);";
+//        csvGravador << "in mm2;";
+//        csvGravador << "in mm;";
+//        csvGravador << "in mm;";
+//        csvGravador << "in degrees;" ;
+//        csvGravador << "true or false" << "\n";
 
 
         for(int kj=0; kj<   matrizReMorfo[ki].area.size(); kj++){
-           // csvGravador << "aaaaa \n";
-            csvGravador <<  matrizReMorfo[ki].frame[kj] << ";"<< matrizReMorfo[ki].frame[kj]  / videoLido->fps << ";" ;
-            csvGravador << matrizReMorfo[ki].area[kj] << ";" << matrizReMorfo[ki].area[kj]/(videoLido->escala*videoLido->escala)<< ";";
-            csvGravador << matrizReMorfo[ki].centroidX[kj] << ";" << matrizReMorfo[ki].centroidY[kj]<<";";
-            csvGravador << matrizReMorfo[ki].anguloObj[kj] << ";" ;
-            csvGravador << matrizReMorfo[ki].altura[kj]/(videoLido->escala) << ";" ;
-            csvGravador << matrizReMorfo[ki].largura[kj]/(videoLido->escala) << ";" ;
-//            reMorfo.tamanhoObj
 
-           if( matrizReMorfo[ki].objetoEncontrado[kj]){
-               csvGravador << "true;";
-           }else{
-               csvGravador << "false;";
-           }
-           csvGravador << matrizReCinema[ki].varDistancia[kj] << ";" << matrizReCinema[ki].varDistancia[kj]/(videoLido->escala)<< ";";
-           csvGravador << matrizReCinema[ki].varArea[kj]/(videoLido->escala*videoLido->escala)  << ";" ;
-           csvGravador << matrizReCinema[ki].varAltura[kj]/(videoLido->escala) << ";" ;
-           csvGravador << matrizReCinema[ki].varLargura[kj]/(videoLido->escala) << ";" ;
-           csvGravador << matrizReCinema[ki].varAngular[kj] << ";" ;
+            linha += 1;
+            add_cell(&saida, "A"+QString::number(linha),QString::number(matrizReMorfo[ki].frame[kj]) ,true);
+            add_cell(&saida, "B"+QString::number(linha),QString::number(matrizReMorfo[ki].frame[kj]  / videoLido->fps) ,true);
+            add_cell(&saida, "C"+QString::number(linha),QString::number(matrizReMorfo[ki].area[kj]) ,true);
+            add_cell(&saida, "D"+QString::number(linha),QString::number(matrizReMorfo[ki].area[kj]/(videoLido->escala*videoLido->escala)) ,true);
 
 
-           if( matrizReCinema[ki].ruidoMaxVaria[kj] ){
-                  csvGravador << "true;";
-        }else{
+            add_cell(&saida, "E"+QString::number(linha), QString::number(matrizReMorfo[ki].centroidX[kj]) ,true);
+            add_cell(&saida, "F"+QString::number(linha), QString::number(matrizReMorfo[ki].centroidY[kj]) ,true);
+            add_cell(&saida, "G"+QString::number(linha),QString::number(matrizReMorfo[ki].anguloObj[kj]) ,true);
+            add_cell(&saida, "H"+QString::number(linha),QString::number(matrizReMorfo[ki].altura[kj]/(videoLido->escala)) ,true);
+            add_cell(&saida, "I"+QString::number(linha),QString::number(matrizReMorfo[ki].largura[kj]/(videoLido->escala)) ,true);
 
-               csvGravador << "false;";
+            if( matrizReMorfo[ki].objetoEncontrado[kj]){
+                add_cell(&saida, "J"+QString::number(linha),"true" ,true);
+//                csvGravador << "true;";
+            }else{
+                add_cell(&saida, "J"+QString::number(linha),"false" ,true);
+//                csvGravador << "false;";
+            }
 
-           }
+
+
+            add_cell(&saida, "K"+QString::number(linha),QString::number(matrizReCinema[ki].varDistancia[kj]) ,true);
+            add_cell(&saida, "L"+QString::number(linha),QString::number(matrizReCinema[ki].varDistancia[kj]/(videoLido->escala)) ,true);
+            add_cell(&saida, "M"+QString::number(linha),QString::number(matrizReCinema[ki].varArea[kj]/(videoLido->escala*videoLido->escala)) ,true);
+            add_cell(&saida, "N"+QString::number(linha),QString::number(matrizReCinema[ki].varAltura[kj]/(videoLido->escala)) ,true);
+            add_cell(&saida, "O"+QString::number(linha),QString::number(matrizReCinema[ki].varLargura[kj]/(videoLido->escala)) ,true);
+            add_cell(&saida, "P"+QString::number(linha),QString::number(matrizReCinema[ki].varAngular[kj]) ,true);
+
+            if( matrizReCinema[ki].ruidoMaxVaria[kj] ){
+                add_cell(&saida, "Q"+QString::number(linha),"true" ,true);
+//                   csvGravador << "true;";
+            }else{
+                add_cell(&saida, "Q"+QString::number(linha), "false" ,true);
+
+//                csvGravador << "false;";
+
+            }
+
+
+
+
+//           // csvGravador << "aaaaa \n";
+//            csvGravador <<  matrizReMorfo[ki].frame[kj] << ";"<< matrizReMorfo[ki].frame[kj]  / videoLido->fps << ";" ;
+//            csvGravador << matrizReMorfo[ki].area[kj] << ";" << matrizReMorfo[ki].area[kj]/(videoLido->escala*videoLido->escala)<< ";";
+
+//            csvGravador << matrizReMorfo[ki].centroidX[kj] << ";" << matrizReMorfo[ki].centroidY[kj]<<";";
+//            csvGravador << matrizReMorfo[ki].anguloObj[kj] << ";" ;
+//            csvGravador << matrizReMorfo[ki].altura[kj]/(videoLido->escala) << ";" ;
+//            csvGravador << matrizReMorfo[ki].largura[kj]/(videoLido->escala) << ";" ;
+////            reMorfo.tamanhoObj
+
+//           if( matrizReMorfo[ki].objetoEncontrado[kj]){
+//               csvGravador << "true;";
+//           }else{
+//               csvGravador << "false;";
+//           }
+//           csvGravador << matrizReCinema[ki].varDistancia[kj] << ";" << matrizReCinema[ki].varDistancia[kj]/(videoLido->escala)<< ";";
+//           csvGravador << matrizReCinema[ki].varArea[kj]/(videoLido->escala*videoLido->escala)  << ";" ;
+//           csvGravador << matrizReCinema[ki].varAltura[kj]/(videoLido->escala) << ";" ;
+//           csvGravador << matrizReCinema[ki].varLargura[kj]/(videoLido->escala) << ";" ;
+//           csvGravador << matrizReCinema[ki].varAngular[kj] << ";" ;
+
+
+//           if( matrizReCinema[ki].ruidoMaxVaria[kj] ){
+//                  csvGravador << "true;";
+//        }else{
+
+//               csvGravador << "false;";
+
+//           }
 
            //reCinema.ruidoMaxVaria
 //reCinema.varTamObjeto
@@ -2146,8 +2258,8 @@ void parserXMLtoCSV::escreverTrakinCsv()
 //           reCinema.varTamObjeto.push_back(streamReader.attributes().value("VtoP").toDouble());
 
 
-
-            csvGravador << "\n";
+//            linha +=1;
+//            csvGravador << "\n";
 
 //            reMorfo.anguloObj.clear();
 //            reMorfo.area.clear();
@@ -2179,19 +2291,18 @@ void parserXMLtoCSV::escreverTrakinCsv()
 
         }
 
+        ls_gravar.append(saida);
 
 
-        outGravador.close();
+
+
+        gravar_csv_ls_cell(nomeArquivoByte, ls_gravar);
+//        gravaaaaaaaaaa o csv
+
+
+//        outGravador.close();
 
     }
-
-
-
-
-
-
-
-
 
 
 }

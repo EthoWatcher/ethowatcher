@@ -585,7 +585,8 @@ stream.writeEndElement(); //fecha sessao
 
     qDebug() <<"gravou o xml";
 
-    parser->converteArquivo(nomeGravarCatalago);
+//    QList<Cell> saida;
+//    parser->converteArquivo(nomeGravarCatalago, saida);
 
 
 
