@@ -172,7 +172,7 @@ void parserXMLtoCSV::converteArquivo(QString nomePath, QList<Cell>  entrada)
         qDebug() << caminho;
         qDebug() << nomeArquivoUser;
 
-        QByteArray finalCSV = caminho+nomeArquivoUser+"_"+".csv";
+        QByteArray finalCSV = caminho+nomeArquivoUser+"_";
         qDebug() << finalCSV;
 
 
@@ -185,12 +185,12 @@ void parserXMLtoCSV::converteArquivo(QString nomePath, QList<Cell>  entrada)
         //gravando os files
         if(fonteVideoBitExt==".tbf"){
 
-            escreverTimeCsv();
+            escreverTimeCsv(entrada);
 
 
         }
         if(fonteVideoBitExt==".aseq"){
-            escreverSeqCsv();
+            escreverSeqCsv(entrada);
         }
 
         if(fonteVideoBitExt==".kkf"){
@@ -1452,130 +1452,181 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 }
 
 //segmentacao de tempo
-void parserXMLtoCSV::escreverTimeCsv()
+void parserXMLtoCSV::escreverTimeCsv(QList<Cell> entrada)
 {
 
-    outGravador.setFileName(nomeArquivoGravarCsv);
-    outGravador.open(QIODevice::WriteOnly | QIODevice::Text );
+////    outGravador.setFileName(nomeArquivoGravarCsv);
+////    outGravador.open(QIODevice::WriteOnly | QIODevice::Text );
 
-    QTextStream csvGravador(&outGravador);
+////    QTextStream csvGravador(&outGravador);
 
-    csvGravador <<"sep=; \n";
-    csvGravador <<"EthoWatcher Open Source \n";
-    csvGravador <<"Observer" << experimentador.nome.toLatin1() << "\n";
-    csvGravador <<"Lab" << experimentador.lab.toLatin1() << "\n";
-    csvGravador <<"Experiment" << "\n";
-    csvGravador <<"Animal" << "\n";
-    csvGravador <<"Weight" << "\n";
-    csvGravador <<"sex" << "\n";
-    csvGravador <<"Treatment/condition" << "\n";
-    csvGravador <<"Other Info" << "\n";
-    //csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
-    csvGravador <<"WARNING: in this version, decimals are separated by DOT(.) \n";
-//    csvGravador <<"video file \n";
+//    csvGravador <<"sep=; \n";
+//    csvGravador <<"EthoWatcher Open Source \n";
+//    csvGravador <<"Observer" << experimentador.nome.toLatin1() << "\n";
+//    csvGravador <<"Lab" << experimentador.lab.toLatin1() << "\n";
+//    csvGravador <<"Experiment" << "\n";
+//    csvGravador <<"Animal" << "\n";
+//    csvGravador <<"Weight" << "\n";
+//    csvGravador <<"sex" << "\n";
+//    csvGravador <<"Treatment/condition" << "\n";
+//    csvGravador <<"Other Info" << "\n";
+//    //csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
+//    csvGravador <<"WARNING: in this version, decimals are separated by DOT(.) \n";
+////    csvGravador <<"video file \n";
 
-    csvGravador << "ETHOGRAPHY REPORT" << "\n";
-////    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
-    csvGravador << "video file is " << videoLido->nome<< "\n";
+//    csvGravador << "ETHOGRAPHY REPORT" << "\n";
+//////    csvGravador << "nome, fps, frame analisado inicial, frame analisado final \n";
+//    csvGravador << "video file is " << videoLido->nome<< "\n";
 
-    csvGravador << "Analysis initiated at " << videoLido->frameProce /videoLido->fps << " (seconds) of the video file \n ";
-    csvGravador << "Analysis terminated at " << videoLido->frameFinal / videoLido->fps << " (seconds) of the video file \n";
-    csvGravador <<"\n";
-//    csvGravador <<"informacoes do catalogo analisado: \n";
-    csvGravador <<"O catalogo utilizado foi o " <<";" << catalagoLido->caminhoArquivo << "\n";
-//    csvGravador <<"categorias\n";
-//    for(int i=0; i< catalagoLido->nome.size(); i++ ){
-//       csvGravador << catalagoLido->nome[i]<< "\n";
+//    csvGravador << "Analysis initiated at " << videoLido->frameProce /videoLido->fps << " (seconds) of the video file \n ";
+//    csvGravador << "Analysis terminated at " << videoLido->frameFinal / videoLido->fps << " (seconds) of the video file \n";
+//    csvGravador <<"\n";
+////    csvGravador <<"informacoes do catalogo analisado: \n";
+//    csvGravador <<"O catalogo utilizado foi o " <<";" << catalagoLido->caminhoArquivo << "\n";
+////    csvGravador <<"categorias\n";
+////    for(int i=0; i< catalagoLido->nome.size(); i++ ){
+////       csvGravador << catalagoLido->nome[i]<< "\n";
+
+////    }
+////    csvGravador <<"\n";
+////    csvGravador <<"A analise etografica utilizada \n";
+////    csvGravador <<"id, caminho, tipo \n";
+////    for(int i=0; i< etografiasLidas.size();i++){
+
+////      csvGravador << i << ";" << etografiasLidas[i]->caminho << ";" << etografiasLidas[i]->tipoDeAnalise;
+////    }
+////    csvGravador <<"\n";
+////    csvGravador <<"\n";
+
+//    //apartir daqui é diferente das outras analises
+////    csvGravador <<"As totalizacoes da analise sequencial\n";
+////    csvGravador << "" <<";";
+////    for(int grt=0; grt< catalagoLido->nome.size(); grt++){
+////       csvGravador << catalagoLido->nome[grt] <<";";
+////    }
+//    csvGravador << "\n";
+//    csvGravador << "\n";
+//    csvGravador << "\n";
+
+//    double duracao=0;
+//    csvGravador << "time" << ";" << "Categories"<< ";" << "Duration(s)" << "\n";
+
+//    for(int ka1=0; ka1< etografiaLida->frameInicial.size(); ka1++){
+
+//        csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
+//        //csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
+
+//        csvGravador << ";";
+//        csvGravador << catalagoLido->nome[etografiaLida->id[ka1]];
+//        csvGravador << ";";
+
+//        duracao= etografiaLida->frameFinal[ka1]- etografiaLida->frameInicial[ka1];
+//        csvGravador << duracao / videoLido->fps;
+//        csvGravador << "\n";
 
 //    }
-//    csvGravador <<"\n";
-//    csvGravador <<"A analise etografica utilizada \n";
-//    csvGravador <<"id, caminho, tipo \n";
-//    for(int i=0; i< etografiasLidas.size();i++){
 
-//      csvGravador << i << ";" << etografiasLidas[i]->caminho << ";" << etografiasLidas[i]->tipoDeAnalise;
+
+
+////    csvGravador <<"\n";
+////    csvGravador <<"\n";
+////    csvGravador <<"As totalizacoes do time budge";
+//    for(int tot=0; tot< totalizacaoTot.size(); tot++){
+
+//        //csvGravador <<  "RESULTS FOR THE ENTIRE PERIOD of ANALYSIS \n\n";
+
+
+
+
+//      csvGravador <<"\n RESULTS FOR \n Segmentation initiated at ;"<<  totalizacaoTot[tot].inicioSessao/videoLido->fps ;
+//      csvGravador << ";  Segmentation terminated at ;" << totalizacaoTot[tot].finalSessao/videoLido->fps <<"\n\n";
+//     // csvGravador << "categoria;duracao;frequencia;latencia \n";
+
+
+//      if(tot==0){
+
+//          csvGravador << "Category"<< ";" << "Duration(s)" << ";" <<"Freq."  << ";" << "Latency(s)" << "\n";
+//      }else{
+
+//          csvGravador << "Category"<< ";" << "Duration(s)" << ";" <<"Freq." << "\n";
+//      }
+
+//      for(int fr=0; fr< totalizacaoTot[tot].freq.size(); fr++){
+
+//          csvGravador<< catalagoLido->nome[fr]<<";" <<
+//                        totalizacaoTot[tot].duracao[fr]/videoLido->fps <<";"<<
+//                        totalizacaoTot[tot].freq[fr] <<";" ;
+//          if(tot==0){
+//              csvGravador <<totalizacaoTot[tot].latencia[fr]/videoLido->fps <<";\n";
+//          }else{
+
+//              csvGravador <<";\n";
+
+//          }
+
+//      }
+
+
 //    }
-//    csvGravador <<"\n";
-//    csvGravador <<"\n";
 
-    //apartir daqui é diferente das outras analises
-//    csvGravador <<"As totalizacoes da analise sequencial\n";
-//    csvGravador << "" <<";";
-//    for(int grt=0; grt< catalagoLido->nome.size(); grt++){
-//       csvGravador << catalagoLido->nome[grt] <<";";
-//    }
-    csvGravador << "\n";
-    csvGravador << "\n";
-    csvGravador << "\n";
+    QList<QList<Cell> > ls_gravar;
+    QList<Cell> saida;
 
-    double duracao=0;
-    csvGravador << "time" << ";" << "Categories"<< ";" << "Duration(s)" << "\n";
+    int linha = 1;
+    add_cell(&saida, "A1","EthoWatcher Open Source");
 
-    for(int ka1=0; ka1< etografiaLida->frameInicial.size(); ka1++){
+    add_cell(&saida, "A2","Observer");
+    add_cell(&saida, "B2",experimentador.nome.toLatin1());
 
-        csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
-        //csvGravador << etografiaLida->frameInicial[ka1] / videoLido->fps;
+    add_cell(&saida, "A3","Lab");
+    add_cell(&saida, "B3",experimentador.lab.toLatin1());
 
-        csvGravador << ";";
-        csvGravador << catalagoLido->nome[etografiaLida->id[ka1]];
-        csvGravador << ";";
+    add_cell(&saida, "A4","Experiment info");
 
-        duracao= etografiaLida->frameFinal[ka1]- etografiaLida->frameInicial[ka1];
-        csvGravador << duracao / videoLido->fps;
-        csvGravador << "\n";
+    add_cell(&saida, "A5","Experiment");
+    add_cell(&saida, "B5","Date");
+    add_cell(&saida, "C5","Other Info");
 
-    }
+    //falta adicionar o cabeçalho.
+//    add_cell(&saida, "A6", dado_experimento.tituloExperimento);
+//    add_cell(&saida, "B6", dado_experimento.data);
+//    add_cell(&saida, "C6", dado_experimento.otherInfo);
 
 
+    add_cell(&saida, "A7","Animal Info");
+    add_cell(&saida, "A8","Animal ID");
+    add_cell(&saida, "B8","Weight");
+    add_cell(&saida, "C8","Sex");
 
-//    csvGravador <<"\n";
-//    csvGravador <<"\n";
-//    csvGravador <<"As totalizacoes do time budge";
-    for(int tot=0; tot< totalizacaoTot.size(); tot++){
-
-        //csvGravador <<  "RESULTS FOR THE ENTIRE PERIOD of ANALYSIS \n\n";
-
-
-
-
-      csvGravador <<"\n RESULTS FOR \n Segmentation initiated at ;"<<  totalizacaoTot[tot].inicioSessao/videoLido->fps ;
-      csvGravador << ";  Segmentation terminated at ;" << totalizacaoTot[tot].finalSessao/videoLido->fps <<"\n\n";
-     // csvGravador << "categoria;duracao;frequencia;latencia \n";
+//    add_cell(&saida, "A9", dado_experimento.animalID);
+//    add_cell(&saida, "B9", dado_experimento.wight);
+//    add_cell(&saida, "C9", dado_experimento.animalSex);
 
 
-      if(tot==0){
+    add_cell(&saida, "A10", "Registred video file are locate in PRECISA RESOLVER"); //+ nome_caminho_video);
 
-          csvGravador << "Category"<< ";" << "Duration(s)" << ";" <<"Freq."  << ";" << "Latency(s)" << "\n";
-      }else{
+    add_cell(&saida, "A11", "Analysis initiated at " + QString::number( videoLido->frameInicial / videoLido->fps) + " (seconds) of the video file");
+    add_cell(&saida, "A12", "Analysis terminated at " + QString::number( videoLido->frameFinal / videoLido->fps) + " (seconds) of the video file");
 
-          csvGravador << "Category"<< ";" << "Duration(s)" << ";" <<"Freq." << "\n";
-      }
+    add_cell(&saida, "A13", "The selected catalog are : " + catalagoLido->caminhoArquivo);
 
-      for(int fr=0; fr< totalizacaoTot[tot].freq.size(); fr++){
+    ls_gravar.append(entrada);
+    ls_gravar.append(saida);
 
-          csvGravador<< catalagoLido->nome[fr]<<";" <<
-                        totalizacaoTot[tot].duracao[fr]/videoLido->fps <<";"<<
-                        totalizacaoTot[tot].freq[fr] <<";" ;
-          if(tot==0){
-              csvGravador <<totalizacaoTot[tot].latencia[fr]/videoLido->fps <<";\n";
-          }else{
+    QByteArray nomeArquivoByte;
+    nomeArquivoByte= nomeArquivoGravarCsv.toLatin1();
+//    int numero = nomeArquivoByte.lastIndexOf(".");
+////    nomeArquivoByte.insert(numero+1, "_xlsx.xlsx");
 
-              csvGravador <<";\n";
-
-          }
-
-      }
-
-
-    }
-
+    nomeArquivoByte = nomeArquivoByte + "_xlsx.xlsx";
+    gravar_csv_ls_cell(nomeArquivoByte, ls_gravar);
 
 
 
 //    outGravador.write("O pesquisador foi o:, ");
 //    outGravador.write(experimentador.nome.toLatin1()+"\n");
 //    outGravador.write("a,b,c \n");
-    outGravador.close();
+//    outGravador.close();
 
 
 
@@ -1585,88 +1636,142 @@ void parserXMLtoCSV::escreverTimeCsv()
 
 
 //segmentao cade tempo
-void parserXMLtoCSV::escreverSeqCsv()
+void parserXMLtoCSV::escreverSeqCsv(QList<Cell> entrada)
 {
 
-    outGravador.setFileName(nomeArquivoGravarCsv);
-    outGravador.open(QIODevice::WriteOnly | QIODevice::Text );
+    QList<QList<Cell> > ls_gravar;
+    QList<Cell> saida;
 
-    QTextStream csvGravador(&outGravador);
+    int linha = 1;
+    add_cell(&saida, "A1","EthoWatcher Open Source");
 
-    csvGravador <<"sep=; \n";
-    csvGravador << "Informacoes do usuario\n";
-    csvGravador <<"pesquisador ; laboratorio" << "\n";
-    csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
-    csvGravador <<"\n";
-    csvGravador <<"informacoes do video analisado: \n";
-    csvGravador << "nome; fps; frame analisado inicial; frame analisado final \n";
-    csvGravador << videoLido->nome<< "," << videoLido->fps << ";"
-         << videoLido->frameInicial << "," << videoLido->frameFinal<< "\n";
-    csvGravador <<"\n";
-    csvGravador <<"informacoes do catalogo analisado: \n";
-    csvGravador <<"O catalogo utilizado foi o " <<"," << catalagoLido->caminhoArquivo << "\n";
-    csvGravador <<"categorias\n";
-    for(int i=0; i< catalagoLido->nome.size(); i++ ){
-       csvGravador << catalagoLido->nome[i]<< "\n";
+    add_cell(&saida, "A2","Observer");
+    add_cell(&saida, "B2",experimentador.nome.toLatin1());
 
-    }
-    csvGravador <<"\n";
-    csvGravador <<"As analises etograficas utilizadas \n";
-    csvGravador <<"id; caminho, tipo \n";
-    for(int i=0; i< etografiasLidas.size();i++){
+    add_cell(&saida, "A3","Lab");
+    add_cell(&saida, "B3",experimentador.lab.toLatin1());
 
-      csvGravador << i << ";" << etografiasLidas[i]->caminho << ";" << etografiasLidas[i]->tipoDeAnalise;
-    }
-    csvGravador <<"\n";
-    csvGravador <<"\n";
+    add_cell(&saida, "A4","Experiment info");
 
-    //apartir daqui é diferente das outras analises
-    csvGravador <<"A matriz de transição\n";
-    csvGravador << "" <<";";
-    for(int grt=0; grt< analiseSequencial.listaDados.size(); grt++){
-       csvGravador << catalagoLido->nome[grt] <<";";
-    }
-    csvGravador << "\n";
+    add_cell(&saida, "A5","Experiment");
+    add_cell(&saida, "B5","Date");
+    add_cell(&saida, "C5","Other Info");
 
-    for(int tot=0; tot< analiseSequencial.listaDados.size(); tot++){
-//      csvGravador <<"\n do frame inicial ; "<< totalizacaoTot[tot].inicioSessao <<"\n" ;
-//      csvGravador << "ate o frame final ; " << totalizacaoTot[tot].finalSessao <<"\n";
-
-        csvGravador << catalagoLido->nome[tot] <<";";
-      for(int fr=0; fr< analiseSequencial.listaDados.size(); fr++){
+    //falta adicionar o cabeçalho.
+//    add_cell(&saida, "A6", dado_experimento.tituloExperimento);
+//    add_cell(&saida, "B6", dado_experimento.data);
+//    add_cell(&saida, "C6", dado_experimento.otherInfo);
 
 
-          csvGravador<< analiseSequencial.listaDados[tot][fr] <<";";
-      }
+    add_cell(&saida, "A7","Animal Info");
+    add_cell(&saida, "A8","Animal ID");
+    add_cell(&saida, "B8","Weight");
+    add_cell(&saida, "C8","Sex");
 
-        csvGravador << "\n";
-
-    }
-
-
-
-    //apartir daqui é diferente das outras analises
-    csvGravador <<"As porcentagem da matrix de transição\n";
-    csvGravador << "" <<";";
-    for(int grt=0; grt< analiseSequencial.listaDadosPorcentagem.size(); grt++){
-       csvGravador << catalagoLido->nome[grt] <<";";
-    }
-    csvGravador << "\n";
-
-    for(int tot=0; tot< analiseSequencial.listaDadosPorcentagem.size(); tot++){
-//      csvGravador <<"\n do frame inicial ; "<< totalizacaoTot[tot].inicioSessao <<"\n" ;
-//      csvGravador << "ate o frame final ; " << totalizacaoTot[tot].finalSessao <<"\n";
-
-        csvGravador << catalagoLido->nome[tot] <<";";
-      for(int fr=0; fr< analiseSequencial.listaDadosPorcentagem.size(); fr++){
+//    add_cell(&saida, "A9", dado_experimento.animalID);
+//    add_cell(&saida, "B9", dado_experimento.wight);
+//    add_cell(&saida, "C9", dado_experimento.animalSex);
 
 
-          csvGravador<<  analiseSequencial.listaDadosPorcentagem[tot][fr] <<";";
-      }
+    add_cell(&saida, "A10", "Registred video file are locate in PRECISA RESOLVER"); //+ nome_caminho_video);
 
-        csvGravador << "\n";
+    add_cell(&saida, "A11", "Analysis initiated at " + QString::number( videoLido->frameInicial / videoLido->fps) + " (seconds) of the video file");
+    add_cell(&saida, "A12", "Analysis terminated at " + QString::number( videoLido->frameFinal / videoLido->fps) + " (seconds) of the video file");
 
-    }
+    add_cell(&saida, "A13", "The selected catalog are : " + catalagoLido->caminhoArquivo);
+
+    ls_gravar.append(entrada);
+    ls_gravar.append(saida);
+
+
+    QByteArray nomeArquivoByte;
+    nomeArquivoByte= nomeArquivoGravarCsv.toLatin1();
+//    int numero = nomeArquivoByte.lastIndexOf(".");
+////    nomeArquivoByte.insert(numero+1, "_xlsx.xlsx");
+
+    nomeArquivoByte = nomeArquivoByte + "_xlsx.xlsx";
+
+    gravar_csv_ls_cell(nomeArquivoByte, ls_gravar);
+
+//    outGravador.setFileName(nomeArquivoGravarCsv);
+//    outGravador.open(QIODevice::WriteOnly | QIODevice::Text );
+
+//    QTextStream csvGravador(&outGravador);
+
+//    csvGravador <<"sep=; \n";
+//    csvGravador << "Informacoes do usuario\n";
+//    csvGravador <<"pesquisador ; laboratorio" << "\n";
+//    csvGravador <<experimentador.nome.toLatin1() <<";" << experimentador.lab.toLatin1() << "\n";
+//    csvGravador <<"\n";
+//    csvGravador <<"informacoes do video analisado: \n";
+//    csvGravador << "nome; fps; frame analisado inicial; frame analisado final \n";
+//    csvGravador << videoLido->nome<< "," << videoLido->fps << ";"
+//         << videoLido->frameInicial << "," << videoLido->frameFinal<< "\n";
+//    csvGravador <<"\n";
+//    csvGravador <<"informacoes do catalogo analisado: \n";
+//    csvGravador <<"O catalogo utilizado foi o " <<"," << catalagoLido->caminhoArquivo << "\n";
+//    csvGravador <<"categorias\n";
+//    for(int i=0; i< catalagoLido->nome.size(); i++ ){
+//       csvGravador << catalagoLido->nome[i]<< "\n";
+
+//    }
+//    csvGravador <<"\n";
+//    csvGravador <<"As analises etograficas utilizadas \n";
+//    csvGravador <<"id; caminho, tipo \n";
+//    for(int i=0; i< etografiasLidas.size();i++){
+
+//      csvGravador << i << ";" << etografiasLidas[i]->caminho << ";" << etografiasLidas[i]->tipoDeAnalise;
+//    }
+//    csvGravador <<"\n";
+//    csvGravador <<"\n";
+
+//    //apartir daqui é diferente das outras analises
+//    csvGravador <<"A matriz de transição\n";
+//    csvGravador << "" <<";";
+//    for(int grt=0; grt< analiseSequencial.listaDados.size(); grt++){
+//       csvGravador << catalagoLido->nome[grt] <<";";
+//    }
+//    csvGravador << "\n";
+
+////    for(int tot=0; tot< analiseSequencial.listaDados.size(); tot++){
+//////      csvGravador <<"\n do frame inicial ; "<< totalizacaoTot[tot].inicioSessao <<"\n" ;
+//////      csvGravador << "ate o frame final ; " << totalizacaoTot[tot].finalSessao <<"\n";
+
+////        csvGravador << catalagoLido->nome[tot] <<";";
+////      for(int fr=0; fr< analiseSequencial.listaDados.size(); fr++){
+
+
+////          csvGravador<< analiseSequencial.listaDados[tot][fr] <<";";
+////      }
+
+////        csvGravador << "\n";
+
+////    }
+
+
+
+//    //apartir daqui é diferente das outras analises
+//    csvGravador <<"As porcentagem da matrix de transição\n";
+//    csvGravador << "" <<";";
+//    for(int grt=0; grt< analiseSequencial.listaDadosPorcentagem.size(); grt++){
+//       csvGravador << catalagoLido->nome[grt] <<";";
+//    }
+//    csvGravador << "\n";
+
+//    for(int tot=0; tot< analiseSequencial.listaDadosPorcentagem.size(); tot++){
+////      csvGravador <<"\n do frame inicial ; "<< totalizacaoTot[tot].inicioSessao <<"\n" ;
+////      csvGravador << "ate o frame final ; " << totalizacaoTot[tot].finalSessao <<"\n";
+
+//        csvGravador << catalagoLido->nome[tot] <<";";
+//      for(int fr=0; fr< analiseSequencial.listaDadosPorcentagem.size(); fr++){
+
+
+//          csvGravador<<  analiseSequencial.listaDadosPorcentagem[tot][fr] <<";";
+//      }
+
+//        csvGravador << "\n";
+
+//    }
 
 
 

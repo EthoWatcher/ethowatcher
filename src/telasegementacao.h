@@ -93,7 +93,8 @@ private:
     QFile OutEtografia;
     void lerETOXML(QString nomeArquivo);
 
-
+    QList<Cell> _gera_lis_segmetacao(int linha_gap);
+    QList<Cell> saida_segm;
     struct dadosVideo{
         bool controle =true;
         QString nome;

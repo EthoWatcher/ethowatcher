@@ -82,7 +82,7 @@ private:
     QFile OutEtografia;
     void lerETOXML(QString nomeArquivo);
 
-
+    QList<Cell> saida_analise_seq;
 
     struct dadosVideo{
         bool controle =true;

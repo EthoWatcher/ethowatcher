@@ -53,7 +53,7 @@ static void add_cell (QList<Cell> *array_add, QString cell_number, QString conte
 
 static QString next_letter (QString letter) {
     // melhorar essa função
-          QString alfabeto = "ABCDEFGHIJKLMNOPQRSTUWVXYZ";
+          QString alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
           int start = alfabeto.indexOf(letter, 0, Qt::CaseInsensitive);
           QString saida = alfabeto.at(start+1);
           return saida;
@@ -132,7 +132,7 @@ public:
     QString nomeArquivoGravarCsv;
     //para o time buget
     void lerTimeXml(int qualLer);
-    void escreverTimeCsv();
+    void escreverTimeCsv(QList<Cell> entrada);
 
     struct analiseSequencialComportamento{
 
@@ -181,7 +181,7 @@ public:
 
     //para o de sequencia
 //    void lerSeqXml();
-    void escreverSeqCsv();
+    void escreverSeqCsv(QList<Cell> entrada);
 
     //para o de kopo
 //    void lerKohoXml();

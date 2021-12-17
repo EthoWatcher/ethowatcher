@@ -200,6 +200,7 @@ QList<Cell> telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categor
 
             letter = "M";
             add_cell(&saida, letter+QString::number(linha_cont),titulos[i]);
+
             for(int j=0; j<ctl_qnt_categorias; j++){
                 letter = next_letter(letter);
                 add_cell(&saida, letter+QString::number(linha_cont),QString::number( porcentagemMatrix[loopContador_array]), true);
@@ -289,7 +290,7 @@ void telaMatrizTransicao::on_pbSeqCarregar_clicked()
 void telaMatrizTransicao::on_pbAnaliseSeq_clicked()
 {
 
-    QList<Cell> texto = this->calcular_analise_sequencial(catalagoLido->quantidadeDeCategorias,
+    saida_analise_seq = this->calcular_analise_sequencial(catalagoLido->quantidadeDeCategorias,
                                       catalagoLido->nome,
                                       etografiaLida->quantidadeDePontos,
                                       etografiaLida->id);
@@ -553,7 +554,7 @@ void telaMatrizTransicao::on_pbGeraRelaSeq_clicked()
         stream.writeEndElement(); //fecha sessao
 
     }
-stream.writeEndElement(); //fecha sessao
+    stream.writeEndElement(); //fecha sessao
 
 
 
@@ -586,7 +587,7 @@ stream.writeEndElement(); //fecha sessao
     qDebug() <<"gravou o xml";
 
 //    QList<Cell> saida;
-//    parser->converteArquivo(nomeGravarCatalago, saida);
+    parser->converteArquivo(nomeGravarCatalago, saida_analise_seq);
 
 
 
