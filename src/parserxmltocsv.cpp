@@ -2102,9 +2102,10 @@ void parserXMLtoCSV::escreverTrakinCsv(QList<Cell> entrada)
      QList<Cell> saida;
 
      QByteArray nomeArquivoByte;
-     nomeArquivoByte= nomeArquivoGravarCsv.toLatin1();
-     int numero = nomeArquivoByte.lastIndexOf(".");
-     nomeArquivoByte.insert(numero,QString::number(ki)+ areasDeInteresse.figName[ki]);
+     nomeArquivoByte = nomeArquivoGravarCsv.toLatin1();
+//     int numero = nomeArquivoByte.lastIndexOf(".");
+     nomeArquivoByte = nomeArquivoByte + QString::number(ki).toLatin1() + areasDeInteresse.figName[ki].toLatin1();
+//     nomeArquivoByte.insert(numero,QString::number(ki)+ areasDeInteresse.figName[ki]);
      nomeArquivoByte = nomeArquivoByte + "_xlsx.xlsx";
      //prepend(ki);
 //     outGravador.setFileName(QString::fromLatin1(nomeArquivoByte));
@@ -2293,10 +2294,10 @@ void parserXMLtoCSV::escreverTrakinCsv(QList<Cell> entrada)
             add_cell(&saida, "I"+QString::number(linha),QString::number(matrizReMorfo[ki].largura[kj]/(videoLido->escala)) ,true);
 
             if( matrizReMorfo[ki].objetoEncontrado[kj]){
-                add_cell(&saida, "J"+QString::number(linha),"true" ,true);
+                add_cell(&saida, "J"+QString::number(linha),"true" , false);
 //                csvGravador << "true;";
             }else{
-                add_cell(&saida, "J"+QString::number(linha),"false" ,true);
+                add_cell(&saida, "J"+QString::number(linha),"false" , false);
 //                csvGravador << "false;";
             }
 
@@ -2310,10 +2311,10 @@ void parserXMLtoCSV::escreverTrakinCsv(QList<Cell> entrada)
             add_cell(&saida, "P"+QString::number(linha),QString::number(matrizReCinema[ki].varAngular[kj]) ,true);
 
             if( matrizReCinema[ki].ruidoMaxVaria[kj] ){
-                add_cell(&saida, "Q"+QString::number(linha),"true" ,true);
+                add_cell(&saida, "Q"+QString::number(linha),"true" ,false);
 //                   csvGravador << "true;";
             }else{
-                add_cell(&saida, "Q"+QString::number(linha), "false" ,true);
+                add_cell(&saida, "Q"+QString::number(linha), "false" ,false);
 
 //                csvGravador << "false;";
 
