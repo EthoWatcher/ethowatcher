@@ -60,7 +60,7 @@
             <item>
              <widget class="QTabWidget" name="tabWPrincipal">
               <property name="currentIndex">
-               <number>0</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="tab_9">
                <attribute name="title">

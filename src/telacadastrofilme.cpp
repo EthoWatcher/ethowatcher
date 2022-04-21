@@ -91,7 +91,7 @@ void telaCadastroFilme::recebeImagem(QImage qiCaptador, int numFrame)
       switch (ui->tabWCalib->currentIndex()){
 
       case 1:
-          imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+          imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack.scaled(480, 360,Qt::KeepAspectRatio)));
           break;
       case 2:
           //primeiro vai permitir a imagem mudar;
@@ -104,7 +104,7 @@ void telaCadastroFilme::recebeImagem(QImage qiCaptador, int numFrame)
 
           break;
       case 3:
-          imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+          imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack.scaled(480, 360,Qt::KeepAspectRatio)));
           break;
       default:
           //imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
@@ -1192,10 +1192,22 @@ void telaCadastroFilme::on_pbCadastrar1_clicked()
     //scalaFator= video_width/video_heigth; //p1x original
     scalaFator= video_width; //escala video original
 
+
+
+
     double scalaFator2;
 
     //scalaFator2= (double)  frameBackground.cols/ frameBackground.rows; //p2x ajustado
-    scalaFator2= 480 ; //escala da tela frameBackground.cols;
+//    scalaFator2= 480 ; //escala da tela frameBackground.cols;
+
+
+    auto s = resultado.qiFrameBack.size();
+
+    auto imagem_scalada = resultado.qiFrameBack.scaled(480, 360,Qt::KeepAspectRatio);
+    auto s2 = imagem_scalada.size();
+    qDebug() << "WIDTH" << s.width() << s2.width();
+
+    scalaFator2 =  s2.width();
 
 
     scalTrans= scalaFator/scalaFator2; //transformando a escala da foto calibrada para a original
