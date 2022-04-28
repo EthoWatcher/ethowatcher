@@ -48,6 +48,8 @@ telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
 
     ui->widMobileConfim->setVisible(false);
     ui->widIntrinsic->setEnabled(false);
+
+    ui->cbNoise->setVisible(false);
 }
 
 telaCadastroFilme::~telaCadastroFilme()
@@ -600,7 +602,17 @@ void telaCadastroFilme::on_pbConfEscala_clicked()
     ui->leScala->setText(QString::number(scala));
     videoCadastrado.resultado.escala=scala;
 
+    if(ui->cbPro->isChecked()){
+
+        ui->cbNoise->setVisible(true);
+
+    }else{
+        ui->cbNoise->setVisible(false);
+    }
+
     ui->gbOpcoes->setEnabled(true);
+
+
 }
 
 void telaCadastroFilme::on_tabWPrincipal_currentChanged(int index)
@@ -662,7 +674,26 @@ void telaCadastroFilme::on_tabWCalib_currentChanged(int index)
         triBlueScala->setVisible(true);
         triRedScala->setVisible(true);
 
-        imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+
+        if(ui->cbPro->isChecked()){
+           imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+        }else{
+            if(ui->btStop->isEnabled()){
+               ui->btStop->click();
+            }
+
+
+            ui->gbControle->setEnabled(false);
+            ui->hsTimer->setEnabled(false);
+
+
+            imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameProce));
+
+
+
+        }
+
+//        imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
 
 
     }
@@ -691,7 +722,25 @@ void telaCadastroFilme::on_tabWCalib_currentChanged(int index)
             }
 
         }
-        imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+
+        if(ui->cbPro->isChecked()){
+           imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameBack));
+        }else{
+            if(ui->btStop->isEnabled()){
+               ui->btStop->click();
+            }
+
+
+            ui->gbControle->setEnabled(false);
+            ui->hsTimer->setEnabled(false);
+
+
+            imageFundopixMap->setPixmap(QPixmap::fromImage(resultado.qiFrameProce));
+
+
+
+        }
+
     }
 
     qDebug()<< " passou pela tab de calibracao2";
@@ -1697,24 +1746,7 @@ void telaCadastroFilme::on_SliderThreshold_sliderMoved(int position)
     ui->leTreshold->setText(QString::number( position));
 }
 
-void telaCadastroFilme::on_cbNoise_clicked()/*
-EthoWatcher OS is a software to assist study of animal behavior.
-Copyright (C) 2018  Universidade Federal de Santa Catarina.
-
-EthoWatcher OS is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
-
+void telaCadastroFilme::on_cbNoise_clicked()
 {
 
 }
@@ -1733,8 +1765,24 @@ void telaCadastroFilme::on_pbConfigure1_2_clicked()
         ui->tabWCalib->setTabEnabled(1,true);
 
     }else{
-        ui->tabWPrincipal->setCurrentIndex(2);
-        ui->tabWPrincipal->setTabEnabled(2,true);
+        if(ui->btStop->isEnabled()){
+           ui->btStop->click();
+
+        }
+        resultado.qiFrameBack = resultado.qiFrameProce;
+
+
+        ui->gbControle->setEnabled(false);
+        ui->hsTimer->setEnabled(false);
+        ui->groupBox_6->setEnabled(false);
+
+        ui->tabWCalib->setCurrentIndex(1);
+        ui->tabWCalib->setTabEnabled(1,true);
+
+
+
+//        ui->tabWPrincipal->setCurrentIndex(2);
+//        ui->tabWPrincipal->setTabEnabled(2,true);
     }
 
 }

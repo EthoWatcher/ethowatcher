@@ -304,7 +304,7 @@
                </size>
               </property>
               <property name="title">
-               <string>From selected attributes off </string>
+               <string>Areas of interest</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_24">
                <item>
@@ -1450,7 +1450,7 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
@@ -1556,12 +1556,12 @@
                    </column>
                    <column>
                     <property name="text">
-                     <string>Begin Time</string>
+                     <string>Start time</string>
                     </property>
                    </column>
                    <column>
                     <property name="text">
-                     <string>End Time</string>
+                     <string>End time</string>
                     </property>
                    </column>
                   </widget>
@@ -1575,7 +1575,7 @@
                     </size>
                    </property>
                    <property name="text">
-                    <string>Delete the last record</string>
+                    <string>Delete the last entry</string>
                    </property>
                   </widget>
                  </item>
@@ -1598,7 +1598,7 @@
                  </size>
                 </property>
                 <property name="title">
-                 <string>Show the following tracking attributes.</string>
+                 <string>Show the following tracking attributes in the image</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_29">
                  <item>
@@ -1747,7 +1747,7 @@
             </widget>
             <widget class="QWidget" name="tab_6">
              <attribute name="title">
-              <string>Exit and Save</string>
+              <string>Select a ethographic report file</string>
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_7">
               <item>
@@ -1774,21 +1774,13 @@
                           <item>
                            <widget class="QCheckBox" name="cb_temporal_segmentation">
                             <property name="text">
-                             <string>Report results for fixed segments off
- the transcription</string>
+                             <string>Save the results also as the totals for each</string>
                             </property>
                            </widget>
                           </item>
                           <item>
                            <widget class="QWidget" name="widget_12" native="true">
                             <layout class="QHBoxLayout" name="horizontalLayout_2">
-                             <item>
-                              <widget class="QLabel" name="label">
-                               <property name="text">
-                                <string>Results off </string>
-                               </property>
-                              </widget>
-                             </item>
                              <item>
                               <widget class="QLineEdit" name="lieTime">
                                <property name="text">
