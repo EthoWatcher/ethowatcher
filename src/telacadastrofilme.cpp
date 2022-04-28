@@ -1037,9 +1037,9 @@ void telaCadastroFilme::on_sbAreaWid_valueChanged(double arg1)
 void telaCadastroFilme::on_sbAreaHei_valueChanged(double arg1)
 {
     listaAreaProce[itemSelecionado]->setHei(arg1*scala);  //Hei( arg1, (qreal) ui->sbAreaWid->value()) ;
-    scene->update(scene->sceneRect());
-    ui->graphicsView->setUpdatesEnabled(true);
-    ui->graphicsView->update();
+//    scene->update(scene->sceneRect());
+//    ui->graphicsView->setUpdatesEnabled(true);
+//    ui->graphicsView->update();
 //    listaAreaProce[itemSelecionado]->hei = arg1;
 }
 
@@ -1447,6 +1447,7 @@ void telaCadastroFilme::on_pbCadastrar1_clicked()
                 }
 
 
+                stream.writeEndElement();
             }
 
 
@@ -1456,7 +1457,7 @@ void telaCadastroFilme::on_pbCadastrar1_clicked()
 //                stream.writeTextElement("width",QString::number(videoCadastrado.resultado.retangulo[ka].width));
 
 
-            stream.writeEndElement();
+
         }
 
 

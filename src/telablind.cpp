@@ -25,6 +25,7 @@ telablind::telablind(QWidget *parent) :
     ui->setupUi(this);
     //ui->stackedWidget->setCurrentIndex(0);
     ui->staWidPrin->setCurrentIndex(0);
+    ui->groupBox_10->setVisible(false);
 }
 
 telablind::~telablind()
@@ -429,10 +430,10 @@ void telablind::gravandovideo(int i){
 
     //cv codec XVID 1684633208
     //cv codec H264 875967096
-
+    //1684633208
 //    videoEditado.open()
     videoEditado = new cv::VideoWriter();
-    videoEditado->open(caminhoArquivoNome.toStdString(),1684633208,  videoLista.fps[0] ,frameSize,true);
+    videoEditado->open(caminhoArquivoNome.toStdString(),codec,  videoLista.fps[0] ,frameSize,true);
     if(video.isOpened()){
 
 //        ui->textEdit_2->setText("oi mundo");

@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="title">
-    <string>Step 1.01</string>
+    <string>Step 1</string>
    </property>
    <widget class="QPushButton" name="pbAddListaVideo">
     <property name="geometry">
@@ -35,7 +35,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Open List Video</string>
+     <string>Open video file list</string>
     </property>
    </widget>
   </widget>
@@ -49,7 +49,7 @@
     </rect>
    </property>
    <property name="title">
-    <string>Step 1.02</string>
+    <string>Step 2</string>
    </property>
    <widget class="QPushButton" name="pbAbrirPasta">
     <property name="geometry">
@@ -118,7 +118,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
+             <width>89</width>
              <height>89</height>
             </rect>
            </property>
@@ -189,7 +189,7 @@
     </rect>
    </property>
    <property name="title">
-    <string>Step 1.03</string>
+    <string>Step 3</string>
    </property>
    <widget class="QLineEdit" name="leNomePadr">
     <property name="geometry">
@@ -209,12 +209,12 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>91</width>
+      <width>121</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Blind name</string>
+     <string>Set a generic prefix  for the “blinded” video file name</string>
     </property>
    </widget>
   </widget>
@@ -228,7 +228,7 @@
     </rect>
    </property>
    <property name="title">
-    <string>step 1.05</string>
+    <string>step 5</string>
    </property>
    <widget class="QPushButton" name="pbBliding">
     <property name="geometry">
@@ -254,7 +254,7 @@
     </rect>
    </property>
    <property name="title">
-    <string>Step 1.04</string>
+    <string>Step 4</string>
    </property>
    <widget class="QPushButton" name="pbSetUserKey">
     <property name="geometry">

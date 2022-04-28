@@ -60,7 +60,7 @@
             <item>
              <widget class="QTabWidget" name="tabWPrincipal">
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_9">
                <attribute name="title">
@@ -1601,7 +1601,7 @@
                                <property name="maximumSize">
                                 <size>
                                  <width>16777215</width>
-                                 <height>100</height>
+                                 <height>5000</height>
                                 </size>
                                </property>
                                <property name="currentIndex">
@@ -1690,41 +1690,107 @@
                                 </layout>
                                </widget>
                                <widget class="QWidget" name="pageRectangle">
-                                <layout class="QHBoxLayout" name="horizontalLayout_34">
+                                <layout class="QVBoxLayout" name="verticalLayout_35">
                                  <item>
-                                  <widget class="QLabel" name="label_83">
-                                   <property name="text">
-                                    <string>Width:</string>
-                                   </property>
+                                  <widget class="QWidget" name="widget_26" native="true">
+                                   <layout class="QVBoxLayout" name="verticalLayout_34">
+                                    <item>
+                                     <widget class="QWidget" name="widget_27" native="true">
+                                      <layout class="QHBoxLayout" name="horizontalLayout_39">
+                                       <item>
+                                        <widget class="QLabel" name="label_82">
+                                         <property name="minimumSize">
+                                          <size>
+                                           <width>35</width>
+                                           <height>0</height>
+                                          </size>
+                                         </property>
+                                         <property name="text">
+                                          <string>Height:</string>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item>
+                                        <widget class="QDoubleSpinBox" name="sbAreaHei">
+                                         <property name="maximumSize">
+                                          <size>
+                                           <width>65</width>
+                                           <height>16777215</height>
+                                          </size>
+                                         </property>
+                                         <property name="decimals">
+                                          <number>1</number>
+                                         </property>
+                                         <property name="maximum">
+                                          <double>10000.000000000000000</double>
+                                         </property>
+                                         <property name="singleStep">
+                                          <double>1.000000000000000</double>
+                                         </property>
+                                         <property name="value">
+                                          <double>10.000000000000000</double>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                       <item>
+                                        <widget class="QLabel" name="label_84">
+                                         <property name="text">
+                                          <string>mm</string>
+                                         </property>
+                                        </widget>
+                                       </item>
+                                      </layout>
+                                     </widget>
+                                    </item>
+                                   </layout>
                                   </widget>
                                  </item>
                                  <item>
-                                  <widget class="QDoubleSpinBox" name="sbAreaWid">
+                                  <widget class="QWidget" name="widget_22" native="true">
                                    <property name="maximumSize">
                                     <size>
-                                     <width>65</width>
-                                     <height>16777215</height>
+                                     <width>16777215</width>
+                                     <height>100</height>
                                     </size>
                                    </property>
-                                   <property name="decimals">
-                                    <number>1</number>
-                                   </property>
-                                   <property name="maximum">
-                                    <double>10000.000000000000000</double>
-                                   </property>
-                                   <property name="singleStep">
-                                    <double>1.000000000000000</double>
-                                   </property>
-                                   <property name="value">
-                                    <double>10.000000000000000</double>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item>
-                                  <widget class="QLabel" name="label_85">
-                                   <property name="text">
-                                    <string>mm</string>
-                                   </property>
+                                   <layout class="QHBoxLayout" name="horizontalLayout_33">
+                                    <item>
+                                     <widget class="QLabel" name="label_83">
+                                      <property name="text">
+                                       <string>Width:</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QDoubleSpinBox" name="sbAreaWid">
+                                      <property name="maximumSize">
+                                       <size>
+                                        <width>65</width>
+                                        <height>16777215</height>
+                                       </size>
+                                      </property>
+                                      <property name="decimals">
+                                       <number>1</number>
+                                      </property>
+                                      <property name="maximum">
+                                       <double>10000.000000000000000</double>
+                                      </property>
+                                      <property name="singleStep">
+                                       <double>1.000000000000000</double>
+                                      </property>
+                                      <property name="value">
+                                       <double>10.000000000000000</double>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                    <item>
+                                     <widget class="QLabel" name="label_85">
+                                      <property name="text">
+                                       <string>mm</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
                                   </widget>
                                  </item>
                                 </layout>
@@ -1832,60 +1898,6 @@
                                  </item>
                                 </layout>
                                </widget>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QWidget" name="widget_22" native="true">
-                               <property name="maximumSize">
-                                <size>
-                                 <width>16777215</width>
-                                 <height>100</height>
-                                </size>
-                               </property>
-                               <layout class="QHBoxLayout" name="horizontalLayout_33">
-                                <item>
-                                 <widget class="QLabel" name="label_82">
-                                  <property name="minimumSize">
-                                   <size>
-                                    <width>35</width>
-                                    <height>0</height>
-                                   </size>
-                                  </property>
-                                  <property name="text">
-                                   <string>Height:</string>
-                                  </property>
-                                 </widget>
-                                </item>
-                                <item>
-                                 <widget class="QDoubleSpinBox" name="sbAreaHei">
-                                  <property name="maximumSize">
-                                   <size>
-                                    <width>65</width>
-                                    <height>16777215</height>
-                                   </size>
-                                  </property>
-                                  <property name="decimals">
-                                   <number>1</number>
-                                  </property>
-                                  <property name="maximum">
-                                   <double>10000.000000000000000</double>
-                                  </property>
-                                  <property name="singleStep">
-                                   <double>1.000000000000000</double>
-                                  </property>
-                                  <property name="value">
-                                   <double>10.000000000000000</double>
-                                  </property>
-                                 </widget>
-                                </item>
-                                <item>
-                                 <widget class="QLabel" name="label_84">
-                                  <property name="text">
-                                   <string>mm</string>
-                                  </property>
-                                 </widget>
-                                </item>
-                               </layout>
                               </widget>
                              </item>
                             </layout>

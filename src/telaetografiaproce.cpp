@@ -469,14 +469,16 @@ void telaEtografiaProce::recebeImagem(QImage qiCaptador, int numFrame)
                  }
 
 
-                // painter.drawPoint(vtxX3,vtxY3);
-                // painter.drawPoint(vtxX4,vtxY4);
 
                  QImage qimDisplay= qiCaptador.scaled(widthPanProcess,heightPanProcess,Qt::KeepAspectRatio);
                  ui->imgResultado->setPixmap(QPixmap::fromImage(qimDisplay));
 
 
             }else{
+
+
+
+
 
                 QImage small = qiCaptador.scaled(widthPanProcess, heightPanProcess,Qt::KeepAspectRatio);
             //    QImage small = qiCaptador.scaled(480, 360,Qt::KeepAspectRatio);
@@ -485,6 +487,54 @@ void telaEtografiaProce::recebeImagem(QImage qiCaptador, int numFrame)
             }
 
         }else{
+
+            QPainter painter(&qiCaptador); //o pintor vai pintar nesse inderesso
+            painter.setPen(canetaAmarela);
+
+            int contCircle=0;
+            int contREct=0;
+            for(int ka1=0; ka1 < videoLista.area[contadorDeVideo].nomeFig.size(); ka1++){
+
+                if(cheboxList[ka1]->isChecked()){
+
+                    if(videoLista.area[contadorDeVideo].tipo[ka1]=="circle"){
+
+                        painter.drawEllipse(videoLista.area[contadorDeVideo].oriX[ka1],
+                                            videoLista.area[contadorDeVideo].oriY[ka1],
+                                            videoLista.area[contadorDeVideo].raio[contCircle]*2,
+                                            videoLista.area[contadorDeVideo].raio[contCircle]*2);
+
+
+
+                    }else{
+
+                        painter.drawRect(videoLista.area[contadorDeVideo].oriX[ka1],
+                                         videoLista.area[contadorDeVideo].oriY[ka1],
+                                         videoLista.area[contadorDeVideo].width[contREct],
+                                         videoLista.area[contadorDeVideo].height[contREct]);
+
+
+
+
+
+
+                    }
+
+
+                }
+
+
+                if(videoLista.area[contadorDeVideo].tipo[ka1]=="circle"){
+
+                    contCircle++;
+
+                }else{
+
+                   contREct++;
+
+                }
+
+            }
 
             QImage small = qiCaptador.scaled(wid, hei,Qt::KeepAspectRatio);
         //    QImage small = qiCaptador.scaled(480, 360,Qt::KeepAspectRatio);
@@ -2124,6 +2174,27 @@ void telaEtografiaProce::on_btPlay_clicked()
 
 void telaEtografiaProce::on_pbEtoVideo_clicked()
 {
+    QVBoxLayout *vBoxLay = new QVBoxLayout(ui->widCheckBox);
+
+    for(int ka=0; ka< videoLista.area[contadorDeVideo].nomeFig.size(); ka++){
+
+        chebox = new QCheckBox();
+        if(ka==0){
+           chebox->setChecked(true);
+        }else{
+            chebox->setChecked(false);
+        }
+        chebox->setAutoExclusive(true);
+
+        chebox->setText(videoLista.area[contadorDeVideo].nomeFig[ka]);
+        cheboxList.push_back(chebox);
+        vBoxLay->addWidget(cheboxList[ka]);
+
+    }
+
+
+    ui->widCheckBox->setLayout(vBoxLay);
+
     captadorDeVideo = new moduloCaptador();
     //captadorThread = new QThread();
 
@@ -2147,6 +2218,11 @@ void telaEtografiaProce::on_pbEtoVideo_clicked()
     ui->gbStep2->setEnabled(false);
 
     ui->tabButtons->setTabEnabled(1,false);
+
+
+
+
+
     //captadorThread->start();
 
 }
