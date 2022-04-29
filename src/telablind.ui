@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>&quot;Blinding&quot; video files</string>
+   <string>Blinding observers to video file names</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_10">
    <item>
@@ -63,7 +63,7 @@
                </size>
               </property>
               <property name="title">
-               <string>Step 1.01</string>
+               <string>Step 1</string>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_3">
                <item>
@@ -85,13 +85,14 @@
                </size>
               </property>
               <property name="title">
-               <string>Step 1.02</string>
+               <string>Step 2</string>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_2">
                <item>
                 <widget class="QPushButton" name="pbAbrirPasta">
                  <property name="text">
-                  <string>Set destination folder</string>
+                  <string>Set a destination folder for the “blinded” file list
+</string>
                  </property>
                 </widget>
                </item>
@@ -125,7 +126,7 @@
                </size>
               </property>
               <property name="title">
-               <string>Step 1.03</string>
+               <string>Step 3</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_6">
                <item>
@@ -137,7 +138,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>Blind name</string>
+                  <string>Set a generic prefix  for the “blinded” video file name</string>
                  </property>
                 </widget>
                </item>
@@ -165,8 +166,11 @@
                 <height>100</height>
                </size>
               </property>
+              <property name="toolTipDuration">
+               <number>0</number>
+              </property>
               <property name="title">
-               <string>Step 1.05</string>
+               <string>Step 4</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_7">
                <item>
@@ -202,13 +206,13 @@
             <item>
              <widget class="QGroupBox" name="groupBox_6">
               <property name="title">
-               <string>step 1.06</string>
+               <string>Step 4</string>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_7">
                <item>
                 <widget class="QPushButton" name="pbBliding">
                  <property name="text">
-                  <string>&quot;Blinding&quot;</string>
+                  <string>Create a “blinded” file list</string>
                  </property>
                 </widget>
                </item>
@@ -295,8 +299,8 @@
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>98</width>
-                     <height>28</height>
+                     <width>43</width>
+                     <height>16</height>
                     </rect>
                    </property>
                   </widget>

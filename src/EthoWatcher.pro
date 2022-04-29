@@ -19,7 +19,7 @@
 # Project created by QtCreator 2016-04-20T18:37:51
 #
 #-------------------------------------------------
-
+include(QtXlsx/src/xlsx/qtxlsx.pri)
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -27,6 +27,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = EthoWatcher
 TEMPLATE = app
 
+DEFINES += XLSX_NO_LIB
 
 CONFIG += c++11
 
@@ -56,7 +57,7 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     telacadastrofilme.cpp\
     areatraingulo.cpp\
     itemareainte.cpp\
-    telacadastrolistafilme.cpp \
+    telacadastrolistafilme.cpp\
     modulocaptador.cpp\
     telacego.cpp\
     telablind.cpp\
@@ -83,12 +84,11 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     parserxml.cpp
 
 
-
-HEADERS  += ethowatcher.h \
-    telacadastropessoa.h \
-    telacadastrofilme.h \
-    areatraingulo.h \
-    itemareainte.h \
+HEADERS  += ethowatcher.h\
+    telacadastropessoa.h\
+    telacadastrofilme.h\
+    areatraingulo.h\
+    itemareainte.h\
     telacadastrolistafilme.h\
     modulocaptador.h\
     telacego.h\
@@ -101,7 +101,7 @@ HEADERS  += ethowatcher.h \
     telacadastrocatalago.h\
     moduloeditavideo.h\
     telasegementacao.h\
-    telamatriztransicao.h \
+    telamatriztransicao.h\
     teaconcordancia.h\
     figuramatriz.h\
     itemnovaseta.h\
@@ -117,17 +117,17 @@ HEADERS  += ethowatcher.h \
 
 
 
-FORMS    += ethowatcher.ui \
-    telacadastropessoa.ui \
-    telacadastrofilme.ui \
-    telacadastrolistafilme.ui \
+FORMS    += ethowatcher.ui\
+    telacadastropessoa.ui\
+    telacadastrofilme.ui\
+    telacadastrolistafilme.ui\
     telacego.ui\
     telablind.ui\
     #telaetografia.ui\
     #etografia.ui\
     #telaconversorxmlcsv.ui\
-    telasegementacao.ui \
-    telamatriztransicao.ui \
+    telasegementacao.ui\
+    telamatriztransicao.ui\
     teaconcordancia.ui\
     figuramatriz.ui\
     telacadastrocatalago.ui\

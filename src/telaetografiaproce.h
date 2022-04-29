@@ -82,6 +82,7 @@ public:
 
     ~telaEtografiaProce();
 
+    QList< QList<Cell> > excell_lista;
 
     struct dadosEtografia{
 
@@ -94,6 +95,28 @@ public:
         int quantidadeDeDados=0;
 
     };
+
+
+    struct dadoPesquisador{
+       QString nomePesquisador;
+       QString laboratorio;
+    };
+
+    dadoPesquisador dado_pesquisador;
+
+    struct dadoExperimento{
+       QString tituloExperimento;
+       QString data;
+       QString otherInfo;
+       QString animalID;
+       QString wight;
+
+       QString animalSex;
+       QString threatmen;
+
+    };
+
+    dadoExperimento dado_experimento;
 
     dadosEtografia dadosEto;
     dadosEtografia cAnaEto;
@@ -315,8 +338,8 @@ private slots:
 
 private:
     Ui::telaEtografiaProce *ui;
-    QString text_transicao;
-    QString gera_csv_eto(QString nomeGravarEtografia,
+    QList<Cell> text_transicao;
+    std::tuple<QList<Cell>, int> gera_csv_eto(QString nomeGravarEtografia,
                                 int frameProces, int frameFinal, double fps,
                                 QString nome_caminho_video,
 
@@ -331,7 +354,7 @@ private:
 
 
 
-    void _gravar_csv(QString path_eto, QString t_saida);
+    void _gravar_csv(QString path_eto, QList<QList<Cell> > t_saida);
 
     void totalizacoesEtografia(int vl_frameFinal,
                                int frameProces,

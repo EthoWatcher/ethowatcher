@@ -58,13 +58,13 @@ public:
 
     void liga_sementacao_etografia();
 
-    QString gera_segmentacao_texto(double tamanho_janela_s, int q_proce, int q_final, double fps,
+    QList<Cell> gera_segmentacao_texto(double tamanho_janela_s, int q_proce, int q_final, double fps,
                                         std::vector<double> frameInicial,
                                         std::vector<double> frameFinal,
                                         std::vector<int> id,
 
                                         std::vector<QString> nome,
-                                        int qnt_categorias);
+                                        int qnt_categorias, int linha);
     QString saida_texto_formada_csv;
 
 private slots:
@@ -93,7 +93,8 @@ private:
     QFile OutEtografia;
     void lerETOXML(QString nomeArquivo);
 
-
+    QList<Cell> _gera_lis_segmetacao(int linha_gap);
+    QList<Cell> saida_segm;
     struct dadosVideo{
         bool controle =true;
         QString nome;

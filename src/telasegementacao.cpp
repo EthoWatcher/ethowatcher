@@ -44,13 +44,14 @@ void telaSegementacao::liga_sementacao_etografia()
     //precisa ler
 }
 
-QString telaSegementacao::gera_segmentacao_texto(double tamanho_janela_s, int q_proce, int q_final,
+// USANDO ESSA FUNCAO
+QList<Cell> telaSegementacao::gera_segmentacao_texto(double tamanho_janela_s, int q_proce, int q_final,
                                     double fps,
                                     std::vector<double> frameInicial,
                                     std::vector<double> frameFinal,
                                     std::vector<int> id,
                                     std::vector<QString> nome,
-                                    int qnt_categorias)
+                                    int qnt_categorias, int linha=0)
 {
 
 
@@ -90,28 +91,9 @@ QString telaSegementacao::gera_segmentacao_texto(double tamanho_janela_s, int q_
 
     // resultado
     QString texto_saida ="";
-    int qnt_segmentos = inicioPeriodo.size();
-    for(int tot=1; tot< qnt_segmentos+1; tot++){
 
 
-        texto_saida = texto_saida + "\n RESULTS FOR \n Segmentation initiated at ;" + QString::number( inicioPeriodo[tot-1]/videoLido->fps) ;
-        texto_saida = texto_saida + ";  Segmentation terminated at ;" + QString::number(fimPeriodo[tot-1]/videoLido->fps) + "\n\n";
-
-        texto_saida = texto_saida + "Category" + ";" + "Duration(s)" + ";" + "Freq." + "\n";
-        int qnt_categorias = catalagoLido->nome.size();
-        for(int fr=0; fr< qnt_categorias ; fr++){
-
-            texto_saida = texto_saida + catalagoLido->nome[fr] + ";" +
-                    QString::number(duracaoTotalMatriz[tot][fr])  + ";" +  ///videoLido->fps
-                    QString::number(frequenciaTotalMatriz[tot][fr]) + ";" ;
-
-                texto_saida = texto_saida + ";\n";
-
-
-        }
-
-    }
-
+    saida_segm = this->_gera_lis_segmetacao(linha);
 //    QString teste2;
 
 //    teste2 = QFileDialog::getSaveFileName(
@@ -135,7 +117,7 @@ QString telaSegementacao::gera_segmentacao_texto(double tamanho_janela_s, int q_
 
 
 
-    return texto_saida;
+    return saida_segm;
 
 
 
@@ -1059,9 +1041,13 @@ void telaSegementacao::on_pbTotGravar_clicked()
 
     Output.close();
 
-    //parserxmltocsv
+//    parserxmltocsv
+    int linha = 16;
+    saida_segm = this->_gera_lis_segmetacao(linha);
     parser = new parserXMLtoCSV();
-    parser->converteArquivo(nomeGravarCatalago);
+
+
+    parser->converteArquivo(nomeGravarCatalago, saida_segm);
 
 }
 
@@ -1174,6 +1160,55 @@ void telaSegementacao::lerETOXML(QString nomeArquivo)
     OutEtografia.close();
 
 
+}
+
+QList<Cell> telaSegementacao::_gera_lis_segmetacao(int linha_gap)
+{
+    QList<Cell> saida;
+    int linha = linha_gap;
+    linha += 2;
+
+
+
+
+    int qnt_segmentos = inicioPeriodo.size();
+    for(int tot=1; tot< qnt_segmentos+1; tot++){
+        add_cell(&saida, "A"+QString::number(linha),"RESULTS FOR");
+        linha += 1;
+        add_cell(&saida, "A"+QString::number(linha),"Segmentation initiated at " + QString::number( inicioPeriodo[tot-1]/videoLido->fps));
+        linha += 1;
+        add_cell(&saida, "A"+QString::number(linha),
+                 ";  Segmentation terminated at ;" + QString::number(fimPeriodo[tot-1]/videoLido->fps));
+
+//        texto_saida = texto_saida + "\n RESULTS FOR \n Segmentation initiated at ;" + QString::number( inicioPeriodo[tot-1]/videoLido->fps) ;
+//        texto_saida = texto_saida + ";  Segmentation terminated at ;" + QString::number(fimPeriodo[tot-1]/videoLido->fps) + "\n\n";
+        linha += 1;
+        add_cell(&saida, "A"+QString::number(linha),"Category");
+        add_cell(&saida, "B"+QString::number(linha),"Duration(s)");
+        add_cell(&saida, "C"+QString::number(linha),"Freq.");
+
+
+
+//        texto_saida = texto_saida + "Category" + ";" + "Duration(s)" + ";" + "Freq." + "\n";
+        int qnt_categorias = catalagoLido->nome.size();
+        for(int fr=0; fr< qnt_categorias ; fr++){
+            linha += 1;
+            add_cell(&saida, "A"+QString::number(linha),catalagoLido->nome[fr]);
+            add_cell(&saida, "B"+QString::number(linha),QString::number(duracaoTotalMatriz[tot][fr]), true);
+            add_cell(&saida, "C"+QString::number(linha),QString::number(frequenciaTotalMatriz[tot][fr]), true);
+
+
+//            texto_saida = texto_saida + catalagoLido->nome[fr] + ";" +
+//                    QString::number(duracaoTotalMatriz[tot][fr])  + ";" +  ///videoLido->fps
+//                    QString::number(frequenciaTotalMatriz[tot][fr]) + ";" ;
+
+//                texto_saida = texto_saida + ";\n";
+
+
+        }
+
+    }
+    return saida;
 }
 
 QString telaSegementacao::conPontoVirgula(double num)

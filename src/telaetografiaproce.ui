@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1142</width>
-    <height>837</height>
+    <width>1205</width>
+    <height>743</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Video-based ethography</string>
+   <string>Video-based tracking and ethography </string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_10">
+  <layout class="QVBoxLayout" name="verticalLayout_28">
    <item>
     <widget class="QStackedWidget" name="swPrincipal">
      <property name="currentIndex">
@@ -74,7 +74,7 @@
                 <item>
                  <widget class="QGroupBox" name="groupBox_13">
                   <property name="title">
-                   <string>Info</string>
+                   <string>Video file path</string>
                   </property>
                   <widget class="QLabel" name="lblVideoName">
                    <property name="geometry">
@@ -103,7 +103,7 @@
                 <item>
                  <widget class="QPushButton" name="pbEtoVideo">
                   <property name="text">
-                   <string>Video-based ethography</string>
+                   <string>Categoric transcription (Etography)</string>
                   </property>
                  </widget>
                 </item>
@@ -120,7 +120,7 @@
                 <item>
                  <widget class="QPushButton" name="pbEtoProce">
                   <property name="text">
-                   <string>Video-based ethography and tracking</string>
+                   <string>Etography and tracking</string>
                   </property>
                  </widget>
                 </item>
@@ -136,7 +136,7 @@
              <item>
               <widget class="QGroupBox" name="gbStep3">
                <property name="title">
-                <string>Behavioral Catalog</string>
+                <string>Step 3 - Behavioral catalog</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_10">
                 <item>
@@ -149,21 +149,17 @@
                 <item>
                  <widget class="QGroupBox" name="groupBox_15">
                   <property name="title">
-                   <string>Info</string>
+                   <string>Catalog file path</string>
                   </property>
-                  <widget class="QLabel" name="lblCatalogo">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>251</width>
-                     <height>16</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_10">
+                   <item>
+                    <widget class="QLabel" name="lblCatalogo">
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                </layout>
@@ -172,7 +168,7 @@
              <item>
               <widget class="QGroupBox" name="gbStep4">
                <property name="title">
-                <string> Behavioral record sytax</string>
+                <string>Step 4 -  Behavioral record syntax</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_14">
                 <item>
@@ -213,7 +209,7 @@
                 </size>
                </property>
                <property name="title">
-                <string>Status Tracking Image</string>
+                <string>Status tracking image</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_17">
                 <item>
@@ -263,10 +259,19 @@
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_6">
                 <item>
-                 <widget class="QPushButton" name="pbStart">
-                  <property name="text">
-                   <string>Start</string>
+                 <widget class="QGroupBox" name="groupBox_16">
+                  <property name="title">
+                   <string>Step 5</string>
                   </property>
+                  <layout class="QVBoxLayout" name="verticalLayout">
+                   <item>
+                    <widget class="QPushButton" name="pbStart">
+                     <property name="text">
+                      <string>Press play to start</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                </layout>
@@ -284,9 +289,58 @@
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QWidget" name="widControes" native="true">
+         <property name="maximumSize">
+          <size>
+           <width>300</width>
+           <height>600</height>
+          </size>
+         </property>
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_21">
+            <item>
+             <widget class="QGroupBox" name="groupBox_5">
+              <property name="minimumSize">
+               <size>
+                <width>160</width>
+                <height>171</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>500</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>Areas of interest</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_24">
+               <item>
+                <widget class="QScrollArea" name="scrollArea_2">
+                 <property name="widgetResizable">
+                  <bool>true</bool>
+                 </property>
+                 <widget class="QWidget" name="scrollAreaWidgetContents_2">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>258</width>
+                    <height>301</height>
+                   </rect>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_13">
+                   <item>
+                    <widget class="QWidget" name="widCheckBox" native="true"/>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
             <item>
              <widget class="QGroupBox" name="groupBox">
               <property name="minimumSize">
@@ -1389,12 +1443,12 @@
          <property name="minimumSize">
           <size>
            <width>350</width>
-           <height>612</height>
+           <height>200</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>500</width>
+           <width>300</width>
            <height>16777215</height>
           </size>
          </property>
@@ -1405,7 +1459,7 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
@@ -1425,8 +1479,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>334</width>
-                   <height>353</height>
+                   <width>306</width>
+                   <height>306</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1484,7 +1538,7 @@
                  </size>
                 </property>
                 <property name="title">
-                 <string>Results</string>
+                 <string>Sequence and time of ocurrence</string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_15">
                  <item>
@@ -1511,12 +1565,12 @@
                    </column>
                    <column>
                     <property name="text">
-                     <string>Begin Time</string>
+                     <string>Start time</string>
                     </property>
                    </column>
                    <column>
                     <property name="text">
-                     <string>End Time</string>
+                     <string>End time</string>
                     </property>
                    </column>
                   </widget>
@@ -1530,7 +1584,7 @@
                     </size>
                    </property>
                    <property name="text">
-                    <string>Delete the last record</string>
+                    <string>Delete the last entry</string>
                    </property>
                   </widget>
                  </item>
@@ -1541,7 +1595,7 @@
             </widget>
             <widget class="QWidget" name="tab_7">
              <attribute name="title">
-              <string>Trackin</string>
+              <string>Tracking</string>
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_19">
               <item>
@@ -1553,125 +1607,62 @@
                  </size>
                 </property>
                 <property name="title">
-                 <string>Morfological Data Print</string>
+                 <string>Select attributes to show during ethography </string>
                 </property>
-                <widget class="QCheckBox" name="chbArea">
-                 <property name="geometry">
-                  <rect>
-                   <x>20</x>
-                   <y>60</y>
-                   <width>211</width>
-                   <height>17</height>
-                  </rect>
-                 </property>
-                 <property name="text">
-                  <string>Rectangle that circumscribes the object</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-                <widget class="QCheckBox" name="chbAltLarg">
-                 <property name="geometry">
-                  <rect>
-                   <x>20</x>
-                   <y>40</y>
-                   <width>151</width>
-                   <height>17</height>
-                  </rect>
-                 </property>
-                 <property name="text">
-                  <string>Height and width of the object</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-                <widget class="QCheckBox" name="chbCentroide">
-                 <property name="geometry">
-                  <rect>
-                   <x>20</x>
-                   <y>20</y>
-                   <width>131</width>
-                   <height>17</height>
-                  </rect>
-                 </property>
-                 <property name="text">
-                  <string>Center of mass</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-                <widget class="QCheckBox" name="chbAngulo">
-                 <property name="geometry">
-                  <rect>
-                   <x>20</x>
-                   <y>80</y>
-                   <width>111</width>
-                   <height>17</height>
-                  </rect>
-                 </property>
-                 <property name="text">
-                  <string>Angle of object</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </widget>
-              </item>
-              <item>
-               <widget class="QGroupBox" name="groupBox_5">
-                <property name="minimumSize">
-                 <size>
-                  <width>321</width>
-                  <height>171</height>
-                 </size>
-                </property>
-                <property name="title">
-                 <string>Show areas</string>
-                </property>
-                <widget class="QScrollArea" name="scrollArea_2">
-                 <property name="geometry">
-                  <rect>
-                   <x>10</x>
-                   <y>20</y>
-                   <width>271</width>
-                   <height>141</height>
-                  </rect>
-                 </property>
-                 <property name="widgetResizable">
-                  <bool>true</bool>
-                 </property>
-                 <widget class="QWidget" name="scrollAreaWidgetContents_2">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>269</width>
-                    <height>139</height>
-                   </rect>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_13">
-                   <item>
-                    <widget class="QWidget" name="widCheckBox" native="true"/>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
+                <layout class="QVBoxLayout" name="verticalLayout_29">
+                 <item>
+                  <widget class="QCheckBox" name="chbCentroide">
+                   <property name="text">
+                    <string>Center of mass</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="chbAltLarg">
+                   <property name="text">
+                    <string>Height and width of the object</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="chbArea">
+                   <property name="text">
+                    <string>Rectangle with superimpose the object</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="chbAngulo">
+                   <property name="text">
+                    <string>Angle of main object</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
               <item>
                <widget class="QGroupBox" name="groupBox_10">
                 <property name="minimumSize">
                  <size>
-                  <width>331</width>
-                  <height>221</height>
+                  <width>50</width>
+                  <height>100</height>
                  </size>
                 </property>
                 <property name="title">
-                 <string>Results of the tracking</string>
+                 <string/>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_16">
                  <item>
@@ -1683,67 +1674,67 @@
                    </row>
                    <row>
                     <property name="text">
-                     <string>Area</string>
+                     <string>Area (cm^2)</string>
                     </property>
                    </row>
                    <row>
                     <property name="text">
-                     <string>Horizontal coordinate of the centroid</string>
+                     <string>Horizontal coordinate of the centroid (px)</string>
                     </property>
                    </row>
                    <row>
                     <property name="text">
-                     <string>Vertical coordinate of the centroid</string>
+                     <string>Vertical coordinate of the centroid (px)</string>
                     </property>
                    </row>
                    <row>
                     <property name="text">
-                     <string>Angle between animal and Horizontal coordinate</string>
+                     <string>Angle between animal and Horizontal coordinate (degrees)</string>
                     </property>
                    </row>
                    <row>
                     <property name="text">
-                     <string>Width</string>
+                     <string>Width (cm)</string>
                     </property>
                    </row>
                    <row>
                     <property name="text">
-                     <string>Height</string>
+                     <string>Height (cm)</string>
                     </property>
                    </row>
                    <row>
                     <property name="text">
-                     <string>Variation of Angule</string>
+                     <string>Variation of Angule (degrees/frame)</string>
                     </property>
                    </row>
                    <row>
                     <property name="text">
-                     <string>Variation of Area</string>
+                     <string>Variation of Area (px^2/frame)</string>
                     </property>
                    </row>
                    <row>
                     <property name="text">
-                     <string>Variação de Centroide X</string>
+                     <string>Variação de Centroide X (px/frame)</string>
                     </property>
                    </row>
                    <row>
                     <property name="text">
-                     <string>Variação de Centroide Y</string>
+                     <string>Variação de Centroide Y (px/frame)</string>
                     </property>
                    </row>
                    <row>
                     <property name="text">
-                     <string>Distance travelled by the centroid</string>
+                     <string>Distance travelled by the centroid (px/frame)</string>
                     </property>
                    </row>
                    <row>
                     <property name="text">
-                     <string>Variation of Height of animal</string>
+                     <string>Variation of Height of animal (px/frame)</string>
                     </property>
                    </row>
                    <row>
                     <property name="text">
-                     <string>Variation of width of animal </string>
+                     <string>Variation of width of animal  (px/frame)</string>
                     </property>
                    </row>
                    <row>
@@ -1765,7 +1756,7 @@
             </widget>
             <widget class="QWidget" name="tab_6">
              <attribute name="title">
-              <string>Exit and Save</string>
+              <string>Select a ethographic report file</string>
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_7">
               <item>
@@ -1773,130 +1764,139 @@
                 <property name="title">
                  <string>Step 6 Save</string>
                 </property>
-                <widget class="QWidget" name="widget_3" native="true">
-                 <property name="geometry">
-                  <rect>
-                   <x>10</x>
-                   <y>30</y>
-                   <width>311</width>
-                   <height>201</height>
-                  </rect>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_25">
-                  <item>
-                   <widget class="QWidget" name="widget_11" native="true">
-                    <layout class="QVBoxLayout" name="verticalLayout_23">
-                     <item>
-                      <widget class="QCheckBox" name="cb_temporal_segmentation">
-                       <property name="text">
-                        <string>Temporal segmentation</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QWidget" name="widget_12" native="true">
-                       <layout class="QHBoxLayout" name="horizontalLayout_2">
-                        <item>
-                         <widget class="QLabel" name="label">
-                          <property name="text">
-                           <string>Time Interval(s)</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLineEdit" name="lieTime">
-                          <property name="text">
-                           <string>15</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QWidget" name="widget_13" native="true">
-                    <layout class="QHBoxLayout" name="horizontalLayout_14">
-                     <item>
-                      <widget class="QCheckBox" name="cb_seq_analyses">
-                       <property name="text">
-                        <string>Sequential analysis</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="pb_generate_grafic">
-                       <property name="text">
-                        <string>Generate graph</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pbGravarAnalasiteEtografica">
-                    <property name="enabled">
-                     <bool>false</bool>
-                    </property>
-                    <property name="text">
-                     <string>Save Video-based ethography</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-                <widget class="QWidget" name="widget_9" native="true">
-                 <property name="geometry">
-                  <rect>
-                   <x>20</x>
-                   <y>330</y>
-                   <width>301</width>
-                   <height>70</height>
-                  </rect>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_26">
-                  <item>
-                   <widget class="QPushButton" name="pbGravarAnalasiProces">
-                    <property name="enabled">
-                     <bool>false</bool>
-                    </property>
-                    <property name="text">
-                     <string>Save the results of tracking</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pbSaveImage">
-                    <property name="enabled">
-                     <bool>false</bool>
-                    </property>
-                    <property name="text">
-                     <string>Save Image</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </widget>
-              </item>
-              <item>
-               <widget class="QWidget" name="widControle1" native="true">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout"/>
+                <layout class="QVBoxLayout" name="verticalLayout_27">
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_14">
+                   <property name="title">
+                    <string>Etography report</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_34">
+                    <item>
+                     <widget class="QGroupBox" name="groupBox_2">
+                      <property name="title">
+                       <string/>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_30">
+                       <item>
+                        <widget class="QWidget" name="widget_11" native="true">
+                         <layout class="QVBoxLayout" name="verticalLayout_23">
+                          <item>
+                           <widget class="QCheckBox" name="cb_temporal_segmentation">
+                            <property name="text">
+                             <string>Save the results also as the totals for each</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QWidget" name="widget_12" native="true">
+                            <layout class="QHBoxLayout" name="horizontalLayout_2">
+                             <item>
+                              <widget class="QLineEdit" name="lieTime">
+                               <property name="text">
+                                <string>15</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QLabel" name="label_20">
+                               <property name="text">
+                                <string>seconds</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QWidget" name="widget_3" native="true">
+                      <layout class="QVBoxLayout" name="verticalLayout_25">
+                       <item>
+                        <widget class="QGroupBox" name="groupBox_9">
+                         <property name="title">
+                          <string>Sequential analysis</string>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_31">
+                          <item>
+                           <widget class="QWidget" name="widget_13" native="true">
+                            <layout class="QVBoxLayout" name="verticalLayout_32">
+                             <item>
+                              <widget class="QCheckBox" name="cb_seq_analyses">
+                               <property name="text">
+                                <string>Include transition matrix</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="pb_generate_grafic">
+                               <property name="text">
+                                <string>Plot graph</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pbGravarAnalasiteEtografica">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
+                      <property name="text">
+                       <string>Save etography report</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QGroupBox" name="groupBox_12">
+                   <property name="title">
+                    <string>Tracking report</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_33">
+                    <item>
+                     <widget class="QWidget" name="widget_9" native="true">
+                      <layout class="QVBoxLayout" name="verticalLayout_26">
+                       <item>
+                        <widget class="QPushButton" name="pbGravarAnalasiProces">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
+                         <property name="text">
+                          <string>Save tracking report</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="pbSaveImage">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
+                         <property name="text">
+                          <string>Save tracking images</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
              </layout>

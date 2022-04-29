@@ -34,12 +34,67 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //gravando csv
 #include <QTextStream>
 
+#include "xlsxdocument.h"
+
+struct Cell {
+  bool r_number;
+  QString number;
+  QString content;
+} ;
+
+static void add_cell (QList<Cell> *array_add, QString cell_number, QString content, bool r_number = false){
+    Cell c;
+    c.r_number = r_number;
+    c.content = content;
+    c.number = cell_number;
+    array_add->append(c);
+
+};
+
+static QString next_letter (QString letter) {
+    // melhorar essa função
+          QString alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+          int start = alfabeto.indexOf(letter, 0, Qt::CaseInsensitive);
+          QString saida = alfabeto.at(start+1);
+          return saida;
+
+//          QStringList alga_list = alfabeto.split(";");
+//          int tamanho = alga_list.length();
+//          bool r_reseta = tamanho <= start + 1;
+
+//          if (r_reseta){
+//             return alga_list[0];
+//          }else{
+//             return alga_list[start+1];
+//          }
+
+    };
+
+static void gravar_csv_ls_cell(QString csv_path, QList< QList<Cell> > t_saida){
+//    QFile outGravador_csv;
+    QXlsx::Document xlsx;
+
+    for (auto list_celulas : t_saida){
+        for (auto celula: list_celulas){
+            if(celula.r_number){
+                xlsx.write(celula.number, celula.content.toDouble());
+            }else{
+                xlsx.write(celula.number, celula.content);
+            }
+
+        }
+    }
+    xlsx.saveAs(csv_path);
+
+};
+
+
 class parserXMLtoCSV
 {
 public:
 
-
-    void converteArquivo(QString nomePath);
+    QString cabecalho_str;
+    void converteArquivo(QString nomePath, QList<Cell> entrada);
 
     parserXMLtoCSV();
     ~parserXMLtoCSV();
@@ -77,7 +132,7 @@ public:
     QString nomeArquivoGravarCsv;
     //para o time buget
     void lerTimeXml(int qualLer);
-    void escreverTimeCsv();
+    void escreverTimeCsv(QList<Cell> entrada);
 
     struct analiseSequencialComportamento{
 
@@ -126,7 +181,7 @@ public:
 
     //para o de sequencia
 //    void lerSeqXml();
-    void escreverSeqCsv();
+    void escreverSeqCsv(QList<Cell> entrada);
 
     //para o de kopo
 //    void lerKohoXml();
@@ -196,7 +251,7 @@ public:
     std::vector<etografiaTotalizacoes> totalizacaoTot;
 
     void escreverEtografiaCsv();
-    void escreverTrakinCsv();
+    void escreverTrakinCsv( QList<Cell> entrada);
 
 
     struct areaInte{
