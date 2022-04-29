@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Video-based ethography</string>
+   <string>Video-based tracking and ethography </string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_28">
    <item>
     <widget class="QStackedWidget" name="swPrincipal">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout_22">
@@ -168,7 +168,7 @@
              <item>
               <widget class="QGroupBox" name="gbStep4">
                <property name="title">
-                <string>Step 4 -  Behavioral record sytax</string>
+                <string>Step 4 -  Behavioral record syntax</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_14">
                 <item>
@@ -209,7 +209,7 @@
                 </size>
                </property>
                <property name="title">
-                <string>Status Tracking Image</string>
+                <string>Status tracking image</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_17">
                 <item>
@@ -259,10 +259,19 @@
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_6">
                 <item>
-                 <widget class="QPushButton" name="pbStart">
-                  <property name="text">
-                   <string>Press play to start</string>
+                 <widget class="QGroupBox" name="groupBox_16">
+                  <property name="title">
+                   <string>Step 5</string>
                   </property>
+                  <layout class="QVBoxLayout" name="verticalLayout">
+                   <item>
+                    <widget class="QPushButton" name="pbStart">
+                     <property name="text">
+                      <string>Press play to start</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                </layout>
@@ -1450,7 +1459,7 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
@@ -1598,7 +1607,7 @@
                  </size>
                 </property>
                 <property name="title">
-                 <string>Show the following tracking attributes in the image</string>
+                 <string>Select attributes to show during ethography </string>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_29">
                  <item>
