@@ -282,7 +282,14 @@ void telaMatrizTransicao::on_pbSeqCarregar_clicked()
 
     lerETOXML(fonteVideoETOXML);
 
-    ui->pbAnaliseSeq->setEnabled(true);
+//    ui->pbAnaliseSeq->setEnabled(true);
+
+    saida_analise_seq = this->calcular_analise_sequencial(catalagoLido->quantidadeDeCategorias,
+                                      catalagoLido->nome,
+                                      etografiaLida->quantidadeDePontos,
+                                      etografiaLida->id);
+
+
 //    ui->teTutor->setText(" Passo 2: Clique em `Analisar` para fazer a análise de transição e "
 //                         "gerar seu gráfico");
 }
@@ -290,10 +297,10 @@ void telaMatrizTransicao::on_pbSeqCarregar_clicked()
 void telaMatrizTransicao::on_pbAnaliseSeq_clicked()
 {
 
-    saida_analise_seq = this->calcular_analise_sequencial(catalagoLido->quantidadeDeCategorias,
-                                      catalagoLido->nome,
-                                      etografiaLida->quantidadeDePontos,
-                                      etografiaLida->id);
+//    saida_analise_seq = this->calcular_analise_sequencial(catalagoLido->quantidadeDeCategorias,
+//                                      catalagoLido->nome,
+//                                      etografiaLida->quantidadeDePontos,
+//                                      etografiaLida->id);
 
 
 //    qDebug() << texto;

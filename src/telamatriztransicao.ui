@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Sequential analysis</string>
+   <string>Transition matrix</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_6">
    <item>
@@ -48,26 +48,7 @@
       <item>
        <widget class="QPushButton" name="pbSeqCarregar">
         <property name="text">
-         <string>Open ethography file</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="title">
-      <string>Step 2</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_4">
-      <item>
-       <widget class="QPushButton" name="pbAnaliseSeq">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string>Analyze</string>
+         <string>Select an ethographic report file</string>
         </property>
        </widget>
       </item>
@@ -77,11 +58,34 @@
    <item>
     <widget class="QGroupBox" name="groupBox_6">
      <property name="title">
-      <string>Transitional matrix</string>
+      <string>Transition matrix </string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QTableWidget" name="tabDadSeq"/>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>following behaviors</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>preceding behaviors</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tabDadSeq"/>
+         </item>
+        </layout>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -98,7 +102,7 @@
          <bool>false</bool>
         </property>
         <property name="text">
-         <string>Make graph</string>
+         <string>Show a Kinematic Graph for the transition matrix above</string>
         </property>
        </widget>
       </item>

@@ -27,7 +27,7 @@
        <number>0</number>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <widget class="QTextBrowser" name="textBrowser">
@@ -514,7 +514,7 @@ p, li { white-space: pre-wrap; }
                      </font>
                     </property>
                     <property name="text">
-                     <string>Sequential analysis</string>
+                     <string>Transition matrix</string>
                     </property>
                    </widget>
                   </item>
