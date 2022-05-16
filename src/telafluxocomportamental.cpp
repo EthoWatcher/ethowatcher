@@ -28,6 +28,9 @@ telaFluxoComportamental::telaFluxoComportamental(QWidget *parent) :
     etografiaLida= new analiseEtografica();
     chEtr=true;
     chTCCon = false;
+
+    ui->pbOpenTCCM->setEnabled(false);
+
 }
 
 telaFluxoComportamental::~telaFluxoComportamental()
@@ -109,6 +112,8 @@ void telaFluxoComportamental::on_pbAnaliseFile_clicked()
 
 
 
+   ui->pbOpenTCCM->setEnabled(true);
+   ui->pbAnaliseFile->setEnabled(false);
 
 
 }
@@ -874,7 +879,7 @@ void telaFluxoComportamental::encontraPontosGravar()
 
 }
 
-void telaFluxoComportamental::encontrarFrames()
+void telaFluxoComportamental::encontrarFrames( int area_selecioada_id)
 {
     parserXML::dadosMorfo *parserMorfo;
      parserMorfo = new parserXML::dadosMorfo();
@@ -888,25 +893,25 @@ void telaFluxoComportamental::encontrarFrames()
 
         for(int ja=(editFrameInicio[ka]-videoLido->frameProce); ja< (editFrameFim[ka]-videoLido->frameProce); ja++ ){
 
-            parserMorfo->frame.push_back(parserTCCM.matrizReMorfo[0].frame[ja]);
-            parserMorfo->area.push_back(parserTCCM.matrizReMorfo[0].area[ja]);
-            parserMorfo->areaM.push_back(parserTCCM.matrizReMorfo[0].areaM[ja]);
-            parserMorfo->centroidX.push_back(parserTCCM.matrizReMorfo[0].centroidX[ja]);
-            parserMorfo->centroidY.push_back(parserTCCM.matrizReMorfo[0].centroidY[ja]);
-            parserMorfo->altura.push_back(parserTCCM.matrizReMorfo[0].altura[ja]);
-            parserMorfo->alturaM.push_back(parserTCCM.matrizReMorfo[0].alturaM[ja]);
-            parserMorfo->largura.push_back(parserTCCM.matrizReMorfo[0].largura[ja]);
-            parserMorfo->larguraM.push_back(parserTCCM.matrizReMorfo[0].larguraM[ja]);
-            parserMorfo->anguloObj.push_back(parserTCCM.matrizReMorfo[0].anguloObj[ja]);
-            parserMorfo->objetoEncontrado.push_back(parserTCCM.matrizReMorfo[0].objetoEncontrado[ja]);
+            parserMorfo->frame.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].frame[ja]);
+            parserMorfo->area.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].area[ja]);
+            parserMorfo->areaM.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].areaM[ja]);
+            parserMorfo->centroidX.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].centroidX[ja]);
+            parserMorfo->centroidY.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].centroidY[ja]);
+            parserMorfo->altura.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].altura[ja]);
+            parserMorfo->alturaM.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].alturaM[ja]);
+            parserMorfo->largura.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].largura[ja]);
+            parserMorfo->larguraM.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].larguraM[ja]);
+            parserMorfo->anguloObj.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].anguloObj[ja]);
+            parserMorfo->objetoEncontrado.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].objetoEncontrado[ja]);
 
 
-            parserCinema->varArea.push_back(parserTCCM.matrizReCinema[0].varArea[ja]);
-            parserCinema->varDistancia.push_back(parserTCCM.matrizReCinema[0].varDistancia[ja]);
-            parserCinema->varAltura.push_back(parserTCCM.matrizReCinema[0].varAltura[ja]);
-            parserCinema->varLargura.push_back(parserTCCM.matrizReCinema[0].varLargura[ja]);
-            parserCinema->varAngular.push_back(parserTCCM.matrizReCinema[0].varAngular[ja]);
-            parserCinema->ruidoMaxVaria.push_back(parserTCCM.matrizReCinema[0].ruidoMaxVaria[ja]);
+            parserCinema->varArea.push_back(parserTCCM.matrizReCinema[area_selecioada_id].varArea[ja]);
+            parserCinema->varDistancia.push_back(parserTCCM.matrizReCinema[area_selecioada_id].varDistancia[ja]);
+            parserCinema->varAltura.push_back(parserTCCM.matrizReCinema[area_selecioada_id].varAltura[ja]);
+            parserCinema->varLargura.push_back(parserTCCM.matrizReCinema[area_selecioada_id].varLargura[ja]);
+            parserCinema->varAngular.push_back(parserTCCM.matrizReCinema[area_selecioada_id].varAngular[ja]);
+            parserCinema->ruidoMaxVaria.push_back(parserTCCM.matrizReCinema[area_selecioada_id].ruidoMaxVaria[ja]);
 
         }
        segMorfo.push_back(parserMorfo);
@@ -1307,7 +1312,8 @@ void telaFluxoComportamental::on_pbSaveFile_clicked()
 
     if(chTCCon){
         //caso o usuario tenha feito a TCCM isso aqui é posto
-
+        encontraPontosGravar();
+        encontrarFrames(0);
     }else{
       encontraPontosGravar();
     }
@@ -1331,7 +1337,7 @@ void telaFluxoComportamental::on_pbSaveFile_clicked()
     novaThread->start();
 
 
-    emit enviaInicioFluxo(videoLido->nome,nomeFluxoComportamental,editFrameInicio, editFrameFim, ui->comboBoX->currentIndex());
+    emit enviaInicioFluxo(videoLido->nome,nomeFluxoComportamental,editFrameInicio, editFrameFim, 1);
 
 
 
@@ -1363,10 +1369,11 @@ void telaFluxoComportamental::on_pbOpenTCCM_clicked()
 
     parserTCCM.readTCCM(fonteCaminhoTCCM);
 
-    encontraPontosGravar(); //encontra qual os pontos a gravar da interface gráfica
+//    encontraPontosGravar(); //encontra qual os pontos a gravar da interface gráfica
 
      chTCCon = true;
 
+     ui->pbOpenTCCM->setEnabled(false);
 
-     encontrarFrames();
+
 }

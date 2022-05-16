@@ -436,7 +436,10 @@ void moduloEditaVideo::iniGraFluxoComportamento(QString nomeVXML, QString nomeEd
     if(readXmlVideoOrignal(nomeVXML)){
 
         setOpenVideo(videoLista.nomeOpencv[0]); //nome opencv do arquivo
-        setGravaVideo(nomeEditado,getCodec(codec)); //transforma o inicide em um codec da opencv
+        setGravaVideo(nomeEditado, CV_FOURCC('X','V','I','D'));
+        qDebug() << "Gravando com o " << CV_FOURCC('X','V','I','D');
+        //granvando sempre com o XVID
+        //getCodec(codec)); //transforma o inicide em um codec da opencv
 
         double kb=0;
 
