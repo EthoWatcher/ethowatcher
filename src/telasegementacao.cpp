@@ -32,6 +32,8 @@ telaSegementacao::telaSegementacao(QWidget *parent) :
     ui->stackedWidget->setCurrentIndex(1);
     chTCCon= true;
     ui->pbGravarTCCM->setVisible(false);
+
+    ui->pbTotalRes->setVisible(false);
 }
 
 telaSegementacao::~telaSegementacao()
@@ -178,7 +180,10 @@ void telaSegementacao::on_pbCaTotalSe_clicked()
 
     cViSeg=cViSeg+1;
     ui->pbCaTotalSe->setEnabled(false);
-    ui->pbTCCMfile->setEnabled(false);
+
+    ui->pbTotGravar->setEnabled(true);
+    ui->pbTotGravar->setVisible(true);
+
 }
 
 void telaSegementacao::on_pbTotaAdd_clicked()
@@ -821,12 +826,15 @@ void telaSegementacao::on_pbTotalRes_clicked()
     }
 
 
+//    ui->pbTotalRes->
 
 }
 
 void telaSegementacao::on_pbTotGravar_clicked()
 {
     //funcao para pegar o nome que sera gravado
+
+    this->on_pbTotalRes_clicked();
 
     nomeGravarCatalago = QFileDialog::getSaveFileName(
                 this,
@@ -1359,30 +1367,36 @@ void telaSegementacao::on_chbHetero_clicked(bool checked)
 
 void telaSegementacao::on_pbTCCMfile_clicked()
 {
-    fonteVideoETOXML = QFileDialog::getOpenFileName(
-                this,
-                tr("Open File"),
-                "C://Users//Bio//Desktop//videos//",
-                "Video Files (* .tkin)"
-                );
+//    fonteVideoETOXML = QFileDialog::getOpenFileName(
+//                this,
+//                tr("Open File"),
+//                "C://Users//Bio//Desktop//videos//",
+//                "Video Files (* .tkin)"
+//                );
 
 
-    parserTCCM = new parserXML();
-    parserTCCM->readTCCM(fonteVideoETOXML);
+//    parserTCCM = new parserXML();
+//    parserTCCM->readTCCM(fonteVideoETOXML);
 
-    chTCCon= false;
+//    chTCCon= false;
 
-    ui->lblFrameNome->setText(parserTCCM->videoLido->nome);
-    ui->lblFrameInicial->setText(QString::number(parserTCCM->videoLido->frameProce/parserTCCM->videoLido->fps));
-    ui->lblFrameFinal->setText(QString::number(parserTCCM->videoLido->frameFinal/parserTCCM->videoLido->fps));
-    ui->pbCaTotalSe->setEnabled(false);
-    ui->pbTCCMfile->setEnabled(false);
-    ui->pbTotalRes->setEnabled(true);
+//    ui->lblFrameNome->setText(parserTCCM->videoLido->nome);
+//    ui->lblFrameInicial->setText(QString::number(parserTCCM->videoLido->frameProce/parserTCCM->videoLido->fps));
+//    ui->lblFrameFinal->setText(QString::number(parserTCCM->videoLido->frameFinal/parserTCCM->videoLido->fps));
+//    ui->pbCaTotalSe->setEnabled(false);
+//    ui->pbTCCMfile->setEnabled(false);
+//    ui->pbTotalRes->setEnabled(true);
 //    lerETOXML(fonteVideoETOXML);
 }
 
 void telaSegementacao::on_pbGravarTCCM_clicked()
 {
+//    ui->pbTotalRes->click();
+//    connect(ui->pbGravarTCCM, SIGNAL(clicked()), this, SLOT(on_pbTotalRes_clicked()));
+//    ui->pbTCCMfile->clicked();
+//    this->on_pbTotalRes_clicked();
+
+
     QString teste2;
 
     teste2 = QFileDialog::getSaveFileName(

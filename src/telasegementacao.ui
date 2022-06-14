@@ -62,8 +62,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>388</width>
-                    <height>101</height>
+                    <width>411</width>
+                    <height>424</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -271,8 +271,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>98</width>
-                   <height>89</height>
+                   <width>940</width>
+                   <height>577</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -286,8 +286,8 @@
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>98</width>
-                       <height>28</height>
+                       <width>920</width>
+                       <height>557</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -353,8 +353,11 @@
           </item>
           <item>
            <widget class="QPushButton" name="pbTCCMfile">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
-             <string>Open tracking File</string>
+             <string>Help need to develop the tracking segmentation module.</string>
             </property>
            </widget>
           </item>
@@ -492,8 +495,11 @@
           </item>
           <item>
            <widget class="QPushButton" name="pbGravarTCCM">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
-             <string>Save analisys</string>
+             <string>Nãoi é essa a usada Save analisys</string>
             </property>
            </widget>
           </item>
