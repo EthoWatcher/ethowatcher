@@ -383,10 +383,10 @@ void gera_relatorio_python(QString path, QString text, QString exe_path)
 //    temporary_file.reset();
 
 
-    if (QFile::exists(newname))
-    {
-        QFile::remove(newname);
+//    if (QFile::exists(newname))
+//    {
+//        QFile::remove(newname);
 
-    }
+//    }
 
 }
