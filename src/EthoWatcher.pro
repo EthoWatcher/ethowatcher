@@ -51,6 +51,16 @@ LIBS += C:\opencv\RELEASE\bin\libopencv_superres2411.dll
 LIBS += C:\opencv\RELEASE\bin\libopencv_video2411.dll
 LIBS += C:\opencv\RELEASE\bin\libopencv_videostab2411.dll
 
+# agreement report
+INCLUDEPATH += $$PWD/../Agreement
+DEPENDPATH += $$PWD/../Agreement
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../Agreement/release/ -lAgreement
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../Agreement/debug/ -lAgreement
+#else:unix: LIBS += -L$$PWD/../build-Agreement-Desktop_Qt_6_1_2_MinGW_64_bit-Debug/ -lAgreement
+
+
+
 SOURCES += ProjetoEthowatcher/main.cpp\
     ethowatcher.cpp \
     telacadastropessoa.cpp \
@@ -81,7 +91,8 @@ SOURCES += ProjetoEthowatcher/main.cpp\
     telafluxocomportamental.cpp\
     parserxmltocsv.cpp\
     mysplash.cpp\
-    parserxml.cpp
+    parserxml.cpp\
+    ..\Agreement\ui\Reliability.cpp
 
 
 HEADERS  += ethowatcher.h\
@@ -113,7 +124,8 @@ HEADERS  += ethowatcher.h\
     telafluxocomportamental.h\
     parserxmltocsv.h\
     mysplash.h\
-    parserxml.h
+    parserxml.h\
+    ..\Agreement\ui\Reliability.h
 
 
 
@@ -134,7 +146,10 @@ FORMS    += ethowatcher.ui\
     telaetografiaproce.ui\
     telaunveil.ui\
     telatemporeal.ui\
-    telafluxocomportamental.ui
+    telafluxocomportamental.ui\
+    ..\Agreement\ui\Reliability.ui
+
+
 
 
 RESOURCES += \

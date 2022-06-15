@@ -72,6 +72,8 @@ private slots:
 
     void on_pbGerarKappa_clicked();
 
+    void on_pb_BootstrapCohen_clicked();
+
 private:
     Ui::teaConcordancia *ui;
     //Ui::telaEstatistica *ui;

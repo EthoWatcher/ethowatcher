@@ -17,6 +17,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "teaconcordancia.h"
 #include "ui_teaconcordancia.h"
+#include "../Agreement/ui/Reliability.h"
 
 teaConcordancia::teaConcordancia(QWidget *parent) :
     QWidget(parent),
@@ -26,6 +27,8 @@ teaConcordancia::teaConcordancia(QWidget *parent) :
     ui->swPrincipal->setCurrentIndex(0);
     ui->swFleissKappa->setCurrentIndex(0);
     ui->swKohoneKappa->setCurrentIndex(0);
+
+    ui->pbKohone1->setVisible(false);
 }
 
 teaConcordancia::~teaConcordancia()
@@ -1641,5 +1644,12 @@ double teaConcordancia::calcularPJ(std::vector<int> entrada)
 
 
     return quadroSoma * mult;
+
+}
+
+void teaConcordancia::on_pb_BootstrapCohen_clicked()
+{
+    Reliability *r = new Reliability();
+    r->show();
 
 }
