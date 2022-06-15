@@ -52,6 +52,7 @@ def get_descritores_max(r_max, data):
 
 
 def confidence_percentil(lst_dados, confidence=0.95):
+    # lst_dados = list(filter(lambda x: x!="nan", lst_dados))
     con_max = np.percentile(lst_dados,[100*(1-confidence)/2,100*(1-(1-confidence)/2)])
     return con_max 
 
@@ -145,6 +146,10 @@ def get_categoria_descritores(data):
         
         amax = get_descritor_catalogo(data, cat, descritor, False, True)
         ames = get_descritor_catalogo(data, cat, descritor, False, False)
+    
+        # HOTFIX, por algum motivo vem nan numero do software.
+        amax  = list(filter(lambda x: x!="nan", amax))
+        ames  = list(filter(lambda x: x!="nan", ames))
 
         con_m   = confidence_percentil(ames)
         con_max = confidence_percentil(amax)

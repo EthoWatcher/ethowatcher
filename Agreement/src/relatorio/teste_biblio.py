@@ -2,7 +2,7 @@ import json
 import escreve_xlsx as es
 
 # path = "C:\\saida_teste\\figura_tese_dev.xlsx"
-path = "C:\\saida_teste\\new_report_editing_table.xlsx"
+path = "C:\\saida_teste\\foi_custom_etho.xlsx"
 with open(path + ".txt", 'r') as file:
     text = file.read()
 
