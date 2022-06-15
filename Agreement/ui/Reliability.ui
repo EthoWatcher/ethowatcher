@@ -27,7 +27,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>:/img/logo_ethowatcher.png</pixmap>
+       <pixmap resource="props/resource.qrc">:/img/logo_ethowatcher.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -37,7 +37,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
@@ -615,7 +615,7 @@
                           <number>10000</number>
                          </property>
                          <property name="value">
-                          <number>10</number>
+                          <number>100</number>
                          </property>
                         </widget>
                        </item>
@@ -739,6 +739,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="props/resource.qrc"/>
+ </resources>
  <connections/>
 </ui>
