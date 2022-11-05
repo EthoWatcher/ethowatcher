@@ -1072,11 +1072,24 @@ void moduloProcessamento::processamentoMorfologico(){
 //                                            anguloVetor,maiorTamanho1);
 
                  //qDebug() << "emitido os dados morfológicos";
-                 double angle = get_angle(caixaCirculo, mc);
+               double angle = get_angle(caixaCirculo, mc);
+
+
+               double maior_line = caixaCirculo.size.height;
+               double menor_line = caixaCirculo.size.width;
+               bool r_invertido = caixaCirculo.size.width > caixaCirculo.size.height;
+               if(r_invertido){
+                     menor_line  = caixaCirculo.size.height;
+                     maior_line = caixaCirculo.size.width;
+
+               }
+
+
+
 
                emit dadosMorfologicos(imgEnviada,objetoEncontrado,area,
                                      (double) mc.x, (double) mc.y,
-                                     angle ,caixaCirculo.size.height,caixaCirculo.size.width);
+                                     angle ,maior_line, menor_line);
 
 
                 emit desenhaFigura(imgEnviada2,true,mc.x,mc.y,
@@ -1092,8 +1105,8 @@ void moduloProcessamento::processamentoMorfologico(){
                  antigaMc1.y=mc.y;
                  antigaAnguloVetor1=caixaCirculo.angle;
                  //float antigaAltur, antigaLargur;
-                 antigaAltur=caixaCirculo.size.height;
-                 antigaLargur=caixaCirculo.size.width;
+                 antigaAltur  = maior_line;
+                 antigaLargur = menor_line;
 
 
                  antigaMaiorTamanho1=maiorTamanho1;
