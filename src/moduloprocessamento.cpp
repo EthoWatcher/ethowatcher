@@ -21,7 +21,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //{
 //    using std::vector;
 //} //fazer a conversao da 2.4.11 para a 3.2
-
+#include <cmath>
 moduloProcessamento::moduloProcessamento(QObject *parent) : QObject(parent)
 {
     a=0;
@@ -246,7 +246,7 @@ void moduloProcessamento::desenhaObjetoInterresse(cv::Mat frameErodido){
     frameSegmentacao= drawing-frameContornoBranco+frameContorno;
 
     //cv::imshow("frame de erosao de interesse",frameSegmentacao.clone());
-    cv::waitKey(15);
+//    cv::waitKey(15);
 
     }
 }
@@ -473,6 +473,120 @@ void moduloProcessamento::processamentoDeVideo(){
 
         a++;
 
+}
+
+
+
+
+double angle_btwn_lines(std::tuple<double, double, double> line_1, std::tuple<double, double, double> line_2){
+    //    double num =
+    double a1, b1, c1;
+    a1 = std::get<0>(line_1);
+    b1 = std::get<1>(line_1);
+    c1 = std::get<2>(line_1);
+
+    double a2, b2, c2;
+    a2 = std::get<0>(line_2);
+    b2 = std::get<1>(line_2);
+    c2 = std::get<2>(line_2);
+
+
+    double nume = a2*b1 - a1*b2;
+    double deno = a1*a2 + b1*b2;
+
+    double angle = atan(nume/deno);
+    return angle; //rad
+
+}
+
+
+
+std::tuple<double, double, double> abc_from_line(cv::Point2f inicio, cv::Point2f fim){
+    double x = inicio.y - fim.y;
+    double y = fim.x - inicio.x;
+    double c = (inicio.x* fim.y) - (inicio.y * fim.x);
+    std::tuple<double, double, double>  saida;
+
+    return std::make_tuple(x, y, c);
+
+}
+
+double distance_between_points(cv::Point2f inicio, cv::Point2f fim){
+    double d = sqrt(pow(fim.x - inicio.x, 2) + pow(fim.y - inicio.y, 2));
+    return d;
+}
+
+
+double get_angle( cv::RotatedRect contornosRoi, cv::Point2f mcRoi){
+    cv::Point2f vertices2f[4];
+    cv::Point vertices[4];
+    contornosRoi.points(vertices2f);
+
+
+    double ls_distance[4];
+
+    for(int i = 0; i < 4; ++i){
+        vertices[i] = vertices2f[i];
+
+    }
+
+    for(int i = 0; i < 4; ++i){
+        ls_distance[i] = distance_between_points(vertices2f[i], vertices2f[(i+1)%4]);
+    }
+
+    cv::Point2f reference;
+    reference.x = mcRoi.x +200;
+    reference.y = mcRoi.y;
+
+    std::tuple<double, double, double> origin = abc_from_line(mcRoi, reference);
+    std::tuple<double, double, double>  abc_lines[4];
+
+    for(int i = 0; i < 4; ++i){
+        abc_lines[i] = abc_from_line(vertices2f[i], vertices2f[(i+1)%4]);
+    }
+
+    double ls_angles[4];
+
+    for(int i = 0; i < 4; ++i){
+        ls_angles[i] = angle_btwn_lines(abc_lines[i], origin) * 180/M_PI;
+    }
+    //find the maior
+    int ponto = 0;
+    double maior = ls_distance[0];
+    for(int i=0; i<4; ++i){
+        bool r_maior = ls_distance[i] > maior;
+        if (r_maior){
+            maior = ls_distance[i];
+            ponto = i;
+        }
+
+    }
+
+     //ls_angles[0];
+
+//    for (int i = 0; i < 1; i++)
+//    int i =0;
+//    cv::line(frameNovo, vertices[ponto], vertices[ponto+1], (0,255,0), 2);
+    double angle_betwen_the_more_lenght_line_and_reference =
+            angle_btwn_lines(abc_from_line(vertices2f[ponto], vertices2f[ponto+1]), origin) * 180/M_PI;
+
+
+//    cv::imshow("saida2", frameNovo);
+//    cv::waitKey(10);
+
+    bool r_positive = angle_betwen_the_more_lenght_line_and_reference >0;
+
+//    qDebug() << ls_angles[0] << ls_angles[1] << ls_angles[2] << ls_angles[3]; //<< ponto << ls_distance[0] << ls_distance[1];
+
+    if (r_positive){
+        return 180 - angle_betwen_the_more_lenght_line_and_reference;
+    }else{
+        return - angle_betwen_the_more_lenght_line_and_reference;
+    }
+
+
+
+    return angle_betwen_the_more_lenght_line_and_reference;
 }
 
 
@@ -958,17 +1072,19 @@ void moduloProcessamento::processamentoMorfologico(){
 //                                            anguloVetor,maiorTamanho1);
 
                  //qDebug() << "emitido os dados morfológicos";
-                       emit dadosMorfologicos(imgEnviada,objetoEncontrado,area,
-                                             (double) mc.x, (double) mc.y,
-                                             caixaCirculo.angle,caixaCirculo.size.height,caixaCirculo.size.width);
+                 double angle = get_angle(caixaCirculo, mc);
+
+               emit dadosMorfologicos(imgEnviada,objetoEncontrado,area,
+                                     (double) mc.x, (double) mc.y,
+                                     angle ,caixaCirculo.size.height,caixaCirculo.size.width);
 
 
-                        emit desenhaFigura(imgEnviada2,true,mc.x,mc.y,
-                                            pontoLongeCentro.x,  pontoLongeCentro.y,
-                                           pontoR.x,pontoR.y,
-                                           pobjeto1.x,pobjeto1.y, pobjeto2.x, pobjeto2.y,
-                                           vtx[0].x,vtx[0].y,vtx[1].x,vtx[1].y,
-                                            vtx[2].x,vtx[2].y,vtx[3].x,vtx[3].y);
+                emit desenhaFigura(imgEnviada2,true,mc.x,mc.y,
+                                    pontoLongeCentro.x,  pontoLongeCentro.y,
+                                   pontoR.x,pontoR.y,
+                                   pobjeto1.x,pobjeto1.y, pobjeto2.x, pobjeto2.y,
+                                   vtx[0].x,vtx[0].y,vtx[1].x,vtx[1].y,
+                                    vtx[2].x,vtx[2].y,vtx[3].x,vtx[3].y);
 
 
                  antigaArea1=area;//a area é zero;
@@ -1007,10 +1123,11 @@ void moduloProcessamento::processamentoMorfologico(){
 
                     objetoEncontrado=false;
 
+                    double angle = get_angle(caixaCirculo, mc);
 
                     emit dadosMorfologicos(imgEnviada,objetoEncontrado,area,
                                           (double) mc.x, (double) mc.y,
-                                          caixaCirculo.angle,antigaAltur,antigaLargur);
+                                          angle,antigaAltur,antigaLargur);
 
 
                     emit desenhaFigura(imgEnviada2,false,antigaMc1.x,antigaMc1.y,
