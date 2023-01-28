@@ -6,6 +6,10 @@
 //    using std::vector;
 //} adequacão para a opencv 3.2
 
+namespace cv {
+    using std::vector;
+}
+
 telaCadastroFilme::telaCadastroFilme(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::telaCadastroFilme)
@@ -145,8 +149,8 @@ void telaCadastroFilme::recebeImagem(QImage qiCaptador, int numFrame)
     //------FrameLimiarizcao: Máscara do animal (animal preto e fundo branco) - threshold --------------------
 
             threshold_value= ui->SliderThreshold->value();
-            cv::cvtColor( frameSubtracao.clone(), frameSubtracao_gray, CV_RGB2GRAY );
-            cv::threshold( frameSubtracao_gray, frameLimiarizacao, threshold_value, 255,CV_THRESH_BINARY);
+            cv::cvtColor( frameSubtracao.clone(), frameSubtracao_gray, cv::COLOR_RGB2GRAY );
+            cv::threshold( frameSubtracao_gray, frameLimiarizacao, threshold_value, 255, cv::THRESH_BINARY);
             //cv::adaptiveThreshold(frameSubtracao_gray, frameLimiarizacao,255, cv::ADAPTIVE_THRESH_GAUSSIAN_C, cv::THRESH_BINARY_INV, 11, 2);
 
             qDebug()<<" o threshold ficou de " << threshold_value;
@@ -162,7 +166,7 @@ void telaCadastroFilme::recebeImagem(QImage qiCaptador, int numFrame)
             cv::vector<cv::vector<cv::Point> > contours;
             cv::vector<cv::Vec4i> hierarchy;
 
-            cv::findContours( frameErosao, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE );
+            cv::findContours( frameErosao, contours, hierarchy, cv::RETR_CCOMP, cv::CHAIN_APPROX_SIMPLE );
 
             cv::Mat drawing = cv::Mat::zeros( frameErosao.size(), CV_8UC3 );
             cv::Mat frameContorno = cv::Mat::zeros( frameErosao.size(), CV_8UC3 );
@@ -193,18 +197,18 @@ void telaCadastroFilme::recebeImagem(QImage qiCaptador, int numFrame)
 
                     if(ja!=idx){
 
-                        cv::drawContours( drawing, contours, ja, color2, CV_FILLED, 8, hierarchy );
+                        cv::drawContours( drawing, contours, ja, color2, cv::FILLED, 8, hierarchy );
 
                     }else{
 
-                        cv::drawContours( drawing, contours, ja, color, CV_FILLED, 8, hierarchy );
+                        cv::drawContours( drawing, contours, ja, color, cv::FILLED, 8, hierarchy );
                     }
 
                 }
 
-                cv::drawContours( drawing, contours, largestComp, color3, CV_FILLED, 8, hierarchy ); //selecione que fique a area amarela dentro do objeto de interese
+                cv::drawContours( drawing, contours, largestComp, color3, cv::FILLED, 8, hierarchy ); //selecione que fique a area amarela dentro do objeto de interese
 
-                cv::threshold( drawing, drawing, 1, 255,CV_THRESH_BINARY_INV);
+                cv::threshold( drawing, drawing, 1, 255, cv::THRESH_BINARY_INV);
                 cv::drawContours( frameContornoBranco, contours, largestComp, color, 1, 8, hierarchy );
                 cv::drawContours( frameContorno, contours, largestComp, color2, 1, 8, hierarchy );
 
@@ -265,97 +269,97 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
         fonteVideoBit = fonteVideo.toLatin1();
 
 
-            int i= fonteVideoBit.length();
-            int inicio=0;
+//            int i= fonteVideoBit.length();
+//            int inicio=0;
 
-            //aquirir a extensão do arquivo
-            while(fonteVideoBit[i] != 46){
-
-
-                i--;
-
-           fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
-                inicio++;
-            }
-
-            //desinverter a extensão do arquivo
-            int j=0;
-            while(fonteVideoBitExtInv[j] != 0){
-
-            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
-
-            j++;
+//            //aquirir a extensão do arquivo
+//            while(fonteVideoBit[i] != 46){
 
 
+//                i--;
 
-            }
+//           fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
+//                inicio++;
+//            }
 
-            //encontrar a ultima barra antes do nome
-            int k=0;
-            int ultimaPosicaoDaBarra=0;
+//            //desinverter a extensão do arquivo
+//            int j=0;
+//            while(fonteVideoBitExtInv[j] != 0){
 
-            while(fonteVideoBit[k] != 0) //enquanto não tem string nula ou seja não é o fim do arquivo
-            {
+//            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
 
-                if(fonteVideoBit[k] == 47){ //47 esta relacionado com a barra
-
-                    ultimaPosicaoDaBarra = k;
-
-                }
-                k++;
+//            j++;
 
 
-            }
+
+//            }
+
+//            //encontrar a ultima barra antes do nome
+//            int k=0;
+//            int ultimaPosicaoDaBarra=0;
+
+//            while(fonteVideoBit[k] != 0) //enquanto não tem string nula ou seja não é o fim do arquivo
+//            {
+
+//                if(fonteVideoBit[k] == 47){ //47 esta relacionado com a barra
+
+//                    ultimaPosicaoDaBarra = k;
+
+//                }
+//                k++;
 
 
-            //assim pode-se encontar o nome do arquivo
-            int contadorNome=ultimaPosicaoDaBarra+1;
-            int contadorNome2=0;
-
-            for(contadorNome;
-                contadorNome <(fonteVideoBit.length()-j);
-                contadorNome++)
-            {
-
-                fonteVideoBitNomeArquivo[contadorNome2]= fonteVideoBit[contadorNome];
-                contadorNome2++;
-            }
-
-            //assim pode-se encontrar o caminho do arquivo
-            int contadorCaminho=0;
+//            }
 
 
-            for(contadorCaminho;
-                contadorCaminho < ultimaPosicaoDaBarra;
-                contadorCaminho++)
-            {
+//            //assim pode-se encontar o nome do arquivo
+//            int contadorNome=ultimaPosicaoDaBarra+1;
+//            int contadorNome2=0;
 
-                fonteVideoBitCaminhoArquivo[contadorCaminho]= fonteVideoBit[contadorCaminho];
+//            for(contadorNome;
+//                contadorNome <(fonteVideoBit.length()-j);
+//                contadorNome++)
+//            {
 
-            }
+//                fonteVideoBitNomeArquivo[contadorNome2]= fonteVideoBit[contadorNome];
+//                contadorNome2++;
+//            }
 
-
-            //ageitando a extensão apara a opencv
-
-            k=0;
-            int ka=0;
-
-            while(fonteVideoBit[k] != 0) //enquanto não tem string nula ou seja não é o fim do arquivo
-            {
-                fonteVideoBitOpenCV[ka] = fonteVideoBit[k];
-
-                if(fonteVideoBit[k] == 47){ //47 esta relacionado com a barra
-
-                    ka++;
-                     fonteVideoBitOpenCV[ka] = 47;
-
-                }
-
-                ka++;
-                k++;
+//            //assim pode-se encontrar o caminho do arquivo
+//            int contadorCaminho=0;
 
 
-            }
+//            for(contadorCaminho;
+//                contadorCaminho < ultimaPosicaoDaBarra;
+//                contadorCaminho++)
+//            {
+
+//                fonteVideoBitCaminhoArquivo[contadorCaminho]= fonteVideoBit[contadorCaminho];
+
+//            }
+
+
+//            //ageitando a extensão apara a opencv
+
+//            k=0;
+//            int ka=0;
+
+//            while(fonteVideoBit[k] != 0) //enquanto não tem string nula ou seja não é o fim do arquivo
+//            {
+//                fonteVideoBitOpenCV[ka] = fonteVideoBit[k];
+
+//                if(fonteVideoBit[k] == 47){ //47 esta relacionado com a barra
+
+//                    ka++;
+//                     fonteVideoBitOpenCV[ka] = 47;
+
+//                }
+
+//                ka++;
+//                k++;
+
+
+//            }
 
 
 
@@ -1635,7 +1639,7 @@ cv::Mat telaCadastroFilme::conQim2Mat(QImage imaEntrada)
     matSaida= cv::Mat(imaEntrada.height(),imaEntrada.width(),CV_8UC3, const_cast<uchar*>(imaEntrada.bits()), imaEntrada.bytesPerLine()).clone();
 
 
-    cv::cvtColor(matSaida,matSaida,CV_RGB2BGR );
+    cv::cvtColor(matSaida,matSaida,cv::COLOR_RGB2BGR );
     return matSaida;
 }
 
