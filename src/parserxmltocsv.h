@@ -34,7 +34,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //gravando csv
 #include <QTextStream>
 
-#include "xlsxdocument.h"
+//#include "xlsxdocument.h"
 
 struct Cell {
   bool r_number;

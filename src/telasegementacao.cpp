@@ -1073,7 +1073,7 @@ void telaSegementacao::lerETOXML(QString nomeArquivo)
 
         streamReader.readNext();
 
-        if(streamReader.name() == "analise"){
+        if(streamReader.name().toString() == "analise"){
 
             if(etografiaLida->controle){
 
@@ -1091,7 +1091,7 @@ void telaSegementacao::lerETOXML(QString nomeArquivo)
         }
 
 
-        if(streamReader.name() == "categoria"){
+        if(streamReader.name().toString() == "categoria"){
 
             if(catalagoLido->controle){
                 QString nome;
@@ -1110,50 +1110,50 @@ void telaSegementacao::lerETOXML(QString nomeArquivo)
 
         }
 
-        if(streamReader.name() == "nomeCaminhoExt"){
+        if(streamReader.name().toString() == "nomeCaminhoExt"){
 
             catalagoLido->caminhoArquivo= streamReader.readElementText();
 
 
         }
 
-        if(streamReader.name() == "tipoAnalise"){
+        if(streamReader.name().toString() == "tipoAnalise"){
 
             catalagoLido->tipoAnalise= streamReader.readElementText();
 
 
         }
 
-        if((streamReader.name() == "dadosVideoAnalisado")||(videoLido->controle)){
+        if((streamReader.name().toString() == "dadosVideoAnalisado")||(videoLido->controle)){
 
 
-            if(streamReader.name() == "nomeVxml"){
+            if(streamReader.name().toString() == "nomeVxml"){
 
                 videoLido->nome= streamReader.readElementText();
 
             }
 
-            if(streamReader.name() == "frameInicial"){
+            if(streamReader.name().toString() == "frameInicial"){
 
 
                 videoLido->frameInicial= streamReader.readElementText().toInt();
 
             }
 
-            if(streamReader.name() == "frameProces"){
+            if(streamReader.name().toString() == "frameProces"){
 
 
                 videoLido->frameProce= streamReader.readElementText().toInt();
 
             }
 
-            if(streamReader.name() == "frameFinal"){
+            if(streamReader.name().toString() == "frameFinal"){
                 videoLido->frameFinal= streamReader.readElementText().toInt();
 
                 //videoLido->controle=false;
             }
 
-            if(streamReader.name() == "fps"){
+            if(streamReader.name().toString() == "fps"){
                 videoLido->fps= streamReader.readElementText().toDouble();
 
                 videoLido->controle=false;

@@ -59,7 +59,7 @@ void telaCego::on_pbAddListaVideo_clicked()
           xmlReader.readNext();
 
           //pega os nome dos arquivos que devem ser abertos
-          if(xmlReader.name()== "completo"){
+          if(xmlReader.name().toString() == "completo"){
           nomeDosVideos.push_back(xmlReader.readElementText()) ;
 
           count++;
@@ -69,7 +69,7 @@ void telaCego::on_pbAddListaVideo_clicked()
 
           }
 
-          if(xmlReader.name() == "nome"){
+          if(xmlReader.name().toString() == "nome"){
 
                nomeDosVideosMenor.push_back(xmlReader.readElementText());
           }
@@ -419,11 +419,11 @@ void telaCego::gravandovideo(int i){
 
     vEditado.nomeOpencv=caminhoArquivoNome;
 
-    double dWidth = video.get(CV_CAP_PROP_FRAME_WIDTH); //get the width of frames of the video
-    double dHeight = video.get(CV_CAP_PROP_FRAME_HEIGHT); //get the height of frames of the video
+    double dWidth = video.get(cv::CAP_PROP_FRAME_WIDTH); //get the width of frames of the video
+    double dHeight = video.get(cv::CAP_PROP_FRAME_HEIGHT); //get the height of frames of the video
     cv::Size frameSize(static_cast<int>(dWidth), static_cast<int>(dHeight));
 
-    int codec = CV_FOURCC('x', '2', '6', '4');
+    int codec = cv::VideoWriter::fourcc('x', '2', '6', '4');
 
     //cv codec XVID 1684633208
     //cv codec H264 875967096
@@ -475,7 +475,8 @@ void telaCego::inicializaNumeroAleatorio()
     unsigned int thread;
     unsigned int tempo;
     unsigned int semente;
-    thread = (unsigned int) QThread::currentThreadId();
+//    thread = (unsigned int)QThread::currentThreadId();
+    thread = 1;
     tempo= (unsigned int) time(NULL);
     semente = thread+ tempo;
 
@@ -625,21 +626,21 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
         streamReader.readNext();
 
-        if(streamReader.name()== "nomeOpencv"){
+        if(streamReader.name().toString()== "nomeOpencv"){
         videoLista.nomeOpencv.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
 
 
-           if(streamReader.name()== "frameInicial"){
+           if(streamReader.name().toString()== "frameInicial"){
 
          conversor = streamReader.readElementText();
         videoLista.frameInicial.push_back(conversor.toInt());
               // qDebug() << leitorXML.readElementText();
            }
 
-           if(streamReader.name()== "frameFinal"){
+           if(streamReader.name().toString()== "frameFinal"){
                conversor = streamReader.readElementText();
         videoLista.frameFinal.push_back(conversor.toInt());
               // qDebug() << leitorXML.readElementText();
@@ -647,13 +648,13 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name() == "frameProces"){
+           if(streamReader.name().toString() == "frameProces"){
                conversor = streamReader.readElementText();
         videoLista.frameProces.push_back(conversor.toInt());
 
 
            }
-            if(streamReader.name() == "frameBack"){
+            if(streamReader.name().toString() == "frameBack"){
 
                 conversor = streamReader.readElementText();
          videoLista.frameBack.push_back(conversor.toInt());
@@ -662,7 +663,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
 
 
-            if(streamReader.name() == "treshold"){
+            if(streamReader.name().toString() == "treshold"){
 
                        conversor = streamReader.readElementText();
 
@@ -670,7 +671,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
               }
 
-           if(streamReader.name() == "erosao"){
+           if(streamReader.name().toString() == "erosao"){
 
                conversor = streamReader.readElementText();
         videoLista.erosao.push_back(conversor.toInt());
@@ -678,21 +679,21 @@ void telaCego::lerVXML(QString nomeArquivoLer)
            }
 
 
-           if(streamReader.name() == "escala"){
+           if(streamReader.name().toString() == "escala"){
 
                conversor = streamReader.readElementText();
         videoLista.escala.push_back(conversor.toDouble());
 
            }
 
-           if(streamReader.name() == "fps"){
+           if(streamReader.name().toString() == "fps"){
 
                conversor = streamReader.readElementText();
         videoLista.fps.push_back(conversor.toInt());
 
            }
 
-           if(streamReader.name()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
+           if(streamReader.name().toString()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
 
                conversor = streamReader.readElementText();
                if(conversor=="true"){
@@ -707,7 +708,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
            }
 
-           if(streamReader.name()== "janelaInteresse"){
+           if(streamReader.name().toString()== "janelaInteresse"){
 
                if(chaJanInte==true){
                    chaJanInte=false;
@@ -721,7 +722,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
            }
 
            if(chaJanInte==true){
-               if(streamReader.name() == "ativado"){
+               if(streamReader.name().toString() == "ativado"){
 
                    conversor = streamReader.readElementText();
 
@@ -735,7 +736,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
                }
 
 
-               if(streamReader.name() == "movel"){
+               if(streamReader.name().toString() == "movel"){
 
                    conversor = streamReader.readElementText();
 
@@ -748,27 +749,27 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "origX"){
+               if(streamReader.name().toString() == "origX"){
 
                    conversor = streamReader.readElementText();
 
                      videoLista.areaJanInte[contadorDeVideo].oriX.push_back(conversor.toDouble());
 
                }
-               if(streamReader.name() == "origY"){
+               if(streamReader.name().toString() == "origY"){
 
                 conversor = streamReader.readElementText();
                 videoLista.areaJanInte[contadorDeVideo].oriY.push_back(conversor.toDouble());
 
                }
 
-               if(streamReader.name() == "width"){
+               if(streamReader.name().toString() == "width"){
 
                 conversor = streamReader.readElementText();
                 videoLista.areaJanInte[contadorDeVideo].width.push_back(conversor.toDouble());
 
                }
-               if(streamReader.name() == "heigth"){
+               if(streamReader.name().toString() == "heigth"){
 
                 conversor = streamReader.readElementText();
                 videoLista.areaJanInte[contadorDeVideo].height.push_back(conversor.toDouble());
@@ -778,7 +779,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
            }
 
 
-           if(streamReader.name()== "maximaVariacaoCentro"){
+           if(streamReader.name().toString()== "maximaVariacaoCentro"){
 
                if(chaMaxVari==true){
                    chaMaxVari=false;
@@ -792,7 +793,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
            if(chaMaxVari){
 
-               if(streamReader.name() == "tamanho"){
+               if(streamReader.name().toString() == "tamanho"){
 
                 conversor = streamReader.readElementText();
                 videoLista.tamMaxVar.push_back(conversor.toDouble());
@@ -808,7 +809,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name()== "areasDeInteresse"){
+           if(streamReader.name().toString()== "areasDeInteresse"){
 
                if(chaveArea==true){
                    chaveArea=false;
@@ -823,7 +824,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
            if(chaveArea==true){
 
 
-               if(streamReader.name()== "area"){
+               if(streamReader.name().toString()== "area"){
 
                QString conversora= streamReader.attributes().value("tipo").toString();
                if(!conversora.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -846,7 +847,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "nomeFig"){
+               if(streamReader.name().toString() == "nomeFig"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].nomeFig.push_back(conversor);
@@ -855,7 +856,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
                }
 
 
-               if(streamReader.name() == "oriX"){
+               if(streamReader.name().toString() == "oriX"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].oriX.push_back(conversor.toDouble());
@@ -863,7 +864,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "oriY"){
+               if(streamReader.name().toString() == "oriY"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].oriY.push_back(conversor.toDouble());
@@ -871,7 +872,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "height"){
+               if(streamReader.name().toString() == "height"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].height.push_back(conversor.toDouble());
@@ -879,7 +880,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "width"){
+               if(streamReader.name().toString() == "width"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].width.push_back(conversor.toDouble());
@@ -887,7 +888,7 @@ void telaCego::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "rad"){
+               if(streamReader.name().toString() == "rad"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].raio.push_back(conversor.toDouble());
@@ -1044,18 +1045,18 @@ void telaCego::on_pbSetUserKey_clicked()
         xmlReader.readNext();
 
         //pega os nome dos arquivos que devem ser abertos
-        if(xmlReader.name()== "nome"){
+        if(xmlReader.name().toString()== "nome"){
         expKey.nome = xmlReader.readElementText() ;
 
         }
 
-        if(xmlReader.name() == "laboratorio"){
+        if(xmlReader.name().toString() == "laboratorio"){
 
             expKey.lab = xmlReader.readElementText() ;
 
         }
 
-        if(xmlReader.name() == "password"){
+        if(xmlReader.name().toString() == "password"){
             expKey.senha = xmlReader.readElementText() ;
         }
 
