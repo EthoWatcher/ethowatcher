@@ -327,7 +327,7 @@
                     <x>0</x>
                     <y>0</y>
                     <width>258</width>
-                    <height>301</height>
+                    <height>283</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -357,7 +357,6 @@
               </property>
               <property name="font">
                <font>
-                <weight>50</weight>
                 <bold>false</bold>
                </font>
               </property>
@@ -513,7 +512,6 @@
               </property>
               <property name="font">
                <font>
-                <weight>50</weight>
                 <bold>false</bold>
                </font>
               </property>
@@ -537,7 +535,6 @@
                  </property>
                  <property name="font">
                   <font>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -554,7 +551,6 @@
                 <widget class="QSpinBox" name="edtFatordesloc">
                  <property name="font">
                   <font>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -591,7 +587,6 @@
                  </property>
                  <property name="font">
                   <font>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -632,7 +627,6 @@
               </property>
               <property name="font">
                <font>
-                <weight>50</weight>
                 <bold>false</bold>
                </font>
               </property>
@@ -661,7 +655,6 @@
                    </property>
                    <property name="font">
                     <font>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -693,7 +686,6 @@
                    </property>
                    <property name="font">
                     <font>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -752,7 +744,6 @@
                    <property name="font">
                     <font>
                      <pointsize>6</pointsize>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -806,7 +797,6 @@
                    <property name="font">
                     <font>
                      <pointsize>6</pointsize>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -860,7 +850,6 @@
                    <property name="font">
                     <font>
                      <pointsize>6</pointsize>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -914,7 +903,6 @@
                    <property name="font">
                     <font>
                      <pointsize>6</pointsize>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -968,7 +956,6 @@
                    <property name="font">
                     <font>
                      <pointsize>6</pointsize>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -1022,7 +1009,6 @@
                    <property name="font">
                     <font>
                      <pointsize>6</pointsize>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -1076,7 +1062,6 @@
                    <property name="font">
                     <font>
                      <pointsize>6</pointsize>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -1130,7 +1115,6 @@
                    <property name="font">
                     <font>
                      <pointsize>6</pointsize>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -1184,7 +1168,6 @@
                    <property name="font">
                     <font>
                      <pointsize>6</pointsize>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -1238,7 +1221,6 @@
                    <property name="font">
                     <font>
                      <pointsize>6</pointsize>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -1292,7 +1274,6 @@
                    <property name="font">
                     <font>
                      <pointsize>6</pointsize>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -1346,7 +1327,6 @@
                    <property name="font">
                     <font>
                      <pointsize>6</pointsize>
-                     <weight>50</weight>
                      <bold>false</bold>
                     </font>
                    </property>
@@ -1369,7 +1349,6 @@
                   <widget class="QSlider" name="SliderVelocidade">
                    <property name="font">
                     <font>
-                     <weight>75</weight>
                      <bold>true</bold>
                     </font>
                    </property>
@@ -1459,7 +1438,7 @@
              <bool>true</bool>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
@@ -1480,7 +1459,7 @@
                    <x>0</x>
                    <y>0</y>
                    <width>306</width>
-                   <height>306</height>
+                   <height>304</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">

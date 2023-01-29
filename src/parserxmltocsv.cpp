@@ -53,28 +53,33 @@ void parserXMLtoCSV::converteArquivo(QString nomePath, QList<Cell>  entrada)
 
         fonteVideoBit = fonteCaminhoArquivo.toLatin1();
 
-        int i= fonteVideoBit.length();
-        int inicio=0;
-        //aquirir a extensão do arquivo
-        while(fonteVideoBit[i] != 46){
-            i--;
-            fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
-            inicio++;
-        }
+        QStringList myStringList = fonteCaminhoArquivo.split('.');
+        auto fonteVideoBitExt =myStringList.last();
+        qDebug() << fonteVideoBitExt;
+        fonteVideoBit = QByteArray::fromStdString(fonteVideoBitExt.toStdString());
+
+//        int i= fonteVideoBit.length();
+//        int inicio=0;
+//        //aquirir a extensão do arquivo
+//        while(fonteVideoBit[i] != 46){
+//            i--;
+//            fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
+//            inicio++;
+//        }
 
 
-        //desinverter a extensão do arquivo
+//        //desinverter a extensão do arquivo
 
-        int j=0;
-        while(fonteVideoBitExtInv[j] != 0){
-            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
-            j++;
+//        int j=0;
+//        while(fonteVideoBitExtInv[j] != 0){
+//            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
+//            j++;
 
-        }
+//        }
 
 
 
-        if(fonteVideoBitExt==".tbf"){
+        if(fonteVideoBitExt=="tbf"){
             lerTimeXml(0); //le o experimentador
             lerTimeXml(1); //le o catalago
             lerTimeXml(2); //le os dados do video
@@ -85,7 +90,7 @@ void parserXMLtoCSV::converteArquivo(QString nomePath, QList<Cell>  entrada)
             //ler xml timebudget;
             //manda para a função de ler esse video
         }
-        if(fonteVideoBitExt==".aseq"){
+        if(fonteVideoBitExt=="aseq"){
             lerTimeXml(0); //le o experimentador
             lerTimeXml(1); //le o catalago
             lerTimeXml(2); //le os dados do video
@@ -97,7 +102,7 @@ void parserXMLtoCSV::converteArquivo(QString nomePath, QList<Cell>  entrada)
             //ler xml timebudget;
             //manda para a função de ler esse video
         }
-        if(fonteVideoBitExt==".kkf"){
+        if(fonteVideoBitExt=="kkf"){
             lerTimeXml(0); //le o experimentador
             lerTimeXml(1); //le o catalago
             lerTimeXml(2); //le os dados do video
@@ -109,7 +114,7 @@ void parserXMLtoCSV::converteArquivo(QString nomePath, QList<Cell>  entrada)
             //manda para a função de ler esse video
         }
 
-        if(fonteVideoBitExt==".fkf"){
+        if(fonteVideoBitExt=="fkf"){
             lerTimeXml(0); //le o experimentador
             lerTimeXml(1); //le o catalago
             lerTimeXml(2); //le os dados do video
@@ -119,7 +124,7 @@ void parserXMLtoCSV::converteArquivo(QString nomePath, QList<Cell>  entrada)
             //manda para a função de ler esse video
         }
 
-        if(fonteVideoBitExt==".etoxml"){
+        if(fonteVideoBitExt=="etoxml"){
 
 
 
@@ -131,7 +136,7 @@ void parserXMLtoCSV::converteArquivo(QString nomePath, QList<Cell>  entrada)
 
         }
 
-        if(fonteVideoBitExt==".tkin"){
+        if(fonteVideoBitExt=="tkin"){
 
 
             lerTRKING(fonteCaminhoArquivo);
@@ -153,68 +158,64 @@ void parserXMLtoCSV::converteArquivo(QString nomePath, QList<Cell>  entrada)
         // pega o nome do arquivo e usa para escrever o csv
 
 
-        int lugar = fonteVideoBit.lastIndexOf("/");
+//        int lugar = fonteVideoBit.lastIndexOf("/");
 
-        //encontra o nome do arquivo do user
-        QByteArray nomeArquivoUser= fonteVideoBit.right(fonteVideoBit.size()-lugar);
+//        //encontra o nome do arquivo do user
+        QByteArray nomeArquivoUser = QByteArray::fromStdString(fonteCaminhoArquivo.toStdString());
         nomeArquivoUser.replace(QByteArray("."),QByteArray("_"));
 
-        //encontra o cmainho
-        QByteArray caminho = fonteVideoBit;
-        caminho.truncate(lugar);
+        //        //encontra o cmainho
+        //        QByteArray caminho = fonteVideoBit;
+        //        caminho.truncate(lugar);
 
+        //        //QByteArray nomeArquivo =
 
+        //        qDebug() << fonteVideoBit ;
+        //        qDebug() << fonteVideoBit.lastIndexOf("/");
+        //        qDebug() << caminho;
+        //        qDebug() << nomeArquivoUser;
 
-        //QByteArray nomeArquivo =
-
-        qDebug() << fonteVideoBit ;
-        qDebug() << fonteVideoBit.lastIndexOf("/");
-        qDebug() << caminho;
-        qDebug() << nomeArquivoUser;
-
-        QByteArray finalCSV = caminho+nomeArquivoUser+"_";
-        qDebug() << finalCSV;
+        //        QByteArray finalCSV = caminho+nomeArquivoUser+"_";
+        //        qDebug() << finalCSV;
 
 
         //qDebug() << novoArquivo;
 
-
-        nomeArquivoGravarCsv= QString::fromLatin1(finalCSV); //"C:/ethowatcher/lalal.csv";
-
+//        QByteArray finalCSV = caminho + nomeArquivoUser + "_";
+//        nomeArquivoGravarCsv= QString::fromLatin1(finalCSV); //"C:/ethowatcher/lalal.csv";
+        nomeArquivoGravarCsv =  QString::fromStdString(nomeArquivoUser.toStdString()); //nomeArquivoGravarCsv + "_xlsx.xlsx";
+        qDebug() << nomeArquivoGravarCsv;
 
         //gravando os files
-        if(fonteVideoBitExt==".tbf"){
+        if(fonteVideoBitExt=="tbf"){
 
             escreverTimeCsv(entrada);
 
 
         }
-        if(fonteVideoBitExt==".aseq"){
+        if(fonteVideoBitExt=="aseq"){
             escreverSeqCsv(entrada);
         }
 
-        if(fonteVideoBitExt==".kkf"){
+        if(fonteVideoBitExt=="kkf"){
             escreverKohoCsv();
         }
 
-        if(fonteVideoBitExt==".fkf"){
+        if(fonteVideoBitExt=="fkf"){
             escreverFleisCsv();
         }
 
 
-        if(fonteVideoBitExt==".etoxml"){
+        if(fonteVideoBitExt=="etoxml"){
 
             //encontrando a f d l
 
-
-
             escreverEtografiaCsv();
-
 
         }
 
 
-        if(fonteVideoBitExt==".tkin"){
+        if(fonteVideoBitExt=="tkin"){
 
             qDebug() <<" trakin sendo gravado";
 

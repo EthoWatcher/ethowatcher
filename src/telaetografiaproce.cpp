@@ -1950,32 +1950,38 @@ void telaEtografiaProce::on_pbUnicoVideo_clicked()
 
         videoLista.nomeVXML.push_back(fonteVideoXML);
         //se final vxml
-        QByteArray fonteVideoBit,fonteVideoBitExtInv,fonteVideoBitExt;
+//        QByteArray fonteVideoBit,fonteVideoBitExtInv,fonteVideoBitExt;
 
-        fonteVideoBit = fonteVideoXML.toLatin1();
+        QStringList myStringList = fonteVideoXML.split('.');
+        auto fonteVideoBitExt =myStringList.last();
+        qDebug() << fonteVideoBitExt;
+        fonteVideoBitExt = QByteArray::fromStdString(fonteVideoBitExt.toStdString());
 
-        int i= fonteVideoBit.length();
-        int inicio=0;
-        //aquirir a extensão do arquivo
-        while(fonteVideoBit[i] != 46){
-            i--;
-            fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
-            inicio++;
-        }
+//        fonteVideoXML.
+//        fonteVideoBit = fonteVideoXML.toLatin1();
 
-
-        //desinverter a extensão do arquivo
-
-        int j=0;
-        while(fonteVideoBitExtInv[j] != 0){
-            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
-            j++;
-
-        }
+//        int i= fonteVideoBit.length();
+//        int inicio=0;
+//        //aquirir a extensão do arquivo
+//        while(fonteVideoBit[i] != 46){
+//            i--;
+//            fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
+//            inicio++;
+//        }
 
 
+//        //desinverter a extensão do arquivo
 
-        if(fonteVideoBitExt==".vxml"){
+//        int j=0;
+//        while(fonteVideoBitExtInv[j] != 0){
+//            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
+//            j++;
+
+//        }
+
+
+
+        if(fonteVideoBitExt=="vxml"){
 
             //se final for vxml
            lerVXML(fonteVideoXML);

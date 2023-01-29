@@ -71,7 +71,31 @@ static QString next_letter (QString letter) {
     };
 
 static void gravar_csv_ls_cell(QString csv_path, QList< QList<Cell> > t_saida){
-//    QFile outGravador_csv;
+    qDebug() << "csv_ls_cell path_ to write" << csv_path;
+
+//        QFile outGravador_csv;
+//        outGravador_csv.setFileName(csv_path);
+        QFile file(csv_path);
+        if (file.open(QIODevice::ReadWrite)) {
+            QTextStream stream(&file);
+            for (auto list_celulas : t_saida) {
+                for (auto celula : list_celulas) {
+                    if (celula.r_number){
+                        stream << celula.number << ";" << celula.content.toDouble() << ";" << celula.r_number << "\n";
+                    }else{
+                        stream << celula.number << ";" << celula.content << ";" << celula.r_number << "\n";
+                    }
+
+//                    stream << "something" << "";
+                }
+            }
+
+
+        };
+
+
+
+//        outGravador_csv.
 //          QXlsx::Document xlsx;
 
 //          for (auto list_celulas : t_saida) {
