@@ -17,7 +17,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "teaconcordancia.h"
 #include "ui_teaconcordancia.h"
-#include "../Agreement/ui/Reliability.h"
+//#include "../Agreement/ui/Reliability.h"
 
 teaConcordancia::teaConcordancia(QWidget *parent) :
     QWidget(parent),
@@ -1649,7 +1649,7 @@ double teaConcordancia::calcularPJ(std::vector<int> entrada)
 
 void teaConcordancia::on_pb_BootstrapCohen_clicked()
 {
-    Reliability *r = new Reliability();
-    r->show();
+//    Reliability *r = new Reliability();
+//    r->show();
 
 }

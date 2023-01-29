@@ -72,20 +72,18 @@ static QString next_letter (QString letter) {
 
 static void gravar_csv_ls_cell(QString csv_path, QList< QList<Cell> > t_saida){
 //    QFile outGravador_csv;
-    QXlsx::Document xlsx;
+//          QXlsx::Document xlsx;
 
-    for (auto list_celulas : t_saida){
-        for (auto celula: list_celulas){
-            if(celula.r_number){
-                xlsx.write(celula.number, celula.content.toDouble());
-            }else{
-                xlsx.write(celula.number, celula.content);
-            }
-
-        }
-    }
-    xlsx.saveAs(csv_path);
-
+//          for (auto list_celulas : t_saida) {
+//            for (auto celula : list_celulas) {
+//              if (celula.r_number) {
+//                xlsx.write(celula.number, celula.content.toDouble());
+//              } else {
+//                xlsx.write(celula.number, celula.content);
+//              }
+//            }
+//          }
+//          xlsx.saveAs(csv_path);
 };
 
 
