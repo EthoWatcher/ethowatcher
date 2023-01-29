@@ -135,7 +135,7 @@ void telaTempoReal::atualizaImagem(int numeroFrame, QImage qimFoto,float Tempo)
 
     if(!troca.empty()){
 
-        cv::cvtColor(troca,troca,CV_BGR2RGB);
+        cv::cvtColor(troca,troca,cv::COLOR_BGR2RGB);
 
         QImage imgLida((uchar*)troca.data, troca.cols, troca.rows, troca.step, QImage::Format_RGB888);
 
@@ -272,7 +272,7 @@ void telaTempoReal::on_pbPlanoFundo_clicked()
     dados->frameBackground = captadorDeVideo->frameBackground.clone();
 
     cv::Mat frameDisplay=  dados->frameBackground .clone();
-    cv::cvtColor(frameDisplay,frameDisplay,CV_BGR2RGB );
+    cv::cvtColor(frameDisplay,frameDisplay,cv::COLOR_BGR2RGB );
    // resultado.frameProces=frame_atual;
     //resultado.matProce= frameReduzido;
 //        resultado.background=frame;
@@ -1222,21 +1222,21 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
         streamReader.readNext();
 
-        if(streamReader.name()== "nomeOpencv"){
+        if(streamReader.name().toString()== "nomeOpencv"){
         videoLista.nomeOpencv.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
 
 
-           if(streamReader.name()== "frameInicial"){
+           if(streamReader.name().toString()== "frameInicial"){
 
          conversor = streamReader.readElementText();
         videoLista.frameInicial.push_back(conversor.toInt());
               // qDebug() << leitorXML.readElementText();
            }
 
-           if(streamReader.name()== "frameFinal"){
+           if(streamReader.name().toString()== "frameFinal"){
                conversor = streamReader.readElementText();
         videoLista.frameFinal.push_back(conversor.toInt());
               // qDebug() << leitorXML.readElementText();
@@ -1244,13 +1244,13 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name() == "frameProces"){
+           if(streamReader.name().toString() == "frameProces"){
                conversor = streamReader.readElementText();
         videoLista.frameProces.push_back(conversor.toInt());
 
 
            }
-            if(streamReader.name() == "frameBack"){
+            if(streamReader.name().toString() == "frameBack"){
 
                 conversor = streamReader.readElementText();
          videoLista.frameBack.push_back(conversor.toInt());
@@ -1259,7 +1259,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
 
 
-            if(streamReader.name() == "treshold"){
+            if(streamReader.name().toString() == "treshold"){
 
                        conversor = streamReader.readElementText();
 
@@ -1267,7 +1267,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
               }
 
-           if(streamReader.name() == "erosao"){
+           if(streamReader.name().toString() == "erosao"){
 
                conversor = streamReader.readElementText();
         videoLista.erosao.push_back(conversor.toInt());
@@ -1275,21 +1275,21 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
            }
 
 
-           if(streamReader.name() == "escala"){
+           if(streamReader.name().toString() == "escala"){
 
                conversor = streamReader.readElementText();
         videoLista.escala.push_back(conversor.toDouble());
 
            }
 
-           if(streamReader.name() == "fps"){
+           if(streamReader.name().toString() == "fps"){
 
                conversor = streamReader.readElementText();
         videoLista.fps.push_back(conversor.toInt());
 
            }
 
-           if(streamReader.name()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
+           if(streamReader.name().toString()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
 
                conversor = streamReader.readElementText();
                if(conversor=="true"){
@@ -1304,7 +1304,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
            }
 
-           if(streamReader.name()== "janelaInteresse"){
+           if(streamReader.name().toString()== "janelaInteresse"){
 
                if(chaJanInte==true){
                    chaJanInte=false;
@@ -1318,7 +1318,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
            }
 
            if(chaJanInte==true){
-               if(streamReader.name() == "ativado"){
+               if(streamReader.name().toString() == "ativado"){
 
                    conversor = streamReader.readElementText();
 
@@ -1332,7 +1332,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
                }
 
 
-               if(streamReader.name() == "movel"){
+               if(streamReader.name().toString() == "movel"){
 
                    conversor = streamReader.readElementText();
 
@@ -1345,27 +1345,27 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "origX"){
+               if(streamReader.name().toString() == "origX"){
 
                    conversor = streamReader.readElementText();
 
                      videoLista.areaJanInte[contadorDeVideo].oriX.push_back(conversor.toDouble());
 
                }
-               if(streamReader.name() == "origY"){
+               if(streamReader.name().toString() == "origY"){
 
                 conversor = streamReader.readElementText();
                 videoLista.areaJanInte[contadorDeVideo].oriY.push_back(conversor.toDouble());
 
                }
 
-               if(streamReader.name() == "width"){
+               if(streamReader.name().toString() == "width"){
 
                 conversor = streamReader.readElementText();
                 videoLista.areaJanInte[contadorDeVideo].width.push_back(conversor.toDouble());
 
                }
-               if(streamReader.name() == "heigth"){
+               if(streamReader.name().toString() == "heigth"){
 
                 conversor = streamReader.readElementText();
                 videoLista.areaJanInte[contadorDeVideo].height.push_back(conversor.toDouble());
@@ -1375,7 +1375,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
            }
 
 
-           if(streamReader.name()== "maximaVariacaoCentro"){
+           if(streamReader.name().toString()== "maximaVariacaoCentro"){
 
                if(chaMaxVari==true){
                    chaMaxVari=false;
@@ -1389,7 +1389,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
            if(chaMaxVari){
 
-               if(streamReader.name() == "tamanho"){
+               if(streamReader.name().toString() == "tamanho"){
 
                 conversor = streamReader.readElementText();
                 videoLista.tamMaxVar.push_back(conversor.toDouble());
@@ -1405,7 +1405,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name()== "areasDeInteresse"){
+           if(streamReader.name().toString()== "areasDeInteresse"){
 
                if(chaveArea==true){
                    chaveArea=false;
@@ -1420,7 +1420,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
            if(chaveArea==true){
 
 
-               if(streamReader.name()== "area"){
+               if(streamReader.name().toString()== "area"){
 
                QString conversora= streamReader.attributes().value("tipo").toString();
                if(!conversora.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1443,7 +1443,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "nomeFig"){
+               if(streamReader.name().toString() == "nomeFig"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].nomeFig.push_back(conversor);
@@ -1452,7 +1452,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
                }
 
 
-               if(streamReader.name() == "oriX"){
+               if(streamReader.name().toString() == "oriX"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].oriX.push_back(conversor.toDouble());
@@ -1460,7 +1460,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "oriY"){
+               if(streamReader.name().toString() == "oriY"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].oriY.push_back(conversor.toDouble());
@@ -1468,7 +1468,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "height"){
+               if(streamReader.name().toString() == "height"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].height.push_back(conversor.toDouble());
@@ -1476,7 +1476,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "width"){
+               if(streamReader.name().toString() == "width"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].width.push_back(conversor.toDouble());
@@ -1484,7 +1484,7 @@ void telaTempoReal::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "rad"){
+               if(streamReader.name().toString() == "rad"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].raio.push_back(conversor.toDouble());
@@ -1771,7 +1771,7 @@ void telaTempoReal::readCatalago()
 
         leitorXML.readNext();
 
-        if(leitorXML.name() == "categoria"){
+        if(leitorXML.name().toString() == "categoria"){
             if(controle){
 
                 cAnaEto.id.push_back(leitorXML.attributes().value("id").toInt());
@@ -1781,19 +1781,19 @@ void telaTempoReal::readCatalago()
            //qDebug() << leitorXML.attributes().value("id").toInt();
 
         }
-        if(leitorXML.name()== "nome"){
+        if(leitorXML.name().toString()== "nome"){
         cAnaEto.nomeCategoria.push_back(leitorXML.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
 
 
-           if(leitorXML.name()== "atalho"){
+           if(leitorXML.name().toString()== "atalho"){
         cAnaEto.atalho.push_back(leitorXML.readElementText());
               // qDebug() << leitorXML.readElementText();
            }
 
-           if(leitorXML.name()== "descricao"){
+           if(leitorXML.name().toString()== "descricao"){
         cAnaEto.descricao.push_back(leitorXML.readElementText());
               // qDebug() << leitorXML.readElementText();
            }
@@ -1940,27 +1940,27 @@ int telaTempoReal::getCodec(int indexCaixa)
     {
     case 0:
 
-        return CV_FOURCC('M','R','L','E'); //Microsoft RLE
+        return cv::VideoWriter::fourcc('M','R','L','E'); //Microsoft RLE
         //break;
     case 1:
 
-        return CV_FOURCC('C','R','A','M'); //Microsoft Video 1
+        return cv::VideoWriter::fourcc('C','R','A','M'); //Microsoft Video 1
 
     case 2:
 
-        return CV_FOURCC('I','Y','U','V'); //Intel IYUV Codec
+        return cv::VideoWriter::fourcc('I','Y','U','V'); //Intel IYUV Codec
 
     case 3:
-        return CV_FOURCC('C','V','I','D'); //Cinepack Codec by radius
+        return cv::VideoWriter::fourcc('C','V','I','D'); //Cinepack Codec by radius
         //break;
     case 4:
-        return CV_FOURCC('L','A','G','S'); //Lagarith Lossles Codec
+        return cv::VideoWriter::fourcc('L','A','G','S'); //Lagarith Lossles Codec
 
     case 5:
-        return CV_FOURCC('X','2','6','4'); //H264
+        return cv::VideoWriter::fourcc('X','2','6','4'); //H264
 
     case 6:
-        return CV_FOURCC('X','V','I','D');; //XVid MPeg-4 Codec
+        return cv::VideoWriter::fourcc('X','V','I','D');; //XVid MPeg-4 Codec
         //break;
     case -1:
         return -1;
@@ -2096,7 +2096,7 @@ void telaTempoReal::on_pbLerArquivoVxml_clicked()
 
 
     cv::Mat frameDisplay=  dados->frameBackground .clone();
-    cv::cvtColor(frameDisplay,frameDisplay,CV_BGR2RGB );
+    cv::cvtColor(frameDisplay,frameDisplay,cv::COLOR_BGR2RGB );
     cv::resize(frameDisplay,frameDisplay, cv::Size(160,120),0,0,cv::INTER_LANCZOS4);
     QImage imgLida((uchar*)frameDisplay.data, frameDisplay.cols, frameDisplay.rows, frameDisplay.step, QImage::Format_RGB888);
     ui->lblFundo->setPixmap(QPixmap::fromImage(imgLida));

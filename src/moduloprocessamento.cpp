@@ -16,11 +16,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "moduloprocessamento.h"
-//#include "comum.h"
-//namespace cv
-//{
-//    using std::vector;
-//} //fazer a conversao da 2.4.11 para a 3.2
+// #include "comum.h"
+ namespace cv
+{
+     using std::vector;
+ } //fazer a conversao da 2.4.11 para a 3.2
 #include <cmath>
 moduloProcessamento::moduloProcessamento(QObject *parent) : QObject(parent)
 {
@@ -140,9 +140,9 @@ void moduloProcessamento::setAreaInteresse(double x, double y, double tamanho)
    frameAreaInteresse = M.clone();
      cv::ellipse(frameAreaInteresse,cv::Point(x+tamanho,y+tamanho),cv::Size(tamanho,tamanho),0,0,360,cv::Scalar(255,255,255),-1,8,0);
 
-     cv::cvtColor( frameAreaInteresse.clone(), frameAreaInteresse, CV_RGB2GRAY );
+     cv::cvtColor( frameAreaInteresse.clone(), frameAreaInteresse, cv::COLOR_RGB2GRAY );
 
-     cv::threshold( frameAreaInteresse.clone(), frameAreaInteresseB, 100, 255,CV_THRESH_BINARY);
+     cv::threshold( frameAreaInteresse.clone(), frameAreaInteresseB, 100, 255, cv::THRESH_BINARY);
 
 
 }
@@ -162,9 +162,9 @@ void moduloProcessamento::setAreaInteresse(double x, double y, double height, do
 //               "o valor de HEIGHT é " << height << " e o valor de width é " <<  width;
     cv::rectangle(frameAreaInteresse,cv::Rect(x,y,width,height),cv::Scalar(255,255,255),-1,8,0);
 
-    cv::cvtColor( frameAreaInteresse.clone(), frameAreaInteresse, CV_RGB2GRAY );
+    cv::cvtColor( frameAreaInteresse.clone(), frameAreaInteresse, cv::COLOR_RGB2GRAY );
 
-    cv::threshold( frameAreaInteresse.clone(), frameAreaInteresseB, 100, 255,CV_THRESH_BINARY);
+    cv::threshold( frameAreaInteresse.clone(), frameAreaInteresseB, 100, 255,cv::THRESH_BINARY);
 
 
 }
@@ -185,7 +185,7 @@ cv::Mat moduloProcessamento::conQim2Mat(QImage imaEntrada)
 //    resultado.matProce.release();
     matSaida= cv::Mat(imaEntrada.height(),imaEntrada.width(),CV_8UC3, const_cast<uchar*>(imaEntrada.bits()), imaEntrada.bytesPerLine()).clone();
 
-    cv::cvtColor(matSaida,matSaida,CV_RGB2BGR );
+    cv::cvtColor(matSaida,matSaida,cv::COLOR_RGB2BGR );
 
     return matSaida;
 }
@@ -195,7 +195,7 @@ void moduloProcessamento::desenhaObjetoInterresse(cv::Mat frameErodido){
     cv::vector<cv::vector<cv::Point> > contours;
     cv::vector<cv::Vec4i> hierarchy;
 
-    cv::findContours( frameErodido.clone(), contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE );
+    cv::findContours( frameErodido.clone(), contours, hierarchy, cv::RETR_CCOMP, cv::CHAIN_APPROX_SIMPLE );
 
     cv::Mat drawing = cv::Mat::zeros( frameErodido.size(), CV_8UC3 );
     cv::Mat frameContorno = cv::Mat::zeros( frameErodido.size(), CV_8UC3 );
@@ -226,18 +226,18 @@ void moduloProcessamento::desenhaObjetoInterresse(cv::Mat frameErodido){
 
             if(ja!=idx){
 
-                cv::drawContours( drawing, contours, ja, color2, CV_FILLED, 8, hierarchy );
+                cv::drawContours( drawing, contours, ja, color2, cv::FILLED, 8, hierarchy );
 
             }else{
 
-                cv::drawContours( drawing, contours, ja, color, CV_FILLED, 8, hierarchy );
+                cv::drawContours( drawing, contours, ja, color, cv::FILLED, 8, hierarchy );
             }
 
         }
 
-        cv::drawContours( drawing, contours, largestComp, color3, CV_FILLED, 8, hierarchy ); //selecione que fique a area amarela dentro do objeto de interese
+        cv::drawContours( drawing, contours, largestComp, color3, cv::FILLED, 8, hierarchy ); //selecione que fique a area amarela dentro do objeto de interese
 
-        cv::threshold( drawing, drawing, 1, 255,CV_THRESH_BINARY_INV);
+        cv::threshold( drawing, drawing, 1, 255,cv::THRESH_BINARY_INV);
         cv::drawContours( frameContornoBranco, contours, largestComp, color, 1, 8, hierarchy );
         cv::drawContours( frameContorno, contours, largestComp, color2, 1, 8, hierarchy );
 
@@ -458,8 +458,8 @@ void moduloProcessamento::processamentoDeVideo(){
       // cv::waitKey(10);
 
        //transformando em qimOriginal para enviar
-       cv::cvtColor(matOriginal,matProcessado,CV_BGR2RGB);
-       cv::cvtColor(matOriginal,matProcessado,CV_BGR2RGB);
+       cv::cvtColor(matOriginal,matProcessado,cv::COLOR_BGR2RGB);
+       cv::cvtColor(matOriginal,matProcessado,cv::COLOR_BGR2RGB);
        cv::resize(matProcessado,matProcessado, cv::Size(320,240),0,0,cv::INTER_LANCZOS4);
        QImage qimOriginal((uchar*) matProcessado.data, matProcessado.cols, matProcessado.rows, matProcessado.step, QImage::Format_RGB888);
 
@@ -635,8 +635,8 @@ void moduloProcessamento::processamentoMorfologico(){
         //---------------------------------------------------------------------------------------------------------
         //------FrameLimiarizcao: Máscara do animal (animal preto e fundo branco) - threshold --------------------
        // threshold_value= 60; //0 até 255
-        cv::cvtColor( frameSubtracao.clone(), frameSubtracao_gray, CV_RGB2GRAY );
-        cv::threshold( frameSubtracao_gray.clone(), frameLimiarizacao, threshold_value, 255,CV_THRESH_BINARY);
+        cv::cvtColor( frameSubtracao.clone(), frameSubtracao_gray, cv::COLOR_RGB2GRAY );
+        cv::threshold( frameSubtracao_gray.clone(), frameLimiarizacao, threshold_value, 255, cv::THRESH_BINARY);
 
         cv::bitwise_and(frameAreaInteresseB.clone(),frameLimiarizacao.clone(),frameLimiarizacao);
 //       frameLimiarizacao= cv::   abs(frameAreaInteresseB+frameLimiarizacao.clone());
@@ -707,7 +707,7 @@ void moduloProcessamento::processamentoMorfologico(){
 
 
 
-         cv::findContours( frameErosaoInterese, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE );
+         cv::findContours( frameErosaoInterese, contours, hierarchy, cv::RETR_CCOMP, cv::CHAIN_APPROX_SIMPLE );
 //
 //        cv::findContours( frameErosao, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE );
 
@@ -716,9 +716,9 @@ void moduloProcessamento::processamentoMorfologico(){
 
 
 
-        cv::cvtColor(frameAnimal,frameDisplay1,CV_BGR2RGB );
+        cv::cvtColor(frameAnimal,frameDisplay1,cv::COLOR_BGR2RGB );
        // cv::cvtColor(frameErosao,frameDisplay,CV_GRAY2RGB );
-         cv::cvtColor(frameSubtracao,frameDisplay,CV_BGR2RGB );
+         cv::cvtColor(frameSubtracao,frameDisplay,cv::COLOR_BGR2RGB );
 
 
          QImage imgEnviada2((uchar*) frameDisplay1.data, frameDisplay1.cols, frameDisplay1.rows, frameDisplay1.step, QImage::Format_RGB888);//1
@@ -1243,7 +1243,7 @@ void moduloProcessamento::processamentoMorfologico(){
 
 //        imaInte = moveVirtCamera(frameLimiarizacao,cv::Point(0,0));
 
-        cv::cvtColor(imaInte,imaInteDisplay,CV_GRAY2RGB );
+        cv::cvtColor(imaInte,imaInteDisplay,cv::COLOR_GRAY2RGB );
 
          cv::resize(imaInteDisplay,imaInteDisplay, cv::Size(320,240),0,0,cv::INTER_LANCZOS4);
          QImage imgEnviada3((uchar*) imaInteDisplay.data, imaInteDisplay.cols, imaInteDisplay.rows, imaInteDisplay.step, QImage::Format_RGB888);//1

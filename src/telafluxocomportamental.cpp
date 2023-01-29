@@ -132,14 +132,14 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             xmlReader.readNext();
 
 
-            if(xmlReader.name()== "nomeAnalisador"){
+            if(xmlReader.name().toString()== "nomeAnalisador"){
                 experimentador.nome= xmlReader.readElementText();
                 //qDebug() << xmlReader.readElementText();
 
             }
 
 
-            if(xmlReader.name()== "laboratorio"){
+            if(xmlReader.name().toString()== "laboratorio"){
                 experimentador.lab= xmlReader.readElementText();
                 // qDebug() << xmlReader.readElementText();
             }
@@ -157,7 +157,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             xmlReader.readNext();
 
 
-            if(xmlReader.name()== "dadosCatalagoUsado"){
+            if(xmlReader.name().toString()== "dadosCatalagoUsado"){
 
                 if(entrou){
                     entrou=false;
@@ -171,13 +171,13 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
 
             if(entrou==true){
 
-                if(xmlReader.name()== "caminhoCatalago"){
+                if(xmlReader.name().toString()== "caminhoCatalago"){
 
                     catalagoLido->caminhoArquivo= xmlReader.readElementText();
 
                 }
 
-                if(xmlReader.name()== "categoria"){
+                if(xmlReader.name().toString()== "categoria"){
                     QString conversor =  xmlReader.attributes().value("nome").toString();
                     if(!conversor.isEmpty()){ //ele acaba entrando daus vez pra cada tag
                         catalagoLido->nome.push_back(conversor);
@@ -203,34 +203,34 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             xmlReader.readNext();
 
 
-            if(xmlReader.name()== "dadosVideosUsados"){
+            if(xmlReader.name().toString()== "dadosVideosUsados"){
                 entrou=~entrou;
             }
 
 
             if(entrou==true){
 
-                if(xmlReader.name()== "caminhoVideo"){
+                if(xmlReader.name().toString()== "caminhoVideo"){
                     QString conversor= xmlReader.readElementText();
                     if(!conversor.isEmpty()){
                         videoLido->nome= conversor;
                     }}
-                if(xmlReader.name()== "frameInicial"){
+                if(xmlReader.name().toString()== "frameInicial"){
                     QString conversor= xmlReader.readElementText();
                     if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
                         videoLido->frameInicial= conversor.toInt();
                     }}
-                if(xmlReader.name()== "frameProces"){
+                if(xmlReader.name().toString()== "frameProces"){
                     QString conversor= xmlReader.readElementText();
                     if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
                         videoLido->frameProce= conversor.toInt();
                     }}
-                if(xmlReader.name()== "frameFinal"){
+                if(xmlReader.name().toString()== "frameFinal"){
                     QString conversor= xmlReader.readElementText();
                     if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
                         videoLido->frameFinal= conversor.toInt();
                     }}
-                if(xmlReader.name()== "fps"){
+                if(xmlReader.name().toString()== "fps"){
                     QString conversor= xmlReader.readElementText();
                     if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
                         videoLido->fps= conversor.toDouble();
@@ -252,7 +252,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             xmlReader.readNext();
 
 
-            if(xmlReader.name()== "analises"){
+            if(xmlReader.name().toString()== "analises"){
                 if(entrou==true){
                     entrou=false;
                 }else{
@@ -264,7 +264,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             if(entrou==true){
 
 
-                if(xmlReader.name()== "categoria"){
+                if(xmlReader.name().toString()== "categoria"){
                     QString conversor= xmlReader.attributes().value("tipo").toString();
                     if(!conversor.isEmpty()){
                         etografiaLida->tipoDeAnalise= conversor;
@@ -275,7 +275,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
                     }
 
                 }
-                if(xmlReader.name()== "caminhoAnaliseEto"){
+                if(xmlReader.name().toString()== "caminhoAnaliseEto"){
 
                     QString conversor= xmlReader.readElementText();
                     if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -304,7 +304,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             xmlReader.readNext();
 
 
-            if(xmlReader.name()== "analise"){
+            if(xmlReader.name().toString()== "analise"){
                 if(entrou==true){
                     entrou=false;
                 }else{
@@ -312,7 +312,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
                 }
             }
 
-            if(xmlReader.name()== "tabelaSomatorio"){
+            if(xmlReader.name().toString()== "tabelaSomatorio"){
                 if(entrou1==true){
                     entrou1=false;
                 }else{
@@ -320,7 +320,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
                 }
             }
 
-            if(xmlReader.name()== "pi"){
+            if(xmlReader.name().toString()== "pi"){
                 if(entrou2==true){
                     entrou2=false;
                 }else{
@@ -334,7 +334,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             if(entrou==true){
 
 
-                if(xmlReader.name()== "aFr"){
+                if(xmlReader.name().toString()== "aFr"){
 
                     QString conversor= xmlReader.attributes().value("num").toString();
                     if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -350,7 +350,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
 
                 }
 
-                if(xmlReader.name()== "con"){
+                if(xmlReader.name().toString()== "con"){
 
                     QString conversorlal= xmlReader.attributes().value("q").toString();
                     if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -387,7 +387,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             //final do primeiro entroeu
             if(entrou1==true){
 
-                if(xmlReader.name()== "con"){
+                if(xmlReader.name().toString()== "con"){
 
                     QString conversorlal= xmlReader.attributes().value("q").toString();
                     if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -399,7 +399,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
 
             if(entrou2==true){
 
-                if(xmlReader.name()== "con"){
+                if(xmlReader.name().toString()== "con"){
 
                     QString conversorlal= xmlReader.attributes().value("q").toString();
                     if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -411,19 +411,19 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
 
 
 
-            if(xmlReader.name()== "Pe"){
+            if(xmlReader.name().toString()== "Pe"){
                 QString conversor= xmlReader.readElementText();
                 if(!conversor.isEmpty()){
                     flKaDa.pe= conversor.toFloat();
                 }
             }
-            if(xmlReader.name()== "P"){
+            if(xmlReader.name().toString()== "P"){
                 QString conversor= xmlReader.readElementText();
                 if(!conversor.isEmpty()){
                     flKaDa.p= conversor.toFloat();
                 }
             }
-            if(xmlReader.name()== "indiceFleissKappa"){
+            if(xmlReader.name().toString()== "indiceFleissKappa"){
                 QString conversor= xmlReader.readElementText();
                 if(!conversor.isEmpty()){
                     flKaDa.indiceFleissKappa= conversor.toFloat();
@@ -455,7 +455,7 @@ void telaFluxoComportamental::lerETOXML(QString nomeArquivo)
 
         streamReader.readNext();
 
-        if(streamReader.name() == "analise"){
+        if(streamReader.name().toString() == "analise"){
 
           if(etografiaLida->controle){
 
@@ -475,7 +475,7 @@ void telaFluxoComportamental::lerETOXML(QString nomeArquivo)
         }
 
 
-        if(streamReader.name() == "categoria"){
+        if(streamReader.name().toString() == "categoria"){
 
           if(catalagoLido->controle){
               QString nome;
@@ -494,50 +494,50 @@ void telaFluxoComportamental::lerETOXML(QString nomeArquivo)
 
         }
 
-        if(streamReader.name() == "nomeCaminhoExt"){
+        if(streamReader.name().toString() == "nomeCaminhoExt"){
 
             catalagoLido->caminhoArquivo= streamReader.readElementText();
 
 
         }
 
-        if(streamReader.name() == "tipoAnalise"){
+        if(streamReader.name().toString() == "tipoAnalise"){
 
             catalagoLido->tipoAnalise= streamReader.readElementText();
 
 
         }
 
-        if((streamReader.name() == "dadosVideoAnalisado")||(videoLido->controle)){
+        if((streamReader.name().toString() == "dadosVideoAnalisado")||(videoLido->controle)){
 
 
-          if(streamReader.name() == "nomeVxml"){
+          if(streamReader.name().toString() == "nomeVxml"){
 
               videoLido->nome= streamReader.readElementText();
 
           }
 
-          if(streamReader.name() == "frameInicial"){
+          if(streamReader.name().toString() == "frameInicial"){
 
 
               videoLido->frameInicial= streamReader.readElementText().toInt();
 
           }
 
-          if(streamReader.name() == "frameProces"){
+          if(streamReader.name().toString() == "frameProces"){
 
 
               videoLido->frameProce= streamReader.readElementText().toInt();
 
           }
 
-          if(streamReader.name() == "frameFinal"){
+          if(streamReader.name().toString() == "frameFinal"){
            videoLido->frameFinal= streamReader.readElementText().toInt();
 
             //videoLido->controle=false;
         }
 
-          if(streamReader.name() == "fps"){
+          if(streamReader.name().toString() == "fps"){
            videoLido->fps= streamReader.readElementText().toInt();
 
             videoLido->controle=false;

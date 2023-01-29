@@ -244,7 +244,7 @@ void parserXMLtoCSV::lerETOXML(QString nomeArquivo)
 
         streamReader.readNext();
 
-        if(streamReader.name() == "analise"){
+        if(streamReader.name().toString() == "analise"){
 
           if(etografiaLida->controle){
 
@@ -262,7 +262,7 @@ void parserXMLtoCSV::lerETOXML(QString nomeArquivo)
         }
 
 
-        if(streamReader.name() == "categoria"){
+        if(streamReader.name().toString() == "categoria"){
 
           if(catalagoLido->controle){
               QString nome;
@@ -281,14 +281,14 @@ void parserXMLtoCSV::lerETOXML(QString nomeArquivo)
 
         }
 
-        if(streamReader.name() == "nomeCaminhoExt"){
+        if(streamReader.name().toString() == "nomeCaminhoExt"){
 
             catalagoLido->caminhoArquivo= streamReader.readElementText();
 
 
         }
 
-        if(streamReader.name() == "tipoAnalise"){
+        if(streamReader.name().toString() == "tipoAnalise"){
 
             catalagoLido->tipoAnalise= streamReader.readElementText();
 
@@ -298,33 +298,33 @@ void parserXMLtoCSV::lerETOXML(QString nomeArquivo)
 //        if((streamReader.name() == "dadosVideoAnalisado")||(videoLido->controle)){
 
 
-          if(streamReader.name() == "nomeVxml"){
+          if(streamReader.name().toString() == "nomeVxml"){
 
               videoLido->nome= streamReader.readElementText();
 
           }
 
-          if(streamReader.name() == "frameInicial"){
+          if(streamReader.name().toString() == "frameInicial"){
 
 
               videoLido->frameInicial= streamReader.readElementText().toDouble();
 
           }
 
-          if(streamReader.name() == "frameProces"){
+          if(streamReader.name().toString() == "frameProces"){
 
 
               videoLido->frameProce= streamReader.readElementText().toDouble();
 
           }
 
-          if(streamReader.name() == "frameFinal"){
+          if(streamReader.name().toString() == "frameFinal"){
            videoLido->frameFinal= streamReader.readElementText().toDouble();
 
             //videoLido->controle=false;
         }
 
-          if(streamReader.name() == "fps"){
+          if(streamReader.name().toString() == "fps"){
            videoLido->fps= streamReader.readElementText().toDouble();
 
             videoLido->controle=false;
@@ -368,31 +368,31 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
 //        if(entrou1==true){
 
-            if(streamReader.name()== "nomeVxml"){
+            if(streamReader.name().toString()== "nomeVxml"){
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){
             videoLido->nome= conversor;
             }}
-            if(streamReader.name()== "frameInicial"){
+            if(streamReader.name().toString()== "frameInicial"){
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
             videoLido->frameInicial= conversor.toDouble();
             }}
 
-            if(streamReader.name()== "frameProces"){
+            if(streamReader.name().toString()== "frameProces"){
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
             videoLido->frameProce= conversor.toDouble();
             }}
 
 
-            if(streamReader.name()== "frameFinal"){
+            if(streamReader.name().toString()== "frameFinal"){
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
             videoLido->frameFinal= conversor.toDouble();
             }}
 
-            if(streamReader.name()== "fps"){
+            if(streamReader.name().toString()== "fps"){
 
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -400,7 +400,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
             }}
 
-            if(streamReader.name()== "escala"){
+            if(streamReader.name().toString()== "escala"){
 
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -414,7 +414,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
 
 
-        if(streamReader.name()== "anaProceImagem"){
+        if(streamReader.name().toString()== "anaProceImagem"){
             if(entrou==true){
                 entrou=false;
             }else{
@@ -425,7 +425,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
         if(entrou==true){
 
-            if(streamReader.name()== "area"){
+            if(streamReader.name().toString()== "area"){
 
             QString conversor= streamReader.attributes().value("id").toString();
             qDebug()<< " o conversor da area tem o valor " << conversor;
@@ -470,7 +470,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
             //if(xmlReader.name()== "caAnaSeg"){
 
-            if(streamReader.name()== "proce"){
+            if(streamReader.name().toString()== "proce"){
 
                 QString conObjeto= streamReader.attributes().value("OE").toString();
 
@@ -552,7 +552,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
 
 
-        if(streamReader.name()== "areasDeInteresse"){
+        if(streamReader.name().toString()== "areasDeInteresse"){
             if(entrou2==true){
                 entrou2=false;
             }else{
@@ -598,7 +598,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 //            //zerando os valores
         }
         //<figName>
-        if(streamReader.name()== "figName"){
+        if(streamReader.name().toString()== "figName"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -607,7 +607,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
         }}
 
-        if(streamReader.name()== "tipoArea"){
+        if(streamReader.name().toString()== "tipoArea"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -616,7 +616,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
         }}
 
-        if(streamReader.name()== "centX"){
+        if(streamReader.name().toString()== "centX"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -625,7 +625,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
         }}
 
-        if(streamReader.name()== "centY"){
+        if(streamReader.name().toString()== "centY"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -634,7 +634,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
         }}
 
-        if(streamReader.name()== "heigth"){
+        if(streamReader.name().toString()== "heigth"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -643,7 +643,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
         }}
 
-        if(streamReader.name()== "width"){
+        if(streamReader.name().toString()== "width"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -652,7 +652,7 @@ void parserXMLtoCSV::lerTRKING(QString nomeArquivo)
 
         }}
 
-        if(streamReader.name()== "raio"){
+        if(streamReader.name().toString()== "raio"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -771,14 +771,14 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         xmlReader.readNext();
 
 
-        if(xmlReader.name()== "nomeAnalisador"){
+        if(xmlReader.name().toString()== "nomeAnalisador"){
         experimentador.nome= xmlReader.readElementText();
            //qDebug() << xmlReader.readElementText();
 
         }
 
 
-           if(xmlReader.name()== "laboratorio"){
+           if(xmlReader.name().toString()== "laboratorio"){
          experimentador.lab= xmlReader.readElementText();
               // qDebug() << xmlReader.readElementText();
            }
@@ -796,20 +796,20 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         xmlReader.readNext();
 
 
-        if(xmlReader.name()== "dadosCatalagoUsado"){
+        if(xmlReader.name().toString()== "dadosCatalagoUsado"){
             entrou=~entrou;
         }
 
 
         if(entrou==true){
 
-            if(xmlReader.name()== "caminhoCatalago"){
+            if(xmlReader.name().toString()== "caminhoCatalago"){
 
                 catalagoLido->caminhoArquivo= xmlReader.readElementText();
 
             }
 
-            if(xmlReader.name()== "categoria"){
+            if(xmlReader.name().toString()== "categoria"){
               QString conversor =  xmlReader.attributes().value("nome").toString();
                 if(!conversor.isEmpty()){ //ele acaba entrando daus vez pra cada tag
                     catalagoLido->nome.push_back(conversor);
@@ -835,34 +835,34 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         xmlReader.readNext();
 
 
-        if(xmlReader.name()== "dadosVideosUsados"){
+        if(xmlReader.name().toString()== "dadosVideosUsados"){
             entrou=~entrou;
         }
 
 
         if(entrou==true){
 
-            if(xmlReader.name()== "caminhoVideo"){
+            if(xmlReader.name().toString()== "caminhoVideo"){
             QString conversor= xmlReader.readElementText();
             if(!conversor.isEmpty()){
             videoLido->nome= conversor;
             }}
-            if(xmlReader.name()== "frameInicial"){
+            if(xmlReader.name().toString()== "frameInicial"){
             QString conversor= xmlReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
             videoLido->frameInicial= conversor.toDouble();
             }}
-            if(xmlReader.name()== "frameProces"){
+            if(xmlReader.name().toString()== "frameProces"){
             QString conversor= xmlReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
             videoLido->frameProce= conversor.toDouble();
             }}
-            if(xmlReader.name()== "frameFinal"){
+            if(xmlReader.name().toString()== "frameFinal"){
             QString conversor= xmlReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
             videoLido->frameFinal= conversor.toDouble();
             }}
-            if(xmlReader.name()== "fps"){
+            if(xmlReader.name().toString()== "fps"){
             QString conversor= xmlReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
             videoLido->fps= conversor.toDouble();
@@ -884,7 +884,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         xmlReader.readNext();
 
 
-        if(xmlReader.name()== "analises"){
+        if(xmlReader.name().toString()== "analises"){
             if(entrou==true){
                 entrou=false;
             }else{
@@ -896,7 +896,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         if(entrou==true){
 
 
-            if(xmlReader.name()== "categoria"){
+            if(xmlReader.name().toString()== "categoria"){
             QString conversor= xmlReader.attributes().value("tipo").toString();
             if(!conversor.isEmpty()){
             etografiaLida->tipoDeAnalise= conversor;
@@ -907,7 +907,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
             }
 
             }
-            if(xmlReader.name()== "caminhoAnaliseEto"){
+            if(xmlReader.name().toString()== "caminhoAnaliseEto"){
 
             QString conversor= xmlReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -932,7 +932,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         xmlReader.readNext();
 
 
-        if(xmlReader.name()== "sessoes"){
+        if(xmlReader.name().toString()== "sessoes"){
             if(entrou==true){
                 entrou=false;
             }else{
@@ -944,7 +944,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         if(entrou==true){
 
 
-            if(xmlReader.name()== "sessao"){
+            if(xmlReader.name().toString()== "sessao"){
             QString conversor= xmlReader.attributes().value("id").toString();
             QString conversor1= xmlReader.attributes().value("inicio").toString();
             QString conversor2= xmlReader.attributes().value("fim").toString();
@@ -974,7 +974,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
 //            }
 
-            if(xmlReader.name()== "duracao"){
+            if(xmlReader.name().toString()== "duracao"){
 
             QString conversorlal= xmlReader.readElementText();
             if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -983,7 +983,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
             }
 
-            if(xmlReader.name()== "frequencia"){
+            if(xmlReader.name().toString()== "frequencia"){
 
             QString conversor= xmlReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -993,7 +993,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
             }
 
-            if(xmlReader.name()== "latencia"){
+            if(xmlReader.name().toString()== "latencia"){
 
             QString conversor= xmlReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1023,7 +1023,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         xmlReader.readNext();
 
 
-        if(xmlReader.name()== "sessoes"){
+        if(xmlReader.name().toString()== "sessoes"){
             if(entrou==true){
                 entrou=false;
             }else{
@@ -1051,7 +1051,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 //                    }
 //            }
 
-            if(xmlReader.name()== "categoria"){
+            if(xmlReader.name().toString()== "categoria"){
 
             QString conversor= xmlReader.attributes().value("name").toString();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1067,7 +1067,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
             }
 
-            if(xmlReader.name()== "caAnaSeg"){
+            if(xmlReader.name().toString()== "caAnaSeg"){
 
             QString conversorlal= xmlReader.attributes().value("quant").toString();
             if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1079,7 +1079,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
         }
 
-        if(xmlReader.name()== "sessaoPorce"){
+        if(xmlReader.name().toString()== "sessaoPorce"){
             if(entrouPorce==true){
                 entrouPorce=false;
             }else{
@@ -1092,7 +1092,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         if(entrouPorce==true){
 
 
-            if(xmlReader.name()== "caAnaSegPorce"){
+            if(xmlReader.name().toString()== "caAnaSegPorce"){
 
             QString conversorlal= xmlReader.attributes().value("quant").toString();
             if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1103,7 +1103,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
 
 
-            if(xmlReader.name()== "categoriaPorce"){
+            if(xmlReader.name().toString()== "categoriaPorce"){
 
             QString conversor= xmlReader.attributes().value("name").toString();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1142,7 +1142,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         xmlReader.readNext();
 
 
-        if(xmlReader.name()== "tabelaConcordancia"){
+        if(xmlReader.name().toString()== "tabelaConcordancia"){
             if(entrou==true){
                 entrou=false;
             }else{
@@ -1170,7 +1170,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 //                    }
 //            }
 
-            if(xmlReader.name()== "categoriaKK"){
+            if(xmlReader.name().toString()== "categoriaKK"){
 
             QString conversor= xmlReader.attributes().value("nome").toString();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1186,7 +1186,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
             }
 
-            if(xmlReader.name()== "caAnaSeg"){
+            if(xmlReader.name().toString()== "caAnaSeg"){
 
             QString conversorlal= xmlReader.attributes().value("quant").toString();
             if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1201,7 +1201,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
         }
 
-        if(xmlReader.name()== "tabelaPorcentagem"){
+        if(xmlReader.name().toString()== "tabelaPorcentagem"){
             if(entrou1==true){
                 entrou1=false;
             }else{
@@ -1214,7 +1214,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
 
 
-            if(xmlReader.name()== "categoriaKK"){
+            if(xmlReader.name().toString()== "categoriaKK"){
 
             QString conversor= xmlReader.attributes().value("nome").toString();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1230,7 +1230,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
             }
 
-            if(xmlReader.name()== "caAnaSeg"){
+            if(xmlReader.name().toString()== "caAnaSeg"){
 
             QString conversorlal= xmlReader.attributes().value("porcent").toString();
             if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1244,19 +1244,19 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
 
 
-        if(xmlReader.name()== "k1"){
+        if(xmlReader.name().toString()== "k1"){
         QString conversor= xmlReader.readElementText();
         if(!conversor.isEmpty()){
             KohoKappa.k1= conversor.toFloat();
         }
         }
-        if(xmlReader.name()== "k2"){
+        if(xmlReader.name().toString()== "k2"){
         QString conversor= xmlReader.readElementText();
         if(!conversor.isEmpty()){
             KohoKappa.k2= conversor.toFloat();
         }
         }
-        if(xmlReader.name()== "indiceKohoneKappa"){
+        if(xmlReader.name().toString()== "indiceKohoneKappa"){
         QString conversor= xmlReader.readElementText();
         if(!conversor.isEmpty()){
             KohoKappa.kappa= conversor.toFloat();
@@ -1280,7 +1280,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         xmlReader.readNext();
 
 
-        if(xmlReader.name()== "analise"){
+        if(xmlReader.name().toString()== "analise"){
             if(entrou==true){
                 entrou=false;
             }else{
@@ -1288,7 +1288,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
             }
         }
 
-        if(xmlReader.name()== "tabelaSomatorio"){
+        if(xmlReader.name().toString()== "tabelaSomatorio"){
             if(entrou1==true){
                 entrou1=false;
             }else{
@@ -1296,7 +1296,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
             }
         }
 
-        if(xmlReader.name()== "pi"){
+        if(xmlReader.name().toString()== "pi"){
             if(entrou2==true){
                 entrou2=false;
             }else{
@@ -1310,7 +1310,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         if(entrou==true){
 
 
-            if(xmlReader.name()== "aFr"){
+            if(xmlReader.name().toString()== "aFr"){
 
             QString conversor= xmlReader.attributes().value("num").toString();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1326,7 +1326,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
             }
 
-            if(xmlReader.name()== "con"){
+            if(xmlReader.name().toString()== "con"){
 
             QString conversorlal= xmlReader.attributes().value("q").toString();
             if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1363,7 +1363,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
         //final do primeiro entroeu
         if(entrou1==true){
 
-            if(xmlReader.name()== "con"){
+            if(xmlReader.name().toString()== "con"){
 
             QString conversorlal= xmlReader.attributes().value("q").toString();
             if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1375,7 +1375,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
         if(entrou2==true){
 
-            if(xmlReader.name()== "con"){
+            if(xmlReader.name().toString()== "con"){
 
             QString conversorlal= xmlReader.attributes().value("q").toString();
             if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1387,19 +1387,19 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
 
 
-        if(xmlReader.name()== "Pe"){
+        if(xmlReader.name().toString()== "Pe"){
         QString conversor= xmlReader.readElementText();
         if(!conversor.isEmpty()){
             flKaDa.pe= conversor.toFloat();
         }
         }
-        if(xmlReader.name()== "P"){
+        if(xmlReader.name().toString()== "P"){
         QString conversor= xmlReader.readElementText();
         if(!conversor.isEmpty()){
             flKaDa.p= conversor.toFloat();
         }
         }
-        if(xmlReader.name()== "indiceFleissKappa"){
+        if(xmlReader.name().toString()== "indiceFleissKappa"){
         QString conversor= xmlReader.readElementText();
         if(!conversor.isEmpty()){
             flKaDa.indiceFleissKappa= conversor.toFloat();
@@ -1418,7 +1418,7 @@ void parserXMLtoCSV::lerTimeXml(int qualLer)
 
             xmlReader.readNext();
 
-        if(xmlReader.name() == "analise"){
+        if(xmlReader.name().toString() == "analise"){
 
           if(etografiaLida->controle){
 
