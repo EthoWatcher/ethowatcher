@@ -7,6 +7,7 @@ def read_ls_comand(path:str):
 
     def map_str_tuple(st_o:str):
         ls_para = st_o.split(";")
+
         if ls_para[2] == '0':
             return (ls_para[0], ls_para[1], False)
         else:
@@ -15,7 +16,7 @@ def read_ls_comand(path:str):
     with open(path) as f:
         lines = f.readlines()
 
-    ls_line = list(map(map_str_tuple, map(map_s, lines)))
+    ls_line = list(map(map_str_tuple, filter(lambda x: len(x) == 3, map(map_s, lines))))
     return ls_line
 
 def create_excel_file(ls_comands, path):
@@ -38,9 +39,11 @@ def main():
     # parser.add_argument("t", help="some_Text")
     args = parser.parse_args()
     path = args.path
+    # path = "C:\\doutorado\\software\\Terminando o Ethowatcher\\experimento\\de23_tkin0Total Area_xlsx.xlsx"
     # path = "C:\\doutorado\software\\Terminando o Ethowatcher\\experimento\\123adszxc_tkin0Total Area_xlsx.xlsx"
     ls_comands = read_ls_comand(path)
     create_excel_file(ls_comands, path+"_saida.xlsx")
+    print(f"write_fix:{path}" )
 
 if __name__ == "__main__":
     main()
