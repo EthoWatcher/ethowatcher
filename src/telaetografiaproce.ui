@@ -17,7 +17,7 @@
    <item>
     <widget class="QStackedWidget" name="swPrincipal">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout_22">
@@ -39,7 +39,7 @@
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="resourcefile.qrc">:/icons/logo_ethowatcher.png</pixmap>
+          <pixmap>:/icons/logo_ethowatcher.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -542,7 +542,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resourcefile.qrc">
+                  <iconset>
                    <normaloff>:/icons/br_prev.ico</normaloff>:/icons/br_prev.ico</iconset>
                  </property>
                 </widget>
@@ -594,7 +594,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset resource="resourcefile.qrc">
+                  <iconset>
                    <normaloff>:/icons/br_next.ico</normaloff>:/icons/br_next.ico</iconset>
                  </property>
                  <property name="shortcut">
@@ -662,7 +662,7 @@
                     <string/>
                    </property>
                    <property name="icon">
-                    <iconset resource="resourcefile.qrc">
+                    <iconset>
                      <normaloff>:/icons/playback_play.ico</normaloff>:/icons/playback_play.ico</iconset>
                    </property>
                   </widget>
@@ -693,7 +693,7 @@
                     <string/>
                    </property>
                    <property name="icon">
-                    <iconset resource="resourcefile.qrc">
+                    <iconset>
                      <normaloff>:/icons/playback_pause.ico</normaloff>:/icons/playback_pause.ico</iconset>
                    </property>
                   </widget>
@@ -1458,8 +1458,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>63</width>
-                   <height>70</height>
+                   <width>306</width>
+                   <height>304</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1908,8 +1908,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="resourcefile.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

@@ -24,12 +24,17 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 //funcionamento da saida em xml
 #include <QtCore>
-#include <QFile>
+
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
 #include <QDebug>
-#include <QFileDialog>
+
 #include <QMessageBox>
+
+#include <QFile>
+#include <QTemporaryFile>
+#include <QProcess>
+#include <QFileDialog>
 
 //gravando csv
 #include <QTextStream>
@@ -69,6 +74,8 @@ static QString next_letter (QString letter) {
 //          }
 
     };
+//std::string path_inside_qrc = ":/script/report_writer/dist/writer.exe";
+//qDebug() << " CEHGANDO NO GERA_RELATORIO_PYTHON NO ARQUI PARSERXMLTOCSV";
 
 
 static void gera_relatorio_python(QString path)
@@ -87,6 +94,7 @@ static void gera_relatorio_python(QString path)
 
     //fazendo outras coisas
     std::string path_inside_qrc = ":/script/report_writer/dist/writer.exe";
+//    std::string path_inside_qrc = "C:\\doutorado\\software\\Terminando o Ethowatcher\\ethowatcher\\src\\report_writer\\dist\\writer.exe";
     std::unique_ptr<QTemporaryFile> temporary_file;
 
     temporary_file.reset(
@@ -103,10 +111,10 @@ static void gera_relatorio_python(QString path)
     qDebug() << newname;
 //    QByteArray double_quotes = '"';
     QFile::copy(program, newname);
-    QString arg = "\""+path+"\"";//"\""+path+"\"";
+    QString arg = "\"\"\"" + path+"\"\"\"";//"\""+path+"\"";
     qDebug().noquote() << "new" << arg;
 
-    arg.replace("/", "\\\\");
+//    arg.replace("/", "\\\\");
 
     arguments << arg; //<< text;
 
@@ -135,14 +143,14 @@ static void gera_relatorio_python(QString path)
      myProcess->waitForFinished();
 
 
-    temporary_file.reset();
+//    temporary_file.reset();
 
 
-    if (QFile::exists(newname))
-    {
-        QFile::remove(newname);
+//    if (QFile::exists(newname))
+//    {
+//        QFile::remove(newname);
 
-    }
+//    }
 
 }
 
