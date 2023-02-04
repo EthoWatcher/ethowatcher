@@ -268,6 +268,31 @@ void telaCadastroFilme::on_pbAbreVideo_clicked()
 
         fonteVideoBit = fonteVideo.toLatin1();
 
+        QStringList myStringList = fonteVideo.split('.');
+        auto fonteVideoBitExt_1 =myStringList.last();
+        qDebug() << fonteVideoBitExt_1;
+        fonteVideoBitExt = QByteArray::fromStdString(fonteVideoBitExt_1.toStdString());
+
+
+        QStringList myStringList_barra = fonteVideo.split('/');
+        auto st_saida = myStringList_barra.last().split(".").first(); //myStringList.last();
+        fonteVideoBitNomeArquivo = QByteArray::fromStdString(st_saida.toStdString());
+
+        auto caminho_str =  myStringList_barra.first();
+        QString saida = "";
+        for (int i =0; i<myStringList_barra.length()-1; i++){
+            bool r_last = (myStringList_barra.length()-2) == i;
+            if(r_last){
+                saida = saida + myStringList_barra[i];
+            }else{
+                saida = saida + myStringList_barra[i] + "/";
+            }
+
+        }
+
+        fonteVideoBitCaminhoArquivo = QByteArray::fromStdString(saida.toStdString());
+
+//fonteVideoBit
 
 //            int i= fonteVideoBit.length();
 //            int inicio=0;
