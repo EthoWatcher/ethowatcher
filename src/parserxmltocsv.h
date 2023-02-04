@@ -174,8 +174,15 @@ static void gravar_csv_ls_cell(QString csv_path, QList< QList<Cell> > t_saida){
                 }
             }
 
-        gera_relatorio_python(csv_path);
+           stream.flush();
         };
+
+
+
+        file.close();
+
+
+        gera_relatorio_python(csv_path);
 
 
 
