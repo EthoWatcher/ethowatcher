@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1205</width>
-    <height>743</height>
+    <height>752</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap>:/icons/logo_ethowatcher.png</pixmap>
+          <pixmap resource="resourcefile.qrc">:/icons/logo_ethowatcher.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -326,8 +326,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>258</width>
-                    <height>283</height>
+                    <width>245</width>
+                    <height>228</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -542,7 +542,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset>
+                  <iconset resource="resourcefile.qrc">
                    <normaloff>:/icons/br_prev.ico</normaloff>:/icons/br_prev.ico</iconset>
                  </property>
                 </widget>
@@ -594,7 +594,7 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset>
+                  <iconset resource="resourcefile.qrc">
                    <normaloff>:/icons/br_next.ico</normaloff>:/icons/br_next.ico</iconset>
                  </property>
                  <property name="shortcut">
@@ -662,7 +662,7 @@
                     <string/>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resourcefile.qrc">
                      <normaloff>:/icons/playback_play.ico</normaloff>:/icons/playback_play.ico</iconset>
                    </property>
                   </widget>
@@ -693,7 +693,7 @@
                     <string/>
                    </property>
                    <property name="icon">
-                    <iconset>
+                    <iconset resource="resourcefile.qrc">
                      <normaloff>:/icons/playback_pause.ico</normaloff>:/icons/playback_pause.ico</iconset>
                    </property>
                   </widget>
@@ -1458,8 +1458,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>306</width>
-                   <height>304</height>
+                   <width>298</width>
+                   <height>296</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1908,6 +1908,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="resourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>

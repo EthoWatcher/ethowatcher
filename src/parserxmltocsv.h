@@ -207,7 +207,7 @@ class parserXMLtoCSV
 public:
 
     QString cabecalho_str;
-    void converteArquivo(QString nomePath, QList<Cell> entrada);
+    void converteArquivo(QString nomePath, QList<QList<Cell> > ls_gravar);
 
     parserXMLtoCSV();
     ~parserXMLtoCSV();
@@ -245,7 +245,7 @@ public:
     QString nomeArquivoGravarCsv;
     //para o time buget
     void lerTimeXml(int qualLer);
-    void escreverTimeCsv(QList<Cell> entrada);
+    void escreverTimeCsv(QList<QList<Cell> > ls_gravar);
 
     struct analiseSequencialComportamento{
 
@@ -294,7 +294,7 @@ public:
 
     //para o de sequencia
 //    void lerSeqXml();
-    void escreverSeqCsv(QList<Cell> entrada);
+    void escreverSeqCsv(QList<QList<Cell> > ls_gravar);
 
     //para o de kopo
 //    void lerKohoXml();
@@ -363,8 +363,8 @@ public:
 
     std::vector<etografiaTotalizacoes> totalizacaoTot;
 
-    void escreverEtografiaCsv();
-    void escreverTrakinCsv( QList<Cell> entrada);
+    void escreverEtografiaCsv(QList<QList<Cell> > ls_gravar);
+    void escreverTrakinCsv(QList<QList<Cell> > entrada);
 
 
     struct areaInte{

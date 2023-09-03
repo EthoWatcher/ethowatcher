@@ -82,11 +82,22 @@ def main():
 
 
     ls_comands = read_ls_comand(path_replace)
-    create_excel_file(ls_comands, path_replace + "_saida.xlsx")
+    create_excel_file(ls_comands, path_replace + ".xlsx")
     print(f"write_fix:{path_replace}" )
+
+
+def teste_1():
+    path_replace = "G:\\Outros computadores\\final\doutorado\\software\\Terminando o Ethowatcher\\experimento_revista\\pls_work_etoxml_xlsx.xlsx"
+
+    ls_comands = read_ls_comand(path_replace)
+    create_excel_file(ls_comands, path_replace + ".xlsx")
+    print(f"write_fix:{path_replace}" )
+
+
 
 if __name__ == "__main__":
     main()
+    # teste_1()
 
     # conda activate etho39
    

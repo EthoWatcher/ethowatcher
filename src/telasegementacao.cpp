@@ -1055,7 +1055,10 @@ void telaSegementacao::on_pbTotGravar_clicked()
     parser = new parserXMLtoCSV();
 
 
-    parser->converteArquivo(nomeGravarCatalago, saida_segm);
+    QList<QList<Cell> > ls_gravar;
+    ls_gravar.append(saida_segm);
+
+    parser->converteArquivo(nomeGravarCatalago, ls_gravar);
 
 }
 
@@ -1186,7 +1189,7 @@ QList<Cell> telaSegementacao::_gera_lis_segmetacao(int linha_gap)
         add_cell(&saida, "A"+QString::number(linha),"Segmentation initiated at " + QString::number( inicioPeriodo[tot-1]/videoLido->fps));
         linha += 1;
         add_cell(&saida, "A"+QString::number(linha),
-                 ";  Segmentation terminated at ;" + QString::number(fimPeriodo[tot-1]/videoLido->fps));
+                 " Segmentation terminated at " + QString::number(fimPeriodo[tot-1]/videoLido->fps));
 
 //        texto_saida = texto_saida + "\n RESULTS FOR \n Segmentation initiated at ;" + QString::number( inicioPeriodo[tot-1]/videoLido->fps) ;
 //        texto_saida = texto_saida + ";  Segmentation terminated at ;" + QString::number(fimPeriodo[tot-1]/videoLido->fps) + "\n\n";

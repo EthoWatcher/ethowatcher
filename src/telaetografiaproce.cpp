@@ -2112,10 +2112,15 @@ void telaEtografiaProce::on_pbStart_clicked()
         ui->widBotoes->setLayout(vlay);
 
         //conecta o sinal de clicar no slot de mapa
-        connect(buttonList[j], SIGNAL(clicked()), mapperCategorias, SLOT(map()));
+//        connect(buttonList[j], SIGNAL(clicked(bool)), mapperCategorias,
+//                SLOT(map()));
 
+//        connect(buttonList[j], &QPushButton::clicked,
+//                mapperCategorias, &QSignalMapper::map);
         //colocar o botão no int
-        mapperCategorias->setMapping(buttonList[j],j);
+//        mapperCategorias->setMapping(buttonList[j],j);
+
+        connect(buttonList[j], &QPushButton::clicked, [this, j] { slotMapeado(j); });
 
 
 
@@ -2123,23 +2128,24 @@ void telaEtografiaProce::on_pbStart_clicked()
 
         }
 
-   connect(mapperCategorias, SIGNAL(mapped(int)), this, SLOT(slotMapeado(int)));
+//        connect(mapperCategorias, SIGNAL(mapped(int)),
+//                this, SLOT(slotMapeado(int)));
 
-             if(ui->cbNested->isChecked()){
-                  escolheSelecao=false;  //true apenas um botão por vez
-                             //false pode apertar todos os botões
-            }else{
+        if(ui->cbNested->isChecked()){
+              escolheSelecao=false;  //true apenas um botão por vez
+                         //false pode apertar todos os botões
+        }else{
 
-                 escolheSelecao=true;  //true apenas um botão por vez
-                                       //false pode apertar todos os botões
+             escolheSelecao=true;  //true apenas um botão por vez
+                                   //false pode apertar todos os botões
 
-             }
+         }
 
-             //criando o atalho para os botoes
-             for(int ji=0; ji< cAnaEto.atalho.size(); ji++ ){
-                 creatShortCurt(cAnaEto.atalho[ji],buttonList[ji]);
+         //criando o atalho para os botoes
+         for(int ji=0; ji< cAnaEto.atalho.size(); ji++ ){
+             creatShortCurt(cAnaEto.atalho[ji],buttonList[ji]);
 
-             }
+         }
 
 
         //conectando os botões criados
@@ -2728,12 +2734,11 @@ void telaEtografiaProce::on_cbNested_clicked(bool checked)
     }
 }
 
-//#include "xlsxdocument.h"
-//#include <QDir>
-//QXlsx::Document xlsx;
-//xlsx.write("A1", "Hello Qt!");
-//xlsx.saveAs(QDir::currentPath()+ "Test.xlsx");
-
+// #include "xlsxdocument.h"
+// #include <QDir>
+// QXlsx::Document xlsx;
+// xlsx.write("A1", "Hello Qt!");
+// xlsx.saveAs(QDir::currentPath()+ "Test.xlsx");
 
 // gravar etografia
 void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
@@ -2751,7 +2756,7 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
         // ui->pbGravarAnalasiteEtografica->setEnabled(false);
 
 
-
+        QList< QList<Cell> > excell_lista;
 
 
         auto gera_cabecalho = [&](QString nome_caminho_video,
@@ -2852,8 +2857,17 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 
         // Falta resolver
 //        QString texto_seg ="";
-        QList<Cell> seg_temporal_saida;
+
+        excell_lista.append( gera_cabecalho(nomeGravarEtografia,
+                                           videoLista.frameProces[contadorDeVideo],
+                                           videoLista.frameFinal[contadorDeVideo],
+                                           videoLista.fps[contadorDeVideo]));
+
+        excell_lista.append( comp_eto_saida);
+
+
        if(ui->cb_temporal_segmentation->isChecked()){
+           QList<Cell> seg_temporal_saida;
            telaSegementacao *segment;
            segment = new telaSegementacao();
            seg_temporal_saida = segment->gera_segmentacao_texto(
@@ -2872,32 +2886,28 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 
 
 //           qDebug() <<texto_seg;
+           excell_lista.append( seg_temporal_saida);
+
        }
 
 //       QList<Cell> text_sencia = "";
-       if(ui->cb_seq_analyses->isChecked()){
-//           text_sencia = text_transicao; //transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
-                                         //      cAnaEto.nomeCategoria,
-                                         //     saida.id.size(),
-                                         //     saida.id);
+//       if(ui->cb_seq_analyses->isChecked()){
+////           text_sencia = text_transicao; //transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
+//                                         //      cAnaEto.nomeCategoria,
+//                                         //     saida.id.size(),
+//                                         //     saida.id);
 
-//           qDebug() << text_sencia;
+////           qDebug() << text_sencia;
 
-       }
+//       }
 
-        // falta resolver.
-
-
+//        // falta resolver.
 
 
-        excell_lista.append( gera_cabecalho(nomeGravarEtografia,
-                                           videoLista.frameProces[contadorDeVideo],
-                                           videoLista.frameFinal[contadorDeVideo],
-                                           videoLista.fps[contadorDeVideo]));
 
-        excell_lista.append( comp_eto_saida);
 
-        excell_lista.append( seg_temporal_saida);
+
+
 
 //        QList<Cell> text_sencia = "";
         if(ui->cb_seq_analyses->isChecked()){
@@ -2906,6 +2916,11 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
                                           //     saida.id.size(),
                                           //     saida.id);
 
+
+            text_transicao = transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
+                                                            cAnaEto.nomeCategoria,
+                                                           saida.id.size(),
+                                                           saida.id);
  //           qDebug() << text_sencia;
             excell_lista.append( text_transicao);
 
@@ -2952,10 +2967,13 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 
 //        QString texto = cabecalho + alinha_tabela(text_eto , text_sencia) + texto_seg;
 
+        parser = new parserXMLtoCSV();
 
+//        excell_lista QList<QList<Cell>> excell_lista;
+        parser->converteArquivo(nomeGravarEtografia, excell_lista);
 
-        this->_gravar_csv(nomeGravarEtografia, excell_lista);
-
+        //        this->_gravar_csv(nomeGravarEtografia,
+        //                          excell_lista); // remover completamente
 
         OutEtografia.setFileName(nomeGravarEtografia);
         OutEtografia.open(QIODevice::WriteOnly);
@@ -3424,7 +3442,12 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
                                    videoLista.fps[contadorDeVideo]);
 
     parser = new parserXMLtoCSV();
-    parser->converteArquivo(nomeGravarProcesImagem, s );
+
+
+    QList<QList<Cell> > ls_gravar;
+    ls_gravar.append(s);
+
+    parser->converteArquivo(nomeGravarProcesImagem, ls_gravar );
 
     QMessageBox::information(this,tr("Message"),tr("Saved successfully"));
 
@@ -4111,73 +4134,66 @@ std::tuple<QList<Cell>, int> telaEtografiaProce::gera_csv_eto(QString nomeGravar
 
 
 void telaEtografiaProce::_gravar_csv(QString path_eto, QList< QList<Cell> > t_saida){
-    QFile outGravador_csv;
-    QStringList list1 = path_eto.split(".etoxml"); // nomeGravarEtografia
-    QString csv_path = list1[0] + "_xlsx.xlsx";
-//    QXlsx::Document xlsx;
+    qDebug() << "";
+//    QFile outGravador_csv;
+//    QStringList list1 = path_eto.split(".etoxml"); // nomeGravarEtografia
+//    QString csv_path = list1[0] + "_xlsx.xlsx";
+////        QXlsx::Document xlsx;
 
-//    for (auto list_celulas : t_saida){
-//        for (auto celula: list_celulas){
-//            if(celula.r_number){
-//                xlsx.write(celula.number, celula.content.toDouble());
-//            }else{
-//                xlsx.write(celula.number, celula.content);
+//        for (auto list_celulas : t_saida){
+//            for (auto celula: list_celulas){
+//                if(celula.r_number){
+////                    xlsx.write(celula.number, celula.content.toDouble());
+//                }else{
+////                    xlsx.write(celula.number, celula.content);
+//                }
+
+//            }
+//        }
+////        xlsx.saveAs(csv_path);
+
+//        QStringList list_csv_line = t_saida.split('\n');
+////        QXlsx::Document xlsx;
+
+//        auto next_letter = [](QString letter) {
+//        // melhorar essa função
+//              QString alfabeto =
+//              "A;B;C;D;E;F;G;H;I;J;K;L:M;N;O;P;Q;R;S;T;U;V;X;Y;Z;AA;AB;AC;AD;AE;AJ";
+//              int start = alfabeto.indexOf(letter, 0, Qt::CaseInsensitive);
+
+//              QStringList alga_list = alfabeto.split(";");
+//              int tamanho = alga_list.length();
+//              bool r_reseta = tamanho <= start + 1;
+
+//              if (r_reseta){
+//                 return alga_list[0];
+//              }else{
+//                 return alga_list[start+1];
+//              }
+
+//        };
+
+//        int c_linha = 1;
+//        for (auto cel_line : list_csv_line){
+//            QStringList coluna_line = cel_line.split(";");
+//            QString letra_count = "A";
+//            for (auto coluna: coluna_line){
+//                QString cel_name = letra_count + QString::number(c_linha);
+//                xlsx.write(cel_name, coluna);
+//                letra_count = next_letter(letra_count);
 //            }
 
-//        }
-//    }
-//    xlsx.saveAs(csv_path);
-
-
-//    QStringList list_csv_line = t_saida.split('\n');
-//    QXlsx::Document xlsx;
-
-//    auto next_letter = [](QString letter) {
-//    // melhorar essa função
-//          QString alfabeto = "A;B;C;D;E;F;G;H;I;J;K;L:M;N;O;P;Q;R;S;T;U;V;X;Y;Z;AA;AB;AC;AD;AE;AJ";
-//          int start = alfabeto.indexOf(letter, 0, Qt::CaseInsensitive);
-
-//          QStringList alga_list = alfabeto.split(";");
-//          int tamanho = alga_list.length();
-//          bool r_reseta = tamanho <= start + 1;
-
-//          if (r_reseta){
-//             return alga_list[0];
-//          }else{
-//             return alga_list[start+1];
-//          }
-
-//    };
-
-
-//    int c_linha = 1;
-//    for (auto cel_line : list_csv_line){
-//        QStringList coluna_line = cel_line.split(";");
-//        QString letra_count = "A";
-//        for (auto coluna: coluna_line){
-//            QString cel_name = letra_count + QString::number(c_linha);
-//            xlsx.write(cel_name, coluna);
-//            letra_count = next_letter(letra_count);
+//            c_linha += 1;
 //        }
 
-//        c_linha += 1;
-//    }
+////        xlsx.saveAs(csv_path);
 
-//    xlsx.saveAs(csv_path);
+//        outGravador_csv.setFileName(csv_path);
+//        outGravador_csv.open(QIODevice::WriteOnly | QIODevice::Text );
+//        QTextStream csvGravador(&outGravador_csv);
 
-
-
-
-
-
-
-//    outGravador_csv.setFileName(csv_path);
-//    outGravador_csv.open(QIODevice::WriteOnly | QIODevice::Text );
-//    QTextStream csvGravador(&outGravador_csv);
-
-
-//    csvGravador << t_saida;
-//    outGravador_csv.close();
+////        csvGravador << t_saida;
+//        outGravador_csv.close();
 }
 
 

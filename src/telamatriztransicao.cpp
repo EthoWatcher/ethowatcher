@@ -142,17 +142,19 @@ QList<Cell> telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categor
 //        QString str_titulo = ";";
         QList<Cell> saida;
         int linha_cont = 15;
-        QString letter= "M";
+        QString letter= "L";
 
 
 
 
-        add_cell(&saida, letter+QString::number(linha_cont),"Transition frequencies matrix\n\n;Following Category");
+        add_cell(&saida, letter+QString::number(linha_cont), "Transition frequencies matrix (Percent)");
         linha_cont += 1;
+//        add_cell(&saida, letter+QString::number(linha_cont),"Following Category");
+//        linha_cont += 1;
 
 
         // gera os titulos
-        letter= "L";
+        letter= "M";
         add_cell(&saida, letter+QString::number(linha_cont),"Following Category");
         for(int i=0; i< titulos.size(); i++){
 //            str_titulo = str_titulo + titulos[i]+";";
@@ -594,7 +596,10 @@ void telaMatrizTransicao::on_pbGeraRelaSeq_clicked()
     qDebug() <<"gravou o xml";
 
 //    QList<Cell> saida;
-    parser->converteArquivo(nomeGravarCatalago, saida_analise_seq);
+    QList<QList<Cell> > ls_gravar;
+    ls_gravar.append(saida_analise_seq);
+
+    parser->converteArquivo(nomeGravarCatalago, ls_gravar);
 
 
 
