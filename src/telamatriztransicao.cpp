@@ -292,6 +292,8 @@ void telaMatrizTransicao::on_pbSeqCarregar_clicked()
                                       etografiaLida->id);
 
 
+
+    add_cell(&saida_analise_seq, "A10", "Registred video file are locate in " + videoLido->nome); //+ nome_caminho_video);
 //    ui->teTutor->setText(" Passo 2: Clique em `Analisar` para fazer a análise de transição e "
 //                         "gerar seu gráfico");
 }
@@ -597,7 +599,10 @@ void telaMatrizTransicao::on_pbGeraRelaSeq_clicked()
 
 //    QList<Cell> saida;
     QList<QList<Cell> > ls_gravar;
+
     ls_gravar.append(saida_analise_seq);
+
+
 
     parser->converteArquivo(nomeGravarCatalago, ls_gravar);
 

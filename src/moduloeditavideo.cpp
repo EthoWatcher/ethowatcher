@@ -484,7 +484,7 @@ void moduloEditaVideo::iniGraFluxoComportamento(QString nomeVXML, QString nomeEd
 
 }
 
-//funcao que le o xml
+//funcao que le o xml JESUSSSS E EASSA DAQUI
 void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 {
 //    OutVideo.setFileName(nomeArquivoLer);
@@ -1240,7 +1240,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
 
 }
-
+// END AQUI PAROU DE LER O ARQUIVO
 
 
 
@@ -1309,6 +1309,10 @@ void moduloEditaVideo::writXmlVideoCego(QString nomeArquivoEditado)
     stream.writeTextElement("a", rsa.criptoRSAQstring(key.senha));
     stream.writeTextElement("b", rsa.criptoRSAQstring(key.lab));
     stream.writeTextElement("c", rsa.criptoRSAQstring(key.nome));
+//    stream.writeTextElement("a", rsa.criptoRSAQstring("doutorado"));
+//    stream.writeTextElement("b", rsa.criptoRSAQstring("joao"));
+//    stream.writeTextElement("c", rsa.criptoRSAQstring("antonio"));
+
     stream.writeTextElement("tempoGasto", QString::number(tresposta));
     stream.writeTextElement("codecUtilizado",QString::number(codecVideo));
     stream.writeEndElement(); //fecha o elemento de informacoes

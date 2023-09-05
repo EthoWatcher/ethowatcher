@@ -71,8 +71,8 @@
                  <widget class="QGroupBox" name="groupBox_9">
                   <property name="minimumSize">
                    <size>
-                    <width>0</width>
-                    <height>20</height>
+                    <width>50</width>
+                    <height>100</height>
                    </size>
                   </property>
                   <property name="maximumSize">
@@ -2188,7 +2188,6 @@
             </property>
             <property name="font">
              <font>
-              <weight>50</weight>
               <bold>false</bold>
              </font>
             </property>
@@ -2390,7 +2389,6 @@
             </property>
             <property name="font">
              <font>
-              <weight>50</weight>
               <bold>false</bold>
              </font>
             </property>
@@ -2414,7 +2412,6 @@
                </property>
                <property name="font">
                 <font>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -2431,7 +2428,6 @@
               <widget class="QSpinBox" name="edtFatordesloc">
                <property name="font">
                 <font>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -2471,7 +2467,6 @@
                </property>
                <property name="font">
                 <font>
-                 <weight>50</weight>
                  <bold>false</bold>
                 </font>
                </property>
@@ -2515,7 +2510,6 @@
             </property>
             <property name="font">
              <font>
-              <weight>50</weight>
               <bold>false</bold>
              </font>
             </property>
@@ -2541,7 +2535,6 @@
                  </property>
                  <property name="font">
                   <font>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -2570,7 +2563,6 @@
                  </property>
                  <property name="font">
                   <font>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -2629,7 +2621,6 @@
                  <property name="font">
                   <font>
                    <pointsize>6</pointsize>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -2683,7 +2674,6 @@
                  <property name="font">
                   <font>
                    <pointsize>6</pointsize>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -2737,7 +2727,6 @@
                  <property name="font">
                   <font>
                    <pointsize>6</pointsize>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -2791,7 +2780,6 @@
                  <property name="font">
                   <font>
                    <pointsize>6</pointsize>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -2845,7 +2833,6 @@
                  <property name="font">
                   <font>
                    <pointsize>6</pointsize>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -2899,7 +2886,6 @@
                  <property name="font">
                   <font>
                    <pointsize>6</pointsize>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -2953,7 +2939,6 @@
                  <property name="font">
                   <font>
                    <pointsize>6</pointsize>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -3007,7 +2992,6 @@
                  <property name="font">
                   <font>
                    <pointsize>6</pointsize>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -3061,7 +3045,6 @@
                  <property name="font">
                   <font>
                    <pointsize>6</pointsize>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -3115,7 +3098,6 @@
                  <property name="font">
                   <font>
                    <pointsize>6</pointsize>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -3169,6 +3151,7 @@
                  <property name="font">
                   <font>
                    <pointsize>6</pointsize>
+                   <bold>false</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -3221,7 +3204,6 @@
                  <property name="font">
                   <font>
                    <pointsize>6</pointsize>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -3244,7 +3226,6 @@
                 <widget class="QSlider" name="SliderVelocidade">
                  <property name="font">
                   <font>
-                   <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>

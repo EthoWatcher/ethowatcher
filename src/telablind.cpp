@@ -971,6 +971,8 @@ void telablind::on_pbBliding_clicked()
         novaThread = new QThread();
         progre = new QProgressBar();
 
+//        editaVideo->setOpenVideo(nomeDosVideosAleatorizado[jk]);
+
         listaDeThread.push_back(novaThread);
         listaEditaVideo.push_back(editaVideo);
         listaPB.push_back(progre);
@@ -1003,7 +1005,7 @@ void telablind::on_pbBliding_clicked()
      textoEditado =ui->leNomePadr->text()+QString::number(jl);
 
      qDebug() << "arquivo vxml é o"<< nomeDosVideosAleatorizado[jl];
-     emit enviIncio(nomeDosVideosAleatorizado[jl],caminhoArquivo, textoEditado, ui->comboBoX->currentIndex());
+     emit enviIncio(nomeDosVideosAleatorizado[jl], caminhoArquivo, textoEditado, ui->comboBoX->currentIndex());
 
      disconnect(this,SIGNAL(enviIncio(QString,QString,QString,int)),listaEditaVideo[jl],SLOT(iniGraVidoCego(QString,QString,QString,int)));
 

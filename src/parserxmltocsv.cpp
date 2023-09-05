@@ -1604,7 +1604,7 @@ void parserXMLtoCSV::escreverTimeCsv(QList<QList<Cell> > ls_gravar)
 //    add_cell(&saida, "C9", dado_experimento.animalSex);
 
 
-    add_cell(&saida, "A10", "Registred video file are locate in PRECISA RESOLVER"); //+ nome_caminho_video);
+//    add_cell(&saida, "A10", "Registred video file are locate in PRECISA RESOLVER"); //+ nome_caminho_video);
 
     add_cell(&saida, "A11", "Analysis initiated at " + QString::number( videoLido->frameInicial / videoLido->fps) + " (seconds) of the video file");
     add_cell(&saida, "A12", "Analysis terminated at " + QString::number( videoLido->frameFinal / videoLido->fps) + " (seconds) of the video file");
@@ -1673,8 +1673,8 @@ void parserXMLtoCSV::escreverSeqCsv(QList<QList<Cell> > ls_gravar)
 //    add_cell(&saida, "B9", dado_experimento.wight);
 //    add_cell(&saida, "C9", dado_experimento.animalSex);
 
-
-    add_cell(&saida, "A10", "Registred video file are locate in PRECISA RESOLVER"); //+ nome_caminho_video);
+    //    add_cell(&saida, "A10", "Registred video file are locate in PRECISA
+    //    RESOLVER"); //+ nome_caminho_video);
 
     add_cell(&saida, "A11", "Analysis initiated at " + QString::number( videoLido->frameInicial / videoLido->fps) + " (seconds) of the video file");
     add_cell(&saida, "A12", "Analysis terminated at " + QString::number( videoLido->frameFinal / videoLido->fps) + " (seconds) of the video file");
@@ -1780,8 +1780,7 @@ void parserXMLtoCSV::escreverSeqCsv(QList<QList<Cell> > ls_gravar)
 //    outGravador.write("O pesquisador foi o:, ");
 //    outGravador.write(experimentador.nome.toLatin1()+"\n");
 //    outGravador.write("a,b,c \n");
-    outGravador.close();
-
+//    outGravador.close();
 }
 
 //void parserXMLtoCSV::lerKohoXml()

@@ -45,11 +45,10 @@ void telaCadastroListaFilme::on_pbOpenXml_clicked()
                    "Video Files (*.vxml)"
                     );
 
-
-    ui->lblNome->setText(separandoNome(nomeArquivo));
-    ui->lblCaminho->setText(separandoCaminho(nomeArquivo));
-    ui->lblExtensao->setText(separandoExt(nomeArquivo));
-
+        ui->lblNome->setText(separandoNome(nomeArquivo));
+        ui->lblCaminho->setText(separandoCaminho(nomeArquivo));
+        ui->lblExtensao->setText(separandoExt(nomeArquivo));
+//    ui->lblNome->setText(nomeArquivo);
     ui->pbAddVideo->setEnabled(true);
     // count++;
 
@@ -126,92 +125,30 @@ void telaCadastroListaFilme::on_pbDeletar_clicked()
 QString telaCadastroListaFilme::separandoCaminho(QString nomeArq){
 
     QByteArray fonteVideoBit,fonteVideoBitExtInv,fonteVideoBitExt,fonteVideoBitCaminhoArquivo,fonteVideoBitNomeArquivo;
-    QString arquivoCaminho;
+    QString arquivoCaminho = "";
     QString arquivoNome;
     QString arquivoExt;
 
-    if(!nomeArq.isNull())
-{
-        fonteVideoBit = nomeArq.toLatin1();
 
+    QStringList myStringList_barra = nomeArq.split('/');
+    auto st_saida = myStringList_barra.last().split(".").last(); //myStringList.last();
+    fonteVideoBitNomeArquivo = QByteArray::fromStdString(st_saida.toStdString());
+//    arquivoCaminho = QString::fromStdString(fonteVideoBitNomeArquivo.toStdString());
 
-    int i= fonteVideoBit.length();
-    int inicio=0;
-
-    //aquirir a extensão do arquivo
-    while(fonteVideoBit[i] != 46){
-
-
-        i--;
-
-   fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
-        inicio++;
-    }
-
-    //desinverter a extensão do arquivo
-    int j=0;
-    while(fonteVideoBitExtInv[j] != 0){
-
-    fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
-
-    j++;
-
-
-
-    }
-
-    //encontrar a ultima barra antes do nome
-    int k=0;
-    int ultimaPosicaoDaBarra=0;
-
-    while(fonteVideoBit[k] != 0) //enquanto não tem string nula ou seja não é o fim do arquivo
-    {
-
-        if(fonteVideoBit[k] == 47){ //47 esta relacionado com a barra
-
-            ultimaPosicaoDaBarra = k;
+    for(int i=0; i< myStringList_barra.size()-1; i++){
+        if (i == 0){
+            arquivoCaminho = arquivoCaminho + myStringList_barra[i];
+        }else{
+            arquivoCaminho = arquivoCaminho +"/"+ myStringList_barra[i];
 
         }
-        k++;
-
 
     }
-
-
-    //assim pode-se encontar o nome do arquivo
-    int contadorNome=ultimaPosicaoDaBarra+1;
-    int contadorNome2=0;
-
-    for(contadorNome;
-        contadorNome <(fonteVideoBit.length()-j);
-        contadorNome++)
-    {
-
-        fonteVideoBitNomeArquivo[contadorNome2]= fonteVideoBit[contadorNome];
-        contadorNome2++;
-    }
-
-    //assim pode-se encontrar o caminho do arquivo
-    int contadorCaminho=0;
-
-
-    for(contadorCaminho;
-        contadorCaminho < ultimaPosicaoDaBarra;
-        contadorCaminho++)
-    {
-
-        fonteVideoBitCaminhoArquivo[contadorCaminho]= fonteVideoBit[contadorCaminho];
-
-    }
-
-    arquivoExt= QString::fromLatin1(fonteVideoBitExt);
-    arquivoNome= QString::fromLatin1(fonteVideoBitNomeArquivo);
-    arquivoCaminho = QString::fromLatin1(fonteVideoBitCaminhoArquivo);
 
     return arquivoCaminho;
 
 
-}
+
 }
 
 QString telaCadastroListaFilme::separandoNome(QString nomeArq){
@@ -221,88 +158,16 @@ QString telaCadastroListaFilme::separandoNome(QString nomeArq){
         QString arquivoNome;
         QString arquivoExt;
 
-        if(!nomeArq.isNull())
-    {
-            fonteVideoBit = nomeArq.toLatin1();
+        QStringList myStringList_barra = nomeArq.split('/');
+        auto st_saida = myStringList_barra.last().split(".").first(); //myStringList.last();
+        fonteVideoBitNomeArquivo = QByteArray::fromStdString(st_saida.toStdString());
+        arquivoNome = QString::fromStdString(st_saida.toStdString());
 
-
-        int i= fonteVideoBit.length();
-        int inicio=0;
-
-        //aquirir a extensão do arquivo
-        while(fonteVideoBit[i] != 46){
-
-
-            i--;
-
-       fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
-            inicio++;
-        }
-
-        //desinverter a extensão do arquivo
-        int j=0;
-        while(fonteVideoBitExtInv[j] != 0){
-
-        fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
-
-        j++;
-
-
-
-        }
-
-        //encontrar a ultima barra antes do nome
-        int k=0;
-        int ultimaPosicaoDaBarra=0;
-
-        while(fonteVideoBit[k] != 0) //enquanto não tem string nula ou seja não é o fim do arquivo
-        {
-
-            if(fonteVideoBit[k] == 47){ //47 esta relacionado com a barra
-
-                ultimaPosicaoDaBarra = k;
-
-            }
-            k++;
-
-
-        }
-
-
-        //assim pode-se encontar o nome do arquivo
-        int contadorNome=ultimaPosicaoDaBarra+1;
-        int contadorNome2=0;
-
-        for(contadorNome;
-            contadorNome <(fonteVideoBit.length()-j);
-            contadorNome++)
-        {
-
-            fonteVideoBitNomeArquivo[contadorNome2]= fonteVideoBit[contadorNome];
-            contadorNome2++;
-        }
-
-        //assim pode-se encontrar o caminho do arquivo
-        int contadorCaminho=0;
-
-
-        for(contadorCaminho;
-            contadorCaminho < ultimaPosicaoDaBarra;
-            contadorCaminho++)
-        {
-
-            fonteVideoBitCaminhoArquivo[contadorCaminho]= fonteVideoBit[contadorCaminho];
-
-        }
-
-        arquivoExt= QString::fromLatin1(fonteVideoBitExt);
-        arquivoNome= QString::fromLatin1(fonteVideoBitNomeArquivo);
-        arquivoCaminho = QString::fromLatin1(fonteVideoBitCaminhoArquivo);
 
     return arquivoNome;
 
 
-    }
+
 
 
  }
@@ -314,88 +179,15 @@ QString telaCadastroListaFilme::separandoExt(QString nomeArq){
         QString arquivoNome;
         QString arquivoExt;
 
-        if(!nomeArq.isNull())
-    {
-            fonteVideoBit = nomeArq.toLatin1();
-
-
-        int i= fonteVideoBit.length();
-        int inicio=0;
-
-        //aquirir a extensão do arquivo
-        while(fonteVideoBit[i] != 46){
-
-
-            i--;
-
-       fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
-            inicio++;
-        }
-
-        //desinverter a extensão do arquivo
-        int j=0;
-        while(fonteVideoBitExtInv[j] != 0){
-
-        fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
-
-        j++;
-
-
-
-        }
-
-        //encontrar a ultima barra antes do nome
-        int k=0;
-        int ultimaPosicaoDaBarra=0;
-
-        while(fonteVideoBit[k] != 0) //enquanto não tem string nula ou seja não é o fim do arquivo
-        {
-
-            if(fonteVideoBit[k] == 47){ //47 esta relacionado com a barra
-
-                ultimaPosicaoDaBarra = k;
-
-            }
-            k++;
-
-
-        }
-
-
-        //assim pode-se encontar o nome do arquivo
-        int contadorNome=ultimaPosicaoDaBarra+1;
-        int contadorNome2=0;
-
-        for(contadorNome;
-            contadorNome <(fonteVideoBit.length()-j);
-            contadorNome++)
-        {
-
-            fonteVideoBitNomeArquivo[contadorNome2]= fonteVideoBit[contadorNome];
-            contadorNome2++;
-        }
-
-        //assim pode-se encontrar o caminho do arquivo
-        int contadorCaminho=0;
-
-
-        for(contadorCaminho;
-            contadorCaminho < ultimaPosicaoDaBarra;
-            contadorCaminho++)
-        {
-
-            fonteVideoBitCaminhoArquivo[contadorCaminho]= fonteVideoBit[contadorCaminho];
-
-        }
-
-        arquivoExt= QString::fromLatin1(fonteVideoBitExt);
-        arquivoNome= QString::fromLatin1(fonteVideoBitNomeArquivo);
-        arquivoCaminho = QString::fromLatin1(fonteVideoBitCaminhoArquivo);
+        QStringList myStringList_barra = nomeArq.split('/');
+        auto st_saida = myStringList_barra.last().split(".").last(); //myStringList.last();
+        fonteVideoBitNomeArquivo = QByteArray::fromStdString(st_saida.toStdString());
+        arquivoExt = "." + QString::fromStdString(fonteVideoBitNomeArquivo.toStdString());
 
 
     return arquivoExt;
 
-    }
+//    }
 
 
  }

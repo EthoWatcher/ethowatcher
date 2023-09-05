@@ -82,7 +82,7 @@ def main():
 
 
     ls_comands = read_ls_comand(path_replace)
-    create_excel_file(ls_comands, path_replace + ".xlsx")
+    create_excel_file(ls_comands, path_replace)
     print(f"write_fix:{path_replace}" )
 
 

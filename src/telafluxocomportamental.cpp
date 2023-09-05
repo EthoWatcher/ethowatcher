@@ -40,7 +40,7 @@ telaFluxoComportamental::~telaFluxoComportamental()
 
 void telaFluxoComportamental::on_pbAnaliseFile_clicked()
 {
-    fonteCaminhoArquivo = QFileDialog::getOpenFileName(
+     fonteCaminhoArquivo = QFileDialog::getOpenFileName(
                 this,
                 tr("Open File"),
                 "C://EthoWatcherOS",
@@ -56,24 +56,36 @@ void telaFluxoComportamental::on_pbAnaliseFile_clicked()
         fonteVideoBit = fonteCaminhoArquivo.toLatin1();
 
         int i= fonteVideoBit.length();
-        int inicio=0;
-        //aquirir a extensão do arquivo
-        while(fonteVideoBit[i] != 46){
-            i--;
-            fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
-            inicio++;
-        }
+//        int inicio=0;
+//        fonteVideoBit.resize(i+1);
+//        //aquirir a extensão do arquivo
+//        while(fonteVideoBit[i] != 46){
+//            i--;
+//            if (inicio  >= fonteVideoBitExtInv.size()) {
+//              fonteVideoBitExtInv.resize(inicio + 1);
+//            }
+//            fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
+//            inicio++;
+//        }
 
 
-        //desinverter a extensão do arquivo
+//        //desinverter a extensão do arquivo
 
-        int j=0;
-        while(fonteVideoBitExtInv[j] != 0){
-            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
-            j++;
+//        int j=0;
+//        while(fonteVideoBitExtInv[j] != 0){
 
-        }
+//            if(j >= fonteVideoBitExt.size()){
+//                fonteVideoBitExt.resize(inicio +1);
+//            }
+//            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
+//            j++;
 
+//        }
+
+        QStringList myStringList = fonteCaminhoArquivo.split('.');
+        auto fonteVideoBitExt_1 =myStringList.last();
+        qDebug() << fonteVideoBitExt_1;
+        fonteVideoBitExt = "." + QByteArray::fromStdString(fonteVideoBitExt_1.toStdString());
 
         if(fonteVideoBitExt==".fkf"){
             lerTimeXml(0); //le o experimentador

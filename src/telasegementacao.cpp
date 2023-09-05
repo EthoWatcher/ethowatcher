@@ -1052,6 +1052,8 @@ void telaSegementacao::on_pbTotGravar_clicked()
 //    parserxmltocsv
     int linha = 16;
     saida_segm = this->_gera_lis_segmetacao(linha);
+
+    add_cell(&saida_segm, "A10", "Registred video file are locate in " + videoLido->nome); //+ nome_caminho_video);
     parser = new parserXMLtoCSV();
 
 
