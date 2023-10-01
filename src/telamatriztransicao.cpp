@@ -97,29 +97,29 @@ QList<Cell> telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categor
 
 
     int loopContador=0;
+    std::vector<std::vector<int> > matrix_sequencial;
+
 
     for(int k=0;k< ctl_qnt_categorias;k++){
         ui->tabDadSeq->insertRow(ui->tabDadSeq->rowCount());
         //categoria
 
-
+        std::vector<int> line_seq;
         for(int j=0; j<ctl_qnt_categorias; j++){
 
             ui->tabDadSeq->setItem(ui->tabDadSeq->rowCount()-1
                                    ,j,new QTableWidgetItem(
                                        QString::number(analiseSequencial.dados[loopContador])));
 
+
+            line_seq.push_back(analiseSequencial.dados[loopContador]);
             loopContador++;
         }
+        matrix_sequencial.push_back(line_seq);
 
     }
 
     loopContador=0;
-
-
-
-
-
 
     for(int m=0;m<ctl_qnt_categorias;m++){
 
@@ -144,27 +144,18 @@ QList<Cell> telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categor
         int linha_cont = 15;
         QString letter= "L";
 
-
-
-
         add_cell(&saida, letter+QString::number(linha_cont), "Transition frequencies matrix (Percent)");
         linha_cont += 1;
-//        add_cell(&saida, letter+QString::number(linha_cont),"Following Category");
-//        linha_cont += 1;
-
-
-        // gera os titulos
         letter= "M";
-        add_cell(&saida, letter+QString::number(linha_cont),"Following Category");
+        add_cell(&saida, letter+QString::number(linha_cont),"Following Behavior");
         for(int i=0; i< titulos.size(); i++){
-//            str_titulo = str_titulo + titulos[i]+";";
             letter = next_letter(letter);
             add_cell(&saida, letter+QString::number(linha_cont),titulos[i]);
-
-
-
-
         }
+
+        letter = next_letter(letter);
+        add_cell(&saida, letter+QString::number(linha_cont),"Total");
+
         linha_cont += 1;
 //        linha_cont += 1;
 
@@ -176,29 +167,16 @@ QList<Cell> telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categor
         // preenche os numeros;
         int loopContador_array=0;
         for(int i=0; i< ctl_qnt_categorias; i++){
-
-//            QString linha ="";
-
-
-
             if(i==0){
-//                linha_cont += 1;
                 letter= "L";
-                add_cell(&saida, letter+QString::number(linha_cont),"Proceding");
-//                linha = "Proceding;";
+                add_cell(&saida, letter+QString::number(linha_cont),"Preceding");
 
             }else if(i==1){
-//                linha_cont += 1;
                 letter= "L";
-                add_cell(&saida, letter+QString::number(linha_cont),"Category");
-//                linha ="Category;";
+                add_cell(&saida, letter+QString::number(linha_cont),"Behavior");
             }else{
 //                linha =";";
             }
-
-//            add_cell(&saida, "M"+QString::number(linha_cont),"Category");
-
-//            linha = linha + titulos[i] + ";";
 
             letter = "M";
             add_cell(&saida, letter+QString::number(linha_cont),titulos[i]);
@@ -206,16 +184,108 @@ QList<Cell> telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categor
             for(int j=0; j<ctl_qnt_categorias; j++){
                 letter = next_letter(letter);
                 add_cell(&saida, letter+QString::number(linha_cont),QString::number( porcentagemMatrix[loopContador_array]), true);
-//                letter = next_letter(letter);
-//                add_cell(&saida, letter+QString::number(linha_cont),QString::number( porcentagemMatrix[loopContador_array]));
-
-//                linha = linha + QString::number( porcentagemMatrix[loopContador_array]) + ";"; // analiseSequencial.dados[loopContador_array])+ ";";
                 loopContador_array++;
             }
+
+            letter = next_letter(letter);
+            int sum =0;
+            for(int i: matrix_sequencial[i]){
+                sum = sum + i;
+            }
+
+            add_cell(&saida, letter+QString::number(linha_cont),QString::number( sum/quantidadeDePontos*100), true);
 
 //            str_csv_completo = str_csv_completo + linha + "\n";
                 linha_cont += 1;
         }
+
+        letter = "M";
+        add_cell(&saida, letter+QString::number(linha_cont),"Total");
+
+        for(int i=0; i< ctl_qnt_categorias; i++){
+            int sum = 0;
+            for(std::vector<int> line: matrix_sequencial){
+                sum = sum + line[i];
+            }
+            letter = next_letter(letter);
+            add_cell(&saida, letter+QString::number(linha_cont),QString::number( sum/quantidadeDePontos*100), true);
+
+         }
+
+        letter = next_letter(letter);
+        add_cell(&saida, letter+QString::number(linha_cont),QString::number(100), true);
+
+        //------------------------------- doing again
+        linha_cont += 2;
+        letter= "L";
+
+        add_cell(&saida, letter+QString::number(linha_cont), "Transition frequencies matrix");
+        linha_cont += 1;
+        letter= "M";
+        add_cell(&saida, letter+QString::number(linha_cont),"Following Behavior");
+        for(int i=0; i< titulos.size(); i++){
+            letter = next_letter(letter);
+            add_cell(&saida, letter+QString::number(linha_cont),titulos[i]);
+        }
+
+        letter = next_letter(letter);
+        add_cell(&saida, letter+QString::number(linha_cont),"Total");
+
+        linha_cont += 1;
+
+        // preenche os numeros;
+        loopContador_array=0;
+        for(int i=0; i< ctl_qnt_categorias; i++){
+            if(i==0){
+                letter= "L";
+                add_cell(&saida, letter+QString::number(linha_cont),"Preceding");
+
+            }else if(i==1){
+                letter= "L";
+                add_cell(&saida, letter+QString::number(linha_cont),"Behavior");
+            }else{
+//                linha =";";
+            }
+
+            letter = "M";
+            add_cell(&saida, letter+QString::number(linha_cont),titulos[i]);
+
+            for(int j=0; j<ctl_qnt_categorias; j++){
+                letter = next_letter(letter);
+                add_cell(&saida, letter+QString::number(linha_cont),QString::number( analiseSequencial.dados[loopContador_array]), true);
+                loopContador_array++;
+            }
+
+            letter = next_letter(letter);
+            int sum =0;
+            for(int i: matrix_sequencial[i]){
+                sum = sum + i;
+            }
+
+            add_cell(&saida, letter+QString::number(linha_cont),QString::number( sum), true);
+
+//            str_csv_completo = str_csv_completo + linha + "\n";
+                linha_cont += 1;
+        }
+
+        letter = "M";
+        add_cell(&saida, letter+QString::number(linha_cont),"Total");
+
+        for(int i=0; i< ctl_qnt_categorias; i++){
+            int sum = 0;
+            for(std::vector<int> line: matrix_sequencial){
+                sum = sum + line[i];
+            }
+            letter = next_letter(letter);
+            add_cell(&saida, letter+QString::number(linha_cont),QString::number( sum), true);
+
+         }
+        letter = next_letter(letter);
+        add_cell(&saida, letter+QString::number(linha_cont),QString::number(quantidadeDePontos), true);
+        linha_cont += 1;
+
+
+
 
         return saida;
 
