@@ -346,6 +346,9 @@ double moduloEditaVideo::getFimVideo()
 void moduloEditaVideo::iniGraVidoCego(QString arquivoVideo,QString nomeCaminhoEditado, QString nomeVideoEditado, int codec)
 {
 
+//    codec = cv::VideoWriter::fourcc('X', 'V', 'I', 'D');
+    codec = 1;
+    qDebug() << "O CODEC USADO FOI " <<codec;
     qDebug () <<"fim do TESTE" << QThread::currentThreadId();
      gravarNomeCaminhoVideo = nomeCaminhoEditado+"/"+nomeVideoEditado+".avi";
      gravarNomeVideo = nomeVideoEditado+".avi";
@@ -355,6 +358,7 @@ void moduloEditaVideo::iniGraVidoCego(QString arquivoVideo,QString nomeCaminhoEd
      qDebug()<< "o nome vxml " << arquivoVideo;
 
     if(readXmlVideoOrignal(arquivoVideo)){
+
 
         setOpenVideo(videoLista.nomeOpencv[0]); //nome opencv do arquivo
 
