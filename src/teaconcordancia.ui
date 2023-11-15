@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Intra- and Inter-observers reliability analysis</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QStackedWidget" name="swPrincipal">
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -54,15 +54,28 @@
          <layout class="QVBoxLayout" name="verticalLayout_7">
           <item>
            <widget class="QPushButton" name="pbKohone1">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
              <string>Cohen Kappa</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pbFleissKappa">
+           <widget class="QPushButton" name="pb_BootstrapCohen">
             <property name="text">
-             <string>Fleiss Kappa</string>
+             <string>Bootstrap Cohen's Kappa and accessory measures</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pbFleissKappa">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Fleiss Kappa, if you want contribute this analysis go to ethowatcher.com.</string>
             </property>
            </widget>
           </item>
@@ -406,7 +419,7 @@
        <item>
         <widget class="QStackedWidget" name="swFleissKappa">
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page_12">
           <layout class="QVBoxLayout" name="verticalLayout_15">

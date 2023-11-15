@@ -56,18 +56,18 @@ void telaUnveil::on_pbUserKey_clicked()
         xmlReader.readNext();
 
         //pega os nome dos arquivos que devem ser abertos
-        if(xmlReader.name()== "nome"){
+        if(xmlReader.name().toString()== "nome"){
         expKey.nome = xmlReader.readElementText() ;
 
         }
 
-        if(xmlReader.name() == "laboratorio"){
+        if(xmlReader.name().toString() == "laboratorio"){
 
          expKey.lab = xmlReader.readElementText() ;
 
         }
 
-        if(xmlReader.name() == "password"){
+        if(xmlReader.name().toString() == "password"){
           expKey.senha = xmlReader.readElementText() ;
         }
 
@@ -351,45 +351,45 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
         streamReader.readNext();
 
         //pega os nome dos arquivos que devem ser abertos
-        if(streamReader.name()== "c"){
+        if(streamReader.name().toString()== "c"){
         experimentador.nome = rsaDecri.decriptoRSAQstring(streamReader.readElementText()) ;
 
         }
 
-        if(streamReader.name() == "b"){
+        if(streamReader.name().toString() == "b"){
 
          experimentador.lab = rsaDecri.decriptoRSAQstring(streamReader.readElementText()) ;
 
         }
 
-        if(streamReader.name() == "a"){
+        if(streamReader.name().toString() == "a"){
           experimentador.senha = rsaDecri.decriptoRSAQstring(streamReader.readElementText()) ;
         }
 
 
 
-        if(streamReader.name()== "nomeArquivoVXML"){
+        if(streamReader.name().toString()== "nomeArquivoVXML"){
         videoLista.nomeArquivoVXML.push_back( rsaDecri.decriptoRSAQstring(streamReader.readElementText()));
         videoLista.nomeArquivoVXML.push_back( rsaDecri.decriptoRSAQstring(streamReader.readElementText()));
            //qDebug() << leitorXML.readElementText();
 
         }
 
-        if(streamReader.name()== "nomeOpencv"){
+        if(streamReader.name().toString()== "nomeOpencv"){
         videoLista.nomeOpencv.push_back( rsaDecri.decriptoRSAQstring(streamReader.readElementText()));
            //qDebug() << leitorXML.readElementText();
 
         }
 
 
-           if(streamReader.name()== "frameInicial"){
+           if(streamReader.name().toString()== "frameInicial"){
 
          conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
         videoLista.frameInicial.push_back(conversor.toInt());
               // qDebug() << leitorXML.readElementText();
            }
 
-           if(streamReader.name()== "frameFinal"){
+           if(streamReader.name().toString()== "frameFinal"){
                conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
         videoLista.frameFinal.push_back(conversor.toInt());
               // qDebug() << leitorXML.readElementText();
@@ -397,13 +397,13 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name() == "frameProces"){
+           if(streamReader.name().toString() == "frameProces"){
                conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
         videoLista.frameProces.push_back(conversor.toInt());
 
 
            }
-            if(streamReader.name() == "frameBack"){
+            if(streamReader.name().toString() == "frameBack"){
 
                 conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
          videoLista.frameBack.push_back(conversor.toInt());
@@ -412,7 +412,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
 
 
 
-            if(streamReader.name() == "treshold"){
+            if(streamReader.name().toString() == "treshold"){
 
                        conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
 
@@ -420,7 +420,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
 
               }
 
-           if(streamReader.name() == "erosao"){
+           if(streamReader.name().toString() == "erosao"){
 
                conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
         videoLista.erosao.push_back(conversor.toInt());
@@ -428,21 +428,21 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
            }
 
 
-           if(streamReader.name() == "escala"){
+           if(streamReader.name().toString() == "escala"){
 
                conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
         videoLista.escala.push_back(conversor.toDouble());
 
            }
 
-           if(streamReader.name() == "fps"){
+           if(streamReader.name().toString() == "fps"){
 
                conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
         videoLista.fps.push_back(conversor.toInt());
 
            }
 
-           if(streamReader.name()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
+           if(streamReader.name().toString()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
 
                conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
                if(conversor=="true"){
@@ -457,7 +457,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
 
            }
 
-           if(streamReader.name()== "janelaInteresse"){
+           if(streamReader.name().toString()== "janelaInteresse"){
 
                if(chaJanInte==true){
                    chaJanInte=false;
@@ -471,7 +471,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
            }
 
            if(chaJanInte==true){
-               if(streamReader.name() == "ativado"){
+               if(streamReader.name().toString() == "ativado"){
 
                    conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
 
@@ -485,7 +485,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
                }
 
 
-               if(streamReader.name() == "movel"){
+               if(streamReader.name().toString() == "movel"){
 
                    conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
 
@@ -498,27 +498,27 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "origX"){
+               if(streamReader.name().toString() == "origX"){
 
                    conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
 
                      videoLista.areaJanInte[contadorDeVideo].oriX.push_back(conversor.toDouble());
 
                }
-               if(streamReader.name() == "origY"){
+               if(streamReader.name().toString() == "origY"){
 
                 conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
                 videoLista.areaJanInte[contadorDeVideo].oriY.push_back(conversor.toDouble());
 
                }
 
-               if(streamReader.name() == "width"){
+               if(streamReader.name().toString() == "width"){
 
                 conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
                 videoLista.areaJanInte[contadorDeVideo].width.push_back(conversor.toDouble());
 
                }
-               if(streamReader.name() == "heigth"){
+               if(streamReader.name().toString() == "heigth"){
 
                 conversor = rsaDecri.decriptoRSAQstring( streamReader.readElementText());
                 videoLista.areaJanInte[contadorDeVideo].height.push_back(conversor.toDouble());
@@ -528,7 +528,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
            }
 
 
-           if(streamReader.name()== "maximaVariacaoCentro"){
+           if(streamReader.name().toString() == "maximaVariacaoCentro"){
 
                if(chaMaxVari==true){
                    chaMaxVari=false;
@@ -542,7 +542,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
 
            if(chaMaxVari){
 
-               if(streamReader.name() == "tamanho"){
+               if(streamReader.name().toString() == "tamanho"){
 
                 conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
                 videoLista.tamMaxVar.push_back(conversor.toDouble());
@@ -558,7 +558,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name()== "areasDeInteresse"){
+           if(streamReader.name().toString() == "areasDeInteresse"){
 
                if(chaveArea==true){
                    chaveArea=false;
@@ -573,7 +573,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
            if(chaveArea==true){
 
 
-               if(streamReader.name()== "area"){
+               if(streamReader.name().toString() == "area"){
 
                QString conversora= rsaDecri.decriptoRSAQstring(streamReader.attributes().value("tipo").toString());
                if(!conversora.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -596,7 +596,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "nomeFig"){
+               if(streamReader.name().toString() == "nomeFig"){
 
                    conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
                    videoLista.area[contadorDeVideo].nomeFig.push_back(conversor);
@@ -605,7 +605,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
                }
 
 
-               if(streamReader.name() == "oriX"){
+               if(streamReader.name().toString() == "oriX"){
 
                    conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
                    videoLista.area[contadorDeVideo].oriX.push_back(conversor.toDouble());
@@ -613,7 +613,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "oriY"){
+               if(streamReader.name().toString() == "oriY"){
 
                    conversor = rsaDecri.decriptoRSAQstring( streamReader.readElementText());
                    videoLista.area[contadorDeVideo].oriY.push_back(conversor.toDouble());
@@ -621,7 +621,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "height"){
+               if(streamReader.name().toString() == "height"){
 
                    conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
                    videoLista.area[contadorDeVideo].height.push_back(conversor.toDouble());
@@ -629,7 +629,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "width"){
+               if(streamReader.name().toString() == "width"){
 
                    conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
                    videoLista.area[contadorDeVideo].width.push_back(conversor.toDouble());
@@ -637,7 +637,7 @@ void telaUnveil::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "rad"){
+               if(streamReader.name().toString() == "rad"){
 
                    conversor = rsaDecri.decriptoRSAQstring(streamReader.readElementText());
                    videoLista.area[contadorDeVideo].raio.push_back(conversor.toDouble());

@@ -1,0 +1,3 @@
+numpy
+XlsxWriter==3.0.3
+pyinstaller

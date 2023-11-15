@@ -28,6 +28,9 @@ telaFluxoComportamental::telaFluxoComportamental(QWidget *parent) :
     etografiaLida= new analiseEtografica();
     chEtr=true;
     chTCCon = false;
+
+    ui->pbOpenTCCM->setEnabled(false);
+
 }
 
 telaFluxoComportamental::~telaFluxoComportamental()
@@ -37,7 +40,7 @@ telaFluxoComportamental::~telaFluxoComportamental()
 
 void telaFluxoComportamental::on_pbAnaliseFile_clicked()
 {
-    fonteCaminhoArquivo = QFileDialog::getOpenFileName(
+     fonteCaminhoArquivo = QFileDialog::getOpenFileName(
                 this,
                 tr("Open File"),
                 "C://EthoWatcherOS",
@@ -53,24 +56,36 @@ void telaFluxoComportamental::on_pbAnaliseFile_clicked()
         fonteVideoBit = fonteCaminhoArquivo.toLatin1();
 
         int i= fonteVideoBit.length();
-        int inicio=0;
-        //aquirir a extensão do arquivo
-        while(fonteVideoBit[i] != 46){
-            i--;
-            fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
-            inicio++;
-        }
+//        int inicio=0;
+//        fonteVideoBit.resize(i+1);
+//        //aquirir a extensão do arquivo
+//        while(fonteVideoBit[i] != 46){
+//            i--;
+//            if (inicio  >= fonteVideoBitExtInv.size()) {
+//              fonteVideoBitExtInv.resize(inicio + 1);
+//            }
+//            fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
+//            inicio++;
+//        }
 
 
-        //desinverter a extensão do arquivo
+//        //desinverter a extensão do arquivo
 
-        int j=0;
-        while(fonteVideoBitExtInv[j] != 0){
-            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
-            j++;
+//        int j=0;
+//        while(fonteVideoBitExtInv[j] != 0){
 
-        }
+//            if(j >= fonteVideoBitExt.size()){
+//                fonteVideoBitExt.resize(inicio +1);
+//            }
+//            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
+//            j++;
 
+//        }
+
+        QStringList myStringList = fonteCaminhoArquivo.split('.');
+        auto fonteVideoBitExt_1 =myStringList.last();
+        qDebug() << fonteVideoBitExt_1;
+        fonteVideoBitExt = "." + QByteArray::fromStdString(fonteVideoBitExt_1.toStdString());
 
         if(fonteVideoBitExt==".fkf"){
             lerTimeXml(0); //le o experimentador
@@ -109,6 +124,8 @@ void telaFluxoComportamental::on_pbAnaliseFile_clicked()
 
 
 
+   ui->pbOpenTCCM->setEnabled(true);
+   ui->pbAnaliseFile->setEnabled(false);
 
 
 }
@@ -127,14 +144,14 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             xmlReader.readNext();
 
 
-            if(xmlReader.name()== "nomeAnalisador"){
+            if(xmlReader.name().toString()== "nomeAnalisador"){
                 experimentador.nome= xmlReader.readElementText();
                 //qDebug() << xmlReader.readElementText();
 
             }
 
 
-            if(xmlReader.name()== "laboratorio"){
+            if(xmlReader.name().toString()== "laboratorio"){
                 experimentador.lab= xmlReader.readElementText();
                 // qDebug() << xmlReader.readElementText();
             }
@@ -152,7 +169,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             xmlReader.readNext();
 
 
-            if(xmlReader.name()== "dadosCatalagoUsado"){
+            if(xmlReader.name().toString()== "dadosCatalagoUsado"){
 
                 if(entrou){
                     entrou=false;
@@ -166,13 +183,13 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
 
             if(entrou==true){
 
-                if(xmlReader.name()== "caminhoCatalago"){
+                if(xmlReader.name().toString()== "caminhoCatalago"){
 
                     catalagoLido->caminhoArquivo= xmlReader.readElementText();
 
                 }
 
-                if(xmlReader.name()== "categoria"){
+                if(xmlReader.name().toString()== "categoria"){
                     QString conversor =  xmlReader.attributes().value("nome").toString();
                     if(!conversor.isEmpty()){ //ele acaba entrando daus vez pra cada tag
                         catalagoLido->nome.push_back(conversor);
@@ -198,34 +215,34 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             xmlReader.readNext();
 
 
-            if(xmlReader.name()== "dadosVideosUsados"){
+            if(xmlReader.name().toString()== "dadosVideosUsados"){
                 entrou=~entrou;
             }
 
 
             if(entrou==true){
 
-                if(xmlReader.name()== "caminhoVideo"){
+                if(xmlReader.name().toString()== "caminhoVideo"){
                     QString conversor= xmlReader.readElementText();
                     if(!conversor.isEmpty()){
                         videoLido->nome= conversor;
                     }}
-                if(xmlReader.name()== "frameInicial"){
+                if(xmlReader.name().toString()== "frameInicial"){
                     QString conversor= xmlReader.readElementText();
                     if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
                         videoLido->frameInicial= conversor.toInt();
                     }}
-                if(xmlReader.name()== "frameProces"){
+                if(xmlReader.name().toString()== "frameProces"){
                     QString conversor= xmlReader.readElementText();
                     if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
                         videoLido->frameProce= conversor.toInt();
                     }}
-                if(xmlReader.name()== "frameFinal"){
+                if(xmlReader.name().toString()== "frameFinal"){
                     QString conversor= xmlReader.readElementText();
                     if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
                         videoLido->frameFinal= conversor.toInt();
                     }}
-                if(xmlReader.name()== "fps"){
+                if(xmlReader.name().toString()== "fps"){
                     QString conversor= xmlReader.readElementText();
                     if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
                         videoLido->fps= conversor.toDouble();
@@ -247,7 +264,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             xmlReader.readNext();
 
 
-            if(xmlReader.name()== "analises"){
+            if(xmlReader.name().toString()== "analises"){
                 if(entrou==true){
                     entrou=false;
                 }else{
@@ -259,7 +276,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             if(entrou==true){
 
 
-                if(xmlReader.name()== "categoria"){
+                if(xmlReader.name().toString()== "categoria"){
                     QString conversor= xmlReader.attributes().value("tipo").toString();
                     if(!conversor.isEmpty()){
                         etografiaLida->tipoDeAnalise= conversor;
@@ -270,7 +287,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
                     }
 
                 }
-                if(xmlReader.name()== "caminhoAnaliseEto"){
+                if(xmlReader.name().toString()== "caminhoAnaliseEto"){
 
                     QString conversor= xmlReader.readElementText();
                     if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -299,7 +316,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             xmlReader.readNext();
 
 
-            if(xmlReader.name()== "analise"){
+            if(xmlReader.name().toString()== "analise"){
                 if(entrou==true){
                     entrou=false;
                 }else{
@@ -307,7 +324,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
                 }
             }
 
-            if(xmlReader.name()== "tabelaSomatorio"){
+            if(xmlReader.name().toString()== "tabelaSomatorio"){
                 if(entrou1==true){
                     entrou1=false;
                 }else{
@@ -315,7 +332,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
                 }
             }
 
-            if(xmlReader.name()== "pi"){
+            if(xmlReader.name().toString()== "pi"){
                 if(entrou2==true){
                     entrou2=false;
                 }else{
@@ -329,7 +346,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             if(entrou==true){
 
 
-                if(xmlReader.name()== "aFr"){
+                if(xmlReader.name().toString()== "aFr"){
 
                     QString conversor= xmlReader.attributes().value("num").toString();
                     if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -345,7 +362,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
 
                 }
 
-                if(xmlReader.name()== "con"){
+                if(xmlReader.name().toString()== "con"){
 
                     QString conversorlal= xmlReader.attributes().value("q").toString();
                     if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -382,7 +399,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
             //final do primeiro entroeu
             if(entrou1==true){
 
-                if(xmlReader.name()== "con"){
+                if(xmlReader.name().toString()== "con"){
 
                     QString conversorlal= xmlReader.attributes().value("q").toString();
                     if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -394,7 +411,7 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
 
             if(entrou2==true){
 
-                if(xmlReader.name()== "con"){
+                if(xmlReader.name().toString()== "con"){
 
                     QString conversorlal= xmlReader.attributes().value("q").toString();
                     if(!conversorlal.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -406,19 +423,19 @@ void telaFluxoComportamental::lerTimeXml(int qualLer)
 
 
 
-            if(xmlReader.name()== "Pe"){
+            if(xmlReader.name().toString()== "Pe"){
                 QString conversor= xmlReader.readElementText();
                 if(!conversor.isEmpty()){
                     flKaDa.pe= conversor.toFloat();
                 }
             }
-            if(xmlReader.name()== "P"){
+            if(xmlReader.name().toString()== "P"){
                 QString conversor= xmlReader.readElementText();
                 if(!conversor.isEmpty()){
                     flKaDa.p= conversor.toFloat();
                 }
             }
-            if(xmlReader.name()== "indiceFleissKappa"){
+            if(xmlReader.name().toString()== "indiceFleissKappa"){
                 QString conversor= xmlReader.readElementText();
                 if(!conversor.isEmpty()){
                     flKaDa.indiceFleissKappa= conversor.toFloat();
@@ -450,7 +467,7 @@ void telaFluxoComportamental::lerETOXML(QString nomeArquivo)
 
         streamReader.readNext();
 
-        if(streamReader.name() == "analise"){
+        if(streamReader.name().toString() == "analise"){
 
           if(etografiaLida->controle){
 
@@ -470,7 +487,7 @@ void telaFluxoComportamental::lerETOXML(QString nomeArquivo)
         }
 
 
-        if(streamReader.name() == "categoria"){
+        if(streamReader.name().toString() == "categoria"){
 
           if(catalagoLido->controle){
               QString nome;
@@ -489,50 +506,50 @@ void telaFluxoComportamental::lerETOXML(QString nomeArquivo)
 
         }
 
-        if(streamReader.name() == "nomeCaminhoExt"){
+        if(streamReader.name().toString() == "nomeCaminhoExt"){
 
             catalagoLido->caminhoArquivo= streamReader.readElementText();
 
 
         }
 
-        if(streamReader.name() == "tipoAnalise"){
+        if(streamReader.name().toString() == "tipoAnalise"){
 
             catalagoLido->tipoAnalise= streamReader.readElementText();
 
 
         }
 
-        if((streamReader.name() == "dadosVideoAnalisado")||(videoLido->controle)){
+        if((streamReader.name().toString() == "dadosVideoAnalisado")||(videoLido->controle)){
 
 
-          if(streamReader.name() == "nomeVxml"){
+          if(streamReader.name().toString() == "nomeVxml"){
 
               videoLido->nome= streamReader.readElementText();
 
           }
 
-          if(streamReader.name() == "frameInicial"){
+          if(streamReader.name().toString() == "frameInicial"){
 
 
               videoLido->frameInicial= streamReader.readElementText().toInt();
 
           }
 
-          if(streamReader.name() == "frameProces"){
+          if(streamReader.name().toString() == "frameProces"){
 
 
               videoLido->frameProce= streamReader.readElementText().toInt();
 
           }
 
-          if(streamReader.name() == "frameFinal"){
+          if(streamReader.name().toString() == "frameFinal"){
            videoLido->frameFinal= streamReader.readElementText().toInt();
 
             //videoLido->controle=false;
         }
 
-          if(streamReader.name() == "fps"){
+          if(streamReader.name().toString() == "fps"){
            videoLido->fps= streamReader.readElementText().toInt();
 
             videoLido->controle=false;
@@ -874,7 +891,7 @@ void telaFluxoComportamental::encontraPontosGravar()
 
 }
 
-void telaFluxoComportamental::encontrarFrames()
+void telaFluxoComportamental::encontrarFrames( int area_selecioada_id)
 {
     parserXML::dadosMorfo *parserMorfo;
      parserMorfo = new parserXML::dadosMorfo();
@@ -888,25 +905,25 @@ void telaFluxoComportamental::encontrarFrames()
 
         for(int ja=(editFrameInicio[ka]-videoLido->frameProce); ja< (editFrameFim[ka]-videoLido->frameProce); ja++ ){
 
-            parserMorfo->frame.push_back(parserTCCM.matrizReMorfo[0].frame[ja]);
-            parserMorfo->area.push_back(parserTCCM.matrizReMorfo[0].area[ja]);
-            parserMorfo->areaM.push_back(parserTCCM.matrizReMorfo[0].areaM[ja]);
-            parserMorfo->centroidX.push_back(parserTCCM.matrizReMorfo[0].centroidX[ja]);
-            parserMorfo->centroidY.push_back(parserTCCM.matrizReMorfo[0].centroidY[ja]);
-            parserMorfo->altura.push_back(parserTCCM.matrizReMorfo[0].altura[ja]);
-            parserMorfo->alturaM.push_back(parserTCCM.matrizReMorfo[0].alturaM[ja]);
-            parserMorfo->largura.push_back(parserTCCM.matrizReMorfo[0].largura[ja]);
-            parserMorfo->larguraM.push_back(parserTCCM.matrizReMorfo[0].larguraM[ja]);
-            parserMorfo->anguloObj.push_back(parserTCCM.matrizReMorfo[0].anguloObj[ja]);
-            parserMorfo->objetoEncontrado.push_back(parserTCCM.matrizReMorfo[0].objetoEncontrado[ja]);
+            parserMorfo->frame.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].frame[ja]);
+            parserMorfo->area.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].area[ja]);
+            parserMorfo->areaM.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].areaM[ja]);
+            parserMorfo->centroidX.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].centroidX[ja]);
+            parserMorfo->centroidY.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].centroidY[ja]);
+            parserMorfo->altura.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].altura[ja]);
+            parserMorfo->alturaM.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].alturaM[ja]);
+            parserMorfo->largura.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].largura[ja]);
+            parserMorfo->larguraM.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].larguraM[ja]);
+            parserMorfo->anguloObj.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].anguloObj[ja]);
+            parserMorfo->objetoEncontrado.push_back(parserTCCM.matrizReMorfo[area_selecioada_id].objetoEncontrado[ja]);
 
 
-            parserCinema->varArea.push_back(parserTCCM.matrizReCinema[0].varArea[ja]);
-            parserCinema->varDistancia.push_back(parserTCCM.matrizReCinema[0].varDistancia[ja]);
-            parserCinema->varAltura.push_back(parserTCCM.matrizReCinema[0].varAltura[ja]);
-            parserCinema->varLargura.push_back(parserTCCM.matrizReCinema[0].varLargura[ja]);
-            parserCinema->varAngular.push_back(parserTCCM.matrizReCinema[0].varAngular[ja]);
-            parserCinema->ruidoMaxVaria.push_back(parserTCCM.matrizReCinema[0].ruidoMaxVaria[ja]);
+            parserCinema->varArea.push_back(parserTCCM.matrizReCinema[area_selecioada_id].varArea[ja]);
+            parserCinema->varDistancia.push_back(parserTCCM.matrizReCinema[area_selecioada_id].varDistancia[ja]);
+            parserCinema->varAltura.push_back(parserTCCM.matrizReCinema[area_selecioada_id].varAltura[ja]);
+            parserCinema->varLargura.push_back(parserTCCM.matrizReCinema[area_selecioada_id].varLargura[ja]);
+            parserCinema->varAngular.push_back(parserTCCM.matrizReCinema[area_selecioada_id].varAngular[ja]);
+            parserCinema->ruidoMaxVaria.push_back(parserTCCM.matrizReCinema[area_selecioada_id].ruidoMaxVaria[ja]);
 
         }
        segMorfo.push_back(parserMorfo);
@@ -1307,7 +1324,8 @@ void telaFluxoComportamental::on_pbSaveFile_clicked()
 
     if(chTCCon){
         //caso o usuario tenha feito a TCCM isso aqui é posto
-
+        encontraPontosGravar();
+        encontrarFrames(0);
     }else{
       encontraPontosGravar();
     }
@@ -1331,7 +1349,7 @@ void telaFluxoComportamental::on_pbSaveFile_clicked()
     novaThread->start();
 
 
-    emit enviaInicioFluxo(videoLido->nome,nomeFluxoComportamental,editFrameInicio, editFrameFim, ui->comboBoX->currentIndex());
+    emit enviaInicioFluxo(videoLido->nome,nomeFluxoComportamental,editFrameInicio, editFrameFim, 1);
 
 
 
@@ -1363,10 +1381,11 @@ void telaFluxoComportamental::on_pbOpenTCCM_clicked()
 
     parserTCCM.readTCCM(fonteCaminhoTCCM);
 
-    encontraPontosGravar(); //encontra qual os pontos a gravar da interface gráfica
+//    encontraPontosGravar(); //encontra qual os pontos a gravar da interface gráfica
 
      chTCCon = true;
 
+     ui->pbOpenTCCM->setEnabled(false);
 
-     encontrarFrames();
+
 }

@@ -41,9 +41,9 @@ void moduloEditaVideo::setOpenVideo(QString noVideo)
 
     if(video->isOpened()){
 
-        dWidth = video->get(CV_CAP_PROP_FRAME_WIDTH); //get the width of frames of the video
-       dHeight = video->get(CV_CAP_PROP_FRAME_HEIGHT); //get the height of frames of the video
-        videoFps = video->get(CV_CAP_PROP_FPS);
+        dWidth = video->get(cv::CAP_PROP_FRAME_WIDTH); //get the width of frames of the video
+       dHeight = video->get(cv::CAP_PROP_FRAME_HEIGHT); //get the height of frames of the video
+        videoFps = video->get(cv::CAP_PROP_FPS);
     }
 
 
@@ -85,7 +85,7 @@ void moduloEditaVideo::graVideo(double fInicio, double fFinal)
     if(videoEditado->isOpened()){
 
         for(double i=  fInicio ; i<=  fFinal ;i++){
-            video->set(CV_CAP_PROP_FRAME_COUNT,i);
+            video->set(cv::CAP_PROP_FRAME_COUNT,i);
             video->read(framVideo);
             videoEditado->write(framVideo);
 
@@ -109,7 +109,7 @@ void moduloEditaVideo::graVideo() //funcao que vem para gravar o video
     if(videoEditado->isOpened()){
 
         for(double i= videoLista.frameInicial[0]  ; i<=  videoLista.frameFinal[0] ;i++){
-            video->set(CV_CAP_PROP_FRAME_COUNT,i);
+            video->set(cv::CAP_PROP_FRAME_COUNT,i);
             video->read(framVideo);
             videoEditado->write(framVideo);
 
@@ -346,6 +346,9 @@ double moduloEditaVideo::getFimVideo()
 void moduloEditaVideo::iniGraVidoCego(QString arquivoVideo,QString nomeCaminhoEditado, QString nomeVideoEditado, int codec)
 {
 
+//    codec = cv::VideoWriter::fourcc('X', 'V', 'I', 'D');
+    codec = 1;
+    qDebug() << "O CODEC USADO FOI " <<codec;
     qDebug () <<"fim do TESTE" << QThread::currentThreadId();
      gravarNomeCaminhoVideo = nomeCaminhoEditado+"/"+nomeVideoEditado+".avi";
      gravarNomeVideo = nomeVideoEditado+".avi";
@@ -355,6 +358,7 @@ void moduloEditaVideo::iniGraVidoCego(QString arquivoVideo,QString nomeCaminhoEd
      qDebug()<< "o nome vxml " << arquivoVideo;
 
     if(readXmlVideoOrignal(arquivoVideo)){
+
 
         setOpenVideo(videoLista.nomeOpencv[0]); //nome opencv do arquivo
 
@@ -375,7 +379,7 @@ void moduloEditaVideo::iniGraVidoCego(QString arquivoVideo,QString nomeCaminhoEd
 
 
             for(ia= 0  ; ia<= testFinal  ;ia++){
-                video->set(CV_CAP_PROP_POS_FRAMES,videoLista.frameInicial[0]+ ia);
+                video->set(cv::CAP_PROP_POS_FRAMES,videoLista.frameInicial[0]+ ia);
 
                 video->read(framVideo);
 //                cv::imshow(arquivoVideo.toStdString(),framVideo);
@@ -436,7 +440,10 @@ void moduloEditaVideo::iniGraFluxoComportamento(QString nomeVXML, QString nomeEd
     if(readXmlVideoOrignal(nomeVXML)){
 
         setOpenVideo(videoLista.nomeOpencv[0]); //nome opencv do arquivo
-        setGravaVideo(nomeEditado,getCodec(codec)); //transforma o inicide em um codec da opencv
+        setGravaVideo(nomeEditado, cv::VideoWriter::fourcc('X','V','I','D'));
+        qDebug() << "Gravando com o " << cv::VideoWriter::fourcc('X','V','I','D');
+        //granvando sempre com o XVID
+        //getCodec(codec)); //transforma o inicide em um codec da opencv
 
         double kb=0;
 
@@ -448,7 +455,7 @@ void moduloEditaVideo::iniGraFluxoComportamento(QString nomeVXML, QString nomeEd
 
 
             for( kb= frameInicio[ka]  ; kb< frameFinal[ka]  ;kb++){
-                video->set(CV_CAP_PROP_POS_FRAMES,kb);
+                video->set(cv::CAP_PROP_POS_FRAMES,kb);
 
                 video->read(framVideo);
     //                cv::imshow(arquivoVideo.toStdString(),framVideo);
@@ -481,7 +488,7 @@ void moduloEditaVideo::iniGraFluxoComportamento(QString nomeVXML, QString nomeEd
 
 }
 
-//funcao que le o xml
+//funcao que le o xml JESUSSSS E EASSA DAQUI
 void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 {
 //    OutVideo.setFileName(nomeArquivoLer);
@@ -795,60 +802,60 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
         streamReader.readNext();
 
-        if(streamReader.name()== "nomePesquisador"){
+        if(streamReader.name().toString() == "nomePesquisador"){
         videoLista.nomePesquisador.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
 
-        if(streamReader.name()== "laboratorio"){
+        if(streamReader.name().toString()== "laboratorio"){
         videoLista.laboratorio.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
 
 
-        if(streamReader.name()== "tituloExperimento"){
+        if(streamReader.name().toString()== "tituloExperimento"){
         videoLista.tituloExperimento.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
 
-        if(streamReader.name()== "data"){
+        if(streamReader.name().toString()== "data"){
         videoLista.data.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
 
-        if(streamReader.name()== "otherInfo"){
+        if(streamReader.name().toString()== "otherInfo"){
         videoLista.otherInfo.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
 
-        if(streamReader.name()== "animalID"){
+        if(streamReader.name().toString()== "animalID"){
         videoLista.animalID.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
-        if(streamReader.name()== "wight"){
+        if(streamReader.name().toString()== "wight"){
         videoLista.wight.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
 
-        if(streamReader.name()== "animalSex"){
+        if(streamReader.name().toString()== "animalSex"){
         videoLista.animalSex.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
-        if(streamReader.name()== "nomePesquisador"){
+        if(streamReader.name().toString()== "nomePesquisador"){
         videoLista.nomePesquisador.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
 
-        if(streamReader.name()== "threatmen"){
+        if(streamReader.name().toString()== "threatmen"){
         videoLista.threatmen.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
@@ -856,7 +863,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
 //        bool chaveDadoOriginal= false;
 
-        if(streamReader.name()== "dadoOriginal"){
+        if(streamReader.name().toString()== "dadoOriginal"){
 
             if(chaveDadoOriginal==true){
                 chaveDadoOriginal=false;
@@ -876,13 +883,13 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 //            std::vector<double> height;
 
 
-            if(streamReader.name()== "nomeOpencv"){
+            if(streamReader.name().toString()== "nomeOpencv"){
             videoLista.nomeOpencv.push_back(streamReader.readElementText());
                //qDebug() << leitorXML.readElementText();
 
             }
 
-            if(streamReader.name()== "caminho"){
+            if(streamReader.name().toString() == "caminho"){
             videoLista.caminho.push_back(streamReader.readElementText());
                //qDebug() << leitorXML.readElementText();
 
@@ -890,24 +897,24 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
 
 
-            if(streamReader.name()== "quantidadeFrames"){
+            if(streamReader.name().toString()== "quantidadeFrames"){
             videoLista.quantidadeFrames.push_back(streamReader.readElementText().toDouble());
                //qDebug() << leitorXML.readElementText();
 
             }
 
 
-            if(streamReader.name()== "quantidadeTempo"){
+            if(streamReader.name().toString()== "quantidadeTempo"){
             videoLista.quantidadeTempo.push_back(streamReader.readElementText().toDouble());
                //qDebug() << leitorXML.readElementText();
 
             }
-            if(streamReader.name()== "width"){
+            if(streamReader.name().toString()== "width"){
             videoLista.width.push_back(streamReader.readElementText().toDouble());
                //qDebug() << leitorXML.readElementText();
 
             }
-            if(streamReader.name()== "height"){
+            if(streamReader.name().toString()== "height"){
             videoLista.height.push_back(streamReader.readElementText().toDouble());
                //qDebug() << leitorXML.readElementText();
 
@@ -920,7 +927,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
 
 
-        if(streamReader.name()== "nomeArquivoVXML"){
+        if(streamReader.name().toString()== "nomeArquivoVXML"){
         videoLista.nomeArquivoVXML.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
@@ -932,14 +939,14 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name() == "frameInicial"){
+           if(streamReader.name().toString() == "frameInicial"){
 
          conversor = streamReader.readElementText();
         videoLista.frameInicial.push_back(conversor.toInt());
                qDebug() << "o frame incial  " << conversor;
            }
 
-           if(streamReader.name()== "frameFinal"){
+           if(streamReader.name().toString()== "frameFinal"){
                conversor = streamReader.readElementText();
         videoLista.frameFinal.push_back(conversor.toInt());
         qDebug() << "o frame final  " << conversor;
@@ -948,13 +955,13 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name() == "frameProces"){
+           if(streamReader.name().toString() == "frameProces"){
                conversor = streamReader.readElementText();
         videoLista.frameProces.push_back(conversor.toInt());
 
 
            }
-            if(streamReader.name() == "frameBack"){
+            if(streamReader.name().toString() == "frameBack"){
 
                 conversor = streamReader.readElementText();
          videoLista.frameBack.push_back(conversor.toInt());
@@ -963,7 +970,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
 
 
-            if(streamReader.name() == "treshold"){
+            if(streamReader.name().toString() == "treshold"){
 
                        conversor = streamReader.readElementText();
 
@@ -971,7 +978,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
               }
 
-           if(streamReader.name() == "erosao"){
+           if(streamReader.name().toString() == "erosao"){
 
                conversor = streamReader.readElementText();
         videoLista.erosao.push_back(conversor.toInt());
@@ -979,21 +986,21 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
            }
 
 
-           if(streamReader.name() == "escala"){
+           if(streamReader.name().toString() == "escala"){
 
                conversor = streamReader.readElementText();
         videoLista.escala.push_back(conversor.toDouble());
 
            }
 
-           if(streamReader.name() == "fps"){
+           if(streamReader.name().toString() == "fps"){
 
                conversor = streamReader.readElementText();
         videoLista.fps.push_back(conversor.toDouble());
 
            }
 
-           if(streamReader.name()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
+           if(streamReader.name().toString()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
 
                conversor = streamReader.readElementText();
                if(conversor=="true"){
@@ -1008,7 +1015,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
            }
 
-           if(streamReader.name()== "janelaInteresse"){
+           if(streamReader.name().toString()== "janelaInteresse"){
 
                if(chaJanInte==true){
                    chaJanInte=false;
@@ -1022,7 +1029,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
            }
 
            if(chaJanInte==true){
-               if(streamReader.name() == "ativado"){
+               if(streamReader.name().toString() == "ativado"){
 
                    conversor = streamReader.readElementText();
 
@@ -1036,7 +1043,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
                }
 
 
-               if(streamReader.name() == "movel"){
+               if(streamReader.name().toString() == "movel"){
 
                    conversor = streamReader.readElementText();
 
@@ -1049,27 +1056,27 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "origX"){
+               if(streamReader.name().toString() == "origX"){
 
                    conversor = streamReader.readElementText();
 
                      videoLista.areaJanInte[contadorDeVideo].oriX.push_back(conversor.toDouble());
 
                }
-               if(streamReader.name() == "origY"){
+               if(streamReader.name().toString() == "origY"){
 
                 conversor = streamReader.readElementText();
                 videoLista.areaJanInte[contadorDeVideo].oriY.push_back(conversor.toDouble());
 
                }
 
-               if(streamReader.name() == "width"){
+               if(streamReader.name().toString() == "width"){
 
                 conversor = streamReader.readElementText();
                 videoLista.areaJanInte[contadorDeVideo].width.push_back(conversor.toDouble());
 
                }
-               if(streamReader.name() == "heigth"){
+               if(streamReader.name().toString() == "heigth"){
 
                 conversor = streamReader.readElementText();
                 videoLista.areaJanInte[contadorDeVideo].height.push_back(conversor.toDouble());
@@ -1079,7 +1086,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
            }
 
 
-           if(streamReader.name()== "maximaVariacaoCentro"){
+           if(streamReader.name().toString()== "maximaVariacaoCentro"){
 
                if(chaMaxVari==true){
                    chaMaxVari=false;
@@ -1093,14 +1100,14 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
            if(chaMaxVari){
 
-               if(streamReader.name() == "tamanho"){
+               if(streamReader.name().toString() == "tamanho"){
 
                 conversor = streamReader.readElementText();
                 videoLista.tamMaxVar.push_back(conversor.toDouble());
 
                }
 
-               if(streamReader.name()== "ativado"){
+               if(streamReader.name().toString()== "ativado"){
 
                    conversor = streamReader.readElementText();
 
@@ -1127,7 +1134,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name()== "areasDeInteresse"){
+           if(streamReader.name().toString()== "areasDeInteresse"){
 
                if(chaveArea==true){
                    chaveArea=false;
@@ -1142,7 +1149,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
            if(chaveArea==true){
 
 
-               if(streamReader.name()== "area"){
+               if(streamReader.name().toString()== "area"){
 
                QString conversora= streamReader.attributes().value("tipo").toString();
                if(!conversora.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1165,7 +1172,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "nomeFig"){
+               if(streamReader.name().toString() == "nomeFig"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].nomeFig.push_back(conversor);
@@ -1174,7 +1181,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
                }
 
 
-               if(streamReader.name() == "oriX"){
+               if(streamReader.name().toString() == "oriX"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].oriX.push_back(conversor.toDouble());
@@ -1182,7 +1189,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "oriY"){
+               if(streamReader.name().toString() == "oriY"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].oriY.push_back(conversor.toDouble());
@@ -1190,7 +1197,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "height"){
+               if(streamReader.name().toString() == "height"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].height.push_back(conversor.toDouble());
@@ -1198,7 +1205,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "width"){
+               if(streamReader.name().toString() == "width"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].width.push_back(conversor.toDouble());
@@ -1206,7 +1213,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "rad"){
+               if(streamReader.name().toString() == "rad"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].raio.push_back(conversor.toDouble());
@@ -1237,7 +1244,7 @@ void moduloEditaVideo::lerVXML(QString nomeArquivoLer)
 
 
 }
-
+// END AQUI PAROU DE LER O ARQUIVO
 
 
 
@@ -1306,6 +1313,10 @@ void moduloEditaVideo::writXmlVideoCego(QString nomeArquivoEditado)
     stream.writeTextElement("a", rsa.criptoRSAQstring(key.senha));
     stream.writeTextElement("b", rsa.criptoRSAQstring(key.lab));
     stream.writeTextElement("c", rsa.criptoRSAQstring(key.nome));
+//    stream.writeTextElement("a", rsa.criptoRSAQstring("doutorado"));
+//    stream.writeTextElement("b", rsa.criptoRSAQstring("joao"));
+//    stream.writeTextElement("c", rsa.criptoRSAQstring("antonio"));
+
     stream.writeTextElement("tempoGasto", QString::number(tresposta));
     stream.writeTextElement("codecUtilizado",QString::number(codecVideo));
     stream.writeEndElement(); //fecha o elemento de informacoes
@@ -1764,10 +1775,10 @@ int moduloEditaVideo::getCodec(int indexCaixa)
     switch (indexCaixa)
     {
     case 0:
-        return CV_FOURCC('X','2','6','4'); //H264
+        return cv::VideoWriter::fourcc('X','2','6','4'); //H264
 
     case 1:
-        return CV_FOURCC('X','V','I','D');; //XVid MPeg-4 Codec
+        return cv::VideoWriter::fourcc('X','V','I','D'); //XVid MPeg-4 Codec
         //break;
     case -1:
         return -1;

@@ -16,12 +16,12 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "moduloprocessamento.h"
-//#include "comum.h"
-//namespace cv
-//{
-//    using std::vector;
-//} //fazer a conversao da 2.4.11 para a 3.2
-
+// #include "comum.h"
+ namespace cv
+{
+     using std::vector;
+ } //fazer a conversao da 2.4.11 para a 3.2
+#include <cmath>
 moduloProcessamento::moduloProcessamento(QObject *parent) : QObject(parent)
 {
     a=0;
@@ -140,9 +140,9 @@ void moduloProcessamento::setAreaInteresse(double x, double y, double tamanho)
    frameAreaInteresse = M.clone();
      cv::ellipse(frameAreaInteresse,cv::Point(x+tamanho,y+tamanho),cv::Size(tamanho,tamanho),0,0,360,cv::Scalar(255,255,255),-1,8,0);
 
-     cv::cvtColor( frameAreaInteresse.clone(), frameAreaInteresse, CV_RGB2GRAY );
+     cv::cvtColor( frameAreaInteresse.clone(), frameAreaInteresse, cv::COLOR_RGB2GRAY );
 
-     cv::threshold( frameAreaInteresse.clone(), frameAreaInteresseB, 100, 255,CV_THRESH_BINARY);
+     cv::threshold( frameAreaInteresse.clone(), frameAreaInteresseB, 100, 255, cv::THRESH_BINARY);
 
 
 }
@@ -162,9 +162,9 @@ void moduloProcessamento::setAreaInteresse(double x, double y, double height, do
 //               "o valor de HEIGHT é " << height << " e o valor de width é " <<  width;
     cv::rectangle(frameAreaInteresse,cv::Rect(x,y,width,height),cv::Scalar(255,255,255),-1,8,0);
 
-    cv::cvtColor( frameAreaInteresse.clone(), frameAreaInteresse, CV_RGB2GRAY );
+    cv::cvtColor( frameAreaInteresse.clone(), frameAreaInteresse, cv::COLOR_RGB2GRAY );
 
-    cv::threshold( frameAreaInteresse.clone(), frameAreaInteresseB, 100, 255,CV_THRESH_BINARY);
+    cv::threshold( frameAreaInteresse.clone(), frameAreaInteresseB, 100, 255,cv::THRESH_BINARY);
 
 
 }
@@ -185,7 +185,7 @@ cv::Mat moduloProcessamento::conQim2Mat(QImage imaEntrada)
 //    resultado.matProce.release();
     matSaida= cv::Mat(imaEntrada.height(),imaEntrada.width(),CV_8UC3, const_cast<uchar*>(imaEntrada.bits()), imaEntrada.bytesPerLine()).clone();
 
-    cv::cvtColor(matSaida,matSaida,CV_RGB2BGR );
+    cv::cvtColor(matSaida,matSaida,cv::COLOR_RGB2BGR );
 
     return matSaida;
 }
@@ -195,7 +195,7 @@ void moduloProcessamento::desenhaObjetoInterresse(cv::Mat frameErodido){
     cv::vector<cv::vector<cv::Point> > contours;
     cv::vector<cv::Vec4i> hierarchy;
 
-    cv::findContours( frameErodido.clone(), contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE );
+    cv::findContours( frameErodido.clone(), contours, hierarchy, cv::RETR_CCOMP, cv::CHAIN_APPROX_SIMPLE );
 
     cv::Mat drawing = cv::Mat::zeros( frameErodido.size(), CV_8UC3 );
     cv::Mat frameContorno = cv::Mat::zeros( frameErodido.size(), CV_8UC3 );
@@ -226,18 +226,18 @@ void moduloProcessamento::desenhaObjetoInterresse(cv::Mat frameErodido){
 
             if(ja!=idx){
 
-                cv::drawContours( drawing, contours, ja, color2, CV_FILLED, 8, hierarchy );
+                cv::drawContours( drawing, contours, ja, color2, cv::FILLED, 8, hierarchy );
 
             }else{
 
-                cv::drawContours( drawing, contours, ja, color, CV_FILLED, 8, hierarchy );
+                cv::drawContours( drawing, contours, ja, color, cv::FILLED, 8, hierarchy );
             }
 
         }
 
-        cv::drawContours( drawing, contours, largestComp, color3, CV_FILLED, 8, hierarchy ); //selecione que fique a area amarela dentro do objeto de interese
+        cv::drawContours( drawing, contours, largestComp, color3, cv::FILLED, 8, hierarchy ); //selecione que fique a area amarela dentro do objeto de interese
 
-        cv::threshold( drawing, drawing, 1, 255,CV_THRESH_BINARY_INV);
+        cv::threshold( drawing, drawing, 1, 255,cv::THRESH_BINARY_INV);
         cv::drawContours( frameContornoBranco, contours, largestComp, color, 1, 8, hierarchy );
         cv::drawContours( frameContorno, contours, largestComp, color2, 1, 8, hierarchy );
 
@@ -246,7 +246,7 @@ void moduloProcessamento::desenhaObjetoInterresse(cv::Mat frameErodido){
     frameSegmentacao= drawing-frameContornoBranco+frameContorno;
 
     //cv::imshow("frame de erosao de interesse",frameSegmentacao.clone());
-    cv::waitKey(15);
+//    cv::waitKey(15);
 
     }
 }
@@ -458,8 +458,8 @@ void moduloProcessamento::processamentoDeVideo(){
       // cv::waitKey(10);
 
        //transformando em qimOriginal para enviar
-       cv::cvtColor(matOriginal,matProcessado,CV_BGR2RGB);
-       cv::cvtColor(matOriginal,matProcessado,CV_BGR2RGB);
+       cv::cvtColor(matOriginal,matProcessado,cv::COLOR_BGR2RGB);
+       cv::cvtColor(matOriginal,matProcessado,cv::COLOR_BGR2RGB);
        cv::resize(matProcessado,matProcessado, cv::Size(320,240),0,0,cv::INTER_LANCZOS4);
        QImage qimOriginal((uchar*) matProcessado.data, matProcessado.cols, matProcessado.rows, matProcessado.step, QImage::Format_RGB888);
 
@@ -473,6 +473,120 @@ void moduloProcessamento::processamentoDeVideo(){
 
         a++;
 
+}
+
+
+
+
+double angle_btwn_lines(std::tuple<double, double, double> line_1, std::tuple<double, double, double> line_2){
+    //    double num =
+    double a1, b1, c1;
+    a1 = std::get<0>(line_1);
+    b1 = std::get<1>(line_1);
+    c1 = std::get<2>(line_1);
+
+    double a2, b2, c2;
+    a2 = std::get<0>(line_2);
+    b2 = std::get<1>(line_2);
+    c2 = std::get<2>(line_2);
+
+
+    double nume = a2*b1 - a1*b2;
+    double deno = a1*a2 + b1*b2;
+
+    double angle = atan(nume/deno);
+    return angle; //rad
+
+}
+
+
+
+std::tuple<double, double, double> abc_from_line(cv::Point2f inicio, cv::Point2f fim){
+    double x = inicio.y - fim.y;
+    double y = fim.x - inicio.x;
+    double c = (inicio.x* fim.y) - (inicio.y * fim.x);
+    std::tuple<double, double, double>  saida;
+
+    return std::make_tuple(x, y, c);
+
+}
+
+double distance_between_points(cv::Point2f inicio, cv::Point2f fim){
+    double d = sqrt(pow(fim.x - inicio.x, 2) + pow(fim.y - inicio.y, 2));
+    return d;
+}
+
+
+double get_angle( cv::RotatedRect contornosRoi, cv::Point2f mcRoi){
+    cv::Point2f vertices2f[4];
+    cv::Point vertices[4];
+    contornosRoi.points(vertices2f);
+
+
+    double ls_distance[4];
+
+    for(int i = 0; i < 4; ++i){
+        vertices[i] = vertices2f[i];
+
+    }
+
+    for(int i = 0; i < 4; ++i){
+        ls_distance[i] = distance_between_points(vertices2f[i], vertices2f[(i+1)%4]);
+    }
+
+    cv::Point2f reference;
+    reference.x = mcRoi.x +200;
+    reference.y = mcRoi.y;
+
+    std::tuple<double, double, double> origin = abc_from_line(mcRoi, reference);
+    std::tuple<double, double, double>  abc_lines[4];
+
+    for(int i = 0; i < 4; ++i){
+        abc_lines[i] = abc_from_line(vertices2f[i], vertices2f[(i+1)%4]);
+    }
+
+    double ls_angles[4];
+
+    for(int i = 0; i < 4; ++i){
+        ls_angles[i] = angle_btwn_lines(abc_lines[i], origin) * 180/M_PI;
+    }
+    //find the maior
+    int ponto = 0;
+    double maior = ls_distance[0];
+    for(int i=0; i<4; ++i){
+        bool r_maior = ls_distance[i] > maior;
+        if (r_maior){
+            maior = ls_distance[i];
+            ponto = i;
+        }
+
+    }
+
+     //ls_angles[0];
+
+//    for (int i = 0; i < 1; i++)
+//    int i =0;
+//    cv::line(frameNovo, vertices[ponto], vertices[ponto+1], (0,255,0), 2);
+    double angle_betwen_the_more_lenght_line_and_reference =
+            angle_btwn_lines(abc_from_line(vertices2f[ponto], vertices2f[ponto+1]), origin) * 180/M_PI;
+
+
+//    cv::imshow("saida2", frameNovo);
+//    cv::waitKey(10);
+
+    bool r_positive = angle_betwen_the_more_lenght_line_and_reference >0;
+
+//    qDebug() << ls_angles[0] << ls_angles[1] << ls_angles[2] << ls_angles[3]; //<< ponto << ls_distance[0] << ls_distance[1];
+
+    if (r_positive){
+        return 180 - angle_betwen_the_more_lenght_line_and_reference;
+    }else{
+        return - angle_betwen_the_more_lenght_line_and_reference;
+    }
+
+
+
+    return angle_betwen_the_more_lenght_line_and_reference;
 }
 
 
@@ -521,8 +635,8 @@ void moduloProcessamento::processamentoMorfologico(){
         //---------------------------------------------------------------------------------------------------------
         //------FrameLimiarizcao: Máscara do animal (animal preto e fundo branco) - threshold --------------------
        // threshold_value= 60; //0 até 255
-        cv::cvtColor( frameSubtracao.clone(), frameSubtracao_gray, CV_RGB2GRAY );
-        cv::threshold( frameSubtracao_gray.clone(), frameLimiarizacao, threshold_value, 255,CV_THRESH_BINARY);
+        cv::cvtColor( frameSubtracao.clone(), frameSubtracao_gray, cv::COLOR_RGB2GRAY );
+        cv::threshold( frameSubtracao_gray.clone(), frameLimiarizacao, threshold_value, 255, cv::THRESH_BINARY);
 
         cv::bitwise_and(frameAreaInteresseB.clone(),frameLimiarizacao.clone(),frameLimiarizacao);
 //       frameLimiarizacao= cv::   abs(frameAreaInteresseB+frameLimiarizacao.clone());
@@ -593,7 +707,7 @@ void moduloProcessamento::processamentoMorfologico(){
 
 
 
-         cv::findContours( frameErosaoInterese, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE );
+         cv::findContours( frameErosaoInterese, contours, hierarchy, cv::RETR_CCOMP, cv::CHAIN_APPROX_SIMPLE );
 //
 //        cv::findContours( frameErosao, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE );
 
@@ -602,9 +716,9 @@ void moduloProcessamento::processamentoMorfologico(){
 
 
 
-        cv::cvtColor(frameAnimal,frameDisplay1,CV_BGR2RGB );
+        cv::cvtColor(frameAnimal,frameDisplay1,cv::COLOR_BGR2RGB );
        // cv::cvtColor(frameErosao,frameDisplay,CV_GRAY2RGB );
-         cv::cvtColor(frameSubtracao,frameDisplay,CV_BGR2RGB );
+         cv::cvtColor(frameSubtracao,frameDisplay,cv::COLOR_BGR2RGB );
 
 
          QImage imgEnviada2((uchar*) frameDisplay1.data, frameDisplay1.cols, frameDisplay1.rows, frameDisplay1.step, QImage::Format_RGB888);//1
@@ -958,17 +1072,32 @@ void moduloProcessamento::processamentoMorfologico(){
 //                                            anguloVetor,maiorTamanho1);
 
                  //qDebug() << "emitido os dados morfológicos";
-                       emit dadosMorfologicos(imgEnviada,objetoEncontrado,area,
-                                             (double) mc.x, (double) mc.y,
-                                             caixaCirculo.angle,caixaCirculo.size.height,caixaCirculo.size.width);
+               double angle = get_angle(caixaCirculo, mc);
 
 
-                        emit desenhaFigura(imgEnviada2,true,mc.x,mc.y,
-                                            pontoLongeCentro.x,  pontoLongeCentro.y,
-                                           pontoR.x,pontoR.y,
-                                           pobjeto1.x,pobjeto1.y, pobjeto2.x, pobjeto2.y,
-                                           vtx[0].x,vtx[0].y,vtx[1].x,vtx[1].y,
-                                            vtx[2].x,vtx[2].y,vtx[3].x,vtx[3].y);
+               double maior_line = caixaCirculo.size.height;
+               double menor_line = caixaCirculo.size.width;
+               bool r_invertido = caixaCirculo.size.width > caixaCirculo.size.height;
+               if(r_invertido){
+                     menor_line  = caixaCirculo.size.height;
+                     maior_line = caixaCirculo.size.width;
+
+               }
+
+
+
+
+               emit dadosMorfologicos(imgEnviada,objetoEncontrado,area,
+                                     (double) mc.x, (double) mc.y,
+                                     angle ,maior_line, menor_line);
+
+
+                emit desenhaFigura(imgEnviada2,true,mc.x,mc.y,
+                                    pontoLongeCentro.x,  pontoLongeCentro.y,
+                                   pontoR.x,pontoR.y,
+                                   pobjeto1.x,pobjeto1.y, pobjeto2.x, pobjeto2.y,
+                                   vtx[0].x,vtx[0].y,vtx[1].x,vtx[1].y,
+                                    vtx[2].x,vtx[2].y,vtx[3].x,vtx[3].y);
 
 
                  antigaArea1=area;//a area é zero;
@@ -976,8 +1105,8 @@ void moduloProcessamento::processamentoMorfologico(){
                  antigaMc1.y=mc.y;
                  antigaAnguloVetor1=caixaCirculo.angle;
                  //float antigaAltur, antigaLargur;
-                 antigaAltur=caixaCirculo.size.height;
-                 antigaLargur=caixaCirculo.size.width;
+                 antigaAltur  = maior_line;
+                 antigaLargur = menor_line;
 
 
                  antigaMaiorTamanho1=maiorTamanho1;
@@ -1007,10 +1136,11 @@ void moduloProcessamento::processamentoMorfologico(){
 
                     objetoEncontrado=false;
 
+                    double angle = get_angle(caixaCirculo, mc);
 
                     emit dadosMorfologicos(imgEnviada,objetoEncontrado,area,
                                           (double) mc.x, (double) mc.y,
-                                          caixaCirculo.angle,antigaAltur,antigaLargur);
+                                          angle,antigaAltur,antigaLargur);
 
 
                     emit desenhaFigura(imgEnviada2,false,antigaMc1.x,antigaMc1.y,
@@ -1113,7 +1243,7 @@ void moduloProcessamento::processamentoMorfologico(){
 
 //        imaInte = moveVirtCamera(frameLimiarizacao,cv::Point(0,0));
 
-        cv::cvtColor(imaInte,imaInteDisplay,CV_GRAY2RGB );
+        cv::cvtColor(imaInte,imaInteDisplay,cv::COLOR_GRAY2RGB );
 
          cv::resize(imaInteDisplay,imaInteDisplay, cv::Size(320,240),0,0,cv::INTER_LANCZOS4);
          QImage imgEnviada3((uchar*) imaInteDisplay.data, imaInteDisplay.cols, imaInteDisplay.rows, imaInteDisplay.step, QImage::Format_RGB888);//1

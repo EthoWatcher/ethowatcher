@@ -82,7 +82,7 @@ public:
 
     ~telaEtografiaProce();
 
-    QList< QList<Cell> > excell_lista;
+//    QList< QList<Cell> > excell_lista;
 
     struct dadosEtografia{
 

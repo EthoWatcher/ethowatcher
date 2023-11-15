@@ -32,6 +32,8 @@ telaSegementacao::telaSegementacao(QWidget *parent) :
     ui->stackedWidget->setCurrentIndex(1);
     chTCCon= true;
     ui->pbGravarTCCM->setVisible(false);
+
+    ui->pbTotalRes->setVisible(false);
 }
 
 telaSegementacao::~telaSegementacao()
@@ -178,7 +180,10 @@ void telaSegementacao::on_pbCaTotalSe_clicked()
 
     cViSeg=cViSeg+1;
     ui->pbCaTotalSe->setEnabled(false);
-    ui->pbTCCMfile->setEnabled(false);
+
+    ui->pbTotGravar->setEnabled(true);
+    ui->pbTotGravar->setVisible(true);
+
 }
 
 void telaSegementacao::on_pbTotaAdd_clicked()
@@ -821,12 +826,15 @@ void telaSegementacao::on_pbTotalRes_clicked()
     }
 
 
+//    ui->pbTotalRes->
 
 }
 
 void telaSegementacao::on_pbTotGravar_clicked()
 {
     //funcao para pegar o nome que sera gravado
+
+    this->on_pbTotalRes_clicked();
 
     nomeGravarCatalago = QFileDialog::getSaveFileName(
                 this,
@@ -1044,10 +1052,15 @@ void telaSegementacao::on_pbTotGravar_clicked()
 //    parserxmltocsv
     int linha = 16;
     saida_segm = this->_gera_lis_segmetacao(linha);
+
+    add_cell(&saida_segm, "A10", "Registred video file are locate in " + videoLido->nome); //+ nome_caminho_video);
     parser = new parserXMLtoCSV();
 
 
-    parser->converteArquivo(nomeGravarCatalago, saida_segm);
+    QList<QList<Cell> > ls_gravar;
+    ls_gravar.append(saida_segm);
+
+    parser->converteArquivo(nomeGravarCatalago, ls_gravar);
 
 }
 
@@ -1065,7 +1078,7 @@ void telaSegementacao::lerETOXML(QString nomeArquivo)
 
         streamReader.readNext();
 
-        if(streamReader.name() == "analise"){
+        if(streamReader.name().toString() == "analise"){
 
             if(etografiaLida->controle){
 
@@ -1083,7 +1096,7 @@ void telaSegementacao::lerETOXML(QString nomeArquivo)
         }
 
 
-        if(streamReader.name() == "categoria"){
+        if(streamReader.name().toString() == "categoria"){
 
             if(catalagoLido->controle){
                 QString nome;
@@ -1102,50 +1115,50 @@ void telaSegementacao::lerETOXML(QString nomeArquivo)
 
         }
 
-        if(streamReader.name() == "nomeCaminhoExt"){
+        if(streamReader.name().toString() == "nomeCaminhoExt"){
 
             catalagoLido->caminhoArquivo= streamReader.readElementText();
 
 
         }
 
-        if(streamReader.name() == "tipoAnalise"){
+        if(streamReader.name().toString() == "tipoAnalise"){
 
             catalagoLido->tipoAnalise= streamReader.readElementText();
 
 
         }
 
-        if((streamReader.name() == "dadosVideoAnalisado")||(videoLido->controle)){
+        if((streamReader.name().toString() == "dadosVideoAnalisado")||(videoLido->controle)){
 
 
-            if(streamReader.name() == "nomeVxml"){
+            if(streamReader.name().toString() == "nomeVxml"){
 
                 videoLido->nome= streamReader.readElementText();
 
             }
 
-            if(streamReader.name() == "frameInicial"){
+            if(streamReader.name().toString() == "frameInicial"){
 
 
                 videoLido->frameInicial= streamReader.readElementText().toInt();
 
             }
 
-            if(streamReader.name() == "frameProces"){
+            if(streamReader.name().toString() == "frameProces"){
 
 
                 videoLido->frameProce= streamReader.readElementText().toInt();
 
             }
 
-            if(streamReader.name() == "frameFinal"){
+            if(streamReader.name().toString() == "frameFinal"){
                 videoLido->frameFinal= streamReader.readElementText().toInt();
 
                 //videoLido->controle=false;
             }
 
-            if(streamReader.name() == "fps"){
+            if(streamReader.name().toString() == "fps"){
                 videoLido->fps= streamReader.readElementText().toDouble();
 
                 videoLido->controle=false;
@@ -1178,7 +1191,7 @@ QList<Cell> telaSegementacao::_gera_lis_segmetacao(int linha_gap)
         add_cell(&saida, "A"+QString::number(linha),"Segmentation initiated at " + QString::number( inicioPeriodo[tot-1]/videoLido->fps));
         linha += 1;
         add_cell(&saida, "A"+QString::number(linha),
-                 ";  Segmentation terminated at ;" + QString::number(fimPeriodo[tot-1]/videoLido->fps));
+                 " Segmentation terminated at " + QString::number(fimPeriodo[tot-1]/videoLido->fps));
 
 //        texto_saida = texto_saida + "\n RESULTS FOR \n Segmentation initiated at ;" + QString::number( inicioPeriodo[tot-1]/videoLido->fps) ;
 //        texto_saida = texto_saida + ";  Segmentation terminated at ;" + QString::number(fimPeriodo[tot-1]/videoLido->fps) + "\n\n";
@@ -1359,30 +1372,36 @@ void telaSegementacao::on_chbHetero_clicked(bool checked)
 
 void telaSegementacao::on_pbTCCMfile_clicked()
 {
-    fonteVideoETOXML = QFileDialog::getOpenFileName(
-                this,
-                tr("Open File"),
-                "C://Users//Bio//Desktop//videos//",
-                "Video Files (* .tkin)"
-                );
+//    fonteVideoETOXML = QFileDialog::getOpenFileName(
+//                this,
+//                tr("Open File"),
+//                "C://Users//Bio//Desktop//videos//",
+//                "Video Files (* .tkin)"
+//                );
 
 
-    parserTCCM = new parserXML();
-    parserTCCM->readTCCM(fonteVideoETOXML);
+//    parserTCCM = new parserXML();
+//    parserTCCM->readTCCM(fonteVideoETOXML);
 
-    chTCCon= false;
+//    chTCCon= false;
 
-    ui->lblFrameNome->setText(parserTCCM->videoLido->nome);
-    ui->lblFrameInicial->setText(QString::number(parserTCCM->videoLido->frameProce/parserTCCM->videoLido->fps));
-    ui->lblFrameFinal->setText(QString::number(parserTCCM->videoLido->frameFinal/parserTCCM->videoLido->fps));
-    ui->pbCaTotalSe->setEnabled(false);
-    ui->pbTCCMfile->setEnabled(false);
-    ui->pbTotalRes->setEnabled(true);
+//    ui->lblFrameNome->setText(parserTCCM->videoLido->nome);
+//    ui->lblFrameInicial->setText(QString::number(parserTCCM->videoLido->frameProce/parserTCCM->videoLido->fps));
+//    ui->lblFrameFinal->setText(QString::number(parserTCCM->videoLido->frameFinal/parserTCCM->videoLido->fps));
+//    ui->pbCaTotalSe->setEnabled(false);
+//    ui->pbTCCMfile->setEnabled(false);
+//    ui->pbTotalRes->setEnabled(true);
 //    lerETOXML(fonteVideoETOXML);
 }
 
 void telaSegementacao::on_pbGravarTCCM_clicked()
 {
+//    ui->pbTotalRes->click();
+//    connect(ui->pbGravarTCCM, SIGNAL(clicked()), this, SLOT(on_pbTotalRes_clicked()));
+//    ui->pbTCCMfile->clicked();
+//    this->on_pbTotalRes_clicked();
+
+
     QString teste2;
 
     teste2 = QFileDialog::getSaveFileName(

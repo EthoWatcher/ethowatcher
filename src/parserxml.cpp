@@ -40,38 +40,38 @@ void parserXML::readTCCM(QString nomeArquivo)
         streamReader.readNext();
 
 
-        if(streamReader.name()== "dadosVideosAnalisado"){
+        if(streamReader.name().toString()== "dadosVideosAnalisado"){
             entrou1=~entrou1;
         }
 
 
         if(entrou1==true){
 
-            if(streamReader.name()== "nomeVxml"){
+            if(streamReader.name().toString()== "nomeVxml"){
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){
             videoLido->nome= conversor;
             }}
-            if(streamReader.name()== "frameInicial"){
+            if(streamReader.name().toString()== "frameInicial"){
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
             videoLido->frameInicial= conversor.toDouble();
             }}
 
-            if(streamReader.name()== "frameProces"){
+            if(streamReader.name().toString()== "frameProces"){
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
             videoLido->frameProce= conversor.toDouble();
             }}
 
 
-            if(streamReader.name()== "frameFinal"){
+            if(streamReader.name().toString()== "frameFinal"){
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
             videoLido->frameFinal= conversor.toDouble();
             }}
 
-            if(streamReader.name()== "fps"){
+            if(streamReader.name().toString()== "fps"){
 
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -79,7 +79,7 @@ void parserXML::readTCCM(QString nomeArquivo)
 
             }}
 
-            if(streamReader.name()== "escala"){
+            if(streamReader.name().toString()== "escala"){
 
             QString conversor= streamReader.readElementText();
             if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -93,7 +93,7 @@ void parserXML::readTCCM(QString nomeArquivo)
 
 
 
-        if(streamReader.name()== "anaProceImagem"){
+        if(streamReader.name().toString()== "anaProceImagem"){
             if(entrou==true){
                 entrou=false;
             }else{
@@ -104,7 +104,7 @@ void parserXML::readTCCM(QString nomeArquivo)
 
         if(entrou==true){
 
-            if(streamReader.name()== "area"){
+            if(streamReader.name().toString()== "area"){
 
             QString conversor= streamReader.attributes().value("id").toString();
             if(conversor != ""){//ele acaba entrando daus vez pra cada tag
@@ -146,7 +146,7 @@ void parserXML::readTCCM(QString nomeArquivo)
 
             //if(xmlReader.name()== "caAnaSeg"){
 
-            if(streamReader.name()== "proce"){
+            if(streamReader.name().toString()== "proce"){
 
                 QString conObjeto= streamReader.attributes().value("OE").toString();
 
@@ -231,7 +231,7 @@ void parserXML::readTCCM(QString nomeArquivo)
 
 
 
-        if(streamReader.name()== "areasDeInteresse"){
+        if(streamReader.name().toString()== "areasDeInteresse"){
             if(entrou2==true){
                 entrou2=false;
             }else{
@@ -277,7 +277,7 @@ void parserXML::readTCCM(QString nomeArquivo)
 //            //zerando os valores
         }
         //<figName>
-        if(streamReader.name()== "figName"){
+        if(streamReader.name().toString()== "figName"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -286,7 +286,7 @@ void parserXML::readTCCM(QString nomeArquivo)
 
         }}
 
-        if(streamReader.name()== "tipoArea"){
+        if(streamReader.name().toString()== "tipoArea"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -295,7 +295,7 @@ void parserXML::readTCCM(QString nomeArquivo)
 
         }}
 
-        if(streamReader.name()== "centX"){
+        if(streamReader.name().toString()== "centX"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -304,7 +304,7 @@ void parserXML::readTCCM(QString nomeArquivo)
 
         }}
 
-        if(streamReader.name()== "centY"){
+        if(streamReader.name().toString()== "centY"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -313,7 +313,7 @@ void parserXML::readTCCM(QString nomeArquivo)
 
         }}
 
-        if(streamReader.name()== "heigth"){
+        if(streamReader.name().toString()== "heigth"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -322,7 +322,7 @@ void parserXML::readTCCM(QString nomeArquivo)
 
         }}
 
-        if(streamReader.name()== "width"){
+        if(streamReader.name().toString()== "width"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -331,7 +331,7 @@ void parserXML::readTCCM(QString nomeArquivo)
 
         }}
 
-        if(streamReader.name()== "raio"){
+        if(streamReader.name().toString()== "raio"){
 
         QString conversor= streamReader.readElementText();
         if(!conversor.isEmpty()){//ele acaba entrando daus vez pra cada tag

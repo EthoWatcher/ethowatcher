@@ -155,16 +155,15 @@
                    </layout>
                   </widget>
                  </item>
+                 <item>
+                  <widget class="QListWidget" name="listWidget"/>
+                 </item>
                 </layout>
                </widget>
               </item>
               <item>
                <widget class="QWidget" name="widget_8" native="true">
-                <layout class="QVBoxLayout" name="verticalLayout_5">
-                 <item>
-                  <widget class="QListWidget" name="listWidget"/>
-                 </item>
-                </layout>
+                <layout class="QVBoxLayout" name="verticalLayout_5"/>
                </widget>
               </item>
              </layout>

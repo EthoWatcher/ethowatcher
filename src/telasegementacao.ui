@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1016</width>
-    <height>666</height>
+    <height>687</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -62,8 +62,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>388</width>
-                    <height>101</height>
+                    <width>414</width>
+                    <height>104</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -271,8 +271,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>98</width>
-                   <height>89</height>
+                   <width>940</width>
+                   <height>595</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -286,8 +286,8 @@
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>98</width>
-                       <height>28</height>
+                       <width>920</width>
+                       <height>575</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -353,8 +353,11 @@
           </item>
           <item>
            <widget class="QPushButton" name="pbTCCMfile">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
-             <string>Open tracking File</string>
+             <string>Help need to develop the tracking segmentation module.</string>
             </property>
            </widget>
           </item>
@@ -492,8 +495,11 @@
           </item>
           <item>
            <widget class="QPushButton" name="pbGravarTCCM">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
             <property name="text">
-             <string>Save analisys</string>
+             <string>Nãoi é essa a usada Save analisys</string>
             </property>
            </widget>
           </item>
@@ -508,6 +514,13 @@
            </widget>
           </item>
          </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Calibri'; font-size:12pt; color:#000000;&quot;&gt;Find help, instructions and a standard operating procedure in&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;https://ethowatcher.com&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
         </widget>
        </item>
       </layout>

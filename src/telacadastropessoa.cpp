@@ -86,28 +86,28 @@ void telaCadastroPessoa::lendoXML(){
 
 
    // if(xmlReader.name() == "experimentador"){
-    if(xmlReader.name() == "nome"){
+    if(xmlReader.name().toString() == "nome"){
       // qDebug() << xmlReader.readElementText();
        nome = xmlReader.readElementText();
        //adsa=true;
        }
-    if(xmlReader.name() == "laboratorio"){
+    if(xmlReader.name().toString() == "laboratorio"){
        //qDebug() << xmlReader.readElementText();
        lab = xmlReader.readElementText();
        //adsa=true;
        }
-    if(xmlReader.name() == "idObservador"){
+    if(xmlReader.name().toString() == "idObservador"){
        qDebug() << xmlReader.readElementText();
        //adsa=true;
        }
 
-    if(xmlReader.name() == "sexo"){
+    if(xmlReader.name().toString() == "sexo"){
        qDebug() << xmlReader.readElementText();
        //adsa=true;
        }
 
 
-    if(xmlReader.name() == "idade"){
+    if(xmlReader.name().toString() == "idade"){
        qDebug() << xmlReader.readElementText();
        //adsa=true;
        }

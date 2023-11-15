@@ -2,4 +2,7 @@
     <qresource prefix="/">
         <file>recursos/cabecalho4.jpg</file>
     </qresource>
+    <qresource prefix="/script">
+        <file>report_writer/dist/writer.exe</file>
+    </qresource>
 </RCC>

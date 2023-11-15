@@ -32,7 +32,7 @@
 #include <QToolTip>
 #include <QtMath>
 #include <QPainter>
-#include <QDesktopWidget>
+//#include <QDesktopWidget>
 #include <QRadioButton>
 #include <QSignalMapper>
 #include <QtXml/QDomElement>

@@ -223,7 +223,7 @@ private:
      moduloEditaVideo *editaVideo;
      QThread* novaThread;
      void encontraPontosGravar();
-     void encontrarFrames();
+     void encontrarFrames(int area_selecioada_id);
      QList<int> editFrameInicio;
      QList<int> editFrameFim;
      QList<int> categoria;

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>writer.exe</file>
+    </qresource>
+</RCC>

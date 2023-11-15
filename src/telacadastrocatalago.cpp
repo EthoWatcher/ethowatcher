@@ -17,7 +17,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "telacadastrocatalago.h"
 #include "ui_telacadastrocatalago.h"
-
+#include <QRegularExpression>
 telaCadastroCatalago::telaCadastroCatalago(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::telaCadastroCatalago)
@@ -45,7 +45,7 @@ void telaCadastroCatalago::on_pbAddCategoria_clicked()
 
 
     //forma de adquirir o QTextWidget
-    QString descricao=ui->textDscElem->toPlainText().replace(QRegExp("[\\n\\t\\r]")," ");
+    QString descricao=ui->textDscElem->toPlainText().replace(QRegularExpression("[\\n\\t\\r]")," ");
     QString descricaoNulo;
     descricaoNulo=descricao.replace(" ","");
     if(descricaoNulo.count()==0)

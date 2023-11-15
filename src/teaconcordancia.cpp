@@ -17,6 +17,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "teaconcordancia.h"
 #include "ui_teaconcordancia.h"
+//#include "../Agreement/ui/Reliability.h"
 
 teaConcordancia::teaConcordancia(QWidget *parent) :
     QWidget(parent),
@@ -26,6 +27,8 @@ teaConcordancia::teaConcordancia(QWidget *parent) :
     ui->swPrincipal->setCurrentIndex(0);
     ui->swFleissKappa->setCurrentIndex(0);
     ui->swKohoneKappa->setCurrentIndex(0);
+
+    ui->pbKohone1->setVisible(false);
 }
 
 teaConcordancia::~teaConcordancia()
@@ -1517,7 +1520,7 @@ void teaConcordancia::lerETOXML(QString nomeArquivo)
 
         streamReader.readNext();
 
-        if(streamReader.name() == "analise"){
+        if(streamReader.name().toString() == "analise"){
 
           if(etografiaLida->controle){
 
@@ -1536,7 +1539,7 @@ void teaConcordancia::lerETOXML(QString nomeArquivo)
         }
 
 
-        if(streamReader.name() == "categoria"){
+        if(streamReader.name().toString() == "categoria"){
 
           if(catalagoLido->controle){
               QString nome;
@@ -1554,38 +1557,38 @@ void teaConcordancia::lerETOXML(QString nomeArquivo)
 
         }
 
-        if(streamReader.name() == "nomeCaminhoExt"){
+        if(streamReader.name().toString() == "nomeCaminhoExt"){
             catalagoLido->caminhoArquivo= streamReader.readElementText();
 
 
         }
 
-        if(streamReader.name() == "tipoAnalise"){
+        if(streamReader.name().toString() == "tipoAnalise"){
             catalagoLido->tipoAnalise= streamReader.readElementText();
 
 
         }
 
-        if((streamReader.name() == "dadosVideoAnalisado")||(videoLido->controle)){
+        if((streamReader.name().toString() == "dadosVideoAnalisado")||(videoLido->controle)){
 
 
-          if(streamReader.name() == "nomeVxml"){
+          if(streamReader.name().toString() == "nomeVxml"){
            videoLido->nome= streamReader.readElementText();
 
           }
 
-          if(streamReader.name() == "frameProces"){
+          if(streamReader.name().toString() == "frameProces"){
 
               videoLido->frameInicial= streamReader.readElementText().toInt();
 
           }
 
-          if(streamReader.name() == "frameFinal"){
+          if(streamReader.name().toString() == "frameFinal"){
            videoLido->frameFinal= streamReader.readElementText().toInt();
 
             videoLido->controle=false;
         }
-          if(streamReader.name() == "fps"){
+          if(streamReader.name().toString() == "fps"){
               videoLido->fps= streamReader.readElementText().toDouble();
 
               videoLido->controle=false;
@@ -1641,5 +1644,12 @@ double teaConcordancia::calcularPJ(std::vector<int> entrada)
 
 
     return quadroSoma * mult;
+
+}
+
+void teaConcordancia::on_pb_BootstrapCohen_clicked()
+{
+//    Reliability *r = new Reliability();
+//    r->show();
 
 }

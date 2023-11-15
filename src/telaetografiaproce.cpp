@@ -17,7 +17,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 #include "telaetografiaproce.h"
 #include "ui_telaetografiaproce.h"
-#include "xlsxdocument.h"
+//#include "xlsxdocument.h"
 #include <tuple>
 
 telaEtografiaProce::telaEtografiaProce(QWidget *parent) :
@@ -688,7 +688,7 @@ void telaEtografiaProce::readCatalago()
 
         leitorXML.readNext();
 
-        if(leitorXML.name() == "categoria"){
+        if(leitorXML.name().toString() == "categoria"){
             if(controle){
 
                 cAnaEto.id.push_back(leitorXML.attributes().value("id").toInt());
@@ -698,19 +698,19 @@ void telaEtografiaProce::readCatalago()
            //qDebug() << leitorXML.attributes().value("id").toInt();
 
         }
-        if(leitorXML.name()== "nome"){
+        if(leitorXML.name().toString()== "nome"){
         cAnaEto.nomeCategoria.push_back(leitorXML.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
 
 
-           if(leitorXML.name()== "atalho"){
+           if(leitorXML.name().toString()== "atalho"){
         cAnaEto.atalho.push_back(leitorXML.readElementText());
               // qDebug() << leitorXML.readElementText();
            }
 
-           if(leitorXML.name()== "descricao"){
+           if(leitorXML.name().toString()== "descricao"){
         cAnaEto.descricao.push_back(leitorXML.readElementText());
               // qDebug() << leitorXML.readElementText();
            }
@@ -740,21 +740,21 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
         streamReader.readNext();
 
-        if(streamReader.name()== "nomeOpencv"){
+        if(streamReader.name().toString()== "nomeOpencv"){
         videoLista.nomeOpencv.push_back(streamReader.readElementText());
            //qDebug() << leitorXML.readElementText();
 
         }
 
 
-           if(streamReader.name()== "frameInicial"){
+           if(streamReader.name().toString()== "frameInicial"){
 
          conversor = streamReader.readElementText();
         videoLista.frameInicial.push_back(conversor.toInt());
               // qDebug() << leitorXML.readElementText();
            }
 
-           if(streamReader.name()== "frameFinal"){
+           if(streamReader.name().toString()== "frameFinal"){
                conversor = streamReader.readElementText();
         videoLista.frameFinal.push_back(conversor.toInt());
               // qDebug() << leitorXML.readElementText();
@@ -762,13 +762,13 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name() == "frameProces"){
+           if(streamReader.name().toString() == "frameProces"){
                conversor = streamReader.readElementText();
         videoLista.frameProces.push_back(conversor.toInt());
 
 
            }
-            if(streamReader.name() == "frameBack"){
+            if(streamReader.name().toString() == "frameBack"){
 
                 conversor = streamReader.readElementText();
          videoLista.frameBack.push_back(conversor.toInt());
@@ -777,7 +777,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
 
 
-            if(streamReader.name() == "treshold"){
+            if(streamReader.name().toString() == "treshold"){
 
                        conversor = streamReader.readElementText();
 
@@ -785,7 +785,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
               }
 
-           if(streamReader.name() == "erosao"){
+           if(streamReader.name().toString() == "erosao"){
 
                conversor = streamReader.readElementText();
         videoLista.erosao.push_back(conversor.toInt());
@@ -793,21 +793,21 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
            }
 
 
-           if(streamReader.name() == "escala"){
+           if(streamReader.name().toString() == "escala"){
 
                conversor = streamReader.readElementText();
         videoLista.escala.push_back(conversor.toDouble());
 
            }
 
-           if(streamReader.name() == "fps"){
+           if(streamReader.name().toString() == "fps"){
 
                conversor = streamReader.readElementText();
         videoLista.fps.push_back(conversor.toDouble());
 
            }
 
-           if(streamReader.name()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
+           if(streamReader.name().toString()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
 
                conversor = streamReader.readElementText();
                if(conversor=="true"){
@@ -822,7 +822,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
            }
 
-           if(streamReader.name()== "janelaInteresse"){
+           if(streamReader.name().toString()== "janelaInteresse"){
 
                if(chaJanInte==true){
                    chaJanInte=false;
@@ -836,7 +836,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
            }
 
            if(chaJanInte==true){
-               if(streamReader.name() == "ativado"){
+               if(streamReader.name().toString() == "ativado"){
 
                    conversor = streamReader.readElementText();
 
@@ -850,7 +850,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
                }
 
 
-               if(streamReader.name() == "movel"){
+               if(streamReader.name().toString() == "movel"){
 
                    conversor = streamReader.readElementText();
 
@@ -863,27 +863,27 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "origX"){
+               if(streamReader.name().toString() == "origX"){
 
                    conversor = streamReader.readElementText();
 
                      videoLista.areaJanInte[contadorDeVideo].oriX.push_back(conversor.toDouble());
 
                }
-               if(streamReader.name() == "origY"){
+               if(streamReader.name().toString() == "origY"){
 
                 conversor = streamReader.readElementText();
                 videoLista.areaJanInte[contadorDeVideo].oriY.push_back(conversor.toDouble());
 
                }
 
-               if(streamReader.name() == "width"){
+               if(streamReader.name().toString() == "width"){
 
                 conversor = streamReader.readElementText();
                 videoLista.areaJanInte[contadorDeVideo].width.push_back(conversor.toDouble());
 
                }
-               if(streamReader.name() == "heigth"){
+               if(streamReader.name().toString() == "heigth"){
 
                 conversor = streamReader.readElementText();
                 videoLista.areaJanInte[contadorDeVideo].height.push_back(conversor.toDouble());
@@ -893,7 +893,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
            }
 
 
-           if(streamReader.name()== "maximaVariacaoCentro"){
+           if(streamReader.name().toString()== "maximaVariacaoCentro"){
 
                if(chaMaxVari==true){
                    chaMaxVari=false;
@@ -907,7 +907,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
            if(chaMaxVari){
 
-               if(streamReader.name() == "tamanho"){
+               if(streamReader.name().toString() == "tamanho"){
 
                 conversor = streamReader.readElementText();
                 videoLista.tamMaxVar.push_back(conversor.toDouble());
@@ -923,7 +923,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name()== "areasDeInteresse"){
+           if(streamReader.name().toString()== "areasDeInteresse"){
 
                if(chaveArea==true){
                    chaveArea=false;
@@ -938,7 +938,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
            if(chaveArea==true){
 
 
-               if(streamReader.name()== "area"){
+               if(streamReader.name().toString()== "area"){
 
                QString conversora= streamReader.attributes().value("tipo").toString();
                if(!conversora.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -961,7 +961,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "nomeFig"){
+               if(streamReader.name().toString() == "nomeFig"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].nomeFig.push_back(conversor);
@@ -970,7 +970,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
                }
 
 
-               if(streamReader.name() == "oriX"){
+               if(streamReader.name().toString() == "oriX"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].oriX.push_back(conversor.toDouble());
@@ -978,7 +978,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "oriY"){
+               if(streamReader.name().toString() == "oriY"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].oriY.push_back(conversor.toDouble());
@@ -986,7 +986,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "height"){
+               if(streamReader.name().toString() == "height"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].height.push_back(conversor.toDouble());
@@ -994,7 +994,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "width"){
+               if(streamReader.name().toString() == "width"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].width.push_back(conversor.toDouble());
@@ -1002,7 +1002,7 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name() == "rad"){
+               if(streamReader.name().toString() == "rad"){
 
                    conversor = streamReader.readElementText();
                    videoLista.area[contadorDeVideo].raio.push_back(conversor.toDouble());
@@ -1016,13 +1016,13 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
            }//fim chave das areas
 
 
-           if(streamReader.name() == "nomePesquisador"){
+           if(streamReader.name().toString() == "nomePesquisador"){
                conversor = streamReader.readElementText();
                dado_pesquisador.nomePesquisador = conversor;
 
            }
 
-           if(streamReader.name() == "laboratorio"){
+           if(streamReader.name().toString() == "laboratorio"){
                conversor = streamReader.readElementText();
                dado_pesquisador.laboratorio = conversor;
 
@@ -1030,55 +1030,55 @@ void telaEtografiaProce::lerVXML(QString nomeArquivoLer)
 
 
 
-           if(streamReader.name() == "nomePesquisador"){
+           if(streamReader.name().toString() == "nomePesquisador"){
                conversor = streamReader.readElementText();
                dado_pesquisador.nomePesquisador = conversor;
 
            }
 
-           if(streamReader.name() == "laboratorio"){
+           if(streamReader.name().toString() == "laboratorio"){
                conversor = streamReader.readElementText();
                dado_pesquisador.laboratorio = conversor;
 
            }
-           if(streamReader.name() == "tituloExperimento"){
+           if(streamReader.name().toString() == "tituloExperimento"){
                conversor = streamReader.readElementText();
                dado_experimento.tituloExperimento = conversor;
 
            }
 
-           if(streamReader.name() == "data"){
+           if(streamReader.name().toString() == "data"){
                conversor = streamReader.readElementText();
                dado_experimento.data = conversor;
 
            }
 
-           if(streamReader.name() == "otherInfo"){
+           if(streamReader.name().toString() == "otherInfo"){
                conversor = streamReader.readElementText();
                dado_experimento.otherInfo = conversor;
 
            }
 
-           if(streamReader.name() == "animalID"){
+           if(streamReader.name().toString() == "animalID"){
                conversor = streamReader.readElementText();
                dado_experimento.animalID = conversor;
 
            }
 
 
-           if(streamReader.name() == "wight"){
+           if(streamReader.name().toString() == "wight"){
                conversor = streamReader.readElementText();
                dado_experimento.wight = conversor;
 
            }
 
-           if(streamReader.name() == "animalSex"){
+           if(streamReader.name().toString() == "animalSex"){
                conversor = streamReader.readElementText();
                dado_experimento.animalSex = conversor;
 
            }
 
-           if(streamReader.name() == "threatmen"){
+           if(streamReader.name().toString() == "threatmen"){
                conversor = streamReader.readElementText();
                dado_experimento.threatmen = conversor;
 
@@ -1118,7 +1118,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
 
 
-        if(streamReader.name()== "videoCegoEditado"){
+        if(streamReader.name().toString()== "videoCegoEditado"){
 
             if(chVideoEditado==true){
                 chVideoEditado=false;
@@ -1134,21 +1134,21 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
         if(chVideoEditado){
 
-            if(streamReader.name()== "nomeOpencv"){
+            if(streamReader.name().toString()== "nomeOpencv"){
             videoLista.nomeOpencv.push_back(rsaCon.decriptoRSAQstring(  streamReader.readElementText()));
                //qDebug() << leitorXML.readElementText();
 
             }
 
 
-               if(streamReader.name()== "frameInicial"){
+               if(streamReader.name().toString()== "frameInicial"){
 
              conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
             videoLista.frameInicial.push_back(conversor.toInt());
                   // qDebug() << leitorXML.readElementText();
                }
 
-               if(streamReader.name()== "frameFinal"){
+               if(streamReader.name().toString()== "frameFinal"){
                    conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
             videoLista.frameFinal.push_back(conversor.toInt());
                   // qDebug() << leitorXML.readElementText();
@@ -1156,13 +1156,13 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
 
 
-               if(streamReader.name() == "frameProces"){
+               if(streamReader.name().toString() == "frameProces"){
                    conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
             videoLista.frameProces.push_back(conversor.toInt());
 
 
                }
-                if(streamReader.name() == "frameBack"){
+                if(streamReader.name().toString() == "frameBack"){
 
                     conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
              videoLista.frameBack.push_back(conversor.toInt());
@@ -1171,7 +1171,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
 
 
-                if(streamReader.name() == "treshold"){
+                if(streamReader.name().toString() == "treshold"){
 
                            conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
 
@@ -1179,7 +1179,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
                   }
 
-               if(streamReader.name() == "erosao"){
+               if(streamReader.name().toString() == "erosao"){
 
                    conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
             videoLista.erosao.push_back(conversor.toInt());
@@ -1187,21 +1187,21 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
                }
 
 
-               if(streamReader.name() == "escala"){
+               if(streamReader.name().toString() == "escala"){
 
                    conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
             videoLista.escala.push_back(conversor.toDouble());
 
                }
 
-               if(streamReader.name() == "fps"){
+               if(streamReader.name().toString() == "fps"){
 
                    conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
             videoLista.fps.push_back(conversor.toDouble());
 
                }
 
-               if(streamReader.name()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
+               if(streamReader.name().toString()== "proImageOn"){ //se foi cadastrado para o processamento de imagem
 
                    conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
                    if(conversor=="true"){
@@ -1216,7 +1216,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
                }
 
-               if(streamReader.name()== "janelaInteresse"){
+               if(streamReader.name().toString()== "janelaInteresse"){
 
                    if(chaJanInte==true){
                        chaJanInte=false;
@@ -1230,7 +1230,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
                }
 
                if(chaJanInte==true){
-                   if(streamReader.name() == "ativado"){
+                   if(streamReader.name().toString() == "ativado"){
 
                        conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
 
@@ -1244,7 +1244,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
                    }
 
 
-                   if(streamReader.name() == "movel"){
+                   if(streamReader.name().toString() == "movel"){
 
                        conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
 
@@ -1257,27 +1257,27 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
                    }
 
-                   if(streamReader.name() == "origX"){
+                   if(streamReader.name().toString() == "origX"){
 
                        conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
 
                          videoLista.areaJanInte[contadorDeVideo].oriX.push_back(conversor.toDouble());
 
                    }
-                   if(streamReader.name() == "origY"){
+                   if(streamReader.name().toString() == "origY"){
 
                     conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
                     videoLista.areaJanInte[contadorDeVideo].oriY.push_back(conversor.toDouble());
 
                    }
 
-                   if(streamReader.name() == "width"){
+                   if(streamReader.name().toString() == "width"){
 
                     conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
                     videoLista.areaJanInte[contadorDeVideo].width.push_back(conversor.toDouble());
 
                    }
-                   if(streamReader.name() == "heigth"){
+                   if(streamReader.name().toString() == "heigth"){
 
                     conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
                     videoLista.areaJanInte[contadorDeVideo].height.push_back(conversor.toDouble());
@@ -1287,7 +1287,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
                }
 
 
-               if(streamReader.name()== "maximaVariacaoCentro"){
+               if(streamReader.name().toString()== "maximaVariacaoCentro"){
 
                    if(chaMaxVari==true){
                        chaMaxVari=false;
@@ -1301,7 +1301,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
                if(chaMaxVari){
 
-                   if(streamReader.name() == "tamanho"){
+                   if(streamReader.name().toString() == "tamanho"){
 
                     conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
                     videoLista.tamMaxVar.push_back(conversor.toDouble());
@@ -1317,7 +1317,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
 
 
-               if(streamReader.name()== "areasDeInteresse"){
+               if(streamReader.name().toString()== "areasDeInteresse"){
 
                    if(chaveArea==true){
                        chaveArea=false;
@@ -1332,7 +1332,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
                if(chaveArea==true){
 
 
-                   if(streamReader.name()== "area"){
+                   if(streamReader.name().toString()== "area"){
 
                    QString conversora= rsaCon.decriptoRSAQstring(streamReader.attributes().value("tipo").toString());
                    if(!conversora.isEmpty()){//ele acaba entrando daus vez pra cada tag
@@ -1355,7 +1355,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
                    }
 
-                   if(streamReader.name() == "nomeFig"){
+                   if(streamReader.name().toString() == "nomeFig"){
 
                        conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
                        videoLista.area[contadorDeVideo].nomeFig.push_back(conversor);
@@ -1364,7 +1364,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
                    }
 
 
-                   if(streamReader.name() == "oriX"){
+                   if(streamReader.name().toString() == "oriX"){
 
                        conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
                        videoLista.area[contadorDeVideo].oriX.push_back(conversor.toDouble());
@@ -1372,7 +1372,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
                    }
 
-                   if(streamReader.name() == "oriY"){
+                   if(streamReader.name().toString() == "oriY"){
 
                        conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
                        videoLista.area[contadorDeVideo].oriY.push_back(conversor.toDouble());
@@ -1380,7 +1380,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
                    }
 
-                   if(streamReader.name() == "height"){
+                   if(streamReader.name().toString() == "height"){
 
                        conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
                        videoLista.area[contadorDeVideo].height.push_back(conversor.toDouble());
@@ -1388,7 +1388,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
                    }
 
-                   if(streamReader.name() == "width"){
+                   if(streamReader.name().toString() == "width"){
 
                        conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
                        videoLista.area[contadorDeVideo].width.push_back(conversor.toDouble());
@@ -1396,7 +1396,7 @@ void telaEtografiaProce::lerVCXML(QString nomeArquivoLer)
 
                    }
 
-                   if(streamReader.name() == "rad"){
+                   if(streamReader.name().toString()== "rad"){
 
                        conversor = rsaCon.decriptoRSAQstring(streamReader.readElementText());
                        videoLista.area[contadorDeVideo].raio.push_back(conversor.toDouble());
@@ -1950,32 +1950,38 @@ void telaEtografiaProce::on_pbUnicoVideo_clicked()
 
         videoLista.nomeVXML.push_back(fonteVideoXML);
         //se final vxml
-        QByteArray fonteVideoBit,fonteVideoBitExtInv,fonteVideoBitExt;
+//        QByteArray fonteVideoBit,fonteVideoBitExtInv,fonteVideoBitExt;
 
-        fonteVideoBit = fonteVideoXML.toLatin1();
+        QStringList myStringList = fonteVideoXML.split('.');
+        auto fonteVideoBitExt =myStringList.last();
+        qDebug() << fonteVideoBitExt;
+        fonteVideoBitExt = QByteArray::fromStdString(fonteVideoBitExt.toStdString());
 
-        int i= fonteVideoBit.length();
-        int inicio=0;
-        //aquirir a extensão do arquivo
-        while(fonteVideoBit[i] != 46){
-            i--;
-            fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
-            inicio++;
-        }
+//        fonteVideoXML.
+//        fonteVideoBit = fonteVideoXML.toLatin1();
 
-
-        //desinverter a extensão do arquivo
-
-        int j=0;
-        while(fonteVideoBitExtInv[j] != 0){
-            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
-            j++;
-
-        }
+//        int i= fonteVideoBit.length();
+//        int inicio=0;
+//        //aquirir a extensão do arquivo
+//        while(fonteVideoBit[i] != 46){
+//            i--;
+//            fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
+//            inicio++;
+//        }
 
 
+//        //desinverter a extensão do arquivo
 
-        if(fonteVideoBitExt==".vxml"){
+//        int j=0;
+//        while(fonteVideoBitExtInv[j] != 0){
+//            fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
+//            j++;
+
+//        }
+
+
+
+        if(fonteVideoBitExt=="vxml"){
 
             //se final for vxml
            lerVXML(fonteVideoXML);
@@ -2106,10 +2112,15 @@ void telaEtografiaProce::on_pbStart_clicked()
         ui->widBotoes->setLayout(vlay);
 
         //conecta o sinal de clicar no slot de mapa
-        connect(buttonList[j], SIGNAL(clicked()), mapperCategorias, SLOT(map()));
+//        connect(buttonList[j], SIGNAL(clicked(bool)), mapperCategorias,
+//                SLOT(map()));
 
+//        connect(buttonList[j], &QPushButton::clicked,
+//                mapperCategorias, &QSignalMapper::map);
         //colocar o botão no int
-        mapperCategorias->setMapping(buttonList[j],j);
+//        mapperCategorias->setMapping(buttonList[j],j);
+
+        connect(buttonList[j], &QPushButton::clicked, [this, j] { slotMapeado(j); });
 
 
 
@@ -2117,23 +2128,24 @@ void telaEtografiaProce::on_pbStart_clicked()
 
         }
 
-   connect(mapperCategorias, SIGNAL(mapped(int)), this, SLOT(slotMapeado(int)));
+//        connect(mapperCategorias, SIGNAL(mapped(int)),
+//                this, SLOT(slotMapeado(int)));
 
-             if(ui->cbNested->isChecked()){
-                  escolheSelecao=false;  //true apenas um botão por vez
-                             //false pode apertar todos os botões
-            }else{
+        if(ui->cbNested->isChecked()){
+              escolheSelecao=false;  //true apenas um botão por vez
+                         //false pode apertar todos os botões
+        }else{
 
-                 escolheSelecao=true;  //true apenas um botão por vez
-                                       //false pode apertar todos os botões
+             escolheSelecao=true;  //true apenas um botão por vez
+                                   //false pode apertar todos os botões
 
-             }
+         }
 
-             //criando o atalho para os botoes
-             for(int ji=0; ji< cAnaEto.atalho.size(); ji++ ){
-                 creatShortCurt(cAnaEto.atalho[ji],buttonList[ji]);
+         //criando o atalho para os botoes
+         for(int ji=0; ji< cAnaEto.atalho.size(); ji++ ){
+             creatShortCurt(cAnaEto.atalho[ji],buttonList[ji]);
 
-             }
+         }
 
 
         //conectando os botões criados
@@ -2722,12 +2734,11 @@ void telaEtografiaProce::on_cbNested_clicked(bool checked)
     }
 }
 
-//#include "xlsxdocument.h"
-//#include <QDir>
-//QXlsx::Document xlsx;
-//xlsx.write("A1", "Hello Qt!");
-//xlsx.saveAs(QDir::currentPath()+ "Test.xlsx");
-
+// #include "xlsxdocument.h"
+// #include <QDir>
+// QXlsx::Document xlsx;
+// xlsx.write("A1", "Hello Qt!");
+// xlsx.saveAs(QDir::currentPath()+ "Test.xlsx");
 
 // gravar etografia
 void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
@@ -2745,7 +2756,7 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
         // ui->pbGravarAnalasiteEtografica->setEnabled(false);
 
 
-
+        QList< QList<Cell> > excell_lista;
 
 
         auto gera_cabecalho = [&](QString nome_caminho_video,
@@ -2846,8 +2857,17 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 
         // Falta resolver
 //        QString texto_seg ="";
-        QList<Cell> seg_temporal_saida;
+
+        excell_lista.append( gera_cabecalho(nomeGravarEtografia,
+                                           videoLista.frameProces[contadorDeVideo],
+                                           videoLista.frameFinal[contadorDeVideo],
+                                           videoLista.fps[contadorDeVideo]));
+
+        excell_lista.append( comp_eto_saida);
+
+
        if(ui->cb_temporal_segmentation->isChecked()){
+           QList<Cell> seg_temporal_saida;
            telaSegementacao *segment;
            segment = new telaSegementacao();
            seg_temporal_saida = segment->gera_segmentacao_texto(
@@ -2866,32 +2886,28 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 
 
 //           qDebug() <<texto_seg;
+           excell_lista.append( seg_temporal_saida);
+
        }
 
 //       QList<Cell> text_sencia = "";
-       if(ui->cb_seq_analyses->isChecked()){
-//           text_sencia = text_transicao; //transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
-                                         //      cAnaEto.nomeCategoria,
-                                         //     saida.id.size(),
-                                         //     saida.id);
+//       if(ui->cb_seq_analyses->isChecked()){
+////           text_sencia = text_transicao; //transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
+//                                         //      cAnaEto.nomeCategoria,
+//                                         //     saida.id.size(),
+//                                         //     saida.id);
 
-//           qDebug() << text_sencia;
+////           qDebug() << text_sencia;
 
-       }
+//       }
 
-        // falta resolver.
-
-
+//        // falta resolver.
 
 
-        excell_lista.append( gera_cabecalho(nomeGravarEtografia,
-                                           videoLista.frameProces[contadorDeVideo],
-                                           videoLista.frameFinal[contadorDeVideo],
-                                           videoLista.fps[contadorDeVideo]));
 
-        excell_lista.append( comp_eto_saida);
 
-        excell_lista.append( seg_temporal_saida);
+
+
 
 //        QList<Cell> text_sencia = "";
         if(ui->cb_seq_analyses->isChecked()){
@@ -2900,6 +2916,11 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
                                           //     saida.id.size(),
                                           //     saida.id);
 
+
+            text_transicao = transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
+                                                            cAnaEto.nomeCategoria,
+                                                           saida.id.size(),
+                                                           saida.id);
  //           qDebug() << text_sencia;
             excell_lista.append( text_transicao);
 
@@ -2946,10 +2967,13 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
 
 //        QString texto = cabecalho + alinha_tabela(text_eto , text_sencia) + texto_seg;
 
+        parser = new parserXMLtoCSV();
 
+//        excell_lista QList<QList<Cell>> excell_lista;
+        parser->converteArquivo(nomeGravarEtografia, excell_lista);
 
-        this->_gravar_csv(nomeGravarEtografia, excell_lista);
-
+        //        this->_gravar_csv(nomeGravarEtografia,
+        //                          excell_lista); // remover completamente
 
         OutEtografia.setFileName(nomeGravarEtografia);
         OutEtografia.open(QIODevice::WriteOnly);
@@ -3418,7 +3442,12 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
                                    videoLista.fps[contadorDeVideo]);
 
     parser = new parserXMLtoCSV();
-    parser->converteArquivo(nomeGravarProcesImagem, s );
+
+
+    QList<QList<Cell> > ls_gravar;
+    ls_gravar.append(s);
+
+    parser->converteArquivo(nomeGravarProcesImagem, ls_gravar );
 
     QMessageBox::information(this,tr("Message"),tr("Saved successfully"));
 
@@ -4105,73 +4134,66 @@ std::tuple<QList<Cell>, int> telaEtografiaProce::gera_csv_eto(QString nomeGravar
 
 
 void telaEtografiaProce::_gravar_csv(QString path_eto, QList< QList<Cell> > t_saida){
-    QFile outGravador_csv;
-    QStringList list1 = path_eto.split(".etoxml"); // nomeGravarEtografia
-    QString csv_path = list1[0] + "_xlsx.xlsx";
-    QXlsx::Document xlsx;
+    qDebug() << "";
+//    QFile outGravador_csv;
+//    QStringList list1 = path_eto.split(".etoxml"); // nomeGravarEtografia
+//    QString csv_path = list1[0] + "_xlsx.xlsx";
+////        QXlsx::Document xlsx;
 
-    for (auto list_celulas : t_saida){
-        for (auto celula: list_celulas){
-            if(celula.r_number){
-                xlsx.write(celula.number, celula.content.toDouble());
-            }else{
-                xlsx.write(celula.number, celula.content);
-            }
+//        for (auto list_celulas : t_saida){
+//            for (auto celula: list_celulas){
+//                if(celula.r_number){
+////                    xlsx.write(celula.number, celula.content.toDouble());
+//                }else{
+////                    xlsx.write(celula.number, celula.content);
+//                }
 
-        }
-    }
-    xlsx.saveAs(csv_path);
+//            }
+//        }
+////        xlsx.saveAs(csv_path);
 
+//        QStringList list_csv_line = t_saida.split('\n');
+////        QXlsx::Document xlsx;
 
-//    QStringList list_csv_line = t_saida.split('\n');
-//    QXlsx::Document xlsx;
+//        auto next_letter = [](QString letter) {
+//        // melhorar essa função
+//              QString alfabeto =
+//              "A;B;C;D;E;F;G;H;I;J;K;L:M;N;O;P;Q;R;S;T;U;V;X;Y;Z;AA;AB;AC;AD;AE;AJ";
+//              int start = alfabeto.indexOf(letter, 0, Qt::CaseInsensitive);
 
-//    auto next_letter = [](QString letter) {
-//    // melhorar essa função
-//          QString alfabeto = "A;B;C;D;E;F;G;H;I;J;K;L:M;N;O;P;Q;R;S;T;U;V;X;Y;Z;AA;AB;AC;AD;AE;AJ";
-//          int start = alfabeto.indexOf(letter, 0, Qt::CaseInsensitive);
+//              QStringList alga_list = alfabeto.split(";");
+//              int tamanho = alga_list.length();
+//              bool r_reseta = tamanho <= start + 1;
 
-//          QStringList alga_list = alfabeto.split(";");
-//          int tamanho = alga_list.length();
-//          bool r_reseta = tamanho <= start + 1;
+//              if (r_reseta){
+//                 return alga_list[0];
+//              }else{
+//                 return alga_list[start+1];
+//              }
 
-//          if (r_reseta){
-//             return alga_list[0];
-//          }else{
-//             return alga_list[start+1];
-//          }
+//        };
 
-//    };
+//        int c_linha = 1;
+//        for (auto cel_line : list_csv_line){
+//            QStringList coluna_line = cel_line.split(";");
+//            QString letra_count = "A";
+//            for (auto coluna: coluna_line){
+//                QString cel_name = letra_count + QString::number(c_linha);
+//                xlsx.write(cel_name, coluna);
+//                letra_count = next_letter(letra_count);
+//            }
 
-
-//    int c_linha = 1;
-//    for (auto cel_line : list_csv_line){
-//        QStringList coluna_line = cel_line.split(";");
-//        QString letra_count = "A";
-//        for (auto coluna: coluna_line){
-//            QString cel_name = letra_count + QString::number(c_linha);
-//            xlsx.write(cel_name, coluna);
-//            letra_count = next_letter(letra_count);
+//            c_linha += 1;
 //        }
 
-//        c_linha += 1;
-//    }
+////        xlsx.saveAs(csv_path);
 
-//    xlsx.saveAs(csv_path);
+//        outGravador_csv.setFileName(csv_path);
+//        outGravador_csv.open(QIODevice::WriteOnly | QIODevice::Text );
+//        QTextStream csvGravador(&outGravador_csv);
 
-
-
-
-
-
-
-//    outGravador_csv.setFileName(csv_path);
-//    outGravador_csv.open(QIODevice::WriteOnly | QIODevice::Text );
-//    QTextStream csvGravador(&outGravador_csv);
-
-
-//    csvGravador << t_saida;
-//    outGravador_csv.close();
+////        csvGravador << t_saida;
+//        outGravador_csv.close();
 }
 
 

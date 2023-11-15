@@ -32,7 +32,7 @@ cv::Mat moduloCaptador::conQim2Mat(QImage imaEntrada) //converte qimage para cv:
 
     matSaida= cv::Mat(imaEntrada.height(),imaEntrada.width(),CV_8UC3, const_cast<uchar*>(imaEntrada.bits()), imaEntrada.bytesPerLine()).clone();
 
-    cv::cvtColor(matSaida,matSaida,CV_RGB2BGR );
+    cv::cvtColor(matSaida,matSaida,cv::COLOR_BGR2RGB );
 
     return matSaida;
 
@@ -43,7 +43,7 @@ moduloCaptador::moduloCaptador(QObject *parent) : QObject(parent)
     i=0;
     frameTotal=300;
     //codec = CV_FOURCC('x', '2', '6', '4');
-    codec = CV_FOURCC('P','I','M','1');
+    codec =  cv::VideoWriter::fourcc('P','I','M','1'); //#C#V_FOURCC;
     //fps=30;
     nomeVideo= "C:\\filmes\\treadfuncionando15.avi";
     entrou1=true;
@@ -139,7 +139,7 @@ cv::Mat moduloCaptador::pegaPlanoFundo(int numeroFrameFundo)
 {
 
     //funcao que funciona
-    cap->set(CV_CAP_PROP_POS_FRAMES,numeroFrameFundo);
+    cap->set(cv::CAP_PROP_POS_FRAMES,numeroFrameFundo);
     cap->read(frameBackground);
 
 //    cv::imshow("testeFinalFundoAberto1", frameBackground);
@@ -151,7 +151,7 @@ cv::Mat moduloCaptador::pegaPlanoFundo(int numeroFrameFundo)
 QImage moduloCaptador::pegaPlanoFundoQImage(int numeroFrameFundo)
 {
 
-    cap->set(CV_CAP_PROP_POS_FRAMES,numeroFrameFundo);
+    cap->set(cv::CAP_PROP_POS_FRAMES,numeroFrameFundo);
     cap->read(frameBackground);
 
     cv::imshow("testeFinalFundoAberto", frameBackground);
@@ -189,13 +189,13 @@ void moduloCaptador::captando(){
 
     if(i< video_frames){//    if(chaveVideo){
 
-        cap->set(CV_CAP_PROP_POS_FRAMES,i);
+        cap->set(cv::CAP_PROP_POS_FRAMES,i);
         //freeBytes.acquire();
         cap->read(frameLido);
        // usedBytes.release();
        // oVideoWriter.write(bufferMat[i % tamanhoBuffer]);
 
-        cv::cvtColor(frameLido,frameDisplay,CV_BGR2RGB );
+        cv::cvtColor(frameLido,frameDisplay,cv::COLOR_BGR2RGB); //CV_BGR2RGB
        // resultado.frameProces=frame_atual;
         //resultado.matProce= frameReduzido;
     //        resultado.background=frame;
@@ -253,7 +253,7 @@ void moduloCaptador::captandoRealTime()
 
             frameDisplay=frameLido.clone();
 
-            cv::cvtColor(frameLido,frameDisplay,CV_BGR2RGB );
+            cv::cvtColor(frameLido,frameDisplay, cv::COLOR_BGR2RGB); //CV_BGR2RGB
             QImage imgEnviada2((uchar*) frameDisplay.data, frameDisplay.cols, frameDisplay.rows, frameDisplay.step, QImage::Format_RGB888);//1
 
 
@@ -345,8 +345,8 @@ void moduloCaptador::confGravador(QString nomeVideo1,int framesPerSecond1, int q
         nomeVideo= nomeVideo1; //"C:\\filmes\\posAntiVirus.avi";
         chParadaNegada=chFormaParada; //true se escolhida apenas parada manual
         frameTotal=quntFrames; //300;
-         dWidth = cap->get(CV_CAP_PROP_FRAME_WIDTH); //get the width of frames of the video
-         dHeight = cap->get(CV_CAP_PROP_FRAME_HEIGHT); //get the height of frames of the video
+         dWidth = cap->get(cv::CAP_PROP_FRAME_WIDTH); //get the width of frames of the video
+         dHeight = cap->get(cv::CAP_PROP_FRAME_HEIGHT); //get the height of frames of the video
          //fps = cap.get(CV_CAP_PROP_FPS);
          fps=framesPerSecond1;//30;
          cv::Size frameSize(static_cast<int>(dWidth), static_cast<int>(dHeight));
@@ -450,7 +450,7 @@ void moduloCaptador::setFrame(int numeroFrame)
 {
 
     i=numeroFrame;
-    cap->set(CV_CAP_PROP_POS_FRAMES,i);
+    cap->set(cv::CAP_PROP_POS_FRAMES,i);
 
 
 }
@@ -465,113 +465,113 @@ void moduloCaptador::setCaptador(QString fonteVideo)
 
     if(!fonteVideo.isNull())
     {
-        fonteVideoBit = fonteVideo.toLatin1();
+//    fonteVideoBit = fonteVideo.toLatin1();
 
 
-    int i= fonteVideoBit.length();
-    int inicio=0;
+//    int i= fonteVideoBit.length();
+//    int inicio=0;
 
-    //aquirir a extensão do arquivo
-    while(fonteVideoBit[i] != 46){
-
-
-        i--;
-
-   fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
-        inicio++;
-    }
-
-    //desinverter a extensão do arquivo
-    int j=0;
-    while(fonteVideoBitExtInv[j] != 0){
-
-    fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
-
-    j++;
+//    //aquirir a extensão do arquivo
+//    while(fonteVideoBit[i] != 46){
 
 
+//        i--;
 
-    }
+//   fonteVideoBitExtInv[inicio]= fonteVideoBit[i];
+//        inicio++;
+//    }
 
-    //encontrar a ultima barra antes do nome
-    int k=0;
-    int ultimaPosicaoDaBarra=0;
+//    //desinverter a extensão do arquivo
+//    int j=0;
+//    while(fonteVideoBitExtInv[j] != 0){
 
-    while(fonteVideoBit[k] != 0) //enquanto não tem string nula ou seja não é o fim do arquivo
-    {
+//    fonteVideoBitExt[j]=fonteVideoBitExtInv[fonteVideoBitExtInv.length()-1-j];
 
-        if(fonteVideoBit[k] == 47){ //47 esta relacionado com a barra
-
-            ultimaPosicaoDaBarra = k;
-
-        }
-        k++;
+//    j++;
 
 
-    }
+
+//    }
+
+//    //encontrar a ultima barra antes do nome
+//    int k=0;
+//    int ultimaPosicaoDaBarra=0;
+
+//    while(fonteVideoBit[k] != 0) //enquanto não tem string nula ou seja não é o fim do arquivo
+//    {
+
+//        if(fonteVideoBit[k] == 47){ //47 esta relacionado com a barra
+
+//            ultimaPosicaoDaBarra = k;
+
+//        }
+//        k++;
 
 
-    //assim pode-se encontar o nome do arquivo
-    int contadorNome=ultimaPosicaoDaBarra+1;
-    int contadorNome2=0;
+//    }
 
 
-    for(contadorNome;
-        contadorNome <(fonteVideoBit.length()-j);
-        contadorNome++)
-    {
-
-        fonteVideoBitNomeArquivo[contadorNome2]= fonteVideoBit[contadorNome];
-        contadorNome2++;
-    }
-
-    //assim pode-se encontrar o caminho do arquivo
-    int contadorCaminho=0;
+//    //assim pode-se encontar o nome do arquivo
+//    int contadorNome=ultimaPosicaoDaBarra+1;
+//    int contadorNome2=0;
 
 
-    for(contadorCaminho;
-        contadorCaminho < ultimaPosicaoDaBarra;
-        contadorCaminho++)
-    {
+//    for(contadorNome;
+//        contadorNome <(fonteVideoBit.length()-j);
+//        contadorNome++)
+//    {
 
-        fonteVideoBitCaminhoArquivo[contadorCaminho]= fonteVideoBit[contadorCaminho];
+//        fonteVideoBitNomeArquivo[contadorNome2]= fonteVideoBit[contadorNome];
+//        contadorNome2++;
+//    }
 
-    }
-
-
-    //ageitando a extensão apara a opencv
-
-    k=0;
-    int ka=0;
+//    //assim pode-se encontrar o caminho do arquivo
+//    int contadorCaminho=0;
 
 
-    while(fonteVideoBit[k] != 0) //enquanto não tem string nula ou seja não é o fim do arquivo
-        {
+//    for(contadorCaminho;
+//        contadorCaminho < ultimaPosicaoDaBarra;
+//        contadorCaminho++)
+//    {
 
-            fonteVideoBitOpenCV[ka] = fonteVideoBit[k];
+//        fonteVideoBitCaminhoArquivo[contadorCaminho]= fonteVideoBit[contadorCaminho];
 
-            if(fonteVideoBit[k] == 47){ //47 esta relacionado com a barra
-
-
-                ka++;
-
-                fonteVideoBitOpenCV[ka] = 47;
-
-            }
+//    }
 
 
-            ka++;
-            k++;
+//    //ageitando a extensão apara a opencv
 
-    }
+//    k=0;
+//    int ka=0;
 
 
-    fonteVideoOpenCV = QString::fromLatin1(fonteVideoBitOpenCV);
+//    while(fonteVideoBit[k] != 0) //enquanto não tem string nula ou seja não é o fim do arquivo
+//        {
+
+//            fonteVideoBitOpenCV[ka] = fonteVideoBit[k];
+
+//            if(fonteVideoBit[k] == 47){ //47 esta relacionado com a barra
+
+
+//                ka++;
+
+//                fonteVideoBitOpenCV[ka] = 47;
+
+//            }
+
+
+//            ka++;
+//            k++;
+
+//    }
+
+
+//    fonteVideoOpenCV = QString::fromLatin1(fonteVideoBitOpenCV);
 
     //jeito certo que tem que estar a string
   // video.open("C://Users//joao//Desktop//videos//funcionaMarcela.avi");
 
-    fonteVideoOpenCVString=fonteVideoOpenCV.toStdString();
+    fonteVideoOpenCVString=fonteVideo.toStdString();
 
 
     cap->open(fonteVideoOpenCVString);
@@ -591,11 +591,11 @@ void moduloCaptador::setCaptador(int disp)
 void moduloCaptador::getParamVideo()
 {
     if(cap->isOpened()){
-        video_fps = cap->get(CV_CAP_PROP_FPS);                 //captura frames por segundo
-        video_frames = cap->get(CV_CAP_PROP_FRAME_COUNT);      //captura quantidade de frames
+        video_fps = cap->get(cv::CAP_PROP_FPS);                 //captura frames por segundo
+        video_frames = cap->get(cv::CAP_PROP_FRAME_COUNT);      //captura quantidade de frames
         video_tempo = (float) video_frames/video_fps;                   //calcula tempo do video
-        video_width = cap->get(CV_CAP_PROP_FRAME_WIDTH);       //captura largura do video
-        video_heigth = cap->get(CV_CAP_PROP_FRAME_HEIGHT);     //captura altura do video
+        video_width = cap->get(cv::CAP_PROP_FRAME_WIDTH);       //captura largura do video
+        video_heigth = cap->get(cv::CAP_PROP_FRAME_HEIGHT);     //captura altura do video
 
     }
 
@@ -675,13 +675,13 @@ void moduloCaptador::setCaptaVideoTodo()
 
    // while(i< frFim){
         //i=c1;
-        cap->set(CV_CAP_PROP_POS_FRAMES,i);
+        cap->set(cv::CAP_PROP_POS_FRAMES,i);
         //freeBytes.acquire();
         cap->read(frameLido);
        // usedBytes.release();
        // oVideoWriter.write(bufferMat[i % tamanhoBuffer]);
 
-        cv::cvtColor(frameLido,frameDisplay,CV_BGR2RGB );
+        cv::cvtColor(frameLido,frameDisplay,cv::COLOR_BGR2RGB); //CV_BGR2RGB
        // resultado.frameProces=frame_atual;
         //resultado.matProce= frameReduzido;
     //        resultado.background=frame;
