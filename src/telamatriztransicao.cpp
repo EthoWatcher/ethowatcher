@@ -36,6 +36,12 @@ QList<Cell> telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categor
                                                          int etog_qnt_de_pontos,
                                                          std::vector<int> etl_id)
 {
+    //limpando caso tenha adicionado antes.
+//    for (int kk = 0; kk < analiseSequencial.dados.size(); kk++) {
+//      analiseSequencial.dados.pop_back();
+//    }
+    analiseSequencial.dados.clear();
+
     int valorMatriz=qPow(ctl_qnt_categorias,2);
 
     for(int i=0; i<valorMatriz;i++){

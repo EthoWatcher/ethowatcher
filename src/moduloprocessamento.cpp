@@ -625,6 +625,7 @@ void moduloProcessamento::processamentoMorfologico(){
     //frame_atual=matOriginal;
     //initialFrame=
     frameAnimal=matOriginal;
+    cv::imwrite("C:\\artigo_final\\figuras_1\\" + this->figuraNome.toStdString() + "\\" + QString::number(this->contMorfo).toStdString() + "original.png", frameAnimal );
 
   //if((frame_atual-(initialFrame-1)) >=centroMassa.count())
    // {
@@ -674,6 +675,8 @@ void moduloProcessamento::processamentoMorfologico(){
 
 
 
+
+
         if(entrada){ //if(entrada){
             imaInte = frameErosao; //se for escolhido sem janela movel de interesse
             origiemObjeto= mc;
@@ -694,8 +697,17 @@ void moduloProcessamento::processamentoMorfologico(){
 
             }
 
-
+//            cv::imwrite("C:\\artigo_final\\figuras_1\\" +
+//                            this->figuraNome.toStdString() + "\\" +
+//                            QString::number(this->contMorfo).toStdString() +
+//                            "_erosao.png",
+//                        frameErosao);
+//            cv::imwrite("C:\\artigo_final\\figuras_1\\" + this->figuraNome.toStdString() + "\\"+ QString::number(this->contMorfo).toStdString() + "camera_movel.png", imaInte );
+//            cv::imshow("img_de_interesse", frameErosao);
+//            cv::imshow("img_recortada", imaInte);
+//            cv::waitKey(10);
         }
+
 
 
 
@@ -1451,6 +1463,7 @@ cv::Mat moduloProcessamento::moveVirtCamera(cv::Mat imagemInteresse, cv::Point c
 
     //na primeira vez que roda centro de massa é igual
     // planoFundo = imagem ;//imread("fundoFinalCerto.png"); //entrada
+
     cv:: Mat roiImage; //saida
 
     cv::Point roiPoint,objPoint,objPointNovo, variacaoPonto, novoPontoRoi;
@@ -1572,8 +1585,9 @@ cv::Mat moduloProcessamento::moveVirtCamera(cv::Mat imagemInteresse, cv::Point c
 
  ////  cvtColor(roiImage,enviaRoi);
 
-
-
+//   cv::imshow("img_de_interesse", imagemInteresse);
+//   cv::imshow("img_recortada", roiImage);
+//   cv::waitKey(10);
    return roiImage;
 
 
@@ -1701,9 +1715,7 @@ void moduloProcessamento::recebeDadosMorfologicos(QImage imReceb, bool objetoEnc
                                           0, 0,
                                           0, 0, 0, 0,0, 0, true); //centroide
 
-
-
-                qDebug() << "passou da maxima variacao" << contMorfo;
+//               qDebug() << "passou da maxima variacao" << contMorfo;
             }
 
 

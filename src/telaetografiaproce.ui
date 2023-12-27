@@ -167,6 +167,9 @@
              </item>
              <item>
               <widget class="QGroupBox" name="gbStep4">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <property name="title">
                 <string>Step 4 -  Behavioral record syntax</string>
                </property>
@@ -326,8 +329,8 @@
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>245</width>
-                    <height>228</height>
+                    <width>258</width>
+                    <height>283</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1458,8 +1461,8 @@
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>298</width>
-                   <height>296</height>
+                   <width>306</width>
+                   <height>309</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_9">
