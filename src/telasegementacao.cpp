@@ -358,7 +358,7 @@ void telaSegementacao::_calcula(){
          double varia = tamanho * fps; //frames
          double frameInico = q_inicial;
 
-         do{
+         while (frameInico<q_final){
              if(r_vetor_entrada){
                  vetor_saida.push_back(frameInico);
 
@@ -368,8 +368,7 @@ void telaSegementacao::_calcula(){
              }
 
              frameInico= frameInico+varia;
-
-         }while (frameInico<=q_final);
+         }
 
          return vetor_saida;
     };
@@ -1186,12 +1185,13 @@ QList<Cell> telaSegementacao::_gera_lis_segmetacao(int linha_gap)
 
     int qnt_segmentos = inicioPeriodo.size();
     for(int tot=1; tot< qnt_segmentos+1; tot++){
+        linha += 1;
         add_cell(&saida, "A"+QString::number(linha),"RESULTS FOR");
         linha += 1;
-        add_cell(&saida, "A"+QString::number(linha),"Segmentation initiated at " + QString::number( inicioPeriodo[tot-1]/videoLido->fps));
+        add_cell(&saida, "A"+QString::number(linha),"Segmentation initiated at " + QString::number( (inicioPeriodo[tot-1] - videoLido->frameProce)/videoLido->fps));
         linha += 1;
         add_cell(&saida, "A"+QString::number(linha),
-                 " Segmentation terminated at " + QString::number(fimPeriodo[tot-1]/videoLido->fps));
+                 " Segmentation terminated at " + QString::number((fimPeriodo[tot-1]- videoLido->frameProce)/videoLido->fps));
 
 //        texto_saida = texto_saida + "\n RESULTS FOR \n Segmentation initiated at ;" + QString::number( inicioPeriodo[tot-1]/videoLido->fps) ;
 //        texto_saida = texto_saida + ";  Segmentation terminated at ;" + QString::number(fimPeriodo[tot-1]/videoLido->fps) + "\n\n";
@@ -1219,6 +1219,7 @@ QList<Cell> telaSegementacao::_gera_lis_segmetacao(int linha_gap)
 
 
         }
+        linha += 1;
 
     }
     return saida;
