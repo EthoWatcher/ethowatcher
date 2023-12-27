@@ -281,7 +281,7 @@ void ethoWatcher::on_pbDuploCego_clicked()
 void ethoWatcher::on_pbEstatistica_clicked()
 {
     segment = new telaSegementacao();
-
+    segment->setExperimentador(cadastroPessoa->nome,cadastroPessoa->lab);
     segment->show();
 //    estatistica = new telaEstatistica();
 //    estatistica->show();

@@ -55,7 +55,7 @@ class telaSegementacao : public QWidget
 public:
     explicit telaSegementacao(QWidget *parent = 0);
     ~telaSegementacao();
-
+    void setExperimentador(QString nome1, QString lab1);
     void liga_sementacao_etografia();
 
     QList<Cell> gera_segmentacao_texto(double tamanho_janela_s, int q_proce, int q_final, double fps,
@@ -92,6 +92,13 @@ private:
     QString fonteVideoETOXML;
     QFile OutEtografia;
     void lerETOXML(QString nomeArquivo);
+    //experimentador
+    struct dadosExperimentador{
+        QString nome;
+        QString lab;
+    };
+
+    dadosExperimentador experimentador;
 
     QList<Cell> _gera_lis_segmetacao(int linha_gap);
     QList<Cell> saida_segm;

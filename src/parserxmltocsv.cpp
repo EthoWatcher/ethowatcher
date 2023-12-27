@@ -1571,48 +1571,54 @@ void parserXMLtoCSV::escreverTimeCsv(QList<QList<Cell> > ls_gravar)
 //    }
 
 //    QList<QList<Cell> > ls_gravar;
-    QList<Cell> saida;
+//    QList<Cell> saida;
 
-    int linha = 1;
-    add_cell(&saida, "A1","EthoWatcher Open Source");
+//    int linha = 1;
+//    add_cell(&saida, "A1", "EthoWatcher Open Source");
 
-    add_cell(&saida, "A2","Observer");
-    add_cell(&saida, "B2",experimentador.nome.toLatin1());
+//    add_cell(&saida, "A2", "Observer");
+//    add_cell(&saida, "B2", experimentador.nome.toLatin1());
 
-    add_cell(&saida, "A3","Lab");
-    add_cell(&saida, "B3",experimentador.lab.toLatin1());
+//    add_cell(&saida, "A3", "Lab");
+//    add_cell(&saida, "B3", experimentador.lab.toLatin1());
 
-    add_cell(&saida, "A4","Experiment info");
+//    add_cell(&saida, "A4", "Experiment info");
 
-    add_cell(&saida, "A5","Experiment");
-    add_cell(&saida, "B5","Date");
-    add_cell(&saida, "C5","Other Info");
+//    add_cell(&saida, "A5", "Experiment");
+//    add_cell(&saida, "B5", "Date");
+//    add_cell(&saida, "C5", "Other Info");
 
-    //falta adicionar o cabeçalho.
-//    add_cell(&saida, "A6", dado_experimento.tituloExperimento);
-//    add_cell(&saida, "B6", dado_experimento.data);
-//    add_cell(&saida, "C6", dado_experimento.otherInfo);
+//    // falta adicionar o cabeçalho.
+//    //    add_cell(&saida, "A6", dado_experimento.tituloExperimento);
+//    //    add_cell(&saida, "B6", dado_experimento.data);
+//    //    add_cell(&saida, "C6", dado_experimento.otherInfo);
 
+//    add_cell(&saida, "A7", "Animal Info");
+//    add_cell(&saida, "A8", "Animal ID");
+//    add_cell(&saida, "B8", "Weight");
+//    add_cell(&saida, "C8", "Sex");
 
-    add_cell(&saida, "A7","Animal Info");
-    add_cell(&saida, "A8","Animal ID");
-    add_cell(&saida, "B8","Weight");
-    add_cell(&saida, "C8","Sex");
+//    //    add_cell(&saida, "A9", dado_experimento.animalID);
+//    //    add_cell(&saida, "B9", dado_experimento.wight);
+//    //    add_cell(&saida, "C9", dado_experimento.animalSex);
 
-//    add_cell(&saida, "A9", dado_experimento.animalID);
-//    add_cell(&saida, "B9", dado_experimento.wight);
-//    add_cell(&saida, "C9", dado_experimento.animalSex);
+//    //    add_cell(&saida, "A10", "Registred video file are locate in PRECISA
+//    //    RESOLVER"); //+ nome_caminho_video);
 
+//    add_cell(&saida, "A11",
+//             "Analysis initiated at " +
+//                 QString::number(videoLido->frameInicial / videoLido->fps) +
+//                 " (seconds) of the video file");
+//    add_cell(&saida, "A12",
+//             "Analysis terminated at " +
+//                 QString::number(videoLido->frameFinal / videoLido->fps) +
+//                 " (seconds) of the video file");
 
-//    add_cell(&saida, "A10", "Registred video file are locate in PRECISA RESOLVER"); //+ nome_caminho_video);
+//    add_cell(&saida, "A13",
+//             "The selected catalog are : " + catalagoLido->caminhoArquivo);
 
-    add_cell(&saida, "A11", "Analysis initiated at " + QString::number( videoLido->frameInicial / videoLido->fps) + " (seconds) of the video file");
-    add_cell(&saida, "A12", "Analysis terminated at " + QString::number( videoLido->frameFinal / videoLido->fps) + " (seconds) of the video file");
-
-    add_cell(&saida, "A13", "The selected catalog are : " + catalagoLido->caminhoArquivo);
-
-//    ls_gravar.append(entrada);
-    ls_gravar.append(saida);
+//    //    ls_gravar.append(entrada);
+//    ls_gravar.append(saida);
 
     QByteArray nomeArquivoByte;
     nomeArquivoByte= nomeArquivoGravarCsv.toLatin1();
