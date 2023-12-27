@@ -98,7 +98,7 @@ public:
             std::vector<double> area;
             std::vector<double> centroidX;
             std::vector<double> centroidY;
-            std::vector<double> anguloObj;
+            std::vector<float> anguloObj;
             std::vector<double> tamanhoObj;
             std::vector<float>  altura;
             std::vector<float>  largura;

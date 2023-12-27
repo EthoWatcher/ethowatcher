@@ -3283,7 +3283,8 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
          stream.writeAttribute("altM",QString::number(dados->reMorfo.altura[i]/videoLista.escala[contadorDeVideo]));
          stream.writeAttribute("larP",QString::number(dados->reMorfo.largura[i]));
          stream.writeAttribute("larM",QString::number(dados->reMorfo.largura[i]/videoLista.escala[contadorDeVideo]));
-         stream.writeAttribute("an",QString::number(dados->reMorfo.anguloObj[i])); //angulo do objeto
+         qDebug()<< "angle_xml" << QString::number(fraNumero) << std::floor((dados->reMorfo.anguloObj[i]*1000.0)/1000.0) << QString::number(std::floor(dados->reMorfo.anguloObj[i]*1000.0)/1000.0);
+         stream.writeAttribute("an",QString::number(std::floor(dados->reMorfo.anguloObj[i]*1000.0)/1000.0)); //angulo do objeto
 
 
 
