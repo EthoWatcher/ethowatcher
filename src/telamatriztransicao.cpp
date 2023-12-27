@@ -31,6 +31,12 @@ telaMatrizTransicao::~telaMatrizTransicao()
     delete ui;
 }
 
+void telaMatrizTransicao::setExperimentador(QString nome1, QString lab1)
+{
+       experimentador.nome = nome1;
+       experimentador.lab = lab1;
+}
+
 QList<Cell> telaMatrizTransicao::calcular_analise_sequencial(int ctl_qnt_categorias,
                                                          std::vector<QString> ctl_nome,
                                                          int etog_qnt_de_pontos,
@@ -676,6 +682,90 @@ void telaMatrizTransicao::on_pbGeraRelaSeq_clicked()
 //    QList<Cell> saida;
     QList<QList<Cell> > ls_gravar;
 
+    auto gera_cabecalho = [&](QString nome_caminho_video,
+                            int frameProces,
+                            int frameFinal,
+                            double fps){
+
+//            QString t_saida ="";
+
+
+        QList<Cell> saida;
+
+
+        add_cell(&saida, "A1","EthoWatcher Open Source");
+
+        add_cell(&saida, "A2","Observer");
+        add_cell(&saida, "B2",experimentador.nome.toLatin1());
+
+        add_cell(&saida, "A3","Lab");
+        add_cell(&saida, "B3",experimentador.lab.toLatin1());
+
+//        add_cell(&saida, "A4","Experiment info");
+
+//        add_cell(&saida, "A5","Experiment");
+//        add_cell(&saida, "B5","Date");
+//        add_cell(&saida, "C5","Other Info");
+
+//        add_cell(&saida, "A6", dado_experimento.tituloExperimento);
+//        add_cell(&saida, "B6", dado_experimento.data);
+//        add_cell(&saida, "C6", dado_experimento.otherInfo);
+
+
+//        add_cell(&saida, "A7","Animal Info");
+//        add_cell(&saida, "A8","Animal ID");
+//        add_cell(&saida, "B8","Weight");
+//        add_cell(&saida, "C8","Sex");
+
+//        add_cell(&saida, "A9", dado_experimento.animalID);
+//        add_cell(&saida, "B9", dado_experimento.wight);
+//        add_cell(&saida, "C9", dado_experimento.animalSex);
+
+        add_cell(&saida, "A10", "Registred video file are locate in " + nome_caminho_video);
+
+        add_cell(&saida, "A11", "Analysis initiated at " + QString::number( frameProces / fps) + " (seconds) of the video file");
+        add_cell(&saida, "A12", "Analysis terminated at " + QString::number( frameFinal / fps) + " (seconds) of the video file");
+
+        add_cell(&saida, "A13", "The selected catalog are : " + catalagoLido->caminhoArquivo);
+
+//            t_saida = t_saida + "sep=; \n";
+//            t_saida = t_saida + "EthoWatcher Open Source \n";
+//            t_saida = t_saida + "Observer;" + experimentador.nome.toLatin1() + "\n";
+//            t_saida = t_saida + "Lab;" + experimentador.lab.toLatin1() + "\n";
+
+//            t_saida = t_saida + "Experiment info\n";
+//            t_saida = t_saida + "Experiment; Date; Other Info\n";
+//            t_saida = t_saida + dado_experimento.tituloExperimento + ";"+
+//                    dado_experimento.data + ";" + dado_experimento.otherInfo + "\n";
+
+//            t_saida = t_saida + "Animal Info\n";
+//            t_saida = t_saida + "Animal ID; Weight; Sex\n";
+//            t_saida = t_saida + dado_experimento.animalID + ";" + dado_experimento.wight + ";"+ dado_experimento.animalSex +"\n";
+
+
+//            t_saida = t_saida + "Registred video file are locate in " + nome_caminho_video + "\n";
+
+//            t_saida = t_saida + "Analysis initiated at " + QString::number( frameProces / fps) + " (seconds) of the video file \n ";
+//            t_saida = t_saida + "Analysis terminated at " + QString::number( frameFinal / fps) + " (seconds) of the video file \n";
+//            t_saida = t_saida + "\n";
+
+//            t_saida = t_saida + "The selected catalog are : " + ";" + nomeGravarCatalago + "\n";
+//            t_saida = t_saida + "\n";
+//            t_saida = t_saida + "\n";
+//            t_saida = t_saida + "\n";
+
+        return saida;
+    };
+
+
+
+
+
+
+    ls_gravar.append(gera_cabecalho(videoLido->nome, videoLido->frameProce, videoLido->frameFinal, videoLido->fps));
+
+
+
     ls_gravar.append(saida_analise_seq);
 
 
@@ -759,6 +849,12 @@ void telaMatrizTransicao::lerETOXML(QString nomeArquivo)
           if(streamReader.name().toString() == "frameInicial"){
 
               videoLido->frameInicial= streamReader.readElementText().toInt();
+
+          }
+          if(streamReader.name().toString() == "frameProces"){
+
+
+              videoLido->frameProce= streamReader.readElementText().toInt();
 
           }
 
