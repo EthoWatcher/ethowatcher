@@ -1,4 +1,4 @@
-#-------------------------------------------------
+           #-------------------------------------------------
 #
 #
 # EthoWatcher OS is a software to assist study of animal behavior.

@@ -370,7 +370,7 @@ void moduloProcessamento::processamentoDeVideoRealTime(int i, QImage imgRecegida
 void moduloProcessamento::processamentoDeVideoTodo( QImage imgRecegida,int i)
 {
 
-    qDebug() << "entrou proce" << i;
+//    qDebug() << "entrou proce aqui que comeca o processamento de toda a imagem" << i;
     contGlobal=i;
     if(!imgRecegida.isNull()){
 
@@ -378,7 +378,7 @@ void moduloProcessamento::processamentoDeVideoTodo( QImage imgRecegida,int i)
        // fraRecebido= cv::Mat(imgRecegida.height(),imgRecegida.width(),CV_8UC3, const_cast<uchar*>(imgRecegida.bits()), imgRecegida.bytesPerLine()).clone();
 
         fraRecebido= conQim2Mat(imgRecegida);
-          //  qDebug() << "entrou parte 1" << i;
+//            qDebug() << "entrou parte 1" << i;
 
         if(!fraRecebido.empty()){
             frameAnimal= fraRecebido.clone();
@@ -386,7 +386,7 @@ void moduloProcessamento::processamentoDeVideoTodo( QImage imgRecegida,int i)
             matOriginal= frameAnimal.clone();
 
 
-        qDebug() << "entrou parte 2" << i;
+//        qDebug() << "entrou parte 2" << i;
 
 
             if(chPrimeiroVideoTodo){//primeira entrada
@@ -409,7 +409,7 @@ void moduloProcessamento::processamentoDeVideoTodo( QImage imgRecegida,int i)
                 antigoMc = mc;
                 processamentoMorfologico();
             }else{
-                qDebug() << "entrou parte 3b" << i;
+//                qDebug() << "entrou parte 3b" << i;
                 processamentoMorfologico();
 
             }
@@ -483,21 +483,21 @@ void moduloProcessamento::processamentoDeVideo(){
 float angle_btwn_lines(std::tuple<float, float, float> line_1, std::tuple<float, float, float> line_2){
     //    double num =
 
-    qDebug() << "chegou no angle_btwn_lines";
+//    qDebug() << "chegou no angle_btwn_lines";
     float a1, b1, c1;
     a1 = std::get<0>(line_1);
     b1 = std::get<1>(line_1);
     c1 = std::get<2>(line_1);
-    qDebug() << "linha_angulo" << a1 << b1<< c1;
+//    qDebug() << "linha_angulo" << a1 << b1<< c1;
     float a2, b2, c2;
     a2 = std::get<0>(line_2);
     b2 = std::get<1>(line_2);
     c2 = std::get<2>(line_2);
-    qDebug() << "linha_referencia" << a2 << b2<< c2;
+//    qDebug() << "linha_referencia" << a2 << b2<< c2;
 
     float nume = a2*b1 - a1*b2;
     float deno = a1*a2 + b1*b2;
-    qDebug() << "denominador numerado atanf" << deno << nume << atanf(nume/deno);
+//    qDebug() << "denominador numerado atanf" << deno << nume << atanf(nume/deno);
 
     if (deno == 0){ // se for infinito
         if(nume>= 0){ // positivo
@@ -532,7 +532,7 @@ float distance_between_points(cv::Point2f inicio, cv::Point2f fim){
 
 float get_angle( cv::RotatedRect contornosRoi, cv::Point2f mcRoi){
 
-    qDebug() << "chegou no get_angle";
+//    qDebug() << "chegou no get_angle";
     cv::Point2f vertices2f[4];
     cv::Point vertices[4];
     contornosRoi.points(vertices2f);
@@ -558,7 +558,7 @@ float get_angle( cv::RotatedRect contornosRoi, cv::Point2f mcRoi){
 
     for(int i = 0; i < 4; ++i){
         abc_lines[i] = abc_from_line(vertices2f[i], vertices2f[(i+1)%4]);
-        qDebug() << "chegou no abc_lines[i] x,y," << i << std::get<0>(abc_lines[i]) << std::get<1>(abc_lines[i]) << std::get<2>(abc_lines[i]);
+//        qDebug() << "chegou no abc_lines[i] x,y," << i << std::get<0>(abc_lines[i]) << std::get<1>(abc_lines[i]) << std::get<2>(abc_lines[i]);
     }
 
 //    double ls_angles[4];
@@ -1101,7 +1101,7 @@ void moduloProcessamento::processamentoMorfologico(){
 
                  //qDebug() << "emitido os dados morfológicos";
                float angle1 = get_angle(caixaCirculo, mc);
-               qDebug() << "processamentooo " << area << angle1;
+//               qDebug() << "processamentooo " << area << angle1;
 
                double maior_line = caixaCirculo.size.height;
                double menor_line = caixaCirculo.size.width;
