@@ -1748,6 +1748,33 @@ void telaEtografiaProce::reiniciaProcessamento()
 
 }
 
+void telaEtografiaProce::_clean_deleted_elements()
+{
+    // adjusting in case of deletion
+    std::vector<int> id_del;
+    for(int ja=0; ja< saida.chPontoValido.size(); ja++){
+        bool r_valid = saida.chPontoValido[ja];
+
+
+        if(!r_valid){
+            id_del.push_back(ja);
+//               saida.framFim[i].
+           saida.framFim.erase(std::next(saida.framFim.begin(), ja));
+           saida.frameComeco.erase(std::next(saida.frameComeco.begin(), ja));
+           saida.id.erase(std::next(saida.id.begin(), ja));
+        }
+
+    }
+    for(auto id_d: id_del){
+        saida.chPontoValido.erase(std::next(saida.chPontoValido.begin(), id_d));
+    }
+    for(int a_a=0; a_a<saida.pontosPostos.size(); a_a++ ){
+        saida.pontosPostos[a_a] = a_a;
+    }
+
+    saida.quantidadeDepontos = saida.pontosPostos.size();
+}
+
 //void telaEtografiaProce::totalizacoesEtografia()
 //{
 //    for(int ka=0; ka<cAnaEto->id.size(); ka++){
@@ -2838,6 +2865,13 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
         QList<Cell> comp_eto_saida;
         int comp_eto_linha_final;
 
+
+        this->_clean_deleted_elements();
+
+
+
+
+
         std::tie(comp_eto_saida, comp_eto_linha_final) = this->gera_csv_eto(nomeGravarEtografia,
 
                           videoLista.frameProces[contadorDeVideo],
@@ -2916,7 +2950,7 @@ void telaEtografiaProce::on_pbGravarAnalasiteEtografica_clicked()
                                           //     saida.id.size(),
                                           //     saida.id);
 
-
+            this->_clean_deleted_elements();
             text_transicao = transi->calcular_analise_sequencial(cAnaEto.quantidadeDeDados,
                                                             cAnaEto.nomeCategoria,
                                                            saida.id.size(),
@@ -3249,7 +3283,8 @@ void telaEtografiaProce::on_pbGravarAnalasiProces_clicked()
          stream.writeAttribute("altM",QString::number(dados->reMorfo.altura[i]/videoLista.escala[contadorDeVideo]));
          stream.writeAttribute("larP",QString::number(dados->reMorfo.largura[i]));
          stream.writeAttribute("larM",QString::number(dados->reMorfo.largura[i]/videoLista.escala[contadorDeVideo]));
-         stream.writeAttribute("an",QString::number(dados->reMorfo.anguloObj[i])); //angulo do objeto
+         qDebug()<< "angle_xml" << QString::number(fraNumero) << std::floor((dados->reMorfo.anguloObj[i]*1000.0)/1000.0) << QString::number(std::floor(dados->reMorfo.anguloObj[i]*1000.0)/1000.0);
+         stream.writeAttribute("an",QString::number(std::floor(dados->reMorfo.anguloObj[i]*1000.0)/1000.0)); //angulo do objeto
 
 
 
@@ -4073,7 +4108,7 @@ std::tuple<QList<Cell>, int> telaEtografiaProce::gera_csv_eto(QString nomeGravar
 
     int linha = 17;
     for(int ka1=0; ka1< eto_frameComeco.size(); ka1++){
-        add_cell(&saida, "A"+QString::number(linha),QString::number( eto_frameComeco[ka1] / fps), true);
+        add_cell(&saida, "A"+QString::number(linha),QString::number( (eto_frameComeco[ka1]-frameProces) / fps), true);
         add_cell(&saida, "B"+QString::number(linha),nomeCategoria[eto_id[ka1]]);
         add_cell(&saida, "C"+QString::number(linha),QString::number( (eto_framFim[ka1]- eto_frameComeco[ka1])/ fps), true);
 
@@ -4279,7 +4314,7 @@ void telaEtografiaProce::totalizacoesEtografia(int vl_frameFinal,
 
 void telaEtografiaProce::on_cb_seq_analyses_clicked()
 {
-
+    this->_clean_deleted_elements();
     transi= new telaMatrizTransicao();
 
     ui->pb_generate_grafic->setEnabled(ui->cb_seq_analyses->isChecked());
@@ -4309,5 +4344,12 @@ void telaEtografiaProce::on_cb_seq_analyses_clicked()
 
 void telaEtografiaProce::on_pb_generate_grafic_clicked()
 {
+    this->_clean_deleted_elements();
     transi->mostra_gerar_grafico(cAnaEto.nomeCategoria);
 }
+
+void telaEtografiaProce::on_cb_seq_analyses_stateChanged(int arg1)
+{
+
+}
+

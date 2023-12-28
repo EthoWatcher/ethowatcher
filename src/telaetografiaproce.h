@@ -336,6 +336,9 @@ private slots:
 
     void on_pb_generate_grafic_clicked();
 
+
+    void on_cb_seq_analyses_stateChanged(int arg1);
+
 private:
     Ui::telaEtografiaProce *ui;
     QList<Cell> text_transicao;
@@ -464,6 +467,8 @@ private:
     void reiniciaProcessamento();
 
     telaMatrizTransicao *transi;
+
+    void _clean_deleted_elements();
 
 signals:
     void reiniciaProce();

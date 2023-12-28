@@ -54,7 +54,7 @@ class telaMatrizTransicao : public QWidget
 public:
     explicit telaMatrizTransicao(QWidget *parent = 0);
     ~telaMatrizTransicao();
-
+    void setExperimentador(QString nome1, QString lab1);
     QList<Cell> calcular_analise_sequencial(int ctl_qnt_categorias,
                                         std::vector<QString> ctl_nome,
                                         int etog_qnt_de_pontos,
@@ -82,12 +82,21 @@ private:
     QFile OutEtografia;
     void lerETOXML(QString nomeArquivo);
 
+    //experimentador
+    struct dadosExperimentador{
+        QString nome;
+        QString lab;
+    };
+
+    dadosExperimentador experimentador;
+
     QList<Cell> saida_analise_seq;
 
     struct dadosVideo{
         bool controle =true;
         QString nome;
         int frameInicial;
+        int frameProce;
         int frameFinal;
         int fps=30; //tem que corrigir isso de ler correto o valor
 
